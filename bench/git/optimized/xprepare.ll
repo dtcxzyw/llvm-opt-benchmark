@@ -388,17 +388,17 @@ for.end.i.i.i:                                    ; preds = %for.inc.i.i.i, %for
   %cmp20.i.i.i = icmp ne i64 %rdis0.0.lcssa.i.i.i, 0
   %cmp26.not42.not.i.i.i = icmp sgt i64 %e.addr.0.i.i.i, %i.2172.i.i
   %or.cond.i.i.i = select i1 %cmp20.i.i.i, i1 %cmp26.not42.not.i.i.i, i1 false
-  br i1 %or.cond.i.i.i, label %for.body28.preheader.i.i.i, label %if.then81.i.i
+  br i1 %or.cond.i.i.i, label %for.body28.lr.ph.i.i.i, label %if.then81.i.i
 
-for.body28.preheader.i.i.i:                       ; preds = %for.end.i.i.i
+for.body28.lr.ph.i.i.i:                           ; preds = %for.end.i.i.i
   %add2541.i.i.i = add nsw i64 %i.2172.i.i, 1
   br label %for.body28.i.i.i
 
-for.body28.i.i.i:                                 ; preds = %for.inc45.i.i.i, %for.body28.preheader.i.i.i
-  %add2546.i.i.i = phi i64 [ %add25.i.i.i, %for.inc45.i.i.i ], [ %add2541.i.i.i, %for.body28.preheader.i.i.i ]
-  %rpdis1.045.i.i.i = phi i64 [ %rpdis1.1.i.i.i, %for.inc45.i.i.i ], [ 1, %for.body28.preheader.i.i.i ]
-  %rdis1.044.i.i.i = phi i64 [ %rdis1.1.i.i.i, %for.inc45.i.i.i ], [ 0, %for.body28.preheader.i.i.i ]
-  %r.143.i.i.i = phi i64 [ %inc46.i.i.i, %for.inc45.i.i.i ], [ 1, %for.body28.preheader.i.i.i ]
+for.body28.i.i.i:                                 ; preds = %for.inc45.i.i.i, %for.body28.lr.ph.i.i.i
+  %add2546.i.i.i = phi i64 [ %add2541.i.i.i, %for.body28.lr.ph.i.i.i ], [ %add25.reass.i.i.i, %for.inc45.i.i.i ]
+  %rpdis1.045.i.i.i = phi i64 [ 1, %for.body28.lr.ph.i.i.i ], [ %rpdis1.1.i.i.i, %for.inc45.i.i.i ]
+  %rdis1.044.i.i.i = phi i64 [ 0, %for.body28.lr.ph.i.i.i ], [ %rdis1.1.i.i.i, %for.inc45.i.i.i ]
+  %r.143.i.i.i = phi i64 [ 1, %for.body28.lr.ph.i.i.i ], [ %inc46.i.i.i, %for.inc45.i.i.i ]
   %arrayidx30.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 %add2546.i.i.i
   %61 = load i8, ptr %arrayidx30.i.i.i, align 1
   switch i8 %61, label %for.end47.i.i.i [
@@ -418,8 +418,8 @@ for.inc45.i.i.i:                                  ; preds = %if.then40.i.i.i, %i
   %rdis1.1.i.i.i = phi i64 [ %rdis1.044.i.i.i, %if.then40.i.i.i ], [ %inc33.i.i.i, %if.then32.i.i.i ]
   %rpdis1.1.i.i.i = phi i64 [ %inc41.i.i.i, %if.then40.i.i.i ], [ %rpdis1.045.i.i.i, %if.then32.i.i.i ]
   %inc46.i.i.i = add nuw nsw i64 %r.143.i.i.i, 1
-  %add25.i.i.i = add nsw i64 %inc46.i.i.i, %i.2172.i.i
-  %cmp26.not.i.i.i = icmp sgt i64 %add25.i.i.i, %e.addr.0.i.i.i
+  %add25.reass.i.i.i = add i64 %r.143.i.i.i, %add2541.i.i.i
+  %cmp26.not.i.i.i = icmp sgt i64 %add25.reass.i.i.i, %e.addr.0.i.i.i
   br i1 %cmp26.not.i.i.i, label %for.end47.i.i.i, label %for.body28.i.i.i, !llvm.loop !11
 
 for.end47.i.i.i:                                  ; preds = %for.inc45.i.i.i, %for.body28.i.i.i
@@ -473,8 +473,8 @@ for.end92.i.i:                                    ; preds = %for.end92.i.i.loope
   %nreff93.i.i = getelementptr inbounds i8, ptr %xe, i64 120
   store i64 %nreff.0.lcssa.i.i, ptr %nreff93.i.i, align 8
   %69 = load i64, ptr %dstart.i.i, align 8
-  %cmp100.not175.i.i = icmp sgt i64 %69, %68
-  br i1 %cmp100.not175.i.i, label %xdl_optimize_ctxs.exit, label %for.body102.lr.ph.i.i
+  %cmp100.not174.i.i = icmp sgt i64 %69, %68
+  br i1 %cmp100.not174.i.i, label %xdl_optimize_ctxs.exit, label %for.body102.lr.ph.i.i
 
 for.body102.lr.ph.i.i:                            ; preds = %for.end92.i.i
   %70 = load ptr, ptr %recs3.i.i, align 8
@@ -486,10 +486,10 @@ for.body102.lr.ph.i.i:                            ; preds = %for.end92.i.i
 
 for.body102.i.i:                                  ; preds = %for.inc128.i.i, %for.body102.lr.ph.i.i
   %71 = phi i64 [ %68, %for.body102.lr.ph.i.i ], [ %81, %for.inc128.i.i ]
-  %i.3178.i.i = phi i64 [ %69, %for.body102.lr.ph.i.i ], [ %inc129.i.i, %for.inc128.i.i ]
-  %recs.3177.i.i = phi ptr [ %arrayidx97.i.i, %for.body102.lr.ph.i.i ], [ %incdec.ptr130.i.i, %for.inc128.i.i ]
-  %nreff.2176.i.i = phi i64 [ 0, %for.body102.lr.ph.i.i ], [ %nreff.3.i.i, %for.inc128.i.i ]
-  %arrayidx103.i.i = getelementptr inbounds i8, ptr %add.ptr4.i.i, i64 %i.3178.i.i
+  %i.3177.i.i = phi i64 [ %69, %for.body102.lr.ph.i.i ], [ %inc129.i.i, %for.inc128.i.i ]
+  %recs.3176.i.i = phi ptr [ %arrayidx97.i.i, %for.body102.lr.ph.i.i ], [ %incdec.ptr130.i.i, %for.inc128.i.i ]
+  %nreff.2175.i.i = phi i64 [ 0, %for.body102.lr.ph.i.i ], [ %nreff.3.i.i, %for.inc128.i.i ]
+  %arrayidx103.i.i = getelementptr inbounds i8, ptr %add.ptr4.i.i, i64 %i.3177.i.i
   %72 = load i8, ptr %arrayidx103.i.i, align 1
   switch i8 %72, label %if.else124.i.i [
     i8 1, label %if.then117.i.i
@@ -498,19 +498,19 @@ for.body102.i.i:                                  ; preds = %for.inc128.i.i, %fo
 
 land.lhs.true112.i.i:                             ; preds = %for.body102.i.i
   %73 = load i64, ptr %dstart.i.i, align 8
-  %sub.i85.i.i = sub nsw i64 %i.3178.i.i, %73
+  %sub.i85.i.i = sub nsw i64 %i.3177.i.i, %73
   %cmp.i86.i.i = icmp sgt i64 %sub.i85.i.i, 100
-  %sub1.i87.i.i = add nsw i64 %i.3178.i.i, -100
+  %sub1.i87.i.i = add nsw i64 %i.3177.i.i, -100
   %spec.select.i88.i.i = select i1 %cmp.i86.i.i, i64 %sub1.i87.i.i, i64 %73
-  %sub2.i89.i.i = sub nsw i64 %71, %i.3178.i.i
+  %sub2.i89.i.i = sub nsw i64 %71, %i.3177.i.i
   %cmp3.i90.i.i = icmp sgt i64 %sub2.i89.i.i, 100
-  %add.i91.i.i = add nsw i64 %i.3178.i.i, 100
+  %add.i91.i.i = add nsw i64 %i.3177.i.i, 100
   %e.addr.0.i92.i.i = select i1 %cmp3.i90.i.i, i64 %add.i91.i.i, i64 %71
-  %cmp7.not33.not.i93.i.i = icmp slt i64 %spec.select.i88.i.i, %i.3178.i.i
+  %cmp7.not33.not.i93.i.i = icmp slt i64 %spec.select.i88.i.i, %i.3177.i.i
   br i1 %cmp7.not33.not.i93.i.i, label %for.body.preheader.i95.i.i, label %if.then117.i.i
 
 for.body.preheader.i95.i.i:                       ; preds = %land.lhs.true112.i.i
-  %sub632.i96.i.i = add nsw i64 %i.3178.i.i, -1
+  %sub632.i96.i.i = add nsw i64 %i.3177.i.i, -1
   br label %for.body.i97.i.i
 
 for.body.i97.i.i:                                 ; preds = %for.inc.i105.i.i, %for.body.preheader.i95.i.i
@@ -537,7 +537,7 @@ for.inc.i105.i.i:                                 ; preds = %if.then14.i103.i.i,
   %rdis0.1.i106.i.i = phi i64 [ %rdis0.035.i100.i.i, %if.then14.i103.i.i ], [ %inc.i147.i.i, %if.then9.i146.i.i ]
   %rpdis0.1.i107.i.i = phi i64 [ %inc15.i104.i.i, %if.then14.i103.i.i ], [ %rpdis0.036.i99.i.i, %if.then9.i146.i.i ]
   %inc19.i108.i.i = add nuw nsw i64 %r.034.i101.i.i, 1
-  %sub6.i109.i.i = sub nsw i64 %i.3178.i.i, %inc19.i108.i.i
+  %sub6.i109.i.i = sub nsw i64 %i.3177.i.i, %inc19.i108.i.i
   %cmp7.not.i110.i.i = icmp slt i64 %sub6.i109.i.i, %spec.select.i88.i.i
   br i1 %cmp7.not.i110.i.i, label %for.end.i111.i.i, label %for.body.i97.i.i, !llvm.loop !10
 
@@ -545,19 +545,19 @@ for.end.i111.i.i:                                 ; preds = %for.inc.i105.i.i, %
   %rdis0.0.lcssa.i112.i.i = phi i64 [ %rdis0.1.i106.i.i, %for.inc.i105.i.i ], [ %rdis0.035.i100.i.i, %for.body.i97.i.i ]
   %rpdis0.0.lcssa.i113.i.i = phi i64 [ %rpdis0.1.i107.i.i, %for.inc.i105.i.i ], [ %rpdis0.036.i99.i.i, %for.body.i97.i.i ]
   %cmp20.i114.i.i = icmp ne i64 %rdis0.0.lcssa.i112.i.i, 0
-  %cmp26.not42.not.i115.i.i = icmp sgt i64 %e.addr.0.i92.i.i, %i.3178.i.i
+  %cmp26.not42.not.i115.i.i = icmp sgt i64 %e.addr.0.i92.i.i, %i.3177.i.i
   %or.cond.i116.i.i = select i1 %cmp20.i114.i.i, i1 %cmp26.not42.not.i115.i.i, i1 false
-  br i1 %or.cond.i116.i.i, label %for.body28.preheader.i117.i.i, label %if.then117.i.i
+  br i1 %or.cond.i116.i.i, label %for.body28.lr.ph.i117.i.i, label %if.then117.i.i
 
-for.body28.preheader.i117.i.i:                    ; preds = %for.end.i111.i.i
-  %add2541.i118.i.i = add nsw i64 %i.3178.i.i, 1
+for.body28.lr.ph.i117.i.i:                        ; preds = %for.end.i111.i.i
+  %add2541.i118.i.i = add nsw i64 %i.3177.i.i, 1
   br label %for.body28.i119.i.i
 
-for.body28.i119.i.i:                              ; preds = %for.inc45.i127.i.i, %for.body28.preheader.i117.i.i
-  %add2546.i120.i.i = phi i64 [ %add25.i131.i.i, %for.inc45.i127.i.i ], [ %add2541.i118.i.i, %for.body28.preheader.i117.i.i ]
-  %rpdis1.045.i121.i.i = phi i64 [ %rpdis1.1.i129.i.i, %for.inc45.i127.i.i ], [ 1, %for.body28.preheader.i117.i.i ]
-  %rdis1.044.i122.i.i = phi i64 [ %rdis1.1.i128.i.i, %for.inc45.i127.i.i ], [ 0, %for.body28.preheader.i117.i.i ]
-  %r.143.i123.i.i = phi i64 [ %inc46.i130.i.i, %for.inc45.i127.i.i ], [ 1, %for.body28.preheader.i117.i.i ]
+for.body28.i119.i.i:                              ; preds = %for.inc45.i127.i.i, %for.body28.lr.ph.i117.i.i
+  %add2546.i120.i.i = phi i64 [ %add2541.i118.i.i, %for.body28.lr.ph.i117.i.i ], [ %add25.reass.i131.i.i, %for.inc45.i127.i.i ]
+  %rpdis1.045.i121.i.i = phi i64 [ 1, %for.body28.lr.ph.i117.i.i ], [ %rpdis1.1.i129.i.i, %for.inc45.i127.i.i ]
+  %rdis1.044.i122.i.i = phi i64 [ 0, %for.body28.lr.ph.i117.i.i ], [ %rdis1.1.i128.i.i, %for.inc45.i127.i.i ]
+  %r.143.i123.i.i = phi i64 [ 1, %for.body28.lr.ph.i117.i.i ], [ %inc46.i130.i.i, %for.inc45.i127.i.i ]
   %arrayidx30.i124.i.i = getelementptr inbounds i8, ptr %add.ptr4.i.i, i64 %add2546.i120.i.i
   %75 = load i8, ptr %arrayidx30.i124.i.i, align 1
   switch i8 %75, label %for.end47.i133.i.i [
@@ -577,8 +577,8 @@ for.inc45.i127.i.i:                               ; preds = %if.then40.i125.i.i,
   %rdis1.1.i128.i.i = phi i64 [ %rdis1.044.i122.i.i, %if.then40.i125.i.i ], [ %inc33.i145.i.i, %if.then32.i144.i.i ]
   %rpdis1.1.i129.i.i = phi i64 [ %inc41.i126.i.i, %if.then40.i125.i.i ], [ %rpdis1.045.i121.i.i, %if.then32.i144.i.i ]
   %inc46.i130.i.i = add nuw nsw i64 %r.143.i123.i.i, 1
-  %add25.i131.i.i = add nsw i64 %inc46.i130.i.i, %i.3178.i.i
-  %cmp26.not.i132.i.i = icmp sgt i64 %add25.i131.i.i, %e.addr.0.i92.i.i
+  %add25.reass.i131.i.i = add i64 %r.143.i123.i.i, %add2541.i118.i.i
+  %cmp26.not.i132.i.i = icmp sgt i64 %add25.reass.i131.i.i, %e.addr.0.i92.i.i
   br i1 %cmp26.not.i132.i.i, label %for.end47.i133.i.i, label %for.body28.i119.i.i, !llvm.loop !11
 
 for.end47.i133.i.i:                               ; preds = %for.inc45.i127.i.i, %for.body28.i119.i.i
@@ -597,29 +597,29 @@ xdl_clean_mmatch.exit148.i.i:                     ; preds = %for.end47.i133.i.i
 
 if.then117.i.i:                                   ; preds = %xdl_clean_mmatch.exit148.i.i, %for.end47.i133.i.i, %for.end.i111.i.i, %land.lhs.true112.i.i, %for.body102.i.i
   %76 = load ptr, ptr %rindex118.i.i, align 8
-  %arrayidx119.i.i = getelementptr inbounds i64, ptr %76, i64 %nreff.2176.i.i
-  store i64 %i.3178.i.i, ptr %arrayidx119.i.i, align 8
-  %77 = load ptr, ptr %recs.3177.i.i, align 8
+  %arrayidx119.i.i = getelementptr inbounds i64, ptr %76, i64 %nreff.2175.i.i
+  store i64 %i.3177.i.i, ptr %arrayidx119.i.i, align 8
+  %77 = load ptr, ptr %recs.3176.i.i, align 8
   %ha120.i.i = getelementptr inbounds i8, ptr %77, i64 24
   %78 = load i64, ptr %ha120.i.i, align 8
   %79 = load ptr, ptr %ha121.i.i, align 8
-  %arrayidx122.i.i = getelementptr inbounds i64, ptr %79, i64 %nreff.2176.i.i
+  %arrayidx122.i.i = getelementptr inbounds i64, ptr %79, i64 %nreff.2175.i.i
   store i64 %78, ptr %arrayidx122.i.i, align 8
-  %inc123.i.i = add nsw i64 %nreff.2176.i.i, 1
+  %inc123.i.i = add nsw i64 %nreff.2175.i.i, 1
   br label %for.inc128.i.i
 
 if.else124.i.i:                                   ; preds = %xdl_clean_mmatch.exit148.i.i, %for.body102.i.i
   %80 = load ptr, ptr %rchg125.i.i, align 8
-  %arrayidx126.i.i = getelementptr inbounds i8, ptr %80, i64 %i.3178.i.i
+  %arrayidx126.i.i = getelementptr inbounds i8, ptr %80, i64 %i.3177.i.i
   store i8 1, ptr %arrayidx126.i.i, align 1
   br label %for.inc128.i.i
 
 for.inc128.i.i:                                   ; preds = %if.else124.i.i, %if.then117.i.i
-  %nreff.3.i.i = phi i64 [ %inc123.i.i, %if.then117.i.i ], [ %nreff.2176.i.i, %if.else124.i.i ]
-  %inc129.i.i = add nsw i64 %i.3178.i.i, 1
-  %incdec.ptr130.i.i = getelementptr inbounds i8, ptr %recs.3177.i.i, i64 8
+  %nreff.3.i.i = phi i64 [ %inc123.i.i, %if.then117.i.i ], [ %nreff.2175.i.i, %if.else124.i.i ]
+  %inc129.i.i = add nsw i64 %i.3177.i.i, 1
+  %incdec.ptr130.i.i = getelementptr inbounds i8, ptr %recs.3176.i.i, i64 8
   %81 = load i64, ptr %dend38.i.i, align 8
-  %cmp100.not.not.i.i = icmp slt i64 %i.3178.i.i, %81
+  %cmp100.not.not.i.i = icmp slt i64 %i.3177.i.i, %81
   br i1 %cmp100.not.not.i.i, label %for.body102.i.i, label %xdl_optimize_ctxs.exit, !llvm.loop !13
 
 xdl_optimize_ctxs.exit:                           ; preds = %for.inc128.i.i, %for.end92.i.i

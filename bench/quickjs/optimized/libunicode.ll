@@ -997,7 +997,7 @@ cr_add_point.exit.thread:                         ; preds = %.cr_add_point.exit.
   br i1 %71, label %.lr.ph.i, label %cr_compress.exit
 
 .lr.ph.i:                                         ; preds = %68, %100
-  %72 = phi i32 [ %.pre-phi.i, %100 ], [ 1, %68 ]
+  %72 = phi i32 [ %.reass.pre-phi.i, %100 ], [ 1, %68 ]
   %.034.i = phi i32 [ %.1.i, %100 ], [ 0, %68 ]
   %.02933.i = phi i32 [ %.130.i, %100 ], [ 0, %68 ]
   %73 = sext i32 %.034.i to i64
@@ -1007,9 +1007,9 @@ cr_add_point.exit.thread:                         ; preds = %.cr_add_point.exit.
   %77 = getelementptr i32, ptr %69, i64 %76
   %78 = load i32, ptr %77, align 4
   %79 = icmp eq i32 %75, %78
-  br i1 %79, label %.lr.ph._crit_edge.i, label %.preheader.i
+  br i1 %79, label %._crit_edge35.i, label %.preheader.i
 
-.lr.ph._crit_edge.i:                              ; preds = %.lr.ph.i
+._crit_edge35.i:                                  ; preds = %.lr.ph.i
   %.pre.i44 = add i32 %.034.i, 3
   br label %100
 
@@ -1044,12 +1044,12 @@ cr_add_point.exit.thread:                         ; preds = %.cr_add_point.exit.
   %99 = add i32 %.02933.i, 2
   br label %100
 
-100:                                              ; preds = %.critedge.i, %.lr.ph._crit_edge.i
-  %.pre-phi.i = phi i32 [ %.pre.i44, %.lr.ph._crit_edge.i ], [ %80, %.critedge.i ]
-  %.130.i = phi i32 [ %.02933.i, %.lr.ph._crit_edge.i ], [ %99, %.critedge.i ]
-  %.1.in.i = phi i32 [ %.034.i, %.lr.ph._crit_edge.i ], [ %.028.i, %.critedge.i ]
+100:                                              ; preds = %.critedge.i, %._crit_edge35.i
+  %.reass.pre-phi.i = phi i32 [ %.pre.i44, %._crit_edge35.i ], [ %80, %.critedge.i ]
+  %.130.i = phi i32 [ %.02933.i, %._crit_edge35.i ], [ %99, %.critedge.i ]
+  %.1.in.i = phi i32 [ %.034.i, %._crit_edge35.i ], [ %.028.i, %.critedge.i ]
   %.1.i = add i32 %.1.in.i, 2
-  %101 = icmp slt i32 %.pre-phi.i, %70
+  %101 = icmp slt i32 %.reass.pre-phi.i, %70
   br i1 %101, label %.lr.ph.i, label %cr_compress.exit, !llvm.loop !13
 
 cr_compress.exit:                                 ; preds = %100, %68
@@ -1135,7 +1135,7 @@ define dso_local range(i32 -1, 1) i32 @cr_invert(ptr nocapture noundef %0) local
   br i1 %32, label %.lr.ph.i, label %cr_compress.exit
 
 .lr.ph.i:                                         ; preds = %20, %61
-  %33 = phi i32 [ %.pre-phi.i, %61 ], [ 1, %20 ]
+  %33 = phi i32 [ %.reass.pre-phi.i, %61 ], [ 1, %20 ]
   %.034.i = phi i32 [ %.1.i, %61 ], [ 0, %20 ]
   %.02933.i = phi i32 [ %.130.i, %61 ], [ 0, %20 ]
   %34 = sext i32 %.034.i to i64
@@ -1145,9 +1145,9 @@ define dso_local range(i32 -1, 1) i32 @cr_invert(ptr nocapture noundef %0) local
   %38 = getelementptr i32, ptr %31, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %36, %39
-  br i1 %40, label %.lr.ph._crit_edge.i, label %.preheader.i
+  br i1 %40, label %._crit_edge35.i, label %.preheader.i
 
-.lr.ph._crit_edge.i:                              ; preds = %.lr.ph.i
+._crit_edge35.i:                                  ; preds = %.lr.ph.i
   %.pre.i = add i32 %.034.i, 3
   br label %61
 
@@ -1182,12 +1182,12 @@ define dso_local range(i32 -1, 1) i32 @cr_invert(ptr nocapture noundef %0) local
   %60 = add i32 %.02933.i, 2
   br label %61
 
-61:                                               ; preds = %.critedge.i, %.lr.ph._crit_edge.i
-  %.pre-phi.i = phi i32 [ %.pre.i, %.lr.ph._crit_edge.i ], [ %41, %.critedge.i ]
-  %.130.i = phi i32 [ %.02933.i, %.lr.ph._crit_edge.i ], [ %60, %.critedge.i ]
-  %.1.in.i = phi i32 [ %.034.i, %.lr.ph._crit_edge.i ], [ %.028.i, %.critedge.i ]
+61:                                               ; preds = %.critedge.i, %._crit_edge35.i
+  %.reass.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge35.i ], [ %41, %.critedge.i ]
+  %.130.i = phi i32 [ %.02933.i, %._crit_edge35.i ], [ %60, %.critedge.i ]
+  %.1.in.i = phi i32 [ %.034.i, %._crit_edge35.i ], [ %.028.i, %.critedge.i ]
   %.1.i = add i32 %.1.in.i, 2
-  %62 = icmp slt i32 %.pre-phi.i, %3
+  %62 = icmp slt i32 %.reass.pre-phi.i, %3
   br i1 %62, label %.lr.ph.i, label %cr_compress.exit, !llvm.loop !13
 
 cr_compress.exit:                                 ; preds = %61, %20
@@ -2472,7 +2472,7 @@ cr_add_interval.exit.us:                          ; preds = %cr_add_interval.exi
   br i1 %201, label %.lr.ph.i.i, label %.loopexit
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge.i146, %230
-  %202 = phi i32 [ %.pre-phi.i.i, %230 ], [ 1, %._crit_edge.i146 ]
+  %202 = phi i32 [ %.reass.pre-phi.i.i, %230 ], [ 1, %._crit_edge.i146 ]
   %.034.i.i = phi i32 [ %.1.i.i, %230 ], [ 0, %._crit_edge.i146 ]
   %.02933.i.i = phi i32 [ %.130.i.i, %230 ], [ 0, %._crit_edge.i146 ]
   %203 = sext i32 %.034.i.i to i64
@@ -2482,9 +2482,9 @@ cr_add_interval.exit.us:                          ; preds = %cr_add_interval.exi
   %207 = getelementptr i32, ptr %.sroa.22.7, i64 %206
   %208 = load i32, ptr %207, align 4
   %209 = icmp eq i32 %205, %208
-  br i1 %209, label %.lr.ph._crit_edge.i.i, label %.preheader.i.i
+  br i1 %209, label %._crit_edge35.i.i, label %.preheader.i.i
 
-.lr.ph._crit_edge.i.i:                            ; preds = %.lr.ph.i.i
+._crit_edge35.i.i:                                ; preds = %.lr.ph.i.i
   %.pre.i.i = add i32 %.034.i.i, 3
   br label %230
 
@@ -2519,12 +2519,12 @@ cr_add_interval.exit.us:                          ; preds = %cr_add_interval.exi
   %229 = add i32 %.02933.i.i, 2
   br label %230
 
-230:                                              ; preds = %.critedge.i.i, %.lr.ph._crit_edge.i.i
-  %.pre-phi.i.i = phi i32 [ %.pre.i.i, %.lr.ph._crit_edge.i.i ], [ %210, %.critedge.i.i ]
-  %.130.i.i = phi i32 [ %.02933.i.i, %.lr.ph._crit_edge.i.i ], [ %229, %.critedge.i.i ]
-  %.1.in.i.i = phi i32 [ %.034.i.i, %.lr.ph._crit_edge.i.i ], [ %.028.i.i, %.critedge.i.i ]
+230:                                              ; preds = %.critedge.i.i, %._crit_edge35.i.i
+  %.reass.pre-phi.i.i = phi i32 [ %.pre.i.i, %._crit_edge35.i.i ], [ %210, %.critedge.i.i ]
+  %.130.i.i = phi i32 [ %.02933.i.i, %._crit_edge35.i.i ], [ %229, %.critedge.i.i ]
+  %.1.in.i.i = phi i32 [ %.034.i.i, %._crit_edge35.i.i ], [ %.028.i.i, %.critedge.i.i ]
   %.1.i.i = add i32 %.1.in.i.i, 2
-  %231 = icmp slt i32 %.pre-phi.i.i, %187
+  %231 = icmp slt i32 %.reass.pre-phi.i.i, %187
   br i1 %231, label %.lr.ph.i.i, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %230, %._crit_edge.i146
@@ -2711,7 +2711,7 @@ define dso_local range(i32 -1, 1) i32 @cr_regexp_canonicalize(ptr nocapture noun
   br i1 %52, label %.lr.ph.i.i, label %.loopexit
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge.i, %81
-  %53 = phi i32 [ %.pre-phi.i.i, %81 ], [ 1, %._crit_edge.i ]
+  %53 = phi i32 [ %.reass.pre-phi.i.i, %81 ], [ 1, %._crit_edge.i ]
   %.034.i.i = phi i32 [ %.1.i.i, %81 ], [ 0, %._crit_edge.i ]
   %.02933.i.i = phi i32 [ %.130.i.i, %81 ], [ 0, %._crit_edge.i ]
   %54 = sext i32 %.034.i.i to i64
@@ -2721,9 +2721,9 @@ define dso_local range(i32 -1, 1) i32 @cr_regexp_canonicalize(ptr nocapture noun
   %58 = getelementptr i32, ptr %45, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = icmp eq i32 %56, %59
-  br i1 %60, label %.lr.ph._crit_edge.i.i, label %.preheader.i.i
+  br i1 %60, label %._crit_edge35.i.i, label %.preheader.i.i
 
-.lr.ph._crit_edge.i.i:                            ; preds = %.lr.ph.i.i
+._crit_edge35.i.i:                                ; preds = %.lr.ph.i.i
   %.pre.i.i = add i32 %.034.i.i, 3
   br label %81
 
@@ -2758,12 +2758,12 @@ define dso_local range(i32 -1, 1) i32 @cr_regexp_canonicalize(ptr nocapture noun
   %80 = add i32 %.02933.i.i, 2
   br label %81
 
-81:                                               ; preds = %.critedge.i.i, %.lr.ph._crit_edge.i.i
-  %.pre-phi.i.i = phi i32 [ %.pre.i.i, %.lr.ph._crit_edge.i.i ], [ %61, %.critedge.i.i ]
-  %.130.i.i = phi i32 [ %.02933.i.i, %.lr.ph._crit_edge.i.i ], [ %80, %.critedge.i.i ]
-  %.1.in.i.i = phi i32 [ %.034.i.i, %.lr.ph._crit_edge.i.i ], [ %.028.i.i, %.critedge.i.i ]
+81:                                               ; preds = %.critedge.i.i, %._crit_edge35.i.i
+  %.reass.pre-phi.i.i = phi i32 [ %.pre.i.i, %._crit_edge35.i.i ], [ %61, %.critedge.i.i ]
+  %.130.i.i = phi i32 [ %.02933.i.i, %._crit_edge35.i.i ], [ %80, %.critedge.i.i ]
+  %.1.in.i.i = phi i32 [ %.034.i.i, %._crit_edge35.i.i ], [ %.028.i.i, %.critedge.i.i ]
   %.1.i.i = add i32 %.1.in.i.i, 2
-  %82 = icmp slt i32 %.pre-phi.i.i, %32
+  %82 = icmp slt i32 %.reass.pre-phi.i.i, %32
   br i1 %82, label %.lr.ph.i.i, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %81, %._crit_edge.i

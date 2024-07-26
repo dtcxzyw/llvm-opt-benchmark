@@ -3631,10 +3631,11 @@ while.cond.preheader:                             ; preds = %if.end69, %do.cond,
 land.rhs90.preheader:                             ; preds = %while.cond.preheader
   %18 = xor i32 %i.0424, -1
   %19 = add i32 %18, %count
+  %invariant.op = add i32 %i.0424, 2
   br label %land.rhs90
 
 land.rhs90:                                       ; preds = %while.body, %land.rhs90.preheader
-  %add88420 = phi i32 [ %add88, %while.body ], [ %add88417, %land.rhs90.preheader ]
+  %add88420 = phi i32 [ %add88.reass, %while.body ], [ %add88417, %land.rhs90.preheader ]
   %buffersStolen.3419 = phi i32 [ %inc98, %while.body ], [ %buffersStolen.2478, %land.rhs90.preheader ]
   %idxprom93 = zext i32 %add88420 to i64
   %iov_len95 = getelementptr inbounds %struct.iovec, ptr %vec, i64 %idxprom93, i32 1
@@ -3644,8 +3645,8 @@ land.rhs90:                                       ; preds = %while.body, %land.r
 
 while.body:                                       ; preds = %land.rhs90
   %inc98 = add i32 %buffersStolen.3419, 1
-  %add88 = add i32 %inc98, %add
-  %cmp89 = icmp ult i32 %add88, %count
+  %add88.reass = add i32 %buffersStolen.3419, %invariant.op
+  %cmp89 = icmp ult i32 %add88.reass, %count
   br i1 %cmp89, label %land.rhs90, label %if.end99, !llvm.loop !240
 
 if.end99:                                         ; preds = %if.end69.thread, %while.body, %land.rhs90, %while.cond.preheader

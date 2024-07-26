@@ -3314,10 +3314,10 @@ for.cond.i.preheader:                             ; preds = %if.else
   %usedReservationBytes_.i14 = getelementptr inbounds i8, ptr %this, i64 312
   %3 = load i64, ptr %reservationBytes_.i13, align 8
   %4 = load i64, ptr %usedReservationBytes_.i14, align 8
-  %sub.i15.neg44 = add i64 %4, %size
-  %sub2.i45 = sub i64 %sub.i15.neg44, %3
-  %cmp.i1646 = icmp slt i64 %sub2.i45, 1
-  br i1 %cmp.i1646, label %if.then3.i, label %if.end.i17.lr.ph
+  %sub.i15.neg46 = add i64 %4, %size
+  %sub2.i47 = sub i64 %sub.i15.neg46, %3
+  %cmp.i1648 = icmp slt i64 %sub2.i47, 1
+  br i1 %cmp.i1648, label %if.then3.i, label %if.end.i17.lr.ph
 
 if.end.i17.lr.ph:                                 ; preds = %for.cond.i.preheader
   %parent_.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -3330,22 +3330,23 @@ if.then.i:                                        ; preds = %if.else
 if.end.i17:                                       ; preds = %if.end.i17.lr.ph, %_ZN8facebook5velox6memory14MemoryPoolImpl33incrementReservationNonThreadSafeEPNS1_10MemoryPoolEm.exit
   %5 = phi i64 [ %4, %if.end.i17.lr.ph ], [ %14, %_ZN8facebook5velox6memory14MemoryPoolImpl33incrementReservationNonThreadSafeEPNS1_10MemoryPoolEm.exit ]
   %6 = phi i64 [ %3, %if.end.i17.lr.ph ], [ %13, %_ZN8facebook5velox6memory14MemoryPoolImpl33incrementReservationNonThreadSafeEPNS1_10MemoryPoolEm.exit ]
-  %numAttempts.i.047 = phi i32 [ 0, %if.end.i17.lr.ph ], [ %inc.i, %_ZN8facebook5velox6memory14MemoryPoolImpl33incrementReservationNonThreadSafeEPNS1_10MemoryPoolEm.exit ]
+  %numAttempts.i.049 = phi i32 [ 0, %if.end.i17.lr.ph ], [ %inc.i, %_ZN8facebook5velox6memory14MemoryPoolImpl33incrementReservationNonThreadSafeEPNS1_10MemoryPoolEm.exit ]
   %add.i46 = add i64 %5, %size
   %cmp.i.i47 = icmp ult i64 %add.i46, 16777216
   %cmp1.i.i = icmp ult i64 %add.i46, 67108864
-  %. = select i1 %cmp1.i.i, i64 4194303, i64 8388607
-  %.55 = select i1 %cmp1.i.i, i64 130023424, i64 -8388608
-  %.sink54 = select i1 %cmp.i.i47, i64 1048575, i64 %.
-  %.sink = select i1 %cmp.i.i47, i64 32505856, i64 %.55
-  %add.i19 = add i64 %add.i46, %.sink54
-  %mul.i = and i64 %add.i19, %.sink
+  %invariant.op43.invariant.op.v = select i1 %cmp1.i.i, i64 4194303, i64 8388607
+  %. = select i1 %cmp1.i.i, i64 130023424, i64 -8388608
+  %invariant.op44.sink.v = select i1 %cmp.i.i47, i64 1048575, i64 %invariant.op43.invariant.op.v
+  %invariant.op44.sink = add i64 %invariant.op44.sink.v, %size
+  %.sink = select i1 %cmp.i.i47, i64 32505856, i64 %.
+  %add.i19.reass = add i64 %5, %invariant.op44.sink
+  %mul.i = and i64 %add.i19.reass, %.sink
   %sub.i48 = sub i64 %mul.i, %6
   %cmp.i = icmp eq i64 %mul.i, %6
   br i1 %cmp.i, label %if.then3.i, label %if.end9.i
 
 if.then3.i:                                       ; preds = %if.end.i17, %_ZN8facebook5velox6memory14MemoryPoolImpl33incrementReservationNonThreadSafeEPNS1_10MemoryPoolEm.exit, %for.cond.i.preheader
-  %numAttempts.i.0.lcssa = phi i32 [ 0, %for.cond.i.preheader ], [ %inc.i, %_ZN8facebook5velox6memory14MemoryPoolImpl33incrementReservationNonThreadSafeEPNS1_10MemoryPoolEm.exit ], [ %numAttempts.i.047, %if.end.i17 ]
+  %numAttempts.i.0.lcssa = phi i32 [ 0, %for.cond.i.preheader ], [ %inc.i, %_ZN8facebook5velox6memory14MemoryPoolImpl33incrementReservationNonThreadSafeEPNS1_10MemoryPoolEm.exit ], [ %numAttempts.i.049, %if.end.i17 ]
   %.lcssa38 = phi i64 [ %3, %for.cond.i.preheader ], [ %13, %_ZN8facebook5velox6memory14MemoryPoolImpl33incrementReservationNonThreadSafeEPNS1_10MemoryPoolEm.exit ], [ %6, %if.end.i17 ]
   %.lcssa = phi i64 [ %4, %for.cond.i.preheader ], [ %14, %_ZN8facebook5velox6memory14MemoryPoolImpl33incrementReservationNonThreadSafeEPNS1_10MemoryPoolEm.exit ], [ %5, %if.end.i17 ]
   br i1 %reserveOnly, label %if.then4.i, label %if.else.i
@@ -3367,11 +3368,11 @@ if.else.i:                                        ; preds = %if.then3.i
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %8, i64 %add.i)
   store i64 %.sroa.speculated, ptr %peakBytes_.i, align 8
   %minReservationBytes_.i27.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 320
-  %.pre53 = load i64, ptr %minReservationBytes_.i27.phi.trans.insert, align 8
+  %.pre55 = load i64, ptr %minReservationBytes_.i27.phi.trans.insert, align 8
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.else.i, %if.then4.i
-  %9 = phi i64 [ %.pre53, %if.else.i ], [ %.lcssa38, %if.then4.i ]
+  %9 = phi i64 [ %.pre55, %if.else.i ], [ %.lcssa38, %if.then4.i ]
   %10 = phi i64 [ %add.i, %if.else.i ], [ %.lcssa, %if.then4.i ]
   %cmp.i26 = icmp slt i64 %.lcssa38, %10
   %cmp3.i = icmp slt i64 %.lcssa38, %9
@@ -3418,7 +3419,7 @@ if.end10.i:                                       ; preds = %if.end5.i
 
 _ZN8facebook5velox6memory14MemoryPoolImpl33incrementReservationNonThreadSafeEPNS1_10MemoryPoolEm.exit: ; preds = %if.end5.i, %if.end10.i
   %13 = phi i64 [ %.pre, %if.end5.i ], [ %add.i42, %if.end10.i ]
-  %inc.i = add nuw nsw i32 %numAttempts.i.047, 1
+  %inc.i = add nuw nsw i32 %numAttempts.i.049, 1
   %14 = load i64, ptr %usedReservationBytes_.i14, align 8
   %sub.i15.neg = add i64 %14, %size
   %sub2.i = sub i64 %sub.i15.neg, %13
@@ -6463,9 +6464,9 @@ entry:
 
 for.cond.preheader:                               ; preds = %entry
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 248
-  %call1.i.i.i63 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #26
-  %tobool.not.i.i64 = icmp eq i32 %call1.i.i.i63, 0
-  br i1 %tobool.not.i.i64, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.lr.ph, label %if.then.i.i17
+  %call1.i.i.i65 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #26
+  %tobool.not.i.i66 = icmp eq i32 %call1.i.i.i65, 0
+  br i1 %tobool.not.i.i66, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.lr.ph, label %if.then.i.i17
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.lr.ph:    ; preds = %for.cond.preheader
   %reservationBytes_.i = getelementptr inbounds i8, ptr %this, i64 304
@@ -6477,12 +6478,12 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.then.i.i17:                                    ; preds = %for.inc, %for.cond.preheader
-  %call1.i.i.i.lcssa = phi i32 [ %call1.i.i.i63, %for.cond.preheader ], [ %call1.i.i.i, %for.inc ]
+  %call1.i.i.i.lcssa = phi i32 [ %call1.i.i.i65, %for.cond.preheader ], [ %call1.i.i.i, %for.inc ]
   call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.lcssa) #29
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.lr.ph, %for.inc
-  %numAttempts.065 = phi i32 [ 0, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.lr.ph ], [ %inc, %for.inc ]
+  %numAttempts.067 = phi i32 [ 0, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.lr.ph ], [ %inc, %for.inc ]
   %1 = load i64, ptr %reservationBytes_.i, align 8
   %2 = load i64, ptr %usedReservationBytes_.i, align 8
   %sub.i.neg = add i64 %2, %size
@@ -6493,12 +6494,13 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZNSt10lock_guardIS
 if.end.i:                                         ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %cmp.i.i = icmp ult i64 %sub.i.neg, 16777216
   %cmp1.i.i = icmp ult i64 %sub.i.neg, 67108864
-  %. = select i1 %cmp1.i.i, i64 4194303, i64 8388607
-  %.99 = select i1 %cmp1.i.i, i64 130023424, i64 -8388608
-  %.sink98 = select i1 %cmp.i.i, i64 1048575, i64 %.
-  %.sink = select i1 %cmp.i.i, i64 32505856, i64 %.99
-  %add.i18 = add i64 %sub.i.neg, %.sink98
-  %mul.i = and i64 %add.i18, %.sink
+  %invariant.op63.invariant.op.v = select i1 %cmp1.i.i, i64 4194303, i64 8388607
+  %. = select i1 %cmp1.i.i, i64 130023424, i64 -8388608
+  %invariant.op64.sink.v = select i1 %cmp.i.i, i64 1048575, i64 %invariant.op63.invariant.op.v
+  %invariant.op64.sink = add i64 %invariant.op64.sink.v, %size
+  %.sink = select i1 %cmp.i.i, i64 32505856, i64 %.
+  %add.i18.reass = add i64 %2, %invariant.op64.sink
+  %mul.i = and i64 %add.i18.reass, %.sink
   %sub.i49 = sub i64 %mul.i, %1
   %cmp = icmp eq i64 %mul.i, %1
   br i1 %cmp, label %if.then3, label %cleanup.cont
@@ -6619,18 +6621,18 @@ ehcleanup26:                                      ; preds = %if.then.i, %lpad23,
           to label %eh.resume unwind label %terminate.lpad
 
 for.inc:                                          ; preds = %invoke.cont15
-  %inc = add nuw nsw i32 %numAttempts.065, 1
+  %inc = add nuw nsw i32 %numAttempts.067, 1
   %call1.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #26
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i17, !llvm.loop !60
 
 for.end:                                          ; preds = %if.end10
   %call1.i.i.i25 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_) #26
-  %cmp28 = icmp ugt i32 %numAttempts.065, 1
+  %cmp28 = icmp ugt i32 %numAttempts.067, 1
   br i1 %cmp28, label %if.then29, label %if.end31
 
 if.then29:                                        ; preds = %for.end
-  %sub = add nsw i32 %numAttempts.065, -1
+  %sub = add nsw i32 %numAttempts.067, -1
   %conv = zext nneg i32 %sub to i64
   %numCollisions_ = getelementptr inbounds i8, ptr %this, i64 376
   %17 = atomicrmw add ptr %numCollisions_, i64 %conv seq_cst, align 8

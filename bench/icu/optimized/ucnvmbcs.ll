@@ -6746,13 +6746,14 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp151, label %while.body.lr.ph, label %return
 
 while.body.lr.ph:                                 ; preds = %if.end.thread, %if.end
-  %shl1414 = phi i32 [ %shl1411, %if.end.thread ], [ %shl14, %if.end ]
-  %b.013 = phi i32 [ 0, %if.end.thread ], [ %b.0, %if.end ]
+  %shl1415 = phi i32 [ %shl1411, %if.end.thread ], [ %shl14, %if.end ]
+  %b.014 = phi i32 [ 0, %if.end.thread ], [ %b.0, %if.end ]
+  %invariant.op16 = add i32 %offset, 1
   %fromUnicodeTable.i = getelementptr inbounds i8, ptr %context, i64 40
   %fromUnicodeBytes.i = getelementptr inbounds i8, ptr %context, i64 184
   %outputType.i = getelementptr inbounds i8, ptr %context, i64 204
-  %5 = zext nneg i32 %b.013 to i64
-  %6 = zext nneg i32 %shl1414 to i64
+  %5 = zext nneg i32 %b.014 to i64
+  %6 = zext nneg i32 %shl1415 to i64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end113
@@ -6814,7 +6815,7 @@ if.then42:                                        ; preds = %if.else
 if.then55:                                        ; preds = %if.else
   %conv58 = and i32 %7, 65535
   %add59 = add i32 %conv58, %offset
-  %inc = add nsw i32 %add59, 1
+  %inc.reass = add i32 %conv58, %invariant.op16
   %idxprom60 = sext i32 %add59 to i64
   %arrayidx61 = getelementptr inbounds i16, ptr %1, i64 %idxprom60
   %11 = load i16, ptr %arrayidx61, align 2
@@ -6829,7 +6830,7 @@ if.else65:                                        ; preds = %if.then55
 if.then67:                                        ; preds = %if.else65
   %and68 = shl nuw nsw i32 %conv62, 10
   %shl69 = and i32 %and68, 1047552
-  %idxprom70 = sext i32 %inc to i64
+  %idxprom70 = sext i32 %inc.reass to i64
   %arrayidx71 = getelementptr inbounds i16, ptr %1, i64 %idxprom70
   %12 = load i16, ptr %arrayidx71, align 2
   %conv72 = zext i16 %12 to i32
@@ -6842,7 +6843,7 @@ if.else75:                                        ; preds = %if.else65
   br i1 %cmp76, label %if.then77, label %if.end94
 
 if.then77:                                        ; preds = %if.else75
-  %idxprom78 = sext i32 %inc to i64
+  %idxprom78 = sext i32 %inc.reass to i64
   %arrayidx79 = getelementptr inbounds i16, ptr %1, i64 %idxprom78
   %13 = load i16, ptr %arrayidx79, align 2
   %conv80 = zext i16 %13 to i32

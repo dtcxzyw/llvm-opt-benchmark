@@ -58,6 +58,7 @@ for.body.lr.ph:                                   ; preds = %for.body.i
   %conv32 = zext nneg i8 %add to i64
   %arrayidx.i.i = getelementptr inbounds [102 x i8], ptr %d, i64 0, i64 %conv32
   store i8 %add, ptr %arrayidx.i.i, align 1
+  %invariant.op = add nuw nsw i64 %conv5, 1
   %sub23 = add i8 %.sroa.speculated, %conv21.neg
   %conv36 = zext i8 %sub23 to i64
   %arrayinit.element.ptr = getelementptr inbounds i8, ptr %ref.tmp, i64 1
@@ -92,8 +93,8 @@ if.end47:                                         ; preds = %if.else, %if.then38
 
 if.else54:                                        ; preds = %if.end47
   %arrayidx.i.i47 = getelementptr inbounds [102 x %"struct.std::array.0"], ptr %d, i64 0, i64 %i.095
-  %add56 = add i64 %add49, 1
-  %arrayidx.i.i48 = getelementptr inbounds [102 x i8], ptr %arrayidx.i.i47, i64 0, i64 %add56
+  %add56.reass = add i64 %i.095, %invariant.op
+  %arrayidx.i.i48 = getelementptr inbounds [102 x i8], ptr %arrayidx.i.i47, i64 0, i64 %add56.reass
   store i8 %add, ptr %arrayidx.i.i48, align 1
   br label %if.end58
 

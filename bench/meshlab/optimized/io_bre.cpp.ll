@@ -3708,14 +3708,14 @@ _ZN10QByteArray4dataEv.exit.i:                    ; preds = %.noexc242, %35
 54:                                               ; preds = %52, %50
   %.pn = phi { ptr, i32 } [ %53, %52 ], [ %51, %50 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #25
-  br label %1347
+  br label %1345
 
-.loopexit:                                        ; preds = %147, %176, %204, %250, %304, %333, %362, %392, %424, %478, %507, %536, %566, %597, %650, %679, %708, %738, %769, %815, %869, %898, %927, %957, %989, %1043, %1072, %1101, %1131, %1163, %1217, %1246, %1275, %1305
+.loopexit:                                        ; preds = %146, %175, %203, %249, %303, %332, %361, %391, %423, %477, %506, %535, %565, %596, %649, %678, %707, %737, %768, %814, %868, %897, %926, %956, %987, %1041, %1070, %1099, %1129, %1161, %1215, %1244, %1273, %1303
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit:                      ; preds = %1330
+.loopexit.split-lp.loopexit:                      ; preds = %1328
   %lpad.loopexit764 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -3730,10 +3730,10 @@ _ZN10QByteArray4dataEv.exit.i:                    ; preds = %.noexc242, %35
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %796, %799, %787, %790, %231, %234, %222, %225
-  %eh.lpad-body = phi { ptr, i32 } [ %223, %225 ], [ %223, %222 ], [ %232, %234 ], [ %232, %231 ], [ %788, %790 ], [ %788, %787 ], [ %797, %799 ], [ %797, %796 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit764, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit767, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %795, %798, %786, %789, %230, %233, %221, %224
+  %eh.lpad-body = phi { ptr, i32 } [ %222, %224 ], [ %222, %221 ], [ %231, %233 ], [ %231, %230 ], [ %787, %789 ], [ %787, %786 ], [ %796, %798 ], [ %796, %795 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit764, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit767, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN3vcg3tri2io10BreElementD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #25
-  br label %1347
+  br label %1345
 
 55:                                               ; preds = %.noexc243
   %56 = add nuw nsw i32 %.0225, 1
@@ -3837,9 +3837,10 @@ _ZN3vcg3tri2io10VertexGrid8SetValueEiiNS_6Point3IfEEaaah.exit: ; preds = %_ZN10Q
 112:                                              ; preds = %24
   %113 = uitofp nneg i32 %.0225 to float
   %114 = fdiv float 8.000000e+01, %113
+  %invariant.op788 = add i32 %3, 1
   %115 = load i32, ptr %17, align 4
   %116 = icmp sgt i32 %115, 1
-  br i1 %116, label %.preheader.lr.ph, label %._crit_edge791
+  br i1 %116, label %.preheader.lr.ph, label %._crit_edge793
 
 .preheader.lr.ph:                                 ; preds = %112
   %117 = getelementptr inbounds i8, ptr %10, i64 32
@@ -3849,2291 +3850,2291 @@ _ZN3vcg3tri2io10VertexGrid8SetValueEiiNS_6Point3IfEEaaah.exit: ; preds = %_ZN10Q
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge.thread
-  %.0226790 = phi float [ 0.000000e+00, %.preheader.lr.ph ], [ %.1227.lcssa810, %._crit_edge.thread ]
-  %.0232789 = phi i32 [ 0, %.preheader.lr.ph ], [ %.4236, %._crit_edge.thread ]
-  %.0237788 = phi i32 [ 0, %.preheader.lr.ph ], [ %1334, %._crit_edge.thread ]
+  %.0226792 = phi float [ 0.000000e+00, %.preheader.lr.ph ], [ %.1227.lcssa812, %._crit_edge.thread ]
+  %.0232791 = phi i32 [ 0, %.preheader.lr.ph ], [ %.4236, %._crit_edge.thread ]
+  %.0237790 = phi i32 [ 0, %.preheader.lr.ph ], [ %1332, %._crit_edge.thread ]
   %121 = load i32, ptr %1, align 8
   %122 = icmp sgt i32 %121, 1
   br i1 %122, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.preheader
-  %123 = mul i32 %.0237788, 20
-  %124 = add nuw nsw i32 %.0237788, 1
+  %123 = mul i32 %.0237790, 20
+  %124 = add nuw nsw i32 %.0237790, 1
   %125 = mul i32 %124, 20
-  %126 = uitofp nneg i32 %.0237788 to float
-  %127 = sub i32 %.0237788, %3
+  %126 = uitofp nneg i32 %.0237790 to float
+  %127 = sub i32 %.0237790, %3
   %128 = sitofp i32 %127 to float
-  %129 = add nsw i32 %124, %3
-  %130 = sitofp i32 %129 to float
-  %131 = uitofp nneg i32 %124 to float
-  br label %132
+  %.reass789 = add i32 %.0237790, %invariant.op788
+  %129 = sitofp i32 %.reass789 to float
+  %130 = uitofp nneg i32 %124 to float
+  br label %131
 
-132:                                              ; preds = %.lr.ph, %1325
-  %.pre796804 = phi i32 [ %121, %.lr.ph ], [ %.pre796805, %1325 ]
-  %133 = phi i32 [ %121, %.lr.ph ], [ %1326, %1325 ]
-  %.1227785 = phi float [ %.0226790, %.lr.ph ], [ %.3, %1325 ]
-  %.1233783 = phi i32 [ %.0232789, %.lr.ph ], [ %.3235, %1325 ]
-  %.0238781 = phi i32 [ 0, %.lr.ph ], [ %.pre-phi, %1325 ]
-  %134 = load i32, ptr %17, align 4
-  %.not10.i = icmp sgt i32 %134, %.0237788
-  br i1 %.not10.i, label %135, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread
+131:                                              ; preds = %.lr.ph, %1323
+  %.pre798806 = phi i32 [ %121, %.lr.ph ], [ %.pre798807, %1323 ]
+  %132 = phi i32 [ %121, %.lr.ph ], [ %1324, %1323 ]
+  %.1227785 = phi float [ %.0226792, %.lr.ph ], [ %.3, %1323 ]
+  %.1233783 = phi i32 [ %.0232791, %.lr.ph ], [ %.3235, %1323 ]
+  %.0238781 = phi i32 [ 0, %.lr.ph ], [ %.pre-phi, %1323 ]
+  %133 = load i32, ptr %17, align 4
+  %.not10.i = icmp sgt i32 %133, %.0237790
+  br i1 %.not10.i, label %134, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread
 
-135:                                              ; preds = %132
-  %136 = mul i32 %123, %.0238781
-  %137 = load ptr, ptr %18, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 4
-  %139 = load i32, ptr %138, align 4
-  %140 = icmp sgt i32 %136, %139
-  br i1 %140, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread, label %141
+134:                                              ; preds = %131
+  %135 = mul i32 %123, %.0238781
+  %136 = load ptr, ptr %18, align 8
+  %137 = getelementptr inbounds i8, ptr %136, i64 4
+  %138 = load i32, ptr %137, align 4
+  %139 = icmp sgt i32 %135, %138
+  br i1 %139, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread, label %140
 
-141:                                              ; preds = %135
-  %142 = load atomic i32, ptr %137 monotonic, align 4
-  %143 = icmp ugt i32 %142, 1
-  br i1 %143, label %147, label %144
+140:                                              ; preds = %134
+  %141 = load atomic i32, ptr %136 monotonic, align 4
+  %142 = icmp ugt i32 %141, 1
+  br i1 %142, label %146, label %143
 
-144:                                              ; preds = %141
-  %145 = getelementptr inbounds i8, ptr %137, i64 16
-  %146 = load i64, ptr %145, align 8
-  %.not.i.i.i255 = icmp eq i64 %146, 24
-  br i1 %.not.i.i.i255, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit, label %147
+143:                                              ; preds = %140
+  %144 = getelementptr inbounds i8, ptr %136, i64 16
+  %145 = load i64, ptr %144, align 8
+  %.not.i.i.i255 = icmp eq i64 %145, 24
+  br i1 %.not.i.i.i255, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit, label %146
 
-147:                                              ; preds = %144, %141
-  %148 = add i32 %139, 1
-  %149 = getelementptr inbounds i8, ptr %137, i64 8
-  %150 = load i32, ptr %149, align 8
-  %.lobit.i.i.i.i256 = lshr i32 %150, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %148, i32 %.lobit.i.i.i.i256)
+146:                                              ; preds = %143, %140
+  %147 = add i32 %138, 1
+  %148 = getelementptr inbounds i8, ptr %136, i64 8
+  %149 = load i32, ptr %148, align 8
+  %.lobit.i.i.i.i256 = lshr i32 %149, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %147, i32 %.lobit.i.i.i.i256)
           to label %.noexc262 unwind label %.loopexit
 
-.noexc262:                                        ; preds = %147
+.noexc262:                                        ; preds = %146
   %.pre.i.i257 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i258 = getelementptr inbounds i8, ptr %.pre.i.i257, i64 16
   %.pre1.i.i259 = load i64, ptr %.phi.trans.insert.i.i258, align 8
   %.pre.i260 = load i32, ptr %1, align 8
   br label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit
 
-_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit:       ; preds = %144, %.noexc262
-  %.pre796803 = phi i32 [ %.pre796804, %144 ], [ %.pre.i260, %.noexc262 ]
-  %151 = phi i32 [ %133, %144 ], [ %.pre.i260, %.noexc262 ]
-  %152 = phi i64 [ 24, %144 ], [ %.pre1.i.i259, %.noexc262 ]
-  %153 = phi ptr [ %137, %144 ], [ %.pre.i.i257, %.noexc262 ]
-  %154 = getelementptr inbounds i8, ptr %153, i64 %152
-  %155 = mul nsw i32 %151, %.0237788
-  %156 = add nsw i32 %155, %.0238781
-  %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %154, i64 %157
-  %159 = load i8, ptr %158, align 4
-  %160 = icmp eq i8 %159, 1
-  br i1 %160, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread_crit_edge, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._crit_edge
+_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit:       ; preds = %143, %.noexc262
+  %.pre798805 = phi i32 [ %.pre798806, %143 ], [ %.pre.i260, %.noexc262 ]
+  %150 = phi i32 [ %132, %143 ], [ %.pre.i260, %.noexc262 ]
+  %151 = phi i64 [ 24, %143 ], [ %.pre1.i.i259, %.noexc262 ]
+  %152 = phi ptr [ %136, %143 ], [ %.pre.i.i257, %.noexc262 ]
+  %153 = getelementptr inbounds i8, ptr %152, i64 %151
+  %154 = mul nsw i32 %150, %.0237790
+  %155 = add nsw i32 %154, %.0238781
+  %156 = sext i32 %155 to i64
+  %157 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %153, i64 %156
+  %158 = load i8, ptr %157, align 4
+  %159 = icmp eq i8 %158, 1
+  br i1 %159, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread_crit_edge, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._crit_edge
 
 _ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._crit_edge: ; preds = %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit
-  %.pre807 = add nuw nsw i32 %.0238781, 1
-  br label %1325
+  %.pre809 = add nuw nsw i32 %.0238781, 1
+  br label %1323
 
 _ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread_crit_edge: ; preds = %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit
   %.pre = load i32, ptr %17, align 4
   br label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread
 
-_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread: ; preds = %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread_crit_edge, %132, %135
-  %.pre796802 = phi i32 [ %.pre796804, %132 ], [ %.pre796804, %135 ], [ %.pre796803, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread_crit_edge ]
-  %161 = phi i32 [ %133, %132 ], [ %133, %135 ], [ %151, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread_crit_edge ]
-  %162 = phi i32 [ %134, %132 ], [ %134, %135 ], [ %.pre, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread_crit_edge ]
-  %163 = add nuw nsw i32 %.0238781, 1
-  %.not.i263 = icmp sgt i32 %161, %163
-  %.not10.i264 = icmp sgt i32 %162, %124
+_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread: ; preds = %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread_crit_edge, %131, %134
+  %.pre798804 = phi i32 [ %.pre798806, %131 ], [ %.pre798806, %134 ], [ %.pre798805, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread_crit_edge ]
+  %160 = phi i32 [ %132, %131 ], [ %132, %134 ], [ %150, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread_crit_edge ]
+  %161 = phi i32 [ %133, %131 ], [ %133, %134 ], [ %.pre, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread_crit_edge ]
+  %162 = add nuw nsw i32 %.0238781, 1
+  %.not.i263 = icmp sgt i32 %160, %162
+  %.not10.i264 = icmp sgt i32 %161, %124
   %or.cond.i265 = select i1 %.not.i263, i1 %.not10.i264, i1 false
-  br i1 %or.cond.i265, label %164, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275.thread
+  br i1 %or.cond.i265, label %163, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275.thread
 
-164:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread
-  %165 = mul i32 %125, %163
-  %166 = load ptr, ptr %18, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 4
-  %168 = load i32, ptr %167, align 4
-  %169 = icmp sgt i32 %165, %168
-  br i1 %169, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275.thread, label %170
+163:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread
+  %164 = mul i32 %125, %162
+  %165 = load ptr, ptr %18, align 8
+  %166 = getelementptr inbounds i8, ptr %165, i64 4
+  %167 = load i32, ptr %166, align 4
+  %168 = icmp sgt i32 %164, %167
+  br i1 %168, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275.thread, label %169
 
-170:                                              ; preds = %164
-  %171 = load atomic i32, ptr %166 monotonic, align 4
-  %172 = icmp ugt i32 %171, 1
-  br i1 %172, label %176, label %173
+169:                                              ; preds = %163
+  %170 = load atomic i32, ptr %165 monotonic, align 4
+  %171 = icmp ugt i32 %170, 1
+  br i1 %171, label %175, label %172
 
-173:                                              ; preds = %170
-  %174 = getelementptr inbounds i8, ptr %166, i64 16
-  %175 = load i64, ptr %174, align 8
-  %.not.i.i.i267 = icmp eq i64 %175, 24
-  br i1 %.not.i.i.i267, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275, label %176
+172:                                              ; preds = %169
+  %173 = getelementptr inbounds i8, ptr %165, i64 16
+  %174 = load i64, ptr %173, align 8
+  %.not.i.i.i267 = icmp eq i64 %174, 24
+  br i1 %.not.i.i.i267, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275, label %175
 
-176:                                              ; preds = %173, %170
-  %177 = add i32 %168, 1
-  %178 = getelementptr inbounds i8, ptr %166, i64 8
-  %179 = load i32, ptr %178, align 8
-  %.lobit.i.i.i.i268 = lshr i32 %179, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %177, i32 %.lobit.i.i.i.i268)
+175:                                              ; preds = %172, %169
+  %176 = add i32 %167, 1
+  %177 = getelementptr inbounds i8, ptr %165, i64 8
+  %178 = load i32, ptr %177, align 8
+  %.lobit.i.i.i.i268 = lshr i32 %178, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %176, i32 %.lobit.i.i.i.i268)
           to label %.noexc274 unwind label %.loopexit
 
-.noexc274:                                        ; preds = %176
+.noexc274:                                        ; preds = %175
   %.pre.i.i269 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i270 = getelementptr inbounds i8, ptr %.pre.i.i269, i64 16
   %.pre1.i.i271 = load i64, ptr %.phi.trans.insert.i.i270, align 8
   %.pre.i272 = load i32, ptr %1, align 8
   br label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275
 
-_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275:    ; preds = %173, %.noexc274
-  %.pre796801 = phi i32 [ %.pre796802, %173 ], [ %.pre.i272, %.noexc274 ]
-  %180 = phi i32 [ %161, %173 ], [ %.pre.i272, %.noexc274 ]
-  %181 = phi i64 [ 24, %173 ], [ %.pre1.i.i271, %.noexc274 ]
-  %182 = phi ptr [ %166, %173 ], [ %.pre.i.i269, %.noexc274 ]
-  %183 = getelementptr inbounds i8, ptr %182, i64 %181
-  %184 = mul nsw i32 %180, %124
-  %185 = add nsw i32 %184, %163
-  %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %183, i64 %186
-  %188 = load i8, ptr %187, align 4
-  %189 = icmp eq i8 %188, 1
-  br i1 %189, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275._ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275.thread_crit_edge, label %1325
+_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275:    ; preds = %172, %.noexc274
+  %.pre798803 = phi i32 [ %.pre798804, %172 ], [ %.pre.i272, %.noexc274 ]
+  %179 = phi i32 [ %160, %172 ], [ %.pre.i272, %.noexc274 ]
+  %180 = phi i64 [ 24, %172 ], [ %.pre1.i.i271, %.noexc274 ]
+  %181 = phi ptr [ %165, %172 ], [ %.pre.i.i269, %.noexc274 ]
+  %182 = getelementptr inbounds i8, ptr %181, i64 %180
+  %183 = mul nsw i32 %179, %124
+  %184 = add nsw i32 %183, %162
+  %185 = sext i32 %184 to i64
+  %186 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %182, i64 %185
+  %187 = load i8, ptr %186, align 4
+  %188 = icmp eq i8 %187, 1
+  br i1 %188, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275._ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275.thread_crit_edge, label %1323
 
 _ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275._ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275.thread_crit_edge: ; preds = %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275
-  %.pre794 = load i32, ptr %17, align 4
+  %.pre796 = load i32, ptr %17, align 4
   br label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275.thread
 
-_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275.thread: ; preds = %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275._ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275.thread_crit_edge, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread, %164
-  %.pre796800 = phi i32 [ %.pre796802, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread ], [ %.pre796802, %164 ], [ %.pre796801, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275._ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275.thread_crit_edge ]
-  %190 = phi i32 [ %161, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread ], [ %161, %164 ], [ %180, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275._ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275.thread_crit_edge ]
-  %191 = phi i32 [ %162, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread ], [ %162, %164 ], [ %.pre794, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275._ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275.thread_crit_edge ]
-  %.not.i276 = icmp sgt i32 %190, %163
-  %.not10.i277 = icmp sgt i32 %191, %.0237788
+_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275.thread: ; preds = %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275._ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275.thread_crit_edge, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread, %163
+  %.pre798802 = phi i32 [ %.pre798804, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread ], [ %.pre798804, %163 ], [ %.pre798803, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275._ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275.thread_crit_edge ]
+  %189 = phi i32 [ %160, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread ], [ %160, %163 ], [ %179, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275._ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275.thread_crit_edge ]
+  %190 = phi i32 [ %161, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit.thread ], [ %161, %163 ], [ %.pre796, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275._ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275.thread_crit_edge ]
+  %.not.i276 = icmp sgt i32 %189, %162
+  %.not10.i277 = icmp sgt i32 %190, %.0237790
   %or.cond.i278 = select i1 %.not.i276, i1 %.not10.i277, i1 false
-  br i1 %or.cond.i278, label %192, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288.thread
+  br i1 %or.cond.i278, label %191, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288.thread
 
-192:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275.thread
-  %193 = mul i32 %123, %163
-  %194 = load ptr, ptr %18, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 4
-  %196 = load i32, ptr %195, align 4
-  %197 = icmp sgt i32 %193, %196
-  br i1 %197, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288.thread, label %198
+191:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275.thread
+  %192 = mul i32 %123, %162
+  %193 = load ptr, ptr %18, align 8
+  %194 = getelementptr inbounds i8, ptr %193, i64 4
+  %195 = load i32, ptr %194, align 4
+  %196 = icmp sgt i32 %192, %195
+  br i1 %196, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288.thread, label %197
 
-198:                                              ; preds = %192
-  %199 = load atomic i32, ptr %194 monotonic, align 4
-  %200 = icmp ugt i32 %199, 1
-  br i1 %200, label %204, label %201
+197:                                              ; preds = %191
+  %198 = load atomic i32, ptr %193 monotonic, align 4
+  %199 = icmp ugt i32 %198, 1
+  br i1 %199, label %203, label %200
 
-201:                                              ; preds = %198
-  %202 = getelementptr inbounds i8, ptr %194, i64 16
-  %203 = load i64, ptr %202, align 8
-  %.not.i.i.i280 = icmp eq i64 %203, 24
-  br i1 %.not.i.i.i280, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288, label %204
+200:                                              ; preds = %197
+  %201 = getelementptr inbounds i8, ptr %193, i64 16
+  %202 = load i64, ptr %201, align 8
+  %.not.i.i.i280 = icmp eq i64 %202, 24
+  br i1 %.not.i.i.i280, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288, label %203
 
-204:                                              ; preds = %201, %198
-  %205 = add i32 %196, 1
-  %206 = getelementptr inbounds i8, ptr %194, i64 8
-  %207 = load i32, ptr %206, align 8
-  %.lobit.i.i.i.i281 = lshr i32 %207, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %205, i32 %.lobit.i.i.i.i281)
+203:                                              ; preds = %200, %197
+  %204 = add i32 %195, 1
+  %205 = getelementptr inbounds i8, ptr %193, i64 8
+  %206 = load i32, ptr %205, align 8
+  %.lobit.i.i.i.i281 = lshr i32 %206, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %204, i32 %.lobit.i.i.i.i281)
           to label %.noexc287 unwind label %.loopexit
 
-.noexc287:                                        ; preds = %204
+.noexc287:                                        ; preds = %203
   %.pre.i.i282 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i283 = getelementptr inbounds i8, ptr %.pre.i.i282, i64 16
   %.pre1.i.i284 = load i64, ptr %.phi.trans.insert.i.i283, align 8
   %.pre.i285 = load i32, ptr %1, align 8
   br label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288
 
-_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288:    ; preds = %201, %.noexc287
-  %.pre796799 = phi i32 [ %.pre796800, %201 ], [ %.pre.i285, %.noexc287 ]
-  %208 = phi i32 [ %190, %201 ], [ %.pre.i285, %.noexc287 ]
-  %209 = phi i64 [ 24, %201 ], [ %.pre1.i.i284, %.noexc287 ]
-  %210 = phi ptr [ %194, %201 ], [ %.pre.i.i282, %.noexc287 ]
-  %211 = getelementptr inbounds i8, ptr %210, i64 %209
-  %212 = mul nsw i32 %208, %.0237788
-  %213 = add nsw i32 %212, %163
-  %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %211, i64 %214
-  %216 = load i8, ptr %215, align 4
-  %217 = icmp eq i8 %216, 1
-  br i1 %217, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288.thread, label %754
+_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288:    ; preds = %200, %.noexc287
+  %.pre798801 = phi i32 [ %.pre798802, %200 ], [ %.pre.i285, %.noexc287 ]
+  %207 = phi i32 [ %189, %200 ], [ %.pre.i285, %.noexc287 ]
+  %208 = phi i64 [ 24, %200 ], [ %.pre1.i.i284, %.noexc287 ]
+  %209 = phi ptr [ %193, %200 ], [ %.pre.i.i282, %.noexc287 ]
+  %210 = getelementptr inbounds i8, ptr %209, i64 %208
+  %211 = mul nsw i32 %207, %.0237790
+  %212 = add nsw i32 %211, %162
+  %213 = sext i32 %212 to i64
+  %214 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %210, i64 %213
+  %215 = load i8, ptr %214, align 4
+  %216 = icmp eq i8 %215, 1
+  br i1 %216, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288.thread, label %753
 
-_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288.thread: ; preds = %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275.thread, %192, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288
+_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288.thread: ; preds = %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275.thread, %191, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %10, i8 0, i64 57, i1 false)
-  %218 = invoke ptr @_ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_mRNS3_14PointerUpdaterIP6CFaceOEE(ptr noundef nonnull align 8 dereferenceable(1196) %2, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(57) %10)
-          to label %219 unwind label %222
+  %217 = invoke ptr @_ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_mRNS3_14PointerUpdaterIP6CFaceOEE(ptr noundef nonnull align 8 dereferenceable(1196) %2, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(57) %10)
+          to label %218 unwind label %221
 
-219:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288.thread
-  %220 = load ptr, ptr %117, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %220, null
-  br i1 %.not.i.i.i.i.i, label %226, label %221
+218:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288.thread
+  %219 = load ptr, ptr %117, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %219, null
+  br i1 %.not.i.i.i.i.i, label %225, label %220
 
-221:                                              ; preds = %219
-  call void @_ZdlPv(ptr noundef nonnull %220) #26
-  br label %226
+220:                                              ; preds = %218
+  call void @_ZdlPv(ptr noundef nonnull %219) #26
+  br label %225
 
-222:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288.thread
-  %223 = landingpad { ptr, i32 }
+221:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288.thread
+  %222 = landingpad { ptr, i32 }
           cleanup
-  %224 = load ptr, ptr %117, align 8
-  %.not.i.i.i.i3.i = icmp eq ptr %224, null
-  br i1 %.not.i.i.i.i3.i, label %.body, label %225
+  %223 = load ptr, ptr %117, align 8
+  %.not.i.i.i.i3.i = icmp eq ptr %223, null
+  br i1 %.not.i.i.i.i3.i, label %.body, label %224
 
-225:                                              ; preds = %222
-  call void @_ZdlPv(ptr noundef nonnull %224) #26
+224:                                              ; preds = %221
+  call void @_ZdlPv(ptr noundef nonnull %223) #26
   br label %.body
 
-226:                                              ; preds = %221, %219
+225:                                              ; preds = %220, %218
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %9, i8 0, i64 57, i1 false)
-  %227 = invoke ptr @_ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_mRNS3_14PointerUpdaterIP8CVertexOEE(ptr noundef nonnull align 8 dereferenceable(1196) %2, i64 noundef 3, ptr noundef nonnull align 8 dereferenceable(57) %9)
-          to label %228 unwind label %231
+  %226 = invoke ptr @_ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_mRNS3_14PointerUpdaterIP8CVertexOEE(ptr noundef nonnull align 8 dereferenceable(1196) %2, i64 noundef 3, ptr noundef nonnull align 8 dereferenceable(57) %9)
+          to label %227 unwind label %230
 
-228:                                              ; preds = %226
-  %229 = load ptr, ptr %118, align 8
-  %.not.i.i.i.i.i290 = icmp eq ptr %229, null
-  br i1 %.not.i.i.i.i.i290, label %235, label %230
+227:                                              ; preds = %225
+  %228 = load ptr, ptr %118, align 8
+  %.not.i.i.i.i.i290 = icmp eq ptr %228, null
+  br i1 %.not.i.i.i.i.i290, label %234, label %229
 
-230:                                              ; preds = %228
-  call void @_ZdlPv(ptr noundef nonnull %229) #26
-  br label %235
+229:                                              ; preds = %227
+  call void @_ZdlPv(ptr noundef nonnull %228) #26
+  br label %234
 
-231:                                              ; preds = %226
-  %232 = landingpad { ptr, i32 }
+230:                                              ; preds = %225
+  %231 = landingpad { ptr, i32 }
           cleanup
-  %233 = load ptr, ptr %118, align 8
-  %.not.i.i.i.i3.i289 = icmp eq ptr %233, null
-  br i1 %.not.i.i.i.i3.i289, label %.body, label %234
+  %232 = load ptr, ptr %118, align 8
+  %.not.i.i.i.i3.i289 = icmp eq ptr %232, null
+  br i1 %.not.i.i.i.i3.i289, label %.body, label %233
 
-234:                                              ; preds = %231
-  call void @_ZdlPv(ptr noundef nonnull %233) #26
+233:                                              ; preds = %230
+  call void @_ZdlPv(ptr noundef nonnull %232) #26
   br label %.body
 
-235:                                              ; preds = %230, %228
+234:                                              ; preds = %229, %227
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  %236 = load i32, ptr %1, align 8
-  %237 = icmp sge i32 %236, %.0238781
-  %238 = load i32, ptr %17, align 4
-  %239 = icmp sge i32 %238, %.0237788
-  call void @llvm.assume(i1 %237)
-  call void @llvm.assume(i1 %239)
-  %240 = mul i32 %123, %.0238781
-  %241 = load ptr, ptr %18, align 8
-  %242 = getelementptr inbounds i8, ptr %241, i64 4
-  %243 = load i32, ptr %242, align 4
-  %244 = icmp sle i32 %240, %243
-  call void @llvm.assume(i1 %244)
-  %245 = load atomic i32, ptr %241 monotonic, align 4
-  %246 = icmp ugt i32 %245, 1
-  br i1 %246, label %250, label %247
+  %235 = load i32, ptr %1, align 8
+  %236 = icmp sge i32 %235, %.0238781
+  %237 = load i32, ptr %17, align 4
+  %238 = icmp sge i32 %237, %.0237790
+  call void @llvm.assume(i1 %236)
+  call void @llvm.assume(i1 %238)
+  %239 = mul i32 %123, %.0238781
+  %240 = load ptr, ptr %18, align 8
+  %241 = getelementptr inbounds i8, ptr %240, i64 4
+  %242 = load i32, ptr %241, align 4
+  %243 = icmp sle i32 %239, %242
+  call void @llvm.assume(i1 %243)
+  %244 = load atomic i32, ptr %240 monotonic, align 4
+  %245 = icmp ugt i32 %244, 1
+  br i1 %245, label %249, label %246
 
-247:                                              ; preds = %235
-  %248 = getelementptr inbounds i8, ptr %241, i64 16
-  %249 = load i64, ptr %248, align 8
-  %.not.i.i.i293 = icmp eq i64 %249, 24
-  br i1 %.not.i.i.i293, label %254, label %250
+246:                                              ; preds = %234
+  %247 = getelementptr inbounds i8, ptr %240, i64 16
+  %248 = load i64, ptr %247, align 8
+  %.not.i.i.i293 = icmp eq i64 %248, 24
+  br i1 %.not.i.i.i293, label %253, label %249
 
-250:                                              ; preds = %247, %235
-  %251 = add i32 %243, 1
-  %252 = getelementptr inbounds i8, ptr %241, i64 8
-  %253 = load i32, ptr %252, align 8
-  %.lobit.i.i.i.i294 = lshr i32 %253, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %251, i32 %.lobit.i.i.i.i294)
+249:                                              ; preds = %246, %234
+  %250 = add i32 %242, 1
+  %251 = getelementptr inbounds i8, ptr %240, i64 8
+  %252 = load i32, ptr %251, align 8
+  %.lobit.i.i.i.i294 = lshr i32 %252, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %250, i32 %.lobit.i.i.i.i294)
           to label %.noexc302 unwind label %.loopexit
 
-.noexc302:                                        ; preds = %250
+.noexc302:                                        ; preds = %249
   %.pre.i.i295 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i296 = getelementptr inbounds i8, ptr %.pre.i.i295, i64 16
   %.pre1.i.i297 = load i64, ptr %.phi.trans.insert.i.i296, align 8
   %.pre.i298 = load i32, ptr %1, align 8
-  br label %254
+  br label %253
 
-254:                                              ; preds = %.noexc302, %247
-  %255 = phi i32 [ %236, %247 ], [ %.pre.i298, %.noexc302 ]
-  %256 = phi i64 [ 24, %247 ], [ %.pre1.i.i297, %.noexc302 ]
-  %257 = phi ptr [ %241, %247 ], [ %.pre.i.i295, %.noexc302 ]
-  %258 = getelementptr inbounds i8, ptr %257, i64 %256
-  %259 = mul nsw i32 %255, %.0237788
-  %260 = add nsw i32 %259, %.0238781
-  %261 = sext i32 %260 to i64
-  %262 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %258, i64 %261
-  %263 = getelementptr inbounds i8, ptr %262, i64 4
-  %264 = getelementptr inbounds i8, ptr %262, i64 12
-  %265 = load float, ptr %264, align 4
-  %266 = getelementptr inbounds i8, ptr %227, i64 8
-  %267 = load <2 x float>, ptr %263, align 4
-  store <2 x float> %267, ptr %266, align 4
-  %268 = getelementptr inbounds i8, ptr %227, i64 16
-  store float %265, ptr %268, align 4
-  %269 = load ptr, ptr %227, align 8
-  %270 = getelementptr inbounds i8, ptr %269, i64 192
-  %271 = load ptr, ptr %269, align 8
-  %272 = ptrtoint ptr %227 to i64
-  %273 = ptrtoint ptr %271 to i64
-  %274 = sub i64 %272, %273
-  %275 = sdiv exact i64 %274, 48
-  %sext.i = shl i64 %275, 32
-  %276 = ashr exact i64 %sext.i, 32
-  %277 = load ptr, ptr %270, align 8
-  %278 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %277, i64 %276
-  %279 = uitofp nneg i32 %.0238781 to float
-  store float %279, ptr %278, align 4
-  %280 = load ptr, ptr %227, align 8
-  %281 = getelementptr inbounds i8, ptr %280, i64 192
-  %282 = load ptr, ptr %280, align 8
-  %283 = ptrtoint ptr %282 to i64
-  %284 = sub i64 %272, %283
-  %285 = sdiv exact i64 %284, 48
-  %sext.i303 = shl i64 %285, 32
-  %286 = ashr exact i64 %sext.i303, 32
-  %287 = load ptr, ptr %281, align 8
-  %288 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %287, i64 %286, i32 0, i64 0, i32 0, i64 1
-  store float %126, ptr %288, align 4
-  %289 = load i32, ptr %1, align 8
-  %290 = icmp slt i32 %289, %.0238781
-  %291 = load i32, ptr %17, align 4
-  %292 = icmp slt i32 %291, %.0237788
-  %or.cond.i304 = select i1 %290, i1 true, i1 %292
-  br i1 %or.cond.i304, label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit, label %293
+253:                                              ; preds = %.noexc302, %246
+  %254 = phi i32 [ %235, %246 ], [ %.pre.i298, %.noexc302 ]
+  %255 = phi i64 [ 24, %246 ], [ %.pre1.i.i297, %.noexc302 ]
+  %256 = phi ptr [ %240, %246 ], [ %.pre.i.i295, %.noexc302 ]
+  %257 = getelementptr inbounds i8, ptr %256, i64 %255
+  %258 = mul nsw i32 %254, %.0237790
+  %259 = add nsw i32 %258, %.0238781
+  %260 = sext i32 %259 to i64
+  %261 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %257, i64 %260
+  %262 = getelementptr inbounds i8, ptr %261, i64 4
+  %263 = getelementptr inbounds i8, ptr %261, i64 12
+  %264 = load float, ptr %263, align 4
+  %265 = getelementptr inbounds i8, ptr %226, i64 8
+  %266 = load <2 x float>, ptr %262, align 4
+  store <2 x float> %266, ptr %265, align 4
+  %267 = getelementptr inbounds i8, ptr %226, i64 16
+  store float %264, ptr %267, align 4
+  %268 = load ptr, ptr %226, align 8
+  %269 = getelementptr inbounds i8, ptr %268, i64 192
+  %270 = load ptr, ptr %268, align 8
+  %271 = ptrtoint ptr %226 to i64
+  %272 = ptrtoint ptr %270 to i64
+  %273 = sub i64 %271, %272
+  %274 = sdiv exact i64 %273, 48
+  %sext.i = shl i64 %274, 32
+  %275 = ashr exact i64 %sext.i, 32
+  %276 = load ptr, ptr %269, align 8
+  %277 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %276, i64 %275
+  %278 = uitofp nneg i32 %.0238781 to float
+  store float %278, ptr %277, align 4
+  %279 = load ptr, ptr %226, align 8
+  %280 = getelementptr inbounds i8, ptr %279, i64 192
+  %281 = load ptr, ptr %279, align 8
+  %282 = ptrtoint ptr %281 to i64
+  %283 = sub i64 %271, %282
+  %284 = sdiv exact i64 %283, 48
+  %sext.i303 = shl i64 %284, 32
+  %285 = ashr exact i64 %sext.i303, 32
+  %286 = load ptr, ptr %280, align 8
+  %287 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %286, i64 %285, i32 0, i64 0, i32 0, i64 1
+  store float %126, ptr %287, align 4
+  %288 = load i32, ptr %1, align 8
+  %289 = icmp slt i32 %288, %.0238781
+  %290 = load i32, ptr %17, align 4
+  %291 = icmp slt i32 %290, %.0237790
+  %or.cond.i304 = select i1 %289, i1 true, i1 %291
+  br i1 %or.cond.i304, label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit, label %292
 
-293:                                              ; preds = %254
-  %294 = load ptr, ptr %18, align 8
-  %295 = getelementptr inbounds i8, ptr %294, i64 4
-  %296 = load i32, ptr %295, align 4
-  %297 = icmp sgt i32 %240, %296
-  br i1 %297, label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit, label %298
+292:                                              ; preds = %253
+  %293 = load ptr, ptr %18, align 8
+  %294 = getelementptr inbounds i8, ptr %293, i64 4
+  %295 = load i32, ptr %294, align 4
+  %296 = icmp sgt i32 %239, %295
+  br i1 %296, label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit, label %297
 
-298:                                              ; preds = %293
-  %299 = load atomic i32, ptr %294 monotonic, align 4
-  %300 = icmp ugt i32 %299, 1
-  br i1 %300, label %304, label %301
+297:                                              ; preds = %292
+  %298 = load atomic i32, ptr %293 monotonic, align 4
+  %299 = icmp ugt i32 %298, 1
+  br i1 %299, label %303, label %300
 
-301:                                              ; preds = %298
-  %302 = getelementptr inbounds i8, ptr %294, i64 16
-  %303 = load i64, ptr %302, align 8
-  %.not.i.i.i305 = icmp eq i64 %303, 24
-  br i1 %.not.i.i.i305, label %_ZN10QByteArray4dataEv.exit.i311, label %304
+300:                                              ; preds = %297
+  %301 = getelementptr inbounds i8, ptr %293, i64 16
+  %302 = load i64, ptr %301, align 8
+  %.not.i.i.i305 = icmp eq i64 %302, 24
+  br i1 %.not.i.i.i305, label %_ZN10QByteArray4dataEv.exit.i311, label %303
 
-304:                                              ; preds = %301, %298
-  %305 = add i32 %296, 1
-  %306 = getelementptr inbounds i8, ptr %294, i64 8
-  %307 = load i32, ptr %306, align 8
-  %.lobit.i.i.i.i306 = lshr i32 %307, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %305, i32 %.lobit.i.i.i.i306)
+303:                                              ; preds = %300, %297
+  %304 = add i32 %295, 1
+  %305 = getelementptr inbounds i8, ptr %293, i64 8
+  %306 = load i32, ptr %305, align 8
+  %.lobit.i.i.i.i306 = lshr i32 %306, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %304, i32 %.lobit.i.i.i.i306)
           to label %.noexc313 unwind label %.loopexit
 
-.noexc313:                                        ; preds = %304
+.noexc313:                                        ; preds = %303
   %.pre.i.i307 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i308 = getelementptr inbounds i8, ptr %.pre.i.i307, i64 16
   %.pre1.i.i309 = load i64, ptr %.phi.trans.insert.i.i308, align 8
   %.pre.i310 = load i32, ptr %1, align 8
   br label %_ZN10QByteArray4dataEv.exit.i311
 
-_ZN10QByteArray4dataEv.exit.i311:                 ; preds = %.noexc313, %301
-  %308 = phi i32 [ %289, %301 ], [ %.pre.i310, %.noexc313 ]
-  %309 = phi i64 [ 24, %301 ], [ %.pre1.i.i309, %.noexc313 ]
-  %310 = phi ptr [ %294, %301 ], [ %.pre.i.i307, %.noexc313 ]
-  %311 = getelementptr inbounds i8, ptr %310, i64 %309
-  %312 = mul nsw i32 %308, %.0237788
-  %313 = add nsw i32 %312, %.0238781
-  %314 = sext i32 %313 to i64
-  %315 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %311, i64 %314, i32 5
-  %316 = load i8, ptr %315, align 1
+_ZN10QByteArray4dataEv.exit.i311:                 ; preds = %.noexc313, %300
+  %307 = phi i32 [ %288, %300 ], [ %.pre.i310, %.noexc313 ]
+  %308 = phi i64 [ 24, %300 ], [ %.pre1.i.i309, %.noexc313 ]
+  %309 = phi ptr [ %293, %300 ], [ %.pre.i.i307, %.noexc313 ]
+  %310 = getelementptr inbounds i8, ptr %309, i64 %308
+  %311 = mul nsw i32 %307, %.0237790
+  %312 = add nsw i32 %311, %.0238781
+  %313 = sext i32 %312 to i64
+  %314 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %310, i64 %313, i32 5
+  %315 = load i8, ptr %314, align 1
   br label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit
 
-_ZN3vcg3tri2io10VertexGrid3RedEii.exit:           ; preds = %_ZN10QByteArray4dataEv.exit.i311, %293, %254
-  %.0.i312 = phi i8 [ %316, %_ZN10QByteArray4dataEv.exit.i311 ], [ 8, %293 ], [ 8, %254 ]
-  %317 = getelementptr inbounds i8, ptr %227, i64 40
-  store i8 %.0.i312, ptr %317, align 1
-  %318 = load i32, ptr %1, align 8
-  %319 = icmp slt i32 %318, %.0238781
-  %320 = load i32, ptr %17, align 4
-  %321 = icmp slt i32 %320, %.0237788
-  %or.cond.i314 = select i1 %319, i1 true, i1 %321
-  br i1 %or.cond.i314, label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit, label %322
+_ZN3vcg3tri2io10VertexGrid3RedEii.exit:           ; preds = %_ZN10QByteArray4dataEv.exit.i311, %292, %253
+  %.0.i312 = phi i8 [ %315, %_ZN10QByteArray4dataEv.exit.i311 ], [ 8, %292 ], [ 8, %253 ]
+  %316 = getelementptr inbounds i8, ptr %226, i64 40
+  store i8 %.0.i312, ptr %316, align 1
+  %317 = load i32, ptr %1, align 8
+  %318 = icmp slt i32 %317, %.0238781
+  %319 = load i32, ptr %17, align 4
+  %320 = icmp slt i32 %319, %.0237790
+  %or.cond.i314 = select i1 %318, i1 true, i1 %320
+  br i1 %or.cond.i314, label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit, label %321
 
-322:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid3RedEii.exit
-  %323 = load ptr, ptr %18, align 8
-  %324 = getelementptr inbounds i8, ptr %323, i64 4
-  %325 = load i32, ptr %324, align 4
-  %326 = icmp sgt i32 %240, %325
-  br i1 %326, label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit, label %327
+321:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid3RedEii.exit
+  %322 = load ptr, ptr %18, align 8
+  %323 = getelementptr inbounds i8, ptr %322, i64 4
+  %324 = load i32, ptr %323, align 4
+  %325 = icmp sgt i32 %239, %324
+  br i1 %325, label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit, label %326
 
-327:                                              ; preds = %322
-  %328 = load atomic i32, ptr %323 monotonic, align 4
-  %329 = icmp ugt i32 %328, 1
-  br i1 %329, label %333, label %330
+326:                                              ; preds = %321
+  %327 = load atomic i32, ptr %322 monotonic, align 4
+  %328 = icmp ugt i32 %327, 1
+  br i1 %328, label %332, label %329
 
-330:                                              ; preds = %327
-  %331 = getelementptr inbounds i8, ptr %323, i64 16
-  %332 = load i64, ptr %331, align 8
-  %.not.i.i.i315 = icmp eq i64 %332, 24
-  br i1 %.not.i.i.i315, label %_ZN10QByteArray4dataEv.exit.i321, label %333
+329:                                              ; preds = %326
+  %330 = getelementptr inbounds i8, ptr %322, i64 16
+  %331 = load i64, ptr %330, align 8
+  %.not.i.i.i315 = icmp eq i64 %331, 24
+  br i1 %.not.i.i.i315, label %_ZN10QByteArray4dataEv.exit.i321, label %332
 
-333:                                              ; preds = %330, %327
-  %334 = add i32 %325, 1
-  %335 = getelementptr inbounds i8, ptr %323, i64 8
-  %336 = load i32, ptr %335, align 8
-  %.lobit.i.i.i.i316 = lshr i32 %336, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %334, i32 %.lobit.i.i.i.i316)
+332:                                              ; preds = %329, %326
+  %333 = add i32 %324, 1
+  %334 = getelementptr inbounds i8, ptr %322, i64 8
+  %335 = load i32, ptr %334, align 8
+  %.lobit.i.i.i.i316 = lshr i32 %335, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %333, i32 %.lobit.i.i.i.i316)
           to label %.noexc323 unwind label %.loopexit
 
-.noexc323:                                        ; preds = %333
+.noexc323:                                        ; preds = %332
   %.pre.i.i317 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i318 = getelementptr inbounds i8, ptr %.pre.i.i317, i64 16
   %.pre1.i.i319 = load i64, ptr %.phi.trans.insert.i.i318, align 8
   %.pre.i320 = load i32, ptr %1, align 8
   br label %_ZN10QByteArray4dataEv.exit.i321
 
-_ZN10QByteArray4dataEv.exit.i321:                 ; preds = %.noexc323, %330
-  %337 = phi i32 [ %318, %330 ], [ %.pre.i320, %.noexc323 ]
-  %338 = phi i64 [ 24, %330 ], [ %.pre1.i.i319, %.noexc323 ]
-  %339 = phi ptr [ %323, %330 ], [ %.pre.i.i317, %.noexc323 ]
-  %340 = getelementptr inbounds i8, ptr %339, i64 %338
-  %341 = mul nsw i32 %337, %.0237788
-  %342 = add nsw i32 %341, %.0238781
-  %343 = sext i32 %342 to i64
-  %344 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %340, i64 %343, i32 6
-  %345 = load i8, ptr %344, align 2
+_ZN10QByteArray4dataEv.exit.i321:                 ; preds = %.noexc323, %329
+  %336 = phi i32 [ %317, %329 ], [ %.pre.i320, %.noexc323 ]
+  %337 = phi i64 [ 24, %329 ], [ %.pre1.i.i319, %.noexc323 ]
+  %338 = phi ptr [ %322, %329 ], [ %.pre.i.i317, %.noexc323 ]
+  %339 = getelementptr inbounds i8, ptr %338, i64 %337
+  %340 = mul nsw i32 %336, %.0237790
+  %341 = add nsw i32 %340, %.0238781
+  %342 = sext i32 %341 to i64
+  %343 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %339, i64 %342, i32 6
+  %344 = load i8, ptr %343, align 2
   br label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit
 
-_ZN3vcg3tri2io10VertexGrid5GreenEii.exit:         ; preds = %_ZN10QByteArray4dataEv.exit.i321, %322, %_ZN3vcg3tri2io10VertexGrid3RedEii.exit
-  %.0.i322 = phi i8 [ %345, %_ZN10QByteArray4dataEv.exit.i321 ], [ 9, %322 ], [ 9, %_ZN3vcg3tri2io10VertexGrid3RedEii.exit ]
-  %346 = getelementptr inbounds i8, ptr %227, i64 41
-  store i8 %.0.i322, ptr %346, align 1
-  %347 = load i32, ptr %1, align 8
-  %348 = icmp slt i32 %347, %.0238781
-  %349 = load i32, ptr %17, align 4
-  %350 = icmp slt i32 %349, %.0237788
-  %or.cond.i324 = select i1 %348, i1 true, i1 %350
-  br i1 %or.cond.i324, label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit, label %351
+_ZN3vcg3tri2io10VertexGrid5GreenEii.exit:         ; preds = %_ZN10QByteArray4dataEv.exit.i321, %321, %_ZN3vcg3tri2io10VertexGrid3RedEii.exit
+  %.0.i322 = phi i8 [ %344, %_ZN10QByteArray4dataEv.exit.i321 ], [ 9, %321 ], [ 9, %_ZN3vcg3tri2io10VertexGrid3RedEii.exit ]
+  %345 = getelementptr inbounds i8, ptr %226, i64 41
+  store i8 %.0.i322, ptr %345, align 1
+  %346 = load i32, ptr %1, align 8
+  %347 = icmp slt i32 %346, %.0238781
+  %348 = load i32, ptr %17, align 4
+  %349 = icmp slt i32 %348, %.0237790
+  %or.cond.i324 = select i1 %347, i1 true, i1 %349
+  br i1 %or.cond.i324, label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit, label %350
 
-351:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit
-  %352 = load ptr, ptr %18, align 8
-  %353 = getelementptr inbounds i8, ptr %352, i64 4
-  %354 = load i32, ptr %353, align 4
-  %355 = icmp sgt i32 %240, %354
-  br i1 %355, label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit, label %356
+350:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit
+  %351 = load ptr, ptr %18, align 8
+  %352 = getelementptr inbounds i8, ptr %351, i64 4
+  %353 = load i32, ptr %352, align 4
+  %354 = icmp sgt i32 %239, %353
+  br i1 %354, label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit, label %355
 
-356:                                              ; preds = %351
-  %357 = load atomic i32, ptr %352 monotonic, align 4
-  %358 = icmp ugt i32 %357, 1
-  br i1 %358, label %362, label %359
+355:                                              ; preds = %350
+  %356 = load atomic i32, ptr %351 monotonic, align 4
+  %357 = icmp ugt i32 %356, 1
+  br i1 %357, label %361, label %358
 
-359:                                              ; preds = %356
-  %360 = getelementptr inbounds i8, ptr %352, i64 16
-  %361 = load i64, ptr %360, align 8
-  %.not.i.i.i325 = icmp eq i64 %361, 24
-  br i1 %.not.i.i.i325, label %_ZN10QByteArray4dataEv.exit.i331, label %362
+358:                                              ; preds = %355
+  %359 = getelementptr inbounds i8, ptr %351, i64 16
+  %360 = load i64, ptr %359, align 8
+  %.not.i.i.i325 = icmp eq i64 %360, 24
+  br i1 %.not.i.i.i325, label %_ZN10QByteArray4dataEv.exit.i331, label %361
 
-362:                                              ; preds = %359, %356
-  %363 = add i32 %354, 1
-  %364 = getelementptr inbounds i8, ptr %352, i64 8
-  %365 = load i32, ptr %364, align 8
-  %.lobit.i.i.i.i326 = lshr i32 %365, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %363, i32 %.lobit.i.i.i.i326)
+361:                                              ; preds = %358, %355
+  %362 = add i32 %353, 1
+  %363 = getelementptr inbounds i8, ptr %351, i64 8
+  %364 = load i32, ptr %363, align 8
+  %.lobit.i.i.i.i326 = lshr i32 %364, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %362, i32 %.lobit.i.i.i.i326)
           to label %.noexc333 unwind label %.loopexit
 
-.noexc333:                                        ; preds = %362
+.noexc333:                                        ; preds = %361
   %.pre.i.i327 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i328 = getelementptr inbounds i8, ptr %.pre.i.i327, i64 16
   %.pre1.i.i329 = load i64, ptr %.phi.trans.insert.i.i328, align 8
   %.pre.i330 = load i32, ptr %1, align 8
   br label %_ZN10QByteArray4dataEv.exit.i331
 
-_ZN10QByteArray4dataEv.exit.i331:                 ; preds = %.noexc333, %359
-  %366 = phi i32 [ %347, %359 ], [ %.pre.i330, %.noexc333 ]
-  %367 = phi i64 [ 24, %359 ], [ %.pre1.i.i329, %.noexc333 ]
-  %368 = phi ptr [ %352, %359 ], [ %.pre.i.i327, %.noexc333 ]
-  %369 = getelementptr inbounds i8, ptr %368, i64 %367
-  %370 = mul nsw i32 %366, %.0237788
-  %371 = add nsw i32 %370, %.0238781
-  %372 = sext i32 %371 to i64
-  %373 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %369, i64 %372, i32 7
-  %374 = load i8, ptr %373, align 1
+_ZN10QByteArray4dataEv.exit.i331:                 ; preds = %.noexc333, %358
+  %365 = phi i32 [ %346, %358 ], [ %.pre.i330, %.noexc333 ]
+  %366 = phi i64 [ 24, %358 ], [ %.pre1.i.i329, %.noexc333 ]
+  %367 = phi ptr [ %351, %358 ], [ %.pre.i.i327, %.noexc333 ]
+  %368 = getelementptr inbounds i8, ptr %367, i64 %366
+  %369 = mul nsw i32 %365, %.0237790
+  %370 = add nsw i32 %369, %.0238781
+  %371 = sext i32 %370 to i64
+  %372 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %368, i64 %371, i32 7
+  %373 = load i8, ptr %372, align 1
   br label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit
 
-_ZN3vcg3tri2io10VertexGrid4BlueEii.exit:          ; preds = %_ZN10QByteArray4dataEv.exit.i331, %351, %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit
-  %.0.i332 = phi i8 [ %374, %_ZN10QByteArray4dataEv.exit.i331 ], [ 10, %351 ], [ 10, %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit ]
-  %375 = getelementptr inbounds i8, ptr %227, i64 42
-  store i8 %.0.i332, ptr %375, align 1
-  %376 = getelementptr inbounds i8, ptr %227, i64 43
-  store i8 -1, ptr %376, align 1
-  %377 = load i32, ptr %1, align 8
-  %378 = icmp slt i32 %377, %.0238781
-  %379 = load i32, ptr %17, align 4
-  %380 = icmp slt i32 %379, %.0237788
-  %or.cond.i334 = select i1 %378, i1 true, i1 %380
-  br i1 %or.cond.i334, label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit, label %381
+_ZN3vcg3tri2io10VertexGrid4BlueEii.exit:          ; preds = %_ZN10QByteArray4dataEv.exit.i331, %350, %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit
+  %.0.i332 = phi i8 [ %373, %_ZN10QByteArray4dataEv.exit.i331 ], [ 10, %350 ], [ 10, %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit ]
+  %374 = getelementptr inbounds i8, ptr %226, i64 42
+  store i8 %.0.i332, ptr %374, align 1
+  %375 = getelementptr inbounds i8, ptr %226, i64 43
+  store i8 -1, ptr %375, align 1
+  %376 = load i32, ptr %1, align 8
+  %377 = icmp slt i32 %376, %.0238781
+  %378 = load i32, ptr %17, align 4
+  %379 = icmp slt i32 %378, %.0237790
+  %or.cond.i334 = select i1 %377, i1 true, i1 %379
+  br i1 %or.cond.i334, label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit, label %380
 
-381:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit
-  %382 = load ptr, ptr %18, align 8
-  %383 = getelementptr inbounds i8, ptr %382, i64 4
-  %384 = load i32, ptr %383, align 4
-  %385 = icmp sgt i32 %240, %384
-  br i1 %385, label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit, label %386
+380:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit
+  %381 = load ptr, ptr %18, align 8
+  %382 = getelementptr inbounds i8, ptr %381, i64 4
+  %383 = load i32, ptr %382, align 4
+  %384 = icmp sgt i32 %239, %383
+  br i1 %384, label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit, label %385
 
-386:                                              ; preds = %381
-  %387 = load atomic i32, ptr %382 monotonic, align 4
-  %388 = icmp ugt i32 %387, 1
-  br i1 %388, label %392, label %389
+385:                                              ; preds = %380
+  %386 = load atomic i32, ptr %381 monotonic, align 4
+  %387 = icmp ugt i32 %386, 1
+  br i1 %387, label %391, label %388
 
-389:                                              ; preds = %386
-  %390 = getelementptr inbounds i8, ptr %382, i64 16
-  %391 = load i64, ptr %390, align 8
-  %.not.i.i.i335 = icmp eq i64 %391, 24
-  br i1 %.not.i.i.i335, label %_ZN10QByteArray4dataEv.exit.i341, label %392
+388:                                              ; preds = %385
+  %389 = getelementptr inbounds i8, ptr %381, i64 16
+  %390 = load i64, ptr %389, align 8
+  %.not.i.i.i335 = icmp eq i64 %390, 24
+  br i1 %.not.i.i.i335, label %_ZN10QByteArray4dataEv.exit.i341, label %391
 
-392:                                              ; preds = %389, %386
-  %393 = add i32 %384, 1
-  %394 = getelementptr inbounds i8, ptr %382, i64 8
-  %395 = load i32, ptr %394, align 8
-  %.lobit.i.i.i.i336 = lshr i32 %395, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %393, i32 %.lobit.i.i.i.i336)
+391:                                              ; preds = %388, %385
+  %392 = add i32 %383, 1
+  %393 = getelementptr inbounds i8, ptr %381, i64 8
+  %394 = load i32, ptr %393, align 8
+  %.lobit.i.i.i.i336 = lshr i32 %394, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %392, i32 %.lobit.i.i.i.i336)
           to label %.noexc343 unwind label %.loopexit
 
-.noexc343:                                        ; preds = %392
+.noexc343:                                        ; preds = %391
   %.pre.i.i337 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i338 = getelementptr inbounds i8, ptr %.pre.i.i337, i64 16
   %.pre1.i.i339 = load i64, ptr %.phi.trans.insert.i.i338, align 8
   %.pre.i340 = load i32, ptr %1, align 8
   br label %_ZN10QByteArray4dataEv.exit.i341
 
-_ZN10QByteArray4dataEv.exit.i341:                 ; preds = %.noexc343, %389
-  %396 = phi i32 [ %377, %389 ], [ %.pre.i340, %.noexc343 ]
-  %397 = phi i64 [ 24, %389 ], [ %.pre1.i.i339, %.noexc343 ]
-  %398 = phi ptr [ %382, %389 ], [ %.pre.i.i337, %.noexc343 ]
-  %399 = getelementptr inbounds i8, ptr %398, i64 %397
-  %400 = mul nsw i32 %396, %.0237788
-  %401 = add nsw i32 %400, %.0238781
-  %402 = sext i32 %401 to i64
-  %403 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %399, i64 %402, i32 4
-  %404 = load i8, ptr %403, align 4
+_ZN10QByteArray4dataEv.exit.i341:                 ; preds = %.noexc343, %388
+  %395 = phi i32 [ %376, %388 ], [ %.pre.i340, %.noexc343 ]
+  %396 = phi i64 [ 24, %388 ], [ %.pre1.i.i339, %.noexc343 ]
+  %397 = phi ptr [ %381, %388 ], [ %.pre.i.i337, %.noexc343 ]
+  %398 = getelementptr inbounds i8, ptr %397, i64 %396
+  %399 = mul nsw i32 %395, %.0237790
+  %400 = add nsw i32 %399, %.0238781
+  %401 = sext i32 %400 to i64
+  %402 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %398, i64 %401, i32 4
+  %403 = load i8, ptr %402, align 4
   br label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit
 
-_ZN3vcg3tri2io10VertexGrid7QualityEii.exit:       ; preds = %_ZN10QByteArray4dataEv.exit.i341, %381, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit
-  %.0.i342 = phi i8 [ %404, %_ZN10QByteArray4dataEv.exit.i341 ], [ 11, %381 ], [ 11, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit ]
-  %405 = uitofp i8 %.0.i342 to float
-  %406 = getelementptr inbounds i8, ptr %227, i64 36
-  store float %405, ptr %406, align 4
-  %407 = getelementptr inbounds i8, ptr %218, i64 8
-  store ptr %227, ptr %407, align 8
-  %408 = getelementptr inbounds i8, ptr %227, i64 48
-  %409 = load i32, ptr %1, align 8
-  %410 = icmp sgt i32 %409, %.0238781
-  %411 = load i32, ptr %17, align 4
-  %412 = icmp sge i32 %411, %127
-  call void @llvm.assume(i1 %410)
-  call void @llvm.assume(i1 %412)
-  %413 = mul i32 %163, 20
-  %414 = mul i32 %413, %127
-  %415 = load ptr, ptr %18, align 8
-  %416 = getelementptr inbounds i8, ptr %415, i64 4
-  %417 = load i32, ptr %416, align 4
-  %418 = icmp sle i32 %414, %417
-  call void @llvm.assume(i1 %418)
-  %419 = load atomic i32, ptr %415 monotonic, align 4
-  %420 = icmp ugt i32 %419, 1
-  br i1 %420, label %424, label %421
+_ZN3vcg3tri2io10VertexGrid7QualityEii.exit:       ; preds = %_ZN10QByteArray4dataEv.exit.i341, %380, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit
+  %.0.i342 = phi i8 [ %403, %_ZN10QByteArray4dataEv.exit.i341 ], [ 11, %380 ], [ 11, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit ]
+  %404 = uitofp i8 %.0.i342 to float
+  %405 = getelementptr inbounds i8, ptr %226, i64 36
+  store float %404, ptr %405, align 4
+  %406 = getelementptr inbounds i8, ptr %217, i64 8
+  store ptr %226, ptr %406, align 8
+  %407 = getelementptr inbounds i8, ptr %226, i64 48
+  %408 = load i32, ptr %1, align 8
+  %409 = icmp sgt i32 %408, %.0238781
+  %410 = load i32, ptr %17, align 4
+  %411 = icmp sge i32 %410, %127
+  call void @llvm.assume(i1 %409)
+  call void @llvm.assume(i1 %411)
+  %412 = mul i32 %162, 20
+  %413 = mul i32 %412, %127
+  %414 = load ptr, ptr %18, align 8
+  %415 = getelementptr inbounds i8, ptr %414, i64 4
+  %416 = load i32, ptr %415, align 4
+  %417 = icmp sle i32 %413, %416
+  call void @llvm.assume(i1 %417)
+  %418 = load atomic i32, ptr %414 monotonic, align 4
+  %419 = icmp ugt i32 %418, 1
+  br i1 %419, label %423, label %420
 
-421:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit
-  %422 = getelementptr inbounds i8, ptr %415, i64 16
-  %423 = load i64, ptr %422, align 8
-  %.not.i.i.i344 = icmp eq i64 %423, 24
-  br i1 %.not.i.i.i344, label %428, label %424
+420:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit
+  %421 = getelementptr inbounds i8, ptr %414, i64 16
+  %422 = load i64, ptr %421, align 8
+  %.not.i.i.i344 = icmp eq i64 %422, 24
+  br i1 %.not.i.i.i344, label %427, label %423
 
-424:                                              ; preds = %421, %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit
-  %425 = add i32 %417, 1
-  %426 = getelementptr inbounds i8, ptr %415, i64 8
-  %427 = load i32, ptr %426, align 8
-  %.lobit.i.i.i.i345 = lshr i32 %427, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %425, i32 %.lobit.i.i.i.i345)
+423:                                              ; preds = %420, %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit
+  %424 = add i32 %416, 1
+  %425 = getelementptr inbounds i8, ptr %414, i64 8
+  %426 = load i32, ptr %425, align 8
+  %.lobit.i.i.i.i345 = lshr i32 %426, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %424, i32 %.lobit.i.i.i.i345)
           to label %.noexc355 unwind label %.loopexit
 
-.noexc355:                                        ; preds = %424
+.noexc355:                                        ; preds = %423
   %.pre.i.i346 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i347 = getelementptr inbounds i8, ptr %.pre.i.i346, i64 16
   %.pre1.i.i348 = load i64, ptr %.phi.trans.insert.i.i347, align 8
   %.pre.i349 = load i32, ptr %1, align 8
-  br label %428
+  br label %427
 
-428:                                              ; preds = %.noexc355, %421
-  %429 = phi i32 [ %409, %421 ], [ %.pre.i349, %.noexc355 ]
-  %430 = phi i64 [ 24, %421 ], [ %.pre1.i.i348, %.noexc355 ]
-  %431 = phi ptr [ %415, %421 ], [ %.pre.i.i346, %.noexc355 ]
-  %432 = getelementptr inbounds i8, ptr %431, i64 %430
-  %433 = mul nsw i32 %429, %127
-  %434 = add nsw i32 %433, %163
-  %435 = sext i32 %434 to i64
-  %436 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %432, i64 %435
-  %437 = getelementptr inbounds i8, ptr %436, i64 4
-  %438 = getelementptr inbounds i8, ptr %436, i64 12
-  %439 = load float, ptr %438, align 4
-  %440 = uitofp nneg i32 %163 to float
-  %441 = load ptr, ptr %408, align 8
-  %442 = getelementptr inbounds i8, ptr %441, i64 192
-  %443 = load ptr, ptr %441, align 8
-  %444 = ptrtoint ptr %408 to i64
-  %445 = ptrtoint ptr %443 to i64
-  %446 = sub i64 %444, %445
-  %447 = sdiv exact i64 %446, 48
-  %sext.i357 = shl i64 %447, 32
-  %448 = ashr exact i64 %sext.i357, 32
-  %449 = load ptr, ptr %442, align 8
-  %450 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %449, i64 %448
-  %451 = getelementptr inbounds i8, ptr %227, i64 56
-  %452 = load <2 x float>, ptr %437, align 4
-  store float %440, ptr %450, align 4
-  %453 = load ptr, ptr %408, align 8
-  %454 = getelementptr inbounds i8, ptr %453, i64 192
-  %455 = load ptr, ptr %453, align 8
-  %456 = ptrtoint ptr %455 to i64
-  %457 = sub i64 %444, %456
-  %458 = sdiv exact i64 %457, 48
-  %sext.i358 = shl i64 %458, 32
-  %459 = ashr exact i64 %sext.i358, 32
-  %460 = load ptr, ptr %454, align 8
-  %461 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %460, i64 %459, i32 0, i64 0, i32 0, i64 1
-  store float %128, ptr %461, align 4
-  store <2 x float> %452, ptr %451, align 4
-  %462 = getelementptr inbounds i8, ptr %227, i64 64
-  store float %439, ptr %462, align 4
-  %463 = load i32, ptr %1, align 8
-  %464 = icmp sle i32 %463, %.0238781
-  %465 = load i32, ptr %17, align 4
-  %466 = icmp slt i32 %465, %127
-  %or.cond.i359 = select i1 %464, i1 true, i1 %466
-  br i1 %or.cond.i359, label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit369, label %467
+427:                                              ; preds = %.noexc355, %420
+  %428 = phi i32 [ %408, %420 ], [ %.pre.i349, %.noexc355 ]
+  %429 = phi i64 [ 24, %420 ], [ %.pre1.i.i348, %.noexc355 ]
+  %430 = phi ptr [ %414, %420 ], [ %.pre.i.i346, %.noexc355 ]
+  %431 = getelementptr inbounds i8, ptr %430, i64 %429
+  %432 = mul nsw i32 %428, %127
+  %433 = add nsw i32 %432, %162
+  %434 = sext i32 %433 to i64
+  %435 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %431, i64 %434
+  %436 = getelementptr inbounds i8, ptr %435, i64 4
+  %437 = getelementptr inbounds i8, ptr %435, i64 12
+  %438 = load float, ptr %437, align 4
+  %439 = uitofp nneg i32 %162 to float
+  %440 = load ptr, ptr %407, align 8
+  %441 = getelementptr inbounds i8, ptr %440, i64 192
+  %442 = load ptr, ptr %440, align 8
+  %443 = ptrtoint ptr %407 to i64
+  %444 = ptrtoint ptr %442 to i64
+  %445 = sub i64 %443, %444
+  %446 = sdiv exact i64 %445, 48
+  %sext.i357 = shl i64 %446, 32
+  %447 = ashr exact i64 %sext.i357, 32
+  %448 = load ptr, ptr %441, align 8
+  %449 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %448, i64 %447
+  %450 = getelementptr inbounds i8, ptr %226, i64 56
+  %451 = load <2 x float>, ptr %436, align 4
+  store float %439, ptr %449, align 4
+  %452 = load ptr, ptr %407, align 8
+  %453 = getelementptr inbounds i8, ptr %452, i64 192
+  %454 = load ptr, ptr %452, align 8
+  %455 = ptrtoint ptr %454 to i64
+  %456 = sub i64 %443, %455
+  %457 = sdiv exact i64 %456, 48
+  %sext.i358 = shl i64 %457, 32
+  %458 = ashr exact i64 %sext.i358, 32
+  %459 = load ptr, ptr %453, align 8
+  %460 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %459, i64 %458, i32 0, i64 0, i32 0, i64 1
+  store float %128, ptr %460, align 4
+  store <2 x float> %451, ptr %450, align 4
+  %461 = getelementptr inbounds i8, ptr %226, i64 64
+  store float %438, ptr %461, align 4
+  %462 = load i32, ptr %1, align 8
+  %463 = icmp sle i32 %462, %.0238781
+  %464 = load i32, ptr %17, align 4
+  %465 = icmp slt i32 %464, %127
+  %or.cond.i359 = select i1 %463, i1 true, i1 %465
+  br i1 %or.cond.i359, label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit369, label %466
 
-467:                                              ; preds = %428
-  %468 = load ptr, ptr %18, align 8
-  %469 = getelementptr inbounds i8, ptr %468, i64 4
-  %470 = load i32, ptr %469, align 4
-  %471 = icmp sgt i32 %414, %470
-  br i1 %471, label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit369, label %472
+466:                                              ; preds = %427
+  %467 = load ptr, ptr %18, align 8
+  %468 = getelementptr inbounds i8, ptr %467, i64 4
+  %469 = load i32, ptr %468, align 4
+  %470 = icmp sgt i32 %413, %469
+  br i1 %470, label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit369, label %471
 
-472:                                              ; preds = %467
-  %473 = load atomic i32, ptr %468 monotonic, align 4
-  %474 = icmp ugt i32 %473, 1
-  br i1 %474, label %478, label %475
+471:                                              ; preds = %466
+  %472 = load atomic i32, ptr %467 monotonic, align 4
+  %473 = icmp ugt i32 %472, 1
+  br i1 %473, label %477, label %474
 
-475:                                              ; preds = %472
-  %476 = getelementptr inbounds i8, ptr %468, i64 16
-  %477 = load i64, ptr %476, align 8
-  %.not.i.i.i360 = icmp eq i64 %477, 24
-  br i1 %.not.i.i.i360, label %_ZN10QByteArray4dataEv.exit.i366, label %478
+474:                                              ; preds = %471
+  %475 = getelementptr inbounds i8, ptr %467, i64 16
+  %476 = load i64, ptr %475, align 8
+  %.not.i.i.i360 = icmp eq i64 %476, 24
+  br i1 %.not.i.i.i360, label %_ZN10QByteArray4dataEv.exit.i366, label %477
 
-478:                                              ; preds = %475, %472
-  %479 = add i32 %470, 1
-  %480 = getelementptr inbounds i8, ptr %468, i64 8
-  %481 = load i32, ptr %480, align 8
-  %.lobit.i.i.i.i361 = lshr i32 %481, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %479, i32 %.lobit.i.i.i.i361)
+477:                                              ; preds = %474, %471
+  %478 = add i32 %469, 1
+  %479 = getelementptr inbounds i8, ptr %467, i64 8
+  %480 = load i32, ptr %479, align 8
+  %.lobit.i.i.i.i361 = lshr i32 %480, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %478, i32 %.lobit.i.i.i.i361)
           to label %.noexc368 unwind label %.loopexit
 
-.noexc368:                                        ; preds = %478
+.noexc368:                                        ; preds = %477
   %.pre.i.i362 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i363 = getelementptr inbounds i8, ptr %.pre.i.i362, i64 16
   %.pre1.i.i364 = load i64, ptr %.phi.trans.insert.i.i363, align 8
   %.pre.i365 = load i32, ptr %1, align 8
   br label %_ZN10QByteArray4dataEv.exit.i366
 
-_ZN10QByteArray4dataEv.exit.i366:                 ; preds = %.noexc368, %475
-  %482 = phi i32 [ %463, %475 ], [ %.pre.i365, %.noexc368 ]
-  %483 = phi i64 [ 24, %475 ], [ %.pre1.i.i364, %.noexc368 ]
-  %484 = phi ptr [ %468, %475 ], [ %.pre.i.i362, %.noexc368 ]
-  %485 = getelementptr inbounds i8, ptr %484, i64 %483
-  %486 = mul nsw i32 %482, %127
-  %487 = add nsw i32 %486, %163
-  %488 = sext i32 %487 to i64
-  %489 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %485, i64 %488, i32 5
-  %490 = load i8, ptr %489, align 1
+_ZN10QByteArray4dataEv.exit.i366:                 ; preds = %.noexc368, %474
+  %481 = phi i32 [ %462, %474 ], [ %.pre.i365, %.noexc368 ]
+  %482 = phi i64 [ 24, %474 ], [ %.pre1.i.i364, %.noexc368 ]
+  %483 = phi ptr [ %467, %474 ], [ %.pre.i.i362, %.noexc368 ]
+  %484 = getelementptr inbounds i8, ptr %483, i64 %482
+  %485 = mul nsw i32 %481, %127
+  %486 = add nsw i32 %485, %162
+  %487 = sext i32 %486 to i64
+  %488 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %484, i64 %487, i32 5
+  %489 = load i8, ptr %488, align 1
   br label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit369
 
-_ZN3vcg3tri2io10VertexGrid3RedEii.exit369:        ; preds = %_ZN10QByteArray4dataEv.exit.i366, %467, %428
-  %.0.i367 = phi i8 [ %490, %_ZN10QByteArray4dataEv.exit.i366 ], [ 8, %467 ], [ 8, %428 ]
-  %491 = getelementptr inbounds i8, ptr %227, i64 88
-  store i8 %.0.i367, ptr %491, align 1
-  %492 = load i32, ptr %1, align 8
-  %493 = icmp sle i32 %492, %.0238781
-  %494 = load i32, ptr %17, align 4
-  %495 = icmp slt i32 %494, %127
-  %or.cond.i370 = select i1 %493, i1 true, i1 %495
-  br i1 %or.cond.i370, label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit380, label %496
+_ZN3vcg3tri2io10VertexGrid3RedEii.exit369:        ; preds = %_ZN10QByteArray4dataEv.exit.i366, %466, %427
+  %.0.i367 = phi i8 [ %489, %_ZN10QByteArray4dataEv.exit.i366 ], [ 8, %466 ], [ 8, %427 ]
+  %490 = getelementptr inbounds i8, ptr %226, i64 88
+  store i8 %.0.i367, ptr %490, align 1
+  %491 = load i32, ptr %1, align 8
+  %492 = icmp sle i32 %491, %.0238781
+  %493 = load i32, ptr %17, align 4
+  %494 = icmp slt i32 %493, %127
+  %or.cond.i370 = select i1 %492, i1 true, i1 %494
+  br i1 %or.cond.i370, label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit380, label %495
 
-496:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid3RedEii.exit369
-  %497 = load ptr, ptr %18, align 8
-  %498 = getelementptr inbounds i8, ptr %497, i64 4
-  %499 = load i32, ptr %498, align 4
-  %500 = icmp sgt i32 %414, %499
-  br i1 %500, label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit380, label %501
+495:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid3RedEii.exit369
+  %496 = load ptr, ptr %18, align 8
+  %497 = getelementptr inbounds i8, ptr %496, i64 4
+  %498 = load i32, ptr %497, align 4
+  %499 = icmp sgt i32 %413, %498
+  br i1 %499, label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit380, label %500
 
-501:                                              ; preds = %496
-  %502 = load atomic i32, ptr %497 monotonic, align 4
-  %503 = icmp ugt i32 %502, 1
-  br i1 %503, label %507, label %504
+500:                                              ; preds = %495
+  %501 = load atomic i32, ptr %496 monotonic, align 4
+  %502 = icmp ugt i32 %501, 1
+  br i1 %502, label %506, label %503
 
-504:                                              ; preds = %501
-  %505 = getelementptr inbounds i8, ptr %497, i64 16
-  %506 = load i64, ptr %505, align 8
-  %.not.i.i.i371 = icmp eq i64 %506, 24
-  br i1 %.not.i.i.i371, label %_ZN10QByteArray4dataEv.exit.i377, label %507
+503:                                              ; preds = %500
+  %504 = getelementptr inbounds i8, ptr %496, i64 16
+  %505 = load i64, ptr %504, align 8
+  %.not.i.i.i371 = icmp eq i64 %505, 24
+  br i1 %.not.i.i.i371, label %_ZN10QByteArray4dataEv.exit.i377, label %506
 
-507:                                              ; preds = %504, %501
-  %508 = add i32 %499, 1
-  %509 = getelementptr inbounds i8, ptr %497, i64 8
-  %510 = load i32, ptr %509, align 8
-  %.lobit.i.i.i.i372 = lshr i32 %510, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %508, i32 %.lobit.i.i.i.i372)
+506:                                              ; preds = %503, %500
+  %507 = add i32 %498, 1
+  %508 = getelementptr inbounds i8, ptr %496, i64 8
+  %509 = load i32, ptr %508, align 8
+  %.lobit.i.i.i.i372 = lshr i32 %509, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %507, i32 %.lobit.i.i.i.i372)
           to label %.noexc379 unwind label %.loopexit
 
-.noexc379:                                        ; preds = %507
+.noexc379:                                        ; preds = %506
   %.pre.i.i373 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i374 = getelementptr inbounds i8, ptr %.pre.i.i373, i64 16
   %.pre1.i.i375 = load i64, ptr %.phi.trans.insert.i.i374, align 8
   %.pre.i376 = load i32, ptr %1, align 8
   br label %_ZN10QByteArray4dataEv.exit.i377
 
-_ZN10QByteArray4dataEv.exit.i377:                 ; preds = %.noexc379, %504
-  %511 = phi i32 [ %492, %504 ], [ %.pre.i376, %.noexc379 ]
-  %512 = phi i64 [ 24, %504 ], [ %.pre1.i.i375, %.noexc379 ]
-  %513 = phi ptr [ %497, %504 ], [ %.pre.i.i373, %.noexc379 ]
-  %514 = getelementptr inbounds i8, ptr %513, i64 %512
-  %515 = mul nsw i32 %511, %127
-  %516 = add nsw i32 %515, %163
-  %517 = sext i32 %516 to i64
-  %518 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %514, i64 %517, i32 6
-  %519 = load i8, ptr %518, align 2
+_ZN10QByteArray4dataEv.exit.i377:                 ; preds = %.noexc379, %503
+  %510 = phi i32 [ %491, %503 ], [ %.pre.i376, %.noexc379 ]
+  %511 = phi i64 [ 24, %503 ], [ %.pre1.i.i375, %.noexc379 ]
+  %512 = phi ptr [ %496, %503 ], [ %.pre.i.i373, %.noexc379 ]
+  %513 = getelementptr inbounds i8, ptr %512, i64 %511
+  %514 = mul nsw i32 %510, %127
+  %515 = add nsw i32 %514, %162
+  %516 = sext i32 %515 to i64
+  %517 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %513, i64 %516, i32 6
+  %518 = load i8, ptr %517, align 2
   br label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit380
 
-_ZN3vcg3tri2io10VertexGrid5GreenEii.exit380:      ; preds = %_ZN10QByteArray4dataEv.exit.i377, %496, %_ZN3vcg3tri2io10VertexGrid3RedEii.exit369
-  %.0.i378 = phi i8 [ %519, %_ZN10QByteArray4dataEv.exit.i377 ], [ 9, %496 ], [ 9, %_ZN3vcg3tri2io10VertexGrid3RedEii.exit369 ]
-  %520 = getelementptr inbounds i8, ptr %227, i64 89
-  store i8 %.0.i378, ptr %520, align 1
-  %521 = load i32, ptr %1, align 8
-  %522 = icmp sle i32 %521, %.0238781
-  %523 = load i32, ptr %17, align 4
-  %524 = icmp slt i32 %523, %127
-  %or.cond.i381 = select i1 %522, i1 true, i1 %524
-  br i1 %or.cond.i381, label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit391, label %525
+_ZN3vcg3tri2io10VertexGrid5GreenEii.exit380:      ; preds = %_ZN10QByteArray4dataEv.exit.i377, %495, %_ZN3vcg3tri2io10VertexGrid3RedEii.exit369
+  %.0.i378 = phi i8 [ %518, %_ZN10QByteArray4dataEv.exit.i377 ], [ 9, %495 ], [ 9, %_ZN3vcg3tri2io10VertexGrid3RedEii.exit369 ]
+  %519 = getelementptr inbounds i8, ptr %226, i64 89
+  store i8 %.0.i378, ptr %519, align 1
+  %520 = load i32, ptr %1, align 8
+  %521 = icmp sle i32 %520, %.0238781
+  %522 = load i32, ptr %17, align 4
+  %523 = icmp slt i32 %522, %127
+  %or.cond.i381 = select i1 %521, i1 true, i1 %523
+  br i1 %or.cond.i381, label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit391, label %524
 
-525:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit380
-  %526 = load ptr, ptr %18, align 8
-  %527 = getelementptr inbounds i8, ptr %526, i64 4
-  %528 = load i32, ptr %527, align 4
-  %529 = icmp sgt i32 %414, %528
-  br i1 %529, label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit391, label %530
+524:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit380
+  %525 = load ptr, ptr %18, align 8
+  %526 = getelementptr inbounds i8, ptr %525, i64 4
+  %527 = load i32, ptr %526, align 4
+  %528 = icmp sgt i32 %413, %527
+  br i1 %528, label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit391, label %529
 
-530:                                              ; preds = %525
-  %531 = load atomic i32, ptr %526 monotonic, align 4
-  %532 = icmp ugt i32 %531, 1
-  br i1 %532, label %536, label %533
+529:                                              ; preds = %524
+  %530 = load atomic i32, ptr %525 monotonic, align 4
+  %531 = icmp ugt i32 %530, 1
+  br i1 %531, label %535, label %532
 
-533:                                              ; preds = %530
-  %534 = getelementptr inbounds i8, ptr %526, i64 16
-  %535 = load i64, ptr %534, align 8
-  %.not.i.i.i382 = icmp eq i64 %535, 24
-  br i1 %.not.i.i.i382, label %_ZN10QByteArray4dataEv.exit.i388, label %536
+532:                                              ; preds = %529
+  %533 = getelementptr inbounds i8, ptr %525, i64 16
+  %534 = load i64, ptr %533, align 8
+  %.not.i.i.i382 = icmp eq i64 %534, 24
+  br i1 %.not.i.i.i382, label %_ZN10QByteArray4dataEv.exit.i388, label %535
 
-536:                                              ; preds = %533, %530
-  %537 = add i32 %528, 1
-  %538 = getelementptr inbounds i8, ptr %526, i64 8
-  %539 = load i32, ptr %538, align 8
-  %.lobit.i.i.i.i383 = lshr i32 %539, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %537, i32 %.lobit.i.i.i.i383)
+535:                                              ; preds = %532, %529
+  %536 = add i32 %527, 1
+  %537 = getelementptr inbounds i8, ptr %525, i64 8
+  %538 = load i32, ptr %537, align 8
+  %.lobit.i.i.i.i383 = lshr i32 %538, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %536, i32 %.lobit.i.i.i.i383)
           to label %.noexc390 unwind label %.loopexit
 
-.noexc390:                                        ; preds = %536
+.noexc390:                                        ; preds = %535
   %.pre.i.i384 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i385 = getelementptr inbounds i8, ptr %.pre.i.i384, i64 16
   %.pre1.i.i386 = load i64, ptr %.phi.trans.insert.i.i385, align 8
   %.pre.i387 = load i32, ptr %1, align 8
   br label %_ZN10QByteArray4dataEv.exit.i388
 
-_ZN10QByteArray4dataEv.exit.i388:                 ; preds = %.noexc390, %533
-  %540 = phi i32 [ %521, %533 ], [ %.pre.i387, %.noexc390 ]
-  %541 = phi i64 [ 24, %533 ], [ %.pre1.i.i386, %.noexc390 ]
-  %542 = phi ptr [ %526, %533 ], [ %.pre.i.i384, %.noexc390 ]
-  %543 = getelementptr inbounds i8, ptr %542, i64 %541
-  %544 = mul nsw i32 %540, %127
-  %545 = add nsw i32 %544, %163
-  %546 = sext i32 %545 to i64
-  %547 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %543, i64 %546, i32 7
-  %548 = load i8, ptr %547, align 1
+_ZN10QByteArray4dataEv.exit.i388:                 ; preds = %.noexc390, %532
+  %539 = phi i32 [ %520, %532 ], [ %.pre.i387, %.noexc390 ]
+  %540 = phi i64 [ 24, %532 ], [ %.pre1.i.i386, %.noexc390 ]
+  %541 = phi ptr [ %525, %532 ], [ %.pre.i.i384, %.noexc390 ]
+  %542 = getelementptr inbounds i8, ptr %541, i64 %540
+  %543 = mul nsw i32 %539, %127
+  %544 = add nsw i32 %543, %162
+  %545 = sext i32 %544 to i64
+  %546 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %542, i64 %545, i32 7
+  %547 = load i8, ptr %546, align 1
   br label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit391
 
-_ZN3vcg3tri2io10VertexGrid4BlueEii.exit391:       ; preds = %_ZN10QByteArray4dataEv.exit.i388, %525, %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit380
-  %.0.i389 = phi i8 [ %548, %_ZN10QByteArray4dataEv.exit.i388 ], [ 10, %525 ], [ 10, %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit380 ]
-  %549 = getelementptr inbounds i8, ptr %227, i64 90
-  store i8 %.0.i389, ptr %549, align 1
-  %550 = getelementptr inbounds i8, ptr %227, i64 91
-  store i8 -1, ptr %550, align 1
-  %551 = load i32, ptr %1, align 8
-  %552 = icmp sle i32 %551, %.0238781
-  %553 = load i32, ptr %17, align 4
-  %554 = icmp slt i32 %553, %127
-  %or.cond.i392 = select i1 %552, i1 true, i1 %554
-  br i1 %or.cond.i392, label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit402, label %555
+_ZN3vcg3tri2io10VertexGrid4BlueEii.exit391:       ; preds = %_ZN10QByteArray4dataEv.exit.i388, %524, %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit380
+  %.0.i389 = phi i8 [ %547, %_ZN10QByteArray4dataEv.exit.i388 ], [ 10, %524 ], [ 10, %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit380 ]
+  %548 = getelementptr inbounds i8, ptr %226, i64 90
+  store i8 %.0.i389, ptr %548, align 1
+  %549 = getelementptr inbounds i8, ptr %226, i64 91
+  store i8 -1, ptr %549, align 1
+  %550 = load i32, ptr %1, align 8
+  %551 = icmp sle i32 %550, %.0238781
+  %552 = load i32, ptr %17, align 4
+  %553 = icmp slt i32 %552, %127
+  %or.cond.i392 = select i1 %551, i1 true, i1 %553
+  br i1 %or.cond.i392, label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit402, label %554
 
-555:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit391
-  %556 = load ptr, ptr %18, align 8
-  %557 = getelementptr inbounds i8, ptr %556, i64 4
-  %558 = load i32, ptr %557, align 4
-  %559 = icmp sgt i32 %414, %558
-  br i1 %559, label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit402, label %560
+554:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit391
+  %555 = load ptr, ptr %18, align 8
+  %556 = getelementptr inbounds i8, ptr %555, i64 4
+  %557 = load i32, ptr %556, align 4
+  %558 = icmp sgt i32 %413, %557
+  br i1 %558, label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit402, label %559
 
-560:                                              ; preds = %555
-  %561 = load atomic i32, ptr %556 monotonic, align 4
-  %562 = icmp ugt i32 %561, 1
-  br i1 %562, label %566, label %563
+559:                                              ; preds = %554
+  %560 = load atomic i32, ptr %555 monotonic, align 4
+  %561 = icmp ugt i32 %560, 1
+  br i1 %561, label %565, label %562
 
-563:                                              ; preds = %560
-  %564 = getelementptr inbounds i8, ptr %556, i64 16
-  %565 = load i64, ptr %564, align 8
-  %.not.i.i.i393 = icmp eq i64 %565, 24
-  br i1 %.not.i.i.i393, label %_ZN10QByteArray4dataEv.exit.i399, label %566
+562:                                              ; preds = %559
+  %563 = getelementptr inbounds i8, ptr %555, i64 16
+  %564 = load i64, ptr %563, align 8
+  %.not.i.i.i393 = icmp eq i64 %564, 24
+  br i1 %.not.i.i.i393, label %_ZN10QByteArray4dataEv.exit.i399, label %565
 
-566:                                              ; preds = %563, %560
-  %567 = add i32 %558, 1
-  %568 = getelementptr inbounds i8, ptr %556, i64 8
-  %569 = load i32, ptr %568, align 8
-  %.lobit.i.i.i.i394 = lshr i32 %569, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %567, i32 %.lobit.i.i.i.i394)
+565:                                              ; preds = %562, %559
+  %566 = add i32 %557, 1
+  %567 = getelementptr inbounds i8, ptr %555, i64 8
+  %568 = load i32, ptr %567, align 8
+  %.lobit.i.i.i.i394 = lshr i32 %568, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %566, i32 %.lobit.i.i.i.i394)
           to label %.noexc401 unwind label %.loopexit
 
-.noexc401:                                        ; preds = %566
+.noexc401:                                        ; preds = %565
   %.pre.i.i395 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i396 = getelementptr inbounds i8, ptr %.pre.i.i395, i64 16
   %.pre1.i.i397 = load i64, ptr %.phi.trans.insert.i.i396, align 8
   %.pre.i398 = load i32, ptr %1, align 8
   br label %_ZN10QByteArray4dataEv.exit.i399
 
-_ZN10QByteArray4dataEv.exit.i399:                 ; preds = %.noexc401, %563
-  %570 = phi i32 [ %551, %563 ], [ %.pre.i398, %.noexc401 ]
-  %571 = phi i64 [ 24, %563 ], [ %.pre1.i.i397, %.noexc401 ]
-  %572 = phi ptr [ %556, %563 ], [ %.pre.i.i395, %.noexc401 ]
-  %573 = getelementptr inbounds i8, ptr %572, i64 %571
-  %574 = mul nsw i32 %570, %127
-  %575 = add nsw i32 %574, %163
-  %576 = sext i32 %575 to i64
-  %577 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %573, i64 %576, i32 4
-  %578 = load i8, ptr %577, align 4
+_ZN10QByteArray4dataEv.exit.i399:                 ; preds = %.noexc401, %562
+  %569 = phi i32 [ %550, %562 ], [ %.pre.i398, %.noexc401 ]
+  %570 = phi i64 [ 24, %562 ], [ %.pre1.i.i397, %.noexc401 ]
+  %571 = phi ptr [ %555, %562 ], [ %.pre.i.i395, %.noexc401 ]
+  %572 = getelementptr inbounds i8, ptr %571, i64 %570
+  %573 = mul nsw i32 %569, %127
+  %574 = add nsw i32 %573, %162
+  %575 = sext i32 %574 to i64
+  %576 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %572, i64 %575, i32 4
+  %577 = load i8, ptr %576, align 4
   br label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit402
 
-_ZN3vcg3tri2io10VertexGrid7QualityEii.exit402:    ; preds = %_ZN10QByteArray4dataEv.exit.i399, %555, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit391
-  %.0.i400 = phi i8 [ %578, %_ZN10QByteArray4dataEv.exit.i399 ], [ 11, %555 ], [ 11, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit391 ]
-  %579 = uitofp i8 %.0.i400 to float
-  %580 = getelementptr inbounds i8, ptr %227, i64 84
-  store float %579, ptr %580, align 4
-  %581 = getelementptr inbounds i8, ptr %218, i64 16
-  store ptr %408, ptr %581, align 8
-  %582 = getelementptr inbounds i8, ptr %227, i64 96
-  %583 = load i32, ptr %1, align 8
-  %584 = icmp sgt i32 %583, %.0238781
-  %585 = load i32, ptr %17, align 4
-  %586 = icmp sge i32 %585, %129
-  call void @llvm.assume(i1 %584)
-  call void @llvm.assume(i1 %586)
-  %587 = mul i32 %413, %129
-  %588 = load ptr, ptr %18, align 8
-  %589 = getelementptr inbounds i8, ptr %588, i64 4
-  %590 = load i32, ptr %589, align 4
-  %591 = icmp sle i32 %587, %590
-  call void @llvm.assume(i1 %591)
-  %592 = load atomic i32, ptr %588 monotonic, align 4
-  %593 = icmp ugt i32 %592, 1
-  br i1 %593, label %597, label %594
+_ZN3vcg3tri2io10VertexGrid7QualityEii.exit402:    ; preds = %_ZN10QByteArray4dataEv.exit.i399, %554, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit391
+  %.0.i400 = phi i8 [ %577, %_ZN10QByteArray4dataEv.exit.i399 ], [ 11, %554 ], [ 11, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit391 ]
+  %578 = uitofp i8 %.0.i400 to float
+  %579 = getelementptr inbounds i8, ptr %226, i64 84
+  store float %578, ptr %579, align 4
+  %580 = getelementptr inbounds i8, ptr %217, i64 16
+  store ptr %407, ptr %580, align 8
+  %581 = getelementptr inbounds i8, ptr %226, i64 96
+  %582 = load i32, ptr %1, align 8
+  %583 = icmp sgt i32 %582, %.0238781
+  %584 = load i32, ptr %17, align 4
+  %585 = icmp sge i32 %584, %.reass789
+  call void @llvm.assume(i1 %583)
+  call void @llvm.assume(i1 %585)
+  %586 = mul i32 %412, %.reass789
+  %587 = load ptr, ptr %18, align 8
+  %588 = getelementptr inbounds i8, ptr %587, i64 4
+  %589 = load i32, ptr %588, align 4
+  %590 = icmp sle i32 %586, %589
+  call void @llvm.assume(i1 %590)
+  %591 = load atomic i32, ptr %587 monotonic, align 4
+  %592 = icmp ugt i32 %591, 1
+  br i1 %592, label %596, label %593
 
-594:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit402
-  %595 = getelementptr inbounds i8, ptr %588, i64 16
-  %596 = load i64, ptr %595, align 8
-  %.not.i.i.i403 = icmp eq i64 %596, 24
-  br i1 %.not.i.i.i403, label %601, label %597
+593:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit402
+  %594 = getelementptr inbounds i8, ptr %587, i64 16
+  %595 = load i64, ptr %594, align 8
+  %.not.i.i.i403 = icmp eq i64 %595, 24
+  br i1 %.not.i.i.i403, label %600, label %596
 
-597:                                              ; preds = %594, %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit402
-  %598 = add i32 %590, 1
-  %599 = getelementptr inbounds i8, ptr %588, i64 8
-  %600 = load i32, ptr %599, align 8
-  %.lobit.i.i.i.i404 = lshr i32 %600, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %598, i32 %.lobit.i.i.i.i404)
+596:                                              ; preds = %593, %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit402
+  %597 = add i32 %589, 1
+  %598 = getelementptr inbounds i8, ptr %587, i64 8
+  %599 = load i32, ptr %598, align 8
+  %.lobit.i.i.i.i404 = lshr i32 %599, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %597, i32 %.lobit.i.i.i.i404)
           to label %.noexc414 unwind label %.loopexit
 
-.noexc414:                                        ; preds = %597
+.noexc414:                                        ; preds = %596
   %.pre.i.i405 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i406 = getelementptr inbounds i8, ptr %.pre.i.i405, i64 16
   %.pre1.i.i407 = load i64, ptr %.phi.trans.insert.i.i406, align 8
   %.pre.i408 = load i32, ptr %1, align 8
-  br label %601
+  br label %600
 
-601:                                              ; preds = %.noexc414, %594
-  %602 = phi i32 [ %583, %594 ], [ %.pre.i408, %.noexc414 ]
-  %603 = phi i64 [ 24, %594 ], [ %.pre1.i.i407, %.noexc414 ]
-  %604 = phi ptr [ %588, %594 ], [ %.pre.i.i405, %.noexc414 ]
-  %605 = getelementptr inbounds i8, ptr %604, i64 %603
-  %606 = mul nsw i32 %602, %129
-  %607 = add nsw i32 %606, %163
-  %608 = sext i32 %607 to i64
-  %609 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %605, i64 %608
-  %610 = getelementptr inbounds i8, ptr %609, i64 4
-  %611 = getelementptr inbounds i8, ptr %609, i64 12
-  %612 = load float, ptr %611, align 4
-  %613 = getelementptr inbounds i8, ptr %227, i64 104
-  %614 = load <2 x float>, ptr %610, align 4
-  store <2 x float> %614, ptr %613, align 4
-  %615 = getelementptr inbounds i8, ptr %227, i64 112
-  store float %612, ptr %615, align 4
-  %616 = load ptr, ptr %582, align 8
-  %617 = getelementptr inbounds i8, ptr %616, i64 192
-  %618 = load ptr, ptr %616, align 8
-  %619 = ptrtoint ptr %582 to i64
-  %620 = ptrtoint ptr %618 to i64
-  %621 = sub i64 %619, %620
-  %622 = sdiv exact i64 %621, 48
-  %sext.i416 = shl i64 %622, 32
-  %623 = ashr exact i64 %sext.i416, 32
-  %624 = load ptr, ptr %617, align 8
-  %625 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %624, i64 %623
-  store float %440, ptr %625, align 4
-  %626 = load ptr, ptr %582, align 8
-  %627 = getelementptr inbounds i8, ptr %626, i64 192
-  %628 = load ptr, ptr %626, align 8
-  %629 = ptrtoint ptr %628 to i64
-  %630 = sub i64 %619, %629
-  %631 = sdiv exact i64 %630, 48
-  %sext.i417 = shl i64 %631, 32
-  %632 = ashr exact i64 %sext.i417, 32
-  %633 = load ptr, ptr %627, align 8
-  %634 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %633, i64 %632, i32 0, i64 0, i32 0, i64 1
-  store float %130, ptr %634, align 4
-  %635 = load i32, ptr %1, align 8
-  %636 = icmp sle i32 %635, %.0238781
-  %637 = load i32, ptr %17, align 4
-  %638 = icmp slt i32 %637, %129
-  %or.cond.i418 = select i1 %636, i1 true, i1 %638
-  br i1 %or.cond.i418, label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit428, label %639
+600:                                              ; preds = %.noexc414, %593
+  %601 = phi i32 [ %582, %593 ], [ %.pre.i408, %.noexc414 ]
+  %602 = phi i64 [ 24, %593 ], [ %.pre1.i.i407, %.noexc414 ]
+  %603 = phi ptr [ %587, %593 ], [ %.pre.i.i405, %.noexc414 ]
+  %604 = getelementptr inbounds i8, ptr %603, i64 %602
+  %605 = mul nsw i32 %601, %.reass789
+  %606 = add nsw i32 %605, %162
+  %607 = sext i32 %606 to i64
+  %608 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %604, i64 %607
+  %609 = getelementptr inbounds i8, ptr %608, i64 4
+  %610 = getelementptr inbounds i8, ptr %608, i64 12
+  %611 = load float, ptr %610, align 4
+  %612 = getelementptr inbounds i8, ptr %226, i64 104
+  %613 = load <2 x float>, ptr %609, align 4
+  store <2 x float> %613, ptr %612, align 4
+  %614 = getelementptr inbounds i8, ptr %226, i64 112
+  store float %611, ptr %614, align 4
+  %615 = load ptr, ptr %581, align 8
+  %616 = getelementptr inbounds i8, ptr %615, i64 192
+  %617 = load ptr, ptr %615, align 8
+  %618 = ptrtoint ptr %581 to i64
+  %619 = ptrtoint ptr %617 to i64
+  %620 = sub i64 %618, %619
+  %621 = sdiv exact i64 %620, 48
+  %sext.i416 = shl i64 %621, 32
+  %622 = ashr exact i64 %sext.i416, 32
+  %623 = load ptr, ptr %616, align 8
+  %624 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %623, i64 %622
+  store float %439, ptr %624, align 4
+  %625 = load ptr, ptr %581, align 8
+  %626 = getelementptr inbounds i8, ptr %625, i64 192
+  %627 = load ptr, ptr %625, align 8
+  %628 = ptrtoint ptr %627 to i64
+  %629 = sub i64 %618, %628
+  %630 = sdiv exact i64 %629, 48
+  %sext.i417 = shl i64 %630, 32
+  %631 = ashr exact i64 %sext.i417, 32
+  %632 = load ptr, ptr %626, align 8
+  %633 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %632, i64 %631, i32 0, i64 0, i32 0, i64 1
+  store float %129, ptr %633, align 4
+  %634 = load i32, ptr %1, align 8
+  %635 = icmp sle i32 %634, %.0238781
+  %636 = load i32, ptr %17, align 4
+  %637 = icmp slt i32 %636, %.reass789
+  %or.cond.i418 = select i1 %635, i1 true, i1 %637
+  br i1 %or.cond.i418, label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit428, label %638
 
-639:                                              ; preds = %601
-  %640 = load ptr, ptr %18, align 8
-  %641 = getelementptr inbounds i8, ptr %640, i64 4
-  %642 = load i32, ptr %641, align 4
-  %643 = icmp sgt i32 %587, %642
-  br i1 %643, label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit428, label %644
+638:                                              ; preds = %600
+  %639 = load ptr, ptr %18, align 8
+  %640 = getelementptr inbounds i8, ptr %639, i64 4
+  %641 = load i32, ptr %640, align 4
+  %642 = icmp sgt i32 %586, %641
+  br i1 %642, label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit428, label %643
 
-644:                                              ; preds = %639
-  %645 = load atomic i32, ptr %640 monotonic, align 4
-  %646 = icmp ugt i32 %645, 1
-  br i1 %646, label %650, label %647
+643:                                              ; preds = %638
+  %644 = load atomic i32, ptr %639 monotonic, align 4
+  %645 = icmp ugt i32 %644, 1
+  br i1 %645, label %649, label %646
 
-647:                                              ; preds = %644
-  %648 = getelementptr inbounds i8, ptr %640, i64 16
-  %649 = load i64, ptr %648, align 8
-  %.not.i.i.i419 = icmp eq i64 %649, 24
-  br i1 %.not.i.i.i419, label %_ZN10QByteArray4dataEv.exit.i425, label %650
+646:                                              ; preds = %643
+  %647 = getelementptr inbounds i8, ptr %639, i64 16
+  %648 = load i64, ptr %647, align 8
+  %.not.i.i.i419 = icmp eq i64 %648, 24
+  br i1 %.not.i.i.i419, label %_ZN10QByteArray4dataEv.exit.i425, label %649
 
-650:                                              ; preds = %647, %644
-  %651 = add i32 %642, 1
-  %652 = getelementptr inbounds i8, ptr %640, i64 8
-  %653 = load i32, ptr %652, align 8
-  %.lobit.i.i.i.i420 = lshr i32 %653, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %651, i32 %.lobit.i.i.i.i420)
+649:                                              ; preds = %646, %643
+  %650 = add i32 %641, 1
+  %651 = getelementptr inbounds i8, ptr %639, i64 8
+  %652 = load i32, ptr %651, align 8
+  %.lobit.i.i.i.i420 = lshr i32 %652, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %650, i32 %.lobit.i.i.i.i420)
           to label %.noexc427 unwind label %.loopexit
 
-.noexc427:                                        ; preds = %650
+.noexc427:                                        ; preds = %649
   %.pre.i.i421 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i422 = getelementptr inbounds i8, ptr %.pre.i.i421, i64 16
   %.pre1.i.i423 = load i64, ptr %.phi.trans.insert.i.i422, align 8
   %.pre.i424 = load i32, ptr %1, align 8
   br label %_ZN10QByteArray4dataEv.exit.i425
 
-_ZN10QByteArray4dataEv.exit.i425:                 ; preds = %.noexc427, %647
-  %654 = phi i32 [ %635, %647 ], [ %.pre.i424, %.noexc427 ]
-  %655 = phi i64 [ 24, %647 ], [ %.pre1.i.i423, %.noexc427 ]
-  %656 = phi ptr [ %640, %647 ], [ %.pre.i.i421, %.noexc427 ]
-  %657 = getelementptr inbounds i8, ptr %656, i64 %655
-  %658 = mul nsw i32 %654, %129
-  %659 = add nsw i32 %658, %163
-  %660 = sext i32 %659 to i64
-  %661 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %657, i64 %660, i32 5
-  %662 = load i8, ptr %661, align 1
+_ZN10QByteArray4dataEv.exit.i425:                 ; preds = %.noexc427, %646
+  %653 = phi i32 [ %634, %646 ], [ %.pre.i424, %.noexc427 ]
+  %654 = phi i64 [ 24, %646 ], [ %.pre1.i.i423, %.noexc427 ]
+  %655 = phi ptr [ %639, %646 ], [ %.pre.i.i421, %.noexc427 ]
+  %656 = getelementptr inbounds i8, ptr %655, i64 %654
+  %657 = mul nsw i32 %653, %.reass789
+  %658 = add nsw i32 %657, %162
+  %659 = sext i32 %658 to i64
+  %660 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %656, i64 %659, i32 5
+  %661 = load i8, ptr %660, align 1
   br label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit428
 
-_ZN3vcg3tri2io10VertexGrid3RedEii.exit428:        ; preds = %_ZN10QByteArray4dataEv.exit.i425, %639, %601
-  %.0.i426 = phi i8 [ %662, %_ZN10QByteArray4dataEv.exit.i425 ], [ 8, %639 ], [ 8, %601 ]
-  %663 = getelementptr inbounds i8, ptr %227, i64 136
-  store i8 %.0.i426, ptr %663, align 1
-  %664 = load i32, ptr %1, align 8
-  %665 = icmp sle i32 %664, %.0238781
-  %666 = load i32, ptr %17, align 4
-  %667 = icmp slt i32 %666, %129
-  %or.cond.i429 = select i1 %665, i1 true, i1 %667
-  br i1 %or.cond.i429, label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit439, label %668
+_ZN3vcg3tri2io10VertexGrid3RedEii.exit428:        ; preds = %_ZN10QByteArray4dataEv.exit.i425, %638, %600
+  %.0.i426 = phi i8 [ %661, %_ZN10QByteArray4dataEv.exit.i425 ], [ 8, %638 ], [ 8, %600 ]
+  %662 = getelementptr inbounds i8, ptr %226, i64 136
+  store i8 %.0.i426, ptr %662, align 1
+  %663 = load i32, ptr %1, align 8
+  %664 = icmp sle i32 %663, %.0238781
+  %665 = load i32, ptr %17, align 4
+  %666 = icmp slt i32 %665, %.reass789
+  %or.cond.i429 = select i1 %664, i1 true, i1 %666
+  br i1 %or.cond.i429, label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit439, label %667
 
-668:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid3RedEii.exit428
-  %669 = load ptr, ptr %18, align 8
-  %670 = getelementptr inbounds i8, ptr %669, i64 4
-  %671 = load i32, ptr %670, align 4
-  %672 = icmp sgt i32 %587, %671
-  br i1 %672, label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit439, label %673
+667:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid3RedEii.exit428
+  %668 = load ptr, ptr %18, align 8
+  %669 = getelementptr inbounds i8, ptr %668, i64 4
+  %670 = load i32, ptr %669, align 4
+  %671 = icmp sgt i32 %586, %670
+  br i1 %671, label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit439, label %672
 
-673:                                              ; preds = %668
-  %674 = load atomic i32, ptr %669 monotonic, align 4
-  %675 = icmp ugt i32 %674, 1
-  br i1 %675, label %679, label %676
+672:                                              ; preds = %667
+  %673 = load atomic i32, ptr %668 monotonic, align 4
+  %674 = icmp ugt i32 %673, 1
+  br i1 %674, label %678, label %675
 
-676:                                              ; preds = %673
-  %677 = getelementptr inbounds i8, ptr %669, i64 16
-  %678 = load i64, ptr %677, align 8
-  %.not.i.i.i430 = icmp eq i64 %678, 24
-  br i1 %.not.i.i.i430, label %_ZN10QByteArray4dataEv.exit.i436, label %679
+675:                                              ; preds = %672
+  %676 = getelementptr inbounds i8, ptr %668, i64 16
+  %677 = load i64, ptr %676, align 8
+  %.not.i.i.i430 = icmp eq i64 %677, 24
+  br i1 %.not.i.i.i430, label %_ZN10QByteArray4dataEv.exit.i436, label %678
 
-679:                                              ; preds = %676, %673
-  %680 = add i32 %671, 1
-  %681 = getelementptr inbounds i8, ptr %669, i64 8
-  %682 = load i32, ptr %681, align 8
-  %.lobit.i.i.i.i431 = lshr i32 %682, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %680, i32 %.lobit.i.i.i.i431)
+678:                                              ; preds = %675, %672
+  %679 = add i32 %670, 1
+  %680 = getelementptr inbounds i8, ptr %668, i64 8
+  %681 = load i32, ptr %680, align 8
+  %.lobit.i.i.i.i431 = lshr i32 %681, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %679, i32 %.lobit.i.i.i.i431)
           to label %.noexc438 unwind label %.loopexit
 
-.noexc438:                                        ; preds = %679
+.noexc438:                                        ; preds = %678
   %.pre.i.i432 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i433 = getelementptr inbounds i8, ptr %.pre.i.i432, i64 16
   %.pre1.i.i434 = load i64, ptr %.phi.trans.insert.i.i433, align 8
   %.pre.i435 = load i32, ptr %1, align 8
   br label %_ZN10QByteArray4dataEv.exit.i436
 
-_ZN10QByteArray4dataEv.exit.i436:                 ; preds = %.noexc438, %676
-  %683 = phi i32 [ %664, %676 ], [ %.pre.i435, %.noexc438 ]
-  %684 = phi i64 [ 24, %676 ], [ %.pre1.i.i434, %.noexc438 ]
-  %685 = phi ptr [ %669, %676 ], [ %.pre.i.i432, %.noexc438 ]
-  %686 = getelementptr inbounds i8, ptr %685, i64 %684
-  %687 = mul nsw i32 %683, %129
-  %688 = add nsw i32 %687, %163
-  %689 = sext i32 %688 to i64
-  %690 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %686, i64 %689, i32 6
-  %691 = load i8, ptr %690, align 2
+_ZN10QByteArray4dataEv.exit.i436:                 ; preds = %.noexc438, %675
+  %682 = phi i32 [ %663, %675 ], [ %.pre.i435, %.noexc438 ]
+  %683 = phi i64 [ 24, %675 ], [ %.pre1.i.i434, %.noexc438 ]
+  %684 = phi ptr [ %668, %675 ], [ %.pre.i.i432, %.noexc438 ]
+  %685 = getelementptr inbounds i8, ptr %684, i64 %683
+  %686 = mul nsw i32 %682, %.reass789
+  %687 = add nsw i32 %686, %162
+  %688 = sext i32 %687 to i64
+  %689 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %685, i64 %688, i32 6
+  %690 = load i8, ptr %689, align 2
   br label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit439
 
-_ZN3vcg3tri2io10VertexGrid5GreenEii.exit439:      ; preds = %_ZN10QByteArray4dataEv.exit.i436, %668, %_ZN3vcg3tri2io10VertexGrid3RedEii.exit428
-  %.0.i437 = phi i8 [ %691, %_ZN10QByteArray4dataEv.exit.i436 ], [ 9, %668 ], [ 9, %_ZN3vcg3tri2io10VertexGrid3RedEii.exit428 ]
-  %692 = getelementptr inbounds i8, ptr %227, i64 137
-  store i8 %.0.i437, ptr %692, align 1
-  %693 = load i32, ptr %1, align 8
-  %694 = icmp sle i32 %693, %.0238781
-  %695 = load i32, ptr %17, align 4
-  %696 = icmp slt i32 %695, %129
-  %or.cond.i440 = select i1 %694, i1 true, i1 %696
-  br i1 %or.cond.i440, label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit450, label %697
+_ZN3vcg3tri2io10VertexGrid5GreenEii.exit439:      ; preds = %_ZN10QByteArray4dataEv.exit.i436, %667, %_ZN3vcg3tri2io10VertexGrid3RedEii.exit428
+  %.0.i437 = phi i8 [ %690, %_ZN10QByteArray4dataEv.exit.i436 ], [ 9, %667 ], [ 9, %_ZN3vcg3tri2io10VertexGrid3RedEii.exit428 ]
+  %691 = getelementptr inbounds i8, ptr %226, i64 137
+  store i8 %.0.i437, ptr %691, align 1
+  %692 = load i32, ptr %1, align 8
+  %693 = icmp sle i32 %692, %.0238781
+  %694 = load i32, ptr %17, align 4
+  %695 = icmp slt i32 %694, %.reass789
+  %or.cond.i440 = select i1 %693, i1 true, i1 %695
+  br i1 %or.cond.i440, label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit450, label %696
 
-697:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit439
-  %698 = load ptr, ptr %18, align 8
-  %699 = getelementptr inbounds i8, ptr %698, i64 4
-  %700 = load i32, ptr %699, align 4
-  %701 = icmp sgt i32 %587, %700
-  br i1 %701, label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit450, label %702
+696:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit439
+  %697 = load ptr, ptr %18, align 8
+  %698 = getelementptr inbounds i8, ptr %697, i64 4
+  %699 = load i32, ptr %698, align 4
+  %700 = icmp sgt i32 %586, %699
+  br i1 %700, label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit450, label %701
 
-702:                                              ; preds = %697
-  %703 = load atomic i32, ptr %698 monotonic, align 4
-  %704 = icmp ugt i32 %703, 1
-  br i1 %704, label %708, label %705
+701:                                              ; preds = %696
+  %702 = load atomic i32, ptr %697 monotonic, align 4
+  %703 = icmp ugt i32 %702, 1
+  br i1 %703, label %707, label %704
 
-705:                                              ; preds = %702
-  %706 = getelementptr inbounds i8, ptr %698, i64 16
-  %707 = load i64, ptr %706, align 8
-  %.not.i.i.i441 = icmp eq i64 %707, 24
-  br i1 %.not.i.i.i441, label %_ZN10QByteArray4dataEv.exit.i447, label %708
+704:                                              ; preds = %701
+  %705 = getelementptr inbounds i8, ptr %697, i64 16
+  %706 = load i64, ptr %705, align 8
+  %.not.i.i.i441 = icmp eq i64 %706, 24
+  br i1 %.not.i.i.i441, label %_ZN10QByteArray4dataEv.exit.i447, label %707
 
-708:                                              ; preds = %705, %702
-  %709 = add i32 %700, 1
-  %710 = getelementptr inbounds i8, ptr %698, i64 8
-  %711 = load i32, ptr %710, align 8
-  %.lobit.i.i.i.i442 = lshr i32 %711, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %709, i32 %.lobit.i.i.i.i442)
+707:                                              ; preds = %704, %701
+  %708 = add i32 %699, 1
+  %709 = getelementptr inbounds i8, ptr %697, i64 8
+  %710 = load i32, ptr %709, align 8
+  %.lobit.i.i.i.i442 = lshr i32 %710, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %708, i32 %.lobit.i.i.i.i442)
           to label %.noexc449 unwind label %.loopexit
 
-.noexc449:                                        ; preds = %708
+.noexc449:                                        ; preds = %707
   %.pre.i.i443 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i444 = getelementptr inbounds i8, ptr %.pre.i.i443, i64 16
   %.pre1.i.i445 = load i64, ptr %.phi.trans.insert.i.i444, align 8
   %.pre.i446 = load i32, ptr %1, align 8
   br label %_ZN10QByteArray4dataEv.exit.i447
 
-_ZN10QByteArray4dataEv.exit.i447:                 ; preds = %.noexc449, %705
-  %712 = phi i32 [ %693, %705 ], [ %.pre.i446, %.noexc449 ]
-  %713 = phi i64 [ 24, %705 ], [ %.pre1.i.i445, %.noexc449 ]
-  %714 = phi ptr [ %698, %705 ], [ %.pre.i.i443, %.noexc449 ]
-  %715 = getelementptr inbounds i8, ptr %714, i64 %713
-  %716 = mul nsw i32 %712, %129
-  %717 = add nsw i32 %716, %163
-  %718 = sext i32 %717 to i64
-  %719 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %715, i64 %718, i32 7
-  %720 = load i8, ptr %719, align 1
+_ZN10QByteArray4dataEv.exit.i447:                 ; preds = %.noexc449, %704
+  %711 = phi i32 [ %692, %704 ], [ %.pre.i446, %.noexc449 ]
+  %712 = phi i64 [ 24, %704 ], [ %.pre1.i.i445, %.noexc449 ]
+  %713 = phi ptr [ %697, %704 ], [ %.pre.i.i443, %.noexc449 ]
+  %714 = getelementptr inbounds i8, ptr %713, i64 %712
+  %715 = mul nsw i32 %711, %.reass789
+  %716 = add nsw i32 %715, %162
+  %717 = sext i32 %716 to i64
+  %718 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %714, i64 %717, i32 7
+  %719 = load i8, ptr %718, align 1
   br label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit450
 
-_ZN3vcg3tri2io10VertexGrid4BlueEii.exit450:       ; preds = %_ZN10QByteArray4dataEv.exit.i447, %697, %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit439
-  %.0.i448 = phi i8 [ %720, %_ZN10QByteArray4dataEv.exit.i447 ], [ 10, %697 ], [ 10, %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit439 ]
-  %721 = getelementptr inbounds i8, ptr %227, i64 138
-  store i8 %.0.i448, ptr %721, align 1
-  %722 = getelementptr inbounds i8, ptr %227, i64 139
-  store i8 -1, ptr %722, align 1
-  %723 = load i32, ptr %1, align 8
-  %724 = icmp sle i32 %723, %.0238781
-  %725 = load i32, ptr %17, align 4
-  %726 = icmp slt i32 %725, %129
-  %or.cond.i451 = select i1 %724, i1 true, i1 %726
-  br i1 %or.cond.i451, label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit461, label %727
+_ZN3vcg3tri2io10VertexGrid4BlueEii.exit450:       ; preds = %_ZN10QByteArray4dataEv.exit.i447, %696, %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit439
+  %.0.i448 = phi i8 [ %719, %_ZN10QByteArray4dataEv.exit.i447 ], [ 10, %696 ], [ 10, %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit439 ]
+  %720 = getelementptr inbounds i8, ptr %226, i64 138
+  store i8 %.0.i448, ptr %720, align 1
+  %721 = getelementptr inbounds i8, ptr %226, i64 139
+  store i8 -1, ptr %721, align 1
+  %722 = load i32, ptr %1, align 8
+  %723 = icmp sle i32 %722, %.0238781
+  %724 = load i32, ptr %17, align 4
+  %725 = icmp slt i32 %724, %.reass789
+  %or.cond.i451 = select i1 %723, i1 true, i1 %725
+  br i1 %or.cond.i451, label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit461, label %726
 
-727:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit450
-  %728 = load ptr, ptr %18, align 8
-  %729 = getelementptr inbounds i8, ptr %728, i64 4
-  %730 = load i32, ptr %729, align 4
-  %731 = icmp sgt i32 %587, %730
-  br i1 %731, label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit461, label %732
+726:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit450
+  %727 = load ptr, ptr %18, align 8
+  %728 = getelementptr inbounds i8, ptr %727, i64 4
+  %729 = load i32, ptr %728, align 4
+  %730 = icmp sgt i32 %586, %729
+  br i1 %730, label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit461, label %731
 
-732:                                              ; preds = %727
-  %733 = load atomic i32, ptr %728 monotonic, align 4
-  %734 = icmp ugt i32 %733, 1
-  br i1 %734, label %738, label %735
+731:                                              ; preds = %726
+  %732 = load atomic i32, ptr %727 monotonic, align 4
+  %733 = icmp ugt i32 %732, 1
+  br i1 %733, label %737, label %734
 
-735:                                              ; preds = %732
-  %736 = getelementptr inbounds i8, ptr %728, i64 16
-  %737 = load i64, ptr %736, align 8
-  %.not.i.i.i452 = icmp eq i64 %737, 24
-  br i1 %.not.i.i.i452, label %_ZN10QByteArray4dataEv.exit.i458, label %738
+734:                                              ; preds = %731
+  %735 = getelementptr inbounds i8, ptr %727, i64 16
+  %736 = load i64, ptr %735, align 8
+  %.not.i.i.i452 = icmp eq i64 %736, 24
+  br i1 %.not.i.i.i452, label %_ZN10QByteArray4dataEv.exit.i458, label %737
 
-738:                                              ; preds = %735, %732
-  %739 = add i32 %730, 1
-  %740 = getelementptr inbounds i8, ptr %728, i64 8
-  %741 = load i32, ptr %740, align 8
-  %.lobit.i.i.i.i453 = lshr i32 %741, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %739, i32 %.lobit.i.i.i.i453)
+737:                                              ; preds = %734, %731
+  %738 = add i32 %729, 1
+  %739 = getelementptr inbounds i8, ptr %727, i64 8
+  %740 = load i32, ptr %739, align 8
+  %.lobit.i.i.i.i453 = lshr i32 %740, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %738, i32 %.lobit.i.i.i.i453)
           to label %.noexc460 unwind label %.loopexit
 
-.noexc460:                                        ; preds = %738
+.noexc460:                                        ; preds = %737
   %.pre.i.i454 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i455 = getelementptr inbounds i8, ptr %.pre.i.i454, i64 16
   %.pre1.i.i456 = load i64, ptr %.phi.trans.insert.i.i455, align 8
   %.pre.i457 = load i32, ptr %1, align 8
   br label %_ZN10QByteArray4dataEv.exit.i458
 
-_ZN10QByteArray4dataEv.exit.i458:                 ; preds = %.noexc460, %735
-  %742 = phi i32 [ %723, %735 ], [ %.pre.i457, %.noexc460 ]
-  %743 = phi i64 [ 24, %735 ], [ %.pre1.i.i456, %.noexc460 ]
-  %744 = phi ptr [ %728, %735 ], [ %.pre.i.i454, %.noexc460 ]
-  %745 = getelementptr inbounds i8, ptr %744, i64 %743
-  %746 = mul nsw i32 %742, %129
-  %747 = add nsw i32 %746, %163
-  %748 = sext i32 %747 to i64
-  %749 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %745, i64 %748, i32 4
-  %750 = load i8, ptr %749, align 4
+_ZN10QByteArray4dataEv.exit.i458:                 ; preds = %.noexc460, %734
+  %741 = phi i32 [ %722, %734 ], [ %.pre.i457, %.noexc460 ]
+  %742 = phi i64 [ 24, %734 ], [ %.pre1.i.i456, %.noexc460 ]
+  %743 = phi ptr [ %727, %734 ], [ %.pre.i.i454, %.noexc460 ]
+  %744 = getelementptr inbounds i8, ptr %743, i64 %742
+  %745 = mul nsw i32 %741, %.reass789
+  %746 = add nsw i32 %745, %162
+  %747 = sext i32 %746 to i64
+  %748 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %744, i64 %747, i32 4
+  %749 = load i8, ptr %748, align 4
   br label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit461
 
-_ZN3vcg3tri2io10VertexGrid7QualityEii.exit461:    ; preds = %_ZN10QByteArray4dataEv.exit.i458, %727, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit450
-  %.0.i459 = phi i8 [ %750, %_ZN10QByteArray4dataEv.exit.i458 ], [ 11, %727 ], [ 11, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit450 ]
-  %751 = uitofp i8 %.0.i459 to float
-  %752 = getelementptr inbounds i8, ptr %227, i64 132
-  store float %751, ptr %752, align 4
-  %753 = getelementptr inbounds i8, ptr %218, i64 24
-  store ptr %582, ptr %753, align 8
-  %.pre795 = load i32, ptr %1, align 8
-  br label %754
+_ZN3vcg3tri2io10VertexGrid7QualityEii.exit461:    ; preds = %_ZN10QByteArray4dataEv.exit.i458, %726, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit450
+  %.0.i459 = phi i8 [ %749, %_ZN10QByteArray4dataEv.exit.i458 ], [ 11, %726 ], [ 11, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit450 ]
+  %750 = uitofp i8 %.0.i459 to float
+  %751 = getelementptr inbounds i8, ptr %226, i64 132
+  store float %750, ptr %751, align 4
+  %752 = getelementptr inbounds i8, ptr %217, i64 24
+  store ptr %581, ptr %752, align 8
+  %.pre797 = load i32, ptr %1, align 8
+  br label %753
 
-754:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit461, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288
-  %.pre796798 = phi i32 [ %.pre795, %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit461 ], [ %.pre796799, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288 ]
-  %755 = phi i32 [ %.pre795, %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit461 ], [ %208, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288 ]
+753:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit461, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288
+  %.pre798800 = phi i32 [ %.pre797, %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit461 ], [ %.pre798801, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288 ]
+  %754 = phi i32 [ %.pre797, %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit461 ], [ %207, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288 ]
   %.0.i279761 = phi i1 [ true, %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit461 ], [ false, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288 ]
-  %.not.i462 = icmp sgt i32 %755, %.0238781
-  %756 = load i32, ptr %17, align 4
-  %.not10.i463 = icmp sgt i32 %756, %124
+  %.not.i462 = icmp sgt i32 %754, %.0238781
+  %755 = load i32, ptr %17, align 4
+  %.not10.i463 = icmp sgt i32 %755, %124
   %or.cond.i464 = select i1 %.not.i462, i1 %.not10.i463, i1 false
-  br i1 %or.cond.i464, label %757, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit474.thread
+  br i1 %or.cond.i464, label %756, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit474.thread
 
-757:                                              ; preds = %754
-  %758 = mul i32 %125, %.0238781
-  %759 = load ptr, ptr %18, align 8
-  %760 = getelementptr inbounds i8, ptr %759, i64 4
-  %761 = load i32, ptr %760, align 4
-  %762 = icmp sgt i32 %758, %761
-  br i1 %762, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit474.thread, label %763
+756:                                              ; preds = %753
+  %757 = mul i32 %125, %.0238781
+  %758 = load ptr, ptr %18, align 8
+  %759 = getelementptr inbounds i8, ptr %758, i64 4
+  %760 = load i32, ptr %759, align 4
+  %761 = icmp sgt i32 %757, %760
+  br i1 %761, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit474.thread, label %762
 
-763:                                              ; preds = %757
-  %764 = load atomic i32, ptr %759 monotonic, align 4
-  %765 = icmp ugt i32 %764, 1
-  br i1 %765, label %769, label %766
+762:                                              ; preds = %756
+  %763 = load atomic i32, ptr %758 monotonic, align 4
+  %764 = icmp ugt i32 %763, 1
+  br i1 %764, label %768, label %765
 
-766:                                              ; preds = %763
-  %767 = getelementptr inbounds i8, ptr %759, i64 16
-  %768 = load i64, ptr %767, align 8
-  %.not.i.i.i466 = icmp eq i64 %768, 24
-  br i1 %.not.i.i.i466, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit474, label %769
+765:                                              ; preds = %762
+  %766 = getelementptr inbounds i8, ptr %758, i64 16
+  %767 = load i64, ptr %766, align 8
+  %.not.i.i.i466 = icmp eq i64 %767, 24
+  br i1 %.not.i.i.i466, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit474, label %768
 
-769:                                              ; preds = %766, %763
-  %770 = add i32 %761, 1
-  %771 = getelementptr inbounds i8, ptr %759, i64 8
-  %772 = load i32, ptr %771, align 8
-  %.lobit.i.i.i.i467 = lshr i32 %772, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %770, i32 %.lobit.i.i.i.i467)
+768:                                              ; preds = %765, %762
+  %769 = add i32 %760, 1
+  %770 = getelementptr inbounds i8, ptr %758, i64 8
+  %771 = load i32, ptr %770, align 8
+  %.lobit.i.i.i.i467 = lshr i32 %771, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %769, i32 %.lobit.i.i.i.i467)
           to label %.noexc473 unwind label %.loopexit
 
-.noexc473:                                        ; preds = %769
+.noexc473:                                        ; preds = %768
   %.pre.i.i468 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i469 = getelementptr inbounds i8, ptr %.pre.i.i468, i64 16
   %.pre1.i.i470 = load i64, ptr %.phi.trans.insert.i.i469, align 8
   %.pre.i471 = load i32, ptr %1, align 8
   br label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit474
 
-_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit474:    ; preds = %766, %.noexc473
-  %.pre796797 = phi i32 [ %.pre796798, %766 ], [ %.pre.i471, %.noexc473 ]
-  %773 = phi i32 [ %755, %766 ], [ %.pre.i471, %.noexc473 ]
-  %774 = phi i64 [ 24, %766 ], [ %.pre1.i.i470, %.noexc473 ]
-  %775 = phi ptr [ %759, %766 ], [ %.pre.i.i468, %.noexc473 ]
-  %776 = getelementptr inbounds i8, ptr %775, i64 %774
-  %777 = mul nsw i32 %773, %124
-  %778 = add nsw i32 %777, %.0238781
-  %779 = sext i32 %778 to i64
-  %780 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %776, i64 %779
-  %781 = load i8, ptr %780, align 4
-  %782 = icmp eq i8 %781, 1
-  br i1 %782, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit474.thread, label %1321
+_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit474:    ; preds = %765, %.noexc473
+  %.pre798799 = phi i32 [ %.pre798800, %765 ], [ %.pre.i471, %.noexc473 ]
+  %772 = phi i32 [ %754, %765 ], [ %.pre.i471, %.noexc473 ]
+  %773 = phi i64 [ 24, %765 ], [ %.pre1.i.i470, %.noexc473 ]
+  %774 = phi ptr [ %758, %765 ], [ %.pre.i.i468, %.noexc473 ]
+  %775 = getelementptr inbounds i8, ptr %774, i64 %773
+  %776 = mul nsw i32 %772, %124
+  %777 = add nsw i32 %776, %.0238781
+  %778 = sext i32 %777 to i64
+  %779 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %775, i64 %778
+  %780 = load i8, ptr %779, align 4
+  %781 = icmp eq i8 %780, 1
+  br i1 %781, label %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit474.thread, label %1319
 
-_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit474.thread: ; preds = %754, %757, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit474
+_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit474.thread: ; preds = %753, %756, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit474
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %8, i8 0, i64 57, i1 false)
-  %783 = invoke ptr @_ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_mRNS3_14PointerUpdaterIP6CFaceOEE(ptr noundef nonnull align 8 dereferenceable(1196) %2, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(57) %8)
-          to label %784 unwind label %787
+  %782 = invoke ptr @_ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_mRNS3_14PointerUpdaterIP6CFaceOEE(ptr noundef nonnull align 8 dereferenceable(1196) %2, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(57) %8)
+          to label %783 unwind label %786
 
-784:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit474.thread
-  %785 = load ptr, ptr %119, align 8
-  %.not.i.i.i.i.i477 = icmp eq ptr %785, null
-  br i1 %.not.i.i.i.i.i477, label %791, label %786
+783:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit474.thread
+  %784 = load ptr, ptr %119, align 8
+  %.not.i.i.i.i.i477 = icmp eq ptr %784, null
+  br i1 %.not.i.i.i.i.i477, label %790, label %785
 
-786:                                              ; preds = %784
-  call void @_ZdlPv(ptr noundef nonnull %785) #26
-  br label %791
+785:                                              ; preds = %783
+  call void @_ZdlPv(ptr noundef nonnull %784) #26
+  br label %790
 
-787:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit474.thread
-  %788 = landingpad { ptr, i32 }
+786:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit474.thread
+  %787 = landingpad { ptr, i32 }
           cleanup
-  %789 = load ptr, ptr %119, align 8
-  %.not.i.i.i.i3.i475 = icmp eq ptr %789, null
-  br i1 %.not.i.i.i.i3.i475, label %.body, label %790
+  %788 = load ptr, ptr %119, align 8
+  %.not.i.i.i.i3.i475 = icmp eq ptr %788, null
+  br i1 %.not.i.i.i.i3.i475, label %.body, label %789
 
-790:                                              ; preds = %787
-  call void @_ZdlPv(ptr noundef nonnull %789) #26
+789:                                              ; preds = %786
+  call void @_ZdlPv(ptr noundef nonnull %788) #26
   br label %.body
 
-791:                                              ; preds = %786, %784
+790:                                              ; preds = %785, %783
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %7, i8 0, i64 57, i1 false)
-  %792 = invoke ptr @_ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_mRNS3_14PointerUpdaterIP8CVertexOEE(ptr noundef nonnull align 8 dereferenceable(1196) %2, i64 noundef 3, ptr noundef nonnull align 8 dereferenceable(57) %7)
-          to label %793 unwind label %796
+  %791 = invoke ptr @_ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_mRNS3_14PointerUpdaterIP8CVertexOEE(ptr noundef nonnull align 8 dereferenceable(1196) %2, i64 noundef 3, ptr noundef nonnull align 8 dereferenceable(57) %7)
+          to label %792 unwind label %795
 
-793:                                              ; preds = %791
-  %794 = load ptr, ptr %120, align 8
-  %.not.i.i.i.i.i483 = icmp eq ptr %794, null
-  br i1 %.not.i.i.i.i.i483, label %800, label %795
+792:                                              ; preds = %790
+  %793 = load ptr, ptr %120, align 8
+  %.not.i.i.i.i.i483 = icmp eq ptr %793, null
+  br i1 %.not.i.i.i.i.i483, label %799, label %794
 
-795:                                              ; preds = %793
-  call void @_ZdlPv(ptr noundef nonnull %794) #26
-  br label %800
+794:                                              ; preds = %792
+  call void @_ZdlPv(ptr noundef nonnull %793) #26
+  br label %799
 
-796:                                              ; preds = %791
-  %797 = landingpad { ptr, i32 }
+795:                                              ; preds = %790
+  %796 = landingpad { ptr, i32 }
           cleanup
-  %798 = load ptr, ptr %120, align 8
-  %.not.i.i.i.i3.i481 = icmp eq ptr %798, null
-  br i1 %.not.i.i.i.i3.i481, label %.body, label %799
+  %797 = load ptr, ptr %120, align 8
+  %.not.i.i.i.i3.i481 = icmp eq ptr %797, null
+  br i1 %.not.i.i.i.i3.i481, label %.body, label %798
 
-799:                                              ; preds = %796
-  call void @_ZdlPv(ptr noundef nonnull %798) #26
+798:                                              ; preds = %795
+  call void @_ZdlPv(ptr noundef nonnull %797) #26
   br label %.body
 
-800:                                              ; preds = %795, %793
+799:                                              ; preds = %794, %792
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
-  %801 = load i32, ptr %1, align 8
-  %802 = icmp sge i32 %801, %.0238781
-  %803 = load i32, ptr %17, align 4
-  %804 = icmp sge i32 %803, %.0237788
-  call void @llvm.assume(i1 %802)
-  call void @llvm.assume(i1 %804)
-  %805 = mul i32 %123, %.0238781
-  %806 = load ptr, ptr %18, align 8
-  %807 = getelementptr inbounds i8, ptr %806, i64 4
-  %808 = load i32, ptr %807, align 4
-  %809 = icmp sle i32 %805, %808
-  call void @llvm.assume(i1 %809)
-  %810 = load atomic i32, ptr %806 monotonic, align 4
-  %811 = icmp ugt i32 %810, 1
-  br i1 %811, label %815, label %812
+  %800 = load i32, ptr %1, align 8
+  %801 = icmp sge i32 %800, %.0238781
+  %802 = load i32, ptr %17, align 4
+  %803 = icmp sge i32 %802, %.0237790
+  call void @llvm.assume(i1 %801)
+  call void @llvm.assume(i1 %803)
+  %804 = mul i32 %123, %.0238781
+  %805 = load ptr, ptr %18, align 8
+  %806 = getelementptr inbounds i8, ptr %805, i64 4
+  %807 = load i32, ptr %806, align 4
+  %808 = icmp sle i32 %804, %807
+  call void @llvm.assume(i1 %808)
+  %809 = load atomic i32, ptr %805 monotonic, align 4
+  %810 = icmp ugt i32 %809, 1
+  br i1 %810, label %814, label %811
 
-812:                                              ; preds = %800
-  %813 = getelementptr inbounds i8, ptr %806, i64 16
-  %814 = load i64, ptr %813, align 8
-  %.not.i.i.i487 = icmp eq i64 %814, 24
-  br i1 %.not.i.i.i487, label %819, label %815
+811:                                              ; preds = %799
+  %812 = getelementptr inbounds i8, ptr %805, i64 16
+  %813 = load i64, ptr %812, align 8
+  %.not.i.i.i487 = icmp eq i64 %813, 24
+  br i1 %.not.i.i.i487, label %818, label %814
 
-815:                                              ; preds = %812, %800
-  %816 = add i32 %808, 1
-  %817 = getelementptr inbounds i8, ptr %806, i64 8
-  %818 = load i32, ptr %817, align 8
-  %.lobit.i.i.i.i488 = lshr i32 %818, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %816, i32 %.lobit.i.i.i.i488)
+814:                                              ; preds = %811, %799
+  %815 = add i32 %807, 1
+  %816 = getelementptr inbounds i8, ptr %805, i64 8
+  %817 = load i32, ptr %816, align 8
+  %.lobit.i.i.i.i488 = lshr i32 %817, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %815, i32 %.lobit.i.i.i.i488)
           to label %.noexc498 unwind label %.loopexit
 
-.noexc498:                                        ; preds = %815
+.noexc498:                                        ; preds = %814
   %.pre.i.i489 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i490 = getelementptr inbounds i8, ptr %.pre.i.i489, i64 16
   %.pre1.i.i491 = load i64, ptr %.phi.trans.insert.i.i490, align 8
   %.pre.i492 = load i32, ptr %1, align 8
-  br label %819
+  br label %818
 
-819:                                              ; preds = %.noexc498, %812
-  %820 = phi i32 [ %801, %812 ], [ %.pre.i492, %.noexc498 ]
-  %821 = phi i64 [ 24, %812 ], [ %.pre1.i.i491, %.noexc498 ]
-  %822 = phi ptr [ %806, %812 ], [ %.pre.i.i489, %.noexc498 ]
-  %823 = getelementptr inbounds i8, ptr %822, i64 %821
-  %824 = mul nsw i32 %820, %.0237788
-  %825 = add nsw i32 %824, %.0238781
-  %826 = sext i32 %825 to i64
-  %827 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %823, i64 %826
-  %828 = getelementptr inbounds i8, ptr %827, i64 4
-  %829 = getelementptr inbounds i8, ptr %827, i64 12
-  %830 = load float, ptr %829, align 4
-  %831 = getelementptr inbounds i8, ptr %792, i64 8
-  %832 = load <2 x float>, ptr %828, align 4
-  store <2 x float> %832, ptr %831, align 4
-  %833 = getelementptr inbounds i8, ptr %792, i64 16
-  store float %830, ptr %833, align 4
-  %834 = load ptr, ptr %792, align 8
-  %835 = getelementptr inbounds i8, ptr %834, i64 192
-  %836 = load ptr, ptr %834, align 8
-  %837 = ptrtoint ptr %792 to i64
-  %838 = ptrtoint ptr %836 to i64
-  %839 = sub i64 %837, %838
-  %840 = sdiv exact i64 %839, 48
-  %sext.i500 = shl i64 %840, 32
-  %841 = ashr exact i64 %sext.i500, 32
-  %842 = load ptr, ptr %835, align 8
-  %843 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %842, i64 %841
-  %844 = uitofp nneg i32 %.0238781 to float
-  store float %844, ptr %843, align 4
-  %845 = load ptr, ptr %792, align 8
-  %846 = getelementptr inbounds i8, ptr %845, i64 192
-  %847 = load ptr, ptr %845, align 8
-  %848 = ptrtoint ptr %847 to i64
-  %849 = sub i64 %837, %848
-  %850 = sdiv exact i64 %849, 48
-  %sext.i501 = shl i64 %850, 32
-  %851 = ashr exact i64 %sext.i501, 32
-  %852 = load ptr, ptr %846, align 8
-  %853 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %852, i64 %851, i32 0, i64 0, i32 0, i64 1
-  store float %126, ptr %853, align 4
-  %854 = load i32, ptr %1, align 8
-  %855 = icmp slt i32 %854, %.0238781
-  %856 = load i32, ptr %17, align 4
-  %857 = icmp slt i32 %856, %.0237788
-  %or.cond.i502 = select i1 %855, i1 true, i1 %857
-  br i1 %or.cond.i502, label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit512, label %858
+818:                                              ; preds = %.noexc498, %811
+  %819 = phi i32 [ %800, %811 ], [ %.pre.i492, %.noexc498 ]
+  %820 = phi i64 [ 24, %811 ], [ %.pre1.i.i491, %.noexc498 ]
+  %821 = phi ptr [ %805, %811 ], [ %.pre.i.i489, %.noexc498 ]
+  %822 = getelementptr inbounds i8, ptr %821, i64 %820
+  %823 = mul nsw i32 %819, %.0237790
+  %824 = add nsw i32 %823, %.0238781
+  %825 = sext i32 %824 to i64
+  %826 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %822, i64 %825
+  %827 = getelementptr inbounds i8, ptr %826, i64 4
+  %828 = getelementptr inbounds i8, ptr %826, i64 12
+  %829 = load float, ptr %828, align 4
+  %830 = getelementptr inbounds i8, ptr %791, i64 8
+  %831 = load <2 x float>, ptr %827, align 4
+  store <2 x float> %831, ptr %830, align 4
+  %832 = getelementptr inbounds i8, ptr %791, i64 16
+  store float %829, ptr %832, align 4
+  %833 = load ptr, ptr %791, align 8
+  %834 = getelementptr inbounds i8, ptr %833, i64 192
+  %835 = load ptr, ptr %833, align 8
+  %836 = ptrtoint ptr %791 to i64
+  %837 = ptrtoint ptr %835 to i64
+  %838 = sub i64 %836, %837
+  %839 = sdiv exact i64 %838, 48
+  %sext.i500 = shl i64 %839, 32
+  %840 = ashr exact i64 %sext.i500, 32
+  %841 = load ptr, ptr %834, align 8
+  %842 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %841, i64 %840
+  %843 = uitofp nneg i32 %.0238781 to float
+  store float %843, ptr %842, align 4
+  %844 = load ptr, ptr %791, align 8
+  %845 = getelementptr inbounds i8, ptr %844, i64 192
+  %846 = load ptr, ptr %844, align 8
+  %847 = ptrtoint ptr %846 to i64
+  %848 = sub i64 %836, %847
+  %849 = sdiv exact i64 %848, 48
+  %sext.i501 = shl i64 %849, 32
+  %850 = ashr exact i64 %sext.i501, 32
+  %851 = load ptr, ptr %845, align 8
+  %852 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %851, i64 %850, i32 0, i64 0, i32 0, i64 1
+  store float %126, ptr %852, align 4
+  %853 = load i32, ptr %1, align 8
+  %854 = icmp slt i32 %853, %.0238781
+  %855 = load i32, ptr %17, align 4
+  %856 = icmp slt i32 %855, %.0237790
+  %or.cond.i502 = select i1 %854, i1 true, i1 %856
+  br i1 %or.cond.i502, label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit512, label %857
 
-858:                                              ; preds = %819
-  %859 = load ptr, ptr %18, align 8
-  %860 = getelementptr inbounds i8, ptr %859, i64 4
-  %861 = load i32, ptr %860, align 4
-  %862 = icmp sgt i32 %805, %861
-  br i1 %862, label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit512, label %863
+857:                                              ; preds = %818
+  %858 = load ptr, ptr %18, align 8
+  %859 = getelementptr inbounds i8, ptr %858, i64 4
+  %860 = load i32, ptr %859, align 4
+  %861 = icmp sgt i32 %804, %860
+  br i1 %861, label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit512, label %862
 
-863:                                              ; preds = %858
-  %864 = load atomic i32, ptr %859 monotonic, align 4
-  %865 = icmp ugt i32 %864, 1
-  br i1 %865, label %869, label %866
+862:                                              ; preds = %857
+  %863 = load atomic i32, ptr %858 monotonic, align 4
+  %864 = icmp ugt i32 %863, 1
+  br i1 %864, label %868, label %865
 
-866:                                              ; preds = %863
-  %867 = getelementptr inbounds i8, ptr %859, i64 16
-  %868 = load i64, ptr %867, align 8
-  %.not.i.i.i503 = icmp eq i64 %868, 24
-  br i1 %.not.i.i.i503, label %_ZN10QByteArray4dataEv.exit.i509, label %869
+865:                                              ; preds = %862
+  %866 = getelementptr inbounds i8, ptr %858, i64 16
+  %867 = load i64, ptr %866, align 8
+  %.not.i.i.i503 = icmp eq i64 %867, 24
+  br i1 %.not.i.i.i503, label %_ZN10QByteArray4dataEv.exit.i509, label %868
 
-869:                                              ; preds = %866, %863
-  %870 = add i32 %861, 1
-  %871 = getelementptr inbounds i8, ptr %859, i64 8
-  %872 = load i32, ptr %871, align 8
-  %.lobit.i.i.i.i504 = lshr i32 %872, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %870, i32 %.lobit.i.i.i.i504)
+868:                                              ; preds = %865, %862
+  %869 = add i32 %860, 1
+  %870 = getelementptr inbounds i8, ptr %858, i64 8
+  %871 = load i32, ptr %870, align 8
+  %.lobit.i.i.i.i504 = lshr i32 %871, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %869, i32 %.lobit.i.i.i.i504)
           to label %.noexc511 unwind label %.loopexit
 
-.noexc511:                                        ; preds = %869
+.noexc511:                                        ; preds = %868
   %.pre.i.i505 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i506 = getelementptr inbounds i8, ptr %.pre.i.i505, i64 16
   %.pre1.i.i507 = load i64, ptr %.phi.trans.insert.i.i506, align 8
   %.pre.i508 = load i32, ptr %1, align 8
   br label %_ZN10QByteArray4dataEv.exit.i509
 
-_ZN10QByteArray4dataEv.exit.i509:                 ; preds = %.noexc511, %866
-  %873 = phi i32 [ %854, %866 ], [ %.pre.i508, %.noexc511 ]
-  %874 = phi i64 [ 24, %866 ], [ %.pre1.i.i507, %.noexc511 ]
-  %875 = phi ptr [ %859, %866 ], [ %.pre.i.i505, %.noexc511 ]
-  %876 = getelementptr inbounds i8, ptr %875, i64 %874
-  %877 = mul nsw i32 %873, %.0237788
-  %878 = add nsw i32 %877, %.0238781
-  %879 = sext i32 %878 to i64
-  %880 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %876, i64 %879, i32 5
-  %881 = load i8, ptr %880, align 1
+_ZN10QByteArray4dataEv.exit.i509:                 ; preds = %.noexc511, %865
+  %872 = phi i32 [ %853, %865 ], [ %.pre.i508, %.noexc511 ]
+  %873 = phi i64 [ 24, %865 ], [ %.pre1.i.i507, %.noexc511 ]
+  %874 = phi ptr [ %858, %865 ], [ %.pre.i.i505, %.noexc511 ]
+  %875 = getelementptr inbounds i8, ptr %874, i64 %873
+  %876 = mul nsw i32 %872, %.0237790
+  %877 = add nsw i32 %876, %.0238781
+  %878 = sext i32 %877 to i64
+  %879 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %875, i64 %878, i32 5
+  %880 = load i8, ptr %879, align 1
   br label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit512
 
-_ZN3vcg3tri2io10VertexGrid3RedEii.exit512:        ; preds = %_ZN10QByteArray4dataEv.exit.i509, %858, %819
-  %.0.i510 = phi i8 [ %881, %_ZN10QByteArray4dataEv.exit.i509 ], [ 8, %858 ], [ 8, %819 ]
-  %882 = getelementptr inbounds i8, ptr %792, i64 40
-  store i8 %.0.i510, ptr %882, align 1
-  %883 = load i32, ptr %1, align 8
-  %884 = icmp slt i32 %883, %.0238781
-  %885 = load i32, ptr %17, align 4
-  %886 = icmp slt i32 %885, %.0237788
-  %or.cond.i513 = select i1 %884, i1 true, i1 %886
-  br i1 %or.cond.i513, label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit523, label %887
+_ZN3vcg3tri2io10VertexGrid3RedEii.exit512:        ; preds = %_ZN10QByteArray4dataEv.exit.i509, %857, %818
+  %.0.i510 = phi i8 [ %880, %_ZN10QByteArray4dataEv.exit.i509 ], [ 8, %857 ], [ 8, %818 ]
+  %881 = getelementptr inbounds i8, ptr %791, i64 40
+  store i8 %.0.i510, ptr %881, align 1
+  %882 = load i32, ptr %1, align 8
+  %883 = icmp slt i32 %882, %.0238781
+  %884 = load i32, ptr %17, align 4
+  %885 = icmp slt i32 %884, %.0237790
+  %or.cond.i513 = select i1 %883, i1 true, i1 %885
+  br i1 %or.cond.i513, label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit523, label %886
 
-887:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid3RedEii.exit512
-  %888 = load ptr, ptr %18, align 8
-  %889 = getelementptr inbounds i8, ptr %888, i64 4
-  %890 = load i32, ptr %889, align 4
-  %891 = icmp sgt i32 %805, %890
-  br i1 %891, label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit523, label %892
+886:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid3RedEii.exit512
+  %887 = load ptr, ptr %18, align 8
+  %888 = getelementptr inbounds i8, ptr %887, i64 4
+  %889 = load i32, ptr %888, align 4
+  %890 = icmp sgt i32 %804, %889
+  br i1 %890, label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit523, label %891
 
-892:                                              ; preds = %887
-  %893 = load atomic i32, ptr %888 monotonic, align 4
-  %894 = icmp ugt i32 %893, 1
-  br i1 %894, label %898, label %895
+891:                                              ; preds = %886
+  %892 = load atomic i32, ptr %887 monotonic, align 4
+  %893 = icmp ugt i32 %892, 1
+  br i1 %893, label %897, label %894
 
-895:                                              ; preds = %892
-  %896 = getelementptr inbounds i8, ptr %888, i64 16
-  %897 = load i64, ptr %896, align 8
-  %.not.i.i.i514 = icmp eq i64 %897, 24
-  br i1 %.not.i.i.i514, label %_ZN10QByteArray4dataEv.exit.i520, label %898
+894:                                              ; preds = %891
+  %895 = getelementptr inbounds i8, ptr %887, i64 16
+  %896 = load i64, ptr %895, align 8
+  %.not.i.i.i514 = icmp eq i64 %896, 24
+  br i1 %.not.i.i.i514, label %_ZN10QByteArray4dataEv.exit.i520, label %897
 
-898:                                              ; preds = %895, %892
-  %899 = add i32 %890, 1
-  %900 = getelementptr inbounds i8, ptr %888, i64 8
-  %901 = load i32, ptr %900, align 8
-  %.lobit.i.i.i.i515 = lshr i32 %901, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %899, i32 %.lobit.i.i.i.i515)
+897:                                              ; preds = %894, %891
+  %898 = add i32 %889, 1
+  %899 = getelementptr inbounds i8, ptr %887, i64 8
+  %900 = load i32, ptr %899, align 8
+  %.lobit.i.i.i.i515 = lshr i32 %900, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %898, i32 %.lobit.i.i.i.i515)
           to label %.noexc522 unwind label %.loopexit
 
-.noexc522:                                        ; preds = %898
+.noexc522:                                        ; preds = %897
   %.pre.i.i516 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i517 = getelementptr inbounds i8, ptr %.pre.i.i516, i64 16
   %.pre1.i.i518 = load i64, ptr %.phi.trans.insert.i.i517, align 8
   %.pre.i519 = load i32, ptr %1, align 8
   br label %_ZN10QByteArray4dataEv.exit.i520
 
-_ZN10QByteArray4dataEv.exit.i520:                 ; preds = %.noexc522, %895
-  %902 = phi i32 [ %883, %895 ], [ %.pre.i519, %.noexc522 ]
-  %903 = phi i64 [ 24, %895 ], [ %.pre1.i.i518, %.noexc522 ]
-  %904 = phi ptr [ %888, %895 ], [ %.pre.i.i516, %.noexc522 ]
-  %905 = getelementptr inbounds i8, ptr %904, i64 %903
-  %906 = mul nsw i32 %902, %.0237788
-  %907 = add nsw i32 %906, %.0238781
-  %908 = sext i32 %907 to i64
-  %909 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %905, i64 %908, i32 6
-  %910 = load i8, ptr %909, align 2
+_ZN10QByteArray4dataEv.exit.i520:                 ; preds = %.noexc522, %894
+  %901 = phi i32 [ %882, %894 ], [ %.pre.i519, %.noexc522 ]
+  %902 = phi i64 [ 24, %894 ], [ %.pre1.i.i518, %.noexc522 ]
+  %903 = phi ptr [ %887, %894 ], [ %.pre.i.i516, %.noexc522 ]
+  %904 = getelementptr inbounds i8, ptr %903, i64 %902
+  %905 = mul nsw i32 %901, %.0237790
+  %906 = add nsw i32 %905, %.0238781
+  %907 = sext i32 %906 to i64
+  %908 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %904, i64 %907, i32 6
+  %909 = load i8, ptr %908, align 2
   br label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit523
 
-_ZN3vcg3tri2io10VertexGrid5GreenEii.exit523:      ; preds = %_ZN10QByteArray4dataEv.exit.i520, %887, %_ZN3vcg3tri2io10VertexGrid3RedEii.exit512
-  %.0.i521 = phi i8 [ %910, %_ZN10QByteArray4dataEv.exit.i520 ], [ 9, %887 ], [ 9, %_ZN3vcg3tri2io10VertexGrid3RedEii.exit512 ]
-  %911 = getelementptr inbounds i8, ptr %792, i64 41
-  store i8 %.0.i521, ptr %911, align 1
-  %912 = load i32, ptr %1, align 8
-  %913 = icmp slt i32 %912, %.0238781
-  %914 = load i32, ptr %17, align 4
-  %915 = icmp slt i32 %914, %.0237788
-  %or.cond.i524 = select i1 %913, i1 true, i1 %915
-  br i1 %or.cond.i524, label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit534, label %916
+_ZN3vcg3tri2io10VertexGrid5GreenEii.exit523:      ; preds = %_ZN10QByteArray4dataEv.exit.i520, %886, %_ZN3vcg3tri2io10VertexGrid3RedEii.exit512
+  %.0.i521 = phi i8 [ %909, %_ZN10QByteArray4dataEv.exit.i520 ], [ 9, %886 ], [ 9, %_ZN3vcg3tri2io10VertexGrid3RedEii.exit512 ]
+  %910 = getelementptr inbounds i8, ptr %791, i64 41
+  store i8 %.0.i521, ptr %910, align 1
+  %911 = load i32, ptr %1, align 8
+  %912 = icmp slt i32 %911, %.0238781
+  %913 = load i32, ptr %17, align 4
+  %914 = icmp slt i32 %913, %.0237790
+  %or.cond.i524 = select i1 %912, i1 true, i1 %914
+  br i1 %or.cond.i524, label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit534, label %915
 
-916:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit523
-  %917 = load ptr, ptr %18, align 8
-  %918 = getelementptr inbounds i8, ptr %917, i64 4
-  %919 = load i32, ptr %918, align 4
-  %920 = icmp sgt i32 %805, %919
-  br i1 %920, label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit534, label %921
+915:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit523
+  %916 = load ptr, ptr %18, align 8
+  %917 = getelementptr inbounds i8, ptr %916, i64 4
+  %918 = load i32, ptr %917, align 4
+  %919 = icmp sgt i32 %804, %918
+  br i1 %919, label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit534, label %920
 
-921:                                              ; preds = %916
-  %922 = load atomic i32, ptr %917 monotonic, align 4
-  %923 = icmp ugt i32 %922, 1
-  br i1 %923, label %927, label %924
+920:                                              ; preds = %915
+  %921 = load atomic i32, ptr %916 monotonic, align 4
+  %922 = icmp ugt i32 %921, 1
+  br i1 %922, label %926, label %923
 
-924:                                              ; preds = %921
-  %925 = getelementptr inbounds i8, ptr %917, i64 16
-  %926 = load i64, ptr %925, align 8
-  %.not.i.i.i525 = icmp eq i64 %926, 24
-  br i1 %.not.i.i.i525, label %_ZN10QByteArray4dataEv.exit.i531, label %927
+923:                                              ; preds = %920
+  %924 = getelementptr inbounds i8, ptr %916, i64 16
+  %925 = load i64, ptr %924, align 8
+  %.not.i.i.i525 = icmp eq i64 %925, 24
+  br i1 %.not.i.i.i525, label %_ZN10QByteArray4dataEv.exit.i531, label %926
 
-927:                                              ; preds = %924, %921
-  %928 = add i32 %919, 1
-  %929 = getelementptr inbounds i8, ptr %917, i64 8
-  %930 = load i32, ptr %929, align 8
-  %.lobit.i.i.i.i526 = lshr i32 %930, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %928, i32 %.lobit.i.i.i.i526)
+926:                                              ; preds = %923, %920
+  %927 = add i32 %918, 1
+  %928 = getelementptr inbounds i8, ptr %916, i64 8
+  %929 = load i32, ptr %928, align 8
+  %.lobit.i.i.i.i526 = lshr i32 %929, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %927, i32 %.lobit.i.i.i.i526)
           to label %.noexc533 unwind label %.loopexit
 
-.noexc533:                                        ; preds = %927
+.noexc533:                                        ; preds = %926
   %.pre.i.i527 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i528 = getelementptr inbounds i8, ptr %.pre.i.i527, i64 16
   %.pre1.i.i529 = load i64, ptr %.phi.trans.insert.i.i528, align 8
   %.pre.i530 = load i32, ptr %1, align 8
   br label %_ZN10QByteArray4dataEv.exit.i531
 
-_ZN10QByteArray4dataEv.exit.i531:                 ; preds = %.noexc533, %924
-  %931 = phi i32 [ %912, %924 ], [ %.pre.i530, %.noexc533 ]
-  %932 = phi i64 [ 24, %924 ], [ %.pre1.i.i529, %.noexc533 ]
-  %933 = phi ptr [ %917, %924 ], [ %.pre.i.i527, %.noexc533 ]
-  %934 = getelementptr inbounds i8, ptr %933, i64 %932
-  %935 = mul nsw i32 %931, %.0237788
-  %936 = add nsw i32 %935, %.0238781
-  %937 = sext i32 %936 to i64
-  %938 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %934, i64 %937, i32 7
-  %939 = load i8, ptr %938, align 1
+_ZN10QByteArray4dataEv.exit.i531:                 ; preds = %.noexc533, %923
+  %930 = phi i32 [ %911, %923 ], [ %.pre.i530, %.noexc533 ]
+  %931 = phi i64 [ 24, %923 ], [ %.pre1.i.i529, %.noexc533 ]
+  %932 = phi ptr [ %916, %923 ], [ %.pre.i.i527, %.noexc533 ]
+  %933 = getelementptr inbounds i8, ptr %932, i64 %931
+  %934 = mul nsw i32 %930, %.0237790
+  %935 = add nsw i32 %934, %.0238781
+  %936 = sext i32 %935 to i64
+  %937 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %933, i64 %936, i32 7
+  %938 = load i8, ptr %937, align 1
   br label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit534
 
-_ZN3vcg3tri2io10VertexGrid4BlueEii.exit534:       ; preds = %_ZN10QByteArray4dataEv.exit.i531, %916, %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit523
-  %.0.i532 = phi i8 [ %939, %_ZN10QByteArray4dataEv.exit.i531 ], [ 10, %916 ], [ 10, %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit523 ]
-  %940 = getelementptr inbounds i8, ptr %792, i64 42
-  store i8 %.0.i532, ptr %940, align 1
-  %941 = getelementptr inbounds i8, ptr %792, i64 43
-  store i8 -1, ptr %941, align 1
-  %942 = load i32, ptr %1, align 8
-  %943 = icmp slt i32 %942, %.0238781
-  %944 = load i32, ptr %17, align 4
-  %945 = icmp slt i32 %944, %.0237788
-  %or.cond.i535 = select i1 %943, i1 true, i1 %945
-  br i1 %or.cond.i535, label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit545, label %946
+_ZN3vcg3tri2io10VertexGrid4BlueEii.exit534:       ; preds = %_ZN10QByteArray4dataEv.exit.i531, %915, %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit523
+  %.0.i532 = phi i8 [ %938, %_ZN10QByteArray4dataEv.exit.i531 ], [ 10, %915 ], [ 10, %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit523 ]
+  %939 = getelementptr inbounds i8, ptr %791, i64 42
+  store i8 %.0.i532, ptr %939, align 1
+  %940 = getelementptr inbounds i8, ptr %791, i64 43
+  store i8 -1, ptr %940, align 1
+  %941 = load i32, ptr %1, align 8
+  %942 = icmp slt i32 %941, %.0238781
+  %943 = load i32, ptr %17, align 4
+  %944 = icmp slt i32 %943, %.0237790
+  %or.cond.i535 = select i1 %942, i1 true, i1 %944
+  br i1 %or.cond.i535, label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit545, label %945
 
-946:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit534
-  %947 = load ptr, ptr %18, align 8
-  %948 = getelementptr inbounds i8, ptr %947, i64 4
-  %949 = load i32, ptr %948, align 4
-  %950 = icmp sgt i32 %805, %949
-  br i1 %950, label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit545, label %951
+945:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit534
+  %946 = load ptr, ptr %18, align 8
+  %947 = getelementptr inbounds i8, ptr %946, i64 4
+  %948 = load i32, ptr %947, align 4
+  %949 = icmp sgt i32 %804, %948
+  br i1 %949, label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit545, label %950
 
-951:                                              ; preds = %946
-  %952 = load atomic i32, ptr %947 monotonic, align 4
-  %953 = icmp ugt i32 %952, 1
-  br i1 %953, label %957, label %954
+950:                                              ; preds = %945
+  %951 = load atomic i32, ptr %946 monotonic, align 4
+  %952 = icmp ugt i32 %951, 1
+  br i1 %952, label %956, label %953
 
-954:                                              ; preds = %951
-  %955 = getelementptr inbounds i8, ptr %947, i64 16
-  %956 = load i64, ptr %955, align 8
-  %.not.i.i.i536 = icmp eq i64 %956, 24
-  br i1 %.not.i.i.i536, label %_ZN10QByteArray4dataEv.exit.i542, label %957
+953:                                              ; preds = %950
+  %954 = getelementptr inbounds i8, ptr %946, i64 16
+  %955 = load i64, ptr %954, align 8
+  %.not.i.i.i536 = icmp eq i64 %955, 24
+  br i1 %.not.i.i.i536, label %_ZN10QByteArray4dataEv.exit.i542, label %956
 
-957:                                              ; preds = %954, %951
-  %958 = add i32 %949, 1
-  %959 = getelementptr inbounds i8, ptr %947, i64 8
-  %960 = load i32, ptr %959, align 8
-  %.lobit.i.i.i.i537 = lshr i32 %960, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %958, i32 %.lobit.i.i.i.i537)
+956:                                              ; preds = %953, %950
+  %957 = add i32 %948, 1
+  %958 = getelementptr inbounds i8, ptr %946, i64 8
+  %959 = load i32, ptr %958, align 8
+  %.lobit.i.i.i.i537 = lshr i32 %959, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %957, i32 %.lobit.i.i.i.i537)
           to label %.noexc544 unwind label %.loopexit
 
-.noexc544:                                        ; preds = %957
+.noexc544:                                        ; preds = %956
   %.pre.i.i538 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i539 = getelementptr inbounds i8, ptr %.pre.i.i538, i64 16
   %.pre1.i.i540 = load i64, ptr %.phi.trans.insert.i.i539, align 8
   %.pre.i541 = load i32, ptr %1, align 8
   br label %_ZN10QByteArray4dataEv.exit.i542
 
-_ZN10QByteArray4dataEv.exit.i542:                 ; preds = %.noexc544, %954
-  %961 = phi i32 [ %942, %954 ], [ %.pre.i541, %.noexc544 ]
-  %962 = phi i64 [ 24, %954 ], [ %.pre1.i.i540, %.noexc544 ]
-  %963 = phi ptr [ %947, %954 ], [ %.pre.i.i538, %.noexc544 ]
-  %964 = getelementptr inbounds i8, ptr %963, i64 %962
-  %965 = mul nsw i32 %961, %.0237788
-  %966 = add nsw i32 %965, %.0238781
-  %967 = sext i32 %966 to i64
-  %968 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %964, i64 %967, i32 4
-  %969 = load i8, ptr %968, align 4
+_ZN10QByteArray4dataEv.exit.i542:                 ; preds = %.noexc544, %953
+  %960 = phi i32 [ %941, %953 ], [ %.pre.i541, %.noexc544 ]
+  %961 = phi i64 [ 24, %953 ], [ %.pre1.i.i540, %.noexc544 ]
+  %962 = phi ptr [ %946, %953 ], [ %.pre.i.i538, %.noexc544 ]
+  %963 = getelementptr inbounds i8, ptr %962, i64 %961
+  %964 = mul nsw i32 %960, %.0237790
+  %965 = add nsw i32 %964, %.0238781
+  %966 = sext i32 %965 to i64
+  %967 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %963, i64 %966, i32 4
+  %968 = load i8, ptr %967, align 4
   br label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit545
 
-_ZN3vcg3tri2io10VertexGrid7QualityEii.exit545:    ; preds = %_ZN10QByteArray4dataEv.exit.i542, %946, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit534
-  %.0.i543 = phi i8 [ %969, %_ZN10QByteArray4dataEv.exit.i542 ], [ 11, %946 ], [ 11, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit534 ]
-  %970 = uitofp i8 %.0.i543 to float
-  %971 = getelementptr inbounds i8, ptr %792, i64 36
-  store float %970, ptr %971, align 4
-  %972 = getelementptr inbounds i8, ptr %783, i64 8
-  store ptr %792, ptr %972, align 8
-  %973 = getelementptr inbounds i8, ptr %792, i64 48
-  %974 = add nsw i32 %163, %3
-  %975 = load i32, ptr %1, align 8
-  %976 = icmp sge i32 %975, %974
-  %977 = load i32, ptr %17, align 4
-  %978 = icmp sgt i32 %977, %.0237788
+_ZN3vcg3tri2io10VertexGrid7QualityEii.exit545:    ; preds = %_ZN10QByteArray4dataEv.exit.i542, %945, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit534
+  %.0.i543 = phi i8 [ %968, %_ZN10QByteArray4dataEv.exit.i542 ], [ 11, %945 ], [ 11, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit534 ]
+  %969 = uitofp i8 %.0.i543 to float
+  %970 = getelementptr inbounds i8, ptr %791, i64 36
+  store float %969, ptr %970, align 4
+  %971 = getelementptr inbounds i8, ptr %782, i64 8
+  store ptr %791, ptr %971, align 8
+  %972 = getelementptr inbounds i8, ptr %791, i64 48
+  %.reass = add i32 %.0238781, %invariant.op788
+  %973 = load i32, ptr %1, align 8
+  %974 = icmp sge i32 %973, %.reass
+  %975 = load i32, ptr %17, align 4
+  %976 = icmp sgt i32 %975, %.0237790
+  call void @llvm.assume(i1 %974)
   call void @llvm.assume(i1 %976)
-  call void @llvm.assume(i1 %978)
-  %979 = mul i32 %125, %974
-  %980 = load ptr, ptr %18, align 8
-  %981 = getelementptr inbounds i8, ptr %980, i64 4
-  %982 = load i32, ptr %981, align 4
-  %983 = icmp sle i32 %979, %982
-  call void @llvm.assume(i1 %983)
-  %984 = load atomic i32, ptr %980 monotonic, align 4
-  %985 = icmp ugt i32 %984, 1
-  br i1 %985, label %989, label %986
+  %977 = mul i32 %125, %.reass
+  %978 = load ptr, ptr %18, align 8
+  %979 = getelementptr inbounds i8, ptr %978, i64 4
+  %980 = load i32, ptr %979, align 4
+  %981 = icmp sle i32 %977, %980
+  call void @llvm.assume(i1 %981)
+  %982 = load atomic i32, ptr %978 monotonic, align 4
+  %983 = icmp ugt i32 %982, 1
+  br i1 %983, label %987, label %984
 
-986:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit545
-  %987 = getelementptr inbounds i8, ptr %980, i64 16
-  %988 = load i64, ptr %987, align 8
-  %.not.i.i.i546 = icmp eq i64 %988, 24
-  br i1 %.not.i.i.i546, label %993, label %989
+984:                                              ; preds = %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit545
+  %985 = getelementptr inbounds i8, ptr %978, i64 16
+  %986 = load i64, ptr %985, align 8
+  %.not.i.i.i546 = icmp eq i64 %986, 24
+  br i1 %.not.i.i.i546, label %991, label %987
 
-989:                                              ; preds = %986, %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit545
-  %990 = add i32 %982, 1
-  %991 = getelementptr inbounds i8, ptr %980, i64 8
-  %992 = load i32, ptr %991, align 8
-  %.lobit.i.i.i.i547 = lshr i32 %992, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %990, i32 %.lobit.i.i.i.i547)
+987:                                              ; preds = %984, %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit545
+  %988 = add i32 %980, 1
+  %989 = getelementptr inbounds i8, ptr %978, i64 8
+  %990 = load i32, ptr %989, align 8
+  %.lobit.i.i.i.i547 = lshr i32 %990, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %988, i32 %.lobit.i.i.i.i547)
           to label %.noexc557 unwind label %.loopexit
 
-.noexc557:                                        ; preds = %989
+.noexc557:                                        ; preds = %987
   %.pre.i.i548 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i549 = getelementptr inbounds i8, ptr %.pre.i.i548, i64 16
   %.pre1.i.i550 = load i64, ptr %.phi.trans.insert.i.i549, align 8
   %.pre.i551 = load i32, ptr %1, align 8
-  br label %993
+  br label %991
 
-993:                                              ; preds = %.noexc557, %986
-  %994 = phi i32 [ %975, %986 ], [ %.pre.i551, %.noexc557 ]
-  %995 = phi i64 [ 24, %986 ], [ %.pre1.i.i550, %.noexc557 ]
-  %996 = phi ptr [ %980, %986 ], [ %.pre.i.i548, %.noexc557 ]
-  %997 = getelementptr inbounds i8, ptr %996, i64 %995
-  %998 = mul nsw i32 %994, %124
-  %999 = add nsw i32 %998, %974
-  %1000 = sext i32 %999 to i64
-  %1001 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %997, i64 %1000
-  %1002 = getelementptr inbounds i8, ptr %1001, i64 4
-  %1003 = getelementptr inbounds i8, ptr %1001, i64 12
-  %1004 = load float, ptr %1003, align 4
-  %1005 = getelementptr inbounds i8, ptr %792, i64 56
-  %1006 = load <2 x float>, ptr %1002, align 4
-  store <2 x float> %1006, ptr %1005, align 4
-  %1007 = getelementptr inbounds i8, ptr %792, i64 64
-  store float %1004, ptr %1007, align 4
-  %1008 = load ptr, ptr %973, align 8
-  %1009 = getelementptr inbounds i8, ptr %1008, i64 192
-  %1010 = load ptr, ptr %1008, align 8
-  %1011 = ptrtoint ptr %973 to i64
-  %1012 = ptrtoint ptr %1010 to i64
-  %1013 = sub i64 %1011, %1012
-  %1014 = sdiv exact i64 %1013, 48
-  %sext.i559 = shl i64 %1014, 32
-  %1015 = ashr exact i64 %sext.i559, 32
-  %1016 = load ptr, ptr %1009, align 8
-  %1017 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %1016, i64 %1015
-  %1018 = sitofp i32 %974 to float
-  store float %1018, ptr %1017, align 4
-  %1019 = load ptr, ptr %973, align 8
-  %1020 = getelementptr inbounds i8, ptr %1019, i64 192
-  %1021 = load ptr, ptr %1019, align 8
-  %1022 = ptrtoint ptr %1021 to i64
-  %1023 = sub i64 %1011, %1022
-  %1024 = sdiv exact i64 %1023, 48
-  %sext.i560 = shl i64 %1024, 32
-  %1025 = ashr exact i64 %sext.i560, 32
-  %1026 = load ptr, ptr %1020, align 8
-  %1027 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %1026, i64 %1025, i32 0, i64 0, i32 0, i64 1
-  store float %131, ptr %1027, align 4
-  %1028 = load i32, ptr %1, align 8
-  %1029 = icmp slt i32 %1028, %974
-  %1030 = load i32, ptr %17, align 4
-  %1031 = icmp sle i32 %1030, %.0237788
-  %or.cond.i561 = select i1 %1029, i1 true, i1 %1031
-  br i1 %or.cond.i561, label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit571, label %1032
+991:                                              ; preds = %.noexc557, %984
+  %992 = phi i32 [ %973, %984 ], [ %.pre.i551, %.noexc557 ]
+  %993 = phi i64 [ 24, %984 ], [ %.pre1.i.i550, %.noexc557 ]
+  %994 = phi ptr [ %978, %984 ], [ %.pre.i.i548, %.noexc557 ]
+  %995 = getelementptr inbounds i8, ptr %994, i64 %993
+  %996 = mul nsw i32 %992, %124
+  %997 = add nsw i32 %996, %.reass
+  %998 = sext i32 %997 to i64
+  %999 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %995, i64 %998
+  %1000 = getelementptr inbounds i8, ptr %999, i64 4
+  %1001 = getelementptr inbounds i8, ptr %999, i64 12
+  %1002 = load float, ptr %1001, align 4
+  %1003 = getelementptr inbounds i8, ptr %791, i64 56
+  %1004 = load <2 x float>, ptr %1000, align 4
+  store <2 x float> %1004, ptr %1003, align 4
+  %1005 = getelementptr inbounds i8, ptr %791, i64 64
+  store float %1002, ptr %1005, align 4
+  %1006 = load ptr, ptr %972, align 8
+  %1007 = getelementptr inbounds i8, ptr %1006, i64 192
+  %1008 = load ptr, ptr %1006, align 8
+  %1009 = ptrtoint ptr %972 to i64
+  %1010 = ptrtoint ptr %1008 to i64
+  %1011 = sub i64 %1009, %1010
+  %1012 = sdiv exact i64 %1011, 48
+  %sext.i559 = shl i64 %1012, 32
+  %1013 = ashr exact i64 %sext.i559, 32
+  %1014 = load ptr, ptr %1007, align 8
+  %1015 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %1014, i64 %1013
+  %1016 = sitofp i32 %.reass to float
+  store float %1016, ptr %1015, align 4
+  %1017 = load ptr, ptr %972, align 8
+  %1018 = getelementptr inbounds i8, ptr %1017, i64 192
+  %1019 = load ptr, ptr %1017, align 8
+  %1020 = ptrtoint ptr %1019 to i64
+  %1021 = sub i64 %1009, %1020
+  %1022 = sdiv exact i64 %1021, 48
+  %sext.i560 = shl i64 %1022, 32
+  %1023 = ashr exact i64 %sext.i560, 32
+  %1024 = load ptr, ptr %1018, align 8
+  %1025 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %1024, i64 %1023, i32 0, i64 0, i32 0, i64 1
+  store float %130, ptr %1025, align 4
+  %1026 = load i32, ptr %1, align 8
+  %1027 = icmp slt i32 %1026, %.reass
+  %1028 = load i32, ptr %17, align 4
+  %1029 = icmp sle i32 %1028, %.0237790
+  %or.cond.i561 = select i1 %1027, i1 true, i1 %1029
+  br i1 %or.cond.i561, label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit571, label %1030
 
-1032:                                             ; preds = %993
-  %1033 = load ptr, ptr %18, align 8
-  %1034 = getelementptr inbounds i8, ptr %1033, i64 4
-  %1035 = load i32, ptr %1034, align 4
-  %1036 = icmp sgt i32 %979, %1035
-  br i1 %1036, label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit571, label %1037
+1030:                                             ; preds = %991
+  %1031 = load ptr, ptr %18, align 8
+  %1032 = getelementptr inbounds i8, ptr %1031, i64 4
+  %1033 = load i32, ptr %1032, align 4
+  %1034 = icmp sgt i32 %977, %1033
+  br i1 %1034, label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit571, label %1035
 
-1037:                                             ; preds = %1032
-  %1038 = load atomic i32, ptr %1033 monotonic, align 4
-  %1039 = icmp ugt i32 %1038, 1
-  br i1 %1039, label %1043, label %1040
+1035:                                             ; preds = %1030
+  %1036 = load atomic i32, ptr %1031 monotonic, align 4
+  %1037 = icmp ugt i32 %1036, 1
+  br i1 %1037, label %1041, label %1038
 
-1040:                                             ; preds = %1037
-  %1041 = getelementptr inbounds i8, ptr %1033, i64 16
-  %1042 = load i64, ptr %1041, align 8
-  %.not.i.i.i562 = icmp eq i64 %1042, 24
-  br i1 %.not.i.i.i562, label %_ZN10QByteArray4dataEv.exit.i568, label %1043
+1038:                                             ; preds = %1035
+  %1039 = getelementptr inbounds i8, ptr %1031, i64 16
+  %1040 = load i64, ptr %1039, align 8
+  %.not.i.i.i562 = icmp eq i64 %1040, 24
+  br i1 %.not.i.i.i562, label %_ZN10QByteArray4dataEv.exit.i568, label %1041
 
-1043:                                             ; preds = %1040, %1037
-  %1044 = add i32 %1035, 1
-  %1045 = getelementptr inbounds i8, ptr %1033, i64 8
-  %1046 = load i32, ptr %1045, align 8
-  %.lobit.i.i.i.i563 = lshr i32 %1046, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %1044, i32 %.lobit.i.i.i.i563)
+1041:                                             ; preds = %1038, %1035
+  %1042 = add i32 %1033, 1
+  %1043 = getelementptr inbounds i8, ptr %1031, i64 8
+  %1044 = load i32, ptr %1043, align 8
+  %.lobit.i.i.i.i563 = lshr i32 %1044, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %1042, i32 %.lobit.i.i.i.i563)
           to label %.noexc570 unwind label %.loopexit
 
-.noexc570:                                        ; preds = %1043
+.noexc570:                                        ; preds = %1041
   %.pre.i.i564 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i565 = getelementptr inbounds i8, ptr %.pre.i.i564, i64 16
   %.pre1.i.i566 = load i64, ptr %.phi.trans.insert.i.i565, align 8
   %.pre.i567 = load i32, ptr %1, align 8
   br label %_ZN10QByteArray4dataEv.exit.i568
 
-_ZN10QByteArray4dataEv.exit.i568:                 ; preds = %.noexc570, %1040
-  %1047 = phi i32 [ %1028, %1040 ], [ %.pre.i567, %.noexc570 ]
-  %1048 = phi i64 [ 24, %1040 ], [ %.pre1.i.i566, %.noexc570 ]
-  %1049 = phi ptr [ %1033, %1040 ], [ %.pre.i.i564, %.noexc570 ]
-  %1050 = getelementptr inbounds i8, ptr %1049, i64 %1048
-  %1051 = mul nsw i32 %1047, %124
-  %1052 = add nsw i32 %1051, %974
-  %1053 = sext i32 %1052 to i64
-  %1054 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %1050, i64 %1053, i32 5
-  %1055 = load i8, ptr %1054, align 1
+_ZN10QByteArray4dataEv.exit.i568:                 ; preds = %.noexc570, %1038
+  %1045 = phi i32 [ %1026, %1038 ], [ %.pre.i567, %.noexc570 ]
+  %1046 = phi i64 [ 24, %1038 ], [ %.pre1.i.i566, %.noexc570 ]
+  %1047 = phi ptr [ %1031, %1038 ], [ %.pre.i.i564, %.noexc570 ]
+  %1048 = getelementptr inbounds i8, ptr %1047, i64 %1046
+  %1049 = mul nsw i32 %1045, %124
+  %1050 = add nsw i32 %1049, %.reass
+  %1051 = sext i32 %1050 to i64
+  %1052 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %1048, i64 %1051, i32 5
+  %1053 = load i8, ptr %1052, align 1
   br label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit571
 
-_ZN3vcg3tri2io10VertexGrid3RedEii.exit571:        ; preds = %_ZN10QByteArray4dataEv.exit.i568, %1032, %993
-  %.0.i569 = phi i8 [ %1055, %_ZN10QByteArray4dataEv.exit.i568 ], [ 8, %1032 ], [ 8, %993 ]
-  %1056 = getelementptr inbounds i8, ptr %792, i64 88
-  store i8 %.0.i569, ptr %1056, align 1
-  %1057 = load i32, ptr %1, align 8
-  %1058 = icmp slt i32 %1057, %974
-  %1059 = load i32, ptr %17, align 4
-  %1060 = icmp sle i32 %1059, %.0237788
-  %or.cond.i572 = select i1 %1058, i1 true, i1 %1060
-  br i1 %or.cond.i572, label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit582, label %1061
+_ZN3vcg3tri2io10VertexGrid3RedEii.exit571:        ; preds = %_ZN10QByteArray4dataEv.exit.i568, %1030, %991
+  %.0.i569 = phi i8 [ %1053, %_ZN10QByteArray4dataEv.exit.i568 ], [ 8, %1030 ], [ 8, %991 ]
+  %1054 = getelementptr inbounds i8, ptr %791, i64 88
+  store i8 %.0.i569, ptr %1054, align 1
+  %1055 = load i32, ptr %1, align 8
+  %1056 = icmp slt i32 %1055, %.reass
+  %1057 = load i32, ptr %17, align 4
+  %1058 = icmp sle i32 %1057, %.0237790
+  %or.cond.i572 = select i1 %1056, i1 true, i1 %1058
+  br i1 %or.cond.i572, label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit582, label %1059
 
-1061:                                             ; preds = %_ZN3vcg3tri2io10VertexGrid3RedEii.exit571
-  %1062 = load ptr, ptr %18, align 8
-  %1063 = getelementptr inbounds i8, ptr %1062, i64 4
-  %1064 = load i32, ptr %1063, align 4
-  %1065 = icmp sgt i32 %979, %1064
-  br i1 %1065, label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit582, label %1066
+1059:                                             ; preds = %_ZN3vcg3tri2io10VertexGrid3RedEii.exit571
+  %1060 = load ptr, ptr %18, align 8
+  %1061 = getelementptr inbounds i8, ptr %1060, i64 4
+  %1062 = load i32, ptr %1061, align 4
+  %1063 = icmp sgt i32 %977, %1062
+  br i1 %1063, label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit582, label %1064
 
-1066:                                             ; preds = %1061
-  %1067 = load atomic i32, ptr %1062 monotonic, align 4
-  %1068 = icmp ugt i32 %1067, 1
-  br i1 %1068, label %1072, label %1069
+1064:                                             ; preds = %1059
+  %1065 = load atomic i32, ptr %1060 monotonic, align 4
+  %1066 = icmp ugt i32 %1065, 1
+  br i1 %1066, label %1070, label %1067
 
-1069:                                             ; preds = %1066
-  %1070 = getelementptr inbounds i8, ptr %1062, i64 16
-  %1071 = load i64, ptr %1070, align 8
-  %.not.i.i.i573 = icmp eq i64 %1071, 24
-  br i1 %.not.i.i.i573, label %_ZN10QByteArray4dataEv.exit.i579, label %1072
+1067:                                             ; preds = %1064
+  %1068 = getelementptr inbounds i8, ptr %1060, i64 16
+  %1069 = load i64, ptr %1068, align 8
+  %.not.i.i.i573 = icmp eq i64 %1069, 24
+  br i1 %.not.i.i.i573, label %_ZN10QByteArray4dataEv.exit.i579, label %1070
 
-1072:                                             ; preds = %1069, %1066
-  %1073 = add i32 %1064, 1
-  %1074 = getelementptr inbounds i8, ptr %1062, i64 8
-  %1075 = load i32, ptr %1074, align 8
-  %.lobit.i.i.i.i574 = lshr i32 %1075, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %1073, i32 %.lobit.i.i.i.i574)
+1070:                                             ; preds = %1067, %1064
+  %1071 = add i32 %1062, 1
+  %1072 = getelementptr inbounds i8, ptr %1060, i64 8
+  %1073 = load i32, ptr %1072, align 8
+  %.lobit.i.i.i.i574 = lshr i32 %1073, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %1071, i32 %.lobit.i.i.i.i574)
           to label %.noexc581 unwind label %.loopexit
 
-.noexc581:                                        ; preds = %1072
+.noexc581:                                        ; preds = %1070
   %.pre.i.i575 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i576 = getelementptr inbounds i8, ptr %.pre.i.i575, i64 16
   %.pre1.i.i577 = load i64, ptr %.phi.trans.insert.i.i576, align 8
   %.pre.i578 = load i32, ptr %1, align 8
   br label %_ZN10QByteArray4dataEv.exit.i579
 
-_ZN10QByteArray4dataEv.exit.i579:                 ; preds = %.noexc581, %1069
-  %1076 = phi i32 [ %1057, %1069 ], [ %.pre.i578, %.noexc581 ]
-  %1077 = phi i64 [ 24, %1069 ], [ %.pre1.i.i577, %.noexc581 ]
-  %1078 = phi ptr [ %1062, %1069 ], [ %.pre.i.i575, %.noexc581 ]
-  %1079 = getelementptr inbounds i8, ptr %1078, i64 %1077
-  %1080 = mul nsw i32 %1076, %124
-  %1081 = add nsw i32 %1080, %974
-  %1082 = sext i32 %1081 to i64
-  %1083 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %1079, i64 %1082, i32 6
-  %1084 = load i8, ptr %1083, align 2
+_ZN10QByteArray4dataEv.exit.i579:                 ; preds = %.noexc581, %1067
+  %1074 = phi i32 [ %1055, %1067 ], [ %.pre.i578, %.noexc581 ]
+  %1075 = phi i64 [ 24, %1067 ], [ %.pre1.i.i577, %.noexc581 ]
+  %1076 = phi ptr [ %1060, %1067 ], [ %.pre.i.i575, %.noexc581 ]
+  %1077 = getelementptr inbounds i8, ptr %1076, i64 %1075
+  %1078 = mul nsw i32 %1074, %124
+  %1079 = add nsw i32 %1078, %.reass
+  %1080 = sext i32 %1079 to i64
+  %1081 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %1077, i64 %1080, i32 6
+  %1082 = load i8, ptr %1081, align 2
   br label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit582
 
-_ZN3vcg3tri2io10VertexGrid5GreenEii.exit582:      ; preds = %_ZN10QByteArray4dataEv.exit.i579, %1061, %_ZN3vcg3tri2io10VertexGrid3RedEii.exit571
-  %.0.i580 = phi i8 [ %1084, %_ZN10QByteArray4dataEv.exit.i579 ], [ 9, %1061 ], [ 9, %_ZN3vcg3tri2io10VertexGrid3RedEii.exit571 ]
-  %1085 = getelementptr inbounds i8, ptr %792, i64 89
-  store i8 %.0.i580, ptr %1085, align 1
-  %1086 = load i32, ptr %1, align 8
-  %1087 = icmp slt i32 %1086, %974
-  %1088 = load i32, ptr %17, align 4
-  %1089 = icmp sle i32 %1088, %.0237788
-  %or.cond.i583 = select i1 %1087, i1 true, i1 %1089
-  br i1 %or.cond.i583, label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit593, label %1090
+_ZN3vcg3tri2io10VertexGrid5GreenEii.exit582:      ; preds = %_ZN10QByteArray4dataEv.exit.i579, %1059, %_ZN3vcg3tri2io10VertexGrid3RedEii.exit571
+  %.0.i580 = phi i8 [ %1082, %_ZN10QByteArray4dataEv.exit.i579 ], [ 9, %1059 ], [ 9, %_ZN3vcg3tri2io10VertexGrid3RedEii.exit571 ]
+  %1083 = getelementptr inbounds i8, ptr %791, i64 89
+  store i8 %.0.i580, ptr %1083, align 1
+  %1084 = load i32, ptr %1, align 8
+  %1085 = icmp slt i32 %1084, %.reass
+  %1086 = load i32, ptr %17, align 4
+  %1087 = icmp sle i32 %1086, %.0237790
+  %or.cond.i583 = select i1 %1085, i1 true, i1 %1087
+  br i1 %or.cond.i583, label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit593, label %1088
 
-1090:                                             ; preds = %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit582
-  %1091 = load ptr, ptr %18, align 8
-  %1092 = getelementptr inbounds i8, ptr %1091, i64 4
-  %1093 = load i32, ptr %1092, align 4
-  %1094 = icmp sgt i32 %979, %1093
-  br i1 %1094, label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit593, label %1095
+1088:                                             ; preds = %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit582
+  %1089 = load ptr, ptr %18, align 8
+  %1090 = getelementptr inbounds i8, ptr %1089, i64 4
+  %1091 = load i32, ptr %1090, align 4
+  %1092 = icmp sgt i32 %977, %1091
+  br i1 %1092, label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit593, label %1093
 
-1095:                                             ; preds = %1090
-  %1096 = load atomic i32, ptr %1091 monotonic, align 4
-  %1097 = icmp ugt i32 %1096, 1
-  br i1 %1097, label %1101, label %1098
+1093:                                             ; preds = %1088
+  %1094 = load atomic i32, ptr %1089 monotonic, align 4
+  %1095 = icmp ugt i32 %1094, 1
+  br i1 %1095, label %1099, label %1096
 
-1098:                                             ; preds = %1095
-  %1099 = getelementptr inbounds i8, ptr %1091, i64 16
-  %1100 = load i64, ptr %1099, align 8
-  %.not.i.i.i584 = icmp eq i64 %1100, 24
-  br i1 %.not.i.i.i584, label %_ZN10QByteArray4dataEv.exit.i590, label %1101
+1096:                                             ; preds = %1093
+  %1097 = getelementptr inbounds i8, ptr %1089, i64 16
+  %1098 = load i64, ptr %1097, align 8
+  %.not.i.i.i584 = icmp eq i64 %1098, 24
+  br i1 %.not.i.i.i584, label %_ZN10QByteArray4dataEv.exit.i590, label %1099
 
-1101:                                             ; preds = %1098, %1095
-  %1102 = add i32 %1093, 1
-  %1103 = getelementptr inbounds i8, ptr %1091, i64 8
-  %1104 = load i32, ptr %1103, align 8
-  %.lobit.i.i.i.i585 = lshr i32 %1104, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %1102, i32 %.lobit.i.i.i.i585)
+1099:                                             ; preds = %1096, %1093
+  %1100 = add i32 %1091, 1
+  %1101 = getelementptr inbounds i8, ptr %1089, i64 8
+  %1102 = load i32, ptr %1101, align 8
+  %.lobit.i.i.i.i585 = lshr i32 %1102, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %1100, i32 %.lobit.i.i.i.i585)
           to label %.noexc592 unwind label %.loopexit
 
-.noexc592:                                        ; preds = %1101
+.noexc592:                                        ; preds = %1099
   %.pre.i.i586 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i587 = getelementptr inbounds i8, ptr %.pre.i.i586, i64 16
   %.pre1.i.i588 = load i64, ptr %.phi.trans.insert.i.i587, align 8
   %.pre.i589 = load i32, ptr %1, align 8
   br label %_ZN10QByteArray4dataEv.exit.i590
 
-_ZN10QByteArray4dataEv.exit.i590:                 ; preds = %.noexc592, %1098
-  %1105 = phi i32 [ %1086, %1098 ], [ %.pre.i589, %.noexc592 ]
-  %1106 = phi i64 [ 24, %1098 ], [ %.pre1.i.i588, %.noexc592 ]
-  %1107 = phi ptr [ %1091, %1098 ], [ %.pre.i.i586, %.noexc592 ]
-  %1108 = getelementptr inbounds i8, ptr %1107, i64 %1106
-  %1109 = mul nsw i32 %1105, %124
-  %1110 = add nsw i32 %1109, %974
-  %1111 = sext i32 %1110 to i64
-  %1112 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %1108, i64 %1111, i32 7
-  %1113 = load i8, ptr %1112, align 1
+_ZN10QByteArray4dataEv.exit.i590:                 ; preds = %.noexc592, %1096
+  %1103 = phi i32 [ %1084, %1096 ], [ %.pre.i589, %.noexc592 ]
+  %1104 = phi i64 [ 24, %1096 ], [ %.pre1.i.i588, %.noexc592 ]
+  %1105 = phi ptr [ %1089, %1096 ], [ %.pre.i.i586, %.noexc592 ]
+  %1106 = getelementptr inbounds i8, ptr %1105, i64 %1104
+  %1107 = mul nsw i32 %1103, %124
+  %1108 = add nsw i32 %1107, %.reass
+  %1109 = sext i32 %1108 to i64
+  %1110 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %1106, i64 %1109, i32 7
+  %1111 = load i8, ptr %1110, align 1
   br label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit593
 
-_ZN3vcg3tri2io10VertexGrid4BlueEii.exit593:       ; preds = %_ZN10QByteArray4dataEv.exit.i590, %1090, %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit582
-  %.0.i591 = phi i8 [ %1113, %_ZN10QByteArray4dataEv.exit.i590 ], [ 10, %1090 ], [ 10, %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit582 ]
-  %1114 = getelementptr inbounds i8, ptr %792, i64 90
-  store i8 %.0.i591, ptr %1114, align 1
-  %1115 = getelementptr inbounds i8, ptr %792, i64 91
-  store i8 -1, ptr %1115, align 1
-  %1116 = load i32, ptr %1, align 8
-  %1117 = icmp slt i32 %1116, %974
-  %1118 = load i32, ptr %17, align 4
-  %1119 = icmp sle i32 %1118, %.0237788
-  %or.cond.i594 = select i1 %1117, i1 true, i1 %1119
-  br i1 %or.cond.i594, label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit604, label %1120
+_ZN3vcg3tri2io10VertexGrid4BlueEii.exit593:       ; preds = %_ZN10QByteArray4dataEv.exit.i590, %1088, %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit582
+  %.0.i591 = phi i8 [ %1111, %_ZN10QByteArray4dataEv.exit.i590 ], [ 10, %1088 ], [ 10, %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit582 ]
+  %1112 = getelementptr inbounds i8, ptr %791, i64 90
+  store i8 %.0.i591, ptr %1112, align 1
+  %1113 = getelementptr inbounds i8, ptr %791, i64 91
+  store i8 -1, ptr %1113, align 1
+  %1114 = load i32, ptr %1, align 8
+  %1115 = icmp slt i32 %1114, %.reass
+  %1116 = load i32, ptr %17, align 4
+  %1117 = icmp sle i32 %1116, %.0237790
+  %or.cond.i594 = select i1 %1115, i1 true, i1 %1117
+  br i1 %or.cond.i594, label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit604, label %1118
 
-1120:                                             ; preds = %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit593
-  %1121 = load ptr, ptr %18, align 8
-  %1122 = getelementptr inbounds i8, ptr %1121, i64 4
-  %1123 = load i32, ptr %1122, align 4
-  %1124 = icmp sgt i32 %979, %1123
-  br i1 %1124, label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit604, label %1125
+1118:                                             ; preds = %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit593
+  %1119 = load ptr, ptr %18, align 8
+  %1120 = getelementptr inbounds i8, ptr %1119, i64 4
+  %1121 = load i32, ptr %1120, align 4
+  %1122 = icmp sgt i32 %977, %1121
+  br i1 %1122, label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit604, label %1123
 
-1125:                                             ; preds = %1120
-  %1126 = load atomic i32, ptr %1121 monotonic, align 4
-  %1127 = icmp ugt i32 %1126, 1
-  br i1 %1127, label %1131, label %1128
+1123:                                             ; preds = %1118
+  %1124 = load atomic i32, ptr %1119 monotonic, align 4
+  %1125 = icmp ugt i32 %1124, 1
+  br i1 %1125, label %1129, label %1126
 
-1128:                                             ; preds = %1125
-  %1129 = getelementptr inbounds i8, ptr %1121, i64 16
-  %1130 = load i64, ptr %1129, align 8
-  %.not.i.i.i595 = icmp eq i64 %1130, 24
-  br i1 %.not.i.i.i595, label %_ZN10QByteArray4dataEv.exit.i601, label %1131
+1126:                                             ; preds = %1123
+  %1127 = getelementptr inbounds i8, ptr %1119, i64 16
+  %1128 = load i64, ptr %1127, align 8
+  %.not.i.i.i595 = icmp eq i64 %1128, 24
+  br i1 %.not.i.i.i595, label %_ZN10QByteArray4dataEv.exit.i601, label %1129
 
-1131:                                             ; preds = %1128, %1125
-  %1132 = add i32 %1123, 1
-  %1133 = getelementptr inbounds i8, ptr %1121, i64 8
-  %1134 = load i32, ptr %1133, align 8
-  %.lobit.i.i.i.i596 = lshr i32 %1134, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %1132, i32 %.lobit.i.i.i.i596)
+1129:                                             ; preds = %1126, %1123
+  %1130 = add i32 %1121, 1
+  %1131 = getelementptr inbounds i8, ptr %1119, i64 8
+  %1132 = load i32, ptr %1131, align 8
+  %.lobit.i.i.i.i596 = lshr i32 %1132, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %1130, i32 %.lobit.i.i.i.i596)
           to label %.noexc603 unwind label %.loopexit
 
-.noexc603:                                        ; preds = %1131
+.noexc603:                                        ; preds = %1129
   %.pre.i.i597 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i598 = getelementptr inbounds i8, ptr %.pre.i.i597, i64 16
   %.pre1.i.i599 = load i64, ptr %.phi.trans.insert.i.i598, align 8
   %.pre.i600 = load i32, ptr %1, align 8
   br label %_ZN10QByteArray4dataEv.exit.i601
 
-_ZN10QByteArray4dataEv.exit.i601:                 ; preds = %.noexc603, %1128
-  %1135 = phi i32 [ %1116, %1128 ], [ %.pre.i600, %.noexc603 ]
-  %1136 = phi i64 [ 24, %1128 ], [ %.pre1.i.i599, %.noexc603 ]
-  %1137 = phi ptr [ %1121, %1128 ], [ %.pre.i.i597, %.noexc603 ]
-  %1138 = getelementptr inbounds i8, ptr %1137, i64 %1136
-  %1139 = mul nsw i32 %1135, %124
-  %1140 = add nsw i32 %1139, %974
-  %1141 = sext i32 %1140 to i64
-  %1142 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %1138, i64 %1141, i32 4
-  %1143 = load i8, ptr %1142, align 4
+_ZN10QByteArray4dataEv.exit.i601:                 ; preds = %.noexc603, %1126
+  %1133 = phi i32 [ %1114, %1126 ], [ %.pre.i600, %.noexc603 ]
+  %1134 = phi i64 [ 24, %1126 ], [ %.pre1.i.i599, %.noexc603 ]
+  %1135 = phi ptr [ %1119, %1126 ], [ %.pre.i.i597, %.noexc603 ]
+  %1136 = getelementptr inbounds i8, ptr %1135, i64 %1134
+  %1137 = mul nsw i32 %1133, %124
+  %1138 = add nsw i32 %1137, %.reass
+  %1139 = sext i32 %1138 to i64
+  %1140 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %1136, i64 %1139, i32 4
+  %1141 = load i8, ptr %1140, align 4
   br label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit604
 
-_ZN3vcg3tri2io10VertexGrid7QualityEii.exit604:    ; preds = %_ZN10QByteArray4dataEv.exit.i601, %1120, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit593
-  %.0.i602 = phi i8 [ %1143, %_ZN10QByteArray4dataEv.exit.i601 ], [ 11, %1120 ], [ 11, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit593 ]
-  %1144 = uitofp i8 %.0.i602 to float
-  %1145 = getelementptr inbounds i8, ptr %792, i64 84
-  store float %1144, ptr %1145, align 4
-  %1146 = getelementptr inbounds i8, ptr %783, i64 16
-  store ptr %973, ptr %1146, align 8
-  %1147 = getelementptr inbounds i8, ptr %792, i64 96
-  %1148 = sub i32 %.0238781, %3
-  %1149 = load i32, ptr %1, align 8
-  %1150 = icmp sge i32 %1149, %1148
-  %1151 = load i32, ptr %17, align 4
-  %1152 = icmp sgt i32 %1151, %.0237788
+_ZN3vcg3tri2io10VertexGrid7QualityEii.exit604:    ; preds = %_ZN10QByteArray4dataEv.exit.i601, %1118, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit593
+  %.0.i602 = phi i8 [ %1141, %_ZN10QByteArray4dataEv.exit.i601 ], [ 11, %1118 ], [ 11, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit593 ]
+  %1142 = uitofp i8 %.0.i602 to float
+  %1143 = getelementptr inbounds i8, ptr %791, i64 84
+  store float %1142, ptr %1143, align 4
+  %1144 = getelementptr inbounds i8, ptr %782, i64 16
+  store ptr %972, ptr %1144, align 8
+  %1145 = getelementptr inbounds i8, ptr %791, i64 96
+  %1146 = sub i32 %.0238781, %3
+  %1147 = load i32, ptr %1, align 8
+  %1148 = icmp sge i32 %1147, %1146
+  %1149 = load i32, ptr %17, align 4
+  %1150 = icmp sgt i32 %1149, %.0237790
+  call void @llvm.assume(i1 %1148)
   call void @llvm.assume(i1 %1150)
-  call void @llvm.assume(i1 %1152)
-  %1153 = mul i32 %125, %1148
-  %1154 = load ptr, ptr %18, align 8
-  %1155 = getelementptr inbounds i8, ptr %1154, i64 4
-  %1156 = load i32, ptr %1155, align 4
-  %1157 = icmp sle i32 %1153, %1156
-  call void @llvm.assume(i1 %1157)
-  %1158 = load atomic i32, ptr %1154 monotonic, align 4
-  %1159 = icmp ugt i32 %1158, 1
-  br i1 %1159, label %1163, label %1160
+  %1151 = mul i32 %125, %1146
+  %1152 = load ptr, ptr %18, align 8
+  %1153 = getelementptr inbounds i8, ptr %1152, i64 4
+  %1154 = load i32, ptr %1153, align 4
+  %1155 = icmp sle i32 %1151, %1154
+  call void @llvm.assume(i1 %1155)
+  %1156 = load atomic i32, ptr %1152 monotonic, align 4
+  %1157 = icmp ugt i32 %1156, 1
+  br i1 %1157, label %1161, label %1158
 
-1160:                                             ; preds = %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit604
-  %1161 = getelementptr inbounds i8, ptr %1154, i64 16
-  %1162 = load i64, ptr %1161, align 8
-  %.not.i.i.i605 = icmp eq i64 %1162, 24
-  br i1 %.not.i.i.i605, label %1167, label %1163
+1158:                                             ; preds = %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit604
+  %1159 = getelementptr inbounds i8, ptr %1152, i64 16
+  %1160 = load i64, ptr %1159, align 8
+  %.not.i.i.i605 = icmp eq i64 %1160, 24
+  br i1 %.not.i.i.i605, label %1165, label %1161
 
-1163:                                             ; preds = %1160, %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit604
-  %1164 = add i32 %1156, 1
-  %1165 = getelementptr inbounds i8, ptr %1154, i64 8
-  %1166 = load i32, ptr %1165, align 8
-  %.lobit.i.i.i.i606 = lshr i32 %1166, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %1164, i32 %.lobit.i.i.i.i606)
+1161:                                             ; preds = %1158, %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit604
+  %1162 = add i32 %1154, 1
+  %1163 = getelementptr inbounds i8, ptr %1152, i64 8
+  %1164 = load i32, ptr %1163, align 8
+  %.lobit.i.i.i.i606 = lshr i32 %1164, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %1162, i32 %.lobit.i.i.i.i606)
           to label %.noexc616 unwind label %.loopexit
 
-.noexc616:                                        ; preds = %1163
+.noexc616:                                        ; preds = %1161
   %.pre.i.i607 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i608 = getelementptr inbounds i8, ptr %.pre.i.i607, i64 16
   %.pre1.i.i609 = load i64, ptr %.phi.trans.insert.i.i608, align 8
   %.pre.i610 = load i32, ptr %1, align 8
-  br label %1167
+  br label %1165
 
-1167:                                             ; preds = %.noexc616, %1160
-  %1168 = phi i32 [ %1149, %1160 ], [ %.pre.i610, %.noexc616 ]
-  %1169 = phi i64 [ 24, %1160 ], [ %.pre1.i.i609, %.noexc616 ]
-  %1170 = phi ptr [ %1154, %1160 ], [ %.pre.i.i607, %.noexc616 ]
-  %1171 = getelementptr inbounds i8, ptr %1170, i64 %1169
-  %1172 = mul nsw i32 %1168, %124
-  %1173 = add nsw i32 %1172, %1148
-  %1174 = sext i32 %1173 to i64
-  %1175 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %1171, i64 %1174
-  %1176 = getelementptr inbounds i8, ptr %1175, i64 4
-  %1177 = getelementptr inbounds i8, ptr %1175, i64 12
-  %1178 = load float, ptr %1177, align 4
-  %1179 = getelementptr inbounds i8, ptr %792, i64 104
-  %1180 = load <2 x float>, ptr %1176, align 4
-  store <2 x float> %1180, ptr %1179, align 4
-  %1181 = getelementptr inbounds i8, ptr %792, i64 112
-  store float %1178, ptr %1181, align 4
-  %1182 = load ptr, ptr %1147, align 8
-  %1183 = getelementptr inbounds i8, ptr %1182, i64 192
-  %1184 = load ptr, ptr %1182, align 8
-  %1185 = ptrtoint ptr %1147 to i64
-  %1186 = ptrtoint ptr %1184 to i64
-  %1187 = sub i64 %1185, %1186
-  %1188 = sdiv exact i64 %1187, 48
-  %sext.i618 = shl i64 %1188, 32
-  %1189 = ashr exact i64 %sext.i618, 32
-  %1190 = load ptr, ptr %1183, align 8
-  %1191 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %1190, i64 %1189
-  %1192 = sitofp i32 %1148 to float
-  store float %1192, ptr %1191, align 4
-  %1193 = load ptr, ptr %1147, align 8
-  %1194 = getelementptr inbounds i8, ptr %1193, i64 192
-  %1195 = load ptr, ptr %1193, align 8
-  %1196 = ptrtoint ptr %1195 to i64
-  %1197 = sub i64 %1185, %1196
-  %1198 = sdiv exact i64 %1197, 48
-  %sext.i619 = shl i64 %1198, 32
-  %1199 = ashr exact i64 %sext.i619, 32
-  %1200 = load ptr, ptr %1194, align 8
-  %1201 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %1200, i64 %1199, i32 0, i64 0, i32 0, i64 1
-  store float %131, ptr %1201, align 4
-  %1202 = load i32, ptr %1, align 8
-  %1203 = icmp slt i32 %1202, %1148
-  %1204 = load i32, ptr %17, align 4
-  %1205 = icmp sle i32 %1204, %.0237788
-  %or.cond.i620 = select i1 %1203, i1 true, i1 %1205
-  br i1 %or.cond.i620, label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit630, label %1206
+1165:                                             ; preds = %.noexc616, %1158
+  %1166 = phi i32 [ %1147, %1158 ], [ %.pre.i610, %.noexc616 ]
+  %1167 = phi i64 [ 24, %1158 ], [ %.pre1.i.i609, %.noexc616 ]
+  %1168 = phi ptr [ %1152, %1158 ], [ %.pre.i.i607, %.noexc616 ]
+  %1169 = getelementptr inbounds i8, ptr %1168, i64 %1167
+  %1170 = mul nsw i32 %1166, %124
+  %1171 = add nsw i32 %1170, %1146
+  %1172 = sext i32 %1171 to i64
+  %1173 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %1169, i64 %1172
+  %1174 = getelementptr inbounds i8, ptr %1173, i64 4
+  %1175 = getelementptr inbounds i8, ptr %1173, i64 12
+  %1176 = load float, ptr %1175, align 4
+  %1177 = getelementptr inbounds i8, ptr %791, i64 104
+  %1178 = load <2 x float>, ptr %1174, align 4
+  store <2 x float> %1178, ptr %1177, align 4
+  %1179 = getelementptr inbounds i8, ptr %791, i64 112
+  store float %1176, ptr %1179, align 4
+  %1180 = load ptr, ptr %1145, align 8
+  %1181 = getelementptr inbounds i8, ptr %1180, i64 192
+  %1182 = load ptr, ptr %1180, align 8
+  %1183 = ptrtoint ptr %1145 to i64
+  %1184 = ptrtoint ptr %1182 to i64
+  %1185 = sub i64 %1183, %1184
+  %1186 = sdiv exact i64 %1185, 48
+  %sext.i618 = shl i64 %1186, 32
+  %1187 = ashr exact i64 %sext.i618, 32
+  %1188 = load ptr, ptr %1181, align 8
+  %1189 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %1188, i64 %1187
+  %1190 = sitofp i32 %1146 to float
+  store float %1190, ptr %1189, align 4
+  %1191 = load ptr, ptr %1145, align 8
+  %1192 = getelementptr inbounds i8, ptr %1191, i64 192
+  %1193 = load ptr, ptr %1191, align 8
+  %1194 = ptrtoint ptr %1193 to i64
+  %1195 = sub i64 %1183, %1194
+  %1196 = sdiv exact i64 %1195, 48
+  %sext.i619 = shl i64 %1196, 32
+  %1197 = ashr exact i64 %sext.i619, 32
+  %1198 = load ptr, ptr %1192, align 8
+  %1199 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %1198, i64 %1197, i32 0, i64 0, i32 0, i64 1
+  store float %130, ptr %1199, align 4
+  %1200 = load i32, ptr %1, align 8
+  %1201 = icmp slt i32 %1200, %1146
+  %1202 = load i32, ptr %17, align 4
+  %1203 = icmp sle i32 %1202, %.0237790
+  %or.cond.i620 = select i1 %1201, i1 true, i1 %1203
+  br i1 %or.cond.i620, label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit630, label %1204
 
-1206:                                             ; preds = %1167
-  %1207 = load ptr, ptr %18, align 8
-  %1208 = getelementptr inbounds i8, ptr %1207, i64 4
-  %1209 = load i32, ptr %1208, align 4
-  %1210 = icmp sgt i32 %1153, %1209
-  br i1 %1210, label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit630, label %1211
+1204:                                             ; preds = %1165
+  %1205 = load ptr, ptr %18, align 8
+  %1206 = getelementptr inbounds i8, ptr %1205, i64 4
+  %1207 = load i32, ptr %1206, align 4
+  %1208 = icmp sgt i32 %1151, %1207
+  br i1 %1208, label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit630, label %1209
 
-1211:                                             ; preds = %1206
-  %1212 = load atomic i32, ptr %1207 monotonic, align 4
-  %1213 = icmp ugt i32 %1212, 1
-  br i1 %1213, label %1217, label %1214
+1209:                                             ; preds = %1204
+  %1210 = load atomic i32, ptr %1205 monotonic, align 4
+  %1211 = icmp ugt i32 %1210, 1
+  br i1 %1211, label %1215, label %1212
 
-1214:                                             ; preds = %1211
-  %1215 = getelementptr inbounds i8, ptr %1207, i64 16
-  %1216 = load i64, ptr %1215, align 8
-  %.not.i.i.i621 = icmp eq i64 %1216, 24
-  br i1 %.not.i.i.i621, label %_ZN10QByteArray4dataEv.exit.i627, label %1217
+1212:                                             ; preds = %1209
+  %1213 = getelementptr inbounds i8, ptr %1205, i64 16
+  %1214 = load i64, ptr %1213, align 8
+  %.not.i.i.i621 = icmp eq i64 %1214, 24
+  br i1 %.not.i.i.i621, label %_ZN10QByteArray4dataEv.exit.i627, label %1215
 
-1217:                                             ; preds = %1214, %1211
-  %1218 = add i32 %1209, 1
-  %1219 = getelementptr inbounds i8, ptr %1207, i64 8
-  %1220 = load i32, ptr %1219, align 8
-  %.lobit.i.i.i.i622 = lshr i32 %1220, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %1218, i32 %.lobit.i.i.i.i622)
+1215:                                             ; preds = %1212, %1209
+  %1216 = add i32 %1207, 1
+  %1217 = getelementptr inbounds i8, ptr %1205, i64 8
+  %1218 = load i32, ptr %1217, align 8
+  %.lobit.i.i.i.i622 = lshr i32 %1218, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %1216, i32 %.lobit.i.i.i.i622)
           to label %.noexc629 unwind label %.loopexit
 
-.noexc629:                                        ; preds = %1217
+.noexc629:                                        ; preds = %1215
   %.pre.i.i623 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i624 = getelementptr inbounds i8, ptr %.pre.i.i623, i64 16
   %.pre1.i.i625 = load i64, ptr %.phi.trans.insert.i.i624, align 8
   %.pre.i626 = load i32, ptr %1, align 8
   br label %_ZN10QByteArray4dataEv.exit.i627
 
-_ZN10QByteArray4dataEv.exit.i627:                 ; preds = %.noexc629, %1214
-  %1221 = phi i32 [ %1202, %1214 ], [ %.pre.i626, %.noexc629 ]
-  %1222 = phi i64 [ 24, %1214 ], [ %.pre1.i.i625, %.noexc629 ]
-  %1223 = phi ptr [ %1207, %1214 ], [ %.pre.i.i623, %.noexc629 ]
-  %1224 = getelementptr inbounds i8, ptr %1223, i64 %1222
-  %1225 = mul nsw i32 %1221, %124
-  %1226 = add nsw i32 %1225, %1148
-  %1227 = sext i32 %1226 to i64
-  %1228 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %1224, i64 %1227, i32 5
-  %1229 = load i8, ptr %1228, align 1
+_ZN10QByteArray4dataEv.exit.i627:                 ; preds = %.noexc629, %1212
+  %1219 = phi i32 [ %1200, %1212 ], [ %.pre.i626, %.noexc629 ]
+  %1220 = phi i64 [ 24, %1212 ], [ %.pre1.i.i625, %.noexc629 ]
+  %1221 = phi ptr [ %1205, %1212 ], [ %.pre.i.i623, %.noexc629 ]
+  %1222 = getelementptr inbounds i8, ptr %1221, i64 %1220
+  %1223 = mul nsw i32 %1219, %124
+  %1224 = add nsw i32 %1223, %1146
+  %1225 = sext i32 %1224 to i64
+  %1226 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %1222, i64 %1225, i32 5
+  %1227 = load i8, ptr %1226, align 1
   br label %_ZN3vcg3tri2io10VertexGrid3RedEii.exit630
 
-_ZN3vcg3tri2io10VertexGrid3RedEii.exit630:        ; preds = %_ZN10QByteArray4dataEv.exit.i627, %1206, %1167
-  %.0.i628 = phi i8 [ %1229, %_ZN10QByteArray4dataEv.exit.i627 ], [ 8, %1206 ], [ 8, %1167 ]
-  %1230 = getelementptr inbounds i8, ptr %792, i64 136
-  store i8 %.0.i628, ptr %1230, align 1
-  %1231 = load i32, ptr %1, align 8
-  %1232 = icmp slt i32 %1231, %1148
-  %1233 = load i32, ptr %17, align 4
-  %1234 = icmp sle i32 %1233, %.0237788
-  %or.cond.i631 = select i1 %1232, i1 true, i1 %1234
-  br i1 %or.cond.i631, label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit641, label %1235
+_ZN3vcg3tri2io10VertexGrid3RedEii.exit630:        ; preds = %_ZN10QByteArray4dataEv.exit.i627, %1204, %1165
+  %.0.i628 = phi i8 [ %1227, %_ZN10QByteArray4dataEv.exit.i627 ], [ 8, %1204 ], [ 8, %1165 ]
+  %1228 = getelementptr inbounds i8, ptr %791, i64 136
+  store i8 %.0.i628, ptr %1228, align 1
+  %1229 = load i32, ptr %1, align 8
+  %1230 = icmp slt i32 %1229, %1146
+  %1231 = load i32, ptr %17, align 4
+  %1232 = icmp sle i32 %1231, %.0237790
+  %or.cond.i631 = select i1 %1230, i1 true, i1 %1232
+  br i1 %or.cond.i631, label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit641, label %1233
 
-1235:                                             ; preds = %_ZN3vcg3tri2io10VertexGrid3RedEii.exit630
-  %1236 = load ptr, ptr %18, align 8
-  %1237 = getelementptr inbounds i8, ptr %1236, i64 4
-  %1238 = load i32, ptr %1237, align 4
-  %1239 = icmp sgt i32 %1153, %1238
-  br i1 %1239, label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit641, label %1240
+1233:                                             ; preds = %_ZN3vcg3tri2io10VertexGrid3RedEii.exit630
+  %1234 = load ptr, ptr %18, align 8
+  %1235 = getelementptr inbounds i8, ptr %1234, i64 4
+  %1236 = load i32, ptr %1235, align 4
+  %1237 = icmp sgt i32 %1151, %1236
+  br i1 %1237, label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit641, label %1238
 
-1240:                                             ; preds = %1235
-  %1241 = load atomic i32, ptr %1236 monotonic, align 4
-  %1242 = icmp ugt i32 %1241, 1
-  br i1 %1242, label %1246, label %1243
+1238:                                             ; preds = %1233
+  %1239 = load atomic i32, ptr %1234 monotonic, align 4
+  %1240 = icmp ugt i32 %1239, 1
+  br i1 %1240, label %1244, label %1241
 
-1243:                                             ; preds = %1240
-  %1244 = getelementptr inbounds i8, ptr %1236, i64 16
-  %1245 = load i64, ptr %1244, align 8
-  %.not.i.i.i632 = icmp eq i64 %1245, 24
-  br i1 %.not.i.i.i632, label %_ZN10QByteArray4dataEv.exit.i638, label %1246
+1241:                                             ; preds = %1238
+  %1242 = getelementptr inbounds i8, ptr %1234, i64 16
+  %1243 = load i64, ptr %1242, align 8
+  %.not.i.i.i632 = icmp eq i64 %1243, 24
+  br i1 %.not.i.i.i632, label %_ZN10QByteArray4dataEv.exit.i638, label %1244
 
-1246:                                             ; preds = %1243, %1240
-  %1247 = add i32 %1238, 1
-  %1248 = getelementptr inbounds i8, ptr %1236, i64 8
-  %1249 = load i32, ptr %1248, align 8
-  %.lobit.i.i.i.i633 = lshr i32 %1249, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %1247, i32 %.lobit.i.i.i.i633)
+1244:                                             ; preds = %1241, %1238
+  %1245 = add i32 %1236, 1
+  %1246 = getelementptr inbounds i8, ptr %1234, i64 8
+  %1247 = load i32, ptr %1246, align 8
+  %.lobit.i.i.i.i633 = lshr i32 %1247, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %1245, i32 %.lobit.i.i.i.i633)
           to label %.noexc640 unwind label %.loopexit
 
-.noexc640:                                        ; preds = %1246
+.noexc640:                                        ; preds = %1244
   %.pre.i.i634 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i635 = getelementptr inbounds i8, ptr %.pre.i.i634, i64 16
   %.pre1.i.i636 = load i64, ptr %.phi.trans.insert.i.i635, align 8
   %.pre.i637 = load i32, ptr %1, align 8
   br label %_ZN10QByteArray4dataEv.exit.i638
 
-_ZN10QByteArray4dataEv.exit.i638:                 ; preds = %.noexc640, %1243
-  %1250 = phi i32 [ %1231, %1243 ], [ %.pre.i637, %.noexc640 ]
-  %1251 = phi i64 [ 24, %1243 ], [ %.pre1.i.i636, %.noexc640 ]
-  %1252 = phi ptr [ %1236, %1243 ], [ %.pre.i.i634, %.noexc640 ]
-  %1253 = getelementptr inbounds i8, ptr %1252, i64 %1251
-  %1254 = mul nsw i32 %1250, %124
-  %1255 = add nsw i32 %1254, %1148
-  %1256 = sext i32 %1255 to i64
-  %1257 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %1253, i64 %1256, i32 6
-  %1258 = load i8, ptr %1257, align 2
+_ZN10QByteArray4dataEv.exit.i638:                 ; preds = %.noexc640, %1241
+  %1248 = phi i32 [ %1229, %1241 ], [ %.pre.i637, %.noexc640 ]
+  %1249 = phi i64 [ 24, %1241 ], [ %.pre1.i.i636, %.noexc640 ]
+  %1250 = phi ptr [ %1234, %1241 ], [ %.pre.i.i634, %.noexc640 ]
+  %1251 = getelementptr inbounds i8, ptr %1250, i64 %1249
+  %1252 = mul nsw i32 %1248, %124
+  %1253 = add nsw i32 %1252, %1146
+  %1254 = sext i32 %1253 to i64
+  %1255 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %1251, i64 %1254, i32 6
+  %1256 = load i8, ptr %1255, align 2
   br label %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit641
 
-_ZN3vcg3tri2io10VertexGrid5GreenEii.exit641:      ; preds = %_ZN10QByteArray4dataEv.exit.i638, %1235, %_ZN3vcg3tri2io10VertexGrid3RedEii.exit630
-  %.0.i639 = phi i8 [ %1258, %_ZN10QByteArray4dataEv.exit.i638 ], [ 9, %1235 ], [ 9, %_ZN3vcg3tri2io10VertexGrid3RedEii.exit630 ]
-  %1259 = getelementptr inbounds i8, ptr %792, i64 137
-  store i8 %.0.i639, ptr %1259, align 1
-  %1260 = load i32, ptr %1, align 8
-  %1261 = icmp slt i32 %1260, %1148
-  %1262 = load i32, ptr %17, align 4
-  %1263 = icmp sle i32 %1262, %.0237788
-  %or.cond.i642 = select i1 %1261, i1 true, i1 %1263
-  br i1 %or.cond.i642, label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit652, label %1264
+_ZN3vcg3tri2io10VertexGrid5GreenEii.exit641:      ; preds = %_ZN10QByteArray4dataEv.exit.i638, %1233, %_ZN3vcg3tri2io10VertexGrid3RedEii.exit630
+  %.0.i639 = phi i8 [ %1256, %_ZN10QByteArray4dataEv.exit.i638 ], [ 9, %1233 ], [ 9, %_ZN3vcg3tri2io10VertexGrid3RedEii.exit630 ]
+  %1257 = getelementptr inbounds i8, ptr %791, i64 137
+  store i8 %.0.i639, ptr %1257, align 1
+  %1258 = load i32, ptr %1, align 8
+  %1259 = icmp slt i32 %1258, %1146
+  %1260 = load i32, ptr %17, align 4
+  %1261 = icmp sle i32 %1260, %.0237790
+  %or.cond.i642 = select i1 %1259, i1 true, i1 %1261
+  br i1 %or.cond.i642, label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit652, label %1262
 
-1264:                                             ; preds = %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit641
-  %1265 = load ptr, ptr %18, align 8
-  %1266 = getelementptr inbounds i8, ptr %1265, i64 4
-  %1267 = load i32, ptr %1266, align 4
-  %1268 = icmp sgt i32 %1153, %1267
-  br i1 %1268, label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit652, label %1269
+1262:                                             ; preds = %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit641
+  %1263 = load ptr, ptr %18, align 8
+  %1264 = getelementptr inbounds i8, ptr %1263, i64 4
+  %1265 = load i32, ptr %1264, align 4
+  %1266 = icmp sgt i32 %1151, %1265
+  br i1 %1266, label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit652, label %1267
 
-1269:                                             ; preds = %1264
-  %1270 = load atomic i32, ptr %1265 monotonic, align 4
-  %1271 = icmp ugt i32 %1270, 1
-  br i1 %1271, label %1275, label %1272
+1267:                                             ; preds = %1262
+  %1268 = load atomic i32, ptr %1263 monotonic, align 4
+  %1269 = icmp ugt i32 %1268, 1
+  br i1 %1269, label %1273, label %1270
 
-1272:                                             ; preds = %1269
-  %1273 = getelementptr inbounds i8, ptr %1265, i64 16
-  %1274 = load i64, ptr %1273, align 8
-  %.not.i.i.i643 = icmp eq i64 %1274, 24
-  br i1 %.not.i.i.i643, label %_ZN10QByteArray4dataEv.exit.i649, label %1275
+1270:                                             ; preds = %1267
+  %1271 = getelementptr inbounds i8, ptr %1263, i64 16
+  %1272 = load i64, ptr %1271, align 8
+  %.not.i.i.i643 = icmp eq i64 %1272, 24
+  br i1 %.not.i.i.i643, label %_ZN10QByteArray4dataEv.exit.i649, label %1273
 
-1275:                                             ; preds = %1272, %1269
-  %1276 = add i32 %1267, 1
-  %1277 = getelementptr inbounds i8, ptr %1265, i64 8
-  %1278 = load i32, ptr %1277, align 8
-  %.lobit.i.i.i.i644 = lshr i32 %1278, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %1276, i32 %.lobit.i.i.i.i644)
+1273:                                             ; preds = %1270, %1267
+  %1274 = add i32 %1265, 1
+  %1275 = getelementptr inbounds i8, ptr %1263, i64 8
+  %1276 = load i32, ptr %1275, align 8
+  %.lobit.i.i.i.i644 = lshr i32 %1276, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %1274, i32 %.lobit.i.i.i.i644)
           to label %.noexc651 unwind label %.loopexit
 
-.noexc651:                                        ; preds = %1275
+.noexc651:                                        ; preds = %1273
   %.pre.i.i645 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i646 = getelementptr inbounds i8, ptr %.pre.i.i645, i64 16
   %.pre1.i.i647 = load i64, ptr %.phi.trans.insert.i.i646, align 8
   %.pre.i648 = load i32, ptr %1, align 8
   br label %_ZN10QByteArray4dataEv.exit.i649
 
-_ZN10QByteArray4dataEv.exit.i649:                 ; preds = %.noexc651, %1272
-  %1279 = phi i32 [ %1260, %1272 ], [ %.pre.i648, %.noexc651 ]
-  %1280 = phi i64 [ 24, %1272 ], [ %.pre1.i.i647, %.noexc651 ]
-  %1281 = phi ptr [ %1265, %1272 ], [ %.pre.i.i645, %.noexc651 ]
-  %1282 = getelementptr inbounds i8, ptr %1281, i64 %1280
-  %1283 = mul nsw i32 %1279, %124
-  %1284 = add nsw i32 %1283, %1148
-  %1285 = sext i32 %1284 to i64
-  %1286 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %1282, i64 %1285, i32 7
-  %1287 = load i8, ptr %1286, align 1
+_ZN10QByteArray4dataEv.exit.i649:                 ; preds = %.noexc651, %1270
+  %1277 = phi i32 [ %1258, %1270 ], [ %.pre.i648, %.noexc651 ]
+  %1278 = phi i64 [ 24, %1270 ], [ %.pre1.i.i647, %.noexc651 ]
+  %1279 = phi ptr [ %1263, %1270 ], [ %.pre.i.i645, %.noexc651 ]
+  %1280 = getelementptr inbounds i8, ptr %1279, i64 %1278
+  %1281 = mul nsw i32 %1277, %124
+  %1282 = add nsw i32 %1281, %1146
+  %1283 = sext i32 %1282 to i64
+  %1284 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %1280, i64 %1283, i32 7
+  %1285 = load i8, ptr %1284, align 1
   br label %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit652
 
-_ZN3vcg3tri2io10VertexGrid4BlueEii.exit652:       ; preds = %_ZN10QByteArray4dataEv.exit.i649, %1264, %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit641
-  %.0.i650 = phi i8 [ %1287, %_ZN10QByteArray4dataEv.exit.i649 ], [ 10, %1264 ], [ 10, %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit641 ]
-  %1288 = getelementptr inbounds i8, ptr %792, i64 138
-  store i8 %.0.i650, ptr %1288, align 1
-  %1289 = getelementptr inbounds i8, ptr %792, i64 139
-  store i8 -1, ptr %1289, align 1
-  %1290 = load i32, ptr %1, align 8
-  %1291 = icmp slt i32 %1290, %1148
-  %1292 = load i32, ptr %17, align 4
-  %1293 = icmp sle i32 %1292, %.0237788
-  %or.cond.i653 = select i1 %1291, i1 true, i1 %1293
-  br i1 %or.cond.i653, label %.critedge, label %1294
+_ZN3vcg3tri2io10VertexGrid4BlueEii.exit652:       ; preds = %_ZN10QByteArray4dataEv.exit.i649, %1262, %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit641
+  %.0.i650 = phi i8 [ %1285, %_ZN10QByteArray4dataEv.exit.i649 ], [ 10, %1262 ], [ 10, %_ZN3vcg3tri2io10VertexGrid5GreenEii.exit641 ]
+  %1286 = getelementptr inbounds i8, ptr %791, i64 138
+  store i8 %.0.i650, ptr %1286, align 1
+  %1287 = getelementptr inbounds i8, ptr %791, i64 139
+  store i8 -1, ptr %1287, align 1
+  %1288 = load i32, ptr %1, align 8
+  %1289 = icmp slt i32 %1288, %1146
+  %1290 = load i32, ptr %17, align 4
+  %1291 = icmp sle i32 %1290, %.0237790
+  %or.cond.i653 = select i1 %1289, i1 true, i1 %1291
+  br i1 %or.cond.i653, label %.critedge, label %1292
 
-1294:                                             ; preds = %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit652
-  %1295 = load ptr, ptr %18, align 8
-  %1296 = getelementptr inbounds i8, ptr %1295, i64 4
-  %1297 = load i32, ptr %1296, align 4
-  %1298 = icmp sgt i32 %1153, %1297
-  br i1 %1298, label %.critedge, label %1299
+1292:                                             ; preds = %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit652
+  %1293 = load ptr, ptr %18, align 8
+  %1294 = getelementptr inbounds i8, ptr %1293, i64 4
+  %1295 = load i32, ptr %1294, align 4
+  %1296 = icmp sgt i32 %1151, %1295
+  br i1 %1296, label %.critedge, label %1297
 
-1299:                                             ; preds = %1294
-  %1300 = load atomic i32, ptr %1295 monotonic, align 4
-  %1301 = icmp ugt i32 %1300, 1
-  br i1 %1301, label %1305, label %1302
+1297:                                             ; preds = %1292
+  %1298 = load atomic i32, ptr %1293 monotonic, align 4
+  %1299 = icmp ugt i32 %1298, 1
+  br i1 %1299, label %1303, label %1300
 
-1302:                                             ; preds = %1299
-  %1303 = getelementptr inbounds i8, ptr %1295, i64 16
-  %1304 = load i64, ptr %1303, align 8
-  %.not.i.i.i654 = icmp eq i64 %1304, 24
-  br i1 %.not.i.i.i654, label %_ZN10QByteArray4dataEv.exit.i660, label %1305
+1300:                                             ; preds = %1297
+  %1301 = getelementptr inbounds i8, ptr %1293, i64 16
+  %1302 = load i64, ptr %1301, align 8
+  %.not.i.i.i654 = icmp eq i64 %1302, 24
+  br i1 %.not.i.i.i654, label %_ZN10QByteArray4dataEv.exit.i660, label %1303
 
-1305:                                             ; preds = %1302, %1299
-  %1306 = add i32 %1297, 1
-  %1307 = getelementptr inbounds i8, ptr %1295, i64 8
-  %1308 = load i32, ptr %1307, align 8
-  %.lobit.i.i.i.i655 = lshr i32 %1308, 31
-  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %1306, i32 %.lobit.i.i.i.i655)
+1303:                                             ; preds = %1300, %1297
+  %1304 = add i32 %1295, 1
+  %1305 = getelementptr inbounds i8, ptr %1293, i64 8
+  %1306 = load i32, ptr %1305, align 8
+  %.lobit.i.i.i.i655 = lshr i32 %1306, 31
+  invoke void @_ZN10QByteArray11reallocDataEj6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %1304, i32 %.lobit.i.i.i.i655)
           to label %.noexc662 unwind label %.loopexit
 
-.noexc662:                                        ; preds = %1305
+.noexc662:                                        ; preds = %1303
   %.pre.i.i656 = load ptr, ptr %18, align 8
   %.phi.trans.insert.i.i657 = getelementptr inbounds i8, ptr %.pre.i.i656, i64 16
   %.pre1.i.i658 = load i64, ptr %.phi.trans.insert.i.i657, align 8
   %.pre.i659 = load i32, ptr %1, align 8
   br label %_ZN10QByteArray4dataEv.exit.i660
 
-_ZN10QByteArray4dataEv.exit.i660:                 ; preds = %.noexc662, %1302
-  %1309 = phi i32 [ %1290, %1302 ], [ %.pre.i659, %.noexc662 ]
-  %1310 = phi i64 [ 24, %1302 ], [ %.pre1.i.i658, %.noexc662 ]
-  %1311 = phi ptr [ %1295, %1302 ], [ %.pre.i.i656, %.noexc662 ]
-  %1312 = getelementptr inbounds i8, ptr %1311, i64 %1310
-  %1313 = mul nsw i32 %1309, %124
-  %1314 = add nsw i32 %1313, %1148
-  %1315 = sext i32 %1314 to i64
-  %1316 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %1312, i64 %1315, i32 4
-  %1317 = load i8, ptr %1316, align 4
+_ZN10QByteArray4dataEv.exit.i660:                 ; preds = %.noexc662, %1300
+  %1307 = phi i32 [ %1288, %1300 ], [ %.pre.i659, %.noexc662 ]
+  %1308 = phi i64 [ 24, %1300 ], [ %.pre1.i.i658, %.noexc662 ]
+  %1309 = phi ptr [ %1293, %1300 ], [ %.pre.i.i656, %.noexc662 ]
+  %1310 = getelementptr inbounds i8, ptr %1309, i64 %1308
+  %1311 = mul nsw i32 %1307, %124
+  %1312 = add nsw i32 %1311, %1146
+  %1313 = sext i32 %1312 to i64
+  %1314 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %1310, i64 %1313, i32 4
+  %1315 = load i8, ptr %1314, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZN10QByteArray4dataEv.exit.i660, %1294, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit652
-  %.0.i661 = phi i8 [ %1317, %_ZN10QByteArray4dataEv.exit.i660 ], [ 11, %1294 ], [ 11, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit652 ]
-  %1318 = uitofp i8 %.0.i661 to float
-  %1319 = getelementptr inbounds i8, ptr %792, i64 132
-  store float %1318, ptr %1319, align 4
-  %1320 = getelementptr inbounds i8, ptr %783, i64 24
-  store ptr %1147, ptr %1320, align 8
-  %.pre796.pre = load i32, ptr %1, align 8
-  br label %1322
+.critedge:                                        ; preds = %_ZN10QByteArray4dataEv.exit.i660, %1292, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit652
+  %.0.i661 = phi i8 [ %1315, %_ZN10QByteArray4dataEv.exit.i660 ], [ 11, %1292 ], [ 11, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit652 ]
+  %1316 = uitofp i8 %.0.i661 to float
+  %1317 = getelementptr inbounds i8, ptr %791, i64 132
+  store float %1316, ptr %1317, align 4
+  %1318 = getelementptr inbounds i8, ptr %782, i64 24
+  store ptr %1145, ptr %1318, align 8
+  %.pre798.pre = load i32, ptr %1, align 8
+  br label %1320
 
-1321:                                             ; preds = %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit474
-  br i1 %.0.i279761, label %1322, label %1325
+1319:                                             ; preds = %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit474
+  br i1 %.0.i279761, label %1320, label %1323
 
-1322:                                             ; preds = %.critedge, %1321
-  %.pre796 = phi i32 [ %.pre796.pre, %.critedge ], [ %.pre796797, %1321 ]
-  %1323 = add i32 %.1233783, 1
-  %1324 = fadd float %114, %.1227785
-  br label %1325
+1320:                                             ; preds = %.critedge, %1319
+  %.pre798 = phi i32 [ %.pre798.pre, %.critedge ], [ %.pre798799, %1319 ]
+  %1321 = add i32 %.1233783, 1
+  %1322 = fadd float %114, %.1227785
+  br label %1323
 
-1325:                                             ; preds = %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._crit_edge, %1321, %1322, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275
-  %.pre-phi = phi i32 [ %.pre807, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._crit_edge ], [ %163, %1321 ], [ %163, %1322 ], [ %163, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275 ]
-  %.pre796805 = phi i32 [ %.pre796803, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._crit_edge ], [ %.pre796797, %1321 ], [ %.pre796, %1322 ], [ %.pre796801, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275 ]
-  %1326 = phi i32 [ %151, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._crit_edge ], [ %773, %1321 ], [ %.pre796, %1322 ], [ %180, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275 ]
-  %.3235 = phi i32 [ %.1233783, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._crit_edge ], [ %.1233783, %1321 ], [ %1323, %1322 ], [ %.1233783, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275 ]
-  %.3 = phi float [ %.1227785, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._crit_edge ], [ %.1227785, %1321 ], [ %1324, %1322 ], [ %.1227785, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275 ]
-  %1327 = add nsw i32 %1326, -1
-  %1328 = icmp slt i32 %.pre-phi, %1327
-  br i1 %1328, label %132, label %._crit_edge, !llvm.loop !41
+1323:                                             ; preds = %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._crit_edge, %1319, %1320, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275
+  %.pre-phi = phi i32 [ %.pre809, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._crit_edge ], [ %162, %1319 ], [ %162, %1320 ], [ %162, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275 ]
+  %.pre798807 = phi i32 [ %.pre798805, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._crit_edge ], [ %.pre798799, %1319 ], [ %.pre798, %1320 ], [ %.pre798803, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275 ]
+  %1324 = phi i32 [ %150, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._crit_edge ], [ %772, %1319 ], [ %.pre798, %1320 ], [ %179, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275 ]
+  %.3235 = phi i32 [ %.1233783, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._crit_edge ], [ %.1233783, %1319 ], [ %1321, %1320 ], [ %.1233783, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275 ]
+  %.3 = phi float [ %.1227785, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit._crit_edge ], [ %.1227785, %1319 ], [ %1322, %1320 ], [ %.1227785, %_ZN3vcg3tri2io10VertexGrid7IsValidEii.exit275 ]
+  %1325 = add nsw i32 %1324, -1
+  %1326 = icmp slt i32 %.pre-phi, %1325
+  br i1 %1326, label %131, label %._crit_edge, !llvm.loop !41
 
-._crit_edge:                                      ; preds = %1325
-  %1329 = icmp ugt i32 %.3235, 100
-  br i1 %1329, label %1330, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %1323
+  %1327 = icmp ugt i32 %.3235, 100
+  br i1 %1327, label %1328, label %._crit_edge.thread
 
-1330:                                             ; preds = %._crit_edge
-  %1331 = fptosi float %.3 to i32
-  %1332 = add nsw i32 %1331, 20
-  %1333 = invoke noundef zeroext i1 %5(i32 noundef %1332, ptr noundef nonnull @.str.39)
+1328:                                             ; preds = %._crit_edge
+  %1329 = fptosi float %.3 to i32
+  %1330 = add nsw i32 %1329, 20
+  %1331 = invoke noundef zeroext i1 %5(i32 noundef %1330, ptr noundef nonnull @.str.39)
           to label %._crit_edge.thread unwind label %.loopexit.split-lp.loopexit
 
-._crit_edge.thread:                               ; preds = %.preheader, %1330, %._crit_edge
-  %.1227.lcssa810 = phi float [ %.3, %._crit_edge ], [ %.3, %1330 ], [ %.0226790, %.preheader ]
-  %.4236 = phi i32 [ %.3235, %._crit_edge ], [ 0, %1330 ], [ %.0232789, %.preheader ]
-  %1334 = add nuw nsw i32 %.0237788, 1
-  %1335 = load i32, ptr %17, align 4
-  %1336 = add nsw i32 %1335, -1
-  %1337 = icmp slt i32 %1334, %1336
-  br i1 %1337, label %.preheader, label %._crit_edge791, !llvm.loop !42
+._crit_edge.thread:                               ; preds = %.preheader, %1328, %._crit_edge
+  %.1227.lcssa812 = phi float [ %.3, %._crit_edge ], [ %.3, %1328 ], [ %.0226792, %.preheader ]
+  %.4236 = phi i32 [ %.3235, %._crit_edge ], [ 0, %1328 ], [ %.0232791, %.preheader ]
+  %1332 = add nuw nsw i32 %.0237790, 1
+  %1333 = load i32, ptr %17, align 4
+  %1334 = add nsw i32 %1333, -1
+  %1335 = icmp slt i32 %1332, %1334
+  br i1 %1335, label %.preheader, label %._crit_edge793, !llvm.loop !42
 
-._crit_edge791:                                   ; preds = %._crit_edge.thread, %112
-  %1338 = getelementptr inbounds i8, ptr %2, i64 8
-  %1339 = getelementptr inbounds i8, ptr %2, i64 16
-  %1340 = load ptr, ptr %1339, align 8
-  %1341 = load ptr, ptr %1338, align 8
-  %1342 = icmp eq ptr %1340, %1341
-  %. = select i1 %1342, i32 12, i32 0
+._crit_edge793:                                   ; preds = %._crit_edge.thread, %112
+  %1336 = getelementptr inbounds i8, ptr %2, i64 8
+  %1337 = getelementptr inbounds i8, ptr %2, i64 16
+  %1338 = load ptr, ptr %1337, align 8
+  %1339 = load ptr, ptr %1336, align 8
+  %1340 = icmp eq ptr %1338, %1339
+  %. = select i1 %1340, i32 12, i32 0
   br label %_ZN3vcg3tri2io10BreElement4ReadER5QFile.exit
 
-_ZN3vcg3tri2io10BreElement4ReadER5QFile.exit:     ; preds = %48, %._crit_edge791
-  %.0 = phi i32 [ %., %._crit_edge791 ], [ %.0225, %48 ]
-  %1343 = load ptr, ptr %13, align 8
-  %1344 = load atomic i32, ptr %1343 monotonic, align 4
-  switch i32 %1344, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i [
+_ZN3vcg3tri2io10BreElement4ReadER5QFile.exit:     ; preds = %48, %._crit_edge793
+  %.0 = phi i32 [ %., %._crit_edge793 ], [ %.0225, %48 ]
+  %1341 = load ptr, ptr %13, align 8
+  %1342 = load atomic i32, ptr %1341 monotonic, align 4
+  switch i32 %1342, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i [
     i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
     i32 -1, label %_ZN3vcg3tri2io10BreElementD2Ev.exit
   ]
 
 _ZN9QtPrivate8RefCount5derefEv.exit.i.i:          ; preds = %_ZN3vcg3tri2io10BreElement4ReadER5QFile.exit
-  %1345 = atomicrmw sub ptr %1343, i32 1 seq_cst, align 4
-  %.not.i.i = icmp eq i32 %1345, 1
+  %1343 = atomicrmw sub ptr %1341, i32 1 seq_cst, align 4
+  %.not.i.i = icmp eq i32 %1343, 1
   br i1 %.not.i.i, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i, label %_ZN3vcg3tri2io10BreElementD2Ev.exit
 
 _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i.i
@@ -6141,14 +6142,14 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i, %_ZN3vcg3tri2io10BreElement4ReadER5QFile.exit
-  %1346 = phi ptr [ %.pre.i.i664, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i ], [ %1343, %_ZN3vcg3tri2io10BreElement4ReadER5QFile.exit ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %1346, i64 noundef 1, i64 noundef 8) #25
+  %1344 = phi ptr [ %.pre.i.i664, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i ], [ %1341, %_ZN3vcg3tri2io10BreElement4ReadER5QFile.exit ]
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %1344, i64 noundef 1, i64 noundef 8) #25
   br label %_ZN3vcg3tri2io10BreElementD2Ev.exit
 
 _ZN3vcg3tri2io10BreElementD2Ev.exit:              ; preds = %_ZN3vcg3tri2io10BreElement4ReadER5QFile.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
   ret i32 %.0
 
-1347:                                             ; preds = %.body, %54
+1345:                                             ; preds = %.body, %54
   %.pn240 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn, %54 ]
   resume { ptr, i32 } %.pn240
 }

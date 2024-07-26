@@ -8437,8 +8437,8 @@ for.cond.preheader:                               ; preds = %get_window.exit
   br i1 %cmp548, label %for.cond6.preheader.lr.ph, label %for.end58.thread
 
 for.end58.thread:                                 ; preds = %for.cond.preheader
-  %sub3284 = sub i32 %len, %right
-  store i32 %sub3284, ptr %previous_length, align 8
+  %sub3286 = sub i32 %len, %right
+  store i32 %sub3286, ptr %previous_length, align 8
   br label %if.end61
 
 for.cond6.preheader.lr.ph:                        ; preds = %for.cond.preheader
@@ -8448,8 +8448,8 @@ for.cond6.preheader.lr.ph:                        ; preds = %for.cond.preheader
   br i1 %cmp746, label %for.cond6.preheader.us.preheader, label %if.end30.thread
 
 if.end30.thread:                                  ; preds = %for.cond6.preheader.lr.ph
-  %sub3275 = sub i32 %len, %right
-  store i32 %sub3275, ptr %previous_length, align 8
+  %sub3277 = sub i32 %len, %right
+  store i32 %sub3277, ptr %previous_length, align 8
   br label %for.cond38.preheader.lr.ph
 
 for.cond6.preheader.us.preheader:                 ; preds = %for.cond6.preheader.lr.ph
@@ -8507,9 +8507,9 @@ if.end30:                                         ; preds = %if.end30thread-pre-
   br i1 %cmp3653, label %for.cond38.preheader.lr.ph, label %for.end58
 
 for.cond38.preheader.lr.ph:                       ; preds = %if.end30.thread, %if.end30
-  %sub3280 = phi i32 [ %sub3275, %if.end30.thread ], [ %sub32, %if.end30 ]
-  %tobool59.not79 = phi i1 [ false, %if.end30.thread ], [ %tobool59.not, %if.end30 ]
-  %channels3581 = getelementptr inbounds i8, ptr %f, i64 4
+  %sub3282 = phi i32 [ %sub3277, %if.end30.thread ], [ %sub32, %if.end30 ]
+  %tobool59.not81 = phi i1 [ false, %if.end30.thread ], [ %tobool59.not, %if.end30 ]
+  %channels3583 = getelementptr inbounds i8, ptr %f, i64 4
   %cmp4050 = icmp slt i32 %right, %len
   %channel_buffers42 = getelementptr inbounds i8, ptr %f, i64 888
   %previous_window48 = getelementptr inbounds i8, ptr %f, i64 1144
@@ -8517,45 +8517,46 @@ for.cond38.preheader.lr.ph:                       ; preds = %if.end30.thread, %i
 
 for.cond38.preheader.us.preheader:                ; preds = %for.cond38.preheader.lr.ph
   %21 = sext i32 %right to i64
-  %wide.trip.count68 = zext i32 %sub3280 to i64
+  %wide.trip.count70 = zext i32 %sub3282 to i64
   br label %for.cond38.preheader.us
 
 for.cond38.preheader.us:                          ; preds = %for.cond38.preheader.us.preheader, %for.cond38.for.inc56_crit_edge.us
-  %indvars.iv70 = phi i64 [ 0, %for.cond38.preheader.us.preheader ], [ %indvars.iv.next71, %for.cond38.for.inc56_crit_edge.us ]
-  %arrayidx44.us = getelementptr inbounds [16 x ptr], ptr %channel_buffers42, i64 0, i64 %indvars.iv70
-  %arrayidx50.us = getelementptr inbounds [16 x ptr], ptr %previous_window48, i64 0, i64 %indvars.iv70
+  %indvars.iv72 = phi i64 [ 0, %for.cond38.preheader.us.preheader ], [ %indvars.iv.next73, %for.cond38.for.inc56_crit_edge.us ]
+  %arrayidx44.us = getelementptr inbounds [16 x ptr], ptr %channel_buffers42, i64 0, i64 %indvars.iv72
+  %arrayidx50.us = getelementptr inbounds [16 x ptr], ptr %previous_window48, i64 0, i64 %indvars.iv72
   br label %for.body41.us
 
 for.body41.us:                                    ; preds = %for.cond38.preheader.us, %for.body41.us
-  %indvars.iv63 = phi i64 [ 0, %for.cond38.preheader.us ], [ %indvars.iv.next64, %for.body41.us ]
+  %indvars.iv65 = phi i64 [ 0, %for.cond38.preheader.us ], [ %indvars.iv.next66, %for.body41.us ]
+  %indvars.iv63 = phi i64 [ %21, %for.cond38.preheader.us ], [ %indvars.iv.next64, %for.body41.us ]
   %22 = load ptr, ptr %arrayidx44.us, align 8
-  %23 = getelementptr float, ptr %22, i64 %indvars.iv63
-  %arrayidx47.us = getelementptr float, ptr %23, i64 %21
-  %24 = load float, ptr %arrayidx47.us, align 4
-  %25 = load ptr, ptr %arrayidx50.us, align 8
-  %arrayidx52.us = getelementptr inbounds float, ptr %25, i64 %indvars.iv63
-  store float %24, ptr %arrayidx52.us, align 4
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count68
-  br i1 %exitcond69.not, label %for.cond38.for.inc56_crit_edge.us, label %for.body41.us, !llvm.loop !82
+  %arrayidx47.us = getelementptr inbounds float, ptr %22, i64 %indvars.iv63
+  %23 = load float, ptr %arrayidx47.us, align 4
+  %24 = load ptr, ptr %arrayidx50.us, align 8
+  %arrayidx52.us = getelementptr inbounds float, ptr %24, i64 %indvars.iv65
+  store float %23, ptr %arrayidx52.us, align 4
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
+  %indvars.iv.next64 = add nsw i64 %indvars.iv63, 1
+  %exitcond71.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count70
+  br i1 %exitcond71.not, label %for.cond38.for.inc56_crit_edge.us, label %for.body41.us, !llvm.loop !82
 
 for.cond38.for.inc56_crit_edge.us:                ; preds = %for.body41.us
-  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %26 = load i32, ptr %channels3581, align 4
-  %27 = sext i32 %26 to i64
-  %cmp36.us = icmp slt i64 %indvars.iv.next71, %27
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+  %25 = load i32, ptr %channels3583, align 4
+  %26 = sext i32 %25 to i64
+  %cmp36.us = icmp slt i64 %indvars.iv.next73, %26
   br i1 %cmp36.us, label %for.cond38.preheader.us, label %for.end58, !llvm.loop !83
 
 for.end58:                                        ; preds = %for.cond38.for.inc56_crit_edge.us, %for.cond38.preheader.lr.ph, %if.end30
-  %tobool59.not78 = phi i1 [ %tobool59.not, %if.end30 ], [ %tobool59.not79, %for.cond38.preheader.lr.ph ], [ %tobool59.not79, %for.cond38.for.inc56_crit_edge.us ]
-  br i1 %tobool59.not78, label %return, label %if.end61
+  %tobool59.not80 = phi i1 [ %tobool59.not, %if.end30 ], [ %tobool59.not81, %for.cond38.preheader.lr.ph ], [ %tobool59.not81, %for.cond38.for.inc56_crit_edge.us ]
+  br i1 %tobool59.not80, label %return, label %if.end61
 
 if.end61:                                         ; preds = %for.end58.thread, %for.end58
   %spec.select = tail call i32 @llvm.smin.i32(i32 %len, i32 %right)
   %sub65 = sub nsw i32 %spec.select, %left
   %samples_output = getelementptr inbounds i8, ptr %f, i64 1804
-  %28 = load i32, ptr %samples_output, align 4
-  %add66 = add i32 %28, %sub65
+  %27 = load i32, ptr %samples_output, align 4
+  %add66 = add i32 %27, %sub65
   store i32 %add66, ptr %samples_output, align 4
   br label %return
 

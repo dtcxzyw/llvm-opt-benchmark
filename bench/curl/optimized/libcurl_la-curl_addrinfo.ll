@@ -234,8 +234,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %sw
   %cmp1 = icmp eq i32 %4, 10
   %. = select i1 %cmp1, i64 28, i64 16
   %5 = load ptr, ptr @Curl_ccalloc, align 8
-  %add4 = add i64 %call, 49
-  %add5 = add i64 %add4, %.
+  %add4.reass = add i64 %call, 49
+  %add5 = add i64 %add4.reass, %.
   %call6 = tail call ptr %5(i64 noundef 1, i64 noundef %add5) #7
   %tobool7.not = icmp eq ptr %call6, null
   br i1 %tobool7.not, label %if.then34, label %if.end9

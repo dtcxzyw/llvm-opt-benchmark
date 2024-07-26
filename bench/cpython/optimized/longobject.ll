@@ -12044,12 +12044,13 @@ if.end8:                                          ; preds = %if.end.i.i.i, %if.t
   tail call void @_Py_NewReference(ptr noundef nonnull %call.i) #16
   %ob_digit.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i32 0, ptr %ob_digit.i, align 8
+  %invariant.op = add i32 %bits_per_char.0.lcssa, -30
   br label %while.cond.outer.outer
 
 while.cond.outer.outer:                           ; preds = %if.then23, %if.end8
   %p.0.ph.ph = phi ptr [ %incdec.ptr, %if.then23 ], [ %end, %if.end8 ]
   %accum.0.ph.ph = phi i64 [ %shr27, %if.then23 ], [ 0, %if.end8 ]
-  %bits_in_accum.0.ph.ph = phi i32 [ %sub28, %if.then23 ], [ 0, %if.end8 ]
+  %bits_in_accum.0.ph.ph = phi i32 [ %sub28.reass, %if.then23 ], [ 0, %if.end8 ]
   %pdigit.0.ph.ph = phi ptr [ %incdec.ptr26, %if.then23 ], [ %ob_digit.i, %if.end8 ]
   br label %while.cond.outer
 
@@ -12088,7 +12089,7 @@ if.then23:                                        ; preds = %if.end15
   %incdec.ptr26 = getelementptr i8, ptr %pdigit.0.ph.ph, i64 4
   store i32 %conv25, ptr %pdigit.0.ph.ph, align 4
   %shr27 = lshr i64 %or, 30
-  %sub28 = add nsw i32 %add20, -30
+  %sub28.reass = add i32 %bits_in_accum.0.ph, %invariant.op
   br label %while.cond.outer.outer, !llvm.loop !92
 
 while.end:                                        ; preds = %while.cond

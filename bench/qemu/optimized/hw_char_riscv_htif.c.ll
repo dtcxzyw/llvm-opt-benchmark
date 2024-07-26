@@ -370,6 +370,7 @@ if.then52.i:                                      ; preds = %if.then20.i
 for.body.i:                                       ; preds = %for.end.i, %for.body.preheader.i
   %11 = phi i8 [ %15, %for.end.i ], [ %.pre.i, %for.body.preheader.i ]
   %i.056.i = phi i32 [ %add77.i, %for.end.i ], [ 0, %for.body.preheader.i ]
+  %invariant.op.i = add i32 %i.056.i, -1
   %cmp6053.not.i = icmp eq i8 %11, 0
   br i1 %cmp6053.not.i, label %for.end.i, label %for.body62.preheader.i
 
@@ -386,8 +387,8 @@ for.body62.i:                                     ; preds = %for.inc.i, %for.bod
   br i1 %cmp64.not.i, label %for.inc.i, label %if.then66.i
 
 if.then66.i:                                      ; preds = %for.body62.i
-  %sub68.i = add i32 %add.i, -1
-  %idxprom.i = sext i32 %sub68.i to i64
+  %sub68.reass.i = add i32 %invariant.op.i, %13
+  %idxprom.i = sext i32 %sub68.reass.i to i64
   %arrayidx.i = getelementptr i8, ptr %call.i, i64 %idxprom.i
   %14 = load i8, ptr %arrayidx.i, align 1
   %conv69.i = zext i8 %14 to i32

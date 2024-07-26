@@ -3841,12 +3841,12 @@ _ZN12Dependencies27check_valid_dependency_typeENS_7DepTypeE.exit: ; preds = %19
 
 34:                                               ; preds = %.lr.ph, %64
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
-  %storemerge.i.i2223 = phi i32 [ %14, %.lr.ph ], [ %storemerge.i.i21, %64 ]
+  %storemerge.i.i2122 = phi i32 [ %14, %.lr.ph ], [ %storemerge.i.i20, %64 ]
   %35 = icmp eq i64 %indvars.iv, %33
   br i1 %35, label %64, label %36
 
 36:                                               ; preds = %34
-  %37 = sext i32 %storemerge.i.i2223 to i64
+  %37 = sext i32 %storemerge.i.i2122 to i64
   %38 = getelementptr inbounds i8, ptr %13, i64 %37
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
@@ -3855,7 +3855,7 @@ _ZN12Dependencies27check_valid_dependency_typeENS_7DepTypeE.exit: ; preds = %19
   br i1 %42, label %_ZN20CompressedReadStream8read_intEv.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %36
-  %43 = add nsw i32 %storemerge.i.i2223, 1
+  %43 = add i32 %storemerge.i.i2122, 1
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %13, i64 %44
   %46 = load i8, ptr %45, align 1
@@ -3868,35 +3868,33 @@ _ZN12Dependencies27check_valid_dependency_typeENS_7DepTypeE.exit: ; preds = %19
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 1, %.preheader.i.i ]
-  %52 = phi i32 [ %60, %.lr.ph.i.i ], [ %50, %.preheader.i.i ]
+  %52 = phi i32 [ %61, %.lr.ph.i.i ], [ %50, %.preheader.i.i ]
   %.02428.i.i = phi i32 [ %53, %.lr.ph.i.i ], [ 6, %.preheader.i.i ]
   %53 = add nuw nsw i32 %.02428.i.i, 6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %54 = add nsw i64 %indvars.iv.next.i.i, %37
-  %55 = getelementptr inbounds i8, ptr %13, i64 %54
-  %56 = load i8, ptr %55, align 1
-  %57 = zext i8 %56 to i32
-  %58 = add nsw i32 %57, -1
-  %59 = shl i32 %58, %53
-  %60 = add i32 %59, %52
-  %61 = icmp ult i8 %56, -64
-  %62 = icmp eq i64 %indvars.iv.next.i.i, 4
-  %or.cond.i.i = or i1 %62, %61
-  br i1 %or.cond.i.i, label %.loopexit.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !31
+  %54 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %.reass.i.i = add i32 %43, %54
+  %55 = sext i32 %.reass.i.i to i64
+  %56 = getelementptr inbounds i8, ptr %13, i64 %55
+  %57 = load i8, ptr %56, align 1
+  %58 = zext i8 %57 to i32
+  %59 = add nsw i32 %58, -1
+  %60 = shl i32 %59, %53
+  %61 = add i32 %60, %52
+  %62 = icmp ult i8 %57, -64
+  %63 = icmp eq i64 %indvars.iv.next.i.i, 4
+  %or.cond.i.i = or i1 %63, %62
+  br i1 %or.cond.i.i, label %_ZN20CompressedReadStream8read_intEv.exit, label %.lr.ph.i.i, !llvm.loop !31
 
-.loopexit.loopexit.i.i:                           ; preds = %.lr.ph.i.i
-  %63 = trunc nsw i64 %54 to i32
-  br label %_ZN20CompressedReadStream8read_intEv.exit
-
-_ZN20CompressedReadStream8read_intEv.exit:        ; preds = %36, %.preheader.i.i, %.loopexit.loopexit.i.i
-  %storemerge.in.i.i = phi i32 [ %storemerge.i.i2223, %36 ], [ %43, %.preheader.i.i ], [ %63, %.loopexit.loopexit.i.i ]
-  %.0.i.i = phi i32 [ %41, %36 ], [ %50, %.preheader.i.i ], [ %60, %.loopexit.loopexit.i.i ]
+_ZN20CompressedReadStream8read_intEv.exit:        ; preds = %.lr.ph.i.i, %36, %.preheader.i.i
+  %storemerge.in.i.i = phi i32 [ %storemerge.i.i2122, %36 ], [ %43, %.preheader.i.i ], [ %.reass.i.i, %.lr.ph.i.i ]
+  %.0.i.i = phi i32 [ %41, %36 ], [ %50, %.preheader.i.i ], [ %61, %.lr.ph.i.i ]
   %storemerge.i.i = add nsw i32 %storemerge.in.i.i, 1
   store i32 %storemerge.i.i, ptr %3, align 8
   br label %64
 
 64:                                               ; preds = %34, %_ZN20CompressedReadStream8read_intEv.exit
-  %storemerge.i.i21 = phi i32 [ %storemerge.i.i, %_ZN20CompressedReadStream8read_intEv.exit ], [ %storemerge.i.i2223, %34 ]
+  %storemerge.i.i20 = phi i32 [ %storemerge.i.i, %_ZN20CompressedReadStream8read_intEv.exit ], [ %storemerge.i.i2122, %34 ]
   %65 = phi i32 [ %.0.i.i, %_ZN20CompressedReadStream8read_intEv.exit ], [ 0, %34 ]
   %66 = getelementptr inbounds [5 x i32], ptr %32, i64 0, i64 %indvars.iv
   store i32 %65, ptr %66, align 4

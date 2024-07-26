@@ -17735,6 +17735,7 @@ invoke.cont21:                                    ; preds = %invoke.cont19
   %vec = getelementptr inbounds i8, ptr %struct_def, i64 248
   %_M_finish.i.i = getelementptr inbounds i8, ptr %struct_def, i64 256
   %6 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !374
+  %invariant.op = add i64 %index, -1
   %7 = load ptr, ptr %vec, align 8, !noalias !377
   %cmp.i.i.i.not238 = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i.not238, label %for.end214, label %for.body.lr.ph
@@ -18336,7 +18337,7 @@ for.cond170.preheader:                            ; preds = %if.then167
   br i1 %tobool171, label %for.body173.lr.ph, label %for.end
 
 for.body173.lr.ph:                                ; preds = %for.cond170.preheader
-  %sub = add i64 %add166, -1
+  %sub.reass = add i64 %invariant.op, %conv
   br label %for.body173
 
 for.body173:                                      ; preds = %for.body173.lr.ph, %for.inc
@@ -18379,7 +18380,7 @@ invoke.cont183:                                   ; preds = %invoke.cont181
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp174) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp175) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp176) #20
-  %cmp188.not = icmp eq i64 %i.0233, %sub
+  %cmp188.not = icmp eq i64 %i.0233, %sub.reass
   br i1 %cmp188.not, label %for.inc, label %if.then189
 
 if.then189:                                       ; preds = %invoke.cont183

@@ -902,8 +902,8 @@ if.then:                                          ; preds = %_ZNK4mold3elf12Inpu
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZNK4mold3elf12InputSectionINS0_5ARM32EE8get_relsERNS0_7ContextIS2_EE.exit
-  %cmp783.not = icmp eq i64 %retval.sroa.3.0.i, 0
-  br i1 %cmp783.not, label %for.end, label %for.body.lr.ph
+  %cmp786.not = icmp eq i64 %retval.sroa.3.0.i, 0
+  br i1 %cmp786.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
   %10 = getelementptr inbounds i8, ptr %check, i64 8
@@ -923,9 +923,9 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %storemerge785 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %get_tls_trampoline_addr.sroa.0.0784 = phi i32 [ 0, %for.body.lr.ph ], [ %get_tls_trampoline_addr.sroa.0.3, %for.inc ]
-  %add.ptr.i = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %retval.sroa.0.0.i, i64 %storemerge785
+  %storemerge788 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %get_tls_trampoline_addr.sroa.0.0787 = phi i32 [ 0, %for.body.lr.ph ], [ %get_tls_trampoline_addr.sroa.0.3, %for.inc ]
+  %add.ptr.i = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %retval.sroa.0.0.i, i64 %storemerge788
   %r_type = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %15 = load i8, ptr %r_type, align 1
   switch i8 %15, label %if.end15 [
@@ -1156,7 +1156,7 @@ if.else59:                                        ; preds = %if.end44
   %get_arm_thunk_addr.val.val237 = load ptr, ptr %13, align 8
   %49 = getelementptr i8, ptr %25, i64 200
   %get_arm_thunk_addr.val.val.val = load ptr, ptr %49, align 8
-  %add.ptr.i.i.i287 = getelementptr inbounds %"struct.mold::elf::ThunkRef", ptr %get_arm_thunk_addr.val.val237, i64 %storemerge785
+  %add.ptr.i.i.i287 = getelementptr inbounds %"struct.mold::elf::ThunkRef", ptr %get_arm_thunk_addr.val.val237, i64 %storemerge788
   %ref.sroa.0.0.copyload.i.i = load i16, ptr %add.ptr.i.i.i287, align 2
   %ref.sroa.2.0.call.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i287, i64 2
   %ref.sroa.2.0.copyload.i.i = load i16, ptr %ref.sroa.2.0.call.sroa_idx.i.i, align 2
@@ -1327,7 +1327,7 @@ if.else126:                                       ; preds = %if.end106
   %get_arm_thunk_addr.val228.val236 = load ptr, ptr %13, align 8
   %73 = getelementptr i8, ptr %get_arm_thunk_addr.val228.val, i64 200
   %get_arm_thunk_addr.val228.val.val = load ptr, ptr %73, align 8
-  %add.ptr.i.i.i351 = getelementptr inbounds %"struct.mold::elf::ThunkRef", ptr %get_arm_thunk_addr.val228.val236, i64 %storemerge785
+  %add.ptr.i.i.i351 = getelementptr inbounds %"struct.mold::elf::ThunkRef", ptr %get_arm_thunk_addr.val228.val236, i64 %storemerge788
   %ref.sroa.0.0.copyload.i.i352 = load i16, ptr %add.ptr.i.i.i351, align 2
   %ref.sroa.2.0.call.sroa_idx.i.i353 = getelementptr inbounds i8, ptr %add.ptr.i.i.i351, i64 2
   %ref.sroa.2.0.copyload.i.i354 = load i16, ptr %ref.sroa.2.0.call.sroa_idx.i.i353, align 2
@@ -1396,7 +1396,7 @@ if.then146:                                       ; preds = %if.end139
   %get_arm_thunk_addr.val230.val235 = load ptr, ptr %13, align 8
   %86 = getelementptr i8, ptr %25, i64 200
   %get_arm_thunk_addr.val230.val.val = load ptr, ptr %86, align 8
-  %add.ptr.i.i.i386 = getelementptr inbounds %"struct.mold::elf::ThunkRef", ptr %get_arm_thunk_addr.val230.val235, i64 %storemerge785
+  %add.ptr.i.i.i386 = getelementptr inbounds %"struct.mold::elf::ThunkRef", ptr %get_arm_thunk_addr.val230.val235, i64 %storemerge788
   %ref.sroa.0.0.copyload.i.i387 = load i16, ptr %add.ptr.i.i.i386, align 2
   %ref.sroa.2.0.call.sroa_idx.i.i388 = getelementptr inbounds i8, ptr %add.ptr.i.i.i386, i64 2
   %ref.sroa.2.0.copyload.i.i389 = load i16, ptr %ref.sroa.2.0.call.sroa_idx.i.i388, align 2
@@ -1466,7 +1466,7 @@ cond.true:                                        ; preds = %if.else162
   %get_arm_thunk_addr.val232.val234 = load ptr, ptr %13, align 8
   %99 = getelementptr i8, ptr %25, i64 200
   %get_arm_thunk_addr.val232.val.val = load ptr, ptr %99, align 8
-  %add.ptr.i.i.i419 = getelementptr inbounds %"struct.mold::elf::ThunkRef", ptr %get_arm_thunk_addr.val232.val234, i64 %storemerge785
+  %add.ptr.i.i.i419 = getelementptr inbounds %"struct.mold::elf::ThunkRef", ptr %get_arm_thunk_addr.val232.val234, i64 %storemerge788
   %ref.sroa.0.0.copyload.i.i420 = load i16, ptr %add.ptr.i.i.i419, align 2
   %ref.sroa.2.0.call.sroa_idx.i.i421 = getelementptr inbounds i8, ptr %add.ptr.i.i.i419, i64 2
   %ref.sroa.2.0.copyload.i.i422 = load i16, ptr %ref.sroa.2.0.call.sroa_idx.i.i421, align 2
@@ -1584,7 +1584,7 @@ if.then224:                                       ; preds = %if.end217
   %get_thumb_thunk_addr.val.val239 = load ptr, ptr %13, align 8
   %127 = getelementptr i8, ptr %25, i64 200
   %get_thumb_thunk_addr.val.val.val = load ptr, ptr %127, align 8
-  %add.ptr.i.i.i477 = getelementptr inbounds %"struct.mold::elf::ThunkRef", ptr %get_thumb_thunk_addr.val.val239, i64 %storemerge785
+  %add.ptr.i.i.i477 = getelementptr inbounds %"struct.mold::elf::ThunkRef", ptr %get_thumb_thunk_addr.val.val239, i64 %storemerge788
   %ref.sroa.0.0.copyload.i.i478 = load i16, ptr %add.ptr.i.i.i477, align 2
   %ref.sroa.2.0.call.sroa_idx.i.i479 = getelementptr inbounds i8, ptr %add.ptr.i.i.i477, i64 2
   %ref.sroa.2.0.copyload.i.i480 = load i16, ptr %ref.sroa.2.0.call.sroa_idx.i.i479, align 2
@@ -1938,7 +1938,7 @@ _ZNK4mold3elf6SymbolINS0_5ARM32EE11has_tlsdescERNS0_7ContextIS2_EE.exit640: ; pr
   br i1 %.not773, label %_ZNK4mold3elf6SymbolINS0_5ARM32EE9has_gottpERNS0_7ContextIS2_EE.exit659, label %if.then338
 
 if.then338:                                       ; preds = %_ZNK4mold3elf6SymbolINS0_5ARM32EE11has_tlsdescERNS0_7ContextIS2_EE.exit640
-  %conv2.i = sext i32 %get_tls_trampoline_addr.sroa.0.0784 to i64
+  %conv2.i = sext i32 %get_tls_trampoline_addr.sroa.0.0787 to i64
   %thunks3.i = getelementptr inbounds i8, ptr %25, i64 200
   %_M_finish.i4.i = getelementptr inbounds i8, ptr %25, i64 208
   %184 = load ptr, ptr %_M_finish.i4.i, align 8
@@ -1958,10 +1958,14 @@ if.then338:                                       ; preds = %_ZNK4mold3elf6Symbo
   %sub16.i = add i64 %187, %add15.i
   %188 = add i64 %sub16.i, 16777216
   %cmp.i17.i = icmp ult i64 %188, 33554432
-  br i1 %cmp.i17.i, label %"_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit", label %for.inc.i
+  br i1 %cmp.i17.i, label %"_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit", label %for.inc.i.preheader
 
-for.inc.i:                                        ; preds = %if.then338, %for.inc.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ %conv2.i, %if.then338 ]
+for.inc.i.preheader:                              ; preds = %if.then338
+  %invariant.op783 = add i64 %add15.i, 16777216
+  br label %for.inc.i
+
+for.inc.i:                                        ; preds = %for.inc.i.preheader, %for.inc.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ %conv2.i, %for.inc.i.preheader ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp.i642 = icmp ugt i64 %sub.ptr.div.i8.i, %indvars.iv.next.i
   call void @llvm.assume(i1 %cmp.i642)
@@ -1969,29 +1973,29 @@ for.inc.i:                                        ; preds = %if.then338, %for.in
   %189 = load ptr, ptr %add.ptr.i.i645, align 8
   %offset.i646 = getelementptr inbounds i8, ptr %189, i64 8
   %190 = load i64, ptr %offset.i646, align 8
-  %sub.i648 = add i64 %190, %add15.i
-  %191 = add i64 %sub.i648, 16777216
-  %cmp.i.i649 = icmp ult i64 %191, 33554432
+  %.reass784 = add i64 %190, %invariant.op783
+  %cmp.i.i649 = icmp ult i64 %.reass784, 33554432
   br i1 %cmp.i.i649, label %"_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit.loopexit", label %for.inc.i, !llvm.loop !5
 
 "_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit.loopexit": ; preds = %for.inc.i
-  %192 = trunc nsw i64 %indvars.iv.next.i to i32
+  %sub.i648.le = add i64 %190, %add15.i
+  %191 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %"_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit"
 
 "_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit": ; preds = %"_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit.loopexit", %if.then338
-  %get_tls_trampoline_addr.sroa.0.1 = phi i32 [ %get_tls_trampoline_addr.sroa.0.0784, %if.then338 ], [ %192, %"_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit.loopexit" ]
-  %sub.lcssa.i = phi i64 [ %sub16.i, %if.then338 ], [ %sub.i648, %"_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit.loopexit" ]
-  %193 = trunc i64 %sub.lcssa.i to i32
-  %194 = lshr i32 %193, 2
-  %195 = and i32 %194, 16777215
-  %conv343 = or disjoint i32 %195, -352321536
+  %get_tls_trampoline_addr.sroa.0.1 = phi i32 [ %get_tls_trampoline_addr.sroa.0.0787, %if.then338 ], [ %191, %"_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit.loopexit" ]
+  %sub.lcssa.i = phi i64 [ %sub16.i, %if.then338 ], [ %sub.i648.le, %"_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit.loopexit" ]
+  %192 = trunc i64 %sub.lcssa.i to i32
+  %193 = lshr i32 %192, 2
+  %194 = and i32 %193, 16777215
+  %conv343 = or disjoint i32 %194, -352321536
   store i32 %conv343, ptr %add.ptr22, align 1
   br label %for.inc
 
 _ZNK4mold3elf6SymbolINS0_5ARM32EE9has_gottpERNS0_7ContextIS2_EE.exit659: ; preds = %_ZNK4mold3elf6SymbolINS0_5ARM32EE11has_tlsdescERNS0_7ContextIS2_EE.exit640
   %gottp_idx.i.i657 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %182, i64 %conv.i.i637, i32 1
-  %196 = load i32, ptr %gottp_idx.i.i657, align 4
-  %.not774 = icmp eq i32 %196, -1
+  %195 = load i32, ptr %gottp_idx.i.i657, align 4
+  %.not774 = icmp eq i32 %195, -1
   br i1 %.not774, label %if.else349, label %if.then347
 
 if.then347:                                       ; preds = %_ZNK4mold3elf6SymbolINS0_5ARM32EE9has_gottpERNS0_7ContextIS2_EE.exit659
@@ -2007,76 +2011,80 @@ sw.bb353:                                         ; preds = %_ZNK4mold3elf6Symbo
 
 _ZNK4mold3elf6SymbolINS0_5ARM32EE11has_tlsdescERNS0_7ContextIS2_EE.exit667: ; preds = %sw.bb353
   %conv.i.i664 = sext i32 %27 to i64
-  %197 = load ptr, ptr %symbol_aux.i, align 8
-  %tlsdesc_idx.i.i665 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %197, i64 %conv.i.i664, i32 3
-  %198 = load i32, ptr %tlsdesc_idx.i.i665, align 4
-  %.not = icmp eq i32 %198, -1
+  %196 = load ptr, ptr %symbol_aux.i, align 8
+  %tlsdesc_idx.i.i665 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %196, i64 %conv.i.i664, i32 3
+  %197 = load i32, ptr %tlsdesc_idx.i.i665, align 4
+  %.not = icmp eq i32 %197, -1
   br i1 %.not, label %_ZNK4mold3elf6SymbolINS0_5ARM32EE9has_gottpERNS0_7ContextIS2_EE.exit745, label %if.then355
 
 if.then355:                                       ; preds = %_ZNK4mold3elf6SymbolINS0_5ARM32EE11has_tlsdescERNS0_7ContextIS2_EE.exit667
-  %conv2.i669 = sext i32 %get_tls_trampoline_addr.sroa.0.0784 to i64
+  %conv2.i669 = sext i32 %get_tls_trampoline_addr.sroa.0.0787 to i64
   %thunks3.i670 = getelementptr inbounds i8, ptr %25, i64 200
   %_M_finish.i4.i671 = getelementptr inbounds i8, ptr %25, i64 208
-  %199 = load ptr, ptr %_M_finish.i4.i671, align 8
-  %200 = load ptr, ptr %thunks3.i670, align 8
-  %sub.ptr.lhs.cast.i5.i672 = ptrtoint ptr %199 to i64
-  %sub.ptr.rhs.cast.i6.i673 = ptrtoint ptr %200 to i64
+  %198 = load ptr, ptr %_M_finish.i4.i671, align 8
+  %199 = load ptr, ptr %thunks3.i670, align 8
+  %sub.ptr.lhs.cast.i5.i672 = ptrtoint ptr %198 to i64
+  %sub.ptr.rhs.cast.i6.i673 = ptrtoint ptr %199 to i64
   %sub.ptr.sub.i7.i674 = sub i64 %sub.ptr.lhs.cast.i5.i672, %sub.ptr.rhs.cast.i6.i673
   %sub.ptr.div.i8.i675 = ashr exact i64 %sub.ptr.sub.i7.i674, 3
   %cmp9.i676 = icmp ugt i64 %sub.ptr.div.i8.i675, %conv2.i669
   call void @llvm.assume(i1 %cmp9.i676)
-  %add.ptr.i13.i680 = getelementptr inbounds %"class.std::unique_ptr.340", ptr %200, i64 %conv2.i669
-  %201 = load ptr, ptr %add.ptr.i13.i680, align 8
-  %offset14.i681 = getelementptr inbounds i8, ptr %201, i64 8
-  %202 = load i64, ptr %offset14.i681, align 8
+  %add.ptr.i13.i680 = getelementptr inbounds %"class.std::unique_ptr.340", ptr %199, i64 %conv2.i669
+  %200 = load ptr, ptr %add.ptr.i13.i680, align 8
+  %offset14.i681 = getelementptr inbounds i8, ptr %200, i64 8
+  %201 = load i64, ptr %offset14.i681, align 8
   %add357.neg = add nsw i64 %conv.i245, -4
   %add15.i682 = sub i64 %add357.neg, %add
-  %sub16.i683 = add i64 %202, %add15.i682
-  %203 = add i64 %sub16.i683, 16777216
-  %cmp.i17.i684 = icmp ult i64 %203, 33554432
-  br i1 %cmp.i17.i684, label %"_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit704", label %for.inc.i685
+  %sub16.i683 = add i64 %201, %add15.i682
+  %202 = add i64 %sub16.i683, 16777216
+  %cmp.i17.i684 = icmp ult i64 %202, 33554432
+  br i1 %cmp.i17.i684, label %"_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit704", label %for.inc.i685.preheader
 
-for.inc.i685:                                     ; preds = %if.then355, %for.inc.i685
-  %indvars.iv.i686 = phi i64 [ %indvars.iv.next.i687, %for.inc.i685 ], [ %conv2.i669, %if.then355 ]
+for.inc.i685.preheader:                           ; preds = %if.then355
+  %invariant.op = add i64 %add15.i682, 16777216
+  br label %for.inc.i685
+
+for.inc.i685:                                     ; preds = %for.inc.i685.preheader, %for.inc.i685
+  %indvars.iv.i686 = phi i64 [ %indvars.iv.next.i687, %for.inc.i685 ], [ %conv2.i669, %for.inc.i685.preheader ]
   %indvars.iv.next.i687 = add nuw nsw i64 %indvars.iv.i686, 1
   %cmp.i694 = icmp ugt i64 %sub.ptr.div.i8.i675, %indvars.iv.next.i687
   call void @llvm.assume(i1 %cmp.i694)
-  %add.ptr.i.i698 = getelementptr inbounds %"class.std::unique_ptr.340", ptr %200, i64 %indvars.iv.next.i687
-  %204 = load ptr, ptr %add.ptr.i.i698, align 8
-  %offset.i699 = getelementptr inbounds i8, ptr %204, i64 8
-  %205 = load i64, ptr %offset.i699, align 8
-  %sub.i701 = add i64 %205, %add15.i682
-  %206 = add i64 %sub.i701, 16777216
-  %cmp.i.i702 = icmp ult i64 %206, 33554432
+  %add.ptr.i.i698 = getelementptr inbounds %"class.std::unique_ptr.340", ptr %199, i64 %indvars.iv.next.i687
+  %203 = load ptr, ptr %add.ptr.i.i698, align 8
+  %offset.i699 = getelementptr inbounds i8, ptr %203, i64 8
+  %204 = load i64, ptr %offset.i699, align 8
+  %.reass = add i64 %204, %invariant.op
+  %cmp.i.i702 = icmp ult i64 %.reass, 33554432
   br i1 %cmp.i.i702, label %"_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit704.loopexit", label %for.inc.i685, !llvm.loop !5
 
 "_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit704.loopexit": ; preds = %for.inc.i685
-  %207 = trunc nsw i64 %indvars.iv.next.i687 to i32
+  %sub.i701.le = add i64 %204, %add15.i682
+  %205 = trunc nsw i64 %indvars.iv.next.i687 to i32
   br label %"_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit704"
 
 "_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit704": ; preds = %"_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit704.loopexit", %if.then355
-  %get_tls_trampoline_addr.sroa.0.2 = phi i32 [ %get_tls_trampoline_addr.sroa.0.0784, %if.then355 ], [ %207, %"_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit704.loopexit" ]
-  %sub.lcssa.i703 = phi i64 [ %sub16.i683, %if.then355 ], [ %sub.i701, %"_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit704.loopexit" ]
-  %208 = trunc i64 %sub.lcssa.i703 to i32
-  %209 = add nsw i32 %208, 3
-  %conv.i708 = zext i32 %209 to i64
-  %shr.i.i709 = lshr i32 %209, 24
+  %get_tls_trampoline_addr.sroa.0.2 = phi i32 [ %get_tls_trampoline_addr.sroa.0.0787, %if.then355 ], [ %205, %"_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit704.loopexit" ]
+  %sub.lcssa.i703 = phi i64 [ %sub16.i683, %if.then355 ], [ %sub.i701.le, %"_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit704.loopexit" ]
+  %206 = trunc i64 %sub.lcssa.i703 to i32
+  %207 = add i32 %206, 3
+  %conv.i708 = zext i32 %207 to i64
+  %shr.i.i709 = lshr i32 %207, 24
   %and.i.i710 = and i32 %shr.i.i709, 1
-  %210 = and i64 %conv.i708, 8388608
-  %tobool.not.i711 = icmp eq i64 %210, 0
+  %208 = and i64 %conv.i708, 8388608
+  %tobool.not.i711 = icmp eq i64 %208, 0
   %conv8.i712 = zext i1 %tobool.not.i711 to i32
   %xor.i713 = xor i32 %and.i.i710, %conv8.i712
-  %211 = and i64 %conv.i708, 4194304
-  %tobool9.not.i714 = icmp eq i64 %211, 0
+  %209 = and i64 %conv.i708, 4194304
+  %tobool9.not.i714 = icmp eq i64 %209, 0
   %conv11.i715 = zext i1 %tobool9.not.i714 to i32
   %xor12.i716 = xor i32 %and.i.i710, %conv11.i715
-  %shr.i14.i717 = lshr i32 %209, 12
+  %shr.i14.i717 = lshr i32 %207, 12
   %and.i15.i718 = and i32 %shr.i14.i717, 1023
-  %shr.i16.i719 = lshr i32 %209, 1
+  %shr.i16.i719 = lshr i32 %207, 1
   %and.i17.i720 = and i32 %shr.i16.i719, 2046
   %x.0.copyload.i.i721 = load i16, ptr %add.ptr22, align 1
-  %212 = and i16 %x.0.copyload.i.i721, -2048
-  %and.i722 = zext i16 %212 to i32
+  %210 = and i16 %x.0.copyload.i.i721, -2048
+  %and.i722 = zext i16 %210 to i32
   %shl.i723 = shl nuw nsw i32 %and.i.i710, 10
   %or.i724 = or disjoint i32 %shl.i723, %and.i722
   %or21.i725 = or disjoint i32 %or.i724, %and.i15.i718
@@ -2084,8 +2092,8 @@ for.inc.i685:                                     ; preds = %if.then355, %for.in
   store i16 %conv22.i726, ptr %add.ptr22, align 1
   %arrayidx25.i727 = getelementptr inbounds i8, ptr %add.ptr22, i64 2
   %x.0.copyload.i18.i728 = load i16, ptr %arrayidx25.i727, align 1
-  %213 = and i16 %x.0.copyload.i18.i728, -12288
-  %and28.i729 = zext i16 %213 to i32
+  %211 = and i16 %x.0.copyload.i18.i728, -12288
+  %and28.i729 = zext i16 %211 to i32
   %shl29.i730 = shl nuw nsw i32 %xor.i713, 13
   %or30.i731 = or disjoint i32 %shl29.i730, %and28.i729
   %shl31.i732 = shl nuw nsw i32 %xor12.i716, 11
@@ -2097,9 +2105,9 @@ for.inc.i685:                                     ; preds = %if.then355, %for.in
   br label %for.inc
 
 _ZNK4mold3elf6SymbolINS0_5ARM32EE9has_gottpERNS0_7ContextIS2_EE.exit745: ; preds = %_ZNK4mold3elf6SymbolINS0_5ARM32EE11has_tlsdescERNS0_7ContextIS2_EE.exit667
-  %gottp_idx.i.i743 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %197, i64 %conv.i.i664, i32 1
-  %214 = load i32, ptr %gottp_idx.i.i743, align 4
-  %.not772 = icmp eq i32 %214, -1
+  %gottp_idx.i.i743 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %196, i64 %conv.i.i664, i32 1
+  %212 = load i32, ptr %gottp_idx.i.i743, align 4
+  %.not772 = icmp eq i32 %212, -1
   br i1 %.not772, label %if.else369, label %if.then365
 
 if.then365:                                       ; preds = %_ZNK4mold3elf6SymbolINS0_5ARM32EE9has_gottpERNS0_7ContextIS2_EE.exit745
@@ -2114,8 +2122,8 @@ if.else369:                                       ; preds = %sw.bb353, %_ZNK4mol
 
 sw.default:                                       ; preds = %_ZNK4mold3elf6SymbolINS0_5ARM32EE11get_got_idxERNS0_7ContextIS2_EE.exit
   call void @_ZN4mold5ErrorINS_3elf7ContextINS1_5ARM32EEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp373, ptr noundef nonnull align 8 dereferenceable(4568) %ctx)
-  %215 = load ptr, ptr %ref.tmp373, align 8
-  %tobool.not.i.i = icmp eq ptr %215, null
+  %213 = load ptr, ptr %ref.tmp373, align 8
+  %tobool.not.i.i = icmp eq ptr %213, null
   br i1 %tobool.not.i.i, label %_ZN4mold5ErrorINS_3elf7ContextINS1_5ARM32EEEElsIRKNS1_6ElfRelIS3_EEEERS5_OT_.exit, label %_ZN4mold5ErrorINS_3elf7ContextINS1_5ARM32EEEElsIRNS1_12InputSectionIS3_EEEERS5_OT_.exit
 
 _ZN4mold5ErrorINS_3elf7ContextINS1_5ARM32EEEElsIRNS1_12InputSectionIS3_EEEERS5_OT_.exit: ; preds = %sw.default
@@ -2132,22 +2140,22 @@ _ZN4mold5ErrorINS_3elf7ContextINS1_5ARM32EEEElsIRA23_KcEERS5_OT_.exit: ; preds =
 
 if.then.i.i752:                                   ; preds = %_ZN4mold5ErrorINS_3elf7ContextINS1_5ARM32EEEElsIRA23_KcEERS5_OT_.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
-  %216 = load i8, ptr %r_type, align 1
-  %conv.i.i.i754 = zext i8 %216 to i32
+  %214 = load i8, ptr %r_type, align 1
+  %conv.i.i.i754 = zext i8 %214 to i32
   call void @_ZN4mold3elf13rel_to_stringINS0_5ARM32EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i.i, i32 noundef %conv.i.i.i754) #17
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i746, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #17
-  %217 = load ptr, ptr %ref.tmp.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp eq ptr %217, %14
+  %215 = load ptr, ptr %ref.tmp.i.i.i, align 8
+  %cmp.i.i.i.i.i.i = icmp eq ptr %215, %14
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %if.then.i.i752
-  %218 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8
-  %cmp3.i.i.i.i.i.i = icmp ult i64 %218, 16
+  %216 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8
+  %cmp3.i.i.i.i.i.i = icmp ult i64 %216, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
   br label %_ZN4mold3elflsINS0_5ARM32EEERSoS3_RKNS0_6ElfRelIT_EE.exit.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i752
-  call void @_ZdlPv(ptr noundef %217) #26
+  call void @_ZdlPv(ptr noundef %215) #26
   br label %_ZN4mold3elflsINS0_5ARM32EEERSoS3_RKNS0_6ElfRelIT_EE.exit.i.i
 
 _ZN4mold3elflsINS0_5ARM32EEERSoS3_RKNS0_6ElfRelIT_EE.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
@@ -2160,8 +2168,8 @@ _ZN4mold5ErrorINS_3elf7ContextINS1_5ARM32EEEElsIRKNS1_6ElfRelIS3_EEEERS5_OT_.exi
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %for.body, %sw.bb, %sw.bb36, %if.then42, %sw.bb68, %sw.bb73, %sw.bb78, %sw.bb84, %if.then90, %if.then137, %if.end150, %sw.bb176, %sw.bb185, %if.then215, %if.end228, %sw.bb230, %sw.bb235, %sw.bb239, %sw.bb244, %sw.bb253, %sw.bb257, %sw.bb261, %sw.bb266, %sw.bb270, %_ZNK4mold3elf6SymbolINS0_5ARM32EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit, %sw.bb280, %sw.bb287, %_ZNK4mold3elf6SymbolINS0_5ARM32EE14get_gottp_addrERNS0_7ContextIS2_EE.exit, %sw.bb298, %_ZN4mold5ErrorINS_3elf7ContextINS1_5ARM32EEEElsIRKNS1_6ElfRelIS3_EEEERS5_OT_.exit, %if.then50, %if.else, %if.else59, %if.then113, %if.else120, %if.else126, %cond.end, %if.then160, %_ZNK4mold3elf6SymbolINS0_5ARM32EE14get_gottp_addrERNS0_7ContextIS2_EE.exit632, %if.else329, %_ZNK4mold3elf6SymbolINS0_5ARM32EE16get_tlsdesc_addrERNS0_7ContextIS2_EE.exit, %if.then347, %if.else349, %"_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit", %if.then365, %if.else369, %"_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit704"
-  %get_tls_trampoline_addr.sroa.0.3 = phi i32 [ %get_tls_trampoline_addr.sroa.0.0784, %_ZN4mold5ErrorINS_3elf7ContextINS1_5ARM32EEEElsIRKNS1_6ElfRelIS3_EEEERS5_OT_.exit ], [ %get_tls_trampoline_addr.sroa.0.2, %"_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit704" ], [ %get_tls_trampoline_addr.sroa.0.0784, %if.then365 ], [ %get_tls_trampoline_addr.sroa.0.0784, %if.else369 ], [ %get_tls_trampoline_addr.sroa.0.1, %"_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit" ], [ %get_tls_trampoline_addr.sroa.0.0784, %if.then347 ], [ %get_tls_trampoline_addr.sroa.0.0784, %if.else349 ], [ %get_tls_trampoline_addr.sroa.0.0784, %_ZNK4mold3elf6SymbolINS0_5ARM32EE16get_tlsdesc_addrERNS0_7ContextIS2_EE.exit ], [ %get_tls_trampoline_addr.sroa.0.0784, %_ZNK4mold3elf6SymbolINS0_5ARM32EE14get_gottp_addrERNS0_7ContextIS2_EE.exit632 ], [ %get_tls_trampoline_addr.sroa.0.0784, %if.else329 ], [ %get_tls_trampoline_addr.sroa.0.0784, %sw.bb298 ], [ %get_tls_trampoline_addr.sroa.0.0784, %_ZNK4mold3elf6SymbolINS0_5ARM32EE14get_gottp_addrERNS0_7ContextIS2_EE.exit ], [ %get_tls_trampoline_addr.sroa.0.0784, %sw.bb287 ], [ %get_tls_trampoline_addr.sroa.0.0784, %sw.bb280 ], [ %get_tls_trampoline_addr.sroa.0.0784, %_ZNK4mold3elf6SymbolINS0_5ARM32EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit ], [ %get_tls_trampoline_addr.sroa.0.0784, %sw.bb270 ], [ %get_tls_trampoline_addr.sroa.0.0784, %sw.bb266 ], [ %get_tls_trampoline_addr.sroa.0.0784, %sw.bb261 ], [ %get_tls_trampoline_addr.sroa.0.0784, %sw.bb257 ], [ %get_tls_trampoline_addr.sroa.0.0784, %sw.bb253 ], [ %get_tls_trampoline_addr.sroa.0.0784, %sw.bb244 ], [ %get_tls_trampoline_addr.sroa.0.0784, %sw.bb239 ], [ %get_tls_trampoline_addr.sroa.0.0784, %sw.bb235 ], [ %get_tls_trampoline_addr.sroa.0.0784, %sw.bb230 ], [ %get_tls_trampoline_addr.sroa.0.0784, %if.then215 ], [ %get_tls_trampoline_addr.sroa.0.0784, %if.end228 ], [ %get_tls_trampoline_addr.sroa.0.0784, %sw.bb185 ], [ %get_tls_trampoline_addr.sroa.0.0784, %sw.bb176 ], [ %get_tls_trampoline_addr.sroa.0.0784, %if.then160 ], [ %get_tls_trampoline_addr.sroa.0.0784, %cond.end ], [ %get_tls_trampoline_addr.sroa.0.0784, %if.then137 ], [ %get_tls_trampoline_addr.sroa.0.0784, %if.end150 ], [ %get_tls_trampoline_addr.sroa.0.0784, %if.then90 ], [ %get_tls_trampoline_addr.sroa.0.0784, %if.else120 ], [ %get_tls_trampoline_addr.sroa.0.0784, %if.then113 ], [ %get_tls_trampoline_addr.sroa.0.0784, %if.else126 ], [ %get_tls_trampoline_addr.sroa.0.0784, %sw.bb84 ], [ %get_tls_trampoline_addr.sroa.0.0784, %sw.bb78 ], [ %get_tls_trampoline_addr.sroa.0.0784, %sw.bb73 ], [ %get_tls_trampoline_addr.sroa.0.0784, %sw.bb68 ], [ %get_tls_trampoline_addr.sroa.0.0784, %if.then42 ], [ %get_tls_trampoline_addr.sroa.0.0784, %if.else ], [ %get_tls_trampoline_addr.sroa.0.0784, %if.then50 ], [ %get_tls_trampoline_addr.sroa.0.0784, %if.else59 ], [ %get_tls_trampoline_addr.sroa.0.0784, %sw.bb36 ], [ %get_tls_trampoline_addr.sroa.0.0784, %sw.bb ], [ %get_tls_trampoline_addr.sroa.0.0784, %for.body ], [ %get_tls_trampoline_addr.sroa.0.0784, %for.body ]
-  %inc = add nuw i64 %storemerge785, 1
+  %get_tls_trampoline_addr.sroa.0.3 = phi i32 [ %get_tls_trampoline_addr.sroa.0.0787, %_ZN4mold5ErrorINS_3elf7ContextINS1_5ARM32EEEElsIRKNS1_6ElfRelIS3_EEEERS5_OT_.exit ], [ %get_tls_trampoline_addr.sroa.0.2, %"_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit704" ], [ %get_tls_trampoline_addr.sroa.0.0787, %if.then365 ], [ %get_tls_trampoline_addr.sroa.0.0787, %if.else369 ], [ %get_tls_trampoline_addr.sroa.0.1, %"_ZZN4mold3elf12InputSectionINS0_5ARM32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhEN3$_3clEm.exit" ], [ %get_tls_trampoline_addr.sroa.0.0787, %if.then347 ], [ %get_tls_trampoline_addr.sroa.0.0787, %if.else349 ], [ %get_tls_trampoline_addr.sroa.0.0787, %_ZNK4mold3elf6SymbolINS0_5ARM32EE16get_tlsdesc_addrERNS0_7ContextIS2_EE.exit ], [ %get_tls_trampoline_addr.sroa.0.0787, %_ZNK4mold3elf6SymbolINS0_5ARM32EE14get_gottp_addrERNS0_7ContextIS2_EE.exit632 ], [ %get_tls_trampoline_addr.sroa.0.0787, %if.else329 ], [ %get_tls_trampoline_addr.sroa.0.0787, %sw.bb298 ], [ %get_tls_trampoline_addr.sroa.0.0787, %_ZNK4mold3elf6SymbolINS0_5ARM32EE14get_gottp_addrERNS0_7ContextIS2_EE.exit ], [ %get_tls_trampoline_addr.sroa.0.0787, %sw.bb287 ], [ %get_tls_trampoline_addr.sroa.0.0787, %sw.bb280 ], [ %get_tls_trampoline_addr.sroa.0.0787, %_ZNK4mold3elf6SymbolINS0_5ARM32EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit ], [ %get_tls_trampoline_addr.sroa.0.0787, %sw.bb270 ], [ %get_tls_trampoline_addr.sroa.0.0787, %sw.bb266 ], [ %get_tls_trampoline_addr.sroa.0.0787, %sw.bb261 ], [ %get_tls_trampoline_addr.sroa.0.0787, %sw.bb257 ], [ %get_tls_trampoline_addr.sroa.0.0787, %sw.bb253 ], [ %get_tls_trampoline_addr.sroa.0.0787, %sw.bb244 ], [ %get_tls_trampoline_addr.sroa.0.0787, %sw.bb239 ], [ %get_tls_trampoline_addr.sroa.0.0787, %sw.bb235 ], [ %get_tls_trampoline_addr.sroa.0.0787, %sw.bb230 ], [ %get_tls_trampoline_addr.sroa.0.0787, %if.then215 ], [ %get_tls_trampoline_addr.sroa.0.0787, %if.end228 ], [ %get_tls_trampoline_addr.sroa.0.0787, %sw.bb185 ], [ %get_tls_trampoline_addr.sroa.0.0787, %sw.bb176 ], [ %get_tls_trampoline_addr.sroa.0.0787, %if.then160 ], [ %get_tls_trampoline_addr.sroa.0.0787, %cond.end ], [ %get_tls_trampoline_addr.sroa.0.0787, %if.then137 ], [ %get_tls_trampoline_addr.sroa.0.0787, %if.end150 ], [ %get_tls_trampoline_addr.sroa.0.0787, %if.then90 ], [ %get_tls_trampoline_addr.sroa.0.0787, %if.else120 ], [ %get_tls_trampoline_addr.sroa.0.0787, %if.then113 ], [ %get_tls_trampoline_addr.sroa.0.0787, %if.else126 ], [ %get_tls_trampoline_addr.sroa.0.0787, %sw.bb84 ], [ %get_tls_trampoline_addr.sroa.0.0787, %sw.bb78 ], [ %get_tls_trampoline_addr.sroa.0.0787, %sw.bb73 ], [ %get_tls_trampoline_addr.sroa.0.0787, %sw.bb68 ], [ %get_tls_trampoline_addr.sroa.0.0787, %if.then42 ], [ %get_tls_trampoline_addr.sroa.0.0787, %if.else ], [ %get_tls_trampoline_addr.sroa.0.0787, %if.then50 ], [ %get_tls_trampoline_addr.sroa.0.0787, %if.else59 ], [ %get_tls_trampoline_addr.sroa.0.0787, %sw.bb36 ], [ %get_tls_trampoline_addr.sroa.0.0787, %sw.bb ], [ %get_tls_trampoline_addr.sroa.0.0787, %for.body ], [ %get_tls_trampoline_addr.sroa.0.0787, %for.body ]
+  %inc = add nuw i64 %storemerge788, 1
   %exitcond.not = icmp eq i64 %inc, %retval.sroa.3.0.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 

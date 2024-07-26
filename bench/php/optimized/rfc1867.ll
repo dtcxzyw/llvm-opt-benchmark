@@ -2291,17 +2291,18 @@ fill_buffer.exit:                                 ; preds = %fill_buffer.exit.lo
   %44 = load i32, ptr %43, align 8
   %45 = load i8, ptr %42, align 1
   %46 = sext i8 %45 to i32
+  %invariant.op.i = add i32 %38, -1
   %47 = sext i32 %38 to i64
   %48 = tail call ptr @memchr(ptr noundef %40, i32 noundef %46, i64 noundef %47) #22
   %.not23.i = icmp eq ptr %48, null
-  br i1 %.not23.i, label %php_ap_memstr.exit50.thread, label %.lr.ph.i45
+  br i1 %.not23.i, label %php_ap_memstr.exit51.thread, label %.lr.ph.i45
 
 .lr.ph.i45:                                       ; preds = %fill_buffer.exit
   %49 = ptrtoint ptr %40 to i64
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %57, %.lr.ph.i45
-  %50 = phi ptr [ %61, %57 ], [ %48, %.lr.ph.i45 ]
+  %50 = phi ptr [ %60, %57 ], [ %48, %.lr.ph.i45 ]
   %51 = ptrtoint ptr %50 to i64
   %.neg.us.i = sub i64 %49, %51
   %52 = trunc i64 %.neg.us.i to i32
@@ -2314,82 +2315,82 @@ fill_buffer.exit:                                 ; preds = %fill_buffer.exit.lo
 
 57:                                               ; preds = %.lr.ph.split.us.i
   %58 = getelementptr inbounds i8, ptr %50, i64 1
-  %59 = add nsw i32 %53, -1
-  %60 = sext i32 %59 to i64
-  %61 = tail call ptr @memchr(ptr noundef nonnull %58, i32 noundef %46, i64 noundef %60) #22
-  %.not.us.i = icmp eq ptr %61, null
-  br i1 %.not.us.i, label %php_ap_memstr.exit50.thread, label %.lr.ph.split.us.i
+  %.reass.us.i = add i32 %invariant.op.i, %52
+  %59 = sext i32 %.reass.us.i to i64
+  %60 = tail call ptr @memchr(ptr noundef nonnull %58, i32 noundef %46, i64 noundef %59) #22
+  %.not.us.i = icmp eq ptr %60, null
+  br i1 %.not.us.i, label %php_ap_memstr.exit51.thread, label %.lr.ph.split.us.i
 
 php_ap_memstr.exit:                               ; preds = %.lr.ph.split.us.i
-  %62 = sub i64 %51, %49
+  %61 = sub i64 %51, %49
   %.not42 = icmp eq ptr %2, null
-  br i1 %.not42, label %php_ap_memstr.exit50.thread, label %.lr.ph.split.i
+  br i1 %.not42, label %php_ap_memstr.exit51.thread, label %.lr.ph.split.i
 
-.lr.ph.split.i:                                   ; preds = %php_ap_memstr.exit, %70
-  %63 = phi ptr [ %74, %70 ], [ %48, %php_ap_memstr.exit ]
-  %64 = ptrtoint ptr %63 to i64
-  %.neg.i = sub i64 %49, %64
-  %65 = trunc i64 %.neg.i to i32
-  %66 = add i32 %38, %65
-  %67 = tail call i32 @llvm.smin.i32(i32 %66, i32 %44)
-  %68 = sext i32 %67 to i64
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %42, ptr nonnull %63, i64 %68)
-  %69 = icmp ne i32 %bcmp.i, 0
-  %.not22.i = icmp slt i32 %66, %44
-  %or.cond.i = or i1 %69, %.not22.i
-  br i1 %or.cond.i, label %70, label %php_ap_memstr.exit50
+.lr.ph.split.i:                                   ; preds = %php_ap_memstr.exit, %69
+  %62 = phi ptr [ %72, %69 ], [ %48, %php_ap_memstr.exit ]
+  %63 = ptrtoint ptr %62 to i64
+  %.neg.i = sub i64 %49, %63
+  %64 = trunc i64 %.neg.i to i32
+  %65 = add i32 %38, %64
+  %66 = tail call i32 @llvm.smin.i32(i32 %65, i32 %44)
+  %67 = sext i32 %66 to i64
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %42, ptr nonnull %62, i64 %67)
+  %68 = icmp ne i32 %bcmp.i, 0
+  %.not22.i = icmp slt i32 %65, %44
+  %or.cond.i = or i1 %68, %.not22.i
+  br i1 %or.cond.i, label %69, label %php_ap_memstr.exit51
 
-70:                                               ; preds = %.lr.ph.split.i
-  %71 = getelementptr inbounds i8, ptr %63, i64 1
-  %72 = add nsw i32 %66, -1
-  %73 = sext i32 %72 to i64
-  %74 = tail call ptr @memchr(ptr noundef nonnull %71, i32 noundef %46, i64 noundef %73) #22
-  %.not.i49 = icmp eq ptr %74, null
-  br i1 %.not.i49, label %php_ap_memstr.exit50.thread, label %.lr.ph.split.i
+69:                                               ; preds = %.lr.ph.split.i
+  %70 = getelementptr inbounds i8, ptr %62, i64 1
+  %.reass.i = add i32 %invariant.op.i, %64
+  %71 = sext i32 %.reass.i to i64
+  %72 = tail call ptr @memchr(ptr noundef nonnull %70, i32 noundef %46, i64 noundef %71) #22
+  %.not.i50 = icmp eq ptr %72, null
+  br i1 %.not.i50, label %php_ap_memstr.exit51.thread, label %.lr.ph.split.i
 
-php_ap_memstr.exit50:                             ; preds = %.lr.ph.split.i
+php_ap_memstr.exit51:                             ; preds = %.lr.ph.split.i
   store i32 1, ptr %2, align 4
-  br label %php_ap_memstr.exit50.thread
+  br label %php_ap_memstr.exit51.thread
 
-php_ap_memstr.exit50.thread:                      ; preds = %57, %70, %php_ap_memstr.exit, %fill_buffer.exit, %php_ap_memstr.exit50
-  %.not53 = phi i1 [ false, %php_ap_memstr.exit50 ], [ false, %php_ap_memstr.exit ], [ true, %fill_buffer.exit ], [ false, %70 ], [ true, %57 ]
-  %.037 = phi i64 [ %62, %php_ap_memstr.exit50 ], [ %62, %php_ap_memstr.exit ], [ %47, %fill_buffer.exit ], [ %62, %70 ], [ %47, %57 ]
-  %75 = tail call i64 @llvm.umin.i64(i64 %.037, i64 5119)
+php_ap_memstr.exit51.thread:                      ; preds = %57, %69, %php_ap_memstr.exit, %fill_buffer.exit, %php_ap_memstr.exit51
+  %.not54 = phi i1 [ false, %php_ap_memstr.exit51 ], [ false, %php_ap_memstr.exit ], [ true, %fill_buffer.exit ], [ false, %69 ], [ true, %57 ]
+  %.037 = phi i64 [ %61, %php_ap_memstr.exit51 ], [ %61, %php_ap_memstr.exit ], [ %47, %fill_buffer.exit ], [ %61, %69 ], [ %47, %57 ]
+  %73 = tail call i64 @llvm.umin.i64(i64 %.037, i64 5119)
   %.not44 = icmp eq i64 %.037, 0
-  br i1 %.not44, label %92, label %76
+  br i1 %.not44, label %90, label %74
 
-76:                                               ; preds = %php_ap_memstr.exit50.thread
-  %77 = load ptr, ptr %39, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %77, i64 %75, i1 false)
-  %78 = getelementptr inbounds i8, ptr %1, i64 %75
-  store i8 0, ptr %78, align 1
-  br i1 %.not53, label %86, label %79
+74:                                               ; preds = %php_ap_memstr.exit51.thread
+  %75 = load ptr, ptr %39, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %75, i64 %73, i1 false)
+  %76 = getelementptr inbounds i8, ptr %1, i64 %73
+  store i8 0, ptr %76, align 1
+  br i1 %.not54, label %84, label %77
 
-79:                                               ; preds = %76
-  %80 = getelementptr i8, ptr %78, i64 -1
-  %81 = load i8, ptr %80, align 1
-  %82 = icmp eq i8 %81, 13
-  br i1 %82, label %83, label %86
+77:                                               ; preds = %74
+  %78 = getelementptr i8, ptr %76, i64 -1
+  %79 = load i8, ptr %78, align 1
+  %80 = icmp eq i8 %79, 13
+  br i1 %80, label %81, label %84
 
-83:                                               ; preds = %79
-  %84 = add nsw i64 %75, -1
-  %85 = getelementptr inbounds i8, ptr %1, i64 %84
-  store i8 0, ptr %85, align 1
-  br label %86
+81:                                               ; preds = %77
+  %82 = add nsw i64 %73, -1
+  %83 = getelementptr inbounds i8, ptr %1, i64 %82
+  store i8 0, ptr %83, align 1
+  br label %84
 
-86:                                               ; preds = %83, %79, %76
-  %.0 = phi i64 [ %84, %83 ], [ %75, %79 ], [ %75, %76 ]
-  %87 = trunc nsw i64 %.0 to i32
-  %88 = load i32, ptr %4, align 4
-  %89 = sub nsw i32 %88, %87
-  store i32 %89, ptr %4, align 4
-  %90 = load ptr, ptr %39, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 %.0
-  store ptr %91, ptr %39, align 8
-  br label %92
+84:                                               ; preds = %81, %77, %74
+  %.0 = phi i64 [ %82, %81 ], [ %73, %77 ], [ %73, %74 ]
+  %85 = trunc nsw i64 %.0 to i32
+  %86 = load i32, ptr %4, align 4
+  %87 = sub nsw i32 %86, %85
+  store i32 %87, ptr %4, align 4
+  %88 = load ptr, ptr %39, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 %.0
+  store ptr %89, ptr %39, align 8
+  br label %90
 
-92:                                               ; preds = %86, %php_ap_memstr.exit50.thread
-  %.1 = phi i64 [ %.0, %86 ], [ 0, %php_ap_memstr.exit50.thread ]
+90:                                               ; preds = %84, %php_ap_memstr.exit51.thread
+  %.1 = phi i64 [ %.0, %84 ], [ 0, %php_ap_memstr.exit51.thread ]
   ret i64 %.1
 }
 

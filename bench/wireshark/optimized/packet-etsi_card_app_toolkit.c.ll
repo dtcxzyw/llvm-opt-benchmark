@@ -1071,10 +1071,10 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
   %25 = load i32, ptr @ett_cat, align 4
   %26 = tail call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %25) #2
-  %.not692 = icmp eq i32 %12, 0
-  br i1 %.not692, label %._crit_edge, label %.lr.ph691
+  %.not694 = icmp eq i32 %12, 0
+  br i1 %.not694, label %._crit_edge, label %.lr.ph693
 
-.lr.ph691:                                        ; preds = %22
+.lr.ph693:                                        ; preds = %22
   %27 = getelementptr inbounds i8, ptr %1, i64 408
   %28 = getelementptr inbounds i8, ptr %1, i64 8
   %29 = getelementptr inbounds i8, ptr %1, i64 348
@@ -1093,13 +1093,13 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %. = zext i1 %32 to i32
   br label %41
 
-41:                                               ; preds = %.lr.ph691, %dissect_cat_efadn_coding.exit
-  %.0690 = phi i32 [ 0, %.lr.ph691 ], [ %649, %dissect_cat_efadn_coding.exit ]
-  %.0603689 = phi i32 [ 0, %.lr.ph691 ], [ %.4, %dissect_cat_efadn_coding.exit ]
-  %.0606688 = phi i32 [ 0, %.lr.ph691 ], [ %.2608, %dissect_cat_efadn_coding.exit ]
-  %.0610687 = phi ptr [ null, %.lr.ph691 ], [ %.1611, %dissect_cat_efadn_coding.exit ]
-  %42 = add nuw i32 %.0690, 1
-  %43 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0690) #2
+41:                                               ; preds = %.lr.ph693, %dissect_cat_efadn_coding.exit
+  %.0692 = phi i32 [ 0, %.lr.ph693 ], [ %647, %dissect_cat_efadn_coding.exit ]
+  %.0603691 = phi i32 [ 0, %.lr.ph693 ], [ %.4, %dissect_cat_efadn_coding.exit ]
+  %.0606690 = phi i32 [ 0, %.lr.ph693 ], [ %.2608, %dissect_cat_efadn_coding.exit ]
+  %.0610689 = phi ptr [ null, %.lr.ph693 ], [ %.1611, %dissect_cat_efadn_coding.exit ]
+  %42 = add nuw i32 %.0692, 1
+  %43 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0692) #2
   %44 = and i8 %43, 127
   %45 = zext nneg i8 %44 to i16
   %46 = icmp eq i8 %44, 127
@@ -1108,7 +1108,7 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 47:                                               ; preds = %41
   %48 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %42) #2
   %49 = and i16 %48, 32767
-  %50 = add i32 %.0690, 3
+  %50 = add i32 %.0692, 3
   br label %51
 
 51:                                               ; preds = %47, %41
@@ -1198,27 +1198,27 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
     i16 116, label %605
     i16 118, label %608
     i16 119, label %612
-    i16 120, label %627
+    i16 120, label %625
     i16 121, label %.preheader672
-    i16 122, label %639
-    i16 124, label %646
-    i16 125, label %647
+    i16 122, label %637
+    i16 124, label %644
+    i16 125, label %645
   ]
 
 .preheader672:                                    ; preds = %73
   br i1 %.not629, label %dissect_cat_efadn_coding.exit, label %.lr.ph
 
 .preheader668:                                    ; preds = %73
-  br i1 %.not629, label %dissect_cat_efadn_coding.exit, label %.lr.ph679
-
-.preheader666:                                    ; preds = %73
   br i1 %.not629, label %dissect_cat_efadn_coding.exit, label %.lr.ph681
 
-.preheader664:                                    ; preds = %73
+.preheader666:                                    ; preds = %73
   br i1 %.not629, label %dissect_cat_efadn_coding.exit, label %.lr.ph683
 
+.preheader664:                                    ; preds = %73
+  br i1 %.not629, label %dissect_cat_efadn_coding.exit, label %.lr.ph685
+
 .preheader:                                       ; preds = %73
-  br i1 %.not629, label %dissect_cat_efadn_coding.exit, label %.lr.ph686
+  br i1 %.not629, label %dissect_cat_efadn_coding.exit, label %.lr.ph688
 
 78:                                               ; preds = %73
   %79 = icmp ult i32 %.0618, 3
@@ -1229,8 +1229,8 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %82 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %77, i32 noundef %81, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #2
   %83 = load i32, ptr %8, align 4
   %84 = icmp eq i32 %83, 64
-  %spec.select = select i1 %84, i32 1, i32 %.0606688
-  %spec.select646 = select i1 %84, i32 1, i32 %.0603689
+  %spec.select = select i1 %84, i32 1, i32 %.0606690
+  %spec.select646 = select i1 %84, i32 1, i32 %.0603691
   %85 = load i32, ptr @hf_ctlv_cmd_type, align 4
   %86 = add i32 %.2, 1
   %87 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %77, i32 noundef %85, ptr noundef %0, i32 noundef %86, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7) #2
@@ -1590,18 +1590,18 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %dissect_cat_efadn_coding.exit
 
 278:                                              ; preds = %73
-  %.not636 = icmp eq ptr %.0610687, null
+  %.not636 = icmp eq ptr %.0610689, null
   br i1 %.not636, label %dissect_cat_efadn_coding.exit, label %279
 
 279:                                              ; preds = %278
-  %280 = getelementptr inbounds i8, ptr %.0610687, i64 4
+  %280 = getelementptr inbounds i8, ptr %.0610689, i64 4
   %281 = load i32, ptr %280, align 4
   %282 = and i32 %281, 65535
   %283 = icmp eq i32 %282, 9730
   br i1 %283, label %284, label %dissect_cat_efadn_coding.exit
 
 284:                                              ; preds = %279
-  %285 = getelementptr inbounds i8, ptr %.0610687, i64 8
+  %285 = getelementptr inbounds i8, ptr %.0610689, i64 8
   %286 = load i32, ptr %285, align 4
   switch i32 %286, label %dissect_cat_efadn_coding.exit [
     i32 1, label %287
@@ -1623,32 +1623,32 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %294 = call i32 @dissect_lte_rrc_MeasurementReport_PDU(ptr noundef %293, ptr noundef %1, ptr noundef %77, ptr noundef null) #2
   br label %dissect_cat_efadn_coding.exit
 
-.lr.ph686:                                        ; preds = %.preheader, %.lr.ph686
-  %.2605685 = phi i32 [ %spec.select647, %.lr.ph686 ], [ %.0603689, %.preheader ]
-  %.0613684 = phi i32 [ %303, %.lr.ph686 ], [ 0, %.preheader ]
-  %295 = add i32 %.0613684, %.2
+.lr.ph688:                                        ; preds = %.preheader, %.lr.ph688
+  %.2605687 = phi i32 [ %spec.select647, %.lr.ph688 ], [ %.0603691, %.preheader ]
+  %.0613686 = phi i32 [ %303, %.lr.ph688 ], [ 0, %.preheader ]
+  %295 = add i32 %.0613686, %.2
   %296 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %295) #2
   %297 = zext i8 %296 to i32
   %298 = add i8 %296, -23
   %or.cond = icmp ult i8 %298, 2
-  %spec.select647 = select i1 %or.cond, i32 1, i32 %.2605685
+  %spec.select647 = select i1 %or.cond, i32 1, i32 %.2605687
   %299 = load i32, ptr @hf_ctlv_event, align 4
   %300 = call ptr @proto_tree_add_uint(ptr noundef %77, i32 noundef %299, ptr noundef %0, i32 noundef %295, i32 noundef 1, i32 noundef %297) #2
   %301 = load ptr, ptr %28, align 8
   %302 = call ptr @val_to_str_ext(i32 noundef %297, ptr noundef nonnull @event_list_vals_ext, ptr noundef nonnull @.str.629) #2
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %301, i32 noundef 25, ptr noundef nonnull @.str.628, ptr noundef %302) #2
-  %303 = add nuw i32 %.0613684, 1
-  %exitcond706.not = icmp eq i32 %303, %.0618
-  br i1 %exitcond706.not, label %dissect_cat_efadn_coding.exit, label %.lr.ph686, !llvm.loop !4
+  %303 = add nuw i32 %.0613686, 1
+  %exitcond708.not = icmp eq i32 %303, %.0618
+  br i1 %exitcond708.not, label %dissect_cat_efadn_coding.exit, label %.lr.ph688, !llvm.loop !4
 
-.lr.ph683:                                        ; preds = %.preheader664, %.lr.ph683
-  %.1614682 = phi i32 [ %307, %.lr.ph683 ], [ 0, %.preheader664 ]
+.lr.ph685:                                        ; preds = %.preheader664, %.lr.ph685
+  %.1614684 = phi i32 [ %307, %.lr.ph685 ], [ 0, %.preheader664 ]
   %304 = load i32, ptr @hf_ctlv_loc_status, align 4
-  %305 = add i32 %.1614682, %.2
+  %305 = add i32 %.1614684, %.2
   %306 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %304, ptr noundef %0, i32 noundef %305, i32 noundef 1, i32 noundef 0) #2
-  %307 = add nuw i32 %.1614682, 1
-  %exitcond705.not = icmp eq i32 %307, %.0618
-  br i1 %exitcond705.not, label %dissect_cat_efadn_coding.exit, label %.lr.ph683, !llvm.loop !6
+  %307 = add nuw i32 %.1614684, 1
+  %exitcond707.not = icmp eq i32 %307, %.0618
+  br i1 %exitcond707.not, label %dissect_cat_efadn_coding.exit, label %.lr.ph685, !llvm.loop !6
 
 308:                                              ; preds = %73
   %309 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #2
@@ -1834,14 +1834,14 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %451 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %448, ptr noundef %0, i32 noundef %449, i32 noundef %450, i32 noundef 0) #2
   br label %dissect_cat_efadn_coding.exit
 
-.lr.ph681:                                        ; preds = %.preheader666, %.lr.ph681
-  %.2615680 = phi i32 [ %455, %.lr.ph681 ], [ 0, %.preheader666 ]
+.lr.ph683:                                        ; preds = %.preheader666, %.lr.ph683
+  %.2615682 = phi i32 [ %455, %.lr.ph683 ], [ 0, %.preheader666 ]
   %452 = load i32, ptr @hf_ctlv_bearer, align 4
-  %453 = add i32 %.2615680, %.2
+  %453 = add i32 %.2615682, %.2
   %454 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %452, ptr noundef %0, i32 noundef %453, i32 noundef 1, i32 noundef 0) #2
-  %455 = add nuw i32 %.2615680, 1
-  %exitcond704.not = icmp eq i32 %455, %.0618
-  br i1 %exitcond704.not, label %dissect_cat_efadn_coding.exit, label %.lr.ph681, !llvm.loop !7
+  %455 = add nuw i32 %.2615682, 1
+  %exitcond706.not = icmp eq i32 %455, %.0618
+  br i1 %exitcond706.not, label %dissect_cat_efadn_coding.exit, label %.lr.ph683, !llvm.loop !7
 
 456:                                              ; preds = %73
   %457 = load i32, ptr @hf_ctlv_bearer_descr, align 4
@@ -1988,17 +1988,17 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %565 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %563, ptr noundef %0, i32 noundef %564, i32 noundef 16, i32 noundef 0) #2
   br label %dissect_cat_efadn_coding.exit
 
-.lr.ph679:                                        ; preds = %.preheader668, %.lr.ph679
-  %.3616678 = phi i32 [ %569, %.lr.ph679 ], [ 0, %.preheader668 ]
+.lr.ph681:                                        ; preds = %.preheader668, %.lr.ph681
+  %.3616680 = phi i32 [ %569, %.lr.ph681 ], [ 0, %.preheader668 ]
   %566 = load i32, ptr @hf_ctlv_access_tech, align 4
-  %567 = add i32 %.3616678, %.2
+  %567 = add i32 %.3616680, %.2
   %568 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %566, ptr noundef %0, i32 noundef %567, i32 noundef 1, i32 noundef 0) #2
-  %569 = add nuw i32 %.3616678, 1
+  %569 = add nuw i32 %.3616680, 1
   %exitcond.not = icmp eq i32 %569, %.0618
-  br i1 %exitcond.not, label %dissect_cat_efadn_coding.exit, label %.lr.ph679, !llvm.loop !8
+  br i1 %exitcond.not, label %dissect_cat_efadn_coding.exit, label %.lr.ph681, !llvm.loop !8
 
 570:                                              ; preds = %73
-  %.not634 = icmp eq i32 %.0606688, 0
+  %.not634 = icmp eq i32 %.0606690, 0
   br i1 %.not634, label %dissect_cat_efadn_coding.exit, label %571
 
 571:                                              ; preds = %570
@@ -2029,11 +2029,11 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 585:                                              ; preds = %73
   %586 = load i32, ptr @hf_ctlv_utran_eutran_meas_qual, align 4
   %587 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %77, i32 noundef %586, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7) #2
-  %.not633 = icmp eq ptr %.0610687, null
+  %.not633 = icmp eq ptr %.0610689, null
   br i1 %.not633, label %dissect_cat_efadn_coding.exit, label %588
 
 588:                                              ; preds = %585
-  %589 = getelementptr inbounds i8, ptr %.0610687, i64 4
+  %589 = getelementptr inbounds i8, ptr %.0610689, i64 4
   %590 = load i32, ptr %589, align 4
   %591 = and i32 %590, 65535
   %592 = icmp eq i32 %591, 9730
@@ -2046,14 +2046,14 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %or.cond4, label %596, label %598
 
 596:                                              ; preds = %593
-  %597 = getelementptr inbounds i8, ptr %.0610687, i64 8
+  %597 = getelementptr inbounds i8, ptr %.0610689, i64 8
   store i32 2, ptr %597, align 4
   br label %dissect_cat_efadn_coding.exit
 
 598:                                              ; preds = %593
   %599 = add i32 %594, -5
   %or.cond6 = icmp ult i32 %599, 5
-  %600 = getelementptr inbounds i8, ptr %.0610687, i64 8
+  %600 = getelementptr inbounds i8, ptr %.0610689, i64 8
   br i1 %or.cond6, label %601, label %602
 
 601:                                              ; preds = %598
@@ -2074,7 +2074,7 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %dissect_cat_efadn_coding.exit
 
 608:                                              ; preds = %73
-  %.not632 = icmp eq i32 %.0603689, 0
+  %.not632 = icmp eq i32 %.0603691, 0
   br i1 %.not632, label %dissect_cat_efadn_coding.exit, label %609
 
 609:                                              ; preds = %608
@@ -2083,76 +2083,80 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %dissect_cat_efadn_coding.exit
 
 612:                                              ; preds = %73
-  %.not631 = icmp eq i32 %.0603689, 0
-  %brmerge = or i1 %.not631, %.not629
-  br i1 %brmerge, label %dissect_cat_efadn_coding.exit, label %.lr.ph676
+  %.not631 = icmp eq i32 %.0603691, 0
+  br i1 %.not631, label %dissect_cat_efadn_coding.exit, label %.preheader670
 
-.lr.ph676:                                        ; preds = %612, %616
-  %.4617675 = phi i32 [ %625, %616 ], [ 0, %612 ]
-  %613 = add i32 %.4617675, %.2
+.preheader670:                                    ; preds = %612
+  %invariant.op = add i32 %.2, 1
+  %invariant.op675 = add i32 %.2, 2
+  br i1 %.not629, label %dissect_cat_efadn_coding.exit, label %.lr.ph678
+
+.lr.ph678:                                        ; preds = %.preheader670, %616
+  %.4617677 = phi i32 [ %623, %616 ], [ 0, %.preheader670 ]
+  %613 = add i32 %.4617677, %.2
   %614 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %613) #2
   %615 = icmp eq i8 %614, -128
   br i1 %615, label %616, label %dissect_cat_efadn_coding.exit
 
-616:                                              ; preds = %.lr.ph676
-  %617 = add i32 %613, 1
-  %618 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %617) #2
-  %619 = zext i8 %618 to i32
-  store i32 %619, ptr %7, align 4
-  %620 = load i32, ptr @hf_ctlv_impu, align 4
-  %621 = add i32 %613, 2
-  %622 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %620, ptr noundef %0, i32 noundef %621, i32 noundef %619, i32 noundef 2) #2
-  %623 = load i32, ptr %7, align 4
-  %624 = add i32 %.4617675, 2
-  %625 = add i32 %624, %623
-  %626 = icmp ult i32 %625, %.0618
-  br i1 %626, label %.lr.ph676, label %dissect_cat_efadn_coding.exit, !llvm.loop !9
+616:                                              ; preds = %.lr.ph678
+  %.reass = add i32 %.4617677, %invariant.op
+  %617 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.reass) #2
+  %618 = zext i8 %617 to i32
+  store i32 %618, ptr %7, align 4
+  %619 = load i32, ptr @hf_ctlv_impu, align 4
+  %.reass676 = add i32 %.4617677, %invariant.op675
+  %620 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %619, ptr noundef %0, i32 noundef %.reass676, i32 noundef %618, i32 noundef 2) #2
+  %621 = load i32, ptr %7, align 4
+  %622 = add i32 %.4617677, 2
+  %623 = add i32 %622, %621
+  %624 = icmp ult i32 %623, %.0618
+  br i1 %624, label %.lr.ph678, label %dissect_cat_efadn_coding.exit, !llvm.loop !9
 
-627:                                              ; preds = %73
-  %.not630 = icmp eq i32 %.0603689, 0
-  br i1 %.not630, label %dissect_cat_efadn_coding.exit, label %628
+625:                                              ; preds = %73
+  %.not630 = icmp eq i32 %.0603691, 0
+  br i1 %.not630, label %dissect_cat_efadn_coding.exit, label %626
 
-628:                                              ; preds = %627
-  %629 = load ptr, ptr %27, align 8
-  %630 = call ptr @tvb_get_string_enc(ptr noundef %629, ptr noundef %0, i32 noundef %.2, i32 noundef %.0618, i32 noundef 0) #2
-  %631 = load i32, ptr @hf_ctlv_ims_status_code, align 4
-  %632 = call ptr @str_to_str(ptr noundef %630, ptr noundef nonnull @ims_status_code, ptr noundef nonnull @.str.351) #2
-  %633 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %77, i32 noundef %631, ptr noundef %0, i32 noundef %.2, i32 noundef %.0618, ptr noundef %630, ptr noundef nonnull @.str.633, ptr noundef %630, ptr noundef %632) #2
+626:                                              ; preds = %625
+  %627 = load ptr, ptr %27, align 8
+  %628 = call ptr @tvb_get_string_enc(ptr noundef %627, ptr noundef %0, i32 noundef %.2, i32 noundef %.0618, i32 noundef 0) #2
+  %629 = load i32, ptr @hf_ctlv_ims_status_code, align 4
+  %630 = call ptr @str_to_str(ptr noundef %628, ptr noundef nonnull @ims_status_code, ptr noundef nonnull @.str.351) #2
+  %631 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %77, i32 noundef %629, ptr noundef %0, i32 noundef %.2, i32 noundef %.0618, ptr noundef %628, ptr noundef nonnull @.str.633, ptr noundef %628, ptr noundef %630) #2
   br label %dissect_cat_efadn_coding.exit
 
 .lr.ph:                                           ; preds = %.preheader672, %.lr.ph
-  %.5674 = phi i32 [ %637, %.lr.ph ], [ 0, %.preheader672 ]
-  %634 = mul i32 %.5674, 3
-  %635 = add i32 %634, %.2
-  %636 = call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %1, ptr noundef %77, i32 noundef %635, i32 noundef 0, i32 noundef 1) #2
-  %637 = add i32 %.5674, 3
-  %638 = icmp ult i32 %637, %.0618
-  br i1 %638, label %.lr.ph, label %dissect_cat_efadn_coding.exit, !llvm.loop !10
+  %.5674 = phi i32 [ %635, %.lr.ph ], [ 0, %.preheader672 ]
+  %632 = mul i32 %.5674, 3
+  %633 = add i32 %632, %.2
+  %634 = call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %1, ptr noundef %77, i32 noundef %633, i32 noundef 0, i32 noundef 1) #2
+  %635 = add i32 %.5674, 3
+  %636 = icmp ult i32 %635, %.0618
+  br i1 %636, label %.lr.ph, label %dissect_cat_efadn_coding.exit, !llvm.loop !10
 
-639:                                              ; preds = %73
-  %640 = load i32, ptr @hf_ctlv_broadcast_nw_tech, align 4
-  %641 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %640, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #2
-  %642 = load i32, ptr @hf_ctlv_broadcast_nw_loc_info, align 4
-  %643 = add i32 %.2, 1
-  %644 = add i32 %.0618, -1
-  %645 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %642, ptr noundef %0, i32 noundef %643, i32 noundef %644, i32 noundef 0) #2
+637:                                              ; preds = %73
+  %638 = load i32, ptr @hf_ctlv_broadcast_nw_tech, align 4
+  %639 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %638, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #2
+  %640 = load i32, ptr @hf_ctlv_broadcast_nw_loc_info, align 4
+  %641 = add i32 %.2, 1
+  %642 = add i32 %.0618, -1
+  %643 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %640, ptr noundef %0, i32 noundef %641, i32 noundef %642, i32 noundef 0) #2
   br label %dissect_cat_efadn_coding.exit
 
-646:                                              ; preds = %73
+644:                                              ; preds = %73
   call void @nas_esm_pdn_con_req(ptr noundef %0, ptr noundef %77, ptr noundef %1, i32 noundef %.2, i32 noundef %.0618) #2
   br label %dissect_cat_efadn_coding.exit
 
-647:                                              ; preds = %73
-  %648 = call zeroext i16 @de_emm_trac_area_id(ptr noundef %0, ptr noundef %77, ptr noundef %1, i32 noundef %.2, i32 noundef 5, ptr noundef null, i32 noundef 0) #2
+645:                                              ; preds = %73
+  %646 = call zeroext i16 @de_emm_trac_area_id(ptr noundef %0, ptr noundef %77, ptr noundef %1, i32 noundef %.2, i32 noundef 5, ptr noundef null, i32 noundef 0) #2
   br label %dissect_cat_efadn_coding.exit
 
-dissect_cat_efadn_coding.exit:                    ; preds = %.lr.ph, %616, %.lr.ph676, %.lr.ph679, %.lr.ph681, %.lr.ph683, %.lr.ph686, %612, %.preheader672, %.preheader668, %.preheader666, %.preheader664, %.preheader, %.sink.split.i661, %415, %.sink.split.i657, %251, %.sink.split.i653, %207, %.sink.split.i649, %196, %.sink.split.i, %191, %124, %116, %143, %73, %627, %628, %608, %609, %585, %588, %601, %602, %596, %570, %571, %579, %575, %558, %562, %554, %546, %460, %470, %489, %528, %456, %538, %536, %437, %447, %392, %395, %278, %279, %284, %292, %289, %287, %267, %261, %260, %250, %246, %231, %236, %241, %229, %219, %212, %216, %183, %159, %163, %167, %171, %175, %179, %155, %147, %115, %140, %129, %78, %647, %646, %639, %605, %603, %583, %548, %543, %423, %420, %412, %409, %308, %276, %272, %247, %185, %149
-  %.1611 = phi ptr [ %.0610687, %73 ], [ %.0610687, %647 ], [ %.0610687, %646 ], [ %.0610687, %639 ], [ %.0610687, %628 ], [ %.0610687, %627 ], [ %.0610687, %612 ], [ %.0610687, %609 ], [ %.0610687, %608 ], [ %.0610687, %605 ], [ %.0610687, %603 ], [ %.0610687, %596 ], [ %.0610687, %601 ], [ %.0610687, %602 ], [ %.0610687, %588 ], [ null, %585 ], [ %.0610687, %583 ], [ %.0610687, %571 ], [ %.0610687, %579 ], [ %.0610687, %575 ], [ %.0610687, %570 ], [ %.0610687, %554 ], [ %.0610687, %562 ], [ %.0610687, %558 ], [ %.0610687, %546 ], [ %.0610687, %548 ], [ %.0610687, %543 ], [ %.0610687, %538 ], [ %.0610687, %536 ], [ %.0610687, %528 ], [ %.0610687, %456 ], [ %.0610687, %489 ], [ %.0610687, %470 ], [ %.0610687, %460 ], [ %.0610687, %447 ], [ %.0610687, %437 ], [ %.0610687, %423 ], [ %.0610687, %420 ], [ %.0610687, %412 ], [ %.0610687, %409 ], [ %.0610687, %392 ], [ %.0610687, %395 ], [ %.0610687, %308 ], [ %.0610687, %284 ], [ %.0610687, %292 ], [ %.0610687, %289 ], [ %.0610687, %287 ], [ %.0610687, %279 ], [ null, %278 ], [ %.0610687, %276 ], [ %.0610687, %260 ], [ %.0610687, %261 ], [ %.0610687, %267 ], [ %.0610687, %272 ], [ %.0610687, %250 ], [ %.0610687, %246 ], [ %.0610687, %247 ], [ %.0610687, %219 ], [ %.0610687, %229 ], [ %.0610687, %241 ], [ %.0610687, %236 ], [ %.0610687, %231 ], [ %.0610687, %216 ], [ %.0610687, %212 ], [ %.0610687, %183 ], [ %.0610687, %185 ], [ %.0610687, %155 ], [ %.0610687, %179 ], [ %.0610687, %175 ], [ %.0610687, %171 ], [ %.0610687, %167 ], [ %.0610687, %163 ], [ %.0610687, %159 ], [ %.0610687, %147 ], [ %.0610687, %149 ], [ %.0610687, %78 ], [ %spec.store.select, %143 ], [ null, %140 ], [ %131, %129 ], [ %.0610687, %115 ], [ %.0610687, %116 ], [ %.0610687, %124 ], [ %.0610687, %191 ], [ %.0610687, %.sink.split.i ], [ %.0610687, %196 ], [ %.0610687, %.sink.split.i649 ], [ %.0610687, %207 ], [ %.0610687, %.sink.split.i653 ], [ %.0610687, %251 ], [ %.0610687, %.sink.split.i657 ], [ %.0610687, %415 ], [ %.0610687, %.sink.split.i661 ], [ %.0610687, %.preheader ], [ %.0610687, %.preheader664 ], [ %.0610687, %.preheader666 ], [ %.0610687, %.preheader668 ], [ %.0610687, %.preheader672 ], [ %.0610687, %.lr.ph686 ], [ %.0610687, %.lr.ph683 ], [ %.0610687, %.lr.ph681 ], [ %.0610687, %.lr.ph679 ], [ %.0610687, %.lr.ph676 ], [ %.0610687, %616 ], [ %.0610687, %.lr.ph ]
-  %.2608 = phi i32 [ %.0606688, %73 ], [ %.0606688, %647 ], [ %.0606688, %646 ], [ %.0606688, %639 ], [ %.0606688, %628 ], [ %.0606688, %627 ], [ %.0606688, %612 ], [ %.0606688, %609 ], [ %.0606688, %608 ], [ %.0606688, %605 ], [ %.0606688, %603 ], [ %.0606688, %596 ], [ %.0606688, %601 ], [ %.0606688, %602 ], [ %.0606688, %588 ], [ %.0606688, %585 ], [ %.0606688, %583 ], [ %.0606688, %571 ], [ %.0606688, %579 ], [ %.0606688, %575 ], [ 0, %570 ], [ %.0606688, %554 ], [ %.0606688, %562 ], [ %.0606688, %558 ], [ %.0606688, %546 ], [ %.0606688, %548 ], [ %.0606688, %543 ], [ %.0606688, %538 ], [ %.0606688, %536 ], [ %.0606688, %528 ], [ %.0606688, %456 ], [ %.0606688, %489 ], [ %.0606688, %470 ], [ %.0606688, %460 ], [ %.0606688, %447 ], [ %.0606688, %437 ], [ %.0606688, %423 ], [ %.0606688, %420 ], [ %.0606688, %412 ], [ %.0606688, %409 ], [ %.0606688, %392 ], [ %.0606688, %395 ], [ %.0606688, %308 ], [ %.0606688, %284 ], [ %.0606688, %292 ], [ %.0606688, %289 ], [ %.0606688, %287 ], [ %.0606688, %279 ], [ %.0606688, %278 ], [ %.0606688, %276 ], [ %.0606688, %260 ], [ %.0606688, %261 ], [ %.0606688, %267 ], [ %.0606688, %272 ], [ %.0606688, %250 ], [ %.0606688, %246 ], [ %.0606688, %247 ], [ %.0606688, %219 ], [ %.0606688, %229 ], [ %.0606688, %241 ], [ %.0606688, %236 ], [ %.0606688, %231 ], [ %.0606688, %216 ], [ %.0606688, %212 ], [ %.0606688, %183 ], [ %.0606688, %185 ], [ %.0606688, %155 ], [ %.0606688, %179 ], [ %.0606688, %175 ], [ %.0606688, %171 ], [ %.0606688, %167 ], [ %.0606688, %163 ], [ %.0606688, %159 ], [ %.0606688, %147 ], [ %.0606688, %149 ], [ %.0606688, %78 ], [ %spec.select, %143 ], [ %spec.select, %140 ], [ %spec.select, %129 ], [ %spec.select, %115 ], [ %spec.select, %116 ], [ %spec.select, %124 ], [ %.0606688, %191 ], [ %.0606688, %.sink.split.i ], [ %.0606688, %196 ], [ %.0606688, %.sink.split.i649 ], [ %.0606688, %207 ], [ %.0606688, %.sink.split.i653 ], [ %.0606688, %251 ], [ %.0606688, %.sink.split.i657 ], [ %.0606688, %415 ], [ %.0606688, %.sink.split.i661 ], [ %.0606688, %.preheader ], [ %.0606688, %.preheader664 ], [ %.0606688, %.preheader666 ], [ %.0606688, %.preheader668 ], [ %.0606688, %.preheader672 ], [ %.0606688, %.lr.ph686 ], [ %.0606688, %.lr.ph683 ], [ %.0606688, %.lr.ph681 ], [ %.0606688, %.lr.ph679 ], [ %.0606688, %.lr.ph676 ], [ %.0606688, %616 ], [ %.0606688, %.lr.ph ]
-  %.4 = phi i32 [ %.0603689, %73 ], [ %.0603689, %647 ], [ %.0603689, %646 ], [ %.0603689, %639 ], [ %.0603689, %628 ], [ 0, %627 ], [ %.0603689, %612 ], [ %.0603689, %609 ], [ 0, %608 ], [ %.0603689, %605 ], [ %.0603689, %603 ], [ %.0603689, %596 ], [ %.0603689, %601 ], [ %.0603689, %602 ], [ %.0603689, %588 ], [ %.0603689, %585 ], [ %.0603689, %583 ], [ %.0603689, %571 ], [ %.0603689, %579 ], [ %.0603689, %575 ], [ %.0603689, %570 ], [ %.0603689, %554 ], [ %.0603689, %562 ], [ %.0603689, %558 ], [ %.0603689, %546 ], [ %.0603689, %548 ], [ %.0603689, %543 ], [ %.0603689, %538 ], [ %.0603689, %536 ], [ %.0603689, %528 ], [ %.0603689, %456 ], [ %.0603689, %489 ], [ %.0603689, %470 ], [ %.0603689, %460 ], [ %.0603689, %447 ], [ %.0603689, %437 ], [ %.0603689, %423 ], [ %.0603689, %420 ], [ %.0603689, %412 ], [ %.0603689, %409 ], [ %.0603689, %392 ], [ %.0603689, %395 ], [ %.0603689, %308 ], [ %.0603689, %284 ], [ %.0603689, %292 ], [ %.0603689, %289 ], [ %.0603689, %287 ], [ %.0603689, %279 ], [ %.0603689, %278 ], [ %.0603689, %276 ], [ %.0603689, %260 ], [ %.0603689, %261 ], [ %.0603689, %267 ], [ %.0603689, %272 ], [ %.0603689, %250 ], [ %.0603689, %246 ], [ %.0603689, %247 ], [ %.0603689, %219 ], [ %.0603689, %229 ], [ %.0603689, %241 ], [ %.0603689, %236 ], [ %.0603689, %231 ], [ %.0603689, %216 ], [ %.0603689, %212 ], [ %.0603689, %183 ], [ %.0603689, %185 ], [ %.0603689, %155 ], [ %.0603689, %179 ], [ %.0603689, %175 ], [ %.0603689, %171 ], [ %.0603689, %167 ], [ %.0603689, %163 ], [ %.0603689, %159 ], [ %.0603689, %147 ], [ %.0603689, %149 ], [ %.0603689, %78 ], [ %spec.select646, %143 ], [ %spec.select646, %140 ], [ %spec.select646, %129 ], [ %spec.select646, %115 ], [ %spec.select646, %116 ], [ %spec.select646, %124 ], [ %.0603689, %191 ], [ %.0603689, %.sink.split.i ], [ %.0603689, %196 ], [ %.0603689, %.sink.split.i649 ], [ %.0603689, %207 ], [ %.0603689, %.sink.split.i653 ], [ %.0603689, %251 ], [ %.0603689, %.sink.split.i657 ], [ %.0603689, %415 ], [ %.0603689, %.sink.split.i661 ], [ %.0603689, %.preheader ], [ %.0603689, %.preheader664 ], [ %.0603689, %.preheader666 ], [ %.0603689, %.preheader668 ], [ %.0603689, %.preheader672 ], [ %spec.select647, %.lr.ph686 ], [ %.0603689, %.lr.ph683 ], [ %.0603689, %.lr.ph681 ], [ %.0603689, %.lr.ph679 ], [ %.0603689, %.lr.ph676 ], [ %.0603689, %616 ], [ %.0603689, %.lr.ph ]
-  %649 = add i32 %.2, %.0618
-  %650 = icmp ult i32 %649, %12
-  br i1 %650, label %41, label %._crit_edge, !llvm.loop !11
+dissect_cat_efadn_coding.exit:                    ; preds = %.lr.ph, %616, %.lr.ph678, %.lr.ph681, %.lr.ph683, %.lr.ph685, %.lr.ph688, %.preheader672, %.preheader670, %.preheader668, %.preheader666, %.preheader664, %.preheader, %.sink.split.i661, %415, %.sink.split.i657, %251, %.sink.split.i653, %207, %.sink.split.i649, %196, %.sink.split.i, %191, %124, %116, %143, %73, %625, %626, %612, %608, %609, %585, %588, %601, %602, %596, %570, %571, %579, %575, %558, %562, %554, %546, %460, %470, %489, %528, %456, %538, %536, %437, %447, %392, %395, %278, %279, %284, %292, %289, %287, %267, %261, %260, %250, %246, %231, %236, %241, %229, %219, %212, %216, %183, %159, %163, %167, %171, %175, %179, %155, %147, %115, %140, %129, %78, %645, %644, %637, %605, %603, %583, %548, %543, %423, %420, %412, %409, %308, %276, %272, %247, %185, %149
+  %.1611 = phi ptr [ %.0610689, %73 ], [ %.0610689, %645 ], [ %.0610689, %644 ], [ %.0610689, %637 ], [ %.0610689, %626 ], [ %.0610689, %625 ], [ %.0610689, %612 ], [ %.0610689, %609 ], [ %.0610689, %608 ], [ %.0610689, %605 ], [ %.0610689, %603 ], [ %.0610689, %596 ], [ %.0610689, %601 ], [ %.0610689, %602 ], [ %.0610689, %588 ], [ null, %585 ], [ %.0610689, %583 ], [ %.0610689, %571 ], [ %.0610689, %579 ], [ %.0610689, %575 ], [ %.0610689, %570 ], [ %.0610689, %554 ], [ %.0610689, %562 ], [ %.0610689, %558 ], [ %.0610689, %546 ], [ %.0610689, %548 ], [ %.0610689, %543 ], [ %.0610689, %538 ], [ %.0610689, %536 ], [ %.0610689, %528 ], [ %.0610689, %456 ], [ %.0610689, %489 ], [ %.0610689, %470 ], [ %.0610689, %460 ], [ %.0610689, %447 ], [ %.0610689, %437 ], [ %.0610689, %423 ], [ %.0610689, %420 ], [ %.0610689, %412 ], [ %.0610689, %409 ], [ %.0610689, %392 ], [ %.0610689, %395 ], [ %.0610689, %308 ], [ %.0610689, %284 ], [ %.0610689, %292 ], [ %.0610689, %289 ], [ %.0610689, %287 ], [ %.0610689, %279 ], [ null, %278 ], [ %.0610689, %276 ], [ %.0610689, %260 ], [ %.0610689, %261 ], [ %.0610689, %267 ], [ %.0610689, %272 ], [ %.0610689, %250 ], [ %.0610689, %246 ], [ %.0610689, %247 ], [ %.0610689, %219 ], [ %.0610689, %229 ], [ %.0610689, %241 ], [ %.0610689, %236 ], [ %.0610689, %231 ], [ %.0610689, %216 ], [ %.0610689, %212 ], [ %.0610689, %183 ], [ %.0610689, %185 ], [ %.0610689, %155 ], [ %.0610689, %179 ], [ %.0610689, %175 ], [ %.0610689, %171 ], [ %.0610689, %167 ], [ %.0610689, %163 ], [ %.0610689, %159 ], [ %.0610689, %147 ], [ %.0610689, %149 ], [ %.0610689, %78 ], [ %spec.store.select, %143 ], [ null, %140 ], [ %131, %129 ], [ %.0610689, %115 ], [ %.0610689, %116 ], [ %.0610689, %124 ], [ %.0610689, %191 ], [ %.0610689, %.sink.split.i ], [ %.0610689, %196 ], [ %.0610689, %.sink.split.i649 ], [ %.0610689, %207 ], [ %.0610689, %.sink.split.i653 ], [ %.0610689, %251 ], [ %.0610689, %.sink.split.i657 ], [ %.0610689, %415 ], [ %.0610689, %.sink.split.i661 ], [ %.0610689, %.preheader ], [ %.0610689, %.preheader664 ], [ %.0610689, %.preheader666 ], [ %.0610689, %.preheader668 ], [ %.0610689, %.preheader670 ], [ %.0610689, %.preheader672 ], [ %.0610689, %.lr.ph688 ], [ %.0610689, %.lr.ph685 ], [ %.0610689, %.lr.ph683 ], [ %.0610689, %.lr.ph681 ], [ %.0610689, %.lr.ph678 ], [ %.0610689, %616 ], [ %.0610689, %.lr.ph ]
+  %.2608 = phi i32 [ %.0606690, %73 ], [ %.0606690, %645 ], [ %.0606690, %644 ], [ %.0606690, %637 ], [ %.0606690, %626 ], [ %.0606690, %625 ], [ %.0606690, %612 ], [ %.0606690, %609 ], [ %.0606690, %608 ], [ %.0606690, %605 ], [ %.0606690, %603 ], [ %.0606690, %596 ], [ %.0606690, %601 ], [ %.0606690, %602 ], [ %.0606690, %588 ], [ %.0606690, %585 ], [ %.0606690, %583 ], [ %.0606690, %571 ], [ %.0606690, %579 ], [ %.0606690, %575 ], [ 0, %570 ], [ %.0606690, %554 ], [ %.0606690, %562 ], [ %.0606690, %558 ], [ %.0606690, %546 ], [ %.0606690, %548 ], [ %.0606690, %543 ], [ %.0606690, %538 ], [ %.0606690, %536 ], [ %.0606690, %528 ], [ %.0606690, %456 ], [ %.0606690, %489 ], [ %.0606690, %470 ], [ %.0606690, %460 ], [ %.0606690, %447 ], [ %.0606690, %437 ], [ %.0606690, %423 ], [ %.0606690, %420 ], [ %.0606690, %412 ], [ %.0606690, %409 ], [ %.0606690, %392 ], [ %.0606690, %395 ], [ %.0606690, %308 ], [ %.0606690, %284 ], [ %.0606690, %292 ], [ %.0606690, %289 ], [ %.0606690, %287 ], [ %.0606690, %279 ], [ %.0606690, %278 ], [ %.0606690, %276 ], [ %.0606690, %260 ], [ %.0606690, %261 ], [ %.0606690, %267 ], [ %.0606690, %272 ], [ %.0606690, %250 ], [ %.0606690, %246 ], [ %.0606690, %247 ], [ %.0606690, %219 ], [ %.0606690, %229 ], [ %.0606690, %241 ], [ %.0606690, %236 ], [ %.0606690, %231 ], [ %.0606690, %216 ], [ %.0606690, %212 ], [ %.0606690, %183 ], [ %.0606690, %185 ], [ %.0606690, %155 ], [ %.0606690, %179 ], [ %.0606690, %175 ], [ %.0606690, %171 ], [ %.0606690, %167 ], [ %.0606690, %163 ], [ %.0606690, %159 ], [ %.0606690, %147 ], [ %.0606690, %149 ], [ %.0606690, %78 ], [ %spec.select, %143 ], [ %spec.select, %140 ], [ %spec.select, %129 ], [ %spec.select, %115 ], [ %spec.select, %116 ], [ %spec.select, %124 ], [ %.0606690, %191 ], [ %.0606690, %.sink.split.i ], [ %.0606690, %196 ], [ %.0606690, %.sink.split.i649 ], [ %.0606690, %207 ], [ %.0606690, %.sink.split.i653 ], [ %.0606690, %251 ], [ %.0606690, %.sink.split.i657 ], [ %.0606690, %415 ], [ %.0606690, %.sink.split.i661 ], [ %.0606690, %.preheader ], [ %.0606690, %.preheader664 ], [ %.0606690, %.preheader666 ], [ %.0606690, %.preheader668 ], [ %.0606690, %.preheader670 ], [ %.0606690, %.preheader672 ], [ %.0606690, %.lr.ph688 ], [ %.0606690, %.lr.ph685 ], [ %.0606690, %.lr.ph683 ], [ %.0606690, %.lr.ph681 ], [ %.0606690, %.lr.ph678 ], [ %.0606690, %616 ], [ %.0606690, %.lr.ph ]
+  %.4 = phi i32 [ %.0603691, %73 ], [ %.0603691, %645 ], [ %.0603691, %644 ], [ %.0603691, %637 ], [ %.0603691, %626 ], [ 0, %625 ], [ 0, %612 ], [ %.0603691, %609 ], [ 0, %608 ], [ %.0603691, %605 ], [ %.0603691, %603 ], [ %.0603691, %596 ], [ %.0603691, %601 ], [ %.0603691, %602 ], [ %.0603691, %588 ], [ %.0603691, %585 ], [ %.0603691, %583 ], [ %.0603691, %571 ], [ %.0603691, %579 ], [ %.0603691, %575 ], [ %.0603691, %570 ], [ %.0603691, %554 ], [ %.0603691, %562 ], [ %.0603691, %558 ], [ %.0603691, %546 ], [ %.0603691, %548 ], [ %.0603691, %543 ], [ %.0603691, %538 ], [ %.0603691, %536 ], [ %.0603691, %528 ], [ %.0603691, %456 ], [ %.0603691, %489 ], [ %.0603691, %470 ], [ %.0603691, %460 ], [ %.0603691, %447 ], [ %.0603691, %437 ], [ %.0603691, %423 ], [ %.0603691, %420 ], [ %.0603691, %412 ], [ %.0603691, %409 ], [ %.0603691, %392 ], [ %.0603691, %395 ], [ %.0603691, %308 ], [ %.0603691, %284 ], [ %.0603691, %292 ], [ %.0603691, %289 ], [ %.0603691, %287 ], [ %.0603691, %279 ], [ %.0603691, %278 ], [ %.0603691, %276 ], [ %.0603691, %260 ], [ %.0603691, %261 ], [ %.0603691, %267 ], [ %.0603691, %272 ], [ %.0603691, %250 ], [ %.0603691, %246 ], [ %.0603691, %247 ], [ %.0603691, %219 ], [ %.0603691, %229 ], [ %.0603691, %241 ], [ %.0603691, %236 ], [ %.0603691, %231 ], [ %.0603691, %216 ], [ %.0603691, %212 ], [ %.0603691, %183 ], [ %.0603691, %185 ], [ %.0603691, %155 ], [ %.0603691, %179 ], [ %.0603691, %175 ], [ %.0603691, %171 ], [ %.0603691, %167 ], [ %.0603691, %163 ], [ %.0603691, %159 ], [ %.0603691, %147 ], [ %.0603691, %149 ], [ %.0603691, %78 ], [ %spec.select646, %143 ], [ %spec.select646, %140 ], [ %spec.select646, %129 ], [ %spec.select646, %115 ], [ %spec.select646, %116 ], [ %spec.select646, %124 ], [ %.0603691, %191 ], [ %.0603691, %.sink.split.i ], [ %.0603691, %196 ], [ %.0603691, %.sink.split.i649 ], [ %.0603691, %207 ], [ %.0603691, %.sink.split.i653 ], [ %.0603691, %251 ], [ %.0603691, %.sink.split.i657 ], [ %.0603691, %415 ], [ %.0603691, %.sink.split.i661 ], [ %.0603691, %.preheader ], [ %.0603691, %.preheader664 ], [ %.0603691, %.preheader666 ], [ %.0603691, %.preheader668 ], [ %.0603691, %.preheader670 ], [ %.0603691, %.preheader672 ], [ %spec.select647, %.lr.ph688 ], [ %.0603691, %.lr.ph685 ], [ %.0603691, %.lr.ph683 ], [ %.0603691, %.lr.ph681 ], [ %.0603691, %.lr.ph678 ], [ %.0603691, %616 ], [ %.0603691, %.lr.ph ]
+  %647 = add i32 %.2, %.0618
+  %648 = icmp ult i32 %647, %12
+  br i1 %648, label %41, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %dissect_cat_efadn_coding.exit, %22
   ret i32 %12

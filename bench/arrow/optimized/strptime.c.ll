@@ -411,7 +411,7 @@ for.end229:                                       ; preds = %land.rhs213, %for.b
   br label %sw.epilog256
 
 symbolic_range:                                   ; preds = %if.end43, %if.end43, %sw.bb46
-  %min.1 = phi i32 [ 131086, %sw.bb46 ], [ 131072, %if.end43 ], [ 131072, %if.end43 ]
+  %min.1 = phi i32 [ 131085, %sw.bb46 ], [ 131071, %if.end43 ], [ 131071, %if.end43 ]
   %range.1 = phi i32 [ 12, %sw.bb46 ], [ 7, %if.end43 ], [ 7, %if.end43 ]
   %dest.2 = phi ptr [ %tm_mon69, %sw.bb46 ], [ %tm_wday125, %if.end43 ], [ %tm_wday125, %if.end43 ]
   %mul235 = shl nuw nsw i32 %range.1, 1
@@ -424,8 +424,8 @@ for.cond237:                                      ; preds = %for.body240, %symbo
 
 for.body240:                                      ; preds = %for.cond237
   %i.2 = add nsw i32 %i.2.in, -1
-  %add241 = add nuw nsw i32 %i.2, %min.1
-  %call242 = tail call ptr @nl_langinfo(i32 noundef %add241) #7
+  %add241.reass = add nuw i32 %i.2.in, %min.1
+  %call242 = tail call ptr @nl_langinfo(i32 noundef %add241.reass) #7
   %call243 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call242) #8
   %call244 = tail call i32 @strncasecmp(ptr noundef %s.addr.0, ptr noundef %call242, i64 noundef %call243) #8
   %tobool245.not = icmp eq i32 %call244, 0

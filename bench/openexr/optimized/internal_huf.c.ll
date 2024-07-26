@@ -724,14 +724,14 @@ if.end17.thread.i:                                ; preds = %if.end.i.i
 if.end17.i:                                       ; preds = %if.then13.i
   %sub.i = add nsw i64 %zerun.0.lcssa.ph197.i, -6
   %shl.i29.i = shl i64 %or.i.i40, 8
-  %add.i30.i = add nsw i32 %lc.0158.i, 14
+  %add.i30.reass.i = add nsw i32 %lc.0158.i, 14
   %or.i31.i = or i64 %sub.i, %shl.i29.i
   %cmp10.i32.i = icmp sgt i32 %add.i.i39, -1
   br i1 %cmp10.i32.i, label %while.body.i36.preheader.i, label %for.inc.i34
 
 while.body.i36.preheader.i:                       ; preds = %if.end17.i, %if.end17.thread.i
   %or.i31208.i = phi i64 [ %or.i31204.i, %if.end17.thread.i ], [ %or.i31.i, %if.end17.i ]
-  %add.i30207.i = phi i32 [ %add.i30203.i, %if.end17.thread.i ], [ %add.i30.i, %if.end17.i ]
+  %add.i30207.i = phi i32 [ %add.i30203.i, %if.end17.thread.i ], [ %add.i30.reass.i, %if.end17.i ]
   %out.1.ph206.i = phi ptr [ %incdec.ptr.i.i, %if.end17.thread.i ], [ %out.0156.i, %if.end17.i ]
   %72 = zext nneg i32 %add.i30207.i to i64
   br label %while.body.i36.i
@@ -820,7 +820,7 @@ for.inc.loopexit167.i:                            ; preds = %if.end.i75.i
 for.inc.i34:                                      ; preds = %for.inc.loopexit167.i, %for.inc.loopexit165.i, %for.inc.loopexit.i, %if.end30.i, %if.else.i, %if.end17.i
   %out.5.i = phi ptr [ %out.0156.i, %if.end17.i ], [ %out.0156.i, %if.else.i ], [ %out.0156.i, %if.end30.i ], [ %incdec.ptr.i44.i, %for.inc.loopexit.i ], [ %incdec.ptr.i62.i, %for.inc.loopexit165.i ], [ %incdec.ptr.i80.i, %for.inc.loopexit167.i ]
   %c.1.i = phi i64 [ %or.i31.i, %if.end17.i ], [ %or.i49.i, %if.else.i ], [ %or.i67.i, %if.end30.i ], [ %or.i31208.i, %for.inc.loopexit.i ], [ %or.i49.i, %for.inc.loopexit165.i ], [ %or.i67.i, %for.inc.loopexit167.i ]
-  %lc.13.i = phi i32 [ %add.i30.i, %if.end17.i ], [ %add.i48.i, %if.else.i ], [ %add.i66.i, %if.end30.i ], [ %78, %for.inc.loopexit.i ], [ %79, %for.inc.loopexit165.i ], [ %80, %for.inc.loopexit167.i ]
+  %lc.13.i = phi i32 [ %add.i30.reass.i, %if.end17.i ], [ %add.i48.i, %if.else.i ], [ %add.i66.i, %if.end30.i ], [ %78, %for.inc.loopexit.i ], [ %79, %for.inc.loopexit165.i ], [ %80, %for.inc.loopexit167.i ]
   %im.addr.3.i = phi i32 [ %im.addr.1.lcssa.ph198.i, %if.end17.i ], [ %im.addr.1.lcssa.ph198.i, %if.else.i ], [ %im.addr.2.i, %if.end30.i ], [ %im.addr.1.lcssa.ph198.i, %for.inc.loopexit.i ], [ %im.addr.1.lcssa.ph198.i, %for.inc.loopexit165.i ], [ %im.addr.2.i, %for.inc.loopexit167.i ]
   %inc36.i = add i32 %im.addr.3.i, 1
   %cmp.not.i = icmp ugt i32 %inc36.i, %inc12.i113

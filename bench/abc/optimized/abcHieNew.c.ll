@@ -2827,9 +2827,13 @@ define i32 @Au_NtkAllocObj(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
   %16 = or i32 %15, 63
   %17 = getelementptr inbounds i8, ptr %0, i64 128
   %18 = getelementptr i8, ptr %0, i64 120
-  br i1 %10, label %tailrecurse.us, label %.split
+  br i1 %10, label %tailrecurse.us.preheader, label %.split
 
-tailrecurse.us:                                   ; preds = %3, %36
+tailrecurse.us.preheader:                         ; preds = %3
+  %invariant.op148 = add i32 %16, 1
+  br label %tailrecurse.us
+
+tailrecurse.us:                                   ; preds = %tailrecurse.us.preheader, %36
   %.val.us = load i32, ptr %11, align 4
   %19 = icmp eq i32 %.val.us, 0
   br i1 %19, label %.split125.us, label %20
@@ -2881,8 +2885,8 @@ tailrecurse.us:                                   ; preds = %3, %36
   %48 = load i32, ptr %17, align 8
   %49 = add nsw i32 %48, 1
   store i32 %49, ptr %17, align 8
-  %.pre136 = add nsw i32 %49, %16
-  %50 = icmp sgt i32 %.pre136, 4096
+  %.pre136.reass = add i32 %48, %invariant.op148
+  %50 = icmp sgt i32 %.pre136.reass, 4096
   br i1 %50, label %tailrecurse.us, label %.loopexit
 
 .split:                                           ; preds = %3
@@ -2917,11 +2921,11 @@ tailrecurse:                                      ; preds = %179, %.split
   br label %63
 
 63:                                               ; preds = %61, %57
-  %.sink150 = phi i32 [ 4160, %61 ], [ %58, %57 ]
+  %.sink151 = phi i32 [ 4160, %61 ], [ %58, %57 ]
   %.068 = phi ptr [ %62, %61 ], [ %60, %57 ]
   %64 = getelementptr inbounds i8, ptr %0, i64 132
   %65 = load i32, ptr %64, align 4
-  %66 = add nsw i32 %65, %.sink150
+  %66 = add nsw i32 %65, %.sink151
   store i32 %66, ptr %64, align 4
   %67 = getelementptr inbounds i8, ptr %0, i64 104
   %68 = load ptr, ptr %67, align 8

@@ -907,6 +907,7 @@ s2b.exit:                                         ; preds = %for.cond18.i, %if.e
   %sub483 = sub i32 0, %e.3987
   %bd2.0 = select i1 %cmp479, i32 %e.3987, i32 0
   %bb2.0 = select i1 %cmp479, i32 0, i32 %sub483
+  %invariant.op = add i32 %bb2.0, 1
   %cmp511 = icmp sgt i32 %bb2.0, 0
   %and.i = and i32 %bb2.0, 3
   %tobool.not.i363 = icmp eq i32 %and.i, 0
@@ -1070,14 +1071,14 @@ if.end478:                                        ; preds = %if.end29.i.i357, %i
   %bd2.1 = sub i32 %bd2.0, %sub490
   %add488 = select i1 %cmp485, i32 %86, i32 0
   %bb2.1 = add nuw i32 %add488, %bb2.0
-  %inc492 = add i32 %bb2.1, 1
+  %inc492.reass = add i32 %add488, %invariant.op
   %inc493 = add i32 %bd2.1, 1
-  %cond499 = tail call i32 @llvm.smin.i32(i32 %inc492, i32 %inc493)
+  %cond499 = tail call i32 @llvm.smin.i32(i32 %inc492.reass, i32 %inc493)
   %i.7 = tail call i32 @llvm.smin.i32(i32 %cond499, i32 %bb2.1)
   %sub509 = tail call i32 @llvm.smax.i32(i32 %i.7, i32 0)
   %bs2.0 = sub i32 %bb2.1, %sub509
   %bd2.2 = sub i32 %inc493, %sub509
-  %bb2.2 = sub i32 %inc492, %sub509
+  %bb2.2 = sub i32 %inc492.reass, %sub509
   br i1 %cmp511, label %if.then513, label %if.end524
 
 if.then513:                                       ; preds = %if.end478

@@ -2251,8 +2251,9 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
   br i1 %.not, label %9, label %.preheader73
 
 .preheader73:                                     ; preds = %6
+  %invariant.op = add i32 %1, 1
   %.not85 = icmp ult i32 %2, 2
-  br i1 %.not85, label %.loopexit, label %.lr.ph
+  br i1 %.not85, label %.loopexit74, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader73
   %8 = load ptr, ptr @g_ascii_table, align 8
@@ -2262,50 +2263,50 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.334, ptr noundef nonnull @.str.335, i32 noundef 1580, ptr noundef nonnull @.str.336) #13
   unreachable
 
-10:                                               ; preds = %.lr.ph, %29
-  %.076 = phi i32 [ 0, %.lr.ph ], [ %30, %29 ]
+10:                                               ; preds = %.lr.ph, %28
+  %.076 = phi i32 [ 0, %.lr.ph ], [ %29, %28 ]
   %11 = add i32 %.076, %1
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %11) #11
-  %13 = add i32 %11, 1
-  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %13) #11
-  %15 = icmp eq i8 %12, 0
-  %16 = icmp eq i8 %14, 0
-  %or.cond = select i1 %15, i1 %16, i1 false
-  br i1 %or.cond, label %17, label %19
+  %.reass = add i32 %.076, %invariant.op
+  %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.reass) #11
+  %14 = icmp eq i8 %12, 0
+  %15 = icmp eq i8 %13, 0
+  %or.cond = select i1 %14, i1 %15, i1 false
+  br i1 %or.cond, label %16, label %18
 
-17:                                               ; preds = %10
-  %18 = add i32 %.076, 2
+16:                                               ; preds = %10
+  %17 = add i32 %.076, 2
   br label %.loopexit74
 
-19:                                               ; preds = %10
-  %20 = zext i8 %12 to i64
-  %21 = getelementptr i16, ptr %8, i64 %20
-  %22 = load i16, ptr %21, align 2
-  %23 = and i16 %22, 64
-  %24 = icmp eq i16 %23, 0
-  %25 = icmp ne i8 %12, 10
-  %26 = icmp ne i8 %12, 13
-  %.not70 = and i1 %25, %26
-  %or.cond8.not67 = select i1 %24, i1 %.not70, i1 false
-  %27 = icmp ne i8 %14, 0
-  %or.cond11 = select i1 %or.cond8.not67, i1 true, i1 %27
-  br i1 %or.cond11, label %28, label %29
+18:                                               ; preds = %10
+  %19 = zext i8 %12 to i64
+  %20 = getelementptr i16, ptr %8, i64 %19
+  %21 = load i16, ptr %20, align 2
+  %22 = and i16 %21, 64
+  %23 = icmp eq i16 %22, 0
+  %24 = icmp ne i8 %12, 10
+  %25 = icmp ne i8 %12, 13
+  %.not70 = and i1 %24, %25
+  %or.cond8.not67 = select i1 %23, i1 %.not70, i1 false
+  %26 = icmp ne i8 %13, 0
+  %or.cond11 = select i1 %or.cond8.not67, i1 true, i1 %26
+  br i1 %or.cond11, label %27, label %28
 
-28:                                               ; preds = %19
+27:                                               ; preds = %18
   store i32 0, ptr %5, align 4
-  br label %29
+  br label %28
 
-29:                                               ; preds = %28, %19
-  %30 = add i32 %.076, 2
-  %31 = icmp ult i32 %30, %7
-  br i1 %31, label %10, label %.loopexit74, !llvm.loop !12
+28:                                               ; preds = %27, %18
+  %29 = add i32 %.076, 2
+  %30 = icmp ult i32 %29, %7
+  br i1 %30, label %10, label %.loopexit74, !llvm.loop !12
 
-.loopexit74:                                      ; preds = %29, %17
-  %.1.ph = phi i32 [ %18, %17 ], [ %30, %29 ]
-  %.pr = load i32, ptr %5, align 4
-  %32 = icmp eq i32 %.pr, 1
+.loopexit74:                                      ; preds = %28, %.preheader73, %16
+  %.1 = phi i32 [ %17, %16 ], [ 0, %.preheader73 ], [ %29, %28 ]
+  %31 = load i32, ptr %5, align 4
+  %32 = icmp eq i32 %31, 1
   %33 = add i32 %4, -2
-  %34 = icmp ne i32 %.1.ph, 0
+  %34 = icmp ne i32 %.1, 0
   %35 = icmp ne i32 %33, 0
   %36 = and i1 %34, %35
   br i1 %32, label %.preheader, label %.preheader71
@@ -2329,7 +2330,7 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
   store i8 %39, ptr %40, align 1
   %41 = add nuw i32 %.06281, 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %42 = icmp ult i32 %41, %.1.ph
+  %42 = icmp ult i32 %41, %.1
   %43 = icmp ult i64 %indvars.iv.next, %37
   %44 = select i1 %42, i1 %43, i1 false
   br i1 %44, label %.lr.ph83, label %.loopexit.loopexit, !llvm.loop !13
@@ -2345,7 +2346,7 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
   %50 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %46, i64 noundef 3, ptr noundef nonnull @.str.337, i32 noundef %49) #11
   %51 = add nuw i32 %.16377, 1
   %52 = add i32 %.16178, 2
-  %53 = icmp ult i32 %51, %.1.ph
+  %53 = icmp ult i32 %51, %.1
   %54 = icmp ult i32 %52, %33
   %55 = select i1 %53, i1 %54, i1 false
   br i1 %55, label %.lr.ph79, label %.loopexit, !llvm.loop !14
@@ -2354,9 +2355,8 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
   %56 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph79, %.preheader73, %.loopexit.loopexit, %.preheader71, %.preheader
-  %.193 = phi i32 [ %.1.ph, %.preheader ], [ %.1.ph, %.preheader71 ], [ %.1.ph, %.loopexit.loopexit ], [ 0, %.preheader73 ], [ %.1.ph, %.lr.ph79 ]
-  %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader71 ], [ %56, %.loopexit.loopexit ], [ 0, %.preheader73 ], [ %52, %.lr.ph79 ]
+.loopexit:                                        ; preds = %.lr.ph79, %.loopexit.loopexit, %.preheader71, %.preheader
+  %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader71 ], [ %56, %.loopexit.loopexit ], [ %52, %.lr.ph79 ]
   %57 = icmp ult i32 %.2, %4
   br i1 %57, label %59, label %58
 
@@ -2368,7 +2368,7 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
   %60 = zext i32 %.2 to i64
   %61 = getelementptr i8, ptr %3, i64 %60
   store i8 0, ptr %61, align 1
-  %62 = add i32 %.193, %1
+  %62 = add i32 %.1, %1
   ret i32 %62
 }
 

@@ -633,7 +633,6 @@ entry:
   %add.i.i = add i64 %mul.i.i, 1442695040888963407
   store i64 %add.i.i, ptr %ckh, align 8
   %shr.i.i = lshr i64 %add.i.i, 62
-  %conv.i = trunc nuw nsw i64 %shr.i.i to i32
   %tab.i = getelementptr inbounds i8, ptr %ckh, i64 40
   %6 = load ptr, ptr %tab.i, align 8
   %shl.i = shl i64 %and, 2
@@ -641,17 +640,22 @@ entry:
   %arrayidx.i61 = getelementptr inbounds %struct.ckhc_t, ptr %6, i64 %add4.i60
   %7 = load ptr, ptr %arrayidx.i61, align 8
   %cmp6.i62 = icmp eq ptr %7, null
-  br i1 %cmp6.i62, label %return.critedge, label %for.cond.i
+  br i1 %cmp6.i62, label %return.critedge, label %for.cond.i.preheader
 
-for.cond.i:                                       ; preds = %entry, %for.body.i
-  %i.011.i63 = phi i32 [ %inc10.i, %for.body.i ], [ 0, %entry ]
+for.cond.i.preheader:                             ; preds = %entry
+  %conv.i = trunc nuw nsw i64 %shr.i.i to i32
+  %invariant.op = add nuw nsw i32 %conv.i, 1
+  br label %for.cond.i
+
+for.cond.i:                                       ; preds = %for.cond.i.preheader, %for.body.i
+  %i.011.i63 = phi i32 [ %inc10.i, %for.body.i ], [ 0, %for.cond.i.preheader ]
   %inc10.i = add nuw nsw i32 %i.011.i63, 1
   %exitcond.i = icmp eq i32 %inc10.i, 4
   br i1 %exitcond.i, label %if.end, label %for.body.i, !llvm.loop !10
 
 for.body.i:                                       ; preds = %for.cond.i
-  %add.i = add nuw nsw i32 %inc10.i, %conv.i
-  %8 = and i32 %add.i, 3
+  %add.i.reass = add nuw i32 %i.011.i63, %invariant.op
+  %8 = and i32 %add.i.reass, 3
   %and.i = zext nneg i32 %8 to i64
   %add4.i = or disjoint i64 %shl.i, %and.i
   %arrayidx.i = getelementptr inbounds %struct.ckhc_t, ptr %6, i64 %add4.i
@@ -690,23 +694,27 @@ if.end:                                           ; preds = %for.cond.i, %if.the
   %add.i.i15 = add i64 %mul.i.i14, 1442695040888963407
   store i64 %add.i.i15, ptr %ckh, align 8
   %shr.i.i16 = lshr i64 %add.i.i15, 62
-  %conv.i17 = trunc nuw nsw i64 %shr.i.i16 to i32
   %shl.i19 = shl i64 %and6, 2
   %add4.i2566 = or disjoint i64 %shr.i.i16, %shl.i19
   %arrayidx.i2667 = getelementptr inbounds %struct.ckhc_t, ptr %11, i64 %add4.i2566
   %14 = load ptr, ptr %arrayidx.i2667, align 8
   %cmp6.i2768 = icmp eq ptr %14, null
-  br i1 %cmp6.i2768, label %return.critedge72, label %for.cond.i28
+  br i1 %cmp6.i2768, label %return.critedge72, label %for.cond.i28.preheader
 
-for.cond.i28:                                     ; preds = %if.end, %for.body.i20
-  %i.011.i2269 = phi i32 [ %inc10.i29, %for.body.i20 ], [ 0, %if.end ]
+for.cond.i28.preheader:                           ; preds = %if.end
+  %conv.i17 = trunc nuw nsw i64 %shr.i.i16 to i32
+  %invariant.op102 = add nuw nsw i32 %conv.i17, 1
+  br label %for.cond.i28
+
+for.cond.i28:                                     ; preds = %for.cond.i28.preheader, %for.body.i20
+  %i.011.i2269 = phi i32 [ %inc10.i29, %for.body.i20 ], [ 0, %for.cond.i28.preheader ]
   %inc10.i29 = add nuw nsw i32 %i.011.i2269, 1
   %exitcond.i31 = icmp eq i32 %inc10.i29, 4
   br i1 %exitcond.i31, label %if.end9, label %for.body.i20, !llvm.loop !10
 
 for.body.i20:                                     ; preds = %for.cond.i28
-  %add.i23 = add nuw nsw i32 %inc10.i29, %conv.i17
-  %15 = and i32 %add.i23, 3
+  %add.i23.reass = add nuw i32 %i.011.i2269, %invariant.op102
+  %15 = and i32 %add.i23.reass, 3
   %and.i24 = zext nneg i32 %15 to i64
   %add4.i25 = or disjoint i64 %shl.i19, %and.i24
   %arrayidx.i26 = getelementptr inbounds %struct.ckhc_t, ptr %11, i64 %add4.i25
@@ -775,24 +783,28 @@ if.end18.i:                                       ; preds = %while.body.i
   %add.i.i.i = add i64 %mul.i.i.i, 1442695040888963407
   store i64 %add.i.i.i, ptr %ckh, align 8
   %shr.i.i.i = lshr i64 %add.i.i.i, 62
-  %conv.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %29 = load ptr, ptr %tab.i, align 8
   %shl.i.i = shl i64 %tbucket.0.i, 2
   %add4.i32.i = or disjoint i64 %shr.i.i.i, %shl.i.i
   %arrayidx.i33.i = getelementptr inbounds %struct.ckhc_t, ptr %29, i64 %add4.i32.i
   %30 = load ptr, ptr %arrayidx.i33.i, align 8
   %cmp6.i34.i = icmp eq ptr %30, null
-  br i1 %cmp6.i34.i, label %return.loopexit.critedge.i, label %for.cond.i.i
+  br i1 %cmp6.i34.i, label %return.loopexit.critedge.i, label %for.cond.i.preheader.i
 
-for.cond.i.i:                                     ; preds = %if.end18.i, %for.body.i.i
-  %i.011.i35.i = phi i32 [ %inc10.i.i, %for.body.i.i ], [ 0, %if.end18.i ]
+for.cond.i.preheader.i:                           ; preds = %if.end18.i
+  %conv.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
+  %invariant.op.i = add nuw nsw i32 %conv.i.i, 1
+  br label %for.cond.i.i
+
+for.cond.i.i:                                     ; preds = %for.body.i.i, %for.cond.i.preheader.i
+  %i.011.i35.i = phi i32 [ %inc10.i.i, %for.body.i.i ], [ 0, %for.cond.i.preheader.i ]
   %inc10.i.i = add nuw nsw i32 %i.011.i35.i, 1
   %exitcond.i.i = icmp eq i32 %inc10.i.i, 4
   br i1 %exitcond.i.i, label %while.body.i.backedge, label %for.body.i.i, !llvm.loop !10
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %add.i23.i = add nuw nsw i32 %inc10.i.i, %conv.i.i
-  %31 = and i32 %add.i23.i, 3
+  %add.i23.reass.i = add nuw nsw i32 %invariant.op.i, %i.011.i35.i
+  %31 = and i32 %add.i23.reass.i, 3
   %and.i.i = zext nneg i32 %31 to i64
   %add4.i.i = or disjoint i64 %shl.i.i, %and.i.i
   %arrayidx.i.i = getelementptr inbounds %struct.ckhc_t, ptr %29, i64 %add4.i.i

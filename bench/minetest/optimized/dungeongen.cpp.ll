@@ -2808,6 +2808,7 @@ for.body.lr.ph:                                   ; preds = %if.end
   %c_wall = getelementptr inbounds i8, ptr %this, i64 44
   %sub = add i32 %call, -1
   %c_stair204 = getelementptr inbounds i8, ptr %this, i64 48
+  %invariant.op = add i16 %dir.sroa.15.0.extract.trunc649, -1
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %cleanup, %if.end
@@ -3178,8 +3179,8 @@ if.end212.us701:                                  ; preds = %if.then194.us, %lan
   br i1 %exitcond.not, label %if.end230, label %for.body101.us697, !llvm.loop !132
 
 if.else215:                                       ; preds = %if.then37
-  %add8.i548 = add i16 %add8.i, -1
-  %retval.sroa.2.0.insert.ext.i554 = zext i16 %add8.i548 to i48
+  %add8.i548.reass = add i16 %p0.sroa.6.0714, %invariant.op
+  %retval.sroa.2.0.insert.ext.i554 = zext i16 %add8.i548.reass to i48
   %retval.sroa.2.0.insert.shift.i555 = shl nuw nsw i48 %retval.sroa.2.0.insert.ext.i554, 16
   %retval.sroa.2.0.insert.insert.i556 = or disjoint i48 %retval.sroa.3.0.insert.shift.i553, %retval.sroa.2.0.insert.shift.i555
   %retval.sroa.0.0.insert.insert.i558 = or disjoint i48 %retval.sroa.2.0.insert.insert.i556, %retval.sroa.0.0.insert.ext.i557

@@ -273,7 +273,7 @@ define void @compute_new_weights(ptr nocapture noundef %0, i32 noundef %1) local
 
 .lr.ph57:                                         ; preds = %.lr.ph57.preheader, %empty_neighbors_vec.exit
   %indvars.iv63 = phi i64 [ 0, %.lr.ph57.preheader ], [ %indvars.iv.next64, %empty_neighbors_vec.exit ]
-  %.04055 = phi ptr [ %10, %.lr.ph57.preheader ], [ %59, %empty_neighbors_vec.exit ]
+  %.04055 = phi ptr [ %10, %.lr.ph57.preheader ], [ %58, %empty_neighbors_vec.exit ]
   %11 = getelementptr inbounds %struct.vtx_data, ptr %0, i64 %indvars.iv63
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %.04055, ptr %12, align 8
@@ -305,72 +305,72 @@ fill_neighbors_vec_unweighted.exit:               ; preds = %17, %.lr.ph57
 .lr.ph52:                                         ; preds = %fill_neighbors_vec_unweighted.exit
   %24 = getelementptr inbounds i8, ptr %11, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = add i64 %13, -2
-  br label %27
+  %.reass = add i64 %13, -2
+  br label %26
 
-27:                                               ; preds = %.lr.ph52, %common_neighbors.exit
-  %.051 = phi i64 [ 1, %.lr.ph52 ], [ %50, %common_neighbors.exit ]
-  %28 = getelementptr inbounds i32, ptr %25, i64 %.051
-  %29 = load i32, ptr %28, align 4
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds %struct.vtx_data, ptr %0, i64 %30
-  %32 = load i64, ptr %31, align 8
-  %33 = icmp ugt i64 %32, 1
-  br i1 %33, label %.lr.ph.i45, label %common_neighbors.exit
+26:                                               ; preds = %.lr.ph52, %common_neighbors.exit
+  %.051 = phi i64 [ 1, %.lr.ph52 ], [ %49, %common_neighbors.exit ]
+  %27 = getelementptr inbounds i32, ptr %25, i64 %.051
+  %28 = load i32, ptr %27, align 4
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds %struct.vtx_data, ptr %0, i64 %29
+  %31 = load i64, ptr %30, align 8
+  %32 = icmp ugt i64 %31, 1
+  br i1 %32, label %.lr.ph.i45, label %common_neighbors.exit
 
-.lr.ph.i45:                                       ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %31, i64 8
-  %35 = load ptr, ptr %34, align 8
-  br label %36
+.lr.ph.i45:                                       ; preds = %26
+  %33 = getelementptr inbounds i8, ptr %30, i64 8
+  %34 = load ptr, ptr %33, align 8
+  br label %35
 
-36:                                               ; preds = %36, %.lr.ph.i45
-  %.012.i = phi i64 [ 1, %.lr.ph.i45 ], [ %44, %36 ]
-  %.01011.i = phi i64 [ 0, %.lr.ph.i45 ], [ %spec.select.i, %36 ]
-  %37 = getelementptr inbounds i32, ptr %35, i64 %.012.i
-  %38 = load i32, ptr %37, align 4
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i32, ptr %4, i64 %39
-  %41 = load i32, ptr %40, align 4
-  %42 = icmp sgt i32 %41, 0
-  %43 = zext i1 %42 to i64
-  %spec.select.i = add i64 %.01011.i, %43
-  %44 = add nuw i64 %.012.i, 1
-  %exitcond.not.i = icmp eq i64 %44, %32
-  br i1 %exitcond.not.i, label %common_neighbors.exit, label %36
+35:                                               ; preds = %35, %.lr.ph.i45
+  %.012.i = phi i64 [ 1, %.lr.ph.i45 ], [ %43, %35 ]
+  %.01011.i = phi i64 [ 0, %.lr.ph.i45 ], [ %spec.select.i, %35 ]
+  %36 = getelementptr inbounds i32, ptr %34, i64 %.012.i
+  %37 = load i32, ptr %36, align 4
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i32, ptr %4, i64 %38
+  %40 = load i32, ptr %39, align 4
+  %41 = icmp sgt i32 %40, 0
+  %42 = zext i1 %41 to i64
+  %spec.select.i = add i64 %.01011.i, %42
+  %43 = add nuw i64 %.012.i, 1
+  %exitcond.not.i = icmp eq i64 %43, %31
+  br i1 %exitcond.not.i, label %common_neighbors.exit, label %35
 
-common_neighbors.exit:                            ; preds = %36, %27
-  %.010.lcssa.i = phi i64 [ 0, %27 ], [ %spec.select.i, %36 ]
-  %45 = add i64 %26, %32
-  %46 = shl i64 %.010.lcssa.i, 1
-  %47 = sub i64 %45, %46
-  %48 = uitofp i64 %47 to float
-  %49 = getelementptr inbounds float, ptr %.04055, i64 %.051
-  store float %48, ptr %49, align 4
-  %50 = add i64 %.051, 1
-  %.not = icmp ugt i64 %50, %23
-  br i1 %.not, label %._crit_edge53, label %27
+common_neighbors.exit:                            ; preds = %35, %26
+  %.010.lcssa.i = phi i64 [ 0, %26 ], [ %spec.select.i, %35 ]
+  %44 = add i64 %.reass, %31
+  %45 = shl i64 %.010.lcssa.i, 1
+  %46 = sub i64 %44, %45
+  %47 = uitofp i64 %46 to float
+  %48 = getelementptr inbounds float, ptr %.04055, i64 %.051
+  store float %47, ptr %48, align 4
+  %49 = add i64 %.051, 1
+  %.not = icmp ugt i64 %49, %23
+  br i1 %.not, label %._crit_edge53, label %26
 
 ._crit_edge53:                                    ; preds = %common_neighbors.exit
   br i1 %14, label %.lr.ph.i46, label %empty_neighbors_vec.exit
 
 .lr.ph.i46:                                       ; preds = %._crit_edge53
-  %51 = getelementptr inbounds i8, ptr %11, i64 8
-  %52 = load ptr, ptr %51, align 8
-  br label %53
+  %50 = getelementptr inbounds i8, ptr %11, i64 8
+  %51 = load ptr, ptr %50, align 8
+  br label %52
 
-53:                                               ; preds = %53, %.lr.ph.i46
-  %.07.i47 = phi i64 [ 1, %.lr.ph.i46 ], [ %58, %53 ]
-  %54 = getelementptr inbounds i32, ptr %52, i64 %.07.i47
-  %55 = load i32, ptr %54, align 4
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i32, ptr %4, i64 %56
-  store i32 0, ptr %57, align 4
-  %58 = add nuw i64 %.07.i47, 1
-  %exitcond62.not = icmp eq i64 %58, %13
-  br i1 %exitcond62.not, label %empty_neighbors_vec.exit, label %53
+52:                                               ; preds = %52, %.lr.ph.i46
+  %.07.i47 = phi i64 [ 1, %.lr.ph.i46 ], [ %57, %52 ]
+  %53 = getelementptr inbounds i32, ptr %51, i64 %.07.i47
+  %54 = load i32, ptr %53, align 4
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds i32, ptr %4, i64 %55
+  store i32 0, ptr %56, align 4
+  %57 = add nuw i64 %.07.i47, 1
+  %exitcond62.not = icmp eq i64 %57, %13
+  br i1 %exitcond62.not, label %empty_neighbors_vec.exit, label %52
 
-empty_neighbors_vec.exit:                         ; preds = %53, %fill_neighbors_vec_unweighted.exit, %._crit_edge53
-  %59 = getelementptr inbounds float, ptr %.04055, i64 %13
+empty_neighbors_vec.exit:                         ; preds = %52, %fill_neighbors_vec_unweighted.exit, %._crit_edge53
+  %58 = getelementptr inbounds float, ptr %.04055, i64 %13
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
   br i1 %exitcond67.not, label %._crit_edge58, label %.lr.ph57

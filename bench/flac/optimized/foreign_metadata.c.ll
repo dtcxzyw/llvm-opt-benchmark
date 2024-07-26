@@ -1638,6 +1638,8 @@ if.end16:                                         ; preds = %if.end10
   %2 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4
   %add31.i = add i32 %add.i, %2
   %div126.i = lshr i32 %add31.i, 3
+  %narrow.i = add nuw nsw i32 %div126.i, 4
+  %invariant.op.i = zext nneg i32 %narrow.i to i64
   %num_blocks.i = getelementptr inbounds i8, ptr %fm, i64 16
   %audio_block293.i = getelementptr inbounds i8, ptr %fm, i64 32
   %format_block300.i = getelementptr inbounds i8, ptr %fm, i64 24
@@ -1658,8 +1660,6 @@ if.end16:                                         ; preds = %if.end10
   %div13.i.i = lshr i32 %3, 3
   %sub.i.i = sub i32 %shl.i141.i, %div13.i.i
   %blocks.i.i = getelementptr inbounds i8, ptr %fm, i64 8
-  %narrow = add nuw nsw i32 %div126.i, 4
-  %add32.i = zext nneg i32 %narrow to i64
   br label %while.cond.outer.outer.i
 
 while.cond.outer.outer.i:                         ; preds = %append_block_.exit.i, %if.end16
@@ -1739,8 +1739,8 @@ while.cond.outer.i.backedge:                      ; preds = %if.else.i, %for.end
 if.end28.i:                                       ; preds = %if.else.i, %for.end.i, %for.inc.thread.i
   %call29.i = call i64 @FLAC__metadata_simple_iterator_get_block_offset(ptr noundef nonnull %call) #14
   %call30.i = call i32 @FLAC__metadata_simple_iterator_get_block_length(ptr noundef nonnull %call) #14
-  %add33.i = add i64 %call29.i, %add32.i
-  %call34.i = call i32 @fseeko64(ptr noundef nonnull %call11, i64 noundef %add33.i, i32 noundef 0)
+  %add33.reass.i = add i64 %call29.i, %invariant.op.i
+  %call34.i = call i32 @fseeko64(ptr noundef nonnull %call11, i64 noundef %add33.reass.i, i32 noundef 0)
   %cmp35.i = icmp slt i32 %call34.i, 0
   br i1 %cmp35.i, label %if.then37.i, label %if.end41.i
 
@@ -2085,7 +2085,7 @@ if.end12.i.i:                                     ; preds = %safe_realloc_nofree
 append_block_.exit.i:                             ; preds = %safe_realloc_nofree_muladd2_.exit.i.i
   %31 = load i64, ptr %num_blocks.i, align 8
   %arrayidx.i.i = getelementptr inbounds %struct.foreign_block_t, ptr %call4.i.i.i.i, i64 %31
-  store i64 %add33.i, ptr %arrayidx.i.i, align 8
+  store i64 %add33.reass.i, ptr %arrayidx.i.i, align 8
   %size9.i.i = getelementptr inbounds %struct.foreign_block_t, ptr %call4.i.i.i.i, i64 %31, i32 1
   store i32 %sub.i, ptr %size9.i.i, align 8
   %inc.i.i = add i64 %31, 1

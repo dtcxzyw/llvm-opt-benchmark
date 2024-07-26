@@ -380,14 +380,15 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.
 
 for.cond.preheader:                               ; preds = %invoke.cont
   %cmp619.not = icmp eq i32 %1, 0
+  %elem_size_14 = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   br i1 %cmp619.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %2 = load i32, ptr %this, align 8
-  %elem_size_ = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
-  %3 = load ptr, ptr %_M_finish.i, align 8
-  %4 = load ptr, ptr %elem_size_, align 8
+  %invariant.op = add i32 %2, 1
+  %3 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %4 = load ptr, ptr %elem_size_14, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -414,17 +415,17 @@ if.then.i.i.i:                                    ; preds = %lpad3
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %6 = trunc nuw i64 %indvars.iv.next to i32
-  %add7 = add i32 %2, %6
-  %conv8 = zext i32 %add7 to i64
+  %6 = trunc nuw i64 %indvars.iv to i32
+  %add7.reass = add i32 %invariant.op, %6
+  %conv8 = zext i32 %add7.reass to i64
   %rem = urem i64 %conv8, %sub.ptr.div.i
   %add.ptr.i = getelementptr inbounds i16, ptr %4, i64 %rem
   %7 = load i16, ptr %add.ptr.i, align 2
-  %rem11 = urem i32 %add7, %capacity
+  %rem11 = urem i32 %add7.reass, %capacity
   %conv12 = zext i32 %rem11 to i64
   %add.ptr.i8 = getelementptr inbounds i16, ptr %new_elem_size.sroa.0.0, i64 %conv12
   store i16 %7, ptr %add.ptr.i8, align 2
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end.thread, label %for.body, !llvm.loop !8
 
@@ -440,8 +441,6 @@ for.end.thread:                                   ; preds = %for.body
 for.end:                                          ; preds = %for.cond.preheader
   %elem_size_14.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
   %.pre = load ptr, ptr %elem_size_14.phi.trans.insert, align 8
-  %elem_size_14 = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %_M_end_of_storage.i.i.i9 = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %new_elem_size.sroa.0.0, ptr %elem_size_14, align 8
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8

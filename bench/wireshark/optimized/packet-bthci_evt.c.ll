@@ -8972,6 +8972,8 @@ define internal fastcc void @save_remote_device_name(ptr noundef %0, i32 noundef
   %23 = load i32, ptr %22, align 4
   store i32 %23, ptr %9, align 4
   %24 = zext i8 %3 to i32
+  %invariant.op = add i32 %1, 1
+  %invariant.op41 = add i32 %1, 2
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -8997,50 +8999,50 @@ define internal fastcc void @save_remote_device_name(ptr noundef %0, i32 noundef
   %43 = getelementptr inbounds i8, ptr %5, i64 48
   br label %44
 
-44:                                               ; preds = %.lr.ph, %106
-  %.041 = phi i32 [ 0, %.lr.ph ], [ %108, %106 ]
-  %45 = add i32 %.041, %1
+44:                                               ; preds = %.lr.ph, %104
+  %.043 = phi i32 [ 0, %.lr.ph ], [ %106, %104 ]
+  %45 = add i32 %.043, %1
   %46 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %45) #5
   %47 = zext i8 %46 to i32
   %48 = icmp eq i8 %46, 0
   br i1 %48, label %.loopexit, label %49
 
 49:                                               ; preds = %44
-  %50 = add i32 %45, 1
-  %51 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %50) #5
-  %52 = and i8 %51, -2
-  %switch = icmp eq i8 %52, 8
-  br i1 %switch, label %53, label %106
+  %.reass = add i32 %.043, %invariant.op
+  %50 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.reass) #5
+  %51 = and i8 %50, -2
+  %switch = icmp eq i8 %51, 8
+  br i1 %switch, label %52, label %104
 
-53:                                               ; preds = %49
-  %54 = load ptr, ptr %25, align 8
-  %55 = add i32 %45, 2
-  %56 = add nsw i32 %47, -1
-  %57 = call ptr @tvb_get_string_enc(ptr noundef %54, ptr noundef %0, i32 noundef %55, i32 noundef %56, i32 noundef 2) #5
-  %58 = load i32, ptr %26, align 4
-  store i32 %58, ptr %12, align 4
-  %59 = load i8, ptr %4, align 1
-  %60 = zext i8 %59 to i32
-  %61 = shl nuw nsw i32 %60, 16
-  %62 = load i8, ptr %27, align 1
-  %63 = zext i8 %62 to i32
-  %64 = shl nuw nsw i32 %63, 8
-  %65 = or disjoint i32 %64, %61
-  %66 = load i8, ptr %28, align 1
-  %67 = zext i8 %66 to i32
-  %68 = or disjoint i32 %65, %67
-  store i32 %68, ptr %10, align 4
-  %69 = load i8, ptr %29, align 1
-  %70 = zext i8 %69 to i32
-  %71 = shl nuw nsw i32 %70, 16
-  %72 = load i8, ptr %30, align 1
-  %73 = zext i8 %72 to i32
-  %74 = shl nuw nsw i32 %73, 8
-  %75 = or disjoint i32 %74, %71
-  %76 = load i8, ptr %31, align 1
-  %77 = zext i8 %76 to i32
-  %78 = or disjoint i32 %75, %77
-  store i32 %78, ptr %11, align 4
+52:                                               ; preds = %49
+  %53 = load ptr, ptr %25, align 8
+  %.reass42 = add i32 %.043, %invariant.op41
+  %54 = add nsw i32 %47, -1
+  %55 = call ptr @tvb_get_string_enc(ptr noundef %53, ptr noundef %0, i32 noundef %.reass42, i32 noundef %54, i32 noundef 2) #5
+  %56 = load i32, ptr %26, align 4
+  store i32 %56, ptr %12, align 4
+  %57 = load i8, ptr %4, align 1
+  %58 = zext i8 %57 to i32
+  %59 = shl nuw nsw i32 %58, 16
+  %60 = load i8, ptr %27, align 1
+  %61 = zext i8 %60 to i32
+  %62 = shl nuw nsw i32 %61, 8
+  %63 = or disjoint i32 %62, %59
+  %64 = load i8, ptr %28, align 1
+  %65 = zext i8 %64 to i32
+  %66 = or disjoint i32 %63, %65
+  store i32 %66, ptr %10, align 4
+  %67 = load i8, ptr %29, align 1
+  %68 = zext i8 %67 to i32
+  %69 = shl nuw nsw i32 %68, 16
+  %70 = load i8, ptr %30, align 1
+  %71 = zext i8 %70 to i32
+  %72 = shl nuw nsw i32 %71, 8
+  %73 = or disjoint i32 %72, %69
+  %74 = load i8, ptr %31, align 1
+  %75 = zext i8 %74 to i32
+  %76 = or disjoint i32 %73, %75
+  store i32 %76, ptr %11, align 4
   store i32 1, ptr %7, align 16
   store ptr %8, ptr %32, align 8
   store i32 1, ptr %33, align 16
@@ -9053,46 +9055,46 @@ define internal fastcc void @save_remote_device_name(ptr noundef %0, i32 noundef
   store ptr %12, ptr %40, align 8
   store i32 0, ptr %41, align 16
   store ptr null, ptr %42, align 8
-  %79 = call ptr @wmem_file_scope() #5
-  %80 = call noalias ptr @wmem_alloc(ptr noundef %79, i64 noundef 16) #5
-  %81 = load i8, ptr %4, align 1
-  %82 = zext i8 %81 to i32
-  %83 = shl nuw nsw i32 %82, 16
-  %84 = load i8, ptr %27, align 1
-  %85 = zext i8 %84 to i32
-  %86 = shl nuw nsw i32 %85, 8
-  %87 = or disjoint i32 %86, %83
-  %88 = load i8, ptr %28, align 1
-  %89 = zext i8 %88 to i32
-  %90 = or disjoint i32 %87, %89
-  store i32 %90, ptr %80, align 8
-  %91 = load i8, ptr %29, align 1
-  %92 = zext i8 %91 to i32
-  %93 = shl nuw nsw i32 %92, 16
-  %94 = load i8, ptr %30, align 1
-  %95 = zext i8 %94 to i32
-  %96 = shl nuw nsw i32 %95, 8
-  %97 = or disjoint i32 %96, %93
-  %98 = load i8, ptr %31, align 1
-  %99 = zext i8 %98 to i32
-  %100 = or disjoint i32 %97, %99
-  %101 = getelementptr inbounds i8, ptr %80, i64 4
-  store i32 %100, ptr %101, align 4
-  %102 = call ptr @wmem_file_scope() #5
-  %103 = call noalias ptr @wmem_strdup(ptr noundef %102, ptr noundef %57) #5
-  %104 = getelementptr inbounds i8, ptr %80, i64 8
-  store ptr %103, ptr %104, align 8
-  %105 = load ptr, ptr %43, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %105, ptr noundef nonnull %7, ptr noundef nonnull %80) #5
-  br label %106
+  %77 = call ptr @wmem_file_scope() #5
+  %78 = call noalias ptr @wmem_alloc(ptr noundef %77, i64 noundef 16) #5
+  %79 = load i8, ptr %4, align 1
+  %80 = zext i8 %79 to i32
+  %81 = shl nuw nsw i32 %80, 16
+  %82 = load i8, ptr %27, align 1
+  %83 = zext i8 %82 to i32
+  %84 = shl nuw nsw i32 %83, 8
+  %85 = or disjoint i32 %84, %81
+  %86 = load i8, ptr %28, align 1
+  %87 = zext i8 %86 to i32
+  %88 = or disjoint i32 %85, %87
+  store i32 %88, ptr %78, align 8
+  %89 = load i8, ptr %29, align 1
+  %90 = zext i8 %89 to i32
+  %91 = shl nuw nsw i32 %90, 16
+  %92 = load i8, ptr %30, align 1
+  %93 = zext i8 %92 to i32
+  %94 = shl nuw nsw i32 %93, 8
+  %95 = or disjoint i32 %94, %91
+  %96 = load i8, ptr %31, align 1
+  %97 = zext i8 %96 to i32
+  %98 = or disjoint i32 %95, %97
+  %99 = getelementptr inbounds i8, ptr %78, i64 4
+  store i32 %98, ptr %99, align 4
+  %100 = call ptr @wmem_file_scope() #5
+  %101 = call noalias ptr @wmem_strdup(ptr noundef %100, ptr noundef %55) #5
+  %102 = getelementptr inbounds i8, ptr %78, i64 8
+  store ptr %101, ptr %102, align 8
+  %103 = load ptr, ptr %43, align 8
+  call void @wmem_tree_insert32_array(ptr noundef %103, ptr noundef nonnull %7, ptr noundef nonnull %78) #5
+  br label %104
 
-106:                                              ; preds = %49, %53
-  %107 = add nuw nsw i32 %.041, 1
-  %108 = add nuw nsw i32 %107, %47
-  %109 = icmp ult i32 %108, %24
-  br i1 %109, label %44, label %.loopexit, !llvm.loop !18
+104:                                              ; preds = %49, %52
+  %105 = add nuw nsw i32 %.043, 1
+  %106 = add nuw nsw i32 %105, %47
+  %107 = icmp ult i32 %106, %24
+  br i1 %107, label %44, label %.loopexit, !llvm.loop !18
 
-.loopexit:                                        ; preds = %106, %44, %20, %6
+.loopexit:                                        ; preds = %104, %44, %20, %6
   ret void
 }
 

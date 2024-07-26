@@ -1372,13 +1372,16 @@ if.then9.i:                                       ; preds = %if.end7.i
   %5 = load ptr, ptr %preMasterSecret12.i, align 8
   %conv.i = zext i32 %2 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %md5Input.i, ptr align 1 %5, i64 %conv.i, i1 false)
+  %invariant.op.i = add i32 %2, 1
+  %invariant.op91.i = add i32 %2, 33
+  %invariant.op92.i = add i32 %2, 65
   %add.ptr5781.i = getelementptr inbounds i8, ptr %md5Input.i, i64 %conv.i
   %add59.i = add i32 %2, 20
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.then9.i
   %indvars.iv.i = phi i64 [ 0, %if.then9.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %ret.192.i = phi i32 [ 0, %if.then9.i ], [ %ret.5.i, %for.inc.i ]
+  %ret.194.i = phi i32 [ 0, %if.then9.i ], [ %ret.5.i, %for.inc.i ]
   %6 = trunc nuw nsw i64 %indvars.iv.i to i32
   switch i32 %6, label %default.unreachable.i [
     i32 0, label %sw.bb.i.i
@@ -1406,28 +1409,27 @@ if.end18.i:                                       ; preds = %sw.bb2.i.i, %sw.bb1
   %preMasterSecret26.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %preMasterSecret26.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %8, i64 %conv.i, i1 false)
-  %9 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  %add28.i = add i32 %2, %9
-  %idx.ext30.i = zext i32 %add28.i to i64
+  %add28.reass.i = add i32 %invariant.op.i, %6
+  %idx.ext30.i = zext i32 %add28.reass.i to i64
   %add.ptr31.i = getelementptr inbounds i8, ptr %shaInput.i, i64 %idx.ext30.i
   %clientRandom.i = getelementptr inbounds i8, ptr %7, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr31.i, ptr noundef nonnull align 4 dereferenceable(32) %clientRandom.i, i64 32, i1 false)
-  %add34.i = add i32 %add28.i, 32
-  %idx.ext36.i = zext i32 %add34.i to i64
+  %add34.reass.i = add i32 %invariant.op91.i, %6
+  %idx.ext36.i = zext i32 %add34.reass.i to i64
   %add.ptr37.i = getelementptr inbounds i8, ptr %shaInput.i, i64 %idx.ext36.i
   %serverRandom.i = getelementptr inbounds i8, ptr %7, i64 60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr37.i, ptr noundef nonnull align 4 dereferenceable(32) %serverRandom.i, i64 32, i1 false)
-  %cmp41.i = icmp eq i32 %ret.192.i, 0
+  %cmp41.i = icmp eq i32 %ret.194.i, 0
   br i1 %cmp41.i, label %if.end47.i, label %if.end54.thread.i
 
 if.end47.i:                                       ; preds = %if.end18.i
-  %add40.i = add i32 %add28.i, 64
-  %call46.i = call i32 @wc_ShaUpdate(ptr noundef nonnull %sha.i, ptr noundef nonnull %shaInput.i, i32 noundef %add40.i) #7
+  %add40.reass.i = add i32 %invariant.op92.i, %6
+  %call46.i = call i32 @wc_ShaUpdate(ptr noundef nonnull %sha.i, ptr noundef nonnull %shaInput.i, i32 noundef %add40.reass.i) #7
   %cmp48.i = icmp eq i32 %call46.i, 0
   br i1 %cmp48.i, label %if.end54.i, label %if.end54.thread.i
 
 if.end54.thread.i:                                ; preds = %if.end47.i, %if.end18.i
-  %ret.3.ph.i = phi i32 [ %call46.i, %if.end47.i ], [ %ret.192.i, %if.end18.i ]
+  %ret.3.ph.i = phi i32 [ %call46.i, %if.end47.i ], [ %ret.194.i, %if.end18.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %add.ptr5781.i, ptr noundef nonnull align 16 dereferenceable(20) %shaOutput.i, i64 20, i1 false)
   br label %for.inc.i
 
@@ -1443,10 +1445,10 @@ if.end66.i:                                       ; preds = %if.end54.i
   br i1 %cmp67.i, label %if.then69.i, label %for.inc.i
 
 if.then69.i:                                      ; preds = %if.end66.i
-  %10 = load ptr, ptr %arrays.i, align 16
-  %masterSecret.i = getelementptr inbounds i8, ptr %10, i64 173
-  %11 = shl nuw nsw i64 %indvars.iv.i, 4
-  %arrayidx.i = getelementptr inbounds [48 x i8], ptr %masterSecret.i, i64 0, i64 %11
+  %9 = load ptr, ptr %arrays.i, align 16
+  %masterSecret.i = getelementptr inbounds i8, ptr %9, i64 173
+  %10 = shl nuw nsw i64 %indvars.iv.i, 4
+  %arrayidx.i = getelementptr inbounds [48 x i8], ptr %masterSecret.i, i64 0, i64 %10
   %call72.i = call i32 @wc_Md5Final(ptr noundef nonnull %md5.i, ptr noundef nonnull %arrayidx.i) #7
   br label %for.inc.i
 
@@ -1465,22 +1467,22 @@ if.end79.i:                                       ; preds = %for.end.i
   br i1 %cmp80.i, label %if.then82.i, label %if.else.i
 
 if.then82.i:                                      ; preds = %if.end79.i
-  %12 = load ptr, ptr %arrays.i, align 16
-  %preMasterSz.i.i = getelementptr inbounds i8, ptr %12, i64 16
-  %13 = load i32, ptr %preMasterSz.i.i, align 8
-  %cmp18.i.i = icmp sgt i32 %13, 0
+  %11 = load ptr, ptr %arrays.i, align 16
+  %preMasterSz.i.i = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = load i32, ptr %preMasterSz.i.i, align 8
+  %cmp18.i.i = icmp sgt i32 %12, 0
   br i1 %cmp18.i.i, label %for.body.preheader.i.i, label %for.end.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.then82.i
-  %wide.trip.count.i.i = zext nneg i32 %13 to i64
+  %wide.trip.count.i.i = zext nneg i32 %12 to i64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %14 = load ptr, ptr %arrays.i, align 16
-  %preMasterSecret.i.i = getelementptr inbounds i8, ptr %14, i64 8
-  %15 = load ptr, ptr %preMasterSecret.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %15, i64 %indvars.iv.i.i
+  %13 = load ptr, ptr %arrays.i, align 16
+  %preMasterSecret.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = load ptr, ptr %preMasterSecret.i.i, align 8
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %14, i64 %indvars.iv.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -1491,12 +1493,12 @@ for.end.loopexit.i.i:                             ; preds = %for.body.i.i
   br label %for.end.i.i
 
 for.end.i.i:                                      ; preds = %for.end.loopexit.i.i, %if.then82.i
-  %16 = phi ptr [ %.pre.i.i, %for.end.loopexit.i.i ], [ %12, %if.then82.i ]
+  %15 = phi ptr [ %.pre.i.i, %for.end.loopexit.i.i ], [ %11, %if.then82.i ]
   %rng.i.i = getelementptr inbounds i8, ptr %ssl, i64 144
-  %17 = load ptr, ptr %rng.i.i, align 16
-  %preMasterSecret3.i.i = getelementptr inbounds i8, ptr %16, i64 8
-  %18 = load ptr, ptr %preMasterSecret3.i.i, align 8
-  %call.i.i = call i32 @wc_RNG_GenerateBlock(ptr noundef %17, ptr noundef %18, i32 noundef %13) #7
+  %16 = load ptr, ptr %rng.i.i, align 16
+  %preMasterSecret3.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = load ptr, ptr %preMasterSecret3.i.i, align 8
+  %call.i.i = call i32 @wc_RNG_GenerateBlock(ptr noundef %16, ptr noundef %17, i32 noundef %12) #7
   %cmp4.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp4.not.i.i, label %for.cond5.preheader.i.i, label %MakeSslMasterSecret.exit
 
@@ -1504,25 +1506,25 @@ for.cond5.preheader.i.i:                          ; preds = %for.end.i.i
   br i1 %cmp18.i.i, label %for.body7.preheader.i.i, label %for.end14.i.i
 
 for.body7.preheader.i.i:                          ; preds = %for.cond5.preheader.i.i
-  %wide.trip.count26.i.i = zext nneg i32 %13 to i64
+  %wide.trip.count26.i.i = zext nneg i32 %12 to i64
   br label %for.body7.i.i
 
 for.body7.i.i:                                    ; preds = %for.body7.i.i, %for.body7.preheader.i.i
   %indvars.iv23.i.i = phi i64 [ 0, %for.body7.preheader.i.i ], [ %indvars.iv.next24.i.i, %for.body7.i.i ]
-  %19 = load ptr, ptr %arrays.i, align 16
-  %preMasterSecret9.i.i = getelementptr inbounds i8, ptr %19, i64 8
-  %20 = load ptr, ptr %preMasterSecret9.i.i, align 8
-  %arrayidx11.i.i = getelementptr inbounds i8, ptr %20, i64 %indvars.iv23.i.i
+  %18 = load ptr, ptr %arrays.i, align 16
+  %preMasterSecret9.i.i = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = load ptr, ptr %preMasterSecret9.i.i, align 8
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %19, i64 %indvars.iv23.i.i
   store i8 0, ptr %arrayidx11.i.i, align 1
   %indvars.iv.next24.i.i = add nuw nsw i64 %indvars.iv23.i.i, 1
   %exitcond27.not.i.i = icmp eq i64 %indvars.iv.next24.i.i, %wide.trip.count26.i.i
   br i1 %exitcond27.not.i.i, label %for.end14.i.i, label %for.body7.i.i, !llvm.loop !8
 
 for.end14.i.i:                                    ; preds = %for.body7.i.i, %for.cond5.preheader.i.i
-  %21 = load ptr, ptr %arrays.i, align 16
-  %preMasterSecret16.i.i = getelementptr inbounds i8, ptr %21, i64 8
-  %22 = load ptr, ptr %preMasterSecret16.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %22, null
+  %20 = load ptr, ptr %arrays.i, align 16
+  %preMasterSecret16.i.i = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = load ptr, ptr %preMasterSecret16.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %21, null
   br i1 %tobool.not.i.i, label %return.sink.split.i, label %return.sink.split.sink.split.i
 
 default.unreachable.i:                            ; preds = %for.body.i
@@ -1530,22 +1532,22 @@ default.unreachable.i:                            ; preds = %for.body.i
 
 if.else.i:                                        ; preds = %if.end79.i, %for.end.i, %if.end7.i, %if.end.i
   %ret.789.i = phi i32 [ %call77.i, %if.end79.i ], [ %call6.i, %if.end7.i ], [ %ret.5.i, %for.end.i ], [ %call.i, %if.end.i ]
-  %23 = load ptr, ptr %arrays.i, align 16
-  %preMasterSz.i38.i = getelementptr inbounds i8, ptr %23, i64 16
-  %24 = load i32, ptr %preMasterSz.i38.i, align 8
-  %cmp18.i39.i = icmp sgt i32 %24, 0
+  %22 = load ptr, ptr %arrays.i, align 16
+  %preMasterSz.i38.i = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = load i32, ptr %preMasterSz.i38.i, align 8
+  %cmp18.i39.i = icmp sgt i32 %23, 0
   br i1 %cmp18.i39.i, label %for.body.preheader.i63.i, label %for.end.i40.i
 
 for.body.preheader.i63.i:                         ; preds = %if.else.i
-  %wide.trip.count.i64.i = zext nneg i32 %24 to i64
+  %wide.trip.count.i64.i = zext nneg i32 %23 to i64
   br label %for.body.i65.i
 
 for.body.i65.i:                                   ; preds = %for.body.i65.i, %for.body.preheader.i63.i
   %indvars.iv.i66.i = phi i64 [ 0, %for.body.preheader.i63.i ], [ %indvars.iv.next.i69.i, %for.body.i65.i ]
-  %25 = load ptr, ptr %arrays.i, align 16
-  %preMasterSecret.i67.i = getelementptr inbounds i8, ptr %25, i64 8
-  %26 = load ptr, ptr %preMasterSecret.i67.i, align 8
-  %arrayidx.i68.i = getelementptr inbounds i8, ptr %26, i64 %indvars.iv.i66.i
+  %24 = load ptr, ptr %arrays.i, align 16
+  %preMasterSecret.i67.i = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = load ptr, ptr %preMasterSecret.i67.i, align 8
+  %arrayidx.i68.i = getelementptr inbounds i8, ptr %25, i64 %indvars.iv.i66.i
   store i8 0, ptr %arrayidx.i68.i, align 1
   %indvars.iv.next.i69.i = add nuw nsw i64 %indvars.iv.i66.i, 1
   %exitcond.not.i70.i = icmp eq i64 %indvars.iv.next.i69.i, %wide.trip.count.i64.i
@@ -1556,12 +1558,12 @@ for.end.loopexit.i71.i:                           ; preds = %for.body.i65.i
   br label %for.end.i40.i
 
 for.end.i40.i:                                    ; preds = %for.end.loopexit.i71.i, %if.else.i
-  %27 = phi ptr [ %.pre.i72.i, %for.end.loopexit.i71.i ], [ %23, %if.else.i ]
+  %26 = phi ptr [ %.pre.i72.i, %for.end.loopexit.i71.i ], [ %22, %if.else.i ]
   %rng.i41.i = getelementptr inbounds i8, ptr %ssl, i64 144
-  %28 = load ptr, ptr %rng.i41.i, align 16
-  %preMasterSecret3.i42.i = getelementptr inbounds i8, ptr %27, i64 8
-  %29 = load ptr, ptr %preMasterSecret3.i42.i, align 8
-  %call.i43.i = call i32 @wc_RNG_GenerateBlock(ptr noundef %28, ptr noundef %29, i32 noundef %24) #7
+  %27 = load ptr, ptr %rng.i41.i, align 16
+  %preMasterSecret3.i42.i = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = load ptr, ptr %preMasterSecret3.i42.i, align 8
+  %call.i43.i = call i32 @wc_RNG_GenerateBlock(ptr noundef %27, ptr noundef %28, i32 noundef %23) #7
   %cmp4.not.i44.i = icmp eq i32 %call.i43.i, 0
   br i1 %cmp4.not.i44.i, label %for.cond5.preheader.i46.i, label %MakeSslMasterSecret.exit
 
@@ -1569,41 +1571,41 @@ for.cond5.preheader.i46.i:                        ; preds = %for.end.i40.i
   br i1 %cmp18.i39.i, label %for.body7.preheader.i55.i, label %for.end14.i47.i
 
 for.body7.preheader.i55.i:                        ; preds = %for.cond5.preheader.i46.i
-  %wide.trip.count26.i56.i = zext nneg i32 %24 to i64
+  %wide.trip.count26.i56.i = zext nneg i32 %23 to i64
   br label %for.body7.i57.i
 
 for.body7.i57.i:                                  ; preds = %for.body7.i57.i, %for.body7.preheader.i55.i
   %indvars.iv23.i58.i = phi i64 [ 0, %for.body7.preheader.i55.i ], [ %indvars.iv.next24.i61.i, %for.body7.i57.i ]
-  %30 = load ptr, ptr %arrays.i, align 16
-  %preMasterSecret9.i59.i = getelementptr inbounds i8, ptr %30, i64 8
-  %31 = load ptr, ptr %preMasterSecret9.i59.i, align 8
-  %arrayidx11.i60.i = getelementptr inbounds i8, ptr %31, i64 %indvars.iv23.i58.i
+  %29 = load ptr, ptr %arrays.i, align 16
+  %preMasterSecret9.i59.i = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = load ptr, ptr %preMasterSecret9.i59.i, align 8
+  %arrayidx11.i60.i = getelementptr inbounds i8, ptr %30, i64 %indvars.iv23.i58.i
   store i8 0, ptr %arrayidx11.i60.i, align 1
   %indvars.iv.next24.i61.i = add nuw nsw i64 %indvars.iv23.i58.i, 1
   %exitcond27.not.i62.i = icmp eq i64 %indvars.iv.next24.i61.i, %wide.trip.count26.i56.i
   br i1 %exitcond27.not.i62.i, label %for.end14.i47.i, label %for.body7.i57.i, !llvm.loop !8
 
 for.end14.i47.i:                                  ; preds = %for.body7.i57.i, %for.cond5.preheader.i46.i
-  %32 = load ptr, ptr %arrays.i, align 16
-  %preMasterSecret16.i48.i = getelementptr inbounds i8, ptr %32, i64 8
-  %33 = load ptr, ptr %preMasterSecret16.i48.i, align 8
-  %tobool.not.i49.i = icmp eq ptr %33, null
+  %31 = load ptr, ptr %arrays.i, align 16
+  %preMasterSecret16.i48.i = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = load ptr, ptr %preMasterSecret16.i48.i, align 8
+  %tobool.not.i49.i = icmp eq ptr %32, null
   br i1 %tobool.not.i49.i, label %return.sink.split.i, label %return.sink.split.sink.split.i
 
 return.sink.split.sink.split.i:                   ; preds = %for.end14.i47.i, %for.end14.i.i
-  %.sink95.i = phi ptr [ %22, %for.end14.i.i ], [ %33, %for.end14.i47.i ]
+  %.sink97.i = phi ptr [ %21, %for.end14.i.i ], [ %32, %for.end14.i47.i ]
   %retval.0.ph.ph.i = phi i32 [ 0, %for.end14.i.i ], [ %ret.789.i, %for.end14.i47.i ]
-  call void @wolfSSL_Free(ptr noundef nonnull %.sink95.i) #7
+  call void @wolfSSL_Free(ptr noundef nonnull %.sink97.i) #7
   %.pre28.i51.i = load ptr, ptr %arrays.i, align 16
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %return.sink.split.sink.split.i, %for.end14.i47.i, %for.end14.i.i
-  %.sink.i = phi ptr [ %21, %for.end14.i.i ], [ %32, %for.end14.i47.i ], [ %.pre28.i51.i, %return.sink.split.sink.split.i ]
+  %.sink.i = phi ptr [ %20, %for.end14.i.i ], [ %31, %for.end14.i47.i ], [ %.pre28.i51.i, %return.sink.split.sink.split.i ]
   %retval.0.ph.i = phi i32 [ 0, %for.end14.i.i ], [ %ret.789.i, %for.end14.i47.i ], [ %retval.0.ph.ph.i, %return.sink.split.sink.split.i ]
   %preMasterSecret20.i53.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr null, ptr %preMasterSecret20.i53.i, align 8
-  %34 = load ptr, ptr %arrays.i, align 16
-  %preMasterSz22.i54.i = getelementptr inbounds i8, ptr %34, i64 16
+  %33 = load ptr, ptr %arrays.i, align 16
+  %preMasterSz22.i54.i = getelementptr inbounds i8, ptr %33, i64 16
   store i32 0, ptr %preMasterSz22.i54.i, align 8
   br label %MakeSslMasterSecret.exit
 

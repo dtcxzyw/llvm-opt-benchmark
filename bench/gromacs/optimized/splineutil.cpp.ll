@@ -669,92 +669,92 @@ define void @_ZN3gmx8internal45throwUnlessDerivativeIsConsistentWithFunctionENS_
   %59 = insertelement <2 x i64> %58, i64 %.sroa.speculated43, i64 1
   %60 = select <2 x i1> %57, <2 x i64> %28, <2 x i64> %59
   %.128 = select i1 %53, i1 %.02782, i1 false
-  %61 = add i64 %storemerge.in81, 3
-  %62 = icmp ult i64 %61, %19
-  br i1 %62, label %25, label %._crit_edge, !llvm.loop !8
+  %.reass = add i64 %storemerge.in81, 3
+  %61 = icmp ult i64 %.reass, %19
+  br i1 %61, label %25, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %25
-  br i1 %.128, label %._crit_edge.thread, label %63
+  br i1 %.128, label %._crit_edge.thread, label %62
 
-63:                                               ; preds = %._crit_edge
-  %64 = tail call ptr @__cxa_allocate_exception(i64 24) #18
-  %65 = extractelement <2 x i64> %60, i64 1
-  %66 = add i64 %65, 1
-  %67 = extractelement <2 x i64> %60, i64 0
-  %68 = add i64 %67, 1
-  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull @.str.2, i64 noundef %66, i64 noundef %68)
-          to label %69 unwind label %.thread
+62:                                               ; preds = %._crit_edge
+  %63 = tail call ptr @__cxa_allocate_exception(i64 24) #18
+  %64 = extractelement <2 x i64> %60, i64 1
+  %65 = add i64 %64, 1
+  %66 = extractelement <2 x i64> %60, i64 0
+  %67 = add i64 %66, 1
+  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull @.str.2, i64 noundef %65, i64 noundef %67)
+          to label %68 unwind label %.thread
 
-69:                                               ; preds = %63
+68:                                               ; preds = %62
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %70 unwind label %.thread76
+          to label %69 unwind label %.thread76
 
-70:                                               ; preds = %69
-  %71 = getelementptr inbounds i8, ptr %8, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
+69:                                               ; preds = %68
+  %70 = getelementptr inbounds i8, ptr %8, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, i8 0, i64 24, i1 false)
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(56) %8)
-          to label %72 unwind label %77
+          to label %71 unwind label %76
 
-72:                                               ; preds = %70
+71:                                               ; preds = %69
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %7, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %10, align 8
-  %73 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr @__PRETTY_FUNCTION__._ZN3gmx8internal45throwUnlessDerivativeIsConsistentWithFunctionENS_8ArrayRefIKdEES3_dRKSt4pairIffE, ptr %73, align 8
+  %72 = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr @__PRETTY_FUNCTION__._ZN3gmx8internal45throwUnlessDerivativeIsConsistentWithFunctionENS_8ArrayRefIKdEES3_dRKSt4pairIffE, ptr %72, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
   store ptr @.str.1, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
   store i32 148, ptr %.sroa.3.0..sroa_idx, align 8
-  invoke void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InconsistentInputError") align 8 %64, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(32) %10)
-          to label %74 unwind label %79
+  invoke void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InconsistentInputError") align 8 %63, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(32) %10)
+          to label %73 unwind label %78
 
-74:                                               ; preds = %72
-  invoke void @__cxa_throw(ptr %64, ptr nonnull @_ZTIN3gmx22InconsistentInputErrorE, ptr nonnull @_ZN3gmx22InconsistentInputErrorD2Ev) #17
-          to label %84 unwind label %79
+73:                                               ; preds = %71
+  invoke void @__cxa_throw(ptr %63, ptr nonnull @_ZTIN3gmx22InconsistentInputErrorE, ptr nonnull @_ZN3gmx22InconsistentInputErrorD2Ev) #17
+          to label %83 unwind label %78
 
-.thread:                                          ; preds = %63
-  %75 = landingpad { ptr, i32 }
-          cleanup
-  br label %82
-
-.thread76:                                        ; preds = %69
-  %76 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
-  br label %82
-
-77:                                               ; preds = %70
-  %78 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %62
+  %74 = landingpad { ptr, i32 }
           cleanup
   br label %81
 
-79:                                               ; preds = %74, %72
-  %.0 = phi i1 [ false, %74 ], [ true, %72 ]
-  %80 = landingpad { ptr, i32 }
+.thread76:                                        ; preds = %68
+  %75 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
+  br label %81
+
+76:                                               ; preds = %69
+  %77 = landingpad { ptr, i32 }
+          cleanup
+  br label %80
+
+78:                                               ; preds = %73, %71
+  %.0 = phi i1 [ false, %73 ], [ true, %71 ]
+  %79 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #18
   call void @_ZN3gmx22InconsistentInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #18
-  br label %81
+  br label %80
 
-81:                                               ; preds = %77, %79
-  %.pn = phi { ptr, i32 } [ %80, %79 ], [ %78, %77 ]
-  %.1 = phi i1 [ %.0, %79 ], [ true, %77 ]
+80:                                               ; preds = %76, %78
+  %.pn = phi { ptr, i32 } [ %79, %78 ], [ %77, %76 ]
+  %.1 = phi i1 [ %.0, %78 ], [ true, %76 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
-  br i1 %.1, label %82, label %83
+  br i1 %.1, label %81, label %82
 
-82:                                               ; preds = %.thread76, %.thread, %81
-  %.pn.pn.pn75 = phi { ptr, i32 } [ %75, %.thread ], [ %.pn, %81 ], [ %76, %.thread76 ]
-  call void @__cxa_free_exception(ptr %64) #18
-  br label %83
+81:                                               ; preds = %.thread76, %.thread, %80
+  %.pn.pn.pn75 = phi { ptr, i32 } [ %74, %.thread ], [ %.pn, %80 ], [ %75, %.thread76 ]
+  call void @__cxa_free_exception(ptr %63) #18
+  br label %82
 
 ._crit_edge.thread:                               ; preds = %6, %._crit_edge
   ret void
 
-83:                                               ; preds = %81, %82
-  %.pn.pn.pn74 = phi { ptr, i32 } [ %.pn, %81 ], [ %.pn.pn.pn75, %82 ]
+82:                                               ; preds = %80, %81
+  %.pn.pn.pn74 = phi { ptr, i32 } [ %.pn, %80 ], [ %.pn.pn.pn75, %81 ]
   resume { ptr, i32 } %.pn.pn.pn74
 
-84:                                               ; preds = %74
+83:                                               ; preds = %73
   unreachable
 }
 
@@ -1063,7 +1063,7 @@ define noundef float @_ZN3gmx8internal48findSmallestQuotientOfFunctionAndThirdDe
 
 20:                                               ; preds = %.lr.ph, %20
   %21 = phi double [ %.pre, %.lr.ph ], [ %27, %20 ]
-  %22 = phi i64 [ %14, %.lr.ph ], [ %42, %20 ]
+  %22 = phi i64 [ %14, %.lr.ph ], [ %.reass, %20 ]
   %.023 = phi i64 [ %16, %.lr.ph ], [ %25, %20 ]
   %.01922 = phi double [ 0x47EFFFFFE0000000, %.lr.ph ], [ %.sroa.speculated, %20 ]
   %gep = getelementptr double, ptr %invariant.gep, i64 %.023
@@ -1089,16 +1089,16 @@ define noundef float @_ZN3gmx8internal48findSmallestQuotientOfFunctionAndThirdDe
   %40 = extractelement <2 x double> %39, i64 0
   %41 = fcmp olt double %40, %.01922
   %.sroa.speculated = select i1 %41, double %40, double %.01922
-  %42 = add i64 %.023, 3
-  %43 = icmp ult i64 %42, %13
-  br i1 %43, label %20, label %._crit_edge.loopexit, !llvm.loop !12
+  %.reass = add i64 %.023, 3
+  %42 = icmp ult i64 %.reass, %13
+  br i1 %42, label %20, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %20
-  %44 = fptrunc double %.sroa.speculated to float
+  %43 = fptrunc double %.sroa.speculated to float
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
-  %.019.lcssa = phi float [ 0x47EFFFFFE0000000, %4 ], [ %44, %._crit_edge.loopexit ]
+  %.019.lcssa = phi float [ 0x47EFFFFFE0000000, %4 ], [ %43, %._crit_edge.loopexit ]
   ret float %.019.lcssa
 }
 

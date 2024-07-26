@@ -952,7 +952,7 @@ land.rhs.preheader:                               ; preds = %while.cond.preheade
   br label %land.rhs
 
 land.rhs:                                         ; preds = %while.body, %land.rhs.preheader
-  %add634 = phi i64 [ %add6, %while.body ], [ %add631, %land.rhs.preheader ]
+  %add634 = phi i64 [ %add6.reass, %while.body ], [ %add631, %land.rhs.preheader ]
   %consumed.033 = phi i64 [ %inc11, %while.body ], [ 1, %land.rhs.preheader ]
   %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 %add634
   %8 = load i8, ptr %arrayidx.i, align 1, !tbaa !26
@@ -962,7 +962,7 @@ land.rhs:                                         ; preds = %while.body, %land.r
 
 while.body:                                       ; preds = %land.rhs
   %inc11 = add i64 %consumed.033, 1
-  %add6 = add i64 %inc11, %5
+  %add6.reass = add i64 %consumed.033, %add631
   %exitcond.not = icmp eq i64 %inc11, %7
   br i1 %exitcond.not, label %if.end12, label %land.rhs, !llvm.loop !55
 
@@ -1074,7 +1074,7 @@ land.rhs.preheader.i:                             ; preds = %while.cond.preheade
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.preheader.i
-  %add634.i = phi i64 [ %add6.i, %while.body.i ], [ %add631.i, %land.rhs.preheader.i ]
+  %add634.i = phi i64 [ %add6.i.reass, %while.body.i ], [ %add631.i, %land.rhs.preheader.i ]
   %consumed.033.i = phi i64 [ %inc11.i, %while.body.i ], [ 1, %land.rhs.preheader.i ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr %12, i64 %add634.i
   %15 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !26
@@ -1084,7 +1084,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 
 while.body.i:                                     ; preds = %land.rhs.i
   %inc11.i = add i64 %consumed.033.i, 1
-  %add6.i = add i64 %inc11.i, %startpos.0150
+  %add6.i.reass = add i64 %consumed.033.i, %add631.i
   %exitcond.not.i = icmp eq i64 %inc11.i, %14
   br i1 %exitcond.not.i, label %for.body, label %land.rhs.i, !llvm.loop !55
 

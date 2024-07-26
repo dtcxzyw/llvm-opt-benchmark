@@ -626,9 +626,9 @@ define hidden noundef i32 @dissect_options(ptr noundef %0, ptr noundef %1, i32 n
   %39 = tail call ptr @proto_item_add_subtree(ptr noundef %37, i32 noundef %38) #8
   %40 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %4) #8
   %41 = icmp sgt i32 %40, 0
-  br i1 %41, label %.lr.ph593, label %.loopexit
+  br i1 %41, label %.lr.ph597, label %.loopexit
 
-.lr.ph593:                                        ; preds = %35
+.lr.ph597:                                        ; preds = %35
   %.not547 = icmp eq ptr %.0530, null
   %42 = getelementptr inbounds i8, ptr %.0530, i64 16
   %43 = getelementptr inbounds i8, ptr %.0530, i64 24
@@ -646,12 +646,12 @@ define hidden noundef i32 @dissect_options(ptr noundef %0, ptr noundef %1, i32 n
   %54 = getelementptr inbounds i8, ptr %.0530, i64 32
   br label %55
 
-55:                                               ; preds = %.lr.ph593, %672
-  %.0529591 = phi i32 [ %4, %.lr.ph593 ], [ %.2, %672 ]
-  %.0532590 = phi ptr [ null, %.lr.ph593 ], [ %.1533584, %672 ]
+55:                                               ; preds = %.lr.ph597, %672
+  %.0529595 = phi i32 [ %4, %.lr.ph597 ], [ %.2, %672 ]
+  %.0532594 = phi ptr [ null, %.lr.ph597 ], [ %.1533584, %672 ]
   store ptr null, ptr %10, align 8
   %56 = load i32, ptr @hf_pcapng_option, align 4
-  %57 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %56, ptr noundef %3, i32 noundef %.0529591, i32 noundef -1, i32 noundef 0) #8
+  %57 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %56, ptr noundef %3, i32 noundef %.0529595, i32 noundef -1, i32 noundef 0) #8
   %58 = load i32, ptr @ett_pcapng_option, align 4
   %59 = call ptr @proto_item_add_subtree(ptr noundef %57, i32 noundef %58) #8
   switch i32 %2, label %65 [
@@ -689,14 +689,14 @@ define hidden noundef i32 @dissect_options(ptr noundef %0, ptr noundef %1, i32 n
   %.1533.ph = phi ptr [ @option_code_section_header_vals, %55 ], [ @option_code_interface_description_vals, %60 ], [ @option_code_enhanced_packet_vals, %61 ], [ @option_code_packet_vals, %62 ], [ @option_code_name_resolution_vals, %63 ], [ @option_code_interface_statistics_vals, %64 ]
   %.0531.in.ph = phi ptr [ @hf_pcapng_option_code_section_header, %55 ], [ @hf_pcapng_option_code_interface_description, %60 ], [ @hf_pcapng_option_code_enhanced_packet, %61 ], [ @hf_pcapng_option_code_packet, %62 ], [ @hf_pcapng_option_code_name_resolution, %63 ], [ @hf_pcapng_option_code_interface_statistics, %64 ]
   %.0531581 = load i32, ptr %.0531.in.ph, align 4
-  %68 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %59, i32 noundef %.0531581, ptr noundef %3, i32 noundef %.0529591, i32 noundef 2, i32 noundef %5, ptr noundef nonnull %8) #8
+  %68 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %59, i32 noundef %.0531581, ptr noundef %3, i32 noundef %.0529595, i32 noundef 2, i32 noundef %5, ptr noundef nonnull %8) #8
   br label %71
 
 69:                                               ; preds = %65, %66
-  %.1533 = phi ptr [ %67, %66 ], [ %.0532590, %65 ]
+  %.1533 = phi ptr [ %67, %66 ], [ %.0532594, %65 ]
   %.0531.in = phi ptr [ %42, %66 ], [ @hf_pcapng_option_code, %65 ]
   %.0531 = load i32, ptr %.0531.in, align 4
-  %70 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %59, i32 noundef %.0531, ptr noundef %3, i32 noundef %.0529591, i32 noundef 2, i32 noundef %5, ptr noundef nonnull %8) #8
+  %70 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %59, i32 noundef %.0531, ptr noundef %3, i32 noundef %.0529595, i32 noundef 2, i32 noundef %5, ptr noundef nonnull %8) #8
   %.not548 = icmp eq ptr %.1533, null
   br i1 %.not548, label %74, label %71
 
@@ -709,10 +709,10 @@ define hidden noundef i32 @dissect_options(ptr noundef %0, ptr noundef %1, i32 n
 
 74:                                               ; preds = %71, %69
   %.1533584 = phi ptr [ %.1533583, %71 ], [ null, %69 ]
-  %75 = add i32 %.0529591, 2
+  %75 = add i32 %.0529595, 2
   %76 = load i32, ptr @hf_pcapng_option_length, align 4
   %77 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %59, i32 noundef %76, ptr noundef %3, i32 noundef %75, i32 noundef 2, i32 noundef %5, ptr noundef nonnull %9) #8
-  %78 = add i32 %.0529591, 4
+  %78 = add i32 %.0529595, 4
   %79 = load i32, ptr %8, align 4
   switch i32 %79, label %106 [
     i32 0, label %80
@@ -754,7 +754,7 @@ define hidden noundef i32 @dissect_options(ptr noundef %0, ptr noundef %1, i32 n
   %96 = load i32, ptr %9, align 4
   %97 = load i32, ptr @hf_pcapng_cb_pen, align 4
   %98 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %97, ptr noundef %3, i32 noundef %78, i32 noundef 4, i32 noundef %5) #8
-  %99 = add i32 %.0529591, 8
+  %99 = add i32 %.0529595, 8
   switch i32 %79, label %dissect_custom_options.exit [
     i32 2988, label %.sink.split.i
     i32 19372, label %.sink.split.i
@@ -892,7 +892,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
   store i32 4, ptr %46, align 4
   store ptr %161, ptr %47, align 8
   store ptr null, ptr %48, align 8
-  %162 = add i32 %.0529591, 8
+  %162 = add i32 %.0529595, 8
   %163 = load i32, ptr @hf_pcapng_option_data_ipv4_mask, align 4
   %164 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %163, ptr noundef %3, i32 noundef %162, i32 noundef 4, i32 noundef 0) #8
   %165 = call ptr @tvb_get_ptr(ptr noundef %3, i32 noundef %162, i32 noundef 4) #8
@@ -900,7 +900,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
   store i32 4, ptr %51, align 4
   store ptr %165, ptr %52, align 8
   store ptr null, ptr %53, align 8
-  %166 = add i32 %.0529591, 12
+  %166 = add i32 %.0529595, 12
   %167 = load ptr, ptr %44, align 8
   %168 = call ptr @address_to_display(ptr noundef %167, ptr noundef nonnull %11) #8
   %169 = load ptr, ptr %44, align 8
@@ -927,10 +927,10 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
   store i32 16, ptr %46, align 4
   store ptr %180, ptr %47, align 8
   store ptr null, ptr %48, align 8
-  %181 = add i32 %.0529591, 20
+  %181 = add i32 %.0529595, 20
   %182 = load i32, ptr @hf_pcapng_option_data_ipv6_mask, align 4
   %183 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %59, i32 noundef %182, ptr noundef %3, i32 noundef %181, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %14) #8
-  %184 = add i32 %.0529591, 21
+  %184 = add i32 %.0529595, 21
   %185 = load ptr, ptr %44, align 8
   %186 = call ptr @address_to_display(ptr noundef %185, ptr noundef nonnull %11) #8
   %187 = load i32, ptr %14, align 4
@@ -953,7 +953,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
   %196 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %195, ptr noundef %3, i32 noundef %78, i32 noundef 6, i32 noundef %5) #8
   %197 = call ptr @tvb_get_ether_name(ptr noundef %3, i32 noundef %78) #8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.5, ptr noundef %197) #8
-  %198 = add i32 %.0529591, 10
+  %198 = add i32 %.0529595, 10
   br label %657
 
 199:                                              ; preds = %135
@@ -975,7 +975,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
   store i32 8, ptr %46, align 4
   store ptr %208, ptr %47, align 8
   store ptr null, ptr %48, align 8
-  %209 = add i32 %.0529591, 12
+  %209 = add i32 %.0529595, 12
   %210 = load ptr, ptr %44, align 8
   %211 = call ptr @address_to_display(ptr noundef %210, ptr noundef nonnull %11) #8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.5, ptr noundef %211) #8
@@ -1017,7 +1017,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
   %.0534 = phi ptr [ @.str.9, %222 ], [ @.str.10, %223 ], [ %226, %224 ], [ @.str.8, %218 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %220, ptr noundef nonnull @.str.12, ptr noundef %.0534) #8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.5, ptr noundef %.0534) #8
-  %228 = add i32 %.0529591, 12
+  %228 = add i32 %.0529595, 12
   br label %657
 
 229:                                              ; preds = %135
@@ -1036,7 +1036,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
   %237 = load i32, ptr @ett_pcapng_option, align 4
   %238 = call ptr @proto_tree_add_bitmask(ptr noundef %59, ptr noundef %3, i32 noundef %78, i32 noundef %236, i32 noundef %237, ptr noundef nonnull @hfx_pcapng_option_data_interface_timestamp_resolution, i32 noundef 0) #8
   %239 = call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %78) #8
-  %240 = add i32 %.0529591, 5
+  %240 = add i32 %.0529595, 5
   %.not569 = icmp sgt i8 %239, -1
   %. = select i1 %.not569, i32 10, i32 2
   %241 = and i8 %239, 127
@@ -1044,8 +1044,8 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
   %243 = load ptr, ptr %44, align 8
   %244 = call noalias ptr @wmem_strbuf_new(ptr noundef %243, ptr noundef nonnull @.str.13) #8
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %244, ptr noundef nonnull @.str.14, i32 noundef %., i32 noundef %242) #8
-  %.not595 = icmp eq i8 %241, 0
-  br i1 %.not595, label %._crit_edge, label %.lr.ph
+  %.not599 = icmp eq i8 %241, 0
+  br i1 %.not599, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %235
   %245 = zext nneg i32 %. to i64
@@ -1156,7 +1156,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
 274:                                              ; preds = %268
   %275 = load i32, ptr @hf_pcapng_option_data_interface_timezone, align 4
   %276 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %59, i32 noundef %275, ptr noundef %3, i32 noundef %78, i32 noundef 4, i32 noundef %5, ptr noundef nonnull %14) #8
-  %277 = add i32 %.0529591, 8
+  %277 = add i32 %.0529595, 8
   %278 = load i32, ptr %14, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.31, i32 noundef %278) #8
   br label %657
@@ -1173,7 +1173,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
 284:                                              ; preds = %279
   %285 = load i32, ptr @hf_pcapng_option_data_interface_filter_type, align 4
   %286 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %59, i32 noundef %285, ptr noundef %3, i32 noundef %78, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %13) #8
-  %287 = add i32 %.0529591, 5
+  %287 = add i32 %.0529595, 5
   %288 = load i32, ptr %13, align 4
   %289 = load i32, ptr %9, align 4
   %290 = add i32 %289, -1
@@ -1233,7 +1233,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
 320:                                              ; preds = %314
   %321 = load i32, ptr @hf_pcapng_option_data_interface_fcs_length, align 4
   %322 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %59, i32 noundef %321, ptr noundef %3, i32 noundef %78, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %14) #8
-  %323 = add i32 %.0529591, 5
+  %323 = add i32 %.0529595, 5
   %324 = load i32, ptr %14, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.31, i32 noundef %324) #8
   br label %657
@@ -1252,7 +1252,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
 331:                                              ; preds = %325
   %332 = load i32, ptr @hf_pcapng_option_data_interface_timestamp_offset, align 4
   %333 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %59, i32 noundef %332, ptr noundef %3, i32 noundef %78, i32 noundef 8, i32 noundef %5, ptr noundef nonnull %15) #8
-  %334 = add i32 %.0529591, 12
+  %334 = add i32 %.0529595, 12
   %335 = load i64, ptr %15, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.34, i64 noundef %335) #8
   br i1 %.not565, label %657, label %336
@@ -1300,8 +1300,8 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
 
 359:                                              ; preds = %353
   %360 = load i32, ptr @ett_pcapng_option, align 4
-  %361 = add i32 %.0529591, 6
-  %362 = add i32 %.0529591, 8
+  %361 = add i32 %.0529595, 6
+  %362 = add i32 %.0529595, 8
   br i1 %45, label %363, label %369
 
 363:                                              ; preds = %359
@@ -1323,7 +1323,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
 375:                                              ; preds = %352
   %376 = load i32, ptr @hf_pcapng_option_data_packet_hash_algorithm, align 4
   %377 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %376, ptr noundef %3, i32 noundef %78, i32 noundef 1, i32 noundef 0) #8
-  %378 = add i32 %.0529591, 5
+  %378 = add i32 %.0529595, 5
   %379 = load i32, ptr @hf_pcapng_option_data_packet_hash_data, align 4
   %380 = load i32, ptr %9, align 4
   %381 = add i32 %380, -1
@@ -1377,7 +1377,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
   store i32 4, ptr %46, align 4
   store ptr %409, ptr %47, align 8
   store ptr null, ptr %48, align 8
-  %410 = add i32 %.0529591, 8
+  %410 = add i32 %.0529595, 8
   %411 = load ptr, ptr %44, align 8
   %412 = call ptr @address_to_display(ptr noundef %411, ptr noundef nonnull %11) #8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.5, ptr noundef %412) #8
@@ -1402,7 +1402,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
   store i32 16, ptr %46, align 4
   store ptr %422, ptr %47, align 8
   store ptr null, ptr %48, align 8
-  %423 = add i32 %.0529591, 20
+  %423 = add i32 %.0529595, 20
   %424 = load ptr, ptr %44, align 8
   %425 = call ptr @address_to_display(ptr noundef %424, ptr noundef nonnull %11) #8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.5, ptr noundef %425) #8
@@ -1441,7 +1441,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
 439:                                              ; preds = %433
   %440 = load i32, ptr @hf_pcapng_option_data_start_time, align 4
   %441 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %440, ptr noundef %3, i32 noundef %78, i32 noundef 8, i32 noundef %5) #8
-  %442 = add i32 %.0529591, 12
+  %442 = add i32 %.0529595, 12
   br label %657
 
 443:                                              ; preds = %432
@@ -1458,7 +1458,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
 449:                                              ; preds = %443
   %450 = load i32, ptr @hf_pcapng_option_data_end_time, align 4
   %451 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %450, ptr noundef %3, i32 noundef %78, i32 noundef 8, i32 noundef %5) #8
-  %452 = add i32 %.0529591, 12
+  %452 = add i32 %.0529595, 12
   br label %657
 
 453:                                              ; preds = %432
@@ -1477,7 +1477,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
   %461 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %59, i32 noundef %460, ptr noundef %3, i32 noundef %78, i32 noundef 8, i32 noundef %5, ptr noundef nonnull %15) #8
   %462 = load i64, ptr %15, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.34, i64 noundef %462) #8
-  %463 = add i32 %.0529591, 12
+  %463 = add i32 %.0529595, 12
   br label %657
 
 464:                                              ; preds = %432
@@ -1496,7 +1496,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
   %472 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %59, i32 noundef %471, ptr noundef %3, i32 noundef %78, i32 noundef 8, i32 noundef %5, ptr noundef nonnull %15) #8
   %473 = load i64, ptr %15, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.34, i64 noundef %473) #8
-  %474 = add i32 %.0529591, 12
+  %474 = add i32 %.0529595, 12
   br label %657
 
 475:                                              ; preds = %432
@@ -1515,7 +1515,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
   %483 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %59, i32 noundef %482, ptr noundef %3, i32 noundef %78, i32 noundef 8, i32 noundef %5, ptr noundef nonnull %15) #8
   %484 = load i64, ptr %15, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.34, i64 noundef %484) #8
-  %485 = add i32 %.0529591, 12
+  %485 = add i32 %.0529595, 12
   br label %657
 
 486:                                              ; preds = %432
@@ -1534,7 +1534,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
   %494 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %59, i32 noundef %493, ptr noundef %3, i32 noundef %78, i32 noundef 8, i32 noundef %5, ptr noundef nonnull %15) #8
   %495 = load i64, ptr %15, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.34, i64 noundef %495) #8
-  %496 = add i32 %.0529591, 12
+  %496 = add i32 %.0529595, 12
   br label %657
 
 497:                                              ; preds = %432
@@ -1553,7 +1553,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
   %505 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %59, i32 noundef %504, ptr noundef %3, i32 noundef %78, i32 noundef 8, i32 noundef %5, ptr noundef nonnull %15) #8
   %506 = load i64, ptr %15, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.34, i64 noundef %506) #8
-  %507 = add i32 %.0529591, 12
+  %507 = add i32 %.0529595, 12
   br label %657
 
 508:                                              ; preds = %432
@@ -1592,8 +1592,8 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
 
 521:                                              ; preds = %515
   %522 = load i32, ptr @ett_pcapng_option, align 4
-  %523 = add i32 %.0529591, 6
-  %524 = add i32 %.0529591, 8
+  %523 = add i32 %.0529595, 6
+  %524 = add i32 %.0529595, 8
   br i1 %45, label %525, label %531
 
 525:                                              ; preds = %521
@@ -1615,7 +1615,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
 537:                                              ; preds = %514
   %538 = load i32, ptr @hf_pcapng_option_data_packet_hash_algorithm, align 4
   %539 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %538, ptr noundef %3, i32 noundef %78, i32 noundef 1, i32 noundef 0) #8
-  %540 = add i32 %.0529591, 5
+  %540 = add i32 %.0529595, 5
   %541 = load i32, ptr @hf_pcapng_option_data_packet_hash_data, align 4
   %542 = load i32, ptr %9, align 4
   %543 = add i32 %542, -1
@@ -1640,7 +1640,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
   %555 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %59, i32 noundef %554, ptr noundef %3, i32 noundef %78, i32 noundef 8, i32 noundef %5, ptr noundef nonnull %15) #8
   %556 = load i64, ptr %15, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.34, i64 noundef %556) #8
-  %557 = add i32 %.0529591, 12
+  %557 = add i32 %.0529595, 12
   br label %657
 
 558:                                              ; preds = %514
@@ -1659,7 +1659,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
   %566 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %59, i32 noundef %565, ptr noundef %3, i32 noundef %78, i32 noundef 8, i32 noundef %5, ptr noundef nonnull %15) #8
   %567 = load i64, ptr %15, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.35, i64 noundef %567) #8
-  %568 = add i32 %.0529591, 12
+  %568 = add i32 %.0529595, 12
   br label %657
 
 569:                                              ; preds = %514
@@ -1678,7 +1678,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
   %577 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %59, i32 noundef %576, ptr noundef %3, i32 noundef %78, i32 noundef 4, i32 noundef %5, ptr noundef nonnull %14) #8
   %578 = load i32, ptr %14, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.31, i32 noundef %578) #8
-  %579 = add i32 %.0529591, 8
+  %579 = add i32 %.0529595, 8
   br label %657
 
 580:                                              ; preds = %514
@@ -1712,14 +1712,14 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
 
 596:                                              ; preds = %591
   %597 = load i32, ptr @hf_pcapng_option_data_packet_verdict_data, align 4
-  %598 = add i32 %.0529591, 5
+  %598 = add i32 %.0529595, 5
   %599 = add i32 %594, -1
   %600 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %597, ptr noundef %3, i32 noundef %598, i32 noundef %599, i32 noundef 0) #8
-  %.pre602 = load i32, ptr %9, align 4
+  %.pre606 = load i32, ptr %9, align 4
   br label %601
 
 601:                                              ; preds = %596, %591
-  %602 = phi i32 [ %.pre602, %596 ], [ %594, %591 ]
+  %602 = phi i32 [ %.pre606, %596 ], [ %594, %591 ]
   %603 = add i32 %602, %78
   br label %657
 

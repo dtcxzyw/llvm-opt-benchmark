@@ -3509,6 +3509,7 @@ for.cond48.preheader:                             ; preds = %if.then40
 
 for.body52.preheader:                             ; preds = %for.cond48.preheader
   %mul54 = mul nsw i32 %18, %chsize.0
+  %invariant.op = add i32 %offset.1, %mul54
   br label %for.body52
 
 if.then45:                                        ; preds = %if.then40
@@ -3522,9 +3523,8 @@ for.body52:                                       ; preds = %for.body52.preheade
   %34 = load float, ptr %arrayidx, align 4
   %35 = trunc i64 %indvars.iv303 to i32
   %36 = mul i32 %pixelsize.0, %35
-  %add55 = add i32 %36, %offset.1
-  %add57 = add i32 %add55, %mul54
-  %conv58 = sext i32 %add57 to i64
+  %add57.reass = add i32 %36, %invariant.op
+  %conv58 = sext i32 %add57.reass to i64
   %37 = load ptr, ptr %m_buf68, align 8
   %add.ptr.i119 = getelementptr inbounds i8, ptr %37, i64 %conv58
   store float %34, ptr %add.ptr.i119, align 4

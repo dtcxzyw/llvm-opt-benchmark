@@ -851,7 +851,7 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   %20 = alloca i32, align 4
   %21 = load i32, ptr %2, align 4
   %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %23, label %753
+  br i1 %22, label %23, label %752
 
 23:                                               ; preds = %9
   %24 = add nsw i32 %21, -1
@@ -882,8 +882,8 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   %39 = sext i32 %28 to i64
   br label %40
 
-40:                                               ; preds = %.lr.ph, %750
-  %indvars.iv = phi i64 [ %39, %.lr.ph ], [ %indvars.iv.next, %750 ]
+40:                                               ; preds = %.lr.ph, %749
+  %indvars.iv = phi i64 [ %39, %.lr.ph ], [ %indvars.iv.next, %749 ]
   %41 = load ptr, ptr %3, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %._crit_edge74, label %43
@@ -917,12 +917,12 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   %57 = extractvalue { ptr, i32 } %55, 1
   %58 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #2
   %59 = icmp eq i32 %57, %58
-  br i1 %59, label %60, label %757
+  br i1 %59, label %60, label %756
 
 60:                                               ; preds = %54
   %61 = call ptr @__cxa_begin_catch(ptr %56) #2
   invoke void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8) %61) #16
-          to label %62 unwind label %754
+          to label %62 unwind label %753
 
 62:                                               ; preds = %60
   unreachable
@@ -1573,7 +1573,7 @@ _ZL13make_bsplinesN3gmx8ArrayRefIPfEES2_iPA3_fiPKiPKfb.exit: ; preds = %.loopexi
 397:                                              ; preds = %_ZL13make_bsplinesN3gmx8ArrayRefIPfEES2_iPA3_fiPKiPKfb.exit, %121
   %398 = load i8, ptr %8, align 1
   %399 = trunc i8 %398 to i1
-  br i1 %399, label %400, label %750
+  br i1 %399, label %400, label %749
 
 400:                                              ; preds = %397
   %401 = load ptr, ptr %4, align 8
@@ -2000,7 +2000,7 @@ _ZL35spread_coefficients_bsplines_threadP9pmegrid_tPK11PmeAtomCommP12splinedata_
   %687 = getelementptr inbounds i8, ptr %686, i64 64
   %688 = load i8, ptr %687, align 8
   %689 = trunc i8 %688 to i1
-  br i1 %689, label %690, label %750
+  br i1 %689, label %690, label %749
 
 690:                                              ; preds = %_ZL35spread_coefficients_bsplines_threadP9pmegrid_tPK11PmeAtomCommP12splinedata_tRK15pme_spline_work.exit
   %691 = load ptr, ptr %3, align 8
@@ -2036,80 +2036,80 @@ _ZL35spread_coefficients_bsplines_threadP9pmegrid_tPK11PmeAtomCommP12splinedata_
   %711 = getelementptr inbounds [3 x i32], ptr %706, i64 0, i64 %indvars.iv.i48
   %712 = load i32, ptr %711, align 4
   %reass.sub = sub i32 %712, %708
-  %713 = add i32 %reass.sub, 1
-  %714 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 %indvars.iv.i48
-  %715 = load i32, ptr %714, align 4
-  %716 = getelementptr inbounds [3 x i32], ptr %709, i64 0, i64 %indvars.iv.i48
-  %717 = load i32, ptr %716, align 4
-  %718 = sub nsw i32 %715, %717
-  %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %718, i32 %713)
-  %719 = getelementptr inbounds [3 x i32], ptr %13, i64 0, i64 %indvars.iv.i48
-  store i32 %.sroa.speculated.i, ptr %719, align 4
+  %.reass.i = add i32 %reass.sub, 1
+  %713 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 %indvars.iv.i48
+  %714 = load i32, ptr %713, align 4
+  %715 = getelementptr inbounds [3 x i32], ptr %709, i64 0, i64 %indvars.iv.i48
+  %716 = load i32, ptr %715, align 4
+  %717 = sub nsw i32 %714, %716
+  %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %717, i32 %.reass.i)
+  %718 = getelementptr inbounds [3 x i32], ptr %13, i64 0, i64 %indvars.iv.i48
+  store i32 %.sroa.speculated.i, ptr %718, align 4
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i48, 1
   %exitcond.not.i50 = icmp eq i64 %indvars.iv.next.i49, 3
-  br i1 %exitcond.not.i50, label %720, label %710, !llvm.loop !49
+  br i1 %exitcond.not.i50, label %719, label %710, !llvm.loop !49
 
-720:                                              ; preds = %710
-  %721 = load i32, ptr %709, align 8
-  %722 = getelementptr inbounds i8, ptr %701, i64 28
-  %723 = load i32, ptr %722, align 4
-  %724 = getelementptr inbounds i8, ptr %701, i64 32
-  %725 = load i32, ptr %724, align 8
-  %726 = getelementptr inbounds i8, ptr %701, i64 56
-  %727 = load ptr, ptr %726, align 8
-  %728 = load i32, ptr %13, align 4
-  %729 = icmp sgt i32 %728, 0
-  br i1 %729, label %.preheader.lr.ph.i, label %_ZL15copy_local_gridP14PmeAndFftGridsi.exit
+719:                                              ; preds = %710
+  %720 = load i32, ptr %709, align 8
+  %721 = getelementptr inbounds i8, ptr %701, i64 28
+  %722 = load i32, ptr %721, align 4
+  %723 = getelementptr inbounds i8, ptr %701, i64 32
+  %724 = load i32, ptr %723, align 8
+  %725 = getelementptr inbounds i8, ptr %701, i64 56
+  %726 = load ptr, ptr %725, align 8
+  %727 = load i32, ptr %13, align 4
+  %728 = icmp sgt i32 %727, 0
+  br i1 %728, label %.preheader.lr.ph.i, label %_ZL15copy_local_gridP14PmeAndFftGridsi.exit
 
-.preheader.lr.ph.i:                               ; preds = %720
-  %730 = load i32, ptr %37, align 4
-  %731 = icmp sgt i32 %730, 0
-  %732 = load i32, ptr %38, align 4
-  %733 = icmp sgt i32 %732, 0
-  %or.cond.i = select i1 %731, i1 %733, i1 false
+.preheader.lr.ph.i:                               ; preds = %719
+  %729 = load i32, ptr %37, align 4
+  %730 = icmp sgt i32 %729, 0
+  %731 = load i32, ptr %38, align 4
+  %732 = icmp sgt i32 %731, 0
+  %or.cond.i = select i1 %730, i1 %732, i1 false
   br i1 %or.cond.i, label %.preheader.us.us.preheader.i, label %_ZL15copy_local_gridP14PmeAndFftGridsi.exit
 
 .preheader.us.us.preheader.i:                     ; preds = %.preheader.lr.ph.i
-  %734 = sext i32 %705 to i64
-  %735 = sext i32 %703 to i64
-  %wide.trip.count74.i = zext nneg i32 %728 to i64
-  %wide.trip.count69.i = zext nneg i32 %730 to i64
-  %wide.trip.count.i52 = zext nneg i32 %732 to i64
+  %733 = sext i32 %705 to i64
+  %734 = sext i32 %703 to i64
+  %wide.trip.count74.i = zext nneg i32 %727 to i64
+  %wide.trip.count69.i = zext nneg i32 %729 to i64
+  %wide.trip.count.i52 = zext nneg i32 %731 to i64
   br label %.preheader.us.us.i
 
 .preheader.us.us.i:                               ; preds = %._crit_edge53.split.us.us.us.i, %.preheader.us.us.preheader.i
   %indvars.iv71.i = phi i64 [ 0, %.preheader.us.us.preheader.i ], [ %indvars.iv.next72.i, %._crit_edge53.split.us.us.us.i ]
-  %736 = trunc i64 %indvars.iv71.i to i32
-  %737 = add i32 %721, %736
-  %738 = mul i32 %737, %697
-  %739 = add i32 %738, %723
-  %740 = mul nsw i64 %indvars.iv71.i, %735
+  %735 = trunc i64 %indvars.iv71.i to i32
+  %736 = add i32 %720, %735
+  %737 = mul i32 %736, %697
+  %738 = add i32 %737, %722
+  %739 = mul nsw i64 %indvars.iv71.i, %734
   br label %.lr.ph.us.us.us.i
 
 .lr.ph.us.us.us.i:                                ; preds = %._crit_edge.us.us.us.i, %.preheader.us.us.i
   %indvars.iv66.i = phi i64 [ %indvars.iv.next67.i, %._crit_edge.us.us.us.i ], [ 0, %.preheader.us.us.i ]
-  %741 = trunc nuw nsw i64 %indvars.iv66.i to i32
-  %742 = add i32 %739, %741
-  %743 = mul nsw i32 %742, %698
-  %744 = add nsw i32 %743, %725
-  %745 = add nsw i64 %indvars.iv66.i, %740
-  %746 = mul nsw i64 %745, %734
-  %747 = sext i32 %744 to i64
-  %invariant.gep.i = getelementptr float, ptr %727, i64 %746
-  %invariant.gep76.i = getelementptr float, ptr %693, i64 %747
-  br label %748
+  %740 = trunc nuw nsw i64 %indvars.iv66.i to i32
+  %741 = add i32 %738, %740
+  %742 = mul nsw i32 %741, %698
+  %743 = add nsw i32 %742, %724
+  %744 = add nsw i64 %indvars.iv66.i, %739
+  %745 = mul nsw i64 %744, %733
+  %746 = sext i32 %743 to i64
+  %invariant.gep.i = getelementptr float, ptr %726, i64 %745
+  %invariant.gep76.i = getelementptr float, ptr %693, i64 %746
+  br label %747
 
-748:                                              ; preds = %748, %.lr.ph.us.us.us.i
-  %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %748 ], [ 0, %.lr.ph.us.us.us.i ]
+747:                                              ; preds = %747, %.lr.ph.us.us.us.i
+  %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %747 ], [ 0, %.lr.ph.us.us.us.i ]
   %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %indvars.iv62.i
-  %749 = load float, ptr %gep.i, align 4
+  %748 = load float, ptr %gep.i, align 4
   %gep77.i = getelementptr float, ptr %invariant.gep76.i, i64 %indvars.iv62.i
-  store float %749, ptr %gep77.i, align 4
+  store float %748, ptr %gep77.i, align 4
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
   %exitcond65.not.i = icmp eq i64 %indvars.iv.next63.i, %wide.trip.count.i52
-  br i1 %exitcond65.not.i, label %._crit_edge.us.us.us.i, label %748, !llvm.loop !50
+  br i1 %exitcond65.not.i, label %._crit_edge.us.us.us.i, label %747, !llvm.loop !50
 
-._crit_edge.us.us.us.i:                           ; preds = %748
+._crit_edge.us.us.us.i:                           ; preds = %747
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
   %exitcond70.not.i = icmp eq i64 %indvars.iv.next67.i, %wide.trip.count69.i
   br i1 %exitcond70.not.i, label %._crit_edge53.split.us.us.us.i, label %.lr.ph.us.us.us.i, !llvm.loop !51
@@ -2119,35 +2119,35 @@ _ZL35spread_coefficients_bsplines_threadP9pmegrid_tPK11PmeAtomCommP12splinedata_
   %exitcond75.not.i = icmp eq i64 %indvars.iv.next72.i, %wide.trip.count74.i
   br i1 %exitcond75.not.i, label %_ZL15copy_local_gridP14PmeAndFftGridsi.exit, label %.preheader.us.us.i, !llvm.loop !52
 
-_ZL15copy_local_gridP14PmeAndFftGridsi.exit:      ; preds = %._crit_edge53.split.us.us.us.i, %720, %.preheader.lr.ph.i
+_ZL15copy_local_gridP14PmeAndFftGridsi.exit:      ; preds = %._crit_edge53.split.us.us.us.i, %719, %.preheader.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13)
-  br label %750
+  br label %749
 
-750:                                              ; preds = %_ZL15copy_local_gridP14PmeAndFftGridsi.exit, %397, %_ZL35spread_coefficients_bsplines_threadP9pmegrid_tPK11PmeAtomCommP12splinedata_tRK15pme_spline_work.exit
+749:                                              ; preds = %_ZL15copy_local_gridP14PmeAndFftGridsi.exit, %397, %_ZL35spread_coefficients_bsplines_threadP9pmegrid_tPK11PmeAtomCommP12splinedata_tRK15pme_spline_work.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %751 = load i32, ptr %18, align 4
-  %752 = sext i32 %751 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %752
+  %750 = load i32, ptr %18, align 4
+  %751 = sext i32 %750 to i64
+  %.not.not = icmp slt i64 %indvars.iv, %751
   br i1 %.not.not, label %40, label %._crit_edge
 
-._crit_edge:                                      ; preds = %750, %23
+._crit_edge:                                      ; preds = %749, %23
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %25)
-  br label %753
+  br label %752
 
-753:                                              ; preds = %._crit_edge, %9
+752:                                              ; preds = %._crit_edge, %9
   ret void
 
-754:                                              ; preds = %60
-  %755 = landingpad { ptr, i32 }
+753:                                              ; preds = %60
+  %754 = landingpad { ptr, i32 }
           catch ptr null
-  %756 = extractvalue { ptr, i32 } %755, 0
-  call void @__clang_call_terminate(ptr %756) #17
+  %755 = extractvalue { ptr, i32 } %754, 0
+  call void @__clang_call_terminate(ptr %755) #17
   unreachable
 
-757:                                              ; preds = %54
+756:                                              ; preds = %54
   call void @__clang_call_terminate(ptr %56) #17
   unreachable
 }

@@ -44,108 +44,109 @@ define i32 @phpdbg_consume_stdin_line(ptr nocapture noundef %0) local_unnamed_ad
   br label %6
 
 6:                                                ; preds = %phpdbg_mixed_read.exit, %5
-  %.042 = phi i32 [ %2, %5 ], [ %44, %phpdbg_mixed_read.exit ]
+  %.042 = phi i32 [ %2, %5 ], [ %43, %phpdbg_mixed_read.exit ]
   %.040 = phi i32 [ 0, %5 ], [ %.3, %phpdbg_mixed_read.exit ]
   %7 = icmp slt i32 %.042, 1
   br i1 %7, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %6
+  %invariant.op = add nsw i32 %.042, -1
   %8 = add nsw i32 %.040, %.042
   br label %9
 
-9:                                                ; preds = %.preheader, %33
-  %10 = phi i32 [ %8, %.preheader ], [ %35, %33 ]
-  %.061 = phi i32 [ %.040, %.preheader ], [ %34, %33 ]
-  %.14160 = phi i32 [ %.040, %.preheader ], [ %.2, %33 ]
+9:                                                ; preds = %.preheader, %32
+  %10 = phi i32 [ %8, %.preheader ], [ %34, %32 ]
+  %.061 = phi i32 [ %.040, %.preheader ], [ %33, %32 ]
+  %.14160 = phi i32 [ %.040, %.preheader ], [ %.2, %32 ]
   %11 = sext i32 %.061 to i64
   %12 = getelementptr inbounds i8, ptr %0, i64 %11
   %13 = load i8, ptr %12, align 1
-  switch i8 %13, label %33 [
+  switch i8 %13, label %32 [
     i8 3, label %14
-    i8 10, label %24
+    i8 10, label %23
   ]
 
 14:                                               ; preds = %9
-  %15 = add nsw i32 %10, -1
-  %.not53 = icmp eq i32 %.061, %15
-  br i1 %.not53, label %21, label %16
+  %.reass = add i32 %.14160, %invariant.op
+  %.not53 = icmp eq i32 %.061, %.reass
+  br i1 %.not53, label %20, label %15
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %12, i64 1
-  %18 = xor i32 %.061, -1
-  %19 = add i32 %10, %18
-  %20 = sext i32 %19 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull align 1 %17, i64 %20, i1 false)
-  br label %21
+15:                                               ; preds = %14
+  %16 = getelementptr inbounds i8, ptr %12, i64 1
+  %17 = xor i32 %.061, -1
+  %18 = add i32 %10, %17
+  %19 = sext i32 %18 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull align 1 %16, i64 %19, i1 false)
+  br label %20
 
-21:                                               ; preds = %16, %14
-  %22 = add nsw i32 %.14160, -1
-  %23 = add nsw i32 %.061, -1
-  br label %33
+20:                                               ; preds = %15, %14
+  %21 = add nsw i32 %.14160, -1
+  %22 = add nsw i32 %.061, -1
+  br label %32
 
-24:                                               ; preds = %9
-  %25 = xor i32 %.061, -1
-  %26 = add i32 %10, %25
-  store i32 %26, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2132), align 4
-  %.not51 = icmp eq i32 %26, 0
-  br i1 %.not51, label %30, label %27
+23:                                               ; preds = %9
+  %24 = xor i32 %.061, -1
+  %25 = add i32 %10, %24
+  store i32 %25, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2132), align 4
+  %.not51 = icmp eq i32 %25, 0
+  br i1 %.not51, label %29, label %26
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %12, i64 1
-  %29 = sext i32 %26 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1632), ptr nonnull align 1 %28, i64 %29, i1 false)
-  br label %30
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds i8, ptr %12, i64 1
+  %28 = sext i32 %25 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1632), ptr nonnull align 1 %27, i64 %28, i1 false)
+  br label %29
 
-30:                                               ; preds = %27, %24
+29:                                               ; preds = %26, %23
   %.not52 = icmp eq i32 %.061, 499
-  br i1 %.not52, label %53, label %31
+  br i1 %.not52, label %52, label %30
 
-31:                                               ; preds = %30
-  %32 = getelementptr i8, ptr %12, i64 1
-  store i8 0, ptr %32, align 1
-  br label %53
+30:                                               ; preds = %29
+  %31 = getelementptr i8, ptr %12, i64 1
+  store i8 0, ptr %31, align 1
+  br label %52
 
-33:                                               ; preds = %9, %21
-  %.2 = phi i32 [ %22, %21 ], [ %.14160, %9 ]
-  %.1 = phi i32 [ %23, %21 ], [ %.061, %9 ]
-  %34 = add nsw i32 %.1, 1
-  %35 = add nsw i32 %.2, %.042
-  %36 = icmp slt i32 %34, %35
-  br i1 %36, label %9, label %.loopexit
+32:                                               ; preds = %9, %20
+  %.2 = phi i32 [ %21, %20 ], [ %.14160, %9 ]
+  %.1 = phi i32 [ %22, %20 ], [ %.061, %9 ]
+  %33 = add nsw i32 %.1, 1
+  %34 = add nsw i32 %.2, %.042
+  %35 = icmp slt i32 %33, %34
+  br i1 %35, label %9, label %.loopexit
 
-.loopexit:                                        ; preds = %33, %6
-  %.3 = phi i32 [ %.040, %6 ], [ %35, %33 ]
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1496), align 8
-  %38 = sext i32 %.3 to i64
-  %39 = getelementptr inbounds i8, ptr %0, i64 %38
-  %40 = sub nsw i32 500, %.3
-  %41 = sext i32 %40 to i64
-  br label %42
+.loopexit:                                        ; preds = %32, %6
+  %.3 = phi i32 [ %.040, %6 ], [ %34, %32 ]
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1496), align 8
+  %37 = sext i32 %.3 to i64
+  %38 = getelementptr inbounds i8, ptr %0, i64 %37
+  %39 = sub nsw i32 500, %.3
+  %40 = sext i32 %39 to i64
+  br label %41
 
-42:                                               ; preds = %46, %.loopexit
-  %43 = tail call i64 @read(i32 noundef %37, ptr noundef %39, i64 noundef %41) #8
-  %44 = trunc i64 %43 to i32
-  %45 = icmp eq i32 %44, -1
-  br i1 %45, label %46, label %phpdbg_mixed_read.exit
+41:                                               ; preds = %45, %.loopexit
+  %42 = tail call i64 @read(i32 noundef %36, ptr noundef %38, i64 noundef %40) #8
+  %43 = trunc i64 %42 to i32
+  %44 = icmp eq i32 %43, -1
+  br i1 %44, label %45, label %phpdbg_mixed_read.exit
 
-46:                                               ; preds = %42
-  %47 = tail call ptr @__errno_location() #9
-  %48 = load i32, ptr %47, align 4
-  %49 = icmp eq i32 %48, 4
-  br i1 %49, label %42, label %phpdbg_mixed_read.exit.thread
+45:                                               ; preds = %41
+  %46 = tail call ptr @__errno_location() #9
+  %47 = load i32, ptr %46, align 4
+  %48 = icmp eq i32 %47, 4
+  br i1 %48, label %41, label %phpdbg_mixed_read.exit.thread
 
-phpdbg_mixed_read.exit:                           ; preds = %42
-  %50 = icmp sgt i32 %44, 0
-  br i1 %50, label %6, label %phpdbg_mixed_read.exit.thread
+phpdbg_mixed_read.exit:                           ; preds = %41
+  %49 = icmp sgt i32 %43, 0
+  br i1 %49, label %6, label %phpdbg_mixed_read.exit.thread
 
-phpdbg_mixed_read.exit.thread:                    ; preds = %phpdbg_mixed_read.exit, %46
-  %51 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
-  %52 = or i64 %51, 65536
-  store i64 %52, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
+phpdbg_mixed_read.exit.thread:                    ; preds = %phpdbg_mixed_read.exit, %45
+  %50 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
+  %51 = or i64 %50, 65536
+  store i64 %51, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   tail call void @_zend_bailout(ptr noundef nonnull @.str, i32 noundef 67) #10
   unreachable
 
-53:                                               ; preds = %30, %31
+52:                                               ; preds = %29, %30
   ret i32 %.061
 }
 

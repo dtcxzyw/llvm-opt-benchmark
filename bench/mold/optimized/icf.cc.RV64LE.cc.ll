@@ -24258,6 +24258,7 @@ if.end.i.i.i:                                     ; preds = %while.body
   %my_index.i10.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
   %my_item.i11.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
   %my_segment_table.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
+  %invariant.op.i.i = add i64 %2, -1
   %or.i.i.i.i.i70.i.i = or i64 %add.i.i.i.i, 1
   %8 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i70.i.i, i1 true)
   %xor.i.i.i.i.i.i.i71.i.i = xor i64 %8, 63
@@ -24277,8 +24278,8 @@ if.end.i.i.i:                                     ; preds = %while.body
 if.end6.split.i.i.i:                              ; preds = %if.end.i.i.i, %if.end6.split.i.i.i
   %__parent.0.i77.i.i = phi i64 [ %dec.i.i.i, %if.end6.split.i.i.i ], [ %div12.i.i.i, %if.end.i.i.i ]
   %dec.i.i.i = add nsw i64 %__parent.0.i77.i.i, -1
-  %add.i13.i.i.i = add i64 %dec.i.i.i, %2
-  %or.i.i.i.i.i.i.i = or i64 %add.i13.i.i.i, 1
+  %add.i13.i.reass.i.i = add i64 %invariant.op.i.i, %__parent.0.i77.i.i
+  %or.i.i.i.i.i.i.i = or i64 %add.i13.i.reass.i.i, 1
   %12 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i.i.i.i = xor i64 %12, 63
   %13 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i acquire, align 8
@@ -24286,7 +24287,7 @@ if.end6.split.i.i.i:                              ; preds = %if.end.i.i.i, %if.e
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds %"struct.std::atomic.614", ptr %atomic-temp.i.0.i.i.i.i.i.i.i, i64 %xor.i.i.i.i.i.i.i.i.i
   %14 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i2.i.i.i.i.i.i = inttoptr i64 %14 to ptr
-  %arrayidx4.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i.i.i, i64 %add.i13.i.i.i
+  %arrayidx4.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i.i.i, i64 %add.i13.i.reass.i.i
   %15 = load ptr, ptr %arrayidx4.i.i.i.i.i.i, align 8
   store ptr %4, ptr %agg.tmp.i.i.i, align 8
   store i64 %2, ptr %my_index.i10.i.i.i, align 8

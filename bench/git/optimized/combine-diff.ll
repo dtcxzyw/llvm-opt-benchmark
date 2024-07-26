@@ -2379,6 +2379,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then41
   %tobool154.not.i.i = icmp eq i64 %18, 0
   %wide.trip.count.i.i = and i64 %15, 2147483647
   %mul.i.i.i = mul nuw nsw i64 %wide.trip.count.i.i, 72
+  %invariant.op.i.i = add nuw nsw i64 %mul.i.i.i, 57
   %tobool15.i = icmp ne ptr %17, null
   br label %for.body.i
 
@@ -2407,10 +2408,10 @@ for.cond.preheader.i.i:                           ; preds = %for.body.i
   br i1 %cmp1125.i.i, label %for.body.i.i, label %intersect_paths.exit.i
 
 for.body.i.i:                                     ; preds = %for.cond.preheader.i.i, %for.inc.i.i
-  %indvars.iv137.i.i = phi i64 [ %indvars.iv.next138.i.i, %for.inc.i.i ], [ 0, %for.cond.preheader.i.i ]
+  %indvars.iv138.i.i = phi i64 [ %indvars.iv.next139.i.i, %for.inc.i.i ], [ 0, %for.cond.preheader.i.i ]
   %tail.0127.i.i = phi ptr [ %tail.1.i.i, %for.inc.i.i ], [ %curr.addr.i.i, %for.cond.preheader.i.i ]
   %21 = load ptr, ptr @diff_queued_diff, align 8
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv137.i.i
+  %arrayidx.i.i = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv138.i.i
   %22 = load ptr, ptr %arrayidx.i.i, align 8
   %call.i.i = call i32 @diff_unmodified_pair(ptr noundef %22) #14
   %tobool2.not.i.i = icmp eq i32 %call.i.i, 0
@@ -2418,7 +2419,7 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %23 = load ptr, ptr @diff_queued_diff, align 8
-  %arrayidx6.i.i = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv137.i.i
+  %arrayidx6.i.i = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv138.i.i
   %24 = load ptr, ptr %arrayidx6.i.i, align 8
   %two.i.i = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load ptr, ptr %two.i.i, align 8
@@ -2443,18 +2444,18 @@ if.then.i86.i.i:                                  ; preds = %st_add.exit.i.i
   unreachable
 
 st_add.exit87.i.i:                                ; preds = %st_add.exit.i.i
-  %add.i85.i.i = add nsw i64 %conv9.i.i, 57
   %sub.i89.i.i = sub nsw i64 -58, %conv9.i.i
   %cmp.i90.i.i = icmp ult i64 %sub.i89.i.i, %mul.i.i.i
   br i1 %cmp.i90.i.i, label %if.then.i92.i.i, label %st_add.exit93.i.i
 
 if.then.i92.i.i:                                  ; preds = %st_add.exit87.i.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.39, i64 noundef %add.i85.i.i, i64 noundef %mul.i.i.i) #15
+  %add.i85.le.i.i = add nsw i64 %conv9.i.i, 57
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.39, i64 noundef %add.i85.le.i.i, i64 noundef %mul.i.i.i) #15
   unreachable
 
 st_add.exit93.i.i:                                ; preds = %st_add.exit87.i.i
-  %add.i91.i.i = add nsw i64 %add.i85.i.i, %mul.i.i.i
-  %call15.i.i = call ptr @xmalloc(i64 noundef %add.i91.i.i) #14
+  %add.i91.reass.i.i = add nsw i64 %invariant.op.i.i, %conv9.i.i
+  %call15.i.i = call ptr @xmalloc(i64 noundef %add.i91.reass.i.i) #14
   %parent.i.i = getelementptr inbounds i8, ptr %call15.i.i, i64 56
   %arrayidx17.i.i = getelementptr inbounds [0 x %struct.combine_diff_parent], ptr %parent.i.i, i64 0, i64 %wide.trip.count.i.i
   %path18.i.i = getelementptr inbounds i8, ptr %call15.i.i, i64 8
@@ -2467,7 +2468,7 @@ st_add.exit93.i.i:                                ; preds = %st_add.exit87.i.i
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %parent.i.i, i8 0, i64 %mul.i.i.i, i1 false)
   %oid.i.i = getelementptr inbounds i8, ptr %call15.i.i, i64 20
   %28 = load ptr, ptr @diff_queued_diff, align 8
-  %arrayidx28.i.i = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv137.i.i
+  %arrayidx28.i.i = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv138.i.i
   %29 = load ptr, ptr %arrayidx28.i.i, align 8
   %two29.i.i = getelementptr inbounds i8, ptr %29, i64 8
   %30 = load ptr, ptr %two29.i.i, align 8
@@ -2515,7 +2516,7 @@ if.then69.i.i:                                    ; preds = %land.lhs.true.i.i, 
   %path73.i.i = getelementptr inbounds i8, ptr %call15.i.i, i64 104
   call void @strbuf_init(ptr noundef nonnull %path73.i.i, i64 noundef 0) #14
   %43 = load ptr, ptr @diff_queued_diff, align 8
-  %arrayidx80.i.i = getelementptr inbounds ptr, ptr %43, i64 %indvars.iv137.i.i
+  %arrayidx80.i.i = getelementptr inbounds ptr, ptr %43, i64 %indvars.iv138.i.i
   %44 = load ptr, ptr %arrayidx80.i.i, align 8
   %45 = load ptr, ptr %44, align 8
   %path82.i.i = getelementptr inbounds i8, ptr %45, i64 40
@@ -2530,10 +2531,10 @@ if.end83.i.i:                                     ; preds = %if.then69.i.i, %lan
 
 for.inc.i.i:                                      ; preds = %if.end83.i.i, %for.body.i.i
   %tail.1.i.i = phi ptr [ %tail.0127.i.i, %for.body.i.i ], [ %call15.i.i, %if.end83.i.i ]
-  %indvars.iv.next138.i.i = add nuw nsw i64 %indvars.iv137.i.i, 1
+  %indvars.iv.next139.i.i = add nuw nsw i64 %indvars.iv138.i.i, 1
   %47 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %48 = sext i32 %47 to i64
-  %cmp1.i.i = icmp slt i64 %indvars.iv.next138.i.i, %48
+  %cmp1.i.i = icmp slt i64 %indvars.iv.next139.i.i, %48
   br i1 %cmp1.i.i, label %for.body.i.i, label %intersect_paths.exit.i, !llvm.loop !59
 
 while.condthread-pre-split.i.i:                   ; preds = %if.end172.i.i, %if.then124.i.i, %for.end120.i.i

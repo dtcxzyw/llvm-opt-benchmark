@@ -4672,6 +4672,7 @@ entry:
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
   %cmp225 = icmp eq i64 %needleLen, 0
+  %invariant.op = add i64 %needleLen, 1
   br i1 %cmp225, label %return, label %for.cond1.preheader
 
 for.cond1.preheader:                              ; preds = %for.cond1.preheader.lr.ph, %for.inc8
@@ -4700,8 +4701,8 @@ if.end:                                           ; preds = %for.cond1.preheader
 
 for.inc8:                                         ; preds = %if.end
   %inc9 = add i64 %i.029, 1
-  %add = add i64 %inc9, %needleLen
-  %cmp.not = icmp ugt i64 %add, %sub.ptr.div.i
+  %add.reass = add i64 %i.029, %invariant.op
+  %cmp.not = icmp ugt i64 %add.reass, %sub.ptr.div.i
   br i1 %cmp.not, label %for.body15.lr.ph, label %for.cond1.preheader, !llvm.loop !20
 
 for.body15:                                       ; preds = %for.body15.lr.ph, %_ZNSt6vectorItSaItEE9push_backEOt.exit
@@ -4802,6 +4803,7 @@ entry:
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
   %cmp225 = icmp eq i64 %needleLen, 0
+  %invariant.op = add i64 %needleLen, 1
   br i1 %cmp225, label %return, label %for.cond1.preheader
 
 for.cond1.preheader:                              ; preds = %for.cond1.preheader.lr.ph, %for.inc8
@@ -4829,8 +4831,8 @@ if.end:                                           ; preds = %for.cond1.preheader
 
 for.inc8:                                         ; preds = %if.end
   %inc9 = add i64 %i.029, 1
-  %add = add i64 %inc9, %needleLen
-  %cmp.not = icmp ugt i64 %add, %sub.ptr.div.i
+  %add.reass = add i64 %i.029, %invariant.op
+  %cmp.not = icmp ugt i64 %add.reass, %sub.ptr.div.i
   br i1 %cmp.not, label %for.body15.lr.ph, label %for.cond1.preheader, !llvm.loop !23
 
 for.body15:                                       ; preds = %for.body15.lr.ph, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit

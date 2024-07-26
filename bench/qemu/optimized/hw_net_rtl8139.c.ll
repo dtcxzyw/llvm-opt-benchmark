@@ -2180,6 +2180,7 @@ if.end197.i:                                      ; preds = %if.end191.i
   br i1 %or.cond218.i, label %skip_offload.i, label %if.end221.i
 
 if.end221.i:                                      ; preds = %if.end197.i
+  %invariant.op.i = add nuw nsw i32 %shl212.i, 12
   %cmp226244.not.i = icmp eq i16 %conv166.i, %29
   br i1 %cmp226244.not.i, label %skip_offload.i, label %for.body.lr.ph.i
 
@@ -2209,7 +2210,6 @@ for.body.i:                                       ; preds = %if.end261.i, %for.b
   %33 = trunc nuw nsw i64 %32 to i32
   %spec.select219.i = select i1 %cmp230.not.not.i, i32 %and193.i, i32 %33
   store i64 %saved_ip_header.i.12.saved_ip_header.i.12.saved_ip_header.i.12.saved_ip_header.12.saved_ip_header.12..i, ptr %add.ptr205.i, align 1
-  %add241.i = add nuw nsw i32 %spec.select219.i, %shl212.i
   %tobool243.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %tobool243.not.i, label %if.end252.i, label %if.then244.i
 
@@ -2231,37 +2231,38 @@ if.then254.i:                                     ; preds = %if.end252.i
 if.end261.i:                                      ; preds = %if.then254.i, %if.end252.i
   store i8 0, ptr %zeros.i, align 4
   store i8 6, ptr %ip_proto.i, align 1
-  %conv264.i = trunc i32 %add241.i to i16
-  %35 = call noundef i16 @llvm.bswap.i16(i16 %conv264.i)
-  store i16 %35, ptr %ip_payload.i, align 2
+  %35 = trunc nuw i32 %spec.select219.i to i16
+  %conv264.i = add i16 %29, %35
+  %36 = call noundef i16 @llvm.bswap.i16(i16 %conv264.i)
+  store i16 %36, ptr %ip_payload.i, align 2
   store i16 0, ptr %th_sum.i, align 4
-  %add268.i = add nuw nsw i32 %add241.i, 12
-  %conv269.i = zext nneg i32 %add268.i to i64
+  %add268.reass.i = add nuw nsw i32 %invariant.op.i, %spec.select219.i
+  %conv269.i = zext nneg i32 %add268.reass.i to i64
   %call270.i = call fastcc zeroext i16 @ip_checksum(ptr noundef nonnull %add.ptr205.i, i64 noundef %conv269.i)
   store i16 %call270.i, ptr %th_sum.i, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr129.i, ptr nonnull align 16 %saved_ip_header.i, i64 %conv146.i, i1 false)
   %add279.i = add nuw nsw i32 %add277.i, %spec.select219.i
   %conv280.i = trunc i32 %add279.i to i16
-  %36 = call noundef i16 @llvm.bswap.i16(i16 %conv280.i)
-  store i16 %36, ptr %ip_len.i, align 2
-  %37 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %div.i = udiv i32 %37, %and193.i
-  %38 = load i16, ptr %ip_id.i, align 4
-  %39 = call noundef i16 @llvm.bswap.i16(i16 %38)
-  %40 = trunc i32 %div.i to i16
-  %conv286.i = add i16 %39, %40
-  %41 = call noundef i16 @llvm.bswap.i16(i16 %conv286.i)
-  store i16 %41, ptr %ip_id.i, align 4
+  %37 = call noundef i16 @llvm.bswap.i16(i16 %conv280.i)
+  store i16 %37, ptr %ip_len.i, align 2
+  %38 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %div.i = udiv i32 %38, %and193.i
+  %39 = load i16, ptr %ip_id.i, align 4
+  %40 = call noundef i16 @llvm.bswap.i16(i16 %39)
+  %41 = trunc i32 %div.i to i16
+  %conv286.i = add i16 %40, %41
+  %42 = call noundef i16 @llvm.bswap.i16(i16 %conv286.i)
+  store i16 %42, ptr %ip_id.i, align 4
   store i16 0, ptr %ip_sum289.i, align 2
   %call291.i = call fastcc zeroext i16 @ip_checksum(ptr noundef nonnull %add.ptr129.i, i64 noundef %conv146.i)
   store i16 %call291.i, ptr %ip_sum289.i, align 2
   %add299.i = add nuw nsw i32 %add297.i, %spec.select219.i
   call fastcc void @rtl8139_transfer_frame(ptr noundef %s, ptr noundef nonnull %16, i32 noundef %add299.i, ptr noundef %dot1q_buffer.0.i)
   %th_seq.val222.i = load i32, ptr %th_seq.i, align 1
-  %42 = call i32 @llvm.bswap.i32(i32 %th_seq.val222.i)
-  %add305.i = add i32 %42, %spec.select219.i
-  %43 = call i32 @llvm.bswap.i32(i32 %add305.i)
-  store i32 %43, ptr %th_seq.i, align 1
+  %43 = call i32 @llvm.bswap.i32(i32 %th_seq.val222.i)
+  %add305.i = add i32 %43, %spec.select219.i
+  %44 = call i32 @llvm.bswap.i32(i32 %add305.i)
+  store i32 %44, ptr %th_seq.i, align 1
   br i1 %cmp230.not.not.i, label %for.body.i, label %skip_offload.i, !llvm.loop !9
 
 if.else307.i:                                     ; preds = %if.end179.i, %if.end179.thread.i
@@ -2288,9 +2289,9 @@ if.then330.i:                                     ; preds = %if.then313.i
   store i8 0, ptr %zeros334.i, align 4
   %ip_proto335.i = getelementptr i8, ptr %add.ptr320.i, i64 -3
   store i8 6, ptr %ip_proto335.i, align 1
-  %44 = call noundef i16 @llvm.bswap.i16(i16 %conv166.i)
+  %45 = call noundef i16 @llvm.bswap.i16(i16 %conv166.i)
   %ip_payload337.i = getelementptr i8, ptr %add.ptr320.i, i64 -2
-  store i16 %44, ptr %ip_payload337.i, align 2
+  store i16 %45, ptr %ip_payload337.i, align 2
   %th_sum340.i = getelementptr inbounds i8, ptr %add.ptr320.i, i64 16
   store i16 0, ptr %th_sum340.i, align 4
   %add343.i = add nuw nsw i64 %conv331.i, 12
@@ -2311,9 +2312,9 @@ if.then357.i:                                     ; preds = %if.else350.i
   store i8 0, ptr %zeros360.i, align 4
   %ip_proto361.i = getelementptr i8, ptr %add.ptr320.i, i64 -3
   store i8 17, ptr %ip_proto361.i, align 1
-  %45 = call noundef i16 @llvm.bswap.i16(i16 %conv166.i)
+  %46 = call noundef i16 @llvm.bswap.i16(i16 %conv166.i)
   %ip_payload363.i = getelementptr i8, ptr %add.ptr320.i, i64 -2
-  store i16 %45, ptr %ip_payload363.i, align 2
+  store i16 %46, ptr %ip_payload363.i, align 2
   %uh_sum.i = getelementptr inbounds i8, ptr %add.ptr320.i, i64 6
   store i16 0, ptr %uh_sum.i, align 2
   %add366.i = add nuw nsw i64 %conv358.i, 12
@@ -2327,12 +2328,12 @@ if.end374.i:                                      ; preds = %if.then357.i, %if.e
 
 skip_offload.i:                                   ; preds = %if.end261.i, %if.end374.i, %if.else307.i, %if.end221.i, %if.end197.i, %if.end191.i, %if.then186.i, %if.end153.i, %if.end142.i, %if.end127.i, %if.end120.i, %if.end108.i
   %saved_size.0.i = phi i32 [ %17, %if.end120.i ], [ %17, %if.end142.i ], [ %17, %if.end153.i ], [ %17, %if.then186.i ], [ %17, %if.end191.i ], [ %17, %if.end197.i ], [ %17, %if.else307.i ], [ %17, %if.end374.i ], [ %17, %if.end108.i ], [ %17, %if.end127.i ], [ 0, %if.end221.i ], [ 0, %if.end261.i ]
-  %46 = load i64, ptr %tally_counters.i, align 16
-  %inc380.i = add i64 %46, 1
+  %47 = load i64, ptr %tally_counters.i, align 16
+  %inc380.i = add i64 %47, 1
   store i64 %inc380.i, ptr %tally_counters.i, align 16
   call fastcc void @rtl8139_transfer_frame(ptr noundef %s, ptr noundef %16, i32 noundef %saved_size.0.i, ptr noundef %dot1q_buffer.0.i)
-  %47 = load ptr, ptr %cplus_txbuffer.i, align 16
-  %tobool383.not.i = icmp eq ptr %47, null
+  %48 = load ptr, ptr %cplus_txbuffer.i, align 16
+  %tobool383.not.i = icmp eq ptr %48, null
   br i1 %tobool383.not.i, label %if.then384.i, label %if.else388.i
 
 if.then384.i:                                     ; preds = %skip_offload.i
@@ -2364,14 +2365,14 @@ while.end:                                        ; preds = %land.rhs, %if.end.i
 
 if.else:                                          ; preds = %while.body, %while.end
   %IntrStatus = getelementptr inbounds i8, ptr %s, i64 2672
-  %48 = load i16, ptr %IntrStatus, align 16
-  %49 = or i16 %48, 4
-  store i16 %49, ptr %IntrStatus, align 16
+  %49 = load i16, ptr %IntrStatus, align 16
+  %50 = or i16 %49, 4
+  store i16 %50, ptr %IntrStatus, align 16
   %call.i.i6 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #12
-  %50 = load i16, ptr %IntrStatus, align 16
+  %51 = load i16, ptr %IntrStatus, align 16
   %IntrMask.i = getelementptr inbounds i8, ptr %s, i64 2674
-  %51 = load i16, ptr %IntrMask.i, align 2
-  %and6.i = and i16 %51, %50
+  %52 = load i16, ptr %IntrMask.i, align 2
+  %and6.i = and i16 %52, %51
   %tobool.i = icmp ne i16 %and6.i, 0
   %conv8.i = zext i1 %tobool.i to i32
   call void @pci_set_irq(ptr noundef %call.i.i6, i32 noundef %conv8.i) #12

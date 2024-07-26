@@ -184,18 +184,18 @@ define internal fastcc range(i32 0, 2) i32 @systemd_journal_read_export_entry(pt
   %13 = getelementptr inbounds i8, ptr %1, i64 32
   br label %14
 
-14:                                               ; preds = %67, %5
-  %.061115 = phi i64 [ 0, %5 ], [ %.1, %67 ]
-  %.062114 = phi i32 [ 0, %5 ], [ %70, %67 ]
-  %.064113 = phi i32 [ 0, %5 ], [ %.165, %67 ]
-  %.067112 = phi i32 [ 0, %5 ], [ %.168, %67 ]
-  %.070111 = phi i32 [ 0, %5 ], [ %.171, %67 ]
+14:                                               ; preds = %66, %5
+  %.061115 = phi i64 [ 0, %5 ], [ %.1, %66 ]
+  %.062114 = phi i32 [ 0, %5 ], [ %69, %66 ]
+  %.064113 = phi i32 [ 0, %5 ], [ %.165, %66 ]
+  %.067112 = phi i32 [ 0, %5 ], [ %.168, %66 ]
+  %.070111 = phi i32 [ 0, %5 ], [ %.171, %66 ]
   %15 = getelementptr i8, ptr %10, i64 %.061115
   %16 = trunc i64 %.061115 to i32
   %17 = sub nsw i32 262144, %16
   %18 = call ptr @file_gets(ptr noundef %15, i32 noundef %17, ptr noundef %0) #9
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %71, label %19
+  br i1 %.not, label %70, label %19
 
 19:                                               ; preds = %14
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #10
@@ -207,7 +207,7 @@ define internal fastcc range(i32 0, 2) i32 @systemd_journal_read_export_entry(pt
 24:                                               ; preds = %19
   %25 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(10) @.str, i64 noundef 9) #10
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %67, label %27
+  br i1 %26, label %66, label %27
 
 27:                                               ; preds = %24
   %28 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(22) @.str.1, i64 noundef 21) #10
@@ -221,7 +221,7 @@ define internal fastcc range(i32 0, 2) i32 @systemd_journal_read_export_entry(pt
   %33 = call i64 @strtoul(ptr nocapture noundef %32, ptr noundef null, i32 noundef 10) #9
   %34 = load i32, ptr %31, align 4
   %.not80 = icmp eq i32 %34, 0
-  br i1 %.not80, label %35, label %67
+  br i1 %.not80, label %35, label %66
 
 35:                                               ; preds = %30
   %36 = sdiv i64 %33, 1000000
@@ -231,17 +231,17 @@ define internal fastcc range(i32 0, 2) i32 @systemd_journal_read_export_entry(pt
   %39 = mul nuw nsw i32 %38, 1000
   store i32 %39, ptr %12, align 8
   store i32 6, ptr %13, align 8
-  br label %67
+  br label %66
 
 40:                                               ; preds = %27
   %41 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(23) @.str.2, i64 noundef 22) #10
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %67, label %43
+  br i1 %42, label %66, label %43
 
 43:                                               ; preds = %40
   %strchr = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 61)
   %.not76 = icmp eq ptr %strchr, null
-  br i1 %.not76, label %44, label %67
+  br i1 %.not76, label %44, label %66
 
 44:                                               ; preds = %43
   %45 = icmp ugt i64 %21, 262135
@@ -286,62 +286,62 @@ define internal fastcc range(i32 0, 2) i32 @systemd_journal_read_export_entry(pt
   br i1 %.not79, label %.loopexit, label %64
 
 64:                                               ; preds = %59
-  %65 = add nuw nsw i64 %21, 9
-  %66 = add nuw nsw i64 %65, %52
-  br label %67
+  %.reass = add nuw nsw i64 %21, 9
+  %65 = add nuw nsw i64 %.reass, %52
+  br label %66
 
-67:                                               ; preds = %40, %24, %64, %43, %30, %35
+66:                                               ; preds = %40, %24, %64, %43, %30, %35
   %.171 = phi i32 [ %.070111, %30 ], [ %.070111, %35 ], [ %.070111, %43 ], [ %.070111, %64 ], [ 1, %24 ], [ %.070111, %40 ]
   %.168 = phi i32 [ %.067112, %30 ], [ 1, %35 ], [ %.067112, %43 ], [ %.067112, %64 ], [ %.067112, %24 ], [ %.067112, %40 ]
   %.165 = phi i32 [ %.064113, %30 ], [ %.064113, %35 ], [ %.064113, %43 ], [ %.064113, %64 ], [ %.064113, %24 ], [ 1, %40 ]
-  %.1 = phi i64 [ %21, %30 ], [ %21, %35 ], [ %21, %43 ], [ %66, %64 ], [ %21, %24 ], [ %21, %40 ]
-  %68 = add i64 %.1, -262143
-  %69 = icmp ult i64 %68, -262145
-  %70 = add nuw nsw i32 %.062114, 1
-  %exitcond.not = icmp eq i32 %70, 100
-  %or.cond146 = select i1 %69, i1 true, i1 %exitcond.not
-  br i1 %or.cond146, label %71, label %14, !llvm.loop !6
+  %.1 = phi i64 [ %21, %30 ], [ %21, %35 ], [ %21, %43 ], [ %65, %64 ], [ %21, %24 ], [ %21, %40 ]
+  %67 = add i64 %.1, -262143
+  %68 = icmp ult i64 %67, -262145
+  %69 = add nuw nsw i32 %.062114, 1
+  %exitcond.not = icmp eq i32 %69, 100
+  %or.cond146 = select i1 %68, i1 true, i1 %exitcond.not
+  br i1 %or.cond146, label %70, label %14, !llvm.loop !6
 
-71:                                               ; preds = %67, %14
-  %.272 = phi i32 [ %.171, %67 ], [ %.070111, %14 ]
-  %.269 = phi i32 [ %.168, %67 ], [ %.067112, %14 ]
-  %.266 = phi i32 [ %.165, %67 ], [ %.064113, %14 ]
-  %.2 = phi i64 [ %.1, %67 ], [ %.061115, %14 ]
-  %72 = icmp ne i32 %.272, 0
-  %73 = icmp ne i32 %.269, 0
-  %or.cond = select i1 %72, i1 %73, i1 false
-  %74 = icmp ne i32 %.266, 0
-  %or.cond3 = select i1 %or.cond, i1 %74, i1 false
-  br i1 %or.cond3, label %78, label %.loopexit
+70:                                               ; preds = %66, %14
+  %.272 = phi i32 [ %.171, %66 ], [ %.070111, %14 ]
+  %.269 = phi i32 [ %.168, %66 ], [ %.067112, %14 ]
+  %.266 = phi i32 [ %.165, %66 ], [ %.064113, %14 ]
+  %.2 = phi i64 [ %.1, %66 ], [ %.061115, %14 ]
+  %71 = icmp ne i32 %.272, 0
+  %72 = icmp ne i32 %.269, 0
+  %or.cond = select i1 %71, i1 %72, i1 false
+  %73 = icmp ne i32 %.266, 0
+  %or.cond3 = select i1 %or.cond, i1 %73, i1 false
+  br i1 %or.cond3, label %77, label %.loopexit
 
 .thread:                                          ; preds = %19
-  %75 = icmp ne i32 %.070111, 0
-  %76 = icmp ne i32 %.067112, 0
-  %or.cond88 = select i1 %75, i1 %76, i1 false
-  %77 = icmp ne i32 %.064113, 0
-  %or.cond389 = select i1 %or.cond88, i1 %77, i1 false
+  %74 = icmp ne i32 %.070111, 0
+  %75 = icmp ne i32 %.067112, 0
+  %or.cond88 = select i1 %74, i1 %75, i1 false
+  %76 = icmp ne i32 %.064113, 0
+  %or.cond389 = select i1 %or.cond88, i1 %76, i1 false
   br i1 %or.cond389, label %.thread92, label %.loopexit
 
-78:                                               ; preds = %71
-  %79 = call i32 @file_eof(ptr noundef %0) #9
-  %.not82 = icmp eq i32 %79, 0
+77:                                               ; preds = %70
+  %78 = call i32 @file_eof(ptr noundef %0) #9
+  %.not82 = icmp eq i32 %78, 0
   br i1 %.not82, label %.loopexit, label %.thread92
 
-.thread92:                                        ; preds = %.thread, %78
-  %.29195 = phi i64 [ %.2, %78 ], [ %21, %.thread ]
+.thread92:                                        ; preds = %.thread, %77
+  %.29195 = phi i64 [ %.2, %77 ], [ %21, %.thread ]
   store i32 4, ptr %1, align 8
-  %80 = call ptr @wtap_block_create(i32 noundef 10) #9
-  %81 = getelementptr inbounds i8, ptr %1, i64 232
-  store ptr %80, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %1, i64 4
-  store i32 3, ptr %82, align 4
-  %83 = trunc i64 %.29195 to i32
-  %84 = getelementptr inbounds i8, ptr %1, i64 64
-  store i32 %83, ptr %84, align 8
+  %79 = call ptr @wtap_block_create(i32 noundef 10) #9
+  %80 = getelementptr inbounds i8, ptr %1, i64 232
+  store ptr %79, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %1, i64 4
+  store i32 3, ptr %81, align 4
+  %82 = trunc i64 %.29195 to i32
+  %83 = getelementptr inbounds i8, ptr %1, i64 64
+  store i32 %82, ptr %83, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %59, %48, %.thread, %78, %71, %.thread92, %57, %46
-  %.0 = phi i32 [ 1, %.thread92 ], [ 0, %46 ], [ 0, %57 ], [ 0, %71 ], [ 0, %78 ], [ 0, %.thread ], [ 0, %48 ], [ 0, %59 ]
+.loopexit:                                        ; preds = %59, %48, %.thread, %77, %70, %.thread92, %57, %46
+  %.0 = phi i32 [ 1, %.thread92 ], [ 0, %46 ], [ 0, %57 ], [ 0, %70 ], [ 0, %77 ], [ 0, %.thread ], [ 0, %48 ], [ 0, %59 ]
   ret i32 %.0
 }
 

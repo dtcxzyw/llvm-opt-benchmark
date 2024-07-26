@@ -5901,7 +5901,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
   %7 = alloca %struct.compute_options_size_t, align 8
   %8 = tail call ptr @wtap_block_get_mandatory_data(ptr noundef %1) #16
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %153, label %9
+  br i1 %.not, label %148, label %9
 
 9:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -5916,7 +5916,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %14 = add i32 %spec.select.i, -983021
   %15 = icmp ult i32 %14, -1048577
-  br i1 %15, label %153, label %16
+  br i1 %15, label %148, label %16
 
 16:                                               ; preds = %9
   %17 = call noalias dereferenceable_or_null(1048576) ptr @g_malloc(i64 noundef 1048576) #18
@@ -5927,266 +5927,270 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
 
 20:                                               ; preds = %16
   %21 = call ptr @g_list_nth_data(ptr noundef nonnull %19, i32 noundef 0) #16
+  %invariant.op = add nsw i32 %spec.select.i, 4
   %.not169190196 = icmp eq ptr %21, null
   br i1 %.not169190196, label %.loopexit177, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %20
-  %22 = add nsw i32 %spec.select.i, 4
   %.sroa.6.0..0.74.sroa_idx = getelementptr inbounds i8, ptr %17, i64 4
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer178
-  %.0.ph200 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %76, %.outer178 ]
-  %.0159.ph199 = phi ptr [ %21, %.lr.ph.lr.ph ], [ %78, %.outer178 ]
-  %.0160.ph198 = phi i32 [ 8, %.lr.ph.lr.ph ], [ %75, %.outer178 ]
-  %.sroa.6.0.ph197 = phi i32 [ 12, %.lr.ph.lr.ph ], [ %57, %.outer178 ]
-  br label %23
+  %.0.ph200 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %74, %.outer178 ]
+  %.0159.ph199 = phi ptr [ %21, %.lr.ph.lr.ph ], [ %76, %.outer178 ]
+  %.0160.ph198 = phi i32 [ 8, %.lr.ph.lr.ph ], [ %73, %.outer178 ]
+  %.sroa.6.0.ph197 = phi i32 [ 12, %.lr.ph.lr.ph ], [ %55, %.outer178 ]
+  br label %22
 
-23:                                               ; preds = %.lr.ph, %27
-  %.0192 = phi i32 [ %.0.ph200, %.lr.ph ], [ %28, %27 ]
-  %.0159191 = phi ptr [ %.0159.ph199, %.lr.ph ], [ %30, %27 ]
-  %24 = getelementptr inbounds i8, ptr %.0159191, i64 21
-  %25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #19
-  %26 = icmp ugt i64 %25, 65530
-  br i1 %26, label %27, label %31
+22:                                               ; preds = %.lr.ph, %26
+  %.0192 = phi i32 [ %.0.ph200, %.lr.ph ], [ %27, %26 ]
+  %.0159191 = phi ptr [ %.0159.ph199, %.lr.ph ], [ %29, %26 ]
+  %23 = getelementptr inbounds i8, ptr %.0159191, i64 21
+  %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #19
+  %25 = icmp ugt i64 %24, 65530
+  br i1 %25, label %26, label %30
 
-27:                                               ; preds = %23
-  %28 = add i32 %.0192, 1
-  %29 = load ptr, ptr %8, align 8
-  %30 = call ptr @g_list_nth_data(ptr noundef %29, i32 noundef %28) #16
-  %.not169 = icmp eq ptr %30, null
-  br i1 %.not169, label %.loopexit177, label %23, !llvm.loop !21
+26:                                               ; preds = %22
+  %27 = add i32 %.0192, 1
+  %28 = load ptr, ptr %8, align 8
+  %29 = call ptr @g_list_nth_data(ptr noundef %28, i32 noundef %27) #16
+  %.not169 = icmp eq ptr %29, null
+  br i1 %.not169, label %.loopexit177, label %22, !llvm.loop !21
 
-31:                                               ; preds = %23
-  %32 = trunc nuw i64 %25 to i16
-  %33 = add nuw i16 %32, 1
-  %34 = zext i16 %33 to i32
-  %35 = add nuw i16 %32, 5
-  %36 = trunc nuw i64 %25 to i32
-  %37 = add nuw nsw i32 %36, 8
-  %38 = and i32 %37, 131068
-  %39 = add nuw nsw i32 %38, 4
-  %40 = add i32 %39, %.0160.ph198
-  %41 = icmp ugt i32 %40, %18
-  br i1 %41, label %42, label %.outer178
+30:                                               ; preds = %22
+  %31 = trunc nuw i64 %24 to i16
+  %32 = add nuw i16 %31, 1
+  %33 = zext i16 %32 to i32
+  %34 = add nuw i16 %31, 5
+  %35 = trunc nuw i64 %24 to i32
+  %36 = add nuw nsw i32 %35, 8
+  %37 = and i32 %36, 131068
+  %38 = add nuw nsw i32 %37, 4
+  %39 = add i32 %38, %.0160.ph198
+  %40 = icmp ugt i32 %39, %18
+  br i1 %40, label %41, label %.outer178
 
-42:                                               ; preds = %31
-  %43 = zext i32 %.0160.ph198 to i64
-  %44 = getelementptr i8, ptr %17, i64 %43
-  store i32 0, ptr %44, align 1
-  %45 = add i32 %.0160.ph198, 4
-  %46 = zext i32 %45 to i64
-  %47 = getelementptr i8, ptr %17, i64 %46
+41:                                               ; preds = %30
+  %42 = zext i32 %.0160.ph198 to i64
+  %43 = getelementptr i8, ptr %17, i64 %42
+  store i32 0, ptr %43, align 1
+  %44 = add i32 %.0160.ph198, 4
+  %45 = zext i32 %44 to i64
+  %46 = getelementptr i8, ptr %17, i64 %45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store ptr %47, ptr %6, align 8
-  %48 = call i32 @wtap_block_foreach_option(ptr noundef %1, ptr noundef nonnull @put_nrb_option, ptr noundef nonnull %6) #16
-  %49 = load ptr, ptr %6, align 8
-  store i16 0, ptr %49, align 1
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %49, i64 2
+  store ptr %46, ptr %6, align 8
+  %47 = call i32 @wtap_block_foreach_option(ptr noundef %1, ptr noundef nonnull @put_nrb_option, ptr noundef nonnull %6) #16
+  %48 = load ptr, ptr %6, align 8
+  store i16 0, ptr %48, align 1
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %48, i64 2
   store i16 0, ptr %.sroa.2.0..sroa_idx.i, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %50 = add i32 %45, %spec.select.i
-  %51 = add i32 %22, %.sroa.6.0.ph197
+  %.reass = add i32 %.0160.ph198, %invariant.op
+  %49 = add i32 %invariant.op, %.sroa.6.0.ph197
   store i32 4, ptr %17, align 1
-  store i32 %51, ptr %.sroa.6.0..0.74.sroa_idx, align 1
-  %52 = zext i32 %50 to i64
-  %53 = getelementptr i8, ptr %17, i64 %52
-  store i32 %51, ptr %53, align 1
-  %54 = zext i32 %51 to i64
-  %55 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %17, i64 noundef %54, ptr noundef %2) #16
-  %.not174 = icmp eq i32 %55, 0
-  br i1 %.not174, label %56, label %.outer178
+  store i32 %49, ptr %.sroa.6.0..0.74.sroa_idx, align 1
+  %50 = zext i32 %.reass to i64
+  %51 = getelementptr i8, ptr %17, i64 %50
+  store i32 %49, ptr %51, align 1
+  %52 = zext i32 %49 to i64
+  %53 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %17, i64 noundef %52, ptr noundef %2) #16
+  %.not174 = icmp eq i32 %53, 0
+  br i1 %.not174, label %54, label %.outer178
 
-56:                                               ; preds = %42
+54:                                               ; preds = %41
   call void @g_free(ptr noundef nonnull %17) #16
-  br label %153
+  br label %148
 
-.outer178:                                        ; preds = %42, %31
-  %.sroa.6.1 = phi i32 [ %.sroa.6.0.ph197, %31 ], [ 12, %42 ]
-  %.1161 = phi i32 [ %.0160.ph198, %31 ], [ 8, %42 ]
-  %57 = add i32 %.sroa.6.1, %39
-  %58 = zext i32 %.1161 to i64
-  %59 = getelementptr i8, ptr %17, i64 %58
-  store i16 1, ptr %59, align 1
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 2
-  store i16 %35, ptr %.sroa.4.0..sroa_idx, align 1
-  %60 = add i32 %.1161, 4
-  %61 = zext i32 %60 to i64
-  %62 = getelementptr i8, ptr %17, i64 %61
-  %63 = load i32, ptr %.0159191, align 4
-  store i32 %63, ptr %62, align 1
-  %64 = add i32 %.1161, 8
-  %65 = zext i32 %64 to i64
-  %66 = getelementptr i8, ptr %17, i64 %65
-  %67 = zext i16 %33 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %66, ptr noundef nonnull align 1 dereferenceable(1) %24, i64 %67, i1 false)
-  %68 = add i32 %64, %34
-  %69 = zext i32 %68 to i64
-  %70 = getelementptr i8, ptr %17, i64 %69
-  %71 = add nuw nsw i32 %34, 3
-  %72 = and i32 %71, 131068
-  %73 = sub nsw i32 %72, %34
-  %74 = sext i32 %73 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %70, i8 0, i64 %74, i1 false)
-  %75 = add i32 %64, %72
-  %76 = add i32 %.0192, 1
-  %77 = load ptr, ptr %8, align 8
-  %78 = call ptr @g_list_nth_data(ptr noundef %77, i32 noundef %76) #16
-  %.not169190 = icmp eq ptr %78, null
+.outer178:                                        ; preds = %41, %30
+  %.sroa.6.1 = phi i32 [ %.sroa.6.0.ph197, %30 ], [ 12, %41 ]
+  %.1161 = phi i32 [ %.0160.ph198, %30 ], [ 8, %41 ]
+  %55 = add i32 %.sroa.6.1, %38
+  %56 = zext i32 %.1161 to i64
+  %57 = getelementptr i8, ptr %17, i64 %56
+  store i16 1, ptr %57, align 1
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %57, i64 2
+  store i16 %34, ptr %.sroa.4.0..sroa_idx, align 1
+  %58 = add i32 %.1161, 4
+  %59 = zext i32 %58 to i64
+  %60 = getelementptr i8, ptr %17, i64 %59
+  %61 = load i32, ptr %.0159191, align 4
+  store i32 %61, ptr %60, align 1
+  %62 = add i32 %.1161, 8
+  %63 = zext i32 %62 to i64
+  %64 = getelementptr i8, ptr %17, i64 %63
+  %65 = zext i16 %32 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr noundef nonnull align 1 dereferenceable(1) %23, i64 %65, i1 false)
+  %66 = add i32 %62, %33
+  %67 = zext i32 %66 to i64
+  %68 = getelementptr i8, ptr %17, i64 %67
+  %69 = add nuw nsw i32 %33, 3
+  %70 = and i32 %69, 131068
+  %71 = sub nsw i32 %70, %33
+  %72 = sext i32 %71 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %68, i8 0, i64 %72, i1 false)
+  %73 = add i32 %62, %70
+  %74 = add i32 %.0192, 1
+  %75 = load ptr, ptr %8, align 8
+  %76 = call ptr @g_list_nth_data(ptr noundef %75, i32 noundef %74) #16
+  %.not169190 = icmp eq ptr %76, null
   br i1 %.not169190, label %.loopexit177, label %.lr.ph, !llvm.loop !21
 
-.loopexit177:                                     ; preds = %.outer178, %27, %20, %16
-  %.sroa.6.2 = phi i32 [ 12, %16 ], [ 12, %20 ], [ %.sroa.6.0.ph197, %27 ], [ %57, %.outer178 ]
-  %.2 = phi i32 [ 8, %16 ], [ 8, %20 ], [ %.0160.ph198, %27 ], [ %75, %.outer178 ]
-  %79 = getelementptr inbounds i8, ptr %8, i64 8
-  %80 = load ptr, ptr %79, align 8
-  %.not170 = icmp eq ptr %80, null
-  br i1 %.not170, label %.loopexit, label %81
+.loopexit177:                                     ; preds = %.outer178, %26, %20, %16
+  %.sroa.6.2 = phi i32 [ 12, %16 ], [ 12, %20 ], [ %.sroa.6.0.ph197, %26 ], [ %55, %.outer178 ]
+  %.2 = phi i32 [ 8, %16 ], [ 8, %20 ], [ %.0160.ph198, %26 ], [ %73, %.outer178 ]
+  %77 = getelementptr inbounds i8, ptr %8, i64 8
+  %78 = load ptr, ptr %77, align 8
+  %.not170 = icmp eq ptr %78, null
+  br i1 %.not170, label %.loopexit177..loopexit_crit_edge, label %79
 
-81:                                               ; preds = %.loopexit177
-  %82 = call ptr @g_list_nth_data(ptr noundef nonnull %80, i32 noundef 0) #16
-  %.not171203211 = icmp eq ptr %82, null
-  br i1 %.not171203211, label %.loopexit, label %.lr.ph206.lr.ph
+.loopexit177..loopexit_crit_edge:                 ; preds = %.loopexit177
+  %.pre = add i32 %spec.select.i, 4
+  br label %.loopexit
 
-.lr.ph206.lr.ph:                                  ; preds = %81
-  %83 = add i32 %spec.select.i, 4
+79:                                               ; preds = %.loopexit177
+  %80 = call ptr @g_list_nth_data(ptr noundef nonnull %78, i32 noundef 0) #16
+  %invariant.op211 = add i32 %spec.select.i, 4
+  %.not171203213 = icmp eq ptr %80, null
+  br i1 %.not171203213, label %.loopexit, label %.lr.ph206.lr.ph
+
+.lr.ph206.lr.ph:                                  ; preds = %79
   %.sroa.6.0..0.84.sroa_idx = getelementptr inbounds i8, ptr %17, i64 4
   br label %.lr.ph206
 
 .lr.ph206:                                        ; preds = %.lr.ph206.lr.ph, %.outer
-  %.1.ph215 = phi i32 [ 0, %.lr.ph206.lr.ph ], [ %136, %.outer ]
-  %.0158.ph214 = phi ptr [ %82, %.lr.ph206.lr.ph ], [ %138, %.outer ]
-  %.3.ph213 = phi i32 [ %.2, %.lr.ph206.lr.ph ], [ %135, %.outer ]
-  %.sroa.6.3.ph212 = phi i32 [ %.sroa.6.2, %.lr.ph206.lr.ph ], [ %118, %.outer ]
-  br label %84
+  %.1.ph217 = phi i32 [ 0, %.lr.ph206.lr.ph ], [ %132, %.outer ]
+  %.0158.ph216 = phi ptr [ %80, %.lr.ph206.lr.ph ], [ %134, %.outer ]
+  %.3.ph215 = phi i32 [ %.2, %.lr.ph206.lr.ph ], [ %131, %.outer ]
+  %.sroa.6.3.ph214 = phi i32 [ %.sroa.6.2, %.lr.ph206.lr.ph ], [ %114, %.outer ]
+  br label %81
 
-84:                                               ; preds = %.lr.ph206, %88
-  %.1205 = phi i32 [ %.1.ph215, %.lr.ph206 ], [ %89, %88 ]
-  %.0158204 = phi ptr [ %.0158.ph214, %.lr.ph206 ], [ %91, %88 ]
-  %85 = getelementptr inbounds i8, ptr %.0158204, i64 63
-  %86 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #19
-  %87 = icmp ugt i64 %86, 65518
-  br i1 %87, label %88, label %92
+81:                                               ; preds = %.lr.ph206, %85
+  %.1205 = phi i32 [ %.1.ph217, %.lr.ph206 ], [ %86, %85 ]
+  %.0158204 = phi ptr [ %.0158.ph216, %.lr.ph206 ], [ %88, %85 ]
+  %82 = getelementptr inbounds i8, ptr %.0158204, i64 63
+  %83 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #19
+  %84 = icmp ugt i64 %83, 65518
+  br i1 %84, label %85, label %89
 
-88:                                               ; preds = %84
-  %89 = add i32 %.1205, 1
-  %90 = load ptr, ptr %79, align 8
-  %91 = call ptr @g_list_nth_data(ptr noundef %90, i32 noundef %89) #16
-  %.not171 = icmp eq ptr %91, null
-  br i1 %.not171, label %.loopexit, label %84, !llvm.loop !22
+85:                                               ; preds = %81
+  %86 = add i32 %.1205, 1
+  %87 = load ptr, ptr %77, align 8
+  %88 = call ptr @g_list_nth_data(ptr noundef %87, i32 noundef %86) #16
+  %.not171 = icmp eq ptr %88, null
+  br i1 %.not171, label %.loopexit, label %81, !llvm.loop !22
 
-92:                                               ; preds = %84
-  %93 = trunc nuw i64 %86 to i16
-  %94 = add nuw i16 %93, 1
-  %95 = zext i16 %94 to i32
-  %96 = add nuw i16 %93, 17
-  %97 = trunc nuw i64 %86 to i32
-  %98 = add nuw nsw i32 %97, 20
-  %99 = and i32 %98, 131068
-  %100 = add nuw nsw i32 %99, 4
-  %101 = add i32 %100, %.3.ph213
-  %102 = icmp ugt i32 %101, %18
-  br i1 %102, label %103, label %.outer
+89:                                               ; preds = %81
+  %90 = trunc nuw i64 %83 to i16
+  %91 = add nuw i16 %90, 1
+  %92 = zext i16 %91 to i32
+  %93 = add nuw i16 %90, 17
+  %94 = trunc nuw i64 %83 to i32
+  %95 = add nuw nsw i32 %94, 20
+  %96 = and i32 %95, 131068
+  %97 = add nuw nsw i32 %96, 4
+  %98 = add i32 %97, %.3.ph215
+  %99 = icmp ugt i32 %98, %18
+  br i1 %99, label %100, label %.outer
 
-103:                                              ; preds = %92
-  %104 = zext i32 %.3.ph213 to i64
+100:                                              ; preds = %89
+  %101 = zext i32 %.3.ph215 to i64
+  %102 = getelementptr i8, ptr %17, i64 %101
+  store i32 0, ptr %102, align 1
+  %103 = add i32 %.3.ph215, 4
+  %104 = zext i32 %103 to i64
   %105 = getelementptr i8, ptr %17, i64 %104
-  store i32 0, ptr %105, align 1
-  %106 = add i32 %.3.ph213, 4
-  %107 = zext i32 %106 to i64
-  %108 = getelementptr i8, ptr %17, i64 %107
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store ptr %108, ptr %5, align 8
-  %109 = call i32 @wtap_block_foreach_option(ptr noundef %1, ptr noundef nonnull @put_nrb_option, ptr noundef nonnull %5) #16
-  %110 = load ptr, ptr %5, align 8
-  store i16 0, ptr %110, align 1
-  %.sroa.2.0..sroa_idx.i175 = getelementptr inbounds i8, ptr %110, i64 2
+  store ptr %105, ptr %5, align 8
+  %106 = call i32 @wtap_block_foreach_option(ptr noundef %1, ptr noundef nonnull @put_nrb_option, ptr noundef nonnull %5) #16
+  %107 = load ptr, ptr %5, align 8
+  store i16 0, ptr %107, align 1
+  %.sroa.2.0..sroa_idx.i175 = getelementptr inbounds i8, ptr %107, i64 2
   store i16 0, ptr %.sroa.2.0..sroa_idx.i175, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %111 = add i32 %106, %spec.select.i
-  %112 = add i32 %83, %.sroa.6.3.ph212
+  %.reass212 = add i32 %.3.ph215, %invariant.op211
+  %108 = add i32 %invariant.op211, %.sroa.6.3.ph214
   store i32 4, ptr %17, align 1
-  store i32 %112, ptr %.sroa.6.0..0.84.sroa_idx, align 1
-  %113 = zext i32 %111 to i64
-  %114 = getelementptr i8, ptr %17, i64 %113
-  store i32 %112, ptr %114, align 1
-  %115 = zext i32 %112 to i64
-  %116 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %17, i64 noundef %115, ptr noundef %2) #16
-  %.not173 = icmp eq i32 %116, 0
-  br i1 %.not173, label %117, label %.outer
+  store i32 %108, ptr %.sroa.6.0..0.84.sroa_idx, align 1
+  %109 = zext i32 %.reass212 to i64
+  %110 = getelementptr i8, ptr %17, i64 %109
+  store i32 %108, ptr %110, align 1
+  %111 = zext i32 %108 to i64
+  %112 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %17, i64 noundef %111, ptr noundef %2) #16
+  %.not173 = icmp eq i32 %112, 0
+  br i1 %.not173, label %113, label %.outer
 
-117:                                              ; preds = %103
+113:                                              ; preds = %100
   call void @g_free(ptr noundef nonnull %17) #16
-  br label %153
+  br label %148
 
-.outer:                                           ; preds = %103, %92
-  %.sroa.6.4 = phi i32 [ %.sroa.6.3.ph212, %92 ], [ 12, %103 ]
-  %.4 = phi i32 [ %.3.ph213, %92 ], [ 8, %103 ]
-  %118 = add i32 %.sroa.6.4, %100
-  %119 = zext i32 %.4 to i64
-  %120 = getelementptr i8, ptr %17, i64 %119
-  store i16 2, ptr %120, align 1
-  %.sroa.4.0..sroa_idx119 = getelementptr inbounds i8, ptr %120, i64 2
-  store i16 %96, ptr %.sroa.4.0..sroa_idx119, align 1
-  %121 = add i32 %.4, 4
-  %122 = zext i32 %121 to i64
-  %123 = getelementptr i8, ptr %17, i64 %122
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %123, ptr noundef nonnull align 1 dereferenceable(16) %.0158204, i64 16, i1 false)
-  %124 = add i32 %.4, 20
+.outer:                                           ; preds = %100, %89
+  %.sroa.6.4 = phi i32 [ %.sroa.6.3.ph214, %89 ], [ 12, %100 ]
+  %.4 = phi i32 [ %.3.ph215, %89 ], [ 8, %100 ]
+  %114 = add i32 %.sroa.6.4, %97
+  %115 = zext i32 %.4 to i64
+  %116 = getelementptr i8, ptr %17, i64 %115
+  store i16 2, ptr %116, align 1
+  %.sroa.4.0..sroa_idx119 = getelementptr inbounds i8, ptr %116, i64 2
+  store i16 %93, ptr %.sroa.4.0..sroa_idx119, align 1
+  %117 = add i32 %.4, 4
+  %118 = zext i32 %117 to i64
+  %119 = getelementptr i8, ptr %17, i64 %118
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %119, ptr noundef nonnull align 1 dereferenceable(16) %.0158204, i64 16, i1 false)
+  %120 = add i32 %.4, 20
+  %121 = zext i32 %120 to i64
+  %122 = getelementptr i8, ptr %17, i64 %121
+  %123 = zext i16 %91 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %122, ptr noundef nonnull align 1 dereferenceable(1) %82, i64 %123, i1 false)
+  %124 = add i32 %120, %92
   %125 = zext i32 %124 to i64
   %126 = getelementptr i8, ptr %17, i64 %125
-  %127 = zext i16 %94 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %126, ptr noundef nonnull align 1 dereferenceable(1) %85, i64 %127, i1 false)
-  %128 = add i32 %124, %95
-  %129 = zext i32 %128 to i64
-  %130 = getelementptr i8, ptr %17, i64 %129
-  %131 = add nuw nsw i32 %95, 3
-  %132 = and i32 %131, 131068
-  %133 = sub nsw i32 %132, %95
-  %134 = sext i32 %133 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %130, i8 0, i64 %134, i1 false)
-  %135 = add i32 %124, %132
-  %136 = add i32 %.1205, 1
-  %137 = load ptr, ptr %79, align 8
-  %138 = call ptr @g_list_nth_data(ptr noundef %137, i32 noundef %136) #16
-  %.not171203 = icmp eq ptr %138, null
+  %127 = add nuw nsw i32 %92, 3
+  %128 = and i32 %127, 131068
+  %129 = sub nsw i32 %128, %92
+  %130 = sext i32 %129 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %126, i8 0, i64 %130, i1 false)
+  %131 = add i32 %120, %128
+  %132 = add i32 %.1205, 1
+  %133 = load ptr, ptr %77, align 8
+  %134 = call ptr @g_list_nth_data(ptr noundef %133, i32 noundef %132) #16
+  %.not171203 = icmp eq ptr %134, null
   br i1 %.not171203, label %.loopexit, label %.lr.ph206, !llvm.loop !22
 
-.loopexit:                                        ; preds = %.outer, %88, %81, %.loopexit177
-  %.sroa.6.5 = phi i32 [ %.sroa.6.2, %.loopexit177 ], [ %.sroa.6.2, %81 ], [ %.sroa.6.3.ph212, %88 ], [ %118, %.outer ]
-  %.5 = phi i32 [ %.2, %.loopexit177 ], [ %.2, %81 ], [ %.3.ph213, %88 ], [ %135, %.outer ]
-  %139 = zext i32 %.5 to i64
-  %140 = getelementptr i8, ptr %17, i64 %139
-  store i32 0, ptr %140, align 1
-  %141 = add i32 %.5, 4
-  %142 = zext i32 %141 to i64
-  %143 = getelementptr i8, ptr %17, i64 %142
+.loopexit:                                        ; preds = %.outer, %85, %.loopexit177..loopexit_crit_edge, %79
+  %.pre-phi = phi i32 [ %.pre, %.loopexit177..loopexit_crit_edge ], [ %invariant.op211, %79 ], [ %invariant.op211, %85 ], [ %invariant.op211, %.outer ]
+  %.sroa.6.5 = phi i32 [ %.sroa.6.2, %.loopexit177..loopexit_crit_edge ], [ %.sroa.6.2, %79 ], [ %.sroa.6.3.ph214, %85 ], [ %114, %.outer ]
+  %.5 = phi i32 [ %.2, %.loopexit177..loopexit_crit_edge ], [ %.2, %79 ], [ %.3.ph215, %85 ], [ %131, %.outer ]
+  %135 = zext i32 %.5 to i64
+  %136 = getelementptr i8, ptr %17, i64 %135
+  store i32 0, ptr %136, align 1
+  %137 = add i32 %.5, 4
+  %138 = zext i32 %137 to i64
+  %139 = getelementptr i8, ptr %17, i64 %138
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr %143, ptr %4, align 8
-  %144 = call i32 @wtap_block_foreach_option(ptr noundef %1, ptr noundef nonnull @put_nrb_option, ptr noundef nonnull %4) #16
-  %145 = load ptr, ptr %4, align 8
-  store i16 0, ptr %145, align 1
-  %.sroa.2.0..sroa_idx.i176 = getelementptr inbounds i8, ptr %145, i64 2
+  store ptr %139, ptr %4, align 8
+  %140 = call i32 @wtap_block_foreach_option(ptr noundef %1, ptr noundef nonnull @put_nrb_option, ptr noundef nonnull %4) #16
+  %141 = load ptr, ptr %4, align 8
+  store i16 0, ptr %141, align 1
+  %.sroa.2.0..sroa_idx.i176 = getelementptr inbounds i8, ptr %141, i64 2
   store i16 0, ptr %.sroa.2.0..sroa_idx.i176, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %146 = add i32 %141, %spec.select.i
-  %147 = add i32 %spec.select.i, 4
-  %148 = add i32 %147, %.sroa.6.5
+  %142 = add i32 %137, %spec.select.i
+  %143 = add i32 %.pre-phi, %.sroa.6.5
   store i32 4, ptr %17, align 1
   %.sroa.6.0..0.94.sroa_idx = getelementptr inbounds i8, ptr %17, i64 4
-  store i32 %148, ptr %.sroa.6.0..0.94.sroa_idx, align 1
-  %149 = zext i32 %146 to i64
-  %150 = getelementptr i8, ptr %17, i64 %149
-  store i32 %148, ptr %150, align 1
-  %151 = zext i32 %148 to i64
-  %152 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %17, i64 noundef %151, ptr noundef %2) #16
-  %.not172 = icmp ne i32 %152, 0
+  store i32 %143, ptr %.sroa.6.0..0.94.sroa_idx, align 1
+  %144 = zext i32 %142 to i64
+  %145 = getelementptr i8, ptr %17, i64 %144
+  store i32 %143, ptr %145, align 1
+  %146 = zext i32 %143 to i64
+  %147 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %17, i64 noundef %146, ptr noundef %2) #16
+  %.not172 = icmp ne i32 %147, 0
   call void @g_free(ptr noundef nonnull %17) #16
   %. = zext i1 %.not172 to i32
-  br label %153
+  br label %148
 
-153:                                              ; preds = %.loopexit, %9, %3, %117, %56
-  %.0162 = phi i32 [ 0, %56 ], [ 0, %117 ], [ 1, %3 ], [ 1, %9 ], [ %., %.loopexit ]
+148:                                              ; preds = %.loopexit, %9, %3, %113, %54
+  %.0162 = phi i32 [ 0, %54 ], [ 0, %113 ], [ 1, %3 ], [ 1, %9 ], [ %., %.loopexit ]
   ret i32 %.0162
 }
 

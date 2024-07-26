@@ -619,6 +619,7 @@ while.body.lr.ph:                                 ; preds = %entry
   %length_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %length_, align 8
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr.i.i to i64
+  %invariant.op = add i64 %2, %sub.ptr.rhs.cast
   %call318 = tail call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i, i32 noundef %conv, i64 noundef %2) #24
   %cmp19 = icmp eq ptr %call318, null
   br i1 %cmp19, label %while.end, label %if.end
@@ -629,9 +630,8 @@ if.end:                                           ; preds = %while.body.lr.ph, %
   %inc = add i64 %count.01520, 1
   %incdec.ptr = getelementptr inbounds i8, ptr %call321, i64 1
   %sub.ptr.lhs.cast = ptrtoint ptr %incdec.ptr to i64
-  %sub.ptr.sub.neg = sub i64 %sub.ptr.rhs.cast, %sub.ptr.lhs.cast
-  %sub = add i64 %sub.ptr.sub.neg, %2
-  %call3 = tail call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr, i32 noundef %conv, i64 noundef %sub) #24
+  %sub.reass = sub i64 %invariant.op, %sub.ptr.lhs.cast
+  %call3 = tail call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr, i32 noundef %conv, i64 noundef %sub.reass) #24
   %cmp = icmp eq ptr %call3, null
   br i1 %cmp, label %while.end, label %if.end
 

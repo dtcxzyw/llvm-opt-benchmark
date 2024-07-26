@@ -479,7 +479,7 @@ tailrecurse:                                      ; preds = %3, %tailrecurse
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 1, ptr %12, align 8
-  br label %51
+  br label %50
 
 .preheader:                                       ; preds = %6, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %6 ]
@@ -495,6 +495,7 @@ tailrecurse:                                      ; preds = %3, %tailrecurse
   %17 = getelementptr inbounds i8, ptr %0, i64 304
   %18 = load i32, ptr %17, align 8
   %19 = sub i32 %16, %18
+  %invariant.op = add i32 %1, 1
   %20 = add nsw i32 %4, -1
   %21 = sext i32 %20 to i64
   br label %22
@@ -506,85 +507,84 @@ tailrecurse:                                      ; preds = %3, %tailrecurse
   %23 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv80
   %24 = load i32, ptr %23, align 4
   %.not65 = icmp eq i32 %24, 0
-  br i1 %.not65, label %48, label %25
+  br i1 %.not65, label %47, label %25
 
 25:                                               ; preds = %22
-  %indvars82 = trunc i64 %indvars.iv80 to i32
-  %26 = add nsw i32 %indvars82, %1
-  %27 = add nsw i32 %26, 1
-  %28 = trunc i64 %indvars.iv80 to i32
-  %29 = add i32 %28, %1
-  %30 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %29, i32 noundef %27) #5
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %33
+  %26 = trunc nuw nsw i64 %indvars.iv80 to i32
+  %.reass = add i32 %invariant.op, %26
+  %27 = trunc i64 %indvars.iv80 to i32
+  %28 = add i32 %27, %1
+  %29 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %28, i32 noundef %.reass) #5
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %32
+
+31:                                               ; preds = %25
+  tail call void @free(ptr noundef nonnull %9) #5
+  br label %50
 
 32:                                               ; preds = %25
+  %.not66 = icmp slt i32 %29, %.15975
+  br i1 %.not66, label %37, label %33
+
+33:                                               ; preds = %32
+  %34 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %28, i32 noundef %.reass) #5
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %37
+
+36:                                               ; preds = %33
   tail call void @free(ptr noundef nonnull %9) #5
-  br label %51
+  br label %50
 
-33:                                               ; preds = %25
-  %.not66 = icmp slt i32 %30, %.15975
-  br i1 %.not66, label %38, label %34
+37:                                               ; preds = %33, %32
+  %.260 = phi i32 [ %34, %33 ], [ %29, %32 ]
+  %38 = icmp slt i32 %.260, %.15975
+  br i1 %38, label %39, label %46
 
-34:                                               ; preds = %33
-  %35 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %29, i32 noundef %27) #5
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %38
+39:                                               ; preds = %37
+  %40 = icmp slt i64 %indvars.iv80, %21
+  br i1 %40, label %41, label %43
 
-37:                                               ; preds = %34
-  tail call void @free(ptr noundef nonnull %9) #5
-  br label %51
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds i8, ptr %23, i64 4
+  store i32 1, ptr %42, align 4
+  br label %43
 
-38:                                               ; preds = %34, %33
-  %.260 = phi i32 [ %35, %34 ], [ %30, %33 ]
-  %39 = icmp slt i32 %.260, %.15975
-  br i1 %39, label %40, label %47
-
-40:                                               ; preds = %38
-  %41 = icmp slt i64 %indvars.iv80, %21
-  br i1 %41, label %42, label %44
-
-42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %23, i64 4
-  store i32 1, ptr %43, align 4
-  br label %44
-
-44:                                               ; preds = %42, %40
+43:                                               ; preds = %41, %39
   %.not67 = icmp eq i64 %indvars.iv80, 0
-  br i1 %.not67, label %47, label %45
+  br i1 %.not67, label %46, label %44
 
-45:                                               ; preds = %44
-  %46 = getelementptr i8, ptr %23, i64 -4
-  store i32 1, ptr %46, align 4
+44:                                               ; preds = %43
+  %45 = getelementptr i8, ptr %23, i64 -4
+  store i32 1, ptr %45, align 4
+  br label %46
+
+46:                                               ; preds = %43, %44, %37
+  %.1 = phi i32 [ %.05578, %37 ], [ 1, %44 ], [ 1, %43 ]
+  store i32 0, ptr %23, align 4
   br label %47
 
-47:                                               ; preds = %44, %45, %38
-  %.1 = phi i32 [ %.05578, %38 ], [ 1, %45 ], [ 1, %44 ]
-  store i32 0, ptr %23, align 4
-  br label %48
-
-48:                                               ; preds = %22, %47
-  %.3 = phi i32 [ %.260, %47 ], [ %.15975, %22 ]
-  %.2 = phi i32 [ %.1, %47 ], [ %.05578, %22 ]
+47:                                               ; preds = %22, %46
+  %.3 = phi i32 [ %.260, %46 ], [ %.15975, %22 ]
+  %.2 = phi i32 [ %.1, %46 ], [ %.05578, %22 ]
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %7
-  br i1 %exitcond84.not, label %49, label %.backedge
+  br i1 %exitcond84.not, label %48, label %.backedge
 
-.backedge:                                        ; preds = %48, %49
-  %indvars.iv80.be = phi i64 [ %indvars.iv.next81, %48 ], [ 0, %49 ]
-  %.05578.be = phi i32 [ %.2, %48 ], [ 0, %49 ]
+.backedge:                                        ; preds = %47, %48
+  %indvars.iv80.be = phi i64 [ %indvars.iv.next81, %47 ], [ 0, %48 ]
+  %.05578.be = phi i32 [ %.2, %47 ], [ 0, %48 ]
   br label %22, !llvm.loop !11
 
-49:                                               ; preds = %48
+48:                                               ; preds = %47
   %.not = icmp eq i32 %.2, 0
-  br i1 %.not, label %50, label %.backedge
+  br i1 %.not, label %49, label %.backedge
 
-50:                                               ; preds = %49
+49:                                               ; preds = %48
   tail call void @free(ptr noundef nonnull %9) #5
-  br label %51
+  br label %50
 
-51:                                               ; preds = %50, %37, %32, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %32 ], [ 0, %37 ], [ 1, %50 ]
+50:                                               ; preds = %49, %36, %31, %11
+  %.0 = phi i32 [ 0, %11 ], [ 0, %31 ], [ 0, %36 ], [ 1, %49 ]
   ret i32 %.0
 }
 

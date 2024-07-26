@@ -2238,10 +2238,10 @@ dtls_cid_length.exit:                             ; preds = %28, %31, %38, %41
   br label %looks_like_dtls.exit76.thread
 
 .preheader81:                                     ; preds = %4, %71
-  %.2 = phi i32 [ %76, %71 ], [ 0, %4 ]
+  %.2 = phi i32 [ %75, %71 ], [ 0, %4 ]
   %60 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.2) #6
   %61 = icmp sgt i32 %60, 2
-  br i1 %61, label %62, label %82
+  br i1 %61, label %62, label %81
 
 62:                                               ; preds = %.preheader81
   %63 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #6
@@ -2262,46 +2262,46 @@ looks_like_dtls.exit76:                           ; preds = %65, %65, %65
   %68 = add i32 %.2, 3
   %69 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %68) #6
   %70 = icmp sgt i32 %69, 9
-  br i1 %70, label %71, label %78
+  br i1 %70, label %71, label %77
 
 71:                                               ; preds = %looks_like_dtls.exit76
   %72 = add i32 %.2, 11
   %73 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %72) #6
   %74 = zext i16 %73 to i32
-  %75 = add i32 %.2, 13
-  %76 = add i32 %75, %74
-  %77 = icmp eq i32 %76, %5
-  br i1 %77, label %80, label %.preheader81, !llvm.loop !11
+  %.reass = add i32 %.2, 13
+  %75 = add i32 %.reass, %74
+  %76 = icmp eq i32 %75, %5
+  br i1 %76, label %79, label %.preheader81, !llvm.loop !11
 
-78:                                               ; preds = %looks_like_dtls.exit76
-  %79 = tail call i32 @dissect_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
+77:                                               ; preds = %looks_like_dtls.exit76
+  %78 = tail call i32 @dissect_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %looks_like_dtls.exit76.thread
 
-80:                                               ; preds = %71
-  %81 = tail call i32 @dissect_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
+79:                                               ; preds = %71
+  %80 = tail call i32 @dissect_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %looks_like_dtls.exit76.thread
 
-82:                                               ; preds = %.preheader81
-  %83 = icmp ugt i32 %5, 2
-  br i1 %83, label %84, label %looks_like_dtls.exit76.thread
+81:                                               ; preds = %.preheader81
+  %82 = icmp ugt i32 %5, 2
+  br i1 %82, label %83, label %looks_like_dtls.exit76.thread
 
-84:                                               ; preds = %82
-  %85 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
-  %.not = icmp ugt i32 %.2, %85
-  br i1 %.not, label %86, label %89
+83:                                               ; preds = %81
+  %84 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
+  %.not = icmp ugt i32 %.2, %84
+  br i1 %.not, label %85, label %88
 
-86:                                               ; preds = %84
-  %87 = getelementptr inbounds i8, ptr %1, i64 272
-  %88 = load i32, ptr %87, align 8
-  %.not67 = icmp eq i32 %88, 0
-  br i1 %.not67, label %looks_like_dtls.exit76.thread, label %89
+85:                                               ; preds = %83
+  %86 = getelementptr inbounds i8, ptr %1, i64 272
+  %87 = load i32, ptr %86, align 8
+  %.not67 = icmp eq i32 %87, 0
+  br i1 %.not67, label %looks_like_dtls.exit76.thread, label %88
 
-89:                                               ; preds = %86, %84
-  %90 = tail call i32 @dissect_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
+88:                                               ; preds = %85, %83
+  %89 = tail call i32 @dissect_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %looks_like_dtls.exit76.thread
 
-looks_like_dtls.exit76.thread:                    ; preds = %65, %62, %82, %86, %.critedge, %89, %80, %78, %58, %52
-  %.0 = phi i32 [ 1, %52 ], [ 1, %58 ], [ 1, %80 ], [ 1, %78 ], [ 1, %89 ], [ 0, %.critedge ], [ 0, %86 ], [ 0, %82 ], [ 0, %62 ], [ 0, %65 ]
+looks_like_dtls.exit76.thread:                    ; preds = %65, %62, %81, %85, %.critedge, %88, %79, %77, %58, %52
+  %.0 = phi i32 [ 1, %52 ], [ 1, %58 ], [ 1, %79 ], [ 1, %77 ], [ 1, %88 ], [ 0, %.critedge ], [ 0, %85 ], [ 0, %81 ], [ 0, %62 ], [ 0, %65 ]
   ret i32 %.0
 }
 

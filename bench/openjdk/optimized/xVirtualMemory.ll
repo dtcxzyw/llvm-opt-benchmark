@@ -123,73 +123,77 @@ define hidden noundef zeroext i1 @_ZN21XVirtualMemoryManager7reserveEm(ptr nound
   %14 = and i64 %13, 4503599625273344
   %15 = tail call noundef i64 @llvm.umax.i64(i64 %14, i64 2097152)
   %.not10.not.i = icmp ult i64 %10, %9
-  br i1 %.not10.not.i, label %.loopexit, label %.lr.ph.i
+  br i1 %.not10.not.i, label %.loopexit, label %.lr.ph.preheader.i
+
+.lr.ph.preheader.i:                               ; preds = %2
+  %invariant.op.i = add i64 %15, %9
+  br label %.lr.ph.i
 
 16:                                               ; preds = %.lr.ph.i
   %17 = add i64 %.011.i, %15
-  %18 = add i64 %17, %9
-  %19 = load i64, ptr @XAddressOffsetMax, align 8
-  %.not.not.i = icmp ugt i64 %18, %19
+  %.reass.i = add i64 %invariant.op.i, %.011.i
+  %18 = load i64, ptr @XAddressOffsetMax, align 8
+  %.not.not.i = icmp ugt i64 %.reass.i, %18
   br i1 %.not.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !6
 
-.lr.ph.i:                                         ; preds = %2, %16
-  %.011.i = phi i64 [ %17, %16 ], [ 0, %2 ]
-  %20 = tail call noundef zeroext i1 @_ZN21XVirtualMemoryManager18reserve_contiguousEmm(ptr noundef nonnull align 8 dereferenceable(121) %0, i64 noundef %.011.i, i64 noundef %9)
-  br i1 %20, label %_ZN21XVirtualMemoryManager18reserve_contiguousEm.exit.loopexit21, label %16
+.lr.ph.i:                                         ; preds = %16, %.lr.ph.preheader.i
+  %.011.i = phi i64 [ %17, %16 ], [ 0, %.lr.ph.preheader.i ]
+  %19 = tail call noundef zeroext i1 @_ZN21XVirtualMemoryManager18reserve_contiguousEmm(ptr noundef nonnull align 8 dereferenceable(121) %0, i64 noundef %.011.i, i64 noundef %9)
+  br i1 %19, label %_ZN21XVirtualMemoryManager18reserve_contiguousEm.exit.loopexit21, label %16
 
 .loopexit:                                        ; preds = %16, %2
-  %21 = phi i64 [ %10, %2 ], [ %19, %16 ]
-  %22 = udiv i64 %9, 100
-  %23 = add nuw nsw i64 %22, 2097151
-  %24 = and i64 %23, 576460752301326336
-  %25 = icmp ne i64 %9, 0
-  %26 = icmp ne i64 %21, 0
-  %27 = and i1 %25, %26
-  br i1 %27, label %.lr.ph.i17, label %_ZN21XVirtualMemoryManager18reserve_contiguousEm.exit
+  %20 = phi i64 [ %10, %2 ], [ %18, %16 ]
+  %21 = udiv i64 %9, 100
+  %22 = add nuw nsw i64 %21, 2097151
+  %23 = and i64 %22, 576460752301326336
+  %24 = icmp ne i64 %9, 0
+  %25 = icmp ne i64 %20, 0
+  %26 = and i1 %24, %25
+  br i1 %26, label %.lr.ph.i17, label %_ZN21XVirtualMemoryManager18reserve_contiguousEm.exit
 
 .lr.ph.i17:                                       ; preds = %.loopexit, %.lr.ph.i17
-  %28 = phi i64 [ %36, %.lr.ph.i17 ], [ %21, %.loopexit ]
-  %.018.i = phi i64 [ %34, %.lr.ph.i17 ], [ 0, %.loopexit ]
-  %.01417.i = phi i64 [ %33, %.lr.ph.i17 ], [ 0, %.loopexit ]
-  %29 = sub nuw i64 %9, %.01417.i
-  %30 = sub nuw i64 %28, %.018.i
-  %31 = tail call noundef i64 @llvm.umin.i64(i64 %29, i64 %30)
-  %32 = tail call noundef i64 @_ZN21XVirtualMemoryManager21reserve_discontiguousEmmm(ptr noundef nonnull align 8 dereferenceable(121) %0, i64 noundef %.018.i, i64 noundef %31, i64 noundef %24)
-  %33 = add i64 %32, %.01417.i
-  %34 = add i64 %31, %.018.i
-  %35 = icmp ult i64 %33, %9
-  %36 = load i64, ptr @XAddressOffsetMax, align 8
-  %37 = icmp ult i64 %34, %36
-  %38 = select i1 %35, i1 %37, i1 false
-  br i1 %38, label %.lr.ph.i17, label %_ZN21XVirtualMemoryManager18reserve_contiguousEm.exit, !llvm.loop !8
+  %27 = phi i64 [ %35, %.lr.ph.i17 ], [ %20, %.loopexit ]
+  %.018.i = phi i64 [ %33, %.lr.ph.i17 ], [ 0, %.loopexit ]
+  %.01417.i = phi i64 [ %32, %.lr.ph.i17 ], [ 0, %.loopexit ]
+  %28 = sub nuw i64 %9, %.01417.i
+  %29 = sub nuw i64 %27, %.018.i
+  %30 = tail call noundef i64 @llvm.umin.i64(i64 %28, i64 %29)
+  %31 = tail call noundef i64 @_ZN21XVirtualMemoryManager21reserve_discontiguousEmmm(ptr noundef nonnull align 8 dereferenceable(121) %0, i64 noundef %.018.i, i64 noundef %30, i64 noundef %23)
+  %32 = add i64 %31, %.01417.i
+  %33 = add i64 %30, %.018.i
+  %34 = icmp ult i64 %32, %9
+  %35 = load i64, ptr @XAddressOffsetMax, align 8
+  %36 = icmp ult i64 %33, %35
+  %37 = select i1 %34, i1 %36, i1 false
+  br i1 %37, label %.lr.ph.i17, label %_ZN21XVirtualMemoryManager18reserve_contiguousEm.exit, !llvm.loop !8
 
 _ZN21XVirtualMemoryManager18reserve_contiguousEm.exit.loopexit21: ; preds = %.lr.ph.i
   %.pre = load i64, ptr @XAddressOffsetMax, align 8
   br label %_ZN21XVirtualMemoryManager18reserve_contiguousEm.exit
 
 _ZN21XVirtualMemoryManager18reserve_contiguousEm.exit: ; preds = %.lr.ph.i17, %_ZN21XVirtualMemoryManager18reserve_contiguousEm.exit.loopexit21, %.loopexit
-  %39 = phi i64 [ %21, %.loopexit ], [ %.pre, %_ZN21XVirtualMemoryManager18reserve_contiguousEm.exit.loopexit21 ], [ %36, %.lr.ph.i17 ]
-  %40 = phi ptr [ @.str.7, %.loopexit ], [ @.str.6, %_ZN21XVirtualMemoryManager18reserve_contiguousEm.exit.loopexit21 ], [ @.str.7, %.lr.ph.i17 ]
-  %.0 = phi i64 [ 0, %.loopexit ], [ %9, %_ZN21XVirtualMemoryManager18reserve_contiguousEm.exit.loopexit21 ], [ %33, %.lr.ph.i17 ]
+  %38 = phi i64 [ %20, %.loopexit ], [ %.pre, %_ZN21XVirtualMemoryManager18reserve_contiguousEm.exit.loopexit21 ], [ %35, %.lr.ph.i17 ]
+  %39 = phi ptr [ @.str.7, %.loopexit ], [ @.str.6, %_ZN21XVirtualMemoryManager18reserve_contiguousEm.exit.loopexit21 ], [ @.str.7, %.lr.ph.i17 ]
+  %.0 = phi i64 [ 0, %.loopexit ], [ %9, %_ZN21XVirtualMemoryManager18reserve_contiguousEm.exit.loopexit21 ], [ %32, %.lr.ph.i17 ]
   store i32 3, ptr %3, align 8
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
-  %41 = icmp eq i64 %7, %39
-  %42 = select i1 %41, ptr @.str.8, ptr @.str.9
-  %43 = icmp eq i64 %.0, %9
-  %.str.10..str.11 = select i1 %43, ptr @.str.10, ptr @.str.11
-  call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.5, ptr noundef nonnull %40, ptr noundef nonnull %42, ptr noundef nonnull %.str.10..str.11)
+  %40 = icmp eq i64 %7, %38
+  %41 = select i1 %40, ptr @.str.8, ptr @.str.9
+  %42 = icmp eq i64 %.0, %9
+  %.str.10..str.11 = select i1 %42, ptr @.str.10, ptr @.str.11
+  call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.5, ptr noundef nonnull %39, ptr noundef nonnull %41, ptr noundef nonnull %.str.10..str.11)
   store i32 3, ptr %4, align 8
   %.sroa.21.0..sroa_idx.i18 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i18, align 8
-  %44 = lshr i64 %.0, 20
-  %45 = mul i64 %.0, 3
-  %46 = lshr i64 %45, 20
-  call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.12, i64 noundef %44, i64 noundef 3, i64 noundef %46)
-  %47 = getelementptr inbounds i8, ptr %0, i64 112
-  store i64 %.0, ptr %47, align 8
-  %48 = icmp uge i64 %.0, %1
-  ret i1 %48
+  %43 = lshr i64 %.0, 20
+  %44 = mul i64 %.0, 3
+  %45 = lshr i64 %44, 20
+  call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.12, i64 noundef %43, i64 noundef 3, i64 noundef %45)
+  %46 = getelementptr inbounds i8, ptr %0, i64 112
+  store i64 %.0, ptr %46, align 8
+  %47 = icmp uge i64 %.0, %1
+  ret i1 %47
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -381,22 +385,26 @@ define hidden noundef zeroext i1 @_ZN21XVirtualMemoryManager18reserve_contiguous
   %7 = and i64 %6, 4503599625273344
   %8 = tail call noundef i64 @llvm.umax.i64(i64 %7, i64 2097152)
   %.not10.not = icmp ult i64 %3, %1
-  br i1 %.not10.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not10.not, label %._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %2
+  %invariant.op = add i64 %8, %1
+  br label %.lr.ph
 
 9:                                                ; preds = %.lr.ph
   %10 = add i64 %.011, %8
-  %11 = add i64 %10, %1
-  %12 = load i64, ptr @XAddressOffsetMax, align 8
-  %.not.not = icmp ugt i64 %11, %12
+  %.reass = add i64 %.011, %invariant.op
+  %11 = load i64, ptr @XAddressOffsetMax, align 8
+  %.not.not = icmp ugt i64 %.reass, %11
   br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-.lr.ph:                                           ; preds = %2, %9
-  %.011 = phi i64 [ %10, %9 ], [ 0, %2 ]
-  %13 = tail call noundef zeroext i1 @_ZN21XVirtualMemoryManager18reserve_contiguousEmm(ptr noundef nonnull align 8 dereferenceable(121) %0, i64 noundef %.011, i64 noundef %1)
-  br i1 %13, label %._crit_edge, label %9
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %9
+  %.011 = phi i64 [ %10, %9 ], [ 0, %.lr.ph.preheader ]
+  %12 = tail call noundef zeroext i1 @_ZN21XVirtualMemoryManager18reserve_contiguousEmm(ptr noundef nonnull align 8 dereferenceable(121) %0, i64 noundef %.011, i64 noundef %1)
+  br i1 %12, label %._crit_edge, label %9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9, %2
-  %.not.lcssa = phi i1 [ false, %2 ], [ %13, %9 ], [ %13, %.lr.ph ]
+  %.not.lcssa = phi i1 [ false, %2 ], [ %12, %9 ], [ %12, %.lr.ph ]
   ret i1 %.not.lcssa
 }
 

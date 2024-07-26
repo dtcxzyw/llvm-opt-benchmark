@@ -468,6 +468,7 @@ for.body.lr.ph:                                   ; preds = %trace_pmpcfg_csr_wr
   %ext_smepmp.i = getelementptr i8, ptr %env, i64 8891
   %mseccfg.i = getelementptr inbounds i8, ptr %env, i64 8344
   %pmp_state.i34.i = getelementptr inbounds i8, ptr %env, i64 7824
+  %invariant.op = add i32 %mul1, -1
   %addr.i.i = getelementptr inbounds i8, ptr %env, i64 8080
   %wide.trip.count = zext nneg i32 %shl to i64
   br label %for.body
@@ -562,8 +563,8 @@ if.then57.i:                                      ; preds = %if.else52.i
   br i1 %cmp.not.i.i, label %if.end.i43.i, label %if.then.i.i12
 
 if.then.i.i12:                                    ; preds = %if.then57.i
-  %sub.i.i = add nsw i32 %add, -1
-  %idxprom7.i.i = zext nneg i32 %sub.i.i to i64
+  %sub.i.i.reass = add i32 %invariant.op, %8
+  %idxprom7.i.i = zext nneg i32 %sub.i.i.reass to i64
   %arrayidx8.i.i = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state.i34.i, i64 0, i64 %idxprom7.i.i
   %21 = load i64, ptr %arrayidx8.i.i, align 16
   %22 = shl i64 %21, 2

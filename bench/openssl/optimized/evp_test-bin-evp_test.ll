@@ -3628,8 +3628,8 @@ if.then283:                                       ; preds = %if.end277
 
 if.end296:                                        ; preds = %if.then283
   %40 = load i64, ptr %arrayidx265, align 8
-  %sub300 = add i64 %donelen.0269, -1
-  %add301 = add i64 %sub300, %40
+  %sub300.reass = add i64 %donelen.0269, -1
+  %add301 = add i64 %sub300.reass, %40
   br label %if.end302
 
 if.end302:                                        ; preds = %if.end296, %if.end277

@@ -2104,10 +2104,10 @@ if.else81:                                        ; preds = %if.end63
   store i8 %or9277, ptr %arrayidx90, align 1
   %30 = load i64, ptr %frag_off, align 8
   %shr95 = ashr i64 %30, 3
+  %invariant.op = add nsw i64 %0, -1
   %ii82.086 = add nsw i64 %shr95, 1
-  %add9987 = add i64 %30, %0
-  %sub10088 = add nsw i64 %add9987, -1
-  %shr10189 = ashr i64 %sub10088, 3
+  %sub100.reass88 = add i64 %30, %invariant.op
+  %shr10189 = ashr i64 %sub100.reass88, 3
   %cmp10290 = icmp slt i64 %ii82.086, %shr10189
   br i1 %cmp10290, label %for.body104, label %for.end109
 
@@ -2118,15 +2118,15 @@ for.body104:                                      ; preds = %if.else81, %for.bod
   store i8 -1, ptr %arrayidx106, align 1
   %ii82.0 = add nsw i64 %ii82.091, 1
   %32 = load i64, ptr %frag_off, align 8
-  %add99 = add i64 %32, %0
-  %sub100 = add nsw i64 %add99, -1
-  %shr101 = ashr i64 %sub100, 3
+  %sub100.reass = add i64 %32, %invariant.op
+  %shr101 = ashr i64 %sub100.reass, 3
   %cmp102 = icmp slt i64 %ii82.0, %shr101
   br i1 %cmp102, label %for.body104, label %for.end109, !llvm.loop !11
 
 for.end109:                                       ; preds = %for.body104, %if.else81
-  %add99.lcssa = phi i64 [ %add9987, %if.else81 ], [ %add99, %for.body104 ]
+  %.pn = phi i64 [ %30, %if.else81 ], [ %32, %for.body104 ]
   %shr101.lcssa = phi i64 [ %shr10189, %if.else81 ], [ %shr101, %for.body104 ]
+  %add99.lcssa = add i64 %.pn, %0
   %and112 = and i64 %add99.lcssa, 7
   %arrayidx113 = getelementptr inbounds [8 x i8], ptr @bitmask_end_values, i64 0, i64 %and112
   %33 = load i8, ptr %arrayidx113, align 1

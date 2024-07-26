@@ -7652,22 +7652,22 @@ vaarg.in_reg55:                                   ; preds = %vaarg.end50
   %reg_save_area56 = load ptr, ptr %1, align 8
   %23 = zext nneg i32 %21 to i64
   %24 = getelementptr i8, ptr %reg_save_area56, i64 %23
-  %25 = add nuw nsw i32 %gp_offset42, 16
-  store i32 %25, ptr %ap, align 8
+  %.reass105 = add nuw nsw i32 %gp_offset42, 16
+  store i32 %.reass105, ptr %ap, align 8
   br label %vaarg.end61
 
 vaarg.in_mem57:                                   ; preds = %vaarg.end50.thread, %vaarg.end50
-  %26 = phi ptr [ %18, %vaarg.end50.thread ], [ %22, %vaarg.end50 ]
+  %25 = phi ptr [ %18, %vaarg.end50.thread ], [ %22, %vaarg.end50 ]
   %overflow_arg_area59 = load ptr, ptr %overflow_arg_area_p98, align 8
   %overflow_arg_area.next60 = getelementptr i8, ptr %overflow_arg_area59, i64 8
   store ptr %overflow_arg_area.next60, ptr %overflow_arg_area_p98, align 8
   br label %vaarg.end61
 
 vaarg.end61:                                      ; preds = %vaarg.in_mem57, %vaarg.in_reg55
-  %27 = phi ptr [ %22, %vaarg.in_reg55 ], [ %26, %vaarg.in_mem57 ]
+  %26 = phi ptr [ %22, %vaarg.in_reg55 ], [ %25, %vaarg.in_mem57 ]
   %vaarg.addr62 = phi ptr [ %24, %vaarg.in_reg55 ], [ %overflow_arg_area59, %vaarg.in_mem57 ]
-  %28 = load i64, ptr %vaarg.addr62, align 8
-  %call63 = tail call ptr @createStringObject(ptr noundef %27, i64 noundef %28) #33
+  %27 = load i64, ptr %vaarg.addr62, align 8
+  %call63 = tail call ptr @createStringObject(ptr noundef %26, i64 noundef %27) #33
   %inc64 = add nsw i32 %argc.0, 1
   %idxprom65 = sext i32 %argc.0 to i64
   %arrayidx66 = getelementptr inbounds ptr, ptr %argv.0, i64 %idxprom65
@@ -7681,10 +7681,10 @@ if.then71:                                        ; preds = %while.cond
 
 vaarg.in_reg75:                                   ; preds = %if.then71
   %reg_save_area76 = load ptr, ptr %1, align 8
-  %29 = zext nneg i32 %gp_offset73 to i64
-  %30 = getelementptr i8, ptr %reg_save_area76, i64 %29
-  %31 = add nuw nsw i32 %gp_offset73, 8
-  store i32 %31, ptr %ap, align 8
+  %28 = zext nneg i32 %gp_offset73 to i64
+  %29 = getelementptr i8, ptr %reg_save_area76, i64 %28
+  %30 = add nuw nsw i32 %gp_offset73, 8
+  store i32 %30, ptr %ap, align 8
   br label %vaarg.end81
 
 vaarg.in_mem77:                                   ; preds = %if.then71
@@ -7694,9 +7694,9 @@ vaarg.in_mem77:                                   ; preds = %if.then71
   br label %vaarg.end81
 
 vaarg.end81:                                      ; preds = %vaarg.in_mem77, %vaarg.in_reg75
-  %vaarg.addr82 = phi ptr [ %30, %vaarg.in_reg75 ], [ %overflow_arg_area79, %vaarg.in_mem77 ]
-  %32 = load i64, ptr %vaarg.addr82, align 8
-  %call83 = tail call ptr @createStringObjectFromLongLongWithSds(i64 noundef %32) #33
+  %vaarg.addr82 = phi ptr [ %29, %vaarg.in_reg75 ], [ %overflow_arg_area79, %vaarg.in_mem77 ]
+  %31 = load i64, ptr %vaarg.addr82, align 8
+  %call83 = tail call ptr @createStringObjectFromLongLongWithSds(i64 noundef %31) #33
   %inc84 = add nsw i32 %argc.0, 1
   %idxprom85 = sext i32 %argc.0 to i64
   %arrayidx86 = getelementptr inbounds ptr, ptr %argv.0, i64 %idxprom85
@@ -7712,71 +7712,71 @@ vaarg.end101.thread:                              ; preds = %if.then91
   %overflow_arg_area99 = load ptr, ptr %overflow_arg_area_p98, align 8
   %overflow_arg_area.next100 = getelementptr i8, ptr %overflow_arg_area99, i64 8
   store ptr %overflow_arg_area.next100, ptr %overflow_arg_area_p98, align 8
-  %33 = load ptr, ptr %overflow_arg_area99, align 8
+  %32 = load ptr, ptr %overflow_arg_area99, align 8
   br label %vaarg.in_mem108
 
 vaarg.end101:                                     ; preds = %if.then91
   %reg_save_area96 = load ptr, ptr %1, align 8
-  %34 = zext nneg i32 %gp_offset93 to i64
-  %35 = getelementptr i8, ptr %reg_save_area96, i64 %34
-  %36 = add nuw nsw i32 %gp_offset93, 8
-  store i32 %36, ptr %ap, align 8
-  %37 = load ptr, ptr %35, align 8
+  %33 = zext nneg i32 %gp_offset93 to i64
+  %34 = getelementptr i8, ptr %reg_save_area96, i64 %33
+  %35 = add nuw nsw i32 %gp_offset93, 8
+  store i32 %35, ptr %ap, align 8
+  %36 = load ptr, ptr %34, align 8
   %fits_in_gp105 = icmp ult i32 %gp_offset93, 33
   br i1 %fits_in_gp105, label %vaarg.in_reg106, label %vaarg.in_mem108
 
 vaarg.in_reg106:                                  ; preds = %vaarg.end101
   %reg_save_area107 = load ptr, ptr %1, align 8
-  %38 = zext nneg i32 %36 to i64
-  %39 = getelementptr i8, ptr %reg_save_area107, i64 %38
-  %40 = add nuw nsw i32 %gp_offset93, 16
-  store i32 %40, ptr %ap, align 8
+  %37 = zext nneg i32 %35 to i64
+  %38 = getelementptr i8, ptr %reg_save_area107, i64 %37
+  %.reass = add nuw nsw i32 %gp_offset93, 16
+  store i32 %.reass, ptr %ap, align 8
   br label %vaarg.end112
 
 vaarg.in_mem108:                                  ; preds = %vaarg.end101.thread, %vaarg.end101
-  %41 = phi ptr [ %33, %vaarg.end101.thread ], [ %37, %vaarg.end101 ]
+  %39 = phi ptr [ %32, %vaarg.end101.thread ], [ %36, %vaarg.end101 ]
   %overflow_arg_area110 = load ptr, ptr %overflow_arg_area_p98, align 8
   %overflow_arg_area.next111 = getelementptr i8, ptr %overflow_arg_area110, i64 8
   store ptr %overflow_arg_area.next111, ptr %overflow_arg_area_p98, align 8
   br label %vaarg.end112
 
 vaarg.end112:                                     ; preds = %vaarg.in_mem108, %vaarg.in_reg106
-  %42 = phi ptr [ %37, %vaarg.in_reg106 ], [ %41, %vaarg.in_mem108 ]
-  %vaarg.addr113 = phi ptr [ %39, %vaarg.in_reg106 ], [ %overflow_arg_area110, %vaarg.in_mem108 ]
-  %43 = load i64, ptr %vaarg.addr113, align 8
-  %44 = trunc i64 %43 to i32
-  %45 = add i32 %argv_size.0, -1
-  %conv116 = add i32 %45, %44
+  %40 = phi ptr [ %36, %vaarg.in_reg106 ], [ %39, %vaarg.in_mem108 ]
+  %vaarg.addr113 = phi ptr [ %38, %vaarg.in_reg106 ], [ %overflow_arg_area110, %vaarg.in_mem108 ]
+  %41 = load i64, ptr %vaarg.addr113, align 8
+  %42 = trunc i64 %41 to i32
+  %43 = add i32 %argv_size.0, -1
+  %conv116 = add i32 %43, %42
   %conv117 = sext i32 %conv116 to i64
   %mul118 = shl nsw i64 %conv117, 3
   %call119 = tail call ptr @zrealloc(ptr noundef %argv.0, i64 noundef %mul118) #35
-  %cmp12084.not = icmp eq i64 %43, 0
+  %cmp12084.not = icmp eq i64 %41, 0
   br i1 %cmp12084.not, label %if.end252, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %vaarg.end112
-  %46 = sext i32 %argc.0 to i64
+  %44 = sext i32 %argc.0 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ %46, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
+  %indvars.iv = phi i64 [ %44, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %i.086 = phi i64 [ 0, %for.body.preheader ], [ %inc127, %for.body ]
-  %arrayidx122 = getelementptr inbounds ptr, ptr %42, i64 %i.086
-  %47 = load ptr, ptr %arrayidx122, align 8
-  tail call void @incrRefCount(ptr noundef %47) #33
-  %48 = load ptr, ptr %arrayidx122, align 8
+  %arrayidx122 = getelementptr inbounds ptr, ptr %40, i64 %i.086
+  %45 = load ptr, ptr %arrayidx122, align 8
+  tail call void @incrRefCount(ptr noundef %45) #33
+  %46 = load ptr, ptr %arrayidx122, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %arrayidx126 = getelementptr inbounds ptr, ptr %call119, i64 %indvars.iv
-  store ptr %48, ptr %arrayidx126, align 8
+  store ptr %46, ptr %arrayidx126, align 8
   %inc127 = add nuw i64 %i.086, 1
-  %exitcond.not = icmp eq i64 %inc127, %43
+  %exitcond.not = icmp eq i64 %inc127, %41
   br i1 %exitcond.not, label %if.end252.loopexit, label %for.body, !llvm.loop !28
 
 if.then132:                                       ; preds = %while.cond
   br i1 %tobool231.not, label %if.end252, label %if.then134
 
 if.then134:                                       ; preds = %if.then132
-  %49 = load i32, ptr %flags, align 4
-  %or = or i32 %49, 1
+  %47 = load i32, ptr %flags, align 4
+  %or = or i32 %47, 1
   store i32 %or, ptr %flags, align 4
   br label %if.end252
 
@@ -7784,8 +7784,8 @@ if.then140:                                       ; preds = %while.cond
   br i1 %tobool231.not, label %if.end252, label %if.then142
 
 if.then142:                                       ; preds = %if.then140
-  %50 = load i32, ptr %flags, align 4
-  %or143 = or i32 %50, 2
+  %48 = load i32, ptr %flags, align 4
+  %or143 = or i32 %48, 2
   store i32 %or143, ptr %flags, align 4
   br label %if.end252
 
@@ -7793,8 +7793,8 @@ if.then149:                                       ; preds = %while.cond
   br i1 %tobool231.not, label %if.end252, label %if.then151
 
 if.then151:                                       ; preds = %if.then149
-  %51 = load i32, ptr %flags, align 4
-  %or152 = or i32 %51, 4
+  %49 = load i32, ptr %flags, align 4
+  %or152 = or i32 %49, 4
   store i32 %or152, ptr %flags, align 4
   br label %if.end252
 
@@ -7802,8 +7802,8 @@ if.then158:                                       ; preds = %while.cond
   br i1 %tobool231.not, label %if.end252, label %if.then160
 
 if.then160:                                       ; preds = %if.then158
-  %52 = load i32, ptr %flags, align 4
-  %or161 = or i32 %52, 8
+  %50 = load i32, ptr %flags, align 4
+  %or161 = or i32 %50, 8
   store i32 %or161, ptr %flags, align 4
   br label %if.end252
 
@@ -7811,8 +7811,8 @@ if.then167:                                       ; preds = %while.cond
   br i1 %tobool231.not, label %if.end252, label %if.then169
 
 if.then169:                                       ; preds = %if.then167
-  %53 = load i32, ptr %flags, align 4
-  %or170 = or i32 %53, 16
+  %51 = load i32, ptr %flags, align 4
+  %or170 = or i32 %51, 16
   store i32 %or170, ptr %flags, align 4
   br label %if.end252
 
@@ -7820,8 +7820,8 @@ if.then176:                                       ; preds = %while.cond
   br i1 %tobool231.not, label %if.end252, label %if.then178
 
 if.then178:                                       ; preds = %if.then176
-  %54 = load i32, ptr %flags, align 4
-  %or179 = or i32 %54, 32
+  %52 = load i32, ptr %flags, align 4
+  %or179 = or i32 %52, 32
   store i32 %or179, ptr %flags, align 4
   br label %if.end252
 
@@ -7829,8 +7829,8 @@ if.then185:                                       ; preds = %while.cond
   br i1 %tobool231.not, label %if.end252, label %if.then187
 
 if.then187:                                       ; preds = %if.then185
-  %55 = load i32, ptr %flags, align 4
-  %or188 = or i32 %55, 64
+  %53 = load i32, ptr %flags, align 4
+  %or188 = or i32 %53, 64
   store i32 %or188, ptr %flags, align 4
   br label %if.end252
 
@@ -7838,8 +7838,8 @@ if.then194:                                       ; preds = %while.cond
   br i1 %tobool231.not, label %if.end252, label %if.then196
 
 if.then196:                                       ; preds = %if.then194
-  %56 = load i32, ptr %flags, align 4
-  %or197 = or i32 %56, 128
+  %54 = load i32, ptr %flags, align 4
+  %or197 = or i32 %54, 128
   store i32 %or197, ptr %flags, align 4
   br label %if.end252
 
@@ -7847,8 +7847,8 @@ if.then203:                                       ; preds = %while.cond
   br i1 %tobool231.not, label %if.end252, label %if.then205
 
 if.then205:                                       ; preds = %if.then203
-  %57 = load i32, ptr %flags, align 4
-  %or206 = or i32 %57, 512
+  %55 = load i32, ptr %flags, align 4
+  %or206 = or i32 %55, 512
   store i32 %or206, ptr %flags, align 4
   br label %if.end252
 
@@ -7856,8 +7856,8 @@ if.then212:                                       ; preds = %while.cond
   br i1 %tobool231.not, label %if.end252, label %if.then214
 
 if.then214:                                       ; preds = %if.then212
-  %58 = load i32, ptr %flags, align 4
-  %or215 = or i32 %58, 256
+  %56 = load i32, ptr %flags, align 4
+  %or215 = or i32 %56, 256
   store i32 %or215, ptr %flags, align 4
   br label %if.end252
 
@@ -7865,8 +7865,8 @@ if.then221:                                       ; preds = %while.cond
   br i1 %tobool231.not, label %if.end252, label %if.then223
 
 if.then223:                                       ; preds = %if.then221
-  %59 = load i32, ptr %flags, align 4
-  %or224 = or i32 %59, 1280
+  %57 = load i32, ptr %flags, align 4
+  %or224 = or i32 %57, 1280
   store i32 %or224, ptr %flags, align 4
   br label %if.end252
 
@@ -7874,19 +7874,19 @@ if.then230:                                       ; preds = %while.cond
   br i1 %tobool231.not, label %if.end252, label %if.then232
 
 if.then232:                                       ; preds = %if.then230
-  %60 = load i32, ptr %flags, align 4
-  %or233 = or i32 %60, 2048
+  %58 = load i32, ptr %flags, align 4
+  %or233 = or i32 %58, 2048
   store i32 %or233, ptr %flags, align 4
   br label %if.end252
 
 if.end252.loopexit:                               ; preds = %for.body
-  %61 = trunc nsw i64 %indvars.iv.next to i32
+  %59 = trunc nsw i64 %indvars.iv.next to i32
   br label %if.end252
 
 if.end252:                                        ; preds = %if.end252.loopexit, %vaarg.end112, %if.end, %vaarg.end81, %if.then134, %if.then132, %if.then151, %if.then149, %if.then169, %if.then167, %if.then187, %if.then185, %if.then205, %if.then203, %if.then223, %if.then221, %if.then230, %if.then232, %if.then212, %if.then214, %if.then194, %if.then196, %if.then176, %if.then178, %if.then158, %if.then160, %if.then140, %if.then142, %vaarg.end61, %vaarg.end
   %argv.1 = phi ptr [ %argv.0, %vaarg.end ], [ %argv.0, %if.end ], [ %argv.0, %vaarg.end61 ], [ %argv.0, %vaarg.end81 ], [ %argv.0, %if.then134 ], [ %argv.0, %if.then132 ], [ %argv.0, %if.then142 ], [ %argv.0, %if.then140 ], [ %argv.0, %if.then151 ], [ %argv.0, %if.then149 ], [ %argv.0, %if.then160 ], [ %argv.0, %if.then158 ], [ %argv.0, %if.then169 ], [ %argv.0, %if.then167 ], [ %argv.0, %if.then178 ], [ %argv.0, %if.then176 ], [ %argv.0, %if.then187 ], [ %argv.0, %if.then185 ], [ %argv.0, %if.then196 ], [ %argv.0, %if.then194 ], [ %argv.0, %if.then205 ], [ %argv.0, %if.then203 ], [ %argv.0, %if.then214 ], [ %argv.0, %if.then212 ], [ %argv.0, %if.then223 ], [ %argv.0, %if.then221 ], [ %argv.0, %if.then232 ], [ %argv.0, %if.then230 ], [ %call119, %vaarg.end112 ], [ %call119, %if.end252.loopexit ]
   %argv_size.1 = phi i32 [ %argv_size.0, %vaarg.end ], [ %argv_size.0, %if.end ], [ %argv_size.0, %vaarg.end61 ], [ %argv_size.0, %vaarg.end81 ], [ %argv_size.0, %if.then134 ], [ %argv_size.0, %if.then132 ], [ %argv_size.0, %if.then142 ], [ %argv_size.0, %if.then140 ], [ %argv_size.0, %if.then151 ], [ %argv_size.0, %if.then149 ], [ %argv_size.0, %if.then160 ], [ %argv_size.0, %if.then158 ], [ %argv_size.0, %if.then169 ], [ %argv_size.0, %if.then167 ], [ %argv_size.0, %if.then178 ], [ %argv_size.0, %if.then176 ], [ %argv_size.0, %if.then187 ], [ %argv_size.0, %if.then185 ], [ %argv_size.0, %if.then196 ], [ %argv_size.0, %if.then194 ], [ %argv_size.0, %if.then205 ], [ %argv_size.0, %if.then203 ], [ %argv_size.0, %if.then214 ], [ %argv_size.0, %if.then212 ], [ %argv_size.0, %if.then223 ], [ %argv_size.0, %if.then221 ], [ %argv_size.0, %if.then232 ], [ %argv_size.0, %if.then230 ], [ %conv116, %vaarg.end112 ], [ %conv116, %if.end252.loopexit ]
-  %argc.2 = phi i32 [ %inc9, %vaarg.end ], [ %inc33, %if.end ], [ %inc64, %vaarg.end61 ], [ %inc84, %vaarg.end81 ], [ %argc.0, %if.then134 ], [ %argc.0, %if.then132 ], [ %argc.0, %if.then142 ], [ %argc.0, %if.then140 ], [ %argc.0, %if.then151 ], [ %argc.0, %if.then149 ], [ %argc.0, %if.then160 ], [ %argc.0, %if.then158 ], [ %argc.0, %if.then169 ], [ %argc.0, %if.then167 ], [ %argc.0, %if.then178 ], [ %argc.0, %if.then176 ], [ %argc.0, %if.then187 ], [ %argc.0, %if.then185 ], [ %argc.0, %if.then196 ], [ %argc.0, %if.then194 ], [ %argc.0, %if.then205 ], [ %argc.0, %if.then203 ], [ %argc.0, %if.then214 ], [ %argc.0, %if.then212 ], [ %argc.0, %if.then223 ], [ %argc.0, %if.then221 ], [ %argc.0, %if.then232 ], [ %argc.0, %if.then230 ], [ %argc.0, %vaarg.end112 ], [ %61, %if.end252.loopexit ]
+  %argc.2 = phi i32 [ %inc9, %vaarg.end ], [ %inc33, %if.end ], [ %inc64, %vaarg.end61 ], [ %inc84, %vaarg.end81 ], [ %argc.0, %if.then134 ], [ %argc.0, %if.then132 ], [ %argc.0, %if.then142 ], [ %argc.0, %if.then140 ], [ %argc.0, %if.then151 ], [ %argc.0, %if.then149 ], [ %argc.0, %if.then160 ], [ %argc.0, %if.then158 ], [ %argc.0, %if.then169 ], [ %argc.0, %if.then167 ], [ %argc.0, %if.then178 ], [ %argc.0, %if.then176 ], [ %argc.0, %if.then187 ], [ %argc.0, %if.then185 ], [ %argc.0, %if.then196 ], [ %argc.0, %if.then194 ], [ %argc.0, %if.then205 ], [ %argc.0, %if.then203 ], [ %argc.0, %if.then214 ], [ %argc.0, %if.then212 ], [ %argc.0, %if.then223 ], [ %argc.0, %if.then221 ], [ %argc.0, %if.then232 ], [ %argc.0, %if.then230 ], [ %argc.0, %vaarg.end112 ], [ %59, %if.end252.loopexit ]
   %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 1
   br label %while.cond, !llvm.loop !29
 
@@ -7901,8 +7901,8 @@ if.then254:                                       ; preds = %while.end
 for.body259:                                      ; preds = %for.body259.preheader, %for.body259
   %indvars.iv92 = phi i64 [ 0, %for.body259.preheader ], [ %indvars.iv.next93, %for.body259 ]
   %arrayidx261 = getelementptr inbounds ptr, ptr %argv.0, i64 %indvars.iv92
-  %62 = load ptr, ptr %arrayidx261, align 8
-  tail call void @decrRefCount(ptr noundef %62) #33
+  %60 = load ptr, ptr %arrayidx261, align 8
+  tail call void @decrRefCount(ptr noundef %60) #33
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count
   br i1 %exitcond95.not, label %for.end264, label %for.body259, !llvm.loop !30

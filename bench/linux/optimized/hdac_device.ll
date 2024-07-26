@@ -1986,6 +1986,7 @@ define dso_local i32 @snd_hdac_sync_power_state(ptr noundef %0, i16 noundef zero
   %9 = shl nuw nsw i32 %8, 20
   %10 = getelementptr inbounds i8, ptr %0, i64 816
   %11 = getelementptr inbounds i8, ptr %0, i64 736
+  %invariant.op = or disjoint i32 %9, 984320
   %12 = sub i64 -500, %5
   br i1 %7, label %.split, label %.split.us
 
@@ -2037,76 +2038,75 @@ define dso_local i32 @snd_hdac_sync_power_state(ptr noundef %0, i16 noundef zero
   %40 = icmp eq i32 %39, 500
   br i1 %40, label %.loopexit, label %.split.us, !llvm.loop !23
 
-.split:                                           ; preds = %3, %74
-  %41 = phi i32 [ %75, %74 ], [ 0, %3 ]
+.split:                                           ; preds = %3, %72
+  %41 = phi i32 [ %73, %72 ], [ 0, %3 ]
   %42 = load i32, ptr %6, align 8
   %43 = icmp ult i32 %42, 16
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %.split
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %42, i32 noundef %8, i32 noundef 3845, i32 noundef 0) #10
-  br label %49
+  br label %47
 
 45:                                               ; preds = %.split
   %46 = shl nuw i32 %42, 28
-  %47 = or disjoint i32 %46, %9
-  %48 = or disjoint i32 %47, 984320
-  br label %49
+  %.reass = or disjoint i32 %46, %invariant.op
+  br label %47
 
-49:                                               ; preds = %45, %44
-  %50 = phi i32 [ -1, %44 ], [ %48, %45 ]
+47:                                               ; preds = %45, %44
+  %48 = phi i32 [ -1, %44 ], [ %.reass, %45 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
   store i32 0, ptr %4, align 4, !annotation !6
-  %51 = load ptr, ptr %10, align 8
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %55, label %53
+  %49 = load ptr, ptr %10, align 8
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %53, label %51
 
-53:                                               ; preds = %49
-  %54 = call i32 %51(ptr noundef %0, i32 noundef %50, i32 noundef 0, ptr noundef nonnull %4) #9
-  br label %59
+51:                                               ; preds = %47
+  %52 = call i32 %49(ptr noundef %0, i32 noundef %48, i32 noundef 0, ptr noundef nonnull %4) #9
+  br label %57
 
-55:                                               ; preds = %49
-  %56 = load ptr, ptr %11, align 8
-  %57 = load i32, ptr %6, align 8
-  %58 = call i32 @snd_hdac_bus_exec_verb(ptr noundef %56, i32 noundef %57, i32 noundef %50, ptr noundef nonnull %4) #9
-  br label %59
+53:                                               ; preds = %47
+  %54 = load ptr, ptr %11, align 8
+  %55 = load i32, ptr %6, align 8
+  %56 = call i32 @snd_hdac_bus_exec_verb(ptr noundef %54, i32 noundef %55, i32 noundef %48, ptr noundef nonnull %4) #9
+  br label %57
 
-59:                                               ; preds = %55, %53
-  %60 = phi i32 [ %54, %53 ], [ %58, %55 ]
-  %61 = icmp eq i32 %60, 0
-  %62 = load i32, ptr %4, align 4
-  %63 = select i1 %61, i32 %62, i32 -1
+57:                                               ; preds = %53, %51
+  %58 = phi i32 [ %52, %51 ], [ %56, %53 ]
+  %59 = icmp eq i32 %58, 0
+  %60 = load i32, ptr %4, align 4
+  %61 = select i1 %59, i32 %60, i32 -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  %64 = and i32 %63, 256
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %66, label %.split5.us
+  %62 = and i32 %61, 256
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %64, label %.split5.us
 
-.split5.us:                                       ; preds = %23, %59
-  %.us-phi = phi i32 [ %63, %59 ], [ %27, %23 ]
+.split5.us:                                       ; preds = %23, %57
+  %.us-phi = phi i32 [ %61, %57 ], [ %27, %23 ]
   call void @msleep(i32 noundef 20) #9
   br label %.loopexit
 
-66:                                               ; preds = %59
-  %67 = lshr i32 %63, 4
-  %68 = and i32 %67, 15
-  %69 = icmp eq i32 %68, %2
-  br i1 %69, label %.loopexit, label %70
+64:                                               ; preds = %57
+  %65 = lshr i32 %61, 4
+  %66 = and i32 %65, 15
+  %67 = icmp eq i32 %66, %2
+  br i1 %67, label %.loopexit, label %68
 
-70:                                               ; preds = %66
-  %71 = load volatile i64, ptr @jiffies, align 64
-  %72 = add i64 %12, %71
-  %73 = icmp sgt i64 %72, -1
-  br i1 %73, label %.loopexit, label %74
+68:                                               ; preds = %64
+  %69 = load volatile i64, ptr @jiffies, align 64
+  %70 = add i64 %12, %69
+  %71 = icmp sgt i64 %70, -1
+  br i1 %71, label %.loopexit, label %72
 
-74:                                               ; preds = %70
+72:                                               ; preds = %68
   call void @msleep(i32 noundef 1) #9
-  %75 = add nuw nsw i32 %41, 1
-  %76 = icmp eq i32 %75, 500
-  br i1 %76, label %.loopexit, label %.split, !llvm.loop !23
+  %73 = add nuw nsw i32 %41, 1
+  %74 = icmp eq i32 %73, 500
+  br i1 %74, label %.loopexit, label %.split, !llvm.loop !23
 
-.loopexit:                                        ; preds = %38, %34, %30, %66, %70, %74, %.split5.us
-  %77 = phi i32 [ %.us-phi, %.split5.us ], [ %62, %74 ], [ %62, %70 ], [ %62, %66 ], [ %26, %30 ], [ %26, %34 ], [ %26, %38 ]
-  ret i32 %77
+.loopexit:                                        ; preds = %38, %34, %30, %64, %68, %72, %.split5.us
+  %75 = phi i32 [ %.us-phi, %.split5.us ], [ %60, %72 ], [ %60, %68 ], [ %60, %64 ], [ %26, %30 ], [ %26, %34 ], [ %26, %38 ]
+  ret i32 %75
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -768,10 +768,10 @@ _ZNK3matILi3ELi3EE9get_minorEii.exit.i.i:         ; preds = %.loopexit.i.i.i, %_
 
 _ZNK3matILi3ELi3EE8cofactorEii.exit.i:            ; preds = %_ZNK3matILi3ELi3EE9get_minorEii.exit.i.i
   %29 = add nsw i32 %.014.i, -1
-  %30 = add nuw nsw i32 %29, %7
+  %30 = sub nsw i32 %7, %.014.i
   %31 = and i32 %30, 1
-  %.not.i.i = icmp eq i32 %31, 0
-  %32 = select i1 %.not.i.i, i32 1, i32 -1
+  %.not.i.not.i = icmp eq i32 %31, 0
+  %32 = select i1 %.not.i.not.i, i32 -1, i32 1
   %33 = sitofp i32 %32 to double
   %34 = fmul double %28, %33
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !66

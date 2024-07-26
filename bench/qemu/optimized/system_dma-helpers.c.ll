@@ -457,10 +457,10 @@ for.cond.preheader:                               ; preds = %land.lhs.true46
   br i1 %cmp51101, label %for.body.lr.ph, label %if.end70
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %invariant.op = add i64 %52, -1
   %56 = load ptr, ptr %iov, align 8
   %57 = ptrtoint ptr %call.i to i64
-  %add.i3.i = add i64 %57, -1
-  %sub.i4.i = add i64 %add.i3.i, %52
+  %sub.i4.i.reass = add i64 %invariant.op, %57
   %wide.trip.count = zext nneg i32 %55 to i64
   br label %for.body
 
@@ -478,7 +478,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %60 = load i64, ptr %iov_len, align 8
   %add.i.i = add i64 %59, -1
   %sub.i.i = add i64 %add.i.i, %60
-  %cmp.i75 = icmp ult i64 %sub.i4.i, %59
+  %cmp.i75 = icmp ult i64 %sub.i4.i.reass, %59
   %cmp2.i = icmp ult i64 %sub.i.i, %57
   %.not.i.not = or i1 %cmp.i75, %cmp2.i
   br i1 %.not.i.not, label %for.cond, label %if.end67.thread

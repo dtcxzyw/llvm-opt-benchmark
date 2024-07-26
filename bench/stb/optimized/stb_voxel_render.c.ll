@@ -2561,6 +2561,7 @@ for.body.lr.ph:                                   ; preds = %if.then
   %pos.sroa.4.0.insert.shift99 = and i24 %pos.sroa.4.0.insert.ext98, 65280
   %6 = trunc i32 %x to i24
   %pos.sroa.0.0.insert.ext91 = and i24 %6, 255
+  %invariant.op = or disjoint i24 %pos.sroa.4.0.insert.shift99, %pos.sroa.0.0.insert.ext91
   %full = getelementptr inbounds i8, ptr %mm, i64 604
   %7 = sext i32 %z0 to i64
   %8 = sext i32 %1 to i64
@@ -2662,11 +2663,10 @@ lor.lhs.false77:                                  ; preds = %lor.lhs.false72
 if.then84:                                        ; preds = %lor.lhs.false77, %lor.lhs.false72, %lor.lhs.false65, %lor.lhs.false60, %lor.lhs.false53, %lor.lhs.false48, %lor.lhs.false41, %lor.lhs.false36, %lor.lhs.false29, %lor.lhs.false25, %lor.lhs.false, %land.lhs.true
   %36 = trunc i64 %indvars.iv to i24
   %pos.sroa.5.0.insert.ext106 = shl i24 %36, 16
-  %pos.sroa.4.0.insert.insert101 = or disjoint i24 %pos.sroa.5.0.insert.ext106, %pos.sroa.4.0.insert.shift99
-  %pos.sroa.0.0.insert.insert93 = or disjoint i24 %pos.sroa.4.0.insert.insert101, %pos.sroa.0.0.insert.ext91
+  %pos.sroa.0.0.insert.insert93.reass = or disjoint i24 %pos.sroa.5.0.insert.ext106, %invariant.op
   %37 = trunc i64 %indvars.iv to i32
   %38 = add i32 %add, %37
-  tail call void @stbvox_make_mesh_for_block_with_geo(ptr noundef nonnull %mm, i24 %pos.sroa.0.0.insert.insert93, i32 noundef %38)
+  tail call void @stbvox_make_mesh_for_block_with_geo(ptr noundef nonnull %mm, i24 %pos.sroa.0.0.insert.insert93.reass, i32 noundef %38)
   %39 = load i32, ptr %full, align 4
   %tobool88.not = icmp eq i32 %39, 0
   br i1 %tobool88.not, label %if.then84.for.inc_crit_edge, label %if.end241.sink.split
@@ -2692,11 +2692,11 @@ if.else:                                          ; preds = %entry
   %add.ptr185 = getelementptr inbounds i8, ptr %43, i64 %idx.ext184
   %z1188 = getelementptr inbounds i8, ptr %mm, i64 376
   %44 = load i32, ptr %z1188, align 8
-  %cmp189146 = icmp sgt i32 %44, %z0
+  %cmp189147 = icmp sgt i32 %44, %z0
   br i1 %tobool92.not, label %if.else180, label %if.then93
 
 if.then93:                                        ; preds = %if.else
-  br i1 %cmp189146, label %for.body107.lr.ph, label %if.end241
+  br i1 %cmp189147, label %for.body107.lr.ph, label %if.end241
 
 for.body107.lr.ph:                                ; preds = %if.then93
   %45 = trunc i32 %y to i24
@@ -2704,24 +2704,25 @@ for.body107.lr.ph:                                ; preds = %if.then93
   %pos.sroa.4.0.insert.shift95 = and i24 %pos.sroa.4.0.insert.ext94, 65280
   %46 = trunc i32 %x to i24
   %pos.sroa.0.0.insert.ext88 = and i24 %46, 255
+  %invariant.op146 = or disjoint i24 %pos.sroa.4.0.insert.shift95, %pos.sroa.0.0.insert.ext88
   %full171 = getelementptr inbounds i8, ptr %mm, i64 604
   %47 = sext i32 %z0 to i64
   %48 = sext i32 %1 to i64
   %49 = sext i32 %0 to i64
   %invariant.gep = getelementptr i8, ptr %add.ptr185, i64 %48
-  %invariant.gep184 = getelementptr i8, ptr %add.ptr185, i64 %49
+  %invariant.gep186 = getelementptr i8, ptr %add.ptr185, i64 %49
   br label %for.body107
 
 for.body107:                                      ; preds = %for.body107.lr.ph, %for.inc177
   %50 = phi i32 [ %44, %for.body107.lr.ph ], [ %70, %for.inc177 ]
-  %indvars.iv161 = phi i64 [ %47, %for.body107.lr.ph ], [ %indvars.iv.next162, %for.inc177 ]
-  %arrayidx109 = getelementptr inbounds i8, ptr %add.ptr185, i64 %indvars.iv161
+  %indvars.iv163 = phi i64 [ %47, %for.body107.lr.ph ], [ %indvars.iv.next164, %for.inc177 ]
+  %arrayidx109 = getelementptr inbounds i8, ptr %add.ptr185, i64 %indvars.iv163
   %51 = load i8, ptr %arrayidx109, align 1
   %tobool111.not = icmp eq i8 %51, 0
   br i1 %tobool111.not, label %for.inc177, label %land.lhs.true112
 
 land.lhs.true112:                                 ; preds = %for.body107
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv161
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv163
   %52 = load i8, ptr %gep, align 1
   %idxprom116 = zext i8 %52 to i64
   %arrayidx117 = getelementptr inbounds i8, ptr %42, i64 %idxprom116
@@ -2730,7 +2731,7 @@ land.lhs.true112:                                 ; preds = %for.body107
   br i1 %cmp119.not, label %lor.lhs.false121, label %if.then166
 
 lor.lhs.false121:                                 ; preds = %land.lhs.true112
-  %54 = sub nsw i64 %indvars.iv161, %48
+  %54 = sub nsw i64 %indvars.iv163, %48
   %arrayidx124 = getelementptr inbounds i8, ptr %add.ptr185, i64 %54
   %55 = load i8, ptr %arrayidx124, align 1
   %idxprom125 = zext i8 %55 to i64
@@ -2740,8 +2741,8 @@ lor.lhs.false121:                                 ; preds = %land.lhs.true112
   br i1 %cmp128.not, label %lor.lhs.false130, label %if.then166
 
 lor.lhs.false130:                                 ; preds = %lor.lhs.false121
-  %gep185 = getelementptr i8, ptr %invariant.gep184, i64 %indvars.iv161
-  %57 = load i8, ptr %gep185, align 1
+  %gep187 = getelementptr i8, ptr %invariant.gep186, i64 %indvars.iv163
+  %57 = load i8, ptr %gep187, align 1
   %idxprom134 = zext i8 %57 to i64
   %arrayidx135 = getelementptr inbounds i8, ptr %42, i64 %idxprom134
   %58 = load i8, ptr %arrayidx135, align 1
@@ -2749,7 +2750,7 @@ lor.lhs.false130:                                 ; preds = %lor.lhs.false121
   br i1 %cmp137.not, label %lor.lhs.false139, label %if.then166
 
 lor.lhs.false139:                                 ; preds = %lor.lhs.false130
-  %59 = sub nsw i64 %indvars.iv161, %49
+  %59 = sub nsw i64 %indvars.iv163, %49
   %arrayidx142 = getelementptr inbounds i8, ptr %add.ptr185, i64 %59
   %60 = load i8, ptr %arrayidx142, align 1
   %idxprom143 = zext i8 %60 to i64
@@ -2777,30 +2778,29 @@ lor.lhs.false157:                                 ; preds = %lor.lhs.false148
   br i1 %cmp164.not, label %for.inc177, label %if.then166
 
 if.then166:                                       ; preds = %lor.lhs.false157, %lor.lhs.false148, %lor.lhs.false139, %lor.lhs.false130, %lor.lhs.false121, %land.lhs.true112
-  %66 = trunc i64 %indvars.iv161 to i24
+  %66 = trunc i64 %indvars.iv163 to i24
   %pos.sroa.5.0.insert.ext102 = shl i24 %66, 16
-  %pos.sroa.4.0.insert.insert97 = or disjoint i24 %pos.sroa.5.0.insert.ext102, %pos.sroa.4.0.insert.shift95
-  %pos.sroa.0.0.insert.insert90 = or disjoint i24 %pos.sroa.4.0.insert.insert97, %pos.sroa.0.0.insert.ext88
-  %67 = trunc i64 %indvars.iv161 to i32
+  %pos.sroa.0.0.insert.insert90.reass = or disjoint i24 %pos.sroa.5.0.insert.ext102, %invariant.op146
+  %67 = trunc i64 %indvars.iv163 to i32
   %68 = add i32 %add, %67
-  tail call void @stbvox_make_mesh_for_block_with_geo(ptr noundef nonnull %mm, i24 %pos.sroa.0.0.insert.insert90, i32 noundef %68)
+  tail call void @stbvox_make_mesh_for_block_with_geo(ptr noundef nonnull %mm, i24 %pos.sroa.0.0.insert.insert90.reass, i32 noundef %68)
   %69 = load i32, ptr %full171, align 4
   %tobool172.not = icmp eq i32 %69, 0
   br i1 %tobool172.not, label %if.then166.for.inc177_crit_edge, label %if.end241.sink.split
 
 if.then166.for.inc177_crit_edge:                  ; preds = %if.then166
-  %.pre177 = load i32, ptr %z1188, align 8
+  %.pre179 = load i32, ptr %z1188, align 8
   br label %for.inc177
 
 for.inc177:                                       ; preds = %if.then166.for.inc177_crit_edge, %for.body107, %lor.lhs.false157
-  %70 = phi i32 [ %.pre177, %if.then166.for.inc177_crit_edge ], [ %50, %for.body107 ], [ %50, %lor.lhs.false157 ]
-  %indvars.iv.next162 = add nsw i64 %indvars.iv161, 1
+  %70 = phi i32 [ %.pre179, %if.then166.for.inc177_crit_edge ], [ %50, %for.body107 ], [ %50, %lor.lhs.false157 ]
+  %indvars.iv.next164 = add nsw i64 %indvars.iv163, 1
   %71 = sext i32 %70 to i64
-  %cmp105 = icmp slt i64 %indvars.iv.next162, %71
+  %cmp105 = icmp slt i64 %indvars.iv.next164, %71
   br i1 %cmp105, label %for.body107, label %if.end241, !llvm.loop !17
 
 if.else180:                                       ; preds = %if.else
-  br i1 %cmp189146, label %for.body191.lr.ph, label %if.end241
+  br i1 %cmp189147, label %for.body191.lr.ph, label %if.end241
 
 for.body191.lr.ph:                                ; preds = %if.else180
   %72 = trunc i32 %y to i24
@@ -2808,43 +2808,44 @@ for.body191.lr.ph:                                ; preds = %if.else180
   %pos.sroa.4.0.insert.shift = and i24 %pos.sroa.4.0.insert.ext, 65280
   %73 = trunc i32 %x to i24
   %pos.sroa.0.0.insert.ext = and i24 %73, 255
+  %invariant.op149 = or disjoint i24 %pos.sroa.4.0.insert.shift, %pos.sroa.0.0.insert.ext
   %full231 = getelementptr inbounds i8, ptr %mm, i64 604
   %74 = sext i32 %z0 to i64
   %75 = sext i32 %1 to i64
   %76 = sext i32 %0 to i64
-  %invariant.gep186 = getelementptr i8, ptr %add.ptr185, i64 %75
-  %invariant.gep188 = getelementptr i8, ptr %add.ptr185, i64 %76
+  %invariant.gep188 = getelementptr i8, ptr %add.ptr185, i64 %75
+  %invariant.gep190 = getelementptr i8, ptr %add.ptr185, i64 %76
   br label %for.body191
 
 for.body191:                                      ; preds = %for.body191.lr.ph, %for.inc237
   %77 = phi i32 [ %44, %for.body191.lr.ph ], [ %91, %for.inc237 ]
-  %indvars.iv169 = phi i64 [ %74, %for.body191.lr.ph ], [ %indvars.iv.next170, %for.inc237 ]
-  %arrayidx193 = getelementptr inbounds i8, ptr %add.ptr185, i64 %indvars.iv169
+  %indvars.iv171 = phi i64 [ %74, %for.body191.lr.ph ], [ %indvars.iv.next172, %for.inc237 ]
+  %arrayidx193 = getelementptr inbounds i8, ptr %add.ptr185, i64 %indvars.iv171
   %78 = load i8, ptr %arrayidx193, align 1
   %tobool195.not = icmp eq i8 %78, 0
   br i1 %tobool195.not, label %for.inc237, label %land.lhs.true196
 
 land.lhs.true196:                                 ; preds = %for.body191
-  %gep187 = getelementptr i8, ptr %invariant.gep186, i64 %indvars.iv169
-  %79 = load i8, ptr %gep187, align 1
+  %gep189 = getelementptr i8, ptr %invariant.gep188, i64 %indvars.iv171
+  %79 = load i8, ptr %gep189, align 1
   %tobool200.not = icmp eq i8 %79, 0
   br i1 %tobool200.not, label %if.then226, label %lor.lhs.false201
 
 lor.lhs.false201:                                 ; preds = %land.lhs.true196
-  %80 = sub nsw i64 %indvars.iv169, %75
+  %80 = sub nsw i64 %indvars.iv171, %75
   %arrayidx204 = getelementptr inbounds i8, ptr %add.ptr185, i64 %80
   %81 = load i8, ptr %arrayidx204, align 1
   %tobool205.not = icmp eq i8 %81, 0
   br i1 %tobool205.not, label %if.then226, label %lor.lhs.false206
 
 lor.lhs.false206:                                 ; preds = %lor.lhs.false201
-  %gep189 = getelementptr i8, ptr %invariant.gep188, i64 %indvars.iv169
-  %82 = load i8, ptr %gep189, align 1
+  %gep191 = getelementptr i8, ptr %invariant.gep190, i64 %indvars.iv171
+  %82 = load i8, ptr %gep191, align 1
   %tobool210.not = icmp eq i8 %82, 0
   br i1 %tobool210.not, label %if.then226, label %lor.lhs.false211
 
 lor.lhs.false211:                                 ; preds = %lor.lhs.false206
-  %83 = sub nsw i64 %indvars.iv169, %76
+  %83 = sub nsw i64 %indvars.iv171, %76
   %arrayidx214 = getelementptr inbounds i8, ptr %add.ptr185, i64 %83
   %84 = load i8, ptr %arrayidx214, align 1
   %tobool215.not = icmp eq i8 %84, 0
@@ -2863,31 +2864,30 @@ lor.lhs.false221:                                 ; preds = %lor.lhs.false216
   br i1 %tobool225.not, label %if.then226, label %for.inc237
 
 if.then226:                                       ; preds = %lor.lhs.false221, %lor.lhs.false216, %lor.lhs.false211, %lor.lhs.false206, %lor.lhs.false201, %land.lhs.true196
-  %87 = trunc i64 %indvars.iv169 to i24
+  %87 = trunc i64 %indvars.iv171 to i24
   %pos.sroa.5.0.insert.ext = shl i24 %87, 16
-  %pos.sroa.4.0.insert.insert = or disjoint i24 %pos.sroa.5.0.insert.ext, %pos.sroa.4.0.insert.shift
-  %pos.sroa.0.0.insert.insert = or disjoint i24 %pos.sroa.4.0.insert.insert, %pos.sroa.0.0.insert.ext
-  %88 = trunc i64 %indvars.iv169 to i32
+  %pos.sroa.0.0.insert.insert.reass = or disjoint i24 %pos.sroa.5.0.insert.ext, %invariant.op149
+  %88 = trunc i64 %indvars.iv171 to i32
   %89 = add i32 %add, %88
-  tail call void @stbvox_make_mesh_for_block(ptr noundef nonnull %mm, i24 %pos.sroa.0.0.insert.insert, i32 noundef %89, ptr noundef nonnull @stbvox_vmesh_delta_half_z)
+  tail call void @stbvox_make_mesh_for_block(ptr noundef nonnull %mm, i24 %pos.sroa.0.0.insert.insert.reass, i32 noundef %89, ptr noundef nonnull @stbvox_vmesh_delta_half_z)
   %90 = load i32, ptr %full231, align 4
   %tobool232.not = icmp eq i32 %90, 0
   br i1 %tobool232.not, label %if.then226.for.inc237_crit_edge, label %if.end241.sink.split
 
 if.then226.for.inc237_crit_edge:                  ; preds = %if.then226
-  %.pre178 = load i32, ptr %z1188, align 8
+  %.pre180 = load i32, ptr %z1188, align 8
   br label %for.inc237
 
 for.inc237:                                       ; preds = %if.then226.for.inc237_crit_edge, %for.body191, %lor.lhs.false221
-  %91 = phi i32 [ %.pre178, %if.then226.for.inc237_crit_edge ], [ %77, %for.body191 ], [ %77, %lor.lhs.false221 ]
-  %indvars.iv.next170 = add nsw i64 %indvars.iv169, 1
+  %91 = phi i32 [ %.pre180, %if.then226.for.inc237_crit_edge ], [ %77, %for.body191 ], [ %77, %lor.lhs.false221 ]
+  %indvars.iv.next172 = add nsw i64 %indvars.iv171, 1
   %92 = sext i32 %91 to i64
-  %cmp189 = icmp slt i64 %indvars.iv.next170, %92
+  %cmp189 = icmp slt i64 %indvars.iv.next172, %92
   br i1 %cmp189, label %for.body191, label %if.end241, !llvm.loop !18
 
 if.end241.sink.split:                             ; preds = %if.then84, %if.then166, %if.then226
-  %indvars.iv169.lcssa.sink = phi i64 [ %indvars.iv169, %if.then226 ], [ %indvars.iv161, %if.then166 ], [ %indvars.iv, %if.then84 ]
-  %93 = trunc nsw i64 %indvars.iv169.lcssa.sink to i32
+  %indvars.iv171.lcssa.sink = phi i64 [ %indvars.iv171, %if.then226 ], [ %indvars.iv163, %if.then166 ], [ %indvars.iv, %if.then84 ]
+  %93 = trunc nsw i64 %indvars.iv171.lcssa.sink to i32
   %cur_z234 = getelementptr inbounds i8, ptr %mm, i64 352
   store i32 %93, ptr %cur_z234, align 8
   br label %if.end241

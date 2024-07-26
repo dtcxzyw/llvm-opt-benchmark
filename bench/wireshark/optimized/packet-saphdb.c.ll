@@ -1129,7 +1129,7 @@ define internal fastcc noundef i32 @dissect_saphdb_segment(ptr noundef %0, ptr n
     i8 6, label %164
     i8 33, label %188
     i8 35, label %266
-    i8 15, label %.lr.ph.i131.i.i
+    i8 15, label %272
     i8 27, label %288
     i8 29, label %290
     i8 34, label %292
@@ -1359,30 +1359,34 @@ dissect_saphdb_gss_authentication_fields.exit.i.i.i: ; preds = %262, %224, %222
   %271 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %270, ptr noundef %0, i32 noundef %129, i32 noundef %156, i32 noundef 0) #3
   br label %dissect_saphdb_part_buffer.exit.i
 
-.lr.ph.i131.i.i:                                  ; preds = %151, %285
-  %.02.i.i.i = phi i32 [ %.1.i132.i.i, %285 ], [ 0, %151 ]
-  %.0231.i.i.i = phi i16 [ %286, %285 ], [ %117, %151 ]
-  %272 = add i32 %.02.i.i.i, %129
-  %273 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %272) #3
-  %274 = icmp sgt i32 %273, 2
-  br i1 %274, label %275, label %dissect_saphdb_part_buffer.exit.i
+272:                                              ; preds = %151
+  %invariant.op.i.i.i = add i32 %.11472, 18
+  br label %.lr.ph.i131.i.i
 
-275:                                              ; preds = %.lr.ph.i131.i.i
-  %276 = call signext i16 @tvb_get_gint16(ptr noundef %0, i32 noundef %272, i32 noundef -2147483648) #3
-  %277 = load i32, ptr @hf_saphdb_part_option_argcount, align 4
-  %278 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %277, ptr noundef %0, i32 noundef %272, i32 noundef 2, i32 noundef -2147483648) #3
-  %279 = add i32 %.02.i.i.i, 2
-  %280 = icmp sgt i16 %276, 0
-  br i1 %280, label %281, label %285
+.lr.ph.i131.i.i:                                  ; preds = %285, %272
+  %.02.i.i.i = phi i32 [ %.1.i132.i.i, %285 ], [ 0, %272 ]
+  %.0231.i.i.i = phi i16 [ %286, %285 ], [ %117, %272 ]
+  %273 = add i32 %.02.i.i.i, %129
+  %274 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %273) #3
+  %275 = icmp sgt i32 %274, 2
+  br i1 %275, label %276, label %dissect_saphdb_part_buffer.exit.i
 
-281:                                              ; preds = %275
-  %282 = add i32 %279, %129
-  %283 = call fastcc i32 @dissect_saphdb_part_options_data(ptr noundef %0, ptr noundef %1, ptr noundef %155, i32 noundef %282, i16 noundef signext %276, i8 noundef zeroext 15, ptr noundef nonnull @saphdb_part_topology_info_vals)
-  %284 = add i32 %283, %279
+276:                                              ; preds = %.lr.ph.i131.i.i
+  %277 = call signext i16 @tvb_get_gint16(ptr noundef %0, i32 noundef %273, i32 noundef -2147483648) #3
+  %278 = load i32, ptr @hf_saphdb_part_option_argcount, align 4
+  %279 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %278, ptr noundef %0, i32 noundef %273, i32 noundef 2, i32 noundef -2147483648) #3
+  %280 = add i32 %.02.i.i.i, 2
+  %281 = icmp sgt i16 %277, 0
+  br i1 %281, label %282, label %285
+
+282:                                              ; preds = %276
+  %.reass.i.i.i = add i32 %invariant.op.i.i.i, %.02.i.i.i
+  %283 = call fastcc i32 @dissect_saphdb_part_options_data(ptr noundef %0, ptr noundef %1, ptr noundef %155, i32 noundef %.reass.i.i.i, i16 noundef signext %277, i8 noundef zeroext 15, ptr noundef nonnull @saphdb_part_topology_info_vals)
+  %284 = add i32 %283, %280
   br label %285
 
-285:                                              ; preds = %281, %275
-  %.1.i132.i.i = phi i32 [ %284, %281 ], [ %279, %275 ]
+285:                                              ; preds = %282, %276
+  %.1.i132.i.i = phi i32 [ %284, %282 ], [ %280, %276 ]
   %286 = add nsw i16 %.0231.i.i.i, -1
   %287 = icmp sgt i16 %.0231.i.i.i, 1
   br i1 %287, label %.lr.ph.i131.i.i, label %dissect_saphdb_part_buffer.exit.i, !llvm.loop !8
@@ -1478,20 +1482,22 @@ declare ptr @proto_tree_add_item_ret_int(ptr noundef, i32 noundef, ptr noundef, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_saphdb_part_options_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4, i8 noundef zeroext %5, ptr noundef readonly %6) unnamed_addr #0 {
+  %invariant.op = add i32 %3, 2
+  %invariant.op137 = add i32 %3, 4
   %8 = icmp sgt i16 %4, 0
-  br i1 %8, label %.lr.ph139, label %.critedge
+  br i1 %8, label %.lr.ph153, label %.critedge
 
-.lr.ph139:                                        ; preds = %7
+.lr.ph153:                                        ; preds = %7
   %.not.i = icmp eq ptr %6, null
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = add i32 %3, 1
   %11 = zext i8 %5 to i32
   br label %12
 
-12:                                               ; preds = %.lr.ph139, %132
-  %.0138 = phi i32 [ 0, %.lr.ph139 ], [ %.1, %132 ]
-  %.0110137 = phi i16 [ %4, %.lr.ph139 ], [ %133, %132 ]
-  %13 = add i32 %.0138, %3
+12:                                               ; preds = %.lr.ph153, %124
+  %.0152 = phi i32 [ 0, %.lr.ph153 ], [ %.1, %124 ]
+  %.0110151 = phi i16 [ %4, %.lr.ph153 ], [ %125, %124 ]
+  %13 = add i32 %.0152, %3
   %14 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %13) #3
   %15 = icmp sgt i32 %14, 2
   br i1 %15, label %16, label %.critedge
@@ -1530,11 +1536,11 @@ define internal fastcc i32 @dissect_saphdb_part_options_data(ptr noundef %0, ptr
 opv_to_opi.exit:                                  ; preds = %.lr.ph.i, %.lr.ph, %.lr.ph.i.preheader, %16, %.preheader.i
   %.010.i = phi ptr [ @.str.330, %16 ], [ @.str.330, %.preheader.i ], [ %20, %.lr.ph.i.preheader ], [ %27, %.lr.ph.i ], [ @.str.330, %.lr.ph ]
   %30 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef %13, i32 noundef 1, i32 noundef %19, ptr noundef nonnull @.str.355, ptr noundef nonnull %.010.i, i32 noundef %19) #3
-  %31 = add i32 %10, %.0138
+  %31 = add i32 %10, %.0152
   %32 = tail call signext i8 @tvb_get_gint8(ptr noundef %0, i32 noundef %31) #3
   %33 = load i32, ptr @hf_saphdb_part_option_type, align 4
   %34 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef %31, i32 noundef 1, i32 noundef 0) #3
-  %35 = add i32 %.0138, 2
+  %35 = add i32 %.0152, 2
   %36 = sext i8 %32 to i32
   br i1 %.not.i, label %opv_to_opt.exit.thread128, label %.preheader.i116
 
@@ -1617,116 +1623,116 @@ opv_to_opt.exit125:                               ; preds = %59, %opv_to_opt.exi
   br label %73
 
 73:                                               ; preds = %opv_to_opt.exit.thread128, %opv_to_opt.exit.thread, %opv_to_opt.exit125, %opv_to_opt.exit
-  switch i8 %32, label %128 [
+  switch i8 %32, label %120 [
     i8 1, label %74
-    i8 2, label %79
-    i8 3, label %84
-    i8 4, label %89
-    i8 7, label %94
-    i8 28, label %99
-    i8 29, label %106
-    i8 30, label %106
-    i8 33, label %106
+    i8 2, label %78
+    i8 3, label %82
+    i8 4, label %86
+    i8 7, label %90
+    i8 28, label %94
+    i8 29, label %100
+    i8 30, label %100
+    i8 33, label %100
   ]
 
 74:                                               ; preds = %73
   %75 = load i32, ptr @hf_saphdb_part_option_value_byte, align 4
-  %76 = add i32 %35, %3
-  %77 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %75, ptr noundef %0, i32 noundef %76, i32 noundef 1, i32 noundef 0) #3
-  %78 = add i32 %.0138, 3
-  br label %132
+  %.reass150 = add i32 %.0152, %invariant.op
+  %76 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %75, ptr noundef %0, i32 noundef %.reass150, i32 noundef 1, i32 noundef 0) #3
+  %77 = add i32 %.0152, 3
+  br label %124
 
-79:                                               ; preds = %73
-  %80 = load i32, ptr @hf_saphdb_part_option_value_short, align 4
-  %81 = add i32 %35, %3
-  %82 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %80, ptr noundef %0, i32 noundef %81, i32 noundef 2, i32 noundef -2147483648) #3
-  %83 = add i32 %.0138, 4
-  br label %132
+78:                                               ; preds = %73
+  %79 = load i32, ptr @hf_saphdb_part_option_value_short, align 4
+  %.reass148 = add i32 %.0152, %invariant.op
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %79, ptr noundef %0, i32 noundef %.reass148, i32 noundef 2, i32 noundef -2147483648) #3
+  %81 = add i32 %.0152, 4
+  br label %124
 
-84:                                               ; preds = %73
-  %85 = load i32, ptr @hf_saphdb_part_option_value_int, align 4
-  %86 = add i32 %35, %3
-  %87 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %85, ptr noundef %0, i32 noundef %86, i32 noundef 4, i32 noundef -2147483648) #3
-  %88 = add i32 %.0138, 6
-  br label %132
+82:                                               ; preds = %73
+  %83 = load i32, ptr @hf_saphdb_part_option_value_int, align 4
+  %.reass146 = add i32 %.0152, %invariant.op
+  %84 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %83, ptr noundef %0, i32 noundef %.reass146, i32 noundef 4, i32 noundef -2147483648) #3
+  %85 = add i32 %.0152, 6
+  br label %124
 
-89:                                               ; preds = %73
-  %90 = load i32, ptr @hf_saphdb_part_option_value_bigint, align 4
-  %91 = add i32 %35, %3
-  %92 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %90, ptr noundef %0, i32 noundef %91, i32 noundef 8, i32 noundef -2147483648) #3
-  %93 = add i32 %.0138, 10
-  br label %132
+86:                                               ; preds = %73
+  %87 = load i32, ptr @hf_saphdb_part_option_value_bigint, align 4
+  %.reass144 = add i32 %.0152, %invariant.op
+  %88 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %87, ptr noundef %0, i32 noundef %.reass144, i32 noundef 8, i32 noundef -2147483648) #3
+  %89 = add i32 %.0152, 10
+  br label %124
+
+90:                                               ; preds = %73
+  %91 = load i32, ptr @hf_saphdb_part_option_value_double, align 4
+  %.reass142 = add i32 %.0152, %invariant.op
+  %92 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %91, ptr noundef %0, i32 noundef %.reass142, i32 noundef 8, i32 noundef -2147483648) #3
+  %93 = add i32 %.0152, 10
+  br label %124
 
 94:                                               ; preds = %73
-  %95 = load i32, ptr @hf_saphdb_part_option_value_double, align 4
-  %96 = add i32 %35, %3
-  %97 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %95, ptr noundef %0, i32 noundef %96, i32 noundef 8, i32 noundef -2147483648) #3
-  %98 = add i32 %.0138, 10
-  br label %132
+  %.reass140 = add i32 %.0152, %invariant.op
+  %95 = tail call signext i8 @tvb_get_gint8(ptr noundef %0, i32 noundef %.reass140) #3
+  %96 = load i32, ptr @hf_saphdb_part_option_value_bool, align 4
+  %97 = sext i8 %95 to i64
+  %98 = tail call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %96, ptr noundef %0, i32 noundef %.reass140, i32 noundef 1, i64 noundef %97) #3
+  %99 = add i32 %.0152, 3
+  br label %124
 
-99:                                               ; preds = %73
-  %100 = add i32 %35, %3
-  %101 = tail call signext i8 @tvb_get_gint8(ptr noundef %0, i32 noundef %100) #3
-  %102 = load i32, ptr @hf_saphdb_part_option_value_bool, align 4
-  %103 = sext i8 %101 to i64
-  %104 = tail call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %102, ptr noundef %0, i32 noundef %100, i32 noundef 1, i64 noundef %103) #3
-  %105 = add i32 %.0138, 3
-  br label %132
+100:                                              ; preds = %73, %73, %73
+  %.reass = add i32 %.0152, %invariant.op
+  %101 = tail call signext i16 @tvb_get_gint16(ptr noundef %0, i32 noundef %.reass, i32 noundef -2147483648) #3
+  %102 = load i32, ptr @hf_saphdb_part_option_length, align 4
+  %103 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %102, ptr noundef %0, i32 noundef %.reass, i32 noundef 2, i32 noundef -2147483648) #3
+  %104 = add i32 %.0152, 4
+  %.reass138 = add i32 %.0152, %invariant.op137
+  %105 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.reass138) #3
+  %106 = sext i16 %101 to i32
+  %.not = icmp slt i32 %105, %106
+  br i1 %.not, label %124, label %107
 
-106:                                              ; preds = %73, %73, %73
-  %107 = add i32 %35, %3
-  %108 = tail call signext i16 @tvb_get_gint16(ptr noundef %0, i32 noundef %107, i32 noundef -2147483648) #3
-  %109 = load i32, ptr @hf_saphdb_part_option_length, align 4
-  %110 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %109, ptr noundef %0, i32 noundef %107, i32 noundef 2, i32 noundef -2147483648) #3
-  %111 = add i32 %.0138, 4
-  %112 = add i32 %111, %3
-  %113 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %112) #3
-  %114 = sext i16 %108 to i32
-  %.not = icmp slt i32 %113, %114
-  br i1 %.not, label %132, label %115
-
-115:                                              ; preds = %106
-  switch i8 %32, label %132 [
-    i8 29, label %116
-    i8 30, label %120
-    i8 33, label %124
+107:                                              ; preds = %100
+  switch i8 %32, label %124 [
+    i8 29, label %108
+    i8 30, label %112
+    i8 33, label %116
   ]
 
-116:                                              ; preds = %115
-  %117 = load i32, ptr @hf_saphdb_part_option_value_string, align 4
-  %118 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %117, ptr noundef %0, i32 noundef %112, i32 noundef %114, i32 noundef 2) #3
-  %119 = add i32 %111, %114
-  br label %132
+108:                                              ; preds = %107
+  %109 = load i32, ptr @hf_saphdb_part_option_value_string, align 4
+  %110 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %109, ptr noundef %0, i32 noundef %.reass138, i32 noundef %106, i32 noundef 2) #3
+  %111 = add i32 %104, %106
+  br label %124
 
-120:                                              ; preds = %115
-  %121 = load i32, ptr @hf_saphdb_part_option_value_string, align 4
-  %122 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %121, ptr noundef %0, i32 noundef %112, i32 noundef %114, i32 noundef 2) #3
-  %123 = add i32 %111, %114
-  br label %132
+112:                                              ; preds = %107
+  %113 = load i32, ptr @hf_saphdb_part_option_value_string, align 4
+  %114 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %113, ptr noundef %0, i32 noundef %.reass138, i32 noundef %106, i32 noundef 2) #3
+  %115 = add i32 %104, %106
+  br label %124
 
-124:                                              ; preds = %115
-  %125 = load i32, ptr @hf_saphdb_part_option_value, align 4
-  %126 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %125, ptr noundef %0, i32 noundef %112, i32 noundef %114, i32 noundef 0) #3
-  %127 = add i32 %111, %114
-  br label %132
+116:                                              ; preds = %107
+  %117 = load i32, ptr @hf_saphdb_part_option_value, align 4
+  %118 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %117, ptr noundef %0, i32 noundef %.reass138, i32 noundef %106, i32 noundef 0) #3
+  %119 = add i32 %104, %106
+  br label %124
 
-128:                                              ; preds = %73
-  %129 = load i32, ptr @global_saphdb_highlight_items, align 4
-  %.not114 = icmp eq i32 %129, 0
-  br i1 %.not114, label %132, label %130
+120:                                              ; preds = %73
+  %121 = load i32, ptr @global_saphdb_highlight_items, align 4
+  %.not114 = icmp eq i32 %121, 0
+  br i1 %.not114, label %124, label %122
 
-130:                                              ; preds = %128
-  %131 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %34, ptr noundef nonnull @ei_saphdb_option_part_unknown, ptr noundef nonnull @.str.357, i32 noundef %36) #3
-  br label %132
+122:                                              ; preds = %120
+  %123 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %34, ptr noundef nonnull @ei_saphdb_option_part_unknown, ptr noundef nonnull @.str.357, i32 noundef %36) #3
+  br label %124
 
-132:                                              ; preds = %115, %128, %130, %106, %120, %124, %116, %99, %94, %89, %84, %79, %74
-  %.1 = phi i32 [ %35, %130 ], [ %35, %128 ], [ %119, %116 ], [ %123, %120 ], [ %127, %124 ], [ %111, %106 ], [ %105, %99 ], [ %98, %94 ], [ %93, %89 ], [ %88, %84 ], [ %83, %79 ], [ %78, %74 ], [ %111, %115 ]
-  %133 = add nsw i16 %.0110137, -1
-  %134 = icmp sgt i16 %.0110137, 1
-  br i1 %134, label %12, label %.critedge, !llvm.loop !12
+124:                                              ; preds = %107, %120, %122, %100, %112, %116, %108, %94, %90, %86, %82, %78, %74
+  %.1 = phi i32 [ %35, %122 ], [ %35, %120 ], [ %111, %108 ], [ %115, %112 ], [ %119, %116 ], [ %104, %100 ], [ %99, %94 ], [ %93, %90 ], [ %89, %86 ], [ %85, %82 ], [ %81, %78 ], [ %77, %74 ], [ %104, %107 ]
+  %125 = add nsw i16 %.0110151, -1
+  %126 = icmp sgt i16 %.0110151, 1
+  br i1 %126, label %12, label %.critedge, !llvm.loop !12
 
-.critedge:                                        ; preds = %12, %132, %7
-  %.0.lcssa = phi i32 [ 0, %7 ], [ %.1, %132 ], [ %.0138, %12 ]
+.critedge:                                        ; preds = %12, %124, %7
+  %.0.lcssa = phi i32 [ 0, %7 ], [ %.1, %124 ], [ %.0152, %12 ]
   ret i32 %.0.lcssa
 }
 

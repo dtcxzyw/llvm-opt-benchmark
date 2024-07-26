@@ -411,66 +411,68 @@ define internal fastcc range(i32 0, 2) i32 @parse_toshiba_packet(ptr noundef %0,
   store i8 0, ptr %95, align 4
   %104 = call i64 @strtoul(ptr nocapture noundef nonnull %6, ptr noundef null, i32 noundef 16) #7
   %.not.i = icmp eq i64 %104, %103
-  br i1 %.not.i, label %.preheader28.i, label %123
+  br i1 %.not.i, label %.preheader28.i, label %125
 
-.preheader28.i:                                   ; preds = %102, %109
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %109 ], [ 7, %102 ]
-  %105 = getelementptr i8, ptr %6, i64 %indvars.iv.i
-  %106 = load i8, ptr %105, align 1
-  %107 = icmp eq i8 %106, 32
-  br i1 %107, label %108, label %109
+.preheader.i:                                     ; preds = %112
+  %105 = trunc nuw nsw i64 %103 to i32
+  %106 = trunc i64 %103 to i32
+  %107 = or disjoint i32 %106, 1
+  br label %113
 
-108:                                              ; preds = %.preheader28.i
-  store i8 48, ptr %105, align 1
-  br label %109
+.preheader28.i:                                   ; preds = %102, %112
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %112 ], [ 7, %102 ]
+  %108 = getelementptr i8, ptr %6, i64 %indvars.iv.i
+  %109 = load i8, ptr %108, align 1
+  %110 = icmp eq i8 %109, 32
+  br i1 %110, label %111, label %112
 
-109:                                              ; preds = %108, %.preheader28.i
+111:                                              ; preds = %.preheader28.i
+  store i8 48, ptr %108, align 1
+  br label %112
+
+112:                                              ; preds = %111, %.preheader28.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 46
-  br i1 %exitcond.not.i, label %.preheader.i.preheader, label %.preheader28.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.preheader.i, label %.preheader28.i, !llvm.loop !9
 
-.preheader.i.preheader:                           ; preds = %109
-  %110 = trunc nuw nsw i64 %103 to i32
-  br label %.preheader.i
-
-.preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
-  %indvars.iv35.i = phi i64 [ %indvars.iv.next36.i, %.preheader.i ], [ 0, %.preheader.i.preheader ]
-  %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %.preheader.i ], [ 7, %.preheader.i.preheader ]
+113:                                              ; preds = %113, %.preheader.i
+  %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %113 ]
+  %indvars.iv33.i = phi i64 [ 7, %.preheader.i ], [ %indvars.iv.next34.i, %113 ]
   %gep.i = getelementptr i8, ptr %95, i64 %indvars.iv33.i
   store i8 0, ptr %gep.i, align 1
-  %111 = getelementptr i8, ptr %6, i64 %indvars.iv33.i
-  %112 = call i64 @strtoul(ptr nocapture noundef %111, ptr noundef null, i32 noundef 16) #7
-  %113 = trunc i64 %112 to i8
-  %114 = lshr i64 %112, 8
-  %115 = trunc i64 %114 to i8
+  %114 = getelementptr i8, ptr %6, i64 %indvars.iv33.i
+  %115 = call i64 @strtoul(ptr nocapture noundef %114, ptr noundef null, i32 noundef 16) #7
+  %116 = trunc i64 %115 to i8
+  %117 = lshr i64 %115, 8
+  %118 = trunc i64 %117 to i8
   %indvars.iv35.tr.i = trunc i64 %indvars.iv35.i to i32
-  %116 = shl i32 %indvars.iv35.tr.i, 1
-  %117 = add nuw nsw i32 %116, %110
-  %118 = zext i32 %117 to i64
-  %119 = getelementptr i8, ptr %88, i64 %118
-  store i8 %115, ptr %119, align 1
-  %120 = or disjoint i32 %117, 1
+  %119 = shl i32 %indvars.iv35.tr.i, 1
+  %120 = add nuw nsw i32 %119, %105
   %121 = zext i32 %120 to i64
   %122 = getelementptr i8, ptr %88, i64 %121
-  store i8 %113, ptr %122, align 1
+  store i8 %118, ptr %122, align 1
+  %.reass.i = add nuw nsw i32 %107, %119
+  %123 = zext i32 %.reass.i to i64
+  %124 = getelementptr i8, ptr %88, i64 %123
+  store i8 %116, ptr %124, align 1
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 5
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next36.i, 8
-  br i1 %exitcond40.not.i, label %parse_single_hex_dump_line.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond40.not.i, label %parse_single_hex_dump_line.exit, label %113, !llvm.loop !10
 
-123:                                              ; preds = %102
+125:                                              ; preds = %102
   store i32 -13, ptr %3, align 4
-  %124 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.8) #7
-  store ptr %124, ptr %4, align 8
+  %126 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.8) #7
+  store ptr %126, ptr %4, align 8
   br label %.loopexit
 
-parse_single_hex_dump_line.exit:                  ; preds = %.preheader.i
+parse_single_hex_dump_line.exit:                  ; preds = %113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %96, !llvm.loop !11
 
-.loopexit:                                        ; preds = %parse_single_hex_dump_line.exit, %82, %123, %99, %46, %42, %37, %30, %25, %19
-  %.0 = phi i32 [ 0, %19 ], [ 0, %25 ], [ 0, %30 ], [ 0, %37 ], [ 0, %42 ], [ 0, %46 ], [ 0, %99 ], [ 0, %123 ], [ 1, %82 ], [ 1, %parse_single_hex_dump_line.exit ]
+.loopexit:                                        ; preds = %parse_single_hex_dump_line.exit, %82, %125, %99, %46, %42, %37, %30, %25, %19
+  %.0 = phi i32 [ 0, %19 ], [ 0, %25 ], [ 0, %30 ], [ 0, %37 ], [ 0, %42 ], [ 0, %46 ], [ 0, %99 ], [ 0, %125 ], [ 1, %82 ], [ 1, %parse_single_hex_dump_line.exit ]
   ret i32 %.0
 }
 

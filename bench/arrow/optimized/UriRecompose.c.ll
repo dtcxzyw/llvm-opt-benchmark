@@ -394,7 +394,7 @@ for.body266.us:                                   ; preds = %for.body266.us, %if
   %cmp307.us = icmp ne i32 %i242.0467.us, 15
   %or.cond1.us = and i1 %cmp307.us, %cmp304.us
   %spec.select.v = select i1 %or.cond1.us, i32 3, i32 2
-  %spec.select = add nsw i32 %add328.us471, %spec.select.v
+  %spec.select = add i32 %add328.us471, %spec.select.v
   %inc332.us = add nuw nsw i32 %i242.0467.us, 1
   %exitcond490.not = icmp eq i32 %inc332.us, 16
   br i1 %exitcond490.not, label %for.end333, label %for.body266.us, !llvm.loop !6
@@ -1453,7 +1453,7 @@ for.body261.us:                                   ; preds = %for.body261.us, %if
   %cmp302.us = icmp ne i32 %i237.0477.us, 15
   %or.cond1.us = and i1 %cmp302.us, %cmp299.us
   %spec.select.v = select i1 %or.cond1.us, i32 3, i32 2
-  %spec.select = add nsw i32 %add323.us481, %spec.select.v
+  %spec.select = add i32 %add323.us481, %spec.select.v
   %inc327.us = add nuw nsw i32 %i237.0477.us, 1
   %exitcond500.not = icmp eq i32 %inc327.us, 16
   br i1 %exitcond500.not, label %for.end328, label %for.body261.us, !llvm.loop !9

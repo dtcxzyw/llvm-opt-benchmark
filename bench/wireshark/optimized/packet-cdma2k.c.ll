@@ -1849,13 +1849,13 @@ define internal fastcc void @cdma2k_message_decode(ptr noundef %0, ptr noundef %
   %30 = load i32, ptr @hf_cdma2k_tlac_msgType, align 4
   %31 = shl i32 %28, 3
   %. = select i1 %29, i32 3, i32 1
-  %.82 = select i1 %29, i32 6, i32 8
+  %.108 = select i1 %29, i32 6, i32 8
   %32 = or disjoint i32 %31, %.
-  %33 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %30, ptr noundef %0, i32 noundef %32, i32 noundef %.82, i32 noundef 0) #4
+  %33 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %30, ptr noundef %0, i32 noundef %32, i32 noundef %.108, i32 noundef 0) #4
   %34 = load i32, ptr %2, align 4
   %35 = shl i32 %34, 3
   %36 = or disjoint i32 %35, %.
-  %37 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %36, i32 noundef %.82) #4
+  %37 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %36, i32 noundef %.108) #4
   %.0159 = zext i8 %37 to i16
   %storemerge.in = load i32, ptr %2, align 4
   %storemerge = add i32 %storemerge.in, 1
@@ -1885,7 +1885,7 @@ define internal fastcc void @cdma2k_message_decode(ptr noundef %0, ptr noundef %
   br label %.lr.ph26
 
 .lr.ph26:                                         ; preds = %.lr.ph26.preheader, %cdma2k_message_ADDR_FIELDS.exit
-  %54 = phi i16 [ %48, %.lr.ph26.preheader ], [ %290, %cdma2k_message_ADDR_FIELDS.exit ]
+  %54 = phi i16 [ %48, %.lr.ph26.preheader ], [ %276, %cdma2k_message_ADDR_FIELDS.exit ]
   %indvars.iv = phi i32 [ 1, %.lr.ph26.preheader ], [ %indvars.iv.next, %cdma2k_message_ADDR_FIELDS.exit ]
   %.025 = phi i16 [ -1, %.lr.ph26.preheader ], [ %.1, %cdma2k_message_ADDR_FIELDS.exit ]
   %55 = load i32, ptr @hf_cdma2k_tlac_Header_Record, align 4
@@ -1904,9 +1904,9 @@ define internal fastcc void @cdma2k_message_decode(ptr noundef %0, ptr noundef %
   %67 = zext i16 %65 to i32
   %68 = tail call ptr @proto_tree_add_bits_item(ptr noundef %60, i32 noundef %66, ptr noundef %0, i32 noundef %67, i32 noundef 8, i32 noundef 0) #4
   %69 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %67, i32 noundef 8) #4
-  switch i8 %64, label %272 [
+  switch i8 %64, label %258 [
     i8 0, label %70
-    i8 1, label %196
+    i8 1, label %182
   ]
 
 70:                                               ; preds = %.lr.ph26
@@ -1929,3509 +1929,3509 @@ define internal fastcc void @cdma2k_message_decode(ptr noundef %0, ptr noundef %
   %87 = add i16 %54, 15
   %88 = icmp eq i8 %86, 4
   %89 = zext i16 %87 to i32
-  br i1 %88, label %135, label %90
+  br i1 %88, label %126, label %90
 
 90:                                               ; preds = %70
   %91 = load i32, ptr @hf_cdma2k_tlac_Header_Record_MsId_Length, align 4
   %92 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %91, ptr noundef %0, i32 noundef %89, i32 noundef 4, i32 noundef 0) #4
   %93 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %89, i32 noundef 4) #4
-  %94 = add i16 %54, 19
-  store i16 %94, ptr %5, align 2
-  switch i8 %86, label %184 [
-    i8 0, label %95
-    i8 1, label %124
-    i8 2, label %129
-    i8 3, label %130
-    i8 5, label %164
+  %.reass = add i16 %54, 19
+  store i16 %.reass, ptr %5, align 2
+  switch i8 %86, label %170 [
+    i8 0, label %94
+    i8 1, label %117
+    i8 2, label %121
+    i8 3, label %122
+    i8 5, label %150
   ]
 
-95:                                               ; preds = %90
-  %96 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Imsi_M_S1, align 4
-  %97 = zext i16 %94 to i32
-  %98 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %96, ptr noundef %0, i32 noundef %97, i32 noundef 24, i32 noundef 0) #4
-  %99 = load i32, ptr @ett_cdma2k_m_s1, align 4
-  %100 = tail call ptr @proto_item_add_subtree(ptr noundef %98, i32 noundef %99) #4
-  %101 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Imsi_M_S1_sec_3_dig, align 4
-  %102 = tail call ptr @proto_tree_add_bits_item(ptr noundef %100, i32 noundef %101, ptr noundef %0, i32 noundef %97, i32 noundef 10, i32 noundef 0) #4
-  %103 = add i16 %54, 29
-  %104 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Imsi_M_S1_thousand_dig, align 4
-  %105 = zext i16 %103 to i32
-  %106 = tail call ptr @proto_tree_add_bits_item(ptr noundef %100, i32 noundef %104, ptr noundef %0, i32 noundef %105, i32 noundef 4, i32 noundef 0) #4
-  %107 = add i16 %54, 33
-  %108 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Imsi_M_S1_last_3_dig, align 4
-  %109 = zext i16 %107 to i32
-  %110 = tail call ptr @proto_tree_add_bits_item(ptr noundef %100, i32 noundef %108, ptr noundef %0, i32 noundef %109, i32 noundef 10, i32 noundef 0) #4
-  %111 = add i16 %54, 43
-  %112 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Imsi_M_S2, align 4
-  %113 = zext i16 %111 to i32
-  %114 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %112, ptr noundef %0, i32 noundef %113, i32 noundef 10, i32 noundef 0) #4
-  %115 = add i16 %54, 53
-  %116 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Esn, align 4
-  %117 = zext i16 %115 to i32
-  %118 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %116, ptr noundef %0, i32 noundef %117, i32 noundef 32, i32 noundef 0) #4
-  %119 = add i16 %54, 85
-  %120 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Reserved, align 4
-  %121 = zext i16 %119 to i32
-  %122 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %120, ptr noundef %0, i32 noundef %121, i32 noundef 6, i32 noundef 0) #4
-  %123 = add i16 %54, 91
-  store i16 %123, ptr %5, align 2
-  br label %185
+94:                                               ; preds = %90
+  %95 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Imsi_M_S1, align 4
+  %96 = zext i16 %.reass to i32
+  %97 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %95, ptr noundef %0, i32 noundef %96, i32 noundef 24, i32 noundef 0) #4
+  %98 = load i32, ptr @ett_cdma2k_m_s1, align 4
+  %99 = tail call ptr @proto_item_add_subtree(ptr noundef %97, i32 noundef %98) #4
+  %100 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Imsi_M_S1_sec_3_dig, align 4
+  %101 = tail call ptr @proto_tree_add_bits_item(ptr noundef %99, i32 noundef %100, ptr noundef %0, i32 noundef %96, i32 noundef 10, i32 noundef 0) #4
+  %.reass82 = add i16 %54, 29
+  %102 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Imsi_M_S1_thousand_dig, align 4
+  %103 = zext i16 %.reass82 to i32
+  %104 = tail call ptr @proto_tree_add_bits_item(ptr noundef %99, i32 noundef %102, ptr noundef %0, i32 noundef %103, i32 noundef 4, i32 noundef 0) #4
+  %.reass84 = add i16 %54, 33
+  %105 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Imsi_M_S1_last_3_dig, align 4
+  %106 = zext i16 %.reass84 to i32
+  %107 = tail call ptr @proto_tree_add_bits_item(ptr noundef %99, i32 noundef %105, ptr noundef %0, i32 noundef %106, i32 noundef 10, i32 noundef 0) #4
+  %.reass86 = add i16 %54, 43
+  %108 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Imsi_M_S2, align 4
+  %109 = zext i16 %.reass86 to i32
+  %110 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %108, ptr noundef %0, i32 noundef %109, i32 noundef 10, i32 noundef 0) #4
+  %.reass88 = add i16 %54, 53
+  %111 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Esn, align 4
+  %112 = zext i16 %.reass88 to i32
+  %113 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %111, ptr noundef %0, i32 noundef %112, i32 noundef 32, i32 noundef 0) #4
+  %.reass90 = add i16 %54, 85
+  %114 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Reserved, align 4
+  %115 = zext i16 %.reass90 to i32
+  %116 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %114, ptr noundef %0, i32 noundef %115, i32 noundef 6, i32 noundef 0) #4
+  %.reass92 = add i16 %54, 91
+  store i16 %.reass92, ptr %5, align 2
+  br label %171
 
-124:                                              ; preds = %90
-  %125 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Esn, align 4
-  %126 = zext i16 %94 to i32
-  %127 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %125, ptr noundef %0, i32 noundef %126, i32 noundef 32, i32 noundef 0) #4
-  %128 = add i16 %54, 51
-  store i16 %128, ptr %5, align 2
-  br label %185
+117:                                              ; preds = %90
+  %118 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Esn, align 4
+  %119 = zext i16 %.reass to i32
+  %120 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %118, ptr noundef %0, i32 noundef %119, i32 noundef 32, i32 noundef 0) #4
+  %.reass80 = add i16 %54, 51
+  store i16 %.reass80, ptr %5, align 2
+  br label %171
 
-129:                                              ; preds = %90
+121:                                              ; preds = %90
   call fastcc void @cdma2k_message_IMSI_CLASS_SUBFIELDS(ptr noundef %78, ptr noundef %0, ptr noundef %80, ptr noundef nonnull %5)
-  br label %185
+  br label %171
 
-130:                                              ; preds = %90
-  %131 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Esn, align 4
-  %132 = zext i16 %94 to i32
-  %133 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %131, ptr noundef %0, i32 noundef %132, i32 noundef 32, i32 noundef 0) #4
-  %134 = add i16 %54, 51
-  store i16 %134, ptr %5, align 2
+122:                                              ; preds = %90
+  %123 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Esn, align 4
+  %124 = zext i16 %.reass to i32
+  %125 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %123, ptr noundef %0, i32 noundef %124, i32 noundef 32, i32 noundef 0) #4
+  %.reass78 = add i16 %54, 51
+  store i16 %.reass78, ptr %5, align 2
   call fastcc void @cdma2k_message_IMSI_CLASS_SUBFIELDS(ptr noundef %78, ptr noundef %0, ptr noundef %80, ptr noundef nonnull %5)
-  br label %185
+  br label %171
 
-135:                                              ; preds = %70
-  %136 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Ext_MsId_Type, align 4
-  %137 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %136, ptr noundef %0, i32 noundef %89, i32 noundef 3, i32 noundef 0) #4
-  %138 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %89, i32 noundef 3) #4
-  %139 = add i16 %54, 18
-  %140 = load i32, ptr @hf_cdma2k_tlac_Header_Record_MsId_Length, align 4
-  %141 = zext i16 %139 to i32
-  %142 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %140, ptr noundef %0, i32 noundef %141, i32 noundef 4, i32 noundef 0) #4
-  %143 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %141, i32 noundef 4) #4
-  %144 = add i16 %54, 22
-  store i16 %144, ptr %5, align 2
-  switch i8 %138, label %.thread53 [
-    i8 0, label %145
-    i8 1, label %150
-    i8 2, label %155
+126:                                              ; preds = %70
+  %127 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Ext_MsId_Type, align 4
+  %128 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %127, ptr noundef %0, i32 noundef %89, i32 noundef 3, i32 noundef 0) #4
+  %129 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %89, i32 noundef 3) #4
+  %130 = add i16 %54, 18
+  %131 = load i32, ptr @hf_cdma2k_tlac_Header_Record_MsId_Length, align 4
+  %132 = zext i16 %130 to i32
+  %133 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %131, ptr noundef %0, i32 noundef %132, i32 noundef 4, i32 noundef 0) #4
+  %134 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %132, i32 noundef 4) #4
+  %.reass94 = add i16 %54, 22
+  store i16 %.reass94, ptr %5, align 2
+  switch i8 %129, label %.thread53 [
+    i8 0, label %135
+    i8 1, label %139
+    i8 2, label %143
   ]
 
-145:                                              ; preds = %135
-  %146 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Ext_MsId_MeId, align 4
-  %147 = zext i16 %144 to i32
-  %148 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %146, ptr noundef %0, i32 noundef %147, i32 noundef 56, i32 noundef 0) #4
-  %149 = add i16 %54, 78
-  store i16 %149, ptr %5, align 2
-  br label %185
+135:                                              ; preds = %126
+  %136 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Ext_MsId_MeId, align 4
+  %137 = zext i16 %.reass94 to i32
+  %138 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %136, ptr noundef %0, i32 noundef %137, i32 noundef 56, i32 noundef 0) #4
+  %.reass102 = add i16 %54, 78
+  store i16 %.reass102, ptr %5, align 2
+  br label %171
 
-150:                                              ; preds = %135
-  %151 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Ext_MsId_MeId, align 4
-  %152 = zext i16 %144 to i32
-  %153 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %151, ptr noundef %0, i32 noundef %152, i32 noundef 56, i32 noundef 0) #4
-  %154 = add i16 %54, 78
-  store i16 %154, ptr %5, align 2
+139:                                              ; preds = %126
+  %140 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Ext_MsId_MeId, align 4
+  %141 = zext i16 %.reass94 to i32
+  %142 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %140, ptr noundef %0, i32 noundef %141, i32 noundef 56, i32 noundef 0) #4
+  %.reass100 = add i16 %54, 78
+  store i16 %.reass100, ptr %5, align 2
   call fastcc void @cdma2k_message_IMSI_CLASS_SUBFIELDS(ptr noundef %78, ptr noundef %0, ptr noundef %80, ptr noundef nonnull %5)
-  br label %185
+  br label %171
 
-155:                                              ; preds = %135
-  %156 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Esn, align 4
-  %157 = zext i16 %144 to i32
-  %158 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %156, ptr noundef %0, i32 noundef %157, i32 noundef 32, i32 noundef 0) #4
-  %159 = add i16 %54, 54
-  %160 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Ext_MsId_MeId, align 4
-  %161 = zext i16 %159 to i32
-  %162 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %160, ptr noundef %0, i32 noundef %161, i32 noundef 56, i32 noundef 0) #4
-  %163 = add i16 %54, 110
-  store i16 %163, ptr %5, align 2
+143:                                              ; preds = %126
+  %144 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Esn, align 4
+  %145 = zext i16 %.reass94 to i32
+  %146 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %144, ptr noundef %0, i32 noundef %145, i32 noundef 32, i32 noundef 0) #4
+  %.reass96 = add i16 %54, 54
+  %147 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Ext_MsId_MeId, align 4
+  %148 = zext i16 %.reass96 to i32
+  %149 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %147, ptr noundef %0, i32 noundef %148, i32 noundef 56, i32 noundef 0) #4
+  %.reass98 = add i16 %54, 110
+  store i16 %.reass98, ptr %5, align 2
   call fastcc void @cdma2k_message_IMSI_CLASS_SUBFIELDS(ptr noundef %78, ptr noundef %0, ptr noundef %80, ptr noundef nonnull %5)
-  br label %185
+  br label %171
 
-.thread53:                                        ; preds = %135
+.thread53:                                        ; preds = %126
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef nonnull @.str.1165) #4
-  br label %185
+  br label %171
 
-164:                                              ; preds = %90
-  %165 = zext i8 %93 to i32
-  %166 = icmp ugt i8 %93, 4
-  %167 = zext i16 %94 to i32
-  %168 = shl nuw nsw i32 %165, 3
-  br i1 %166, label %169, label %179
+150:                                              ; preds = %90
+  %151 = zext i8 %93 to i32
+  %152 = icmp ugt i8 %93, 4
+  %153 = zext i16 %.reass to i32
+  %154 = shl nuw nsw i32 %151, 3
+  br i1 %152, label %155, label %165
 
-169:                                              ; preds = %164
-  %170 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Tmsi_Zone, align 4
-  %171 = add nsw i32 %168, -32
-  %172 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %170, ptr noundef %0, i32 noundef %167, i32 noundef %171, i32 noundef 0) #4
-  %173 = trunc nsw i32 %171 to i16
-  %174 = add i16 %94, %173
-  %175 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Tmsi_Code_Addr, align 4
-  %176 = zext i16 %174 to i32
-  %177 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %175, ptr noundef %0, i32 noundef %176, i32 noundef 32, i32 noundef 0) #4
-  %178 = add i16 %174, 32
-  store i16 %178, ptr %5, align 2
-  br label %185
+155:                                              ; preds = %150
+  %156 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Tmsi_Zone, align 4
+  %157 = add nsw i32 %154, -32
+  %158 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %156, ptr noundef %0, i32 noundef %153, i32 noundef %157, i32 noundef 0) #4
+  %159 = trunc nsw i32 %157 to i16
+  %160 = add i16 %.reass, %159
+  %161 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Tmsi_Code_Addr, align 4
+  %162 = zext i16 %160 to i32
+  %163 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %161, ptr noundef %0, i32 noundef %162, i32 noundef 32, i32 noundef 0) #4
+  %164 = add i16 %160, 32
+  store i16 %164, ptr %5, align 2
+  br label %171
 
-179:                                              ; preds = %164
-  %180 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Tmsi_Code_Addr, align 4
-  %181 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %180, ptr noundef %0, i32 noundef %167, i32 noundef %168, i32 noundef 0) #4
-  %182 = trunc nuw nsw i32 %168 to i16
-  %183 = add i16 %94, %182
-  store i16 %183, ptr %5, align 2
-  br label %185
+165:                                              ; preds = %150
+  %166 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Tmsi_Code_Addr, align 4
+  %167 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %166, ptr noundef %0, i32 noundef %153, i32 noundef %154, i32 noundef 0) #4
+  %168 = trunc nuw nsw i32 %154 to i16
+  %169 = add i16 %.reass, %168
+  store i16 %169, ptr %5, align 2
+  br label %171
 
-184:                                              ; preds = %90
+170:                                              ; preds = %90
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef nonnull @.str.1166) #4
-  br label %185
+  br label %171
 
-185:                                              ; preds = %184, %179, %169, %.thread53, %155, %150, %145, %130, %129, %124, %95
-  %186 = load i16, ptr %5, align 2
-  %187 = icmp ult i16 %186, %83
-  br i1 %187, label %188, label %193
+171:                                              ; preds = %170, %165, %155, %.thread53, %143, %139, %135, %122, %121, %117, %94
+  %172 = load i16, ptr %5, align 2
+  %173 = icmp ult i16 %172, %83
+  br i1 %173, label %174, label %179
 
-188:                                              ; preds = %185
-  %189 = zext i16 %186 to i32
-  %190 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Reserved, align 4
-  %narrow.i = sub nuw i16 %83, %186
-  %191 = zext i16 %narrow.i to i32
-  %192 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %190, ptr noundef %0, i32 noundef %189, i32 noundef %191, i32 noundef 0) #4
+174:                                              ; preds = %171
+  %175 = zext i16 %172 to i32
+  %176 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Reserved, align 4
+  %narrow.i = sub nuw i16 %83, %172
+  %177 = zext i16 %narrow.i to i32
+  %178 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %176, ptr noundef %0, i32 noundef %175, i32 noundef %177, i32 noundef 0) #4
   store i16 %83, ptr %5, align 2
   br label %cdma2k_message_ADDR_FIELDS.exit
 
-193:                                              ; preds = %185
-  %194 = icmp ugt i16 %186, %83
-  br i1 %194, label %195, label %cdma2k_message_ADDR_FIELDS.exit
+179:                                              ; preds = %171
+  %180 = icmp ugt i16 %172, %83
+  br i1 %180, label %181, label %cdma2k_message_ADDR_FIELDS.exit
 
-195:                                              ; preds = %193
+181:                                              ; preds = %179
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef nonnull @.str.1167) #4
   br label %cdma2k_message_ADDR_FIELDS.exit
 
-196:                                              ; preds = %.lr.ph26
-  %197 = zext i8 %69 to i16
-  %198 = add i16 %54, 12
-  %199 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Values, align 4
-  %200 = lshr i16 %198, 3
-  %201 = zext nneg i16 %200 to i32
-  %202 = zext i8 %69 to i32
-  %203 = add nuw nsw i32 %202, 1
-  %204 = tail call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %199, ptr noundef %0, i32 noundef %201, i32 noundef %203, i32 noundef 0) #4
-  %205 = load i32, ptr @ett_cdma2k_subtree2, align 4
-  %206 = tail call ptr @proto_item_add_subtree(ptr noundef %204, i32 noundef %205) #4
-  %207 = zext i16 %198 to i32
-  %208 = shl nuw nsw i16 %197, 3
-  %209 = add i16 %208, %198
-  %210 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Mac_Incl, align 4
-  %211 = tail call ptr @proto_tree_add_bits_item(ptr noundef %206, i32 noundef %210, ptr noundef %0, i32 noundef %207, i32 noundef 1, i32 noundef 0) #4
-  %212 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %207, i32 noundef 1) #4
-  %213 = add i16 %54, 13
-  %214 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Auth_Incl, align 4
-  %215 = zext i16 %213 to i32
-  %216 = tail call ptr @proto_tree_add_bits_item(ptr noundef %206, i32 noundef %214, ptr noundef %0, i32 noundef %215, i32 noundef 1, i32 noundef 0) #4
-  %217 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %215, i32 noundef 1) #4
-  %218 = add i16 %54, 14
-  store i16 %218, ptr %5, align 2
-  %219 = icmp eq i8 %217, 1
-  br i1 %219, label %.thread.i, label %220
+182:                                              ; preds = %.lr.ph26
+  %183 = zext i8 %69 to i16
+  %184 = add i16 %54, 12
+  %185 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Values, align 4
+  %186 = lshr i16 %184, 3
+  %187 = zext nneg i16 %186 to i32
+  %188 = zext i8 %69 to i32
+  %189 = add nuw nsw i32 %188, 1
+  %190 = tail call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %185, ptr noundef %0, i32 noundef %187, i32 noundef %189, i32 noundef 0) #4
+  %191 = load i32, ptr @ett_cdma2k_subtree2, align 4
+  %192 = tail call ptr @proto_item_add_subtree(ptr noundef %190, i32 noundef %191) #4
+  %193 = zext i16 %184 to i32
+  %194 = shl nuw nsw i16 %183, 3
+  %195 = add i16 %194, %184
+  %196 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Mac_Incl, align 4
+  %197 = tail call ptr @proto_tree_add_bits_item(ptr noundef %192, i32 noundef %196, ptr noundef %0, i32 noundef %193, i32 noundef 1, i32 noundef 0) #4
+  %198 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %193, i32 noundef 1) #4
+  %199 = add i16 %54, 13
+  %200 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Auth_Incl, align 4
+  %201 = zext i16 %199 to i32
+  %202 = tail call ptr @proto_tree_add_bits_item(ptr noundef %192, i32 noundef %200, ptr noundef %0, i32 noundef %201, i32 noundef 1, i32 noundef 0) #4
+  %203 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %201, i32 noundef 1) #4
+  %204 = add i16 %54, 14
+  store i16 %204, ptr %5, align 2
+  %205 = icmp eq i8 %203, 1
+  br i1 %205, label %.thread.i, label %206
 
-220:                                              ; preds = %196
-  %221 = icmp eq i8 %212, 1
-  br i1 %221, label %235, label %261
+206:                                              ; preds = %182
+  %207 = icmp eq i8 %198, 1
+  br i1 %207, label %221, label %247
 
-.thread.i:                                        ; preds = %196
-  %222 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Authr, align 4
-  %223 = zext i16 %218 to i32
-  %224 = tail call ptr @proto_tree_add_bits_item(ptr noundef %206, i32 noundef %222, ptr noundef %0, i32 noundef %223, i32 noundef 18, i32 noundef 0) #4
-  %225 = add i16 %54, 32
-  %226 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Randc, align 4
-  %227 = zext i16 %225 to i32
-  %228 = tail call ptr @proto_tree_add_bits_item(ptr noundef %206, i32 noundef %226, ptr noundef %0, i32 noundef %227, i32 noundef 8, i32 noundef 0) #4
-  %229 = add i16 %54, 40
-  %230 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Count, align 4
-  %231 = zext i16 %229 to i32
-  %232 = tail call ptr @proto_tree_add_bits_item(ptr noundef %206, i32 noundef %230, ptr noundef %0, i32 noundef %231, i32 noundef 6, i32 noundef 0) #4
-  %233 = add i16 %54, 46
-  store i16 %233, ptr %5, align 2
-  %234 = icmp eq i8 %212, 1
-  br i1 %234, label %.thread70.i, label %261
+.thread.i:                                        ; preds = %182
+  %208 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Authr, align 4
+  %209 = zext i16 %204 to i32
+  %210 = tail call ptr @proto_tree_add_bits_item(ptr noundef %192, i32 noundef %208, ptr noundef %0, i32 noundef %209, i32 noundef 18, i32 noundef 0) #4
+  %211 = add i16 %54, 32
+  %212 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Randc, align 4
+  %213 = zext i16 %211 to i32
+  %214 = tail call ptr @proto_tree_add_bits_item(ptr noundef %192, i32 noundef %212, ptr noundef %0, i32 noundef %213, i32 noundef 8, i32 noundef 0) #4
+  %215 = add i16 %54, 40
+  %216 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Count, align 4
+  %217 = zext i16 %215 to i32
+  %218 = tail call ptr @proto_tree_add_bits_item(ptr noundef %192, i32 noundef %216, ptr noundef %0, i32 noundef %217, i32 noundef 6, i32 noundef 0) #4
+  %219 = add i16 %54, 46
+  store i16 %219, ptr %5, align 2
+  %220 = icmp eq i8 %198, 1
+  br i1 %220, label %.thread70.i, label %247
 
-235:                                              ; preds = %220
-  %236 = icmp eq i8 %217, 0
-  br i1 %236, label %237, label %.thread70.i
+221:                                              ; preds = %206
+  %222 = icmp eq i8 %203, 0
+  br i1 %222, label %223, label %.thread70.i
 
-237:                                              ; preds = %235
-  %238 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Randc, align 4
-  %239 = zext i16 %218 to i32
-  %240 = tail call ptr @proto_tree_add_bits_item(ptr noundef %206, i32 noundef %238, ptr noundef %0, i32 noundef %239, i32 noundef 8, i32 noundef 0) #4
-  %241 = add i16 %54, 22
+223:                                              ; preds = %221
+  %224 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Randc, align 4
+  %225 = zext i16 %204 to i32
+  %226 = tail call ptr @proto_tree_add_bits_item(ptr noundef %192, i32 noundef %224, ptr noundef %0, i32 noundef %225, i32 noundef 8, i32 noundef 0) #4
+  %227 = add i16 %54, 22
   br label %.thread70.i
 
-.thread70.i:                                      ; preds = %237, %235, %.thread.i
-  %242 = phi i16 [ %233, %.thread.i ], [ %241, %237 ], [ %218, %235 ]
-  %243 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Sdu_KeyId, align 4
-  %244 = zext i16 %242 to i32
-  %245 = tail call ptr @proto_tree_add_bits_item(ptr noundef %206, i32 noundef %243, ptr noundef %0, i32 noundef %244, i32 noundef 2, i32 noundef 0) #4
-  %246 = add i16 %242, 2
-  %247 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Sdu_Algo, align 4
-  %248 = zext i16 %246 to i32
-  %249 = tail call ptr @proto_tree_add_bits_item(ptr noundef %206, i32 noundef %247, ptr noundef %0, i32 noundef %248, i32 noundef 3, i32 noundef 0) #4
-  %250 = add i16 %242, 5
-  %251 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Sdu_Sseq_Or_Sseqh, align 4
-  %252 = zext i16 %250 to i32
-  %253 = tail call ptr @proto_tree_add_bits_item(ptr noundef %206, i32 noundef %251, ptr noundef %0, i32 noundef %252, i32 noundef 1, i32 noundef 0) #4
-  %254 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %252, i32 noundef 1) #4
-  %255 = add i16 %242, 6
-  %256 = icmp eq i8 %254, 0
-  %257 = zext i16 %255 to i32
-  %..i = select i1 %256, i32 8, i32 24
-  %.74.i = select i1 %256, i16 8, i16 24
+.thread70.i:                                      ; preds = %223, %221, %.thread.i
+  %228 = phi i16 [ %219, %.thread.i ], [ %227, %223 ], [ %204, %221 ]
+  %229 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Sdu_KeyId, align 4
+  %230 = zext i16 %228 to i32
+  %231 = tail call ptr @proto_tree_add_bits_item(ptr noundef %192, i32 noundef %229, ptr noundef %0, i32 noundef %230, i32 noundef 2, i32 noundef 0) #4
+  %232 = add i16 %228, 2
+  %233 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Sdu_Algo, align 4
+  %234 = zext i16 %232 to i32
+  %235 = tail call ptr @proto_tree_add_bits_item(ptr noundef %192, i32 noundef %233, ptr noundef %0, i32 noundef %234, i32 noundef 3, i32 noundef 0) #4
+  %236 = add i16 %228, 5
+  %237 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Sdu_Sseq_Or_Sseqh, align 4
+  %238 = zext i16 %236 to i32
+  %239 = tail call ptr @proto_tree_add_bits_item(ptr noundef %192, i32 noundef %237, ptr noundef %0, i32 noundef %238, i32 noundef 1, i32 noundef 0) #4
+  %240 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %238, i32 noundef 1) #4
+  %241 = add i16 %228, 6
+  %242 = icmp eq i8 %240, 0
+  %243 = zext i16 %241 to i32
+  %..i = select i1 %242, i32 8, i32 24
+  %.74.i = select i1 %242, i16 8, i16 24
   %hf_cdma2k_tlac_Header_Record_Sdu_Sseq.val.i = load i32, ptr @hf_cdma2k_tlac_Header_Record_Sdu_Sseq, align 4
   %hf_cdma2k_tlac_Header_Record_Sdu_Sseqh.val.i = load i32, ptr @hf_cdma2k_tlac_Header_Record_Sdu_Sseqh, align 4
-  %258 = select i1 %256, i32 %hf_cdma2k_tlac_Header_Record_Sdu_Sseq.val.i, i32 %hf_cdma2k_tlac_Header_Record_Sdu_Sseqh.val.i
-  %259 = tail call ptr @proto_tree_add_bits_item(ptr noundef %206, i32 noundef %258, ptr noundef %0, i32 noundef %257, i32 noundef %..i, i32 noundef 0) #4
-  %260 = add i16 %.74.i, %255
-  store i16 %260, ptr %5, align 2
-  br label %261
+  %244 = select i1 %242, i32 %hf_cdma2k_tlac_Header_Record_Sdu_Sseq.val.i, i32 %hf_cdma2k_tlac_Header_Record_Sdu_Sseqh.val.i
+  %245 = tail call ptr @proto_tree_add_bits_item(ptr noundef %192, i32 noundef %244, ptr noundef %0, i32 noundef %243, i32 noundef %..i, i32 noundef 0) #4
+  %246 = add i16 %.74.i, %241
+  store i16 %246, ptr %5, align 2
+  br label %247
 
-261:                                              ; preds = %.thread70.i, %.thread.i, %220
-  %262 = phi i16 [ %233, %.thread.i ], [ %218, %220 ], [ %260, %.thread70.i ]
-  %263 = icmp ult i16 %262, %209
-  br i1 %263, label %264, label %269
+247:                                              ; preds = %.thread70.i, %.thread.i, %206
+  %248 = phi i16 [ %219, %.thread.i ], [ %204, %206 ], [ %246, %.thread70.i ]
+  %249 = icmp ult i16 %248, %195
+  br i1 %249, label %250, label %255
 
-264:                                              ; preds = %261
-  %265 = zext i16 %262 to i32
-  %266 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Reserved, align 4
-  %narrow.i165 = sub nuw i16 %209, %262
-  %267 = zext i16 %narrow.i165 to i32
-  %268 = tail call ptr @proto_tree_add_bits_item(ptr noundef %206, i32 noundef %266, ptr noundef %0, i32 noundef %265, i32 noundef %267, i32 noundef 0) #4
-  store i16 %209, ptr %5, align 2
+250:                                              ; preds = %247
+  %251 = zext i16 %248 to i32
+  %252 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Reserved, align 4
+  %narrow.i165 = sub nuw i16 %195, %248
+  %253 = zext i16 %narrow.i165 to i32
+  %254 = tail call ptr @proto_tree_add_bits_item(ptr noundef %192, i32 noundef %252, ptr noundef %0, i32 noundef %251, i32 noundef %253, i32 noundef 0) #4
+  store i16 %195, ptr %5, align 2
   br label %cdma2k_message_ADDR_FIELDS.exit
 
-269:                                              ; preds = %261
-  %270 = icmp ugt i16 %262, %209
-  br i1 %270, label %271, label %cdma2k_message_ADDR_FIELDS.exit
+255:                                              ; preds = %247
+  %256 = icmp ugt i16 %248, %195
+  br i1 %256, label %257, label %cdma2k_message_ADDR_FIELDS.exit
 
-271:                                              ; preds = %269
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %204, ptr noundef nonnull @.str.1171) #4
+257:                                              ; preds = %255
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %190, ptr noundef nonnull @.str.1171) #4
   br label %cdma2k_message_ADDR_FIELDS.exit
 
-272:                                              ; preds = %.lr.ph26
-  %273 = add i16 %54, 12
-  %274 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Values, align 4
-  %275 = lshr i16 %273, 3
-  %276 = zext nneg i16 %275 to i32
-  %277 = zext i8 %69 to i32
-  %278 = add nuw nsw i32 %277, 1
-  %279 = tail call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %274, ptr noundef %0, i32 noundef %276, i32 noundef %278, i32 noundef 0) #4
-  %280 = shl nuw nsw i32 %277, 3
+258:                                              ; preds = %.lr.ph26
+  %259 = add i16 %54, 12
+  %260 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Values, align 4
+  %261 = lshr i16 %259, 3
+  %262 = zext nneg i16 %261 to i32
+  %263 = zext i8 %69 to i32
+  %264 = add nuw nsw i32 %263, 1
+  %265 = tail call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %260, ptr noundef %0, i32 noundef %262, i32 noundef %264, i32 noundef 0) #4
+  %266 = shl nuw nsw i32 %263, 3
   %.not28 = icmp eq i8 %69, 0
   br i1 %.not28, label %cdma2k_message_ADDR_FIELDS.exit.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %272, %.lr.ph
-  %281 = phi i32 [ %288, %.lr.ph ], [ 0, %272 ]
-  %282 = phi i16 [ %286, %.lr.ph ], [ %273, %272 ]
-  %283 = zext i16 %282 to i32
-  %284 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %283, i32 noundef 8) #4
-  %285 = zext i8 %284 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %279, ptr noundef nonnull @.str.1164, i32 noundef %285) #4
-  %286 = add i16 %282, 8
-  %287 = add nuw nsw i32 %281, 8
-  %288 = and i32 %287, 65535
-  %289 = icmp ult i32 %288, %280
-  br i1 %289, label %.lr.ph, label %cdma2k_message_ADDR_FIELDS.exit.loopexit, !llvm.loop !6
+.lr.ph:                                           ; preds = %258, %.lr.ph
+  %267 = phi i32 [ %274, %.lr.ph ], [ 0, %258 ]
+  %268 = phi i16 [ %272, %.lr.ph ], [ %259, %258 ]
+  %269 = zext i16 %268 to i32
+  %270 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %269, i32 noundef 8) #4
+  %271 = zext i8 %270 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %265, ptr noundef nonnull @.str.1164, i32 noundef %271) #4
+  %272 = add i16 %268, 8
+  %273 = add nuw nsw i32 %267, 8
+  %274 = and i32 %273, 65535
+  %275 = icmp ult i32 %274, %266
+  br i1 %275, label %.lr.ph, label %cdma2k_message_ADDR_FIELDS.exit.loopexit, !llvm.loop !6
 
-cdma2k_message_ADDR_FIELDS.exit.loopexit:         ; preds = %.lr.ph, %272
-  %.lcssa22 = phi i16 [ %273, %272 ], [ %286, %.lr.ph ]
+cdma2k_message_ADDR_FIELDS.exit.loopexit:         ; preds = %.lr.ph, %258
+  %.lcssa22 = phi i16 [ %259, %258 ], [ %272, %.lr.ph ]
   store i16 %.lcssa22, ptr %5, align 2
   br label %cdma2k_message_ADDR_FIELDS.exit
 
-cdma2k_message_ADDR_FIELDS.exit:                  ; preds = %cdma2k_message_ADDR_FIELDS.exit.loopexit, %271, %269, %264, %195, %193, %188
-  %290 = phi i16 [ %83, %188 ], [ %186, %193 ], [ %186, %195 ], [ %209, %264 ], [ %262, %269 ], [ %262, %271 ], [ %.lcssa22, %cdma2k_message_ADDR_FIELDS.exit.loopexit ]
-  %.1 = phi i16 [ %.025, %188 ], [ %.025, %193 ], [ %.025, %195 ], [ 1, %264 ], [ 1, %269 ], [ 1, %271 ], [ %.025, %cdma2k_message_ADDR_FIELDS.exit.loopexit ]
+cdma2k_message_ADDR_FIELDS.exit:                  ; preds = %cdma2k_message_ADDR_FIELDS.exit.loopexit, %257, %255, %250, %181, %179, %174
+  %276 = phi i16 [ %83, %174 ], [ %172, %179 ], [ %172, %181 ], [ %195, %250 ], [ %248, %255 ], [ %248, %257 ], [ %.lcssa22, %cdma2k_message_ADDR_FIELDS.exit.loopexit ]
+  %.1 = phi i16 [ %.025, %174 ], [ %.025, %179 ], [ %.025, %181 ], [ 1, %250 ], [ 1, %255 ], [ 1, %257 ], [ %.025, %cdma2k_message_ADDR_FIELDS.exit.loopexit ]
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond = icmp eq i32 %indvars.iv, %53
   br i1 %exitcond, label %._crit_edge, label %.lr.ph26, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %cdma2k_message_ADDR_FIELDS.exit, %4
-  %291 = phi i16 [ %48, %4 ], [ %290, %cdma2k_message_ADDR_FIELDS.exit ]
+  %277 = phi i16 [ %48, %4 ], [ %276, %cdma2k_message_ADDR_FIELDS.exit ]
   %.0.lcssa = phi i16 [ -1, %4 ], [ %.1, %cdma2k_message_ADDR_FIELDS.exit ]
-  %292 = zext i16 %291 to i32
-  %293 = and i32 %292, 7
-  %294 = icmp eq i32 %293, 0
-  br i1 %294, label %295, label %297
+  %278 = zext i16 %277 to i32
+  %279 = and i32 %278, 7
+  %280 = icmp eq i32 %279, 0
+  br i1 %280, label %281, label %283
 
-295:                                              ; preds = %._crit_edge
-  %296 = lshr exact i32 %292, 3
-  br label %303
+281:                                              ; preds = %._crit_edge
+  %282 = lshr exact i32 %278, 3
+  br label %289
 
-297:                                              ; preds = %._crit_edge
-  %298 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Reserved, align 4
-  %299 = sub nuw nsw i32 8, %293
-  %300 = tail call ptr @proto_tree_add_bits_item(ptr noundef %52, i32 noundef %298, ptr noundef %0, i32 noundef %292, i32 noundef %299, i32 noundef 0) #4
-  %301 = lshr i16 %291, 3
-  %narrow = add nuw nsw i16 %301, 1
-  %302 = zext nneg i16 %narrow to i32
-  br label %303
+283:                                              ; preds = %._crit_edge
+  %284 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Reserved, align 4
+  %285 = sub nuw nsw i32 8, %279
+  %286 = tail call ptr @proto_tree_add_bits_item(ptr noundef %52, i32 noundef %284, ptr noundef %0, i32 noundef %278, i32 noundef %285, i32 noundef 0) #4
+  %287 = lshr i16 %277, 3
+  %narrow = add nuw nsw i16 %287, 1
+  %288 = zext nneg i16 %narrow to i32
+  br label %289
 
-303:                                              ; preds = %297, %295
-  %storemerge164 = phi i32 [ %302, %297 ], [ %296, %295 ]
+289:                                              ; preds = %283, %281
+  %storemerge164 = phi i32 [ %288, %283 ], [ %282, %281 ]
   store i32 %storemerge164, ptr %2, align 4
-  %304 = load i32, ptr @hf_cdma2k_tlac_Pdu, align 4
-  %305 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %304, ptr noundef %0, i32 noundef %storemerge164, i32 noundef -1, i32 noundef 0) #4
-  %306 = load i32, ptr @ett_cdma2k_subtree2, align 4
-  %307 = tail call ptr @proto_item_add_subtree(ptr noundef %305, i32 noundef %306) #4
-  %308 = load i32, ptr @hf_cdma2k_tlac_Pdu_Length, align 4
-  %309 = load i32, ptr %2, align 4
-  %310 = tail call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %308, ptr noundef %0, i32 noundef %309, i32 noundef 2, i32 noundef 0) #4
-  %311 = load i32, ptr %2, align 4
-  %312 = shl i32 %311, 3
-  %313 = tail call zeroext i16 @tvb_get_bits16(ptr noundef %0, i32 noundef %312, i32 noundef 16, i32 noundef 0) #4
-  %314 = load i32, ptr %2, align 4
-  %315 = add i32 %314, 2
-  store i32 %315, ptr %2, align 4
-  br i1 %29, label %316, label %2033
+  %290 = load i32, ptr @hf_cdma2k_tlac_Pdu, align 4
+  %291 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %290, ptr noundef %0, i32 noundef %storemerge164, i32 noundef -1, i32 noundef 0) #4
+  %292 = load i32, ptr @ett_cdma2k_subtree2, align 4
+  %293 = tail call ptr @proto_item_add_subtree(ptr noundef %291, i32 noundef %292) #4
+  %294 = load i32, ptr @hf_cdma2k_tlac_Pdu_Length, align 4
+  %295 = load i32, ptr %2, align 4
+  %296 = tail call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %294, ptr noundef %0, i32 noundef %295, i32 noundef 2, i32 noundef 0) #4
+  %297 = load i32, ptr %2, align 4
+  %298 = shl i32 %297, 3
+  %299 = tail call zeroext i16 @tvb_get_bits16(ptr noundef %0, i32 noundef %298, i32 noundef 16, i32 noundef 0) #4
+  %300 = load i32, ptr %2, align 4
+  %301 = add i32 %300, 2
+  store i32 %301, ptr %2, align 4
+  br i1 %29, label %302, label %2019
 
-316:                                              ; preds = %303
-  switch i8 %37, label %2032 [
-    i8 1, label %317
-    i8 2, label %420
-    i8 3, label %600
-    i8 4, label %700
-    i8 5, label %1192
-    i8 6, label %1509
-    i8 7, label %1520
-    i8 9, label %1906
-    i8 10, label %2006
-    i8 17, label %2021
+302:                                              ; preds = %289
+  switch i8 %37, label %2018 [
+    i8 1, label %303
+    i8 2, label %406
+    i8 3, label %586
+    i8 4, label %686
+    i8 5, label %1178
+    i8 6, label %1495
+    i8 7, label %1506
+    i8 9, label %1892
+    i8 10, label %1992
+    i8 17, label %2007
   ]
 
-317:                                              ; preds = %316
-  %318 = load i32, ptr @hf_cdma2k_RegMsg, align 4
-  %319 = tail call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %318, ptr noundef %0, i32 noundef %315, i32 noundef -1, i32 noundef 0) #4
-  %320 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %321 = tail call ptr @proto_item_add_subtree(ptr noundef %319, i32 noundef %320) #4
-  %322 = load i32, ptr @hf_cdma2k_Reg_Type, align 4
-  %323 = load i32, ptr %2, align 4
-  %324 = shl i32 %323, 3
-  %325 = tail call ptr @proto_tree_add_bits_item(ptr noundef %321, i32 noundef %322, ptr noundef %0, i32 noundef %324, i32 noundef 4, i32 noundef 0) #4
-  %326 = load i32, ptr @hf_cdma2k_Slot_Cycle_Index, align 4
-  %327 = load i32, ptr %2, align 4
-  %328 = shl i32 %327, 3
-  %329 = or disjoint i32 %328, 4
-  %330 = tail call ptr @proto_tree_add_bits_item(ptr noundef %321, i32 noundef %326, ptr noundef %0, i32 noundef %329, i32 noundef 3, i32 noundef 0) #4
-  %331 = load i32, ptr @hf_cdma2k_Mob_P_Rev, align 4
-  %332 = load i32, ptr %2, align 4
-  %333 = shl i32 %332, 3
-  %334 = or disjoint i32 %333, 7
-  %335 = tail call ptr @proto_tree_add_bits_item(ptr noundef %321, i32 noundef %331, ptr noundef %0, i32 noundef %334, i32 noundef 8, i32 noundef 0) #4
-  %336 = load i32, ptr %2, align 4
-  %337 = shl i32 %336, 3
-  %338 = or disjoint i32 %337, 7
-  %339 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %338, i32 noundef 8) #4
-  %340 = load i32, ptr %2, align 4
-  %341 = add i32 %340, 1
-  store i32 %341, ptr %2, align 4
-  %342 = tail call i8 @llvm.umin.i8(i8 %26, i8 %339)
-  %343 = icmp eq i8 %342, 1
-  br i1 %343, label %344, label %364
+303:                                              ; preds = %302
+  %304 = load i32, ptr @hf_cdma2k_RegMsg, align 4
+  %305 = tail call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %304, ptr noundef %0, i32 noundef %301, i32 noundef -1, i32 noundef 0) #4
+  %306 = load i32, ptr @ett_cdma2k_subtree1, align 4
+  %307 = tail call ptr @proto_item_add_subtree(ptr noundef %305, i32 noundef %306) #4
+  %308 = load i32, ptr @hf_cdma2k_Reg_Type, align 4
+  %309 = load i32, ptr %2, align 4
+  %310 = shl i32 %309, 3
+  %311 = tail call ptr @proto_tree_add_bits_item(ptr noundef %307, i32 noundef %308, ptr noundef %0, i32 noundef %310, i32 noundef 4, i32 noundef 0) #4
+  %312 = load i32, ptr @hf_cdma2k_Slot_Cycle_Index, align 4
+  %313 = load i32, ptr %2, align 4
+  %314 = shl i32 %313, 3
+  %315 = or disjoint i32 %314, 4
+  %316 = tail call ptr @proto_tree_add_bits_item(ptr noundef %307, i32 noundef %312, ptr noundef %0, i32 noundef %315, i32 noundef 3, i32 noundef 0) #4
+  %317 = load i32, ptr @hf_cdma2k_Mob_P_Rev, align 4
+  %318 = load i32, ptr %2, align 4
+  %319 = shl i32 %318, 3
+  %320 = or disjoint i32 %319, 7
+  %321 = tail call ptr @proto_tree_add_bits_item(ptr noundef %307, i32 noundef %317, ptr noundef %0, i32 noundef %320, i32 noundef 8, i32 noundef 0) #4
+  %322 = load i32, ptr %2, align 4
+  %323 = shl i32 %322, 3
+  %324 = or disjoint i32 %323, 7
+  %325 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %324, i32 noundef 8) #4
+  %326 = load i32, ptr %2, align 4
+  %327 = add i32 %326, 1
+  store i32 %327, ptr %2, align 4
+  %328 = tail call i8 @llvm.umin.i8(i8 %26, i8 %325)
+  %329 = icmp eq i8 %328, 1
+  br i1 %329, label %330, label %350
 
-344:                                              ; preds = %317
-  %345 = load i32, ptr @hf_cdma2k_Ext_Scm, align 4
-  %346 = shl i32 %341, 3
-  %347 = or disjoint i32 %346, 7
-  %348 = tail call ptr @proto_tree_add_bits_item(ptr noundef %321, i32 noundef %345, ptr noundef %0, i32 noundef %347, i32 noundef 1, i32 noundef 0) #4
-  %349 = load i32, ptr %2, align 4
-  %350 = add i32 %349, 1
-  store i32 %350, ptr %2, align 4
-  %351 = load i32, ptr @hf_cdma2k_Reserved, align 4
-  %352 = shl i32 %350, 3
-  %353 = tail call ptr @proto_tree_add_bits_item(ptr noundef %321, i32 noundef %351, ptr noundef %0, i32 noundef %352, i32 noundef 1, i32 noundef 0) #4
-  %354 = load i32, ptr @hf_cdma2k_Sloted_Mode, align 4
-  %355 = load i32, ptr %2, align 4
-  %356 = shl i32 %355, 3
-  %357 = or disjoint i32 %356, 1
-  %358 = tail call ptr @proto_tree_add_bits_item(ptr noundef %321, i32 noundef %354, ptr noundef %0, i32 noundef %357, i32 noundef 1, i32 noundef 0) #4
-  %359 = load i32, ptr @hf_cdma2k_Reserved, align 4
-  %360 = load i32, ptr %2, align 4
-  %361 = shl i32 %360, 3
-  %362 = or disjoint i32 %361, 2
-  %363 = tail call ptr @proto_tree_add_bits_item(ptr noundef %321, i32 noundef %359, ptr noundef %0, i32 noundef %362, i32 noundef 5, i32 noundef 0) #4
+330:                                              ; preds = %303
+  %331 = load i32, ptr @hf_cdma2k_Ext_Scm, align 4
+  %332 = shl i32 %327, 3
+  %333 = or disjoint i32 %332, 7
+  %334 = tail call ptr @proto_tree_add_bits_item(ptr noundef %307, i32 noundef %331, ptr noundef %0, i32 noundef %333, i32 noundef 1, i32 noundef 0) #4
+  %335 = load i32, ptr %2, align 4
+  %336 = add i32 %335, 1
+  store i32 %336, ptr %2, align 4
+  %337 = load i32, ptr @hf_cdma2k_Reserved, align 4
+  %338 = shl i32 %336, 3
+  %339 = tail call ptr @proto_tree_add_bits_item(ptr noundef %307, i32 noundef %337, ptr noundef %0, i32 noundef %338, i32 noundef 1, i32 noundef 0) #4
+  %340 = load i32, ptr @hf_cdma2k_Sloted_Mode, align 4
+  %341 = load i32, ptr %2, align 4
+  %342 = shl i32 %341, 3
+  %343 = or disjoint i32 %342, 1
+  %344 = tail call ptr @proto_tree_add_bits_item(ptr noundef %307, i32 noundef %340, ptr noundef %0, i32 noundef %343, i32 noundef 1, i32 noundef 0) #4
+  %345 = load i32, ptr @hf_cdma2k_Reserved, align 4
+  %346 = load i32, ptr %2, align 4
+  %347 = shl i32 %346, 3
+  %348 = or disjoint i32 %347, 2
+  %349 = tail call ptr @proto_tree_add_bits_item(ptr noundef %307, i32 noundef %345, ptr noundef %0, i32 noundef %348, i32 noundef 5, i32 noundef 0) #4
   %.pre.i = load i32, ptr %2, align 4
-  br label %369
+  br label %355
 
-364:                                              ; preds = %317
-  %365 = shl i32 %341, 3
-  %366 = or disjoint i32 %365, 7
-  tail call fastcc void @dissect_cdma2000_scm(ptr noundef %0, ptr noundef %321, i32 noundef %366)
-  %367 = load i32, ptr %2, align 4
-  %368 = add i32 %367, 1
-  store i32 %368, ptr %2, align 4
-  br label %369
+350:                                              ; preds = %303
+  %351 = shl i32 %327, 3
+  %352 = or disjoint i32 %351, 7
+  tail call fastcc void @dissect_cdma2000_scm(ptr noundef %0, ptr noundef %307, i32 noundef %352)
+  %353 = load i32, ptr %2, align 4
+  %354 = add i32 %353, 1
+  store i32 %354, ptr %2, align 4
+  br label %355
 
-369:                                              ; preds = %364, %344
-  %370 = phi i32 [ %368, %364 ], [ %.pre.i, %344 ]
-  %371 = load i32, ptr @hf_cdma2k_Mob_Term, align 4
-  %372 = shl i32 %370, 3
-  %373 = or disjoint i32 %372, 7
-  %374 = tail call ptr @proto_tree_add_bits_item(ptr noundef %321, i32 noundef %371, ptr noundef %0, i32 noundef %373, i32 noundef 1, i32 noundef 0) #4
-  %375 = load i32, ptr %2, align 4
-  %376 = add i32 %375, 1
-  store i32 %376, ptr %2, align 4
-  %377 = shl i32 %376, 3
-  %378 = trunc i32 %377 to i16
-  %379 = icmp ugt i8 %342, 3
-  br i1 %379, label %380, label %cdma2k_message_REGISTRATION.exit
+355:                                              ; preds = %350, %330
+  %356 = phi i32 [ %354, %350 ], [ %.pre.i, %330 ]
+  %357 = load i32, ptr @hf_cdma2k_Mob_Term, align 4
+  %358 = shl i32 %356, 3
+  %359 = or disjoint i32 %358, 7
+  %360 = tail call ptr @proto_tree_add_bits_item(ptr noundef %307, i32 noundef %357, ptr noundef %0, i32 noundef %359, i32 noundef 1, i32 noundef 0) #4
+  %361 = load i32, ptr %2, align 4
+  %362 = add i32 %361, 1
+  store i32 %362, ptr %2, align 4
+  %363 = shl i32 %362, 3
+  %364 = trunc i32 %363 to i16
+  %365 = icmp ugt i8 %328, 3
+  br i1 %365, label %366, label %cdma2k_message_REGISTRATION.exit
 
-380:                                              ; preds = %369
-  %381 = load i32, ptr @hf_cdma2k_Return_Cause, align 4
-  %382 = tail call ptr @proto_tree_add_bits_item(ptr noundef %321, i32 noundef %381, ptr noundef %0, i32 noundef %377, i32 noundef 4, i32 noundef 0) #4
-  %383 = or disjoint i16 %378, 4
-  %384 = icmp ugt i8 %342, 5
-  br i1 %384, label %385, label %cdma2k_message_REGISTRATION.exit
+366:                                              ; preds = %355
+  %367 = load i32, ptr @hf_cdma2k_Return_Cause, align 4
+  %368 = tail call ptr @proto_tree_add_bits_item(ptr noundef %307, i32 noundef %367, ptr noundef %0, i32 noundef %363, i32 noundef 4, i32 noundef 0) #4
+  %369 = or disjoint i16 %364, 4
+  %370 = icmp ugt i8 %328, 5
+  br i1 %370, label %371, label %cdma2k_message_REGISTRATION.exit
 
-385:                                              ; preds = %380
-  %386 = load i32, ptr @hf_cdma2k_Qpch_Supported, align 4
-  %387 = zext i16 %383 to i32
-  %388 = tail call ptr @proto_tree_add_bits_item(ptr noundef %321, i32 noundef %386, ptr noundef %0, i32 noundef %387, i32 noundef 1, i32 noundef 0) #4
-  %389 = load i32, ptr @hf_cdma2k_Enhanced_Rc, align 4
-  %390 = and i32 %377, 65528
-  %391 = or disjoint i32 %390, 5
-  %392 = tail call ptr @proto_tree_add_bits_item(ptr noundef %321, i32 noundef %389, ptr noundef %0, i32 noundef %391, i32 noundef 1, i32 noundef 0) #4
-  %393 = load i32, ptr @hf_cdma2k_Uzid_Incl, align 4
-  %394 = or disjoint i32 %390, 6
-  %395 = tail call ptr @proto_tree_add_bits_item(ptr noundef %321, i32 noundef %393, ptr noundef %0, i32 noundef %394, i32 noundef 1, i32 noundef 0) #4
-  %396 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %394, i32 noundef 1) #4
-  %397 = or disjoint i16 %378, 7
-  %.not.i = icmp eq i8 %396, 0
-  br i1 %.not.i, label %403, label %398
+371:                                              ; preds = %366
+  %372 = load i32, ptr @hf_cdma2k_Qpch_Supported, align 4
+  %373 = zext i16 %369 to i32
+  %374 = tail call ptr @proto_tree_add_bits_item(ptr noundef %307, i32 noundef %372, ptr noundef %0, i32 noundef %373, i32 noundef 1, i32 noundef 0) #4
+  %375 = load i32, ptr @hf_cdma2k_Enhanced_Rc, align 4
+  %376 = and i32 %363, 65528
+  %377 = or disjoint i32 %376, 5
+  %378 = tail call ptr @proto_tree_add_bits_item(ptr noundef %307, i32 noundef %375, ptr noundef %0, i32 noundef %377, i32 noundef 1, i32 noundef 0) #4
+  %379 = load i32, ptr @hf_cdma2k_Uzid_Incl, align 4
+  %380 = or disjoint i32 %376, 6
+  %381 = tail call ptr @proto_tree_add_bits_item(ptr noundef %307, i32 noundef %379, ptr noundef %0, i32 noundef %380, i32 noundef 1, i32 noundef 0) #4
+  %382 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %380, i32 noundef 1) #4
+  %383 = or disjoint i16 %364, 7
+  %.not.i = icmp eq i8 %382, 0
+  br i1 %.not.i, label %389, label %384
 
-398:                                              ; preds = %385
-  %399 = load i32, ptr @hf_cdma2k_Uzid, align 4
-  %400 = zext i16 %397 to i32
-  %401 = tail call ptr @proto_tree_add_bits_item(ptr noundef %321, i32 noundef %399, ptr noundef %0, i32 noundef %400, i32 noundef 16, i32 noundef 0) #4
-  %402 = add i16 %378, 23
-  br label %403
+384:                                              ; preds = %371
+  %385 = load i32, ptr @hf_cdma2k_Uzid, align 4
+  %386 = zext i16 %383 to i32
+  %387 = tail call ptr @proto_tree_add_bits_item(ptr noundef %307, i32 noundef %385, ptr noundef %0, i32 noundef %386, i32 noundef 16, i32 noundef 0) #4
+  %388 = add i16 %364, 23
+  br label %389
 
-403:                                              ; preds = %398, %385
-  %.1.i = phi i16 [ %402, %398 ], [ %397, %385 ]
-  %.not4.i = icmp eq i8 %342, 6
-  br i1 %.not4.i, label %cdma2k_message_REGISTRATION.exit, label %404
+389:                                              ; preds = %384, %371
+  %.1.i = phi i16 [ %388, %384 ], [ %383, %371 ]
+  %.not4.i = icmp eq i8 %328, 6
+  br i1 %.not4.i, label %cdma2k_message_REGISTRATION.exit, label %390
 
-404:                                              ; preds = %403
-  %405 = load i32, ptr @hf_cdma2k_GeoLoc_Incl, align 4
-  %406 = zext i16 %.1.i to i32
-  %407 = tail call ptr @proto_tree_add_bits_item(ptr noundef %321, i32 noundef %405, ptr noundef %0, i32 noundef %406, i32 noundef 1, i32 noundef 0) #4
-  %408 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %406, i32 noundef 1) #4
-  %409 = add i16 %.1.i, 1
-  %.not84.i = icmp eq i8 %408, 0
-  br i1 %.not84.i, label %cdma2k_message_REGISTRATION.exit, label %410
+390:                                              ; preds = %389
+  %391 = load i32, ptr @hf_cdma2k_GeoLoc_Incl, align 4
+  %392 = zext i16 %.1.i to i32
+  %393 = tail call ptr @proto_tree_add_bits_item(ptr noundef %307, i32 noundef %391, ptr noundef %0, i32 noundef %392, i32 noundef 1, i32 noundef 0) #4
+  %394 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %392, i32 noundef 1) #4
+  %395 = add i16 %.1.i, 1
+  %.not84.i = icmp eq i8 %394, 0
+  br i1 %.not84.i, label %cdma2k_message_REGISTRATION.exit, label %396
 
-410:                                              ; preds = %404
-  %411 = load i32, ptr @hf_cdma2k_GeoLoc_Type, align 4
-  %412 = zext i16 %409 to i32
-  %413 = tail call ptr @proto_tree_add_bits_item(ptr noundef %321, i32 noundef %411, ptr noundef %0, i32 noundef %412, i32 noundef 3, i32 noundef 0) #4
-  %414 = add i16 %.1.i, 4
+396:                                              ; preds = %390
+  %397 = load i32, ptr @hf_cdma2k_GeoLoc_Type, align 4
+  %398 = zext i16 %395 to i32
+  %399 = tail call ptr @proto_tree_add_bits_item(ptr noundef %307, i32 noundef %397, ptr noundef %0, i32 noundef %398, i32 noundef 3, i32 noundef 0) #4
+  %400 = add i16 %.1.i, 4
   br label %cdma2k_message_REGISTRATION.exit
 
-cdma2k_message_REGISTRATION.exit:                 ; preds = %369, %380, %403, %404, %410
-  %.2.i = phi i16 [ %414, %410 ], [ %409, %404 ], [ %.1.i, %403 ], [ %383, %380 ], [ %378, %369 ]
-  %415 = zext i16 %.2.i to i32
-  %416 = and i32 %415, 7
-  %417 = icmp ne i32 %416, 0
-  %418 = lshr i32 %415, 3
-  %419 = zext i1 %417 to i32
-  %storemerge.i = add nuw nsw i32 %418, %419
+cdma2k_message_REGISTRATION.exit:                 ; preds = %355, %366, %389, %390, %396
+  %.2.i = phi i16 [ %400, %396 ], [ %395, %390 ], [ %.1.i, %389 ], [ %369, %366 ], [ %364, %355 ]
+  %401 = zext i16 %.2.i to i32
+  %402 = and i32 %401, 7
+  %403 = icmp ne i32 %402, 0
+  %404 = lshr i32 %401, 3
+  %405 = zext i1 %403 to i32
+  %storemerge.i = add nuw nsw i32 %404, %405
   store i32 %storemerge.i, ptr %2, align 4
   br label %cdma2k_message_GEN_PAGE_REQ.exit
 
-420:                                              ; preds = %316
-  %421 = load i32, ptr @hf_cdma2k_OrderIndMsg, align 4
-  %422 = tail call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %421, ptr noundef %0, i32 noundef %315, i32 noundef -1, i32 noundef 0) #4
-  %423 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %424 = tail call ptr @proto_item_add_subtree(ptr noundef %422, i32 noundef %423) #4
-  %425 = load i32, ptr @hf_cdma2k_Order_Ind, align 4
-  %426 = load i32, ptr %2, align 4
-  %427 = shl i32 %426, 3
-  %428 = tail call ptr @proto_tree_add_bits_item(ptr noundef %424, i32 noundef %425, ptr noundef %0, i32 noundef %427, i32 noundef 6, i32 noundef 0) #4
-  %429 = load i32, ptr %2, align 4
-  %430 = shl i32 %429, 3
-  %431 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %430, i32 noundef 6) #4
-  %432 = load i32, ptr @hf_cdma2k_Add_Record_Len, align 4
-  %433 = load i32, ptr %2, align 4
-  %434 = shl i32 %433, 3
-  %435 = or disjoint i32 %434, 6
-  %436 = tail call ptr @proto_tree_add_bits_item(ptr noundef %424, i32 noundef %432, ptr noundef %0, i32 noundef %435, i32 noundef 3, i32 noundef 0) #4
-  %437 = load i32, ptr %2, align 4
-  %438 = shl i32 %437, 3
-  %439 = or disjoint i32 %438, 6
-  %440 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %439, i32 noundef 3) #4
-  %441 = load i32, ptr %2, align 4
-  %442 = add i32 %441, 1
-  store i32 %442, ptr %2, align 4
-  %.tr.i = trunc i32 %442 to i16
-  %443 = shl i16 %.tr.i, 3
-  %444 = or disjoint i16 %443, 1
-  %.not.i166 = icmp eq i8 %440, 0
-  br i1 %.not.i166, label %cdma2k_message_ORDER_IND.exit, label %445
+406:                                              ; preds = %302
+  %407 = load i32, ptr @hf_cdma2k_OrderIndMsg, align 4
+  %408 = tail call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %407, ptr noundef %0, i32 noundef %301, i32 noundef -1, i32 noundef 0) #4
+  %409 = load i32, ptr @ett_cdma2k_subtree1, align 4
+  %410 = tail call ptr @proto_item_add_subtree(ptr noundef %408, i32 noundef %409) #4
+  %411 = load i32, ptr @hf_cdma2k_Order_Ind, align 4
+  %412 = load i32, ptr %2, align 4
+  %413 = shl i32 %412, 3
+  %414 = tail call ptr @proto_tree_add_bits_item(ptr noundef %410, i32 noundef %411, ptr noundef %0, i32 noundef %413, i32 noundef 6, i32 noundef 0) #4
+  %415 = load i32, ptr %2, align 4
+  %416 = shl i32 %415, 3
+  %417 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %416, i32 noundef 6) #4
+  %418 = load i32, ptr @hf_cdma2k_Add_Record_Len, align 4
+  %419 = load i32, ptr %2, align 4
+  %420 = shl i32 %419, 3
+  %421 = or disjoint i32 %420, 6
+  %422 = tail call ptr @proto_tree_add_bits_item(ptr noundef %410, i32 noundef %418, ptr noundef %0, i32 noundef %421, i32 noundef 3, i32 noundef 0) #4
+  %423 = load i32, ptr %2, align 4
+  %424 = shl i32 %423, 3
+  %425 = or disjoint i32 %424, 6
+  %426 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %425, i32 noundef 3) #4
+  %427 = load i32, ptr %2, align 4
+  %428 = add i32 %427, 1
+  store i32 %428, ptr %2, align 4
+  %.tr.i = trunc i32 %428 to i16
+  %429 = shl i16 %.tr.i, 3
+  %430 = or disjoint i16 %429, 1
+  %.not.i166 = icmp eq i8 %426, 0
+  br i1 %.not.i166, label %cdma2k_message_ORDER_IND.exit, label %431
 
-445:                                              ; preds = %420
-  %446 = load i32, ptr @hf_cdma2k_Order_Specific_Fields, align 4
-  %447 = tail call ptr @proto_tree_add_item(ptr noundef %424, i32 noundef %446, ptr noundef %0, i32 noundef %442, i32 noundef -1, i32 noundef 0) #4
-  %448 = load i32, ptr @ett_cdma2k_subtree2, align 4
-  %449 = tail call ptr @proto_item_add_subtree(ptr noundef %447, i32 noundef %448) #4
-  switch i8 %431, label %594 [
-    i8 2, label %450
-    i8 4, label %459
-    i8 19, label %464
-    i8 20, label %473
-    i8 31, label %482
-    i8 21, label %530
-    i8 34, label %565
+431:                                              ; preds = %406
+  %432 = load i32, ptr @hf_cdma2k_Order_Specific_Fields, align 4
+  %433 = tail call ptr @proto_tree_add_item(ptr noundef %410, i32 noundef %432, ptr noundef %0, i32 noundef %428, i32 noundef -1, i32 noundef 0) #4
+  %434 = load i32, ptr @ett_cdma2k_subtree2, align 4
+  %435 = tail call ptr @proto_item_add_subtree(ptr noundef %433, i32 noundef %434) #4
+  switch i8 %417, label %580 [
+    i8 2, label %436
+    i8 4, label %445
+    i8 19, label %450
+    i8 20, label %459
+    i8 31, label %468
+    i8 21, label %516
+    i8 34, label %551
   ]
 
-450:                                              ; preds = %445
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %447, ptr noundef nonnull @.str.1173) #4
+436:                                              ; preds = %431
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %433, ptr noundef nonnull @.str.1173) #4
+  %437 = load i32, ptr @hf_cdma2k_Ordq, align 4
+  %438 = zext i16 %430 to i32
+  %439 = tail call ptr @proto_tree_add_bits_item(ptr noundef %435, i32 noundef %437, ptr noundef %0, i32 noundef %438, i32 noundef 8, i32 noundef 0) #4
+  %440 = add i16 %429, 9
+  %441 = load i32, ptr @hf_cdma2k_Randbs, align 4
+  %442 = zext i16 %440 to i32
+  %443 = tail call ptr @proto_tree_add_bits_item(ptr noundef %435, i32 noundef %441, ptr noundef %0, i32 noundef %442, i32 noundef 32, i32 noundef 0) #4
+  %444 = add i16 %429, 41
+  br label %cdma2k_message_ORDER_IND.exit
+
+445:                                              ; preds = %431
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %433, ptr noundef nonnull @.str.1174) #4
+  %446 = load i32, ptr @hf_cdma2k_Ordq, align 4
+  %447 = zext i16 %430 to i32
+  %448 = tail call ptr @proto_tree_add_bits_item(ptr noundef %435, i32 noundef %446, ptr noundef %0, i32 noundef %447, i32 noundef 8, i32 noundef 0) #4
+  %449 = add i16 %429, 9
+  br label %cdma2k_message_ORDER_IND.exit
+
+450:                                              ; preds = %431
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %433, ptr noundef nonnull @.str.1175) #4
   %451 = load i32, ptr @hf_cdma2k_Ordq, align 4
-  %452 = zext i16 %444 to i32
-  %453 = tail call ptr @proto_tree_add_bits_item(ptr noundef %449, i32 noundef %451, ptr noundef %0, i32 noundef %452, i32 noundef 8, i32 noundef 0) #4
-  %454 = add i16 %443, 9
-  %455 = load i32, ptr @hf_cdma2k_Randbs, align 4
+  %452 = zext i16 %430 to i32
+  %453 = tail call ptr @proto_tree_add_bits_item(ptr noundef %435, i32 noundef %451, ptr noundef %0, i32 noundef %452, i32 noundef 8, i32 noundef 0) #4
+  %454 = add i16 %429, 9
+  %455 = load i32, ptr @hf_cdma2k_service_option, align 4
   %456 = zext i16 %454 to i32
-  %457 = tail call ptr @proto_tree_add_bits_item(ptr noundef %449, i32 noundef %455, ptr noundef %0, i32 noundef %456, i32 noundef 32, i32 noundef 0) #4
-  %458 = add i16 %443, 41
+  %457 = tail call ptr @proto_tree_add_bits_item(ptr noundef %435, i32 noundef %455, ptr noundef %0, i32 noundef %456, i32 noundef 16, i32 noundef 0) #4
+  %458 = add i16 %429, 25
   br label %cdma2k_message_ORDER_IND.exit
 
-459:                                              ; preds = %445
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %447, ptr noundef nonnull @.str.1174) #4
+459:                                              ; preds = %431
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %433, ptr noundef nonnull @.str.1176) #4
   %460 = load i32, ptr @hf_cdma2k_Ordq, align 4
-  %461 = zext i16 %444 to i32
-  %462 = tail call ptr @proto_tree_add_bits_item(ptr noundef %449, i32 noundef %460, ptr noundef %0, i32 noundef %461, i32 noundef 8, i32 noundef 0) #4
-  %463 = add i16 %443, 9
+  %461 = zext i16 %430 to i32
+  %462 = tail call ptr @proto_tree_add_bits_item(ptr noundef %435, i32 noundef %460, ptr noundef %0, i32 noundef %461, i32 noundef 8, i32 noundef 0) #4
+  %463 = add i16 %429, 9
+  %464 = load i32, ptr @hf_cdma2k_service_option, align 4
+  %465 = zext i16 %463 to i32
+  %466 = tail call ptr @proto_tree_add_bits_item(ptr noundef %435, i32 noundef %464, ptr noundef %0, i32 noundef %465, i32 noundef 16, i32 noundef 0) #4
+  %467 = add i16 %429, 25
   br label %cdma2k_message_ORDER_IND.exit
 
-464:                                              ; preds = %445
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %447, ptr noundef nonnull @.str.1175) #4
-  %465 = load i32, ptr @hf_cdma2k_Ordq, align 4
-  %466 = zext i16 %444 to i32
-  %467 = tail call ptr @proto_tree_add_bits_item(ptr noundef %449, i32 noundef %465, ptr noundef %0, i32 noundef %466, i32 noundef 8, i32 noundef 0) #4
-  %468 = add i16 %443, 9
-  %469 = load i32, ptr @hf_cdma2k_service_option, align 4
-  %470 = zext i16 %468 to i32
-  %471 = tail call ptr @proto_tree_add_bits_item(ptr noundef %449, i32 noundef %469, ptr noundef %0, i32 noundef %470, i32 noundef 16, i32 noundef 0) #4
-  %472 = add i16 %443, 25
-  br label %cdma2k_message_ORDER_IND.exit
-
-473:                                              ; preds = %445
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %447, ptr noundef nonnull @.str.1176) #4
-  %474 = load i32, ptr @hf_cdma2k_Ordq, align 4
-  %475 = zext i16 %444 to i32
-  %476 = tail call ptr @proto_tree_add_bits_item(ptr noundef %449, i32 noundef %474, ptr noundef %0, i32 noundef %475, i32 noundef 8, i32 noundef 0) #4
-  %477 = add i16 %443, 9
-  %478 = load i32, ptr @hf_cdma2k_service_option, align 4
-  %479 = zext i16 %477 to i32
-  %480 = tail call ptr @proto_tree_add_bits_item(ptr noundef %449, i32 noundef %478, ptr noundef %0, i32 noundef %479, i32 noundef 16, i32 noundef 0) #4
-  %481 = add i16 %443, 25
-  br label %cdma2k_message_ORDER_IND.exit
-
-482:                                              ; preds = %445
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %447, ptr noundef nonnull @.str.1177) #4
-  %483 = load i32, ptr @hf_cdma2k_Ordq, align 4
-  %484 = zext i16 %444 to i32
-  %485 = tail call ptr @proto_tree_add_bits_item(ptr noundef %449, i32 noundef %483, ptr noundef %0, i32 noundef %484, i32 noundef 8, i32 noundef 0) #4
-  %486 = load i32, ptr %2, align 4
-  %487 = shl i32 %486, 3
-  %488 = or disjoint i32 %487, 1
-  %489 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %488, i32 noundef 8) #4
-  %490 = add i16 %443, 9
-  %491 = load i32, ptr @hf_cdma2k_Rejected_Type, align 4
-  %492 = zext i16 %490 to i32
-  %493 = tail call ptr @proto_tree_add_bits_item(ptr noundef %449, i32 noundef %491, ptr noundef %0, i32 noundef %492, i32 noundef 8, i32 noundef 0) #4
-  %494 = load i32, ptr %2, align 4
-  %495 = shl i32 %494, 3
-  %496 = or disjoint i32 %495, 1
-  %497 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %496, i32 noundef 8) #4
-  %498 = add i16 %443, 17
-  switch i8 %497, label %511 [
+468:                                              ; preds = %431
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %433, ptr noundef nonnull @.str.1177) #4
+  %469 = load i32, ptr @hf_cdma2k_Ordq, align 4
+  %470 = zext i16 %430 to i32
+  %471 = tail call ptr @proto_tree_add_bits_item(ptr noundef %435, i32 noundef %469, ptr noundef %0, i32 noundef %470, i32 noundef 8, i32 noundef 0) #4
+  %472 = load i32, ptr %2, align 4
+  %473 = shl i32 %472, 3
+  %474 = or disjoint i32 %473, 1
+  %475 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %474, i32 noundef 8) #4
+  %476 = add i16 %429, 9
+  %477 = load i32, ptr @hf_cdma2k_Rejected_Type, align 4
+  %478 = zext i16 %476 to i32
+  %479 = tail call ptr @proto_tree_add_bits_item(ptr noundef %435, i32 noundef %477, ptr noundef %0, i32 noundef %478, i32 noundef 8, i32 noundef 0) #4
+  %480 = load i32, ptr %2, align 4
+  %481 = shl i32 %480, 3
+  %482 = or disjoint i32 %481, 1
+  %483 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %482, i32 noundef 8) #4
+  %484 = add i16 %429, 17
+  switch i8 %483, label %497 [
     i8 7, label %.thread.i169
     i8 1, label %.thread.i169
     i8 12, label %.sink.split.i
   ]
 
-.thread.i169:                                     ; preds = %482, %482
-  %499 = load i32, ptr @hf_cdma2k_Reserved, align 4
-  %500 = zext i16 %498 to i32
-  %501 = tail call ptr @proto_tree_add_bits_item(ptr noundef %449, i32 noundef %499, ptr noundef %0, i32 noundef %500, i32 noundef 2, i32 noundef 0) #4
-  %502 = or disjoint i16 %498, 2
+.thread.i169:                                     ; preds = %468, %468
+  %485 = load i32, ptr @hf_cdma2k_Reserved, align 4
+  %486 = zext i16 %484 to i32
+  %487 = tail call ptr @proto_tree_add_bits_item(ptr noundef %435, i32 noundef %485, ptr noundef %0, i32 noundef %486, i32 noundef 2, i32 noundef 0) #4
+  %488 = or disjoint i16 %484, 2
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %.thread.i169, %482
-  %hf_cdma2k_Rejected_Order.sink.i = phi ptr [ @hf_cdma2k_Rejected_Order, %.thread.i169 ], [ @hf_cdma2k_Rejected_Parm_Id, %482 ]
-  %.sink11.i = phi i16 [ %502, %.thread.i169 ], [ %498, %482 ]
-  %.sink10.i = phi i32 [ 6, %.thread.i169 ], [ 16, %482 ]
-  %.sink7.i = phi i16 [ 25, %.thread.i169 ], [ 33, %482 ]
-  %hf_cdma2k_Rejected_Ordq.sink.i = phi ptr [ @hf_cdma2k_Rejected_Ordq, %.thread.i169 ], [ @hf_cdma2k_Rejected_Record, %482 ]
-  %.sink.i = phi i16 [ 33, %.thread.i169 ], [ 41, %482 ]
-  %503 = load i32, ptr %hf_cdma2k_Rejected_Order.sink.i, align 4
-  %504 = zext i16 %.sink11.i to i32
-  %505 = tail call ptr @proto_tree_add_bits_item(ptr noundef %449, i32 noundef %503, ptr noundef %0, i32 noundef %504, i32 noundef %.sink10.i, i32 noundef 0) #4
-  %506 = add i16 %.sink7.i, %443
-  %507 = load i32, ptr %hf_cdma2k_Rejected_Ordq.sink.i, align 4
-  %508 = zext i16 %506 to i32
-  %509 = tail call ptr @proto_tree_add_bits_item(ptr noundef %449, i32 noundef %507, ptr noundef %0, i32 noundef %508, i32 noundef 8, i32 noundef 0) #4
-  %510 = add i16 %.sink.i, %443
-  br label %511
+.sink.split.i:                                    ; preds = %.thread.i169, %468
+  %hf_cdma2k_Rejected_Order.sink.i = phi ptr [ @hf_cdma2k_Rejected_Order, %.thread.i169 ], [ @hf_cdma2k_Rejected_Parm_Id, %468 ]
+  %.sink11.i = phi i16 [ %488, %.thread.i169 ], [ %484, %468 ]
+  %.sink10.i = phi i32 [ 6, %.thread.i169 ], [ 16, %468 ]
+  %.sink7.i = phi i16 [ 25, %.thread.i169 ], [ 33, %468 ]
+  %hf_cdma2k_Rejected_Ordq.sink.i = phi ptr [ @hf_cdma2k_Rejected_Ordq, %.thread.i169 ], [ @hf_cdma2k_Rejected_Record, %468 ]
+  %.sink.i = phi i16 [ 33, %.thread.i169 ], [ 41, %468 ]
+  %489 = load i32, ptr %hf_cdma2k_Rejected_Order.sink.i, align 4
+  %490 = zext i16 %.sink11.i to i32
+  %491 = tail call ptr @proto_tree_add_bits_item(ptr noundef %435, i32 noundef %489, ptr noundef %0, i32 noundef %490, i32 noundef %.sink10.i, i32 noundef 0) #4
+  %492 = add i16 %.sink7.i, %429
+  %493 = load i32, ptr %hf_cdma2k_Rejected_Ordq.sink.i, align 4
+  %494 = zext i16 %492 to i32
+  %495 = tail call ptr @proto_tree_add_bits_item(ptr noundef %435, i32 noundef %493, ptr noundef %0, i32 noundef %494, i32 noundef 8, i32 noundef 0) #4
+  %496 = add i16 %.sink.i, %429
+  br label %497
 
-511:                                              ; preds = %.sink.split.i, %482
-  %.1.i168 = phi i16 [ %498, %482 ], [ %510, %.sink.split.i ]
-  %512 = and i8 %489, -4
-  %switch.i = icmp eq i8 %512, 16
-  br i1 %switch.i, label %513, label %.thread2.i
+497:                                              ; preds = %.sink.split.i, %468
+  %.1.i168 = phi i16 [ %484, %468 ], [ %496, %.sink.split.i ]
+  %498 = and i8 %475, -4
+  %switch.i = icmp eq i8 %498, 16
+  br i1 %switch.i, label %499, label %.thread2.i
 
-513:                                              ; preds = %511
-  %514 = icmp eq i8 %489, 19
-  %515 = load i32, ptr @hf_cdma2k_Con_Ref, align 4
-  %516 = zext i16 %.1.i168 to i32
-  %517 = tail call ptr @proto_tree_add_bits_item(ptr noundef %449, i32 noundef %515, ptr noundef %0, i32 noundef %516, i32 noundef 8, i32 noundef 0) #4
-  %518 = add i16 %.1.i168, 8
-  br i1 %514, label %519, label %.thread2.i
+499:                                              ; preds = %497
+  %500 = icmp eq i8 %475, 19
+  %501 = load i32, ptr @hf_cdma2k_Con_Ref, align 4
+  %502 = zext i16 %.1.i168 to i32
+  %503 = tail call ptr @proto_tree_add_bits_item(ptr noundef %435, i32 noundef %501, ptr noundef %0, i32 noundef %502, i32 noundef 8, i32 noundef 0) #4
+  %504 = add i16 %.1.i168, 8
+  br i1 %500, label %505, label %.thread2.i
 
-519:                                              ; preds = %513
-  %520 = load i32, ptr @hf_cdma2k_Tag, align 4
-  %521 = zext i16 %518 to i32
-  %522 = tail call ptr @proto_tree_add_bits_item(ptr noundef %449, i32 noundef %520, ptr noundef %0, i32 noundef %521, i32 noundef 4, i32 noundef 0) #4
-  %523 = add i16 %.1.i168, 12
+505:                                              ; preds = %499
+  %506 = load i32, ptr @hf_cdma2k_Tag, align 4
+  %507 = zext i16 %504 to i32
+  %508 = tail call ptr @proto_tree_add_bits_item(ptr noundef %435, i32 noundef %506, ptr noundef %0, i32 noundef %507, i32 noundef 4, i32 noundef 0) #4
+  %509 = add i16 %.1.i168, 12
   br label %.thread2.i
 
-.thread2.i:                                       ; preds = %519, %513, %511
-  %.3.i = phi i16 [ %523, %519 ], [ %518, %513 ], [ %.1.i168, %511 ]
-  %524 = zext i16 %.3.i to i32
-  %525 = and i32 %524, 7
-  %.not176.i = icmp eq i32 %525, 0
-  br i1 %.not176.i, label %cdma2k_message_ORDER_IND.exit, label %526
+.thread2.i:                                       ; preds = %505, %499, %497
+  %.3.i = phi i16 [ %509, %505 ], [ %504, %499 ], [ %.1.i168, %497 ]
+  %510 = zext i16 %.3.i to i32
+  %511 = and i32 %510, 7
+  %.not176.i = icmp eq i32 %511, 0
+  br i1 %.not176.i, label %cdma2k_message_ORDER_IND.exit, label %512
 
-526:                                              ; preds = %.thread2.i
-  %527 = load i32, ptr @hf_cdma2k_Reserved, align 4
-  %528 = sub nuw nsw i32 8, %525
-  %529 = tail call ptr @proto_tree_add_bits_item(ptr noundef %449, i32 noundef %527, ptr noundef %0, i32 noundef %524, i32 noundef %528, i32 noundef 0) #4
+512:                                              ; preds = %.thread2.i
+  %513 = load i32, ptr @hf_cdma2k_Reserved, align 4
+  %514 = sub nuw nsw i32 8, %511
+  %515 = tail call ptr @proto_tree_add_bits_item(ptr noundef %435, i32 noundef %513, ptr noundef %0, i32 noundef %510, i32 noundef %514, i32 noundef 0) #4
   br label %cdma2k_message_ORDER_IND.exit
 
-530:                                              ; preds = %445
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %447, ptr noundef nonnull @.str.1178) #4
-  %531 = load i32, ptr @hf_cdma2k_Ordq, align 4
+516:                                              ; preds = %431
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %433, ptr noundef nonnull @.str.1178) #4
+  %517 = load i32, ptr @hf_cdma2k_Ordq, align 4
+  %518 = load i32, ptr %2, align 4
+  %519 = shl i32 %518, 3
+  %520 = or disjoint i32 %519, 1
+  %521 = tail call ptr @proto_tree_add_bits_item(ptr noundef %435, i32 noundef %517, ptr noundef %0, i32 noundef %520, i32 noundef 8, i32 noundef 0) #4
+  %522 = load i32, ptr %2, align 4
+  %523 = shl i32 %522, 3
+  %524 = or disjoint i32 %523, 1
+  %525 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %524, i32 noundef 8) #4
+  %526 = add i16 %429, 9
+  %527 = icmp eq i8 %525, 3
+  br i1 %527, label %528, label %cdma2k_message_ORDER_IND.exit
+
+528:                                              ; preds = %516
+  %529 = load i32, ptr @hf_cdma2k_Rsc_Mode_Ind, align 4
+  %530 = zext i16 %526 to i32
+  %531 = tail call ptr @proto_tree_add_bits_item(ptr noundef %435, i32 noundef %529, ptr noundef %0, i32 noundef %530, i32 noundef 1, i32 noundef 0) #4
   %532 = load i32, ptr %2, align 4
   %533 = shl i32 %532, 3
   %534 = or disjoint i32 %533, 1
-  %535 = tail call ptr @proto_tree_add_bits_item(ptr noundef %449, i32 noundef %531, ptr noundef %0, i32 noundef %534, i32 noundef 8, i32 noundef 0) #4
-  %536 = load i32, ptr %2, align 4
-  %537 = shl i32 %536, 3
-  %538 = or disjoint i32 %537, 1
-  %539 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %538, i32 noundef 8) #4
-  %540 = add i16 %443, 9
-  %541 = icmp eq i8 %539, 3
-  br i1 %541, label %542, label %cdma2k_message_ORDER_IND.exit
+  %535 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %534, i32 noundef 1) #4
+  %536 = add i16 %429, 10
+  %537 = icmp eq i8 %535, 1
+  br i1 %537, label %538, label %cdma2k_message_ORDER_IND.exit
 
-542:                                              ; preds = %530
-  %543 = load i32, ptr @hf_cdma2k_Rsc_Mode_Ind, align 4
-  %544 = zext i16 %540 to i32
-  %545 = tail call ptr @proto_tree_add_bits_item(ptr noundef %449, i32 noundef %543, ptr noundef %0, i32 noundef %544, i32 noundef 1, i32 noundef 0) #4
-  %546 = load i32, ptr %2, align 4
-  %547 = shl i32 %546, 3
-  %548 = or disjoint i32 %547, 1
-  %549 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %548, i32 noundef 1) #4
-  %550 = add i16 %443, 10
-  %551 = icmp eq i8 %549, 1
-  br i1 %551, label %552, label %cdma2k_message_ORDER_IND.exit
-
-552:                                              ; preds = %542
-  %553 = load i32, ptr @hf_cdma2k_Rsci, align 4
-  %554 = zext i16 %550 to i32
-  %555 = tail call ptr @proto_tree_add_bits_item(ptr noundef %449, i32 noundef %553, ptr noundef %0, i32 noundef %554, i32 noundef 4, i32 noundef 0) #4
-  %556 = or disjoint i16 %550, 4
-  %557 = load i32, ptr @hf_cdma2k_Rsc_End_Time_Unit, align 4
-  %558 = zext i16 %556 to i32
-  %559 = tail call ptr @proto_tree_add_bits_item(ptr noundef %449, i32 noundef %557, ptr noundef %0, i32 noundef %558, i32 noundef 2, i32 noundef 0) #4
-  %560 = add i16 %443, 16
-  %561 = load i32, ptr @hf_cdma2k_Rsc_End_Time_Value, align 4
-  %562 = zext i16 %560 to i32
-  %563 = tail call ptr @proto_tree_add_bits_item(ptr noundef %449, i32 noundef %561, ptr noundef %0, i32 noundef %562, i32 noundef 4, i32 noundef 0) #4
-  %564 = or disjoint i16 %560, 4
+538:                                              ; preds = %528
+  %539 = load i32, ptr @hf_cdma2k_Rsci, align 4
+  %540 = zext i16 %536 to i32
+  %541 = tail call ptr @proto_tree_add_bits_item(ptr noundef %435, i32 noundef %539, ptr noundef %0, i32 noundef %540, i32 noundef 4, i32 noundef 0) #4
+  %542 = or disjoint i16 %536, 4
+  %543 = load i32, ptr @hf_cdma2k_Rsc_End_Time_Unit, align 4
+  %544 = zext i16 %542 to i32
+  %545 = tail call ptr @proto_tree_add_bits_item(ptr noundef %435, i32 noundef %543, ptr noundef %0, i32 noundef %544, i32 noundef 2, i32 noundef 0) #4
+  %546 = add i16 %429, 16
+  %547 = load i32, ptr @hf_cdma2k_Rsc_End_Time_Value, align 4
+  %548 = zext i16 %546 to i32
+  %549 = tail call ptr @proto_tree_add_bits_item(ptr noundef %435, i32 noundef %547, ptr noundef %0, i32 noundef %548, i32 noundef 4, i32 noundef 0) #4
+  %550 = or disjoint i16 %546, 4
   br label %cdma2k_message_ORDER_IND.exit
 
-565:                                              ; preds = %445
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %447, ptr noundef nonnull @.str.1179) #4
-  %566 = load i32, ptr @hf_cdma2k_Ordq, align 4
-  %567 = load i32, ptr %2, align 4
-  %568 = shl i32 %567, 3
-  %569 = or disjoint i32 %568, 1
-  %570 = tail call ptr @proto_tree_add_bits_item(ptr noundef %449, i32 noundef %566, ptr noundef %0, i32 noundef %569, i32 noundef 8, i32 noundef 0) #4
-  %571 = add i16 %443, 9
-  %572 = load i32, ptr @hf_cdma2k_Rsc_Mode_Ind, align 4
+551:                                              ; preds = %431
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %433, ptr noundef nonnull @.str.1179) #4
+  %552 = load i32, ptr @hf_cdma2k_Ordq, align 4
+  %553 = load i32, ptr %2, align 4
+  %554 = shl i32 %553, 3
+  %555 = or disjoint i32 %554, 1
+  %556 = tail call ptr @proto_tree_add_bits_item(ptr noundef %435, i32 noundef %552, ptr noundef %0, i32 noundef %555, i32 noundef 8, i32 noundef 0) #4
+  %557 = add i16 %429, 9
+  %558 = load i32, ptr @hf_cdma2k_Rsc_Mode_Ind, align 4
+  %559 = zext i16 %557 to i32
+  %560 = tail call ptr @proto_tree_add_bits_item(ptr noundef %435, i32 noundef %558, ptr noundef %0, i32 noundef %559, i32 noundef 1, i32 noundef 0) #4
+  %561 = load i32, ptr %2, align 4
+  %562 = shl i32 %561, 3
+  %563 = or disjoint i32 %562, 1
+  %564 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %563, i32 noundef 1) #4
+  %565 = add i16 %429, 10
+  %566 = icmp eq i8 %564, 1
+  br i1 %566, label %567, label %cdma2k_message_ORDER_IND.exit
+
+567:                                              ; preds = %551
+  %568 = load i32, ptr @hf_cdma2k_Rsci, align 4
+  %569 = zext i16 %565 to i32
+  %570 = tail call ptr @proto_tree_add_bits_item(ptr noundef %435, i32 noundef %568, ptr noundef %0, i32 noundef %569, i32 noundef 4, i32 noundef 0) #4
+  %571 = or disjoint i16 %565, 4
+  %572 = load i32, ptr @hf_cdma2k_Rsc_End_Time_Unit, align 4
   %573 = zext i16 %571 to i32
-  %574 = tail call ptr @proto_tree_add_bits_item(ptr noundef %449, i32 noundef %572, ptr noundef %0, i32 noundef %573, i32 noundef 1, i32 noundef 0) #4
-  %575 = load i32, ptr %2, align 4
-  %576 = shl i32 %575, 3
-  %577 = or disjoint i32 %576, 1
-  %578 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %577, i32 noundef 1) #4
-  %579 = add i16 %443, 10
-  %580 = icmp eq i8 %578, 1
-  br i1 %580, label %581, label %cdma2k_message_ORDER_IND.exit
-
-581:                                              ; preds = %565
-  %582 = load i32, ptr @hf_cdma2k_Rsci, align 4
-  %583 = zext i16 %579 to i32
-  %584 = tail call ptr @proto_tree_add_bits_item(ptr noundef %449, i32 noundef %582, ptr noundef %0, i32 noundef %583, i32 noundef 4, i32 noundef 0) #4
-  %585 = or disjoint i16 %579, 4
-  %586 = load i32, ptr @hf_cdma2k_Rsc_End_Time_Unit, align 4
-  %587 = zext i16 %585 to i32
-  %588 = tail call ptr @proto_tree_add_bits_item(ptr noundef %449, i32 noundef %586, ptr noundef %0, i32 noundef %587, i32 noundef 2, i32 noundef 0) #4
-  %589 = add i16 %443, 16
-  %590 = load i32, ptr @hf_cdma2k_Rsc_End_Time_Value, align 4
-  %591 = zext i16 %589 to i32
-  %592 = tail call ptr @proto_tree_add_bits_item(ptr noundef %449, i32 noundef %590, ptr noundef %0, i32 noundef %591, i32 noundef 4, i32 noundef 0) #4
-  %593 = or disjoint i16 %589, 4
+  %574 = tail call ptr @proto_tree_add_bits_item(ptr noundef %435, i32 noundef %572, ptr noundef %0, i32 noundef %573, i32 noundef 2, i32 noundef 0) #4
+  %575 = add i16 %429, 16
+  %576 = load i32, ptr @hf_cdma2k_Rsc_End_Time_Value, align 4
+  %577 = zext i16 %575 to i32
+  %578 = tail call ptr @proto_tree_add_bits_item(ptr noundef %435, i32 noundef %576, ptr noundef %0, i32 noundef %577, i32 noundef 4, i32 noundef 0) #4
+  %579 = or disjoint i16 %575, 4
   br label %cdma2k_message_ORDER_IND.exit
 
-594:                                              ; preds = %445
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %447, ptr noundef nonnull @.str.1180) #4
+580:                                              ; preds = %431
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %433, ptr noundef nonnull @.str.1180) #4
   br label %cdma2k_message_ORDER_IND.exit
 
-cdma2k_message_ORDER_IND.exit:                    ; preds = %420, %450, %459, %464, %473, %.thread2.i, %526, %530, %542, %552, %565, %581, %594
-  %.4.i = phi i16 [ %444, %594 ], [ %593, %581 ], [ %579, %565 ], [ %564, %552 ], [ %550, %542 ], [ %540, %530 ], [ %.3.i, %526 ], [ %.3.i, %.thread2.i ], [ %481, %473 ], [ %472, %464 ], [ %463, %459 ], [ %458, %450 ], [ %444, %420 ]
-  %595 = zext i16 %.4.i to i32
-  %596 = and i32 %595, 7
-  %597 = icmp ne i32 %596, 0
-  %598 = lshr i32 %595, 3
-  %599 = zext i1 %597 to i32
-  %storemerge.i167 = add nuw nsw i32 %598, %599
+cdma2k_message_ORDER_IND.exit:                    ; preds = %406, %436, %445, %450, %459, %.thread2.i, %512, %516, %528, %538, %551, %567, %580
+  %.4.i = phi i16 [ %430, %580 ], [ %579, %567 ], [ %565, %551 ], [ %550, %538 ], [ %536, %528 ], [ %526, %516 ], [ %.3.i, %512 ], [ %.3.i, %.thread2.i ], [ %467, %459 ], [ %458, %450 ], [ %449, %445 ], [ %444, %436 ], [ %430, %406 ]
+  %581 = zext i16 %.4.i to i32
+  %582 = and i32 %581, 7
+  %583 = icmp ne i32 %582, 0
+  %584 = lshr i32 %581, 3
+  %585 = zext i1 %583 to i32
+  %storemerge.i167 = add nuw nsw i32 %584, %585
   store i32 %storemerge.i167, ptr %2, align 4
   br label %cdma2k_message_GEN_PAGE_REQ.exit
 
-600:                                              ; preds = %316
-  %601 = load i32, ptr @hf_cdma2k_DataBurstIndMsg, align 4
-  %602 = tail call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %601, ptr noundef %0, i32 noundef %315, i32 noundef -1, i32 noundef 0) #4
-  %603 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %604 = tail call ptr @proto_item_add_subtree(ptr noundef %602, i32 noundef %603) #4
-  %605 = load i32, ptr @hf_cdma2k_Msg_Number, align 4
-  %606 = load i32, ptr %2, align 4
-  %607 = tail call ptr @proto_tree_add_item(ptr noundef %604, i32 noundef %605, ptr noundef %0, i32 noundef %606, i32 noundef 1, i32 noundef 0) #4
-  %608 = load i32, ptr %2, align 4
-  %609 = add i32 %608, 1
-  store i32 %609, ptr %2, align 4
-  %610 = load i32, ptr @hf_cdma2k_Burst_Type, align 4
-  %611 = shl i32 %609, 3
-  %612 = tail call ptr @proto_tree_add_bits_item(ptr noundef %604, i32 noundef %610, ptr noundef %0, i32 noundef %611, i32 noundef 6, i32 noundef 0) #4
-  %613 = load i32, ptr @hf_cdma2k_Num_Msgs, align 4
+586:                                              ; preds = %302
+  %587 = load i32, ptr @hf_cdma2k_DataBurstIndMsg, align 4
+  %588 = tail call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %587, ptr noundef %0, i32 noundef %301, i32 noundef -1, i32 noundef 0) #4
+  %589 = load i32, ptr @ett_cdma2k_subtree1, align 4
+  %590 = tail call ptr @proto_item_add_subtree(ptr noundef %588, i32 noundef %589) #4
+  %591 = load i32, ptr @hf_cdma2k_Msg_Number, align 4
+  %592 = load i32, ptr %2, align 4
+  %593 = tail call ptr @proto_tree_add_item(ptr noundef %590, i32 noundef %591, ptr noundef %0, i32 noundef %592, i32 noundef 1, i32 noundef 0) #4
+  %594 = load i32, ptr %2, align 4
+  %595 = add i32 %594, 1
+  store i32 %595, ptr %2, align 4
+  %596 = load i32, ptr @hf_cdma2k_Burst_Type, align 4
+  %597 = shl i32 %595, 3
+  %598 = tail call ptr @proto_tree_add_bits_item(ptr noundef %590, i32 noundef %596, ptr noundef %0, i32 noundef %597, i32 noundef 6, i32 noundef 0) #4
+  %599 = load i32, ptr @hf_cdma2k_Num_Msgs, align 4
+  %600 = load i32, ptr %2, align 4
+  %601 = shl i32 %600, 3
+  %602 = or disjoint i32 %601, 6
+  %603 = tail call ptr @proto_tree_add_bits_item(ptr noundef %590, i32 noundef %599, ptr noundef %0, i32 noundef %602, i32 noundef 8, i32 noundef 0) #4
+  %604 = load i32, ptr %2, align 4
+  %605 = add i32 %604, 1
+  store i32 %605, ptr %2, align 4
+  %606 = load i32, ptr @hf_cdma2k_Num_Fields, align 4
+  %607 = shl i32 %605, 3
+  %608 = or disjoint i32 %607, 6
+  %609 = tail call ptr @proto_tree_add_bits_item(ptr noundef %590, i32 noundef %606, ptr noundef %0, i32 noundef %608, i32 noundef 8, i32 noundef 0) #4
+  %610 = load i32, ptr %2, align 4
+  %611 = shl i32 %610, 3
+  %612 = or disjoint i32 %611, 6
+  %613 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %612, i32 noundef 8) #4
   %614 = load i32, ptr %2, align 4
-  %615 = shl i32 %614, 3
-  %616 = or disjoint i32 %615, 6
-  %617 = tail call ptr @proto_tree_add_bits_item(ptr noundef %604, i32 noundef %613, ptr noundef %0, i32 noundef %616, i32 noundef 8, i32 noundef 0) #4
-  %618 = load i32, ptr %2, align 4
-  %619 = add i32 %618, 1
-  store i32 %619, ptr %2, align 4
-  %620 = load i32, ptr @hf_cdma2k_Num_Fields, align 4
-  %621 = shl i32 %619, 3
-  %622 = or disjoint i32 %621, 6
-  %623 = tail call ptr @proto_tree_add_bits_item(ptr noundef %604, i32 noundef %620, ptr noundef %0, i32 noundef %622, i32 noundef 8, i32 noundef 0) #4
-  %624 = load i32, ptr %2, align 4
-  %625 = shl i32 %624, 3
-  %626 = or disjoint i32 %625, 6
-  %627 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %626, i32 noundef 8) #4
-  %628 = load i32, ptr %2, align 4
-  %629 = add i32 %628, 1
-  store i32 %629, ptr %2, align 4
-  %630 = load i32, ptr @hf_cdma2k_Chari_Data, align 4
-  %631 = tail call ptr @proto_tree_add_item(ptr noundef %604, i32 noundef %630, ptr noundef %0, i32 noundef %629, i32 noundef -1, i32 noundef 0) #4
-  %632 = load i32, ptr @ett_cdma2k_subtree2, align 4
-  %633 = tail call ptr @proto_item_add_subtree(ptr noundef %631, i32 noundef %632) #4
-  %634 = load i32, ptr @hf_cdma2k_Msg_Identifier, align 4
-  %635 = load i32, ptr %2, align 4
-  %636 = shl i32 %635, 3
-  %637 = or disjoint i32 %636, 6
-  %638 = tail call ptr @proto_tree_add_bits_item(ptr noundef %633, i32 noundef %634, ptr noundef %0, i32 noundef %637, i32 noundef 8, i32 noundef 0) #4
-  %639 = load i32, ptr %2, align 4
-  %640 = add i32 %639, 1
-  store i32 %640, ptr %2, align 4
-  %641 = zext i8 %627 to i32
-  %642 = add nuw nsw i32 %641, 65535
-  %643 = and i32 %642, 65535
-  %.not4.i170 = icmp eq i32 %643, 0
+  %615 = add i32 %614, 1
+  store i32 %615, ptr %2, align 4
+  %616 = load i32, ptr @hf_cdma2k_Chari_Data, align 4
+  %617 = tail call ptr @proto_tree_add_item(ptr noundef %590, i32 noundef %616, ptr noundef %0, i32 noundef %615, i32 noundef -1, i32 noundef 0) #4
+  %618 = load i32, ptr @ett_cdma2k_subtree2, align 4
+  %619 = tail call ptr @proto_item_add_subtree(ptr noundef %617, i32 noundef %618) #4
+  %620 = load i32, ptr @hf_cdma2k_Msg_Identifier, align 4
+  %621 = load i32, ptr %2, align 4
+  %622 = shl i32 %621, 3
+  %623 = or disjoint i32 %622, 6
+  %624 = tail call ptr @proto_tree_add_bits_item(ptr noundef %619, i32 noundef %620, ptr noundef %0, i32 noundef %623, i32 noundef 8, i32 noundef 0) #4
+  %625 = load i32, ptr %2, align 4
+  %626 = add i32 %625, 1
+  store i32 %626, ptr %2, align 4
+  %627 = zext i8 %613 to i32
+  %628 = add nuw nsw i32 %627, 65535
+  %629 = and i32 %628, 65535
+  %.not4.i170 = icmp eq i32 %629, 0
   br i1 %.not4.i170, label %cdma2k_message_DATA_BURST_IND.exit, label %.lr.ph8.i
 
-.lr.ph8.i:                                        ; preds = %600, %._crit_edge.i
-  %.0756.i = phi i16 [ %.176.lcssa.i, %._crit_edge.i ], [ 1, %600 ]
-  %.0785.i = phi i32 [ %696, %._crit_edge.i ], [ %642, %600 ]
-  %644 = load i32, ptr @hf_cdma2k_Parm_Id, align 4
-  %645 = load i32, ptr %2, align 4
-  %646 = shl i32 %645, 3
-  %647 = or disjoint i32 %646, 6
-  %648 = tail call ptr @proto_tree_add_bits_item(ptr noundef %633, i32 noundef %644, ptr noundef %0, i32 noundef %647, i32 noundef 8, i32 noundef 0) #4
-  %649 = load i32, ptr @ett_cdma2k_subtree2, align 4
-  %650 = tail call ptr @proto_item_add_subtree(ptr noundef %648, i32 noundef %649) #4
-  %651 = load i32, ptr %2, align 4
-  %652 = add i32 %651, 1
-  store i32 %652, ptr %2, align 4
-  %653 = load i32, ptr @hf_cdma2k_Parm_Length, align 4
-  %654 = shl i32 %652, 3
-  %655 = or disjoint i32 %654, 6
-  %656 = tail call ptr @proto_tree_add_bits_item(ptr noundef %650, i32 noundef %653, ptr noundef %0, i32 noundef %655, i32 noundef 8, i32 noundef 0) #4
+.lr.ph8.i:                                        ; preds = %586, %._crit_edge.i
+  %.0756.i = phi i16 [ %.176.lcssa.i, %._crit_edge.i ], [ 1, %586 ]
+  %.0785.i = phi i32 [ %682, %._crit_edge.i ], [ %628, %586 ]
+  %630 = load i32, ptr @hf_cdma2k_Parm_Id, align 4
+  %631 = load i32, ptr %2, align 4
+  %632 = shl i32 %631, 3
+  %633 = or disjoint i32 %632, 6
+  %634 = tail call ptr @proto_tree_add_bits_item(ptr noundef %619, i32 noundef %630, ptr noundef %0, i32 noundef %633, i32 noundef 8, i32 noundef 0) #4
+  %635 = load i32, ptr @ett_cdma2k_subtree2, align 4
+  %636 = tail call ptr @proto_item_add_subtree(ptr noundef %634, i32 noundef %635) #4
+  %637 = load i32, ptr %2, align 4
+  %638 = add i32 %637, 1
+  store i32 %638, ptr %2, align 4
+  %639 = load i32, ptr @hf_cdma2k_Parm_Length, align 4
+  %640 = shl i32 %638, 3
+  %641 = or disjoint i32 %640, 6
+  %642 = tail call ptr @proto_tree_add_bits_item(ptr noundef %636, i32 noundef %639, ptr noundef %0, i32 noundef %641, i32 noundef 8, i32 noundef 0) #4
+  %643 = load i32, ptr %2, align 4
+  %644 = shl i32 %643, 3
+  %645 = or disjoint i32 %644, 6
+  %646 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %645, i32 noundef 8) #4
+  %647 = load i32, ptr %2, align 4
+  %648 = add i32 %647, 1
+  store i32 %648, ptr %2, align 4
+  %649 = add i32 %.0785.i, 65534
+  %650 = zext i16 %.0756.i to i32
+  %651 = shl nuw nsw i32 %650, 5
+  %652 = zext i8 %646 to i32
+  %653 = icmp ult i32 %651, %652
+  %654 = add nuw nsw i32 %652, 1
+  %.073.i = select i1 %653, i32 32, i32 %654
+  %655 = load i32, ptr @hf_cdma2k_Parm_Value, align 4
+  %656 = tail call ptr @proto_tree_add_item(ptr noundef %636, i32 noundef %655, ptr noundef %0, i32 noundef %648, i32 noundef %.073.i, i32 noundef 0) #4
+  %.not10.i = icmp eq i8 %646, 0
+  br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph8.i, %681
+  %indvars.iv.i = phi i32 [ %indvars.iv.next.i, %681 ], [ 0, %.lr.ph8.i ]
+  %.03.i = phi ptr [ %.1.i172, %681 ], [ %656, %.lr.ph8.i ]
+  %.1762.i = phi i16 [ %.2.i171, %681 ], [ %.0756.i, %.lr.ph8.i ]
   %657 = load i32, ptr %2, align 4
   %658 = shl i32 %657, 3
   %659 = or disjoint i32 %658, 6
   %660 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %659, i32 noundef 8) #4
-  %661 = load i32, ptr %2, align 4
-  %662 = add i32 %661, 1
-  store i32 %662, ptr %2, align 4
-  %663 = add i32 %.0785.i, 65534
-  %664 = zext i16 %.0756.i to i32
-  %665 = shl nuw nsw i32 %664, 5
-  %666 = zext i8 %660 to i32
-  %667 = icmp ult i32 %665, %666
-  %668 = add nuw nsw i32 %666, 1
-  %.073.i = select i1 %667, i32 32, i32 %668
-  %669 = load i32, ptr @hf_cdma2k_Parm_Value, align 4
-  %670 = tail call ptr @proto_tree_add_item(ptr noundef %650, i32 noundef %669, ptr noundef %0, i32 noundef %662, i32 noundef %.073.i, i32 noundef 0) #4
-  %.not10.i = icmp eq i8 %660, 0
-  br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.i
+  %661 = zext i8 %660 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.03.i, ptr noundef nonnull @.str.1164, i32 noundef %661) #4
+  %662 = load i32, ptr %2, align 4
+  %663 = add i32 %662, 1
+  store i32 %663, ptr %2, align 4
+  %664 = and i32 %indvars.iv.i, 7
+  %665 = icmp eq i32 %664, 7
+  br i1 %665, label %666, label %667
 
-.lr.ph.i:                                         ; preds = %.lr.ph8.i, %695
-  %indvars.iv.i = phi i32 [ %indvars.iv.next.i, %695 ], [ 0, %.lr.ph8.i ]
-  %.03.i = phi ptr [ %.1.i172, %695 ], [ %670, %.lr.ph8.i ]
-  %.1762.i = phi i16 [ %.2.i171, %695 ], [ %.0756.i, %.lr.ph8.i ]
-  %671 = load i32, ptr %2, align 4
-  %672 = shl i32 %671, 3
-  %673 = or disjoint i32 %672, 6
-  %674 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %673, i32 noundef 8) #4
-  %675 = zext i8 %674 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.03.i, ptr noundef nonnull @.str.1164, i32 noundef %675) #4
-  %676 = load i32, ptr %2, align 4
-  %677 = add i32 %676, 1
-  store i32 %677, ptr %2, align 4
-  %678 = and i32 %indvars.iv.i, 7
-  %679 = icmp eq i32 %678, 7
-  br i1 %679, label %680, label %681
-
-680:                                              ; preds = %.lr.ph.i
+666:                                              ; preds = %.lr.ph.i
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.03.i, ptr noundef nonnull @.str.1181) #4
+  br label %667
+
+667:                                              ; preds = %666, %.lr.ph.i
+  %668 = and i32 %indvars.iv.i, 31
+  %669 = icmp eq i32 %668, 31
+  br i1 %669, label %670, label %681
+
+670:                                              ; preds = %667
+  %671 = zext i16 %.1762.i to i32
+  %672 = shl nuw nsw i32 %671, 5
+  %673 = icmp ult i32 %672, %652
+  %674 = sub nsw i32 %652, %672
+  %675 = and i32 %674, 65535
+  %676 = load i32, ptr @hf_cdma2k_Parm_Value, align 4
+  %677 = load i32, ptr %2, align 4
+  %678 = select i1 %673, i32 32, i32 %675
+  %679 = tail call ptr @proto_tree_add_item(ptr noundef %636, i32 noundef %676, ptr noundef %0, i32 noundef %677, i32 noundef %678, i32 noundef 0) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %679, ptr noundef nonnull @.str.1182) #4
+  %680 = add i16 %.1762.i, 1
   br label %681
 
-681:                                              ; preds = %680, %.lr.ph.i
-  %682 = and i32 %indvars.iv.i, 31
-  %683 = icmp eq i32 %682, 31
-  br i1 %683, label %684, label %695
-
-684:                                              ; preds = %681
-  %685 = zext i16 %.1762.i to i32
-  %686 = shl nuw nsw i32 %685, 5
-  %687 = icmp ult i32 %686, %666
-  %688 = sub nsw i32 %666, %686
-  %689 = and i32 %688, 65535
-  %690 = load i32, ptr @hf_cdma2k_Parm_Value, align 4
-  %691 = load i32, ptr %2, align 4
-  %692 = select i1 %687, i32 32, i32 %689
-  %693 = tail call ptr @proto_tree_add_item(ptr noundef %650, i32 noundef %690, ptr noundef %0, i32 noundef %691, i32 noundef %692, i32 noundef 0) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %693, ptr noundef nonnull @.str.1182) #4
-  %694 = add i16 %.1762.i, 1
-  br label %695
-
-695:                                              ; preds = %684, %681
-  %.2.i171 = phi i16 [ %694, %684 ], [ %.1762.i, %681 ]
-  %.1.i172 = phi ptr [ %693, %684 ], [ %.03.i, %681 ]
+681:                                              ; preds = %670, %667
+  %.2.i171 = phi i16 [ %680, %670 ], [ %.1762.i, %667 ]
+  %.1.i172 = phi ptr [ %679, %670 ], [ %.03.i, %667 ]
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i32 %indvars.iv.next.i, %666
+  %exitcond.not.i = icmp eq i32 %indvars.iv.next.i, %652
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
-._crit_edge.i:                                    ; preds = %695, %.lr.ph8.i
-  %.176.lcssa.i = phi i16 [ %.0756.i, %.lr.ph8.i ], [ %.2.i171, %695 ]
-  %696 = sub i32 %663, %666
-  %697 = and i32 %696, 65535
-  %.not.i173 = icmp eq i32 %697, 0
+._crit_edge.i:                                    ; preds = %681, %.lr.ph8.i
+  %.176.lcssa.i = phi i16 [ %.0756.i, %.lr.ph8.i ], [ %.2.i171, %681 ]
+  %682 = sub i32 %649, %652
+  %683 = and i32 %682, 65535
+  %.not.i173 = icmp eq i32 %683, 0
   br i1 %.not.i173, label %._crit_edge9.loopexit.i, label %.lr.ph8.i, !llvm.loop !9
 
 ._crit_edge9.loopexit.i:                          ; preds = %._crit_edge.i
   %.pre.i174 = load i32, ptr %2, align 4
   br label %cdma2k_message_DATA_BURST_IND.exit
 
-cdma2k_message_DATA_BURST_IND.exit:               ; preds = %600, %._crit_edge9.loopexit.i
-  %698 = phi i32 [ %.pre.i174, %._crit_edge9.loopexit.i ], [ %640, %600 ]
-  %699 = add i32 %698, 1
-  store i32 %699, ptr %2, align 4
+cdma2k_message_DATA_BURST_IND.exit:               ; preds = %586, %._crit_edge9.loopexit.i
+  %684 = phi i32 [ %.pre.i174, %._crit_edge9.loopexit.i ], [ %626, %586 ]
+  %685 = add i32 %684, 1
+  store i32 %685, ptr %2, align 4
   br label %cdma2k_message_GEN_PAGE_REQ.exit
 
-700:                                              ; preds = %316
-  %701 = shl i32 %315, 3
-  %702 = load i32, ptr @hf_cdma2k_OrigMsg, align 4
-  %703 = and i32 %701, 65528
-  %704 = lshr exact i32 %703, 3
-  %705 = tail call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %702, ptr noundef %0, i32 noundef %704, i32 noundef -1, i32 noundef 0) #4
-  %706 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %707 = tail call ptr @proto_item_add_subtree(ptr noundef %705, i32 noundef %706) #4
-  %708 = load i32, ptr @hf_cdma2k_Mob_Term, align 4
-  %709 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %708, ptr noundef %0, i32 noundef %703, i32 noundef 1, i32 noundef 0) #4
-  %710 = load i32, ptr @hf_cdma2k_Slot_Cycle_Index, align 4
-  %711 = or disjoint i32 %703, 1
-  %712 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %710, ptr noundef %0, i32 noundef %711, i32 noundef 3, i32 noundef 0) #4
-  %713 = load i32, ptr @hf_cdma2k_Mob_P_Rev, align 4
-  %714 = or disjoint i32 %703, 4
-  %715 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %713, ptr noundef %0, i32 noundef %714, i32 noundef 8, i32 noundef 0) #4
-  %716 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %714, i32 noundef 8) #4
-  %717 = trunc i32 %701 to i16
-  %718 = add i16 %717, 12
-  %719 = tail call i8 @llvm.umin.i8(i8 %26, i8 %716)
-  %720 = icmp eq i8 %719, 1
-  br i1 %720, label %721, label %736
+686:                                              ; preds = %302
+  %687 = shl i32 %301, 3
+  %688 = load i32, ptr @hf_cdma2k_OrigMsg, align 4
+  %689 = and i32 %687, 65528
+  %690 = lshr exact i32 %689, 3
+  %691 = tail call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %688, ptr noundef %0, i32 noundef %690, i32 noundef -1, i32 noundef 0) #4
+  %692 = load i32, ptr @ett_cdma2k_subtree1, align 4
+  %693 = tail call ptr @proto_item_add_subtree(ptr noundef %691, i32 noundef %692) #4
+  %694 = load i32, ptr @hf_cdma2k_Mob_Term, align 4
+  %695 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %694, ptr noundef %0, i32 noundef %689, i32 noundef 1, i32 noundef 0) #4
+  %696 = load i32, ptr @hf_cdma2k_Slot_Cycle_Index, align 4
+  %697 = or disjoint i32 %689, 1
+  %698 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %696, ptr noundef %0, i32 noundef %697, i32 noundef 3, i32 noundef 0) #4
+  %699 = load i32, ptr @hf_cdma2k_Mob_P_Rev, align 4
+  %700 = or disjoint i32 %689, 4
+  %701 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %699, ptr noundef %0, i32 noundef %700, i32 noundef 8, i32 noundef 0) #4
+  %702 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %700, i32 noundef 8) #4
+  %703 = trunc i32 %687 to i16
+  %704 = add i16 %703, 12
+  %705 = tail call i8 @llvm.umin.i8(i8 %26, i8 %702)
+  %706 = icmp eq i8 %705, 1
+  br i1 %706, label %707, label %722
 
-721:                                              ; preds = %700
-  %722 = load i32, ptr @hf_cdma2k_Ext_Scm, align 4
-  %723 = zext i16 %718 to i32
-  %724 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %722, ptr noundef %0, i32 noundef %723, i32 noundef 1, i32 noundef 0) #4
-  %725 = or disjoint i16 %718, 1
-  %726 = load i32, ptr @hf_cdma2k_Reserved, align 4
-  %727 = zext i16 %725 to i32
-  %728 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %726, ptr noundef %0, i32 noundef %727, i32 noundef 1, i32 noundef 0) #4
-  %729 = add i32 %701, 14
-  %730 = load i32, ptr @hf_cdma2k_Sloted_Mode, align 4
-  %731 = and i32 %729, 65534
-  %732 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %730, ptr noundef %0, i32 noundef %731, i32 noundef 1, i32 noundef 0) #4
-  %733 = load i32, ptr @hf_cdma2k_Reserved, align 4
-  %734 = or disjoint i32 %731, 1
-  %735 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %733, ptr noundef %0, i32 noundef %734, i32 noundef 5, i32 noundef 0) #4
-  br label %738
+707:                                              ; preds = %686
+  %708 = load i32, ptr @hf_cdma2k_Ext_Scm, align 4
+  %709 = zext i16 %704 to i32
+  %710 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %708, ptr noundef %0, i32 noundef %709, i32 noundef 1, i32 noundef 0) #4
+  %711 = or disjoint i16 %704, 1
+  %712 = load i32, ptr @hf_cdma2k_Reserved, align 4
+  %713 = zext i16 %711 to i32
+  %714 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %712, ptr noundef %0, i32 noundef %713, i32 noundef 1, i32 noundef 0) #4
+  %715 = add i32 %687, 14
+  %716 = load i32, ptr @hf_cdma2k_Sloted_Mode, align 4
+  %717 = and i32 %715, 65534
+  %718 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %716, ptr noundef %0, i32 noundef %717, i32 noundef 1, i32 noundef 0) #4
+  %719 = load i32, ptr @hf_cdma2k_Reserved, align 4
+  %720 = or disjoint i32 %717, 1
+  %721 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %719, ptr noundef %0, i32 noundef %720, i32 noundef 5, i32 noundef 0) #4
+  br label %724
 
-736:                                              ; preds = %700
-  %737 = zext i16 %718 to i32
-  tail call fastcc void @dissect_cdma2000_scm(ptr noundef %0, ptr noundef %707, i32 noundef %737)
-  br label %738
+722:                                              ; preds = %686
+  %723 = zext i16 %704 to i32
+  tail call fastcc void @dissect_cdma2000_scm(ptr noundef %0, ptr noundef %693, i32 noundef %723)
+  br label %724
 
-738:                                              ; preds = %736, %721
-  %.0496.i = add i32 %701, 20
-  %739 = load i32, ptr @hf_cdma2k_Request_Mode, align 4
-  %740 = and i32 %.0496.i, 65532
-  %741 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %739, ptr noundef %0, i32 noundef %740, i32 noundef 3, i32 noundef 0) #4
-  %742 = load i32, ptr @hf_cdma2k_Special_Service, align 4
-  %743 = or disjoint i32 %740, 3
-  %744 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %742, ptr noundef %0, i32 noundef %743, i32 noundef 1, i32 noundef 0) #4
-  %745 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %743, i32 noundef 1) #4
-  %746 = add i16 %717, 24
-  %747 = icmp eq i8 %745, 1
-  br i1 %747, label %748, label %753
+724:                                              ; preds = %722, %707
+  %.0496.i = add i32 %687, 20
+  %725 = load i32, ptr @hf_cdma2k_Request_Mode, align 4
+  %726 = and i32 %.0496.i, 65532
+  %727 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %725, ptr noundef %0, i32 noundef %726, i32 noundef 3, i32 noundef 0) #4
+  %728 = load i32, ptr @hf_cdma2k_Special_Service, align 4
+  %729 = or disjoint i32 %726, 3
+  %730 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %728, ptr noundef %0, i32 noundef %729, i32 noundef 1, i32 noundef 0) #4
+  %731 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %729, i32 noundef 1) #4
+  %732 = add i16 %703, 24
+  %733 = icmp eq i8 %731, 1
+  br i1 %733, label %734, label %739
 
-748:                                              ; preds = %738
-  %749 = load i32, ptr @hf_cdma2k_service_option, align 4
-  %750 = zext i16 %746 to i32
-  %751 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %749, ptr noundef %0, i32 noundef %750, i32 noundef 16, i32 noundef 0) #4
-  %752 = add i16 %717, 40
-  br label %753
+734:                                              ; preds = %724
+  %735 = load i32, ptr @hf_cdma2k_service_option, align 4
+  %736 = zext i16 %732 to i32
+  %737 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %735, ptr noundef %0, i32 noundef %736, i32 noundef 16, i32 noundef 0) #4
+  %738 = add i16 %703, 40
+  br label %739
 
-753:                                              ; preds = %748, %738
-  %.1497.i = phi i16 [ %752, %748 ], [ %746, %738 ]
-  %754 = load i32, ptr @hf_cdma2k_pm, align 4
-  %755 = zext i16 %.1497.i to i32
-  %756 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %754, ptr noundef %0, i32 noundef %755, i32 noundef 1, i32 noundef 0) #4
-  %757 = add i16 %.1497.i, 1
-  %758 = load i32, ptr @hf_cdma2k_digit_mode, align 4
-  %759 = zext i16 %757 to i32
-  %760 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %758, ptr noundef %0, i32 noundef %759, i32 noundef 1, i32 noundef 0) #4
-  %761 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %759, i32 noundef 1) #4
-  %762 = add i16 %.1497.i, 2
-  %763 = icmp eq i8 %761, 1
-  br i1 %763, label %764, label %773
+739:                                              ; preds = %734, %724
+  %.1497.i = phi i16 [ %738, %734 ], [ %732, %724 ]
+  %740 = load i32, ptr @hf_cdma2k_pm, align 4
+  %741 = zext i16 %.1497.i to i32
+  %742 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %740, ptr noundef %0, i32 noundef %741, i32 noundef 1, i32 noundef 0) #4
+  %743 = add i16 %.1497.i, 1
+  %744 = load i32, ptr @hf_cdma2k_digit_mode, align 4
+  %745 = zext i16 %743 to i32
+  %746 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %744, ptr noundef %0, i32 noundef %745, i32 noundef 1, i32 noundef 0) #4
+  %747 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %745, i32 noundef 1) #4
+  %748 = add i16 %.1497.i, 2
+  %749 = icmp eq i8 %747, 1
+  br i1 %749, label %750, label %759
 
-764:                                              ; preds = %753
-  %765 = load i32, ptr @hf_cdma2k_Number_Type, align 4
-  %766 = zext i16 %762 to i32
-  %767 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %765, ptr noundef %0, i32 noundef %766, i32 noundef 3, i32 noundef 0) #4
-  %768 = add i16 %.1497.i, 5
-  %769 = load i32, ptr @hf_cdma2k_Number_Plan, align 4
-  %770 = zext i16 %768 to i32
-  %771 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %769, ptr noundef %0, i32 noundef %770, i32 noundef 4, i32 noundef 0) #4
-  %772 = add i16 %.1497.i, 9
-  br label %773
+750:                                              ; preds = %739
+  %751 = load i32, ptr @hf_cdma2k_Number_Type, align 4
+  %752 = zext i16 %748 to i32
+  %753 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %751, ptr noundef %0, i32 noundef %752, i32 noundef 3, i32 noundef 0) #4
+  %754 = add i16 %.1497.i, 5
+  %755 = load i32, ptr @hf_cdma2k_Number_Plan, align 4
+  %756 = zext i16 %754 to i32
+  %757 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %755, ptr noundef %0, i32 noundef %756, i32 noundef 4, i32 noundef 0) #4
+  %758 = add i16 %.1497.i, 9
+  br label %759
 
-773:                                              ; preds = %764, %753
-  %.2498.i = phi i16 [ %772, %764 ], [ %762, %753 ]
-  %774 = load i32, ptr @hf_cdma2k_More_Fields, align 4
-  %775 = zext i16 %.2498.i to i32
-  %776 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %774, ptr noundef %0, i32 noundef %775, i32 noundef 1, i32 noundef 0) #4
-  %777 = add i16 %.2498.i, 1
-  %778 = load i32, ptr @hf_cdma2k_Num_Fields, align 4
-  %779 = zext i16 %777 to i32
-  %780 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %778, ptr noundef %0, i32 noundef %779, i32 noundef 8, i32 noundef 0) #4
-  %781 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %779, i32 noundef 8) #4
-  %782 = add i16 %.2498.i, 9
-  %.not.i175 = icmp eq i8 %781, 0
+759:                                              ; preds = %750, %739
+  %.2498.i = phi i16 [ %758, %750 ], [ %748, %739 ]
+  %760 = load i32, ptr @hf_cdma2k_More_Fields, align 4
+  %761 = zext i16 %.2498.i to i32
+  %762 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %760, ptr noundef %0, i32 noundef %761, i32 noundef 1, i32 noundef 0) #4
+  %763 = add i16 %.2498.i, 1
+  %764 = load i32, ptr @hf_cdma2k_Num_Fields, align 4
+  %765 = zext i16 %763 to i32
+  %766 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %764, ptr noundef %0, i32 noundef %765, i32 noundef 8, i32 noundef 0) #4
+  %767 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %765, i32 noundef 8) #4
+  %768 = add i16 %.2498.i, 9
+  %.not.i175 = icmp eq i8 %767, 0
   br i1 %.not.i175, label %.loopexit2.i, label %.lr.ph.i176
 
-.lr.ph.i176:                                      ; preds = %773
-  %783 = zext i8 %781 to i32
-  %784 = load i32, ptr @hf_cdma2k_Chari_Data, align 4
-  %785 = lshr i16 %782, 3
-  %786 = zext nneg i16 %785 to i32
-  %787 = tail call ptr @proto_tree_add_item(ptr noundef %707, i32 noundef %784, ptr noundef %0, i32 noundef %786, i32 noundef 1, i32 noundef 0) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %787, ptr noundef nonnull @.str.1183) #4
-  br i1 %763, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+.lr.ph.i176:                                      ; preds = %759
+  %769 = zext i8 %767 to i32
+  %770 = load i32, ptr @hf_cdma2k_Chari_Data, align 4
+  %771 = lshr i16 %768, 3
+  %772 = zext nneg i16 %771 to i32
+  %773 = tail call ptr @proto_tree_add_item(ptr noundef %693, i32 noundef %770, ptr noundef %0, i32 noundef %772, i32 noundef 1, i32 noundef 0) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %773, ptr noundef nonnull @.str.1183) #4
+  br i1 %749, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i176, %.lr.ph.split.us.i
-  %788 = phi i32 [ %794, %.lr.ph.split.us.i ], [ %783, %.lr.ph.i176 ]
-  %.34.us.i = phi i16 [ %792, %.lr.ph.split.us.i ], [ %782, %.lr.ph.i176 ]
-  %789 = zext i16 %.34.us.i to i32
-  %790 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %789, i32 noundef 8) #4
-  %791 = zext i8 %790 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %787, ptr noundef nonnull @.str.1184, i32 noundef %791) #4
-  %792 = add i16 %.34.us.i, 8
-  %793 = add nuw nsw i32 %788, 65535
-  %794 = and i32 %793, 65535
-  %.not510.us.i = icmp eq i32 %794, 0
+  %774 = phi i32 [ %780, %.lr.ph.split.us.i ], [ %769, %.lr.ph.i176 ]
+  %.34.us.i = phi i16 [ %778, %.lr.ph.split.us.i ], [ %768, %.lr.ph.i176 ]
+  %775 = zext i16 %.34.us.i to i32
+  %776 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %775, i32 noundef 8) #4
+  %777 = zext i8 %776 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %773, ptr noundef nonnull @.str.1184, i32 noundef %777) #4
+  %778 = add i16 %.34.us.i, 8
+  %779 = add nuw nsw i32 %774, 65535
+  %780 = and i32 %779, 65535
+  %.not510.us.i = icmp eq i32 %780, 0
   br i1 %.not510.us.i, label %.loopexit2.i, label %.lr.ph.split.us.i, !llvm.loop !10
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i176
-  %795 = icmp eq i8 %761, 0
-  br i1 %795, label %.lr.ph.split.split.us.i, label %.loopexit2.i
+  %781 = icmp eq i8 %747, 0
+  br i1 %781, label %.lr.ph.split.split.us.i, label %.loopexit2.i
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i, %.lr.ph.split.split.us.i
-  %796 = phi i32 [ %802, %.lr.ph.split.split.us.i ], [ %783, %.lr.ph.split.i ]
-  %.34.us5.i = phi i16 [ %800, %.lr.ph.split.split.us.i ], [ %782, %.lr.ph.split.i ]
-  %797 = zext i16 %.34.us5.i to i32
-  %798 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %797, i32 noundef 4) #4
-  %799 = zext i8 %798 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %787, ptr noundef nonnull @.str.1185, i32 noundef %799) #4
-  %800 = add i16 %.34.us5.i, 4
-  %801 = add nuw nsw i32 %796, 65535
-  %802 = and i32 %801, 65535
-  %.not510.us7.i = icmp eq i32 %802, 0
+  %782 = phi i32 [ %788, %.lr.ph.split.split.us.i ], [ %769, %.lr.ph.split.i ]
+  %.34.us5.i = phi i16 [ %786, %.lr.ph.split.split.us.i ], [ %768, %.lr.ph.split.i ]
+  %783 = zext i16 %.34.us5.i to i32
+  %784 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %783, i32 noundef 4) #4
+  %785 = zext i8 %784 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %773, ptr noundef nonnull @.str.1185, i32 noundef %785) #4
+  %786 = add i16 %.34.us5.i, 4
+  %787 = add nuw nsw i32 %782, 65535
+  %788 = and i32 %787, 65535
+  %.not510.us7.i = icmp eq i32 %788, 0
   br i1 %.not510.us7.i, label %.loopexit2.i, label %.lr.ph.split.split.us.i, !llvm.loop !10
 
-.loopexit2.i:                                     ; preds = %.lr.ph.split.split.us.i, %.lr.ph.split.us.i, %.lr.ph.split.i, %773
-  %.5.i = phi i16 [ %782, %773 ], [ %782, %.lr.ph.split.i ], [ %792, %.lr.ph.split.us.i ], [ %800, %.lr.ph.split.split.us.i ]
-  %803 = load i32, ptr @hf_cdma2k_Nar_An_Cap, align 4
-  %804 = zext i16 %.5.i to i32
-  %805 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %803, ptr noundef %0, i32 noundef %804, i32 noundef 1, i32 noundef 0) #4
-  %806 = add i16 %.5.i, 1
-  %807 = load i32, ptr @hf_cdma2k_Paca_Reorig, align 4
-  %808 = zext i16 %806 to i32
-  %809 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %807, ptr noundef %0, i32 noundef %808, i32 noundef 1, i32 noundef 0) #4
-  %810 = add i16 %.5.i, 2
-  %811 = load i32, ptr @hf_cdma2k_Return_Cause, align 4
-  %812 = zext i16 %810 to i32
-  %813 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %811, ptr noundef %0, i32 noundef %812, i32 noundef 4, i32 noundef 0) #4
-  %814 = add i16 %.5.i, 6
-  %815 = load i32, ptr @hf_cdma2k_More_Records, align 4
-  %816 = zext i16 %814 to i32
-  %817 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %815, ptr noundef %0, i32 noundef %816, i32 noundef 1, i32 noundef 0) #4
-  %818 = add i16 %.5.i, 7
-  %819 = icmp ult i8 %719, 7
-  %820 = icmp eq i16 %.0.lcssa, 1
-  %or.cond.i = and i1 %820, %819
-  br i1 %or.cond.i, label %821, label %826
+.loopexit2.i:                                     ; preds = %.lr.ph.split.split.us.i, %.lr.ph.split.us.i, %.lr.ph.split.i, %759
+  %.5.i = phi i16 [ %768, %759 ], [ %768, %.lr.ph.split.i ], [ %778, %.lr.ph.split.us.i ], [ %786, %.lr.ph.split.split.us.i ]
+  %789 = load i32, ptr @hf_cdma2k_Nar_An_Cap, align 4
+  %790 = zext i16 %.5.i to i32
+  %791 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %789, ptr noundef %0, i32 noundef %790, i32 noundef 1, i32 noundef 0) #4
+  %792 = add i16 %.5.i, 1
+  %793 = load i32, ptr @hf_cdma2k_Paca_Reorig, align 4
+  %794 = zext i16 %792 to i32
+  %795 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %793, ptr noundef %0, i32 noundef %794, i32 noundef 1, i32 noundef 0) #4
+  %796 = add i16 %.5.i, 2
+  %797 = load i32, ptr @hf_cdma2k_Return_Cause, align 4
+  %798 = zext i16 %796 to i32
+  %799 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %797, ptr noundef %0, i32 noundef %798, i32 noundef 4, i32 noundef 0) #4
+  %800 = add i16 %.5.i, 6
+  %801 = load i32, ptr @hf_cdma2k_More_Records, align 4
+  %802 = zext i16 %800 to i32
+  %803 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %801, ptr noundef %0, i32 noundef %802, i32 noundef 1, i32 noundef 0) #4
+  %804 = add i16 %.5.i, 7
+  %805 = icmp ult i8 %705, 7
+  %806 = icmp eq i16 %.0.lcssa, 1
+  %or.cond.i = and i1 %806, %805
+  br i1 %or.cond.i, label %807, label %812
 
-821:                                              ; preds = %.loopexit2.i
-  %822 = load i32, ptr @hf_cdma2k_encryption_supported, align 4
-  %823 = zext i16 %818 to i32
-  %824 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %822, ptr noundef %0, i32 noundef %823, i32 noundef 4, i32 noundef 0) #4
-  %825 = add i16 %.5.i, 11
-  br label %826
+807:                                              ; preds = %.loopexit2.i
+  %808 = load i32, ptr @hf_cdma2k_encryption_supported, align 4
+  %809 = zext i16 %804 to i32
+  %810 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %808, ptr noundef %0, i32 noundef %809, i32 noundef 4, i32 noundef 0) #4
+  %811 = add i16 %.5.i, 11
+  br label %812
 
-826:                                              ; preds = %821, %.loopexit2.i
-  %.6.i = phi i16 [ %825, %821 ], [ %818, %.loopexit2.i ]
-  %827 = load i32, ptr @hf_cdma2k_Paca_Supported, align 4
-  %828 = zext i16 %.6.i to i32
-  %829 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %827, ptr noundef %0, i32 noundef %828, i32 noundef 1, i32 noundef 0) #4
-  %830 = add i16 %.6.i, 1
-  %831 = load i32, ptr @hf_cdma2k_num_alt_so, align 4
-  %832 = zext i16 %830 to i32
-  %833 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %831, ptr noundef %0, i32 noundef %832, i32 noundef 3, i32 noundef 0) #4
-  %834 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %832, i32 noundef 3) #4
-  %835 = add i16 %.6.i, 4
-  %.not51110.i = icmp eq i8 %834, 0
+812:                                              ; preds = %807, %.loopexit2.i
+  %.6.i = phi i16 [ %811, %807 ], [ %804, %.loopexit2.i ]
+  %813 = load i32, ptr @hf_cdma2k_Paca_Supported, align 4
+  %814 = zext i16 %.6.i to i32
+  %815 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %813, ptr noundef %0, i32 noundef %814, i32 noundef 1, i32 noundef 0) #4
+  %816 = add i16 %.6.i, 1
+  %817 = load i32, ptr @hf_cdma2k_num_alt_so, align 4
+  %818 = zext i16 %816 to i32
+  %819 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %817, ptr noundef %0, i32 noundef %818, i32 noundef 3, i32 noundef 0) #4
+  %820 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %818, i32 noundef 3) #4
+  %821 = add i16 %.6.i, 4
+  %.not51110.i = icmp eq i8 %820, 0
   br i1 %.not51110.i, label %._crit_edge.i177, label %.lr.ph13.preheader.i
 
-.lr.ph13.preheader.i:                             ; preds = %826
-  %836 = zext i8 %834 to i16
+.lr.ph13.preheader.i:                             ; preds = %812
+  %822 = zext i8 %820 to i16
   br label %.lr.ph13.i
 
 .lr.ph13.i:                                       ; preds = %.lr.ph13.i, %.lr.ph13.preheader.i
-  %.049412.i = phi i16 [ %841, %.lr.ph13.i ], [ %836, %.lr.ph13.preheader.i ]
-  %.711.i = phi i16 [ %840, %.lr.ph13.i ], [ %835, %.lr.ph13.preheader.i ]
-  %837 = load i32, ptr @hf_cdma2k_Alt_So, align 4
-  %838 = zext i16 %.711.i to i32
-  %839 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %837, ptr noundef %0, i32 noundef %838, i32 noundef 16, i32 noundef 0) #4
-  %840 = add i16 %.711.i, 16
-  %841 = add nsw i16 %.049412.i, -1
-  %.not511.i = icmp eq i16 %841, 0
+  %.049412.i = phi i16 [ %827, %.lr.ph13.i ], [ %822, %.lr.ph13.preheader.i ]
+  %.711.i = phi i16 [ %826, %.lr.ph13.i ], [ %821, %.lr.ph13.preheader.i ]
+  %823 = load i32, ptr @hf_cdma2k_Alt_So, align 4
+  %824 = zext i16 %.711.i to i32
+  %825 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %823, ptr noundef %0, i32 noundef %824, i32 noundef 16, i32 noundef 0) #4
+  %826 = add i16 %.711.i, 16
+  %827 = add nsw i16 %.049412.i, -1
+  %.not511.i = icmp eq i16 %827, 0
   br i1 %.not511.i, label %._crit_edge.i177, label %.lr.ph13.i, !llvm.loop !11
 
-._crit_edge.i177:                                 ; preds = %.lr.ph13.i, %826
-  %.7.lcssa.i = phi i16 [ %835, %826 ], [ %840, %.lr.ph13.i ]
-  %842 = icmp ugt i8 %719, 5
-  br i1 %842, label %843, label %cdma2k_message_ORIGINATION.exit
+._crit_edge.i177:                                 ; preds = %.lr.ph13.i, %812
+  %.7.lcssa.i = phi i16 [ %821, %812 ], [ %826, %.lr.ph13.i ]
+  %828 = icmp ugt i8 %705, 5
+  br i1 %828, label %829, label %cdma2k_message_ORIGINATION.exit
 
-843:                                              ; preds = %._crit_edge.i177
-  %844 = load i32, ptr @hf_cdma2k_DRS, align 4
-  %845 = zext i16 %.7.lcssa.i to i32
-  %846 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %844, ptr noundef %0, i32 noundef %845, i32 noundef 1, i32 noundef 0) #4
-  %847 = add i16 %.7.lcssa.i, 1
-  %848 = load i32, ptr @hf_cdma2k_Uzid_Incl, align 4
-  %849 = zext i16 %847 to i32
-  %850 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %848, ptr noundef %0, i32 noundef %849, i32 noundef 1, i32 noundef 0) #4
-  %851 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %849, i32 noundef 1) #4
-  %852 = add i16 %.7.lcssa.i, 2
-  %853 = icmp eq i8 %851, 1
-  br i1 %853, label %854, label %859
+829:                                              ; preds = %._crit_edge.i177
+  %830 = load i32, ptr @hf_cdma2k_DRS, align 4
+  %831 = zext i16 %.7.lcssa.i to i32
+  %832 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %830, ptr noundef %0, i32 noundef %831, i32 noundef 1, i32 noundef 0) #4
+  %833 = add i16 %.7.lcssa.i, 1
+  %834 = load i32, ptr @hf_cdma2k_Uzid_Incl, align 4
+  %835 = zext i16 %833 to i32
+  %836 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %834, ptr noundef %0, i32 noundef %835, i32 noundef 1, i32 noundef 0) #4
+  %837 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %835, i32 noundef 1) #4
+  %838 = add i16 %.7.lcssa.i, 2
+  %839 = icmp eq i8 %837, 1
+  br i1 %839, label %840, label %845
 
-854:                                              ; preds = %843
-  %855 = load i32, ptr @hf_cdma2k_Uzid, align 4
-  %856 = zext i16 %852 to i32
-  %857 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %855, ptr noundef %0, i32 noundef %856, i32 noundef 16, i32 noundef 0) #4
-  %858 = add i16 %.7.lcssa.i, 18
-  br label %859
+840:                                              ; preds = %829
+  %841 = load i32, ptr @hf_cdma2k_Uzid, align 4
+  %842 = zext i16 %838 to i32
+  %843 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %841, ptr noundef %0, i32 noundef %842, i32 noundef 16, i32 noundef 0) #4
+  %844 = add i16 %.7.lcssa.i, 18
+  br label %845
 
-859:                                              ; preds = %854, %843
-  %.8.i = phi i16 [ %858, %854 ], [ %852, %843 ]
-  %860 = load i32, ptr @hf_cdma2k_Ch_Ind, align 4
-  %861 = zext i16 %.8.i to i32
-  %862 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %860, ptr noundef %0, i32 noundef %861, i32 noundef 2, i32 noundef 0) #4
-  %863 = add i16 %.8.i, 2
-  %864 = load i32, ptr @hf_cdma2k_SR_ID, align 4
-  %865 = zext i16 %863 to i32
-  %866 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %864, ptr noundef %0, i32 noundef %865, i32 noundef 3, i32 noundef 0) #4
-  %867 = add i16 %.8.i, 5
-  %868 = load i32, ptr @hf_cdma2k_Otd_Supported, align 4
-  %869 = zext i16 %867 to i32
-  %870 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %868, ptr noundef %0, i32 noundef %869, i32 noundef 1, i32 noundef 0) #4
-  %871 = add i16 %.8.i, 6
-  %872 = load i32, ptr @hf_cdma2k_Qpch_Supported, align 4
-  %873 = zext i16 %871 to i32
-  %874 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %872, ptr noundef %0, i32 noundef %873, i32 noundef 1, i32 noundef 0) #4
-  %875 = add i16 %.8.i, 7
-  %876 = load i32, ptr @hf_cdma2k_Enhanced_Rc, align 4
-  %877 = zext i16 %875 to i32
-  %878 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %876, ptr noundef %0, i32 noundef %877, i32 noundef 1, i32 noundef 0) #4
-  %879 = add i16 %.8.i, 8
-  %880 = load i32, ptr @hf_cdma2k_For_Rc_Pref, align 4
-  %881 = zext i16 %879 to i32
-  %882 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %880, ptr noundef %0, i32 noundef %881, i32 noundef 5, i32 noundef 0) #4
-  %883 = add i16 %.8.i, 13
-  %884 = load i32, ptr @hf_cdma2k_Rev_Rc_Pref, align 4
-  %885 = zext i16 %883 to i32
-  %886 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %884, ptr noundef %0, i32 noundef %885, i32 noundef 5, i32 noundef 0) #4
-  %887 = add i16 %.8.i, 18
-  %888 = load i32, ptr @hf_cdma2k_Fch_Supported, align 4
-  %889 = zext i16 %887 to i32
-  %890 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %888, ptr noundef %0, i32 noundef %889, i32 noundef 1, i32 noundef 0) #4
-  %891 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %889, i32 noundef 1) #4
-  %892 = add i16 %.8.i, 19
-  %893 = icmp eq i8 %891, 1
-  br i1 %893, label %894, label %931
+845:                                              ; preds = %840, %829
+  %.8.i = phi i16 [ %844, %840 ], [ %838, %829 ]
+  %846 = load i32, ptr @hf_cdma2k_Ch_Ind, align 4
+  %847 = zext i16 %.8.i to i32
+  %848 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %846, ptr noundef %0, i32 noundef %847, i32 noundef 2, i32 noundef 0) #4
+  %849 = add i16 %.8.i, 2
+  %850 = load i32, ptr @hf_cdma2k_SR_ID, align 4
+  %851 = zext i16 %849 to i32
+  %852 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %850, ptr noundef %0, i32 noundef %851, i32 noundef 3, i32 noundef 0) #4
+  %853 = add i16 %.8.i, 5
+  %854 = load i32, ptr @hf_cdma2k_Otd_Supported, align 4
+  %855 = zext i16 %853 to i32
+  %856 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %854, ptr noundef %0, i32 noundef %855, i32 noundef 1, i32 noundef 0) #4
+  %857 = add i16 %.8.i, 6
+  %858 = load i32, ptr @hf_cdma2k_Qpch_Supported, align 4
+  %859 = zext i16 %857 to i32
+  %860 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %858, ptr noundef %0, i32 noundef %859, i32 noundef 1, i32 noundef 0) #4
+  %861 = add i16 %.8.i, 7
+  %862 = load i32, ptr @hf_cdma2k_Enhanced_Rc, align 4
+  %863 = zext i16 %861 to i32
+  %864 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %862, ptr noundef %0, i32 noundef %863, i32 noundef 1, i32 noundef 0) #4
+  %865 = add i16 %.8.i, 8
+  %866 = load i32, ptr @hf_cdma2k_For_Rc_Pref, align 4
+  %867 = zext i16 %865 to i32
+  %868 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %866, ptr noundef %0, i32 noundef %867, i32 noundef 5, i32 noundef 0) #4
+  %869 = add i16 %.8.i, 13
+  %870 = load i32, ptr @hf_cdma2k_Rev_Rc_Pref, align 4
+  %871 = zext i16 %869 to i32
+  %872 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %870, ptr noundef %0, i32 noundef %871, i32 noundef 5, i32 noundef 0) #4
+  %873 = add i16 %.8.i, 18
+  %874 = load i32, ptr @hf_cdma2k_Fch_Supported, align 4
+  %875 = zext i16 %873 to i32
+  %876 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %874, ptr noundef %0, i32 noundef %875, i32 noundef 1, i32 noundef 0) #4
+  %877 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %875, i32 noundef 1) #4
+  %878 = add i16 %.8.i, 19
+  %879 = icmp eq i8 %877, 1
+  br i1 %879, label %880, label %917
 
-894:                                              ; preds = %859
-  %895 = load i32, ptr @hf_cdma2k_Fch_capability_type_specific_Fields, align 4
-  %896 = zext i16 %892 to i32
-  %897 = lshr i32 %896, 3
-  %898 = tail call ptr @proto_tree_add_item(ptr noundef %707, i32 noundef %895, ptr noundef %0, i32 noundef %897, i32 noundef 1, i32 noundef 0) #4
-  %899 = load i32, ptr @ett_cdma2k_subtree2, align 4
-  %900 = tail call ptr @proto_item_add_subtree(ptr noundef %898, i32 noundef %899) #4
-  %901 = load i32, ptr @hf_cdma2k_Fch_Frame_Size, align 4
-  %902 = tail call ptr @proto_tree_add_bits_item(ptr noundef %900, i32 noundef %901, ptr noundef %0, i32 noundef %896, i32 noundef 1, i32 noundef 0) #4
-  %903 = add i16 %.8.i, 20
-  %904 = load i32, ptr @hf_cdma2k_For_Fch_Len, align 4
-  %905 = zext i16 %903 to i32
-  %906 = tail call ptr @proto_tree_add_bits_item(ptr noundef %900, i32 noundef %904, ptr noundef %0, i32 noundef %905, i32 noundef 3, i32 noundef 0) #4
+880:                                              ; preds = %845
+  %881 = load i32, ptr @hf_cdma2k_Fch_capability_type_specific_Fields, align 4
+  %882 = zext i16 %878 to i32
+  %883 = lshr i32 %882, 3
+  %884 = tail call ptr @proto_tree_add_item(ptr noundef %693, i32 noundef %881, ptr noundef %0, i32 noundef %883, i32 noundef 1, i32 noundef 0) #4
+  %885 = load i32, ptr @ett_cdma2k_subtree2, align 4
+  %886 = tail call ptr @proto_item_add_subtree(ptr noundef %884, i32 noundef %885) #4
+  %887 = load i32, ptr @hf_cdma2k_Fch_Frame_Size, align 4
+  %888 = tail call ptr @proto_tree_add_bits_item(ptr noundef %886, i32 noundef %887, ptr noundef %0, i32 noundef %882, i32 noundef 1, i32 noundef 0) #4
+  %889 = add i16 %.8.i, 20
+  %890 = load i32, ptr @hf_cdma2k_For_Fch_Len, align 4
+  %891 = zext i16 %889 to i32
+  %892 = tail call ptr @proto_tree_add_bits_item(ptr noundef %886, i32 noundef %890, ptr noundef %0, i32 noundef %891, i32 noundef 3, i32 noundef 0) #4
+  %893 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %891, i32 noundef 3) #4
+  %894 = add i16 %.8.i, 23
+  %.not512.i = icmp eq i8 %893, 0
+  br i1 %.not512.i, label %903, label %895
+
+895:                                              ; preds = %880
+  %896 = zext i8 %893 to i32
+  %897 = mul nuw nsw i32 %896, 3
+  %898 = load i32, ptr @hf_cdma2k_For_Fch_Rc_Map, align 4
+  %899 = zext i16 %894 to i32
+  %900 = tail call ptr @proto_tree_add_bits_item(ptr noundef %886, i32 noundef %898, ptr noundef %0, i32 noundef %899, i32 noundef %897, i32 noundef 0) #4
+  %901 = trunc nuw nsw i32 %897 to i16
+  %902 = add i16 %894, %901
+  br label %903
+
+903:                                              ; preds = %895, %880
+  %.9.i = phi i16 [ %902, %895 ], [ %894, %880 ]
+  %904 = load i32, ptr @hf_cdma2k_Rev_Fch_Len, align 4
+  %905 = zext i16 %.9.i to i32
+  %906 = tail call ptr @proto_tree_add_bits_item(ptr noundef %886, i32 noundef %904, ptr noundef %0, i32 noundef %905, i32 noundef 3, i32 noundef 0) #4
   %907 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %905, i32 noundef 3) #4
-  %908 = add i16 %.8.i, 23
-  %.not512.i = icmp eq i8 %907, 0
-  br i1 %.not512.i, label %917, label %909
+  %908 = add i16 %.9.i, 3
+  %.not513.i = icmp eq i8 %907, 0
+  br i1 %.not513.i, label %917, label %909
 
-909:                                              ; preds = %894
+909:                                              ; preds = %903
   %910 = zext i8 %907 to i32
   %911 = mul nuw nsw i32 %910, 3
-  %912 = load i32, ptr @hf_cdma2k_For_Fch_Rc_Map, align 4
+  %912 = load i32, ptr @hf_cdma2k_Rev_Fch_Rc_Map, align 4
   %913 = zext i16 %908 to i32
-  %914 = tail call ptr @proto_tree_add_bits_item(ptr noundef %900, i32 noundef %912, ptr noundef %0, i32 noundef %913, i32 noundef %911, i32 noundef 0) #4
+  %914 = tail call ptr @proto_tree_add_bits_item(ptr noundef %886, i32 noundef %912, ptr noundef %0, i32 noundef %913, i32 noundef %911, i32 noundef 0) #4
   %915 = trunc nuw nsw i32 %911 to i16
   %916 = add i16 %908, %915
   br label %917
 
-917:                                              ; preds = %909, %894
-  %.9.i = phi i16 [ %916, %909 ], [ %908, %894 ]
-  %918 = load i32, ptr @hf_cdma2k_Rev_Fch_Len, align 4
-  %919 = zext i16 %.9.i to i32
-  %920 = tail call ptr @proto_tree_add_bits_item(ptr noundef %900, i32 noundef %918, ptr noundef %0, i32 noundef %919, i32 noundef 3, i32 noundef 0) #4
-  %921 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %919, i32 noundef 3) #4
-  %922 = add i16 %.9.i, 3
-  %.not513.i = icmp eq i8 %921, 0
-  br i1 %.not513.i, label %931, label %923
+917:                                              ; preds = %909, %903, %845
+  %.10.i = phi i16 [ %916, %909 ], [ %908, %903 ], [ %878, %845 ]
+  %918 = load i32, ptr @hf_cdma2k_Dcch_Supported, align 4
+  %919 = zext i16 %.10.i to i32
+  %920 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %918, ptr noundef %0, i32 noundef %919, i32 noundef 1, i32 noundef 0) #4
+  %921 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %919, i32 noundef 1) #4
+  %922 = add i16 %.10.i, 1
+  %923 = icmp eq i8 %921, 1
+  br i1 %923, label %924, label %961
 
-923:                                              ; preds = %917
-  %924 = zext i8 %921 to i32
-  %925 = mul nuw nsw i32 %924, 3
-  %926 = load i32, ptr @hf_cdma2k_Rev_Fch_Rc_Map, align 4
-  %927 = zext i16 %922 to i32
-  %928 = tail call ptr @proto_tree_add_bits_item(ptr noundef %900, i32 noundef %926, ptr noundef %0, i32 noundef %927, i32 noundef %925, i32 noundef 0) #4
-  %929 = trunc nuw nsw i32 %925 to i16
-  %930 = add i16 %922, %929
-  br label %931
+924:                                              ; preds = %917
+  %925 = load i32, ptr @hf_cdma2k_Dcch_capability_type_specific_Fields, align 4
+  %926 = zext i16 %922 to i32
+  %927 = lshr i32 %926, 3
+  %928 = tail call ptr @proto_tree_add_item(ptr noundef %693, i32 noundef %925, ptr noundef %0, i32 noundef %927, i32 noundef 1, i32 noundef 0) #4
+  %929 = load i32, ptr @ett_cdma2k_subtree2, align 4
+  %930 = tail call ptr @proto_item_add_subtree(ptr noundef %928, i32 noundef %929) #4
+  %931 = load i32, ptr @hf_cdma2k_Dcch_Frame_Size, align 4
+  %932 = tail call ptr @proto_tree_add_bits_item(ptr noundef %930, i32 noundef %931, ptr noundef %0, i32 noundef %926, i32 noundef 2, i32 noundef 0) #4
+  %933 = add i16 %.10.i, 3
+  %934 = load i32, ptr @hf_cdma2k_For_Dcch_Len, align 4
+  %935 = zext i16 %933 to i32
+  %936 = tail call ptr @proto_tree_add_bits_item(ptr noundef %930, i32 noundef %934, ptr noundef %0, i32 noundef %935, i32 noundef 3, i32 noundef 0) #4
+  %937 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %935, i32 noundef 3) #4
+  %938 = add i16 %.10.i, 6
+  %.not514.i = icmp eq i8 %937, 0
+  br i1 %.not514.i, label %947, label %939
 
-931:                                              ; preds = %923, %917, %859
-  %.10.i = phi i16 [ %930, %923 ], [ %922, %917 ], [ %892, %859 ]
-  %932 = load i32, ptr @hf_cdma2k_Dcch_Supported, align 4
-  %933 = zext i16 %.10.i to i32
-  %934 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %932, ptr noundef %0, i32 noundef %933, i32 noundef 1, i32 noundef 0) #4
-  %935 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %933, i32 noundef 1) #4
-  %936 = add i16 %.10.i, 1
-  %937 = icmp eq i8 %935, 1
-  br i1 %937, label %938, label %975
+939:                                              ; preds = %924
+  %940 = zext i8 %937 to i32
+  %941 = mul nuw nsw i32 %940, 3
+  %942 = load i32, ptr @hf_cdma2k_For_Dcch_Rc_Map, align 4
+  %943 = zext i16 %938 to i32
+  %944 = tail call ptr @proto_tree_add_bits_item(ptr noundef %930, i32 noundef %942, ptr noundef %0, i32 noundef %943, i32 noundef %941, i32 noundef 0) #4
+  %945 = trunc nuw nsw i32 %941 to i16
+  %946 = add i16 %938, %945
+  br label %947
 
-938:                                              ; preds = %931
-  %939 = load i32, ptr @hf_cdma2k_Dcch_capability_type_specific_Fields, align 4
-  %940 = zext i16 %936 to i32
-  %941 = lshr i32 %940, 3
-  %942 = tail call ptr @proto_tree_add_item(ptr noundef %707, i32 noundef %939, ptr noundef %0, i32 noundef %941, i32 noundef 1, i32 noundef 0) #4
-  %943 = load i32, ptr @ett_cdma2k_subtree2, align 4
-  %944 = tail call ptr @proto_item_add_subtree(ptr noundef %942, i32 noundef %943) #4
-  %945 = load i32, ptr @hf_cdma2k_Dcch_Frame_Size, align 4
-  %946 = tail call ptr @proto_tree_add_bits_item(ptr noundef %944, i32 noundef %945, ptr noundef %0, i32 noundef %940, i32 noundef 2, i32 noundef 0) #4
-  %947 = add i16 %.10.i, 3
-  %948 = load i32, ptr @hf_cdma2k_For_Dcch_Len, align 4
-  %949 = zext i16 %947 to i32
-  %950 = tail call ptr @proto_tree_add_bits_item(ptr noundef %944, i32 noundef %948, ptr noundef %0, i32 noundef %949, i32 noundef 3, i32 noundef 0) #4
+947:                                              ; preds = %939, %924
+  %.11.i = phi i16 [ %946, %939 ], [ %938, %924 ]
+  %948 = load i32, ptr @hf_cdma2k_Rev_Dcch_Len, align 4
+  %949 = zext i16 %.11.i to i32
+  %950 = tail call ptr @proto_tree_add_bits_item(ptr noundef %930, i32 noundef %948, ptr noundef %0, i32 noundef %949, i32 noundef 3, i32 noundef 0) #4
   %951 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %949, i32 noundef 3) #4
-  %952 = add i16 %.10.i, 6
-  %.not514.i = icmp eq i8 %951, 0
-  br i1 %.not514.i, label %961, label %953
+  %952 = add i16 %.11.i, 3
+  %.not515.i = icmp eq i8 %951, 0
+  br i1 %.not515.i, label %961, label %953
 
-953:                                              ; preds = %938
+953:                                              ; preds = %947
   %954 = zext i8 %951 to i32
   %955 = mul nuw nsw i32 %954, 3
-  %956 = load i32, ptr @hf_cdma2k_For_Dcch_Rc_Map, align 4
+  %956 = load i32, ptr @hf_cdma2k_Rev_Dcch_Rc_Map, align 4
   %957 = zext i16 %952 to i32
-  %958 = tail call ptr @proto_tree_add_bits_item(ptr noundef %944, i32 noundef %956, ptr noundef %0, i32 noundef %957, i32 noundef %955, i32 noundef 0) #4
+  %958 = tail call ptr @proto_tree_add_bits_item(ptr noundef %930, i32 noundef %956, ptr noundef %0, i32 noundef %957, i32 noundef %955, i32 noundef 0) #4
   %959 = trunc nuw nsw i32 %955 to i16
   %960 = add i16 %952, %959
   br label %961
 
-961:                                              ; preds = %953, %938
-  %.11.i = phi i16 [ %960, %953 ], [ %952, %938 ]
-  %962 = load i32, ptr @hf_cdma2k_Rev_Dcch_Len, align 4
-  %963 = zext i16 %.11.i to i32
-  %964 = tail call ptr @proto_tree_add_bits_item(ptr noundef %944, i32 noundef %962, ptr noundef %0, i32 noundef %963, i32 noundef 3, i32 noundef 0) #4
-  %965 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %963, i32 noundef 3) #4
-  %966 = add i16 %.11.i, 3
-  %.not515.i = icmp eq i8 %965, 0
-  br i1 %.not515.i, label %975, label %967
+961:                                              ; preds = %953, %947, %917
+  %.12.i = phi i16 [ %960, %953 ], [ %952, %947 ], [ %922, %917 ]
+  %962 = load i32, ptr @hf_cdma2k_GeoLoc_Incl, align 4
+  %963 = zext i16 %.12.i to i32
+  %964 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %962, ptr noundef %0, i32 noundef %963, i32 noundef 1, i32 noundef 0) #4
+  %965 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %963, i32 noundef 1) #4
+  %966 = add i16 %.12.i, 1
+  %967 = icmp eq i8 %965, 1
+  br i1 %967, label %968, label %973
 
-967:                                              ; preds = %961
-  %968 = zext i8 %965 to i32
-  %969 = mul nuw nsw i32 %968, 3
-  %970 = load i32, ptr @hf_cdma2k_Rev_Dcch_Rc_Map, align 4
-  %971 = zext i16 %966 to i32
-  %972 = tail call ptr @proto_tree_add_bits_item(ptr noundef %944, i32 noundef %970, ptr noundef %0, i32 noundef %971, i32 noundef %969, i32 noundef 0) #4
-  %973 = trunc nuw nsw i32 %969 to i16
-  %974 = add i16 %966, %973
-  br label %975
+968:                                              ; preds = %961
+  %969 = load i32, ptr @hf_cdma2k_GeoLoc_Type, align 4
+  %970 = zext i16 %966 to i32
+  %971 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %969, ptr noundef %0, i32 noundef %970, i32 noundef 3, i32 noundef 0) #4
+  %972 = add i16 %.12.i, 4
+  br label %973
 
-975:                                              ; preds = %967, %961, %931
-  %.12.i = phi i16 [ %974, %967 ], [ %966, %961 ], [ %936, %931 ]
-  %976 = load i32, ptr @hf_cdma2k_GeoLoc_Incl, align 4
-  %977 = zext i16 %.12.i to i32
-  %978 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %976, ptr noundef %0, i32 noundef %977, i32 noundef 1, i32 noundef 0) #4
-  %979 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %977, i32 noundef 1) #4
-  %980 = add i16 %.12.i, 1
-  %981 = icmp eq i8 %979, 1
-  br i1 %981, label %982, label %987
+973:                                              ; preds = %968, %961
+  %.13.i = phi i16 [ %972, %968 ], [ %966, %961 ]
+  %974 = load i32, ptr @hf_cdma2k_Rev_Fch_Gating_Req, align 4
+  %975 = zext i16 %.13.i to i32
+  %976 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %974, ptr noundef %0, i32 noundef %975, i32 noundef 1, i32 noundef 0) #4
+  %977 = add i16 %.13.i, 1
+  %.not516.i = icmp eq i8 %705, 6
+  br i1 %.not516.i, label %cdma2k_message_ORIGINATION.exit, label %978
 
-982:                                              ; preds = %975
-  %983 = load i32, ptr @hf_cdma2k_GeoLoc_Type, align 4
-  %984 = zext i16 %980 to i32
-  %985 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %983, ptr noundef %0, i32 noundef %984, i32 noundef 3, i32 noundef 0) #4
-  %986 = add i16 %.12.i, 4
-  br label %987
+978:                                              ; preds = %973
+  %979 = load i32, ptr @hf_cdma2k_Orig_Reason, align 4
+  %980 = zext i16 %977 to i32
+  %981 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %979, ptr noundef %0, i32 noundef %980, i32 noundef 1, i32 noundef 0) #4
+  %982 = add i16 %.13.i, 2
+  %983 = load i32, ptr @hf_cdma2k_Orig_Count, align 4
+  %984 = zext i16 %982 to i32
+  %985 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %983, ptr noundef %0, i32 noundef %984, i32 noundef 2, i32 noundef 0) #4
+  %986 = add i16 %.13.i, 4
+  %987 = load i32, ptr @hf_cdma2k_Sts_Supported, align 4
+  %988 = zext i16 %986 to i32
+  %989 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %987, ptr noundef %0, i32 noundef %988, i32 noundef 1, i32 noundef 0) #4
+  %990 = add i16 %.13.i, 5
+  %991 = load i32, ptr @hf_cdma2k_ThreeXCchSupported, align 4
+  %992 = zext i16 %990 to i32
+  %993 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %991, ptr noundef %0, i32 noundef %992, i32 noundef 1, i32 noundef 0) #4
+  %994 = add i16 %.13.i, 6
+  %995 = load i32, ptr @hf_cdma2k_Wll_Incl, align 4
+  %996 = zext i16 %994 to i32
+  %997 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %995, ptr noundef %0, i32 noundef %996, i32 noundef 1, i32 noundef 0) #4
+  %998 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %996, i32 noundef 1) #4
+  %999 = add i16 %.13.i, 7
+  %1000 = icmp eq i8 %998, 1
+  br i1 %1000, label %1001, label %1006
 
-987:                                              ; preds = %982, %975
-  %.13.i = phi i16 [ %986, %982 ], [ %980, %975 ]
-  %988 = load i32, ptr @hf_cdma2k_Rev_Fch_Gating_Req, align 4
-  %989 = zext i16 %.13.i to i32
-  %990 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %988, ptr noundef %0, i32 noundef %989, i32 noundef 1, i32 noundef 0) #4
-  %991 = add i16 %.13.i, 1
-  %.not516.i = icmp eq i8 %719, 6
-  br i1 %.not516.i, label %cdma2k_message_ORIGINATION.exit, label %992
+1001:                                             ; preds = %978
+  %1002 = load i32, ptr @hf_cdma2k_Wll_Device_Type, align 4
+  %1003 = zext i16 %999 to i32
+  %1004 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %1002, ptr noundef %0, i32 noundef %1003, i32 noundef 3, i32 noundef 0) #4
+  %1005 = add i16 %.13.i, 10
+  br label %1006
 
-992:                                              ; preds = %987
-  %993 = load i32, ptr @hf_cdma2k_Orig_Reason, align 4
-  %994 = zext i16 %991 to i32
-  %995 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %993, ptr noundef %0, i32 noundef %994, i32 noundef 1, i32 noundef 0) #4
-  %996 = add i16 %.13.i, 2
-  %997 = load i32, ptr @hf_cdma2k_Orig_Count, align 4
-  %998 = zext i16 %996 to i32
-  %999 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %997, ptr noundef %0, i32 noundef %998, i32 noundef 2, i32 noundef 0) #4
-  %1000 = add i16 %.13.i, 4
-  %1001 = load i32, ptr @hf_cdma2k_Sts_Supported, align 4
-  %1002 = zext i16 %1000 to i32
-  %1003 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1001, ptr noundef %0, i32 noundef %1002, i32 noundef 1, i32 noundef 0) #4
-  %1004 = add i16 %.13.i, 5
-  %1005 = load i32, ptr @hf_cdma2k_ThreeXCchSupported, align 4
-  %1006 = zext i16 %1004 to i32
-  %1007 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1005, ptr noundef %0, i32 noundef %1006, i32 noundef 1, i32 noundef 0) #4
-  %1008 = add i16 %.13.i, 6
-  %1009 = load i32, ptr @hf_cdma2k_Wll_Incl, align 4
-  %1010 = zext i16 %1008 to i32
-  %1011 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1009, ptr noundef %0, i32 noundef %1010, i32 noundef 1, i32 noundef 0) #4
-  %1012 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1010, i32 noundef 1) #4
-  %1013 = add i16 %.13.i, 7
-  %1014 = icmp eq i8 %1012, 1
-  br i1 %1014, label %1015, label %1020
+1006:                                             ; preds = %1001, %978
+  %.14.i = phi i16 [ %1005, %1001 ], [ %999, %978 ]
+  %1007 = load i32, ptr @hf_cdma2k_Global_Emergency_Call, align 4
+  %1008 = zext i16 %.14.i to i32
+  %1009 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %1007, ptr noundef %0, i32 noundef %1008, i32 noundef 1, i32 noundef 0) #4
+  %1010 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1008, i32 noundef 1) #4
+  %1011 = add i16 %.14.i, 1
+  %1012 = icmp eq i8 %1010, 1
+  br i1 %1012, label %1013, label %1018
 
-1015:                                             ; preds = %992
-  %1016 = load i32, ptr @hf_cdma2k_Wll_Device_Type, align 4
-  %1017 = zext i16 %1013 to i32
-  %1018 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1016, ptr noundef %0, i32 noundef %1017, i32 noundef 3, i32 noundef 0) #4
-  %1019 = add i16 %.13.i, 10
-  br label %1020
+1013:                                             ; preds = %1006
+  %1014 = load i32, ptr @hf_cdma2k_Ms_Init_Pos_Loc_Ind, align 4
+  %1015 = zext i16 %1011 to i32
+  %1016 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %1014, ptr noundef %0, i32 noundef %1015, i32 noundef 1, i32 noundef 0) #4
+  %1017 = add i16 %.14.i, 2
+  br label %1018
 
-1020:                                             ; preds = %1015, %992
-  %.14.i = phi i16 [ %1019, %1015 ], [ %1013, %992 ]
-  %1021 = load i32, ptr @hf_cdma2k_Global_Emergency_Call, align 4
-  %1022 = zext i16 %.14.i to i32
-  %1023 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1021, ptr noundef %0, i32 noundef %1022, i32 noundef 1, i32 noundef 0) #4
-  %1024 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1022, i32 noundef 1) #4
-  %1025 = add i16 %.14.i, 1
-  %1026 = icmp eq i8 %1024, 1
-  br i1 %1026, label %1027, label %1032
+1018:                                             ; preds = %1013, %1006
+  %.15.i = phi i16 [ %1017, %1013 ], [ %1011, %1006 ]
+  %1019 = load i32, ptr @hf_cdma2k_Qos_Parms_Incl, align 4
+  %1020 = zext i16 %.15.i to i32
+  %1021 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %1019, ptr noundef %0, i32 noundef %1020, i32 noundef 1, i32 noundef 0) #4
+  %1022 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1020, i32 noundef 1) #4
+  %1023 = add i16 %.15.i, 1
+  %.not517.i = icmp eq i8 %1022, 0
+  br i1 %.not517.i, label %.loopexit1.i, label %1024
 
-1027:                                             ; preds = %1020
-  %1028 = load i32, ptr @hf_cdma2k_Ms_Init_Pos_Loc_Ind, align 4
-  %1029 = zext i16 %1025 to i32
-  %1030 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1028, ptr noundef %0, i32 noundef %1029, i32 noundef 1, i32 noundef 0) #4
-  %1031 = add i16 %.14.i, 2
-  br label %1032
-
-1032:                                             ; preds = %1027, %1020
-  %.15.i = phi i16 [ %1031, %1027 ], [ %1025, %1020 ]
-  %1033 = load i32, ptr @hf_cdma2k_Qos_Parms_Incl, align 4
-  %1034 = zext i16 %.15.i to i32
-  %1035 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1033, ptr noundef %0, i32 noundef %1034, i32 noundef 1, i32 noundef 0) #4
-  %1036 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1034, i32 noundef 1) #4
-  %1037 = add i16 %.15.i, 1
-  %.not517.i = icmp eq i8 %1036, 0
-  br i1 %.not517.i, label %.loopexit1.i, label %1038
-
-1038:                                             ; preds = %1032
-  %1039 = load i32, ptr @hf_cdma2k_Qos_Parms_Length, align 4
-  %1040 = zext i16 %1037 to i32
-  %1041 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1039, ptr noundef %0, i32 noundef %1040, i32 noundef 5, i32 noundef 0) #4
-  %1042 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1040, i32 noundef 5) #4
-  %1043 = add i16 %.15.i, 6
-  %.not51815.i = icmp eq i8 %1042, 0
+1024:                                             ; preds = %1018
+  %1025 = load i32, ptr @hf_cdma2k_Qos_Parms_Length, align 4
+  %1026 = zext i16 %1023 to i32
+  %1027 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %1025, ptr noundef %0, i32 noundef %1026, i32 noundef 5, i32 noundef 0) #4
+  %1028 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1026, i32 noundef 5) #4
+  %1029 = add i16 %.15.i, 6
+  %.not51815.i = icmp eq i8 %1028, 0
   br i1 %.not51815.i, label %.loopexit1.i, label %.lr.ph19.preheader.i
 
-.lr.ph19.preheader.i:                             ; preds = %1038
-  %1044 = zext i8 %1042 to i32
+.lr.ph19.preheader.i:                             ; preds = %1024
+  %1030 = zext i8 %1028 to i32
   br label %.lr.ph19.i
 
 .lr.ph19.i:                                       ; preds = %.lr.ph19.i, %.lr.ph19.preheader.i
-  %1045 = phi i32 [ %1056, %.lr.ph19.i ], [ %1044, %.lr.ph19.preheader.i ]
-  %.017.i = phi ptr [ %1051, %.lr.ph19.i ], [ null, %.lr.ph19.preheader.i ]
-  %.1616.i = phi i16 [ %1054, %.lr.ph19.i ], [ %1043, %.lr.ph19.preheader.i ]
-  %1046 = load i32, ptr @hf_cdma2k_Qos_Parms, align 4
-  %1047 = zext i16 %.1616.i to i32
-  %1048 = lshr i32 %1047, 3
-  %1049 = tail call ptr @proto_tree_add_item(ptr noundef %.017.i, i32 noundef %1046, ptr noundef %0, i32 noundef %1048, i32 noundef 8, i32 noundef 0) #4
-  %1050 = load i32, ptr @ett_cdma2k_subtree2, align 4
-  %1051 = tail call ptr @proto_item_add_subtree(ptr noundef %1049, i32 noundef %1050) #4
-  %1052 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1047, i32 noundef 8) #4
-  %1053 = zext i8 %1052 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1049, ptr noundef nonnull @.str.1184, i32 noundef %1053) #4
-  %1054 = add i16 %.1616.i, 8
-  %1055 = add nuw nsw i32 %1045, 65535
-  %1056 = and i32 %1055, 65535
-  %.not518.i = icmp eq i32 %1056, 0
+  %1031 = phi i32 [ %1042, %.lr.ph19.i ], [ %1030, %.lr.ph19.preheader.i ]
+  %.017.i = phi ptr [ %1037, %.lr.ph19.i ], [ null, %.lr.ph19.preheader.i ]
+  %.1616.i = phi i16 [ %1040, %.lr.ph19.i ], [ %1029, %.lr.ph19.preheader.i ]
+  %1032 = load i32, ptr @hf_cdma2k_Qos_Parms, align 4
+  %1033 = zext i16 %.1616.i to i32
+  %1034 = lshr i32 %1033, 3
+  %1035 = tail call ptr @proto_tree_add_item(ptr noundef %.017.i, i32 noundef %1032, ptr noundef %0, i32 noundef %1034, i32 noundef 8, i32 noundef 0) #4
+  %1036 = load i32, ptr @ett_cdma2k_subtree2, align 4
+  %1037 = tail call ptr @proto_item_add_subtree(ptr noundef %1035, i32 noundef %1036) #4
+  %1038 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1033, i32 noundef 8) #4
+  %1039 = zext i8 %1038 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1035, ptr noundef nonnull @.str.1184, i32 noundef %1039) #4
+  %1040 = add i16 %.1616.i, 8
+  %1041 = add nuw nsw i32 %1031, 65535
+  %1042 = and i32 %1041, 65535
+  %.not518.i = icmp eq i32 %1042, 0
   br i1 %.not518.i, label %.loopexit1.i, label %.lr.ph19.i, !llvm.loop !12
 
-.loopexit1.i:                                     ; preds = %.lr.ph19.i, %1038, %1032
-  %.17.i = phi i16 [ %1037, %1032 ], [ %1043, %1038 ], [ %1054, %.lr.ph19.i ]
-  %.1.i179 = phi ptr [ null, %1032 ], [ null, %1038 ], [ %1051, %.lr.ph19.i ]
-  %1057 = load i32, ptr @hf_cdma2k_Enc_Info_Incl, align 4
-  %1058 = zext i16 %.17.i to i32
-  %1059 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1057, ptr noundef %0, i32 noundef %1058, i32 noundef 1, i32 noundef 0) #4
-  %1060 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1058, i32 noundef 1) #4
-  %1061 = add i16 %.17.i, 1
-  %.not519.i = icmp eq i8 %1060, 0
-  br i1 %.not519.i, label %1114, label %1062
+.loopexit1.i:                                     ; preds = %.lr.ph19.i, %1024, %1018
+  %.17.i = phi i16 [ %1023, %1018 ], [ %1029, %1024 ], [ %1040, %.lr.ph19.i ]
+  %.1.i179 = phi ptr [ null, %1018 ], [ null, %1024 ], [ %1037, %.lr.ph19.i ]
+  %1043 = load i32, ptr @hf_cdma2k_Enc_Info_Incl, align 4
+  %1044 = zext i16 %.17.i to i32
+  %1045 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %1043, ptr noundef %0, i32 noundef %1044, i32 noundef 1, i32 noundef 0) #4
+  %1046 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1044, i32 noundef 1) #4
+  %1047 = add i16 %.17.i, 1
+  %.not519.i = icmp eq i8 %1046, 0
+  br i1 %.not519.i, label %1100, label %1048
 
-1062:                                             ; preds = %.loopexit1.i
-  %1063 = load i32, ptr @hf_cdma2k_Sig_Encrypt_Supp, align 4
-  %1064 = zext i16 %1061 to i32
-  %1065 = lshr i32 %1064, 3
-  %1066 = tail call ptr @proto_tree_add_item(ptr noundef %707, i32 noundef %1063, ptr noundef %0, i32 noundef %1065, i32 noundef 1, i32 noundef 0) #4
-  %1067 = load i32, ptr @ett_cdma2k_subtree2, align 4
-  %1068 = tail call ptr @proto_item_add_subtree(ptr noundef %1066, i32 noundef %1067) #4
-  %1069 = load i32, ptr @hf_cdma2k_Cmea, align 4
-  %1070 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1068, i32 noundef %1069, ptr noundef %0, i32 noundef %1064, i32 noundef 1, i32 noundef 0) #4
-  %1071 = add i16 %.17.i, 2
-  %1072 = load i32, ptr @hf_cdma2k_Ecmea, align 4
+1048:                                             ; preds = %.loopexit1.i
+  %1049 = load i32, ptr @hf_cdma2k_Sig_Encrypt_Supp, align 4
+  %1050 = zext i16 %1047 to i32
+  %1051 = lshr i32 %1050, 3
+  %1052 = tail call ptr @proto_tree_add_item(ptr noundef %693, i32 noundef %1049, ptr noundef %0, i32 noundef %1051, i32 noundef 1, i32 noundef 0) #4
+  %1053 = load i32, ptr @ett_cdma2k_subtree2, align 4
+  %1054 = tail call ptr @proto_item_add_subtree(ptr noundef %1052, i32 noundef %1053) #4
+  %1055 = load i32, ptr @hf_cdma2k_Cmea, align 4
+  %1056 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1054, i32 noundef %1055, ptr noundef %0, i32 noundef %1050, i32 noundef 1, i32 noundef 0) #4
+  %1057 = add i16 %.17.i, 2
+  %1058 = load i32, ptr @hf_cdma2k_Ecmea, align 4
+  %1059 = zext i16 %1057 to i32
+  %1060 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1054, i32 noundef %1058, ptr noundef %0, i32 noundef %1059, i32 noundef 1, i32 noundef 0) #4
+  %1061 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1059, i32 noundef 1) #4
+  %1062 = add i16 %.17.i, 3
+  %1063 = load i32, ptr @hf_cdma2k_Rea, align 4
+  %1064 = zext i16 %1062 to i32
+  %1065 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1054, i32 noundef %1063, ptr noundef %0, i32 noundef %1064, i32 noundef 1, i32 noundef 0) #4
+  %1066 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1064, i32 noundef 1) #4
+  %1067 = add i16 %.17.i, 4
+  %1068 = load i32, ptr @hf_cdma2k_Reserved, align 4
+  %1069 = zext i16 %1067 to i32
+  %1070 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1054, i32 noundef %1068, ptr noundef %0, i32 noundef %1069, i32 noundef 5, i32 noundef 0) #4
+  %1071 = add i16 %.17.i, 9
+  %1072 = load i32, ptr @hf_cdma2k_DSig_Encrypt_Req, align 4
   %1073 = zext i16 %1071 to i32
-  %1074 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1068, i32 noundef %1072, ptr noundef %0, i32 noundef %1073, i32 noundef 1, i32 noundef 0) #4
-  %1075 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1073, i32 noundef 1) #4
-  %1076 = add i16 %.17.i, 3
-  %1077 = load i32, ptr @hf_cdma2k_Rea, align 4
-  %1078 = zext i16 %1076 to i32
-  %1079 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1068, i32 noundef %1077, ptr noundef %0, i32 noundef %1078, i32 noundef 1, i32 noundef 0) #4
-  %1080 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1078, i32 noundef 1) #4
-  %1081 = add i16 %.17.i, 4
-  %1082 = load i32, ptr @hf_cdma2k_Reserved, align 4
-  %1083 = zext i16 %1081 to i32
-  %1084 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1068, i32 noundef %1082, ptr noundef %0, i32 noundef %1083, i32 noundef 5, i32 noundef 0) #4
-  %1085 = add i16 %.17.i, 9
-  %1086 = load i32, ptr @hf_cdma2k_DSig_Encrypt_Req, align 4
-  %1087 = zext i16 %1085 to i32
-  %1088 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1086, ptr noundef %0, i32 noundef %1087, i32 noundef 1, i32 noundef 0) #4
-  %1089 = add i16 %.17.i, 10
-  %1090 = load i32, ptr @hf_cdma2k_CSig_Encrypt_Req, align 4
-  %1091 = zext i16 %1089 to i32
-  %1092 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1090, ptr noundef %0, i32 noundef %1091, i32 noundef 1, i32 noundef 0) #4
-  %1093 = add i16 %.17.i, 11
-  %1094 = icmp eq i8 %1075, 1
-  %1095 = icmp eq i8 %1080, 1
-  %or.cond5.i = select i1 %1094, i1 true, i1 %1095
-  br i1 %or.cond5.i, label %1096, label %1105
+  %1074 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %1072, ptr noundef %0, i32 noundef %1073, i32 noundef 1, i32 noundef 0) #4
+  %1075 = add i16 %.17.i, 10
+  %1076 = load i32, ptr @hf_cdma2k_CSig_Encrypt_Req, align 4
+  %1077 = zext i16 %1075 to i32
+  %1078 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %1076, ptr noundef %0, i32 noundef %1077, i32 noundef 1, i32 noundef 0) #4
+  %1079 = add i16 %.17.i, 11
+  %1080 = icmp eq i8 %1061, 1
+  %1081 = icmp eq i8 %1066, 1
+  %or.cond5.i = select i1 %1080, i1 true, i1 %1081
+  br i1 %or.cond5.i, label %1082, label %1091
 
-1096:                                             ; preds = %1062
-  %1097 = load i32, ptr @hf_cdma2k_New_Sseq_H, align 4
-  %1098 = zext i16 %1093 to i32
-  %1099 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1097, ptr noundef %0, i32 noundef %1098, i32 noundef 24, i32 noundef 0) #4
-  %1100 = add i16 %.17.i, 35
-  %1101 = load i32, ptr @hf_cdma2k_New_Sseq_H_Sig, align 4
-  %1102 = zext i16 %1100 to i32
-  %1103 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1101, ptr noundef %0, i32 noundef %1102, i32 noundef 8, i32 noundef 0) #4
-  %1104 = add i16 %.17.i, 43
-  br label %1105
+1082:                                             ; preds = %1048
+  %1083 = load i32, ptr @hf_cdma2k_New_Sseq_H, align 4
+  %1084 = zext i16 %1079 to i32
+  %1085 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %1083, ptr noundef %0, i32 noundef %1084, i32 noundef 24, i32 noundef 0) #4
+  %1086 = add i16 %.17.i, 35
+  %1087 = load i32, ptr @hf_cdma2k_New_Sseq_H_Sig, align 4
+  %1088 = zext i16 %1086 to i32
+  %1089 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %1087, ptr noundef %0, i32 noundef %1088, i32 noundef 8, i32 noundef 0) #4
+  %1090 = add i16 %.17.i, 43
+  br label %1091
 
-1105:                                             ; preds = %1096, %1062
-  %.18.i = phi i16 [ %1104, %1096 ], [ %1093, %1062 ]
-  %1106 = load i32, ptr @hf_cdma2k_Ui_Encrypt_Req, align 4
-  %1107 = zext i16 %.18.i to i32
-  %1108 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1106, ptr noundef %0, i32 noundef %1107, i32 noundef 1, i32 noundef 0) #4
-  %1109 = add i16 %.18.i, 1
-  %1110 = load i32, ptr @hf_cdma2k_Ui_Encrypt_Sup, align 4
-  %1111 = zext i16 %1109 to i32
-  %1112 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1110, ptr noundef %0, i32 noundef %1111, i32 noundef 8, i32 noundef 0) #4
-  %1113 = add i16 %.18.i, 9
-  br label %1114
+1091:                                             ; preds = %1082, %1048
+  %.18.i = phi i16 [ %1090, %1082 ], [ %1079, %1048 ]
+  %1092 = load i32, ptr @hf_cdma2k_Ui_Encrypt_Req, align 4
+  %1093 = zext i16 %.18.i to i32
+  %1094 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %1092, ptr noundef %0, i32 noundef %1093, i32 noundef 1, i32 noundef 0) #4
+  %1095 = add i16 %.18.i, 1
+  %1096 = load i32, ptr @hf_cdma2k_Ui_Encrypt_Sup, align 4
+  %1097 = zext i16 %1095 to i32
+  %1098 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %1096, ptr noundef %0, i32 noundef %1097, i32 noundef 8, i32 noundef 0) #4
+  %1099 = add i16 %.18.i, 9
+  br label %1100
 
-1114:                                             ; preds = %1105, %.loopexit1.i
-  %.19.i = phi i16 [ %1113, %1105 ], [ %1061, %.loopexit1.i ]
-  %.2.i180 = phi ptr [ %1068, %1105 ], [ %.1.i179, %.loopexit1.i ]
-  %1115 = load i32, ptr @hf_cdma2k_Sync_Id_Incl, align 4
-  %1116 = zext i16 %.19.i to i32
-  %1117 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1115, ptr noundef %0, i32 noundef %1116, i32 noundef 1, i32 noundef 0) #4
-  %1118 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1116, i32 noundef 1) #4
-  %1119 = add i16 %.19.i, 1
-  %.not520.i = icmp eq i8 %1118, 0
-  br i1 %.not520.i, label %.loopexit.i, label %1120
+1100:                                             ; preds = %1091, %.loopexit1.i
+  %.19.i = phi i16 [ %1099, %1091 ], [ %1047, %.loopexit1.i ]
+  %.2.i180 = phi ptr [ %1054, %1091 ], [ %.1.i179, %.loopexit1.i ]
+  %1101 = load i32, ptr @hf_cdma2k_Sync_Id_Incl, align 4
+  %1102 = zext i16 %.19.i to i32
+  %1103 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %1101, ptr noundef %0, i32 noundef %1102, i32 noundef 1, i32 noundef 0) #4
+  %1104 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1102, i32 noundef 1) #4
+  %1105 = add i16 %.19.i, 1
+  %.not520.i = icmp eq i8 %1104, 0
+  br i1 %.not520.i, label %.loopexit.i, label %1106
 
-1120:                                             ; preds = %1114
-  %1121 = load i32, ptr @hf_cdma2k_Sync_Id_Len, align 4
-  %1122 = zext i16 %1119 to i32
-  %1123 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1121, ptr noundef %0, i32 noundef %1122, i32 noundef 4, i32 noundef 0) #4
-  %1124 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1122, i32 noundef 4) #4
-  %1125 = add i16 %.19.i, 5
-  %.not52122.i = icmp eq i8 %1124, 0
+1106:                                             ; preds = %1100
+  %1107 = load i32, ptr @hf_cdma2k_Sync_Id_Len, align 4
+  %1108 = zext i16 %1105 to i32
+  %1109 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %1107, ptr noundef %0, i32 noundef %1108, i32 noundef 4, i32 noundef 0) #4
+  %1110 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1108, i32 noundef 4) #4
+  %1111 = add i16 %.19.i, 5
+  %.not52122.i = icmp eq i8 %1110, 0
   br i1 %.not52122.i, label %.loopexit.i, label %.lr.ph25.preheader.i
 
-.lr.ph25.preheader.i:                             ; preds = %1120
-  %1126 = zext i8 %1124 to i32
+.lr.ph25.preheader.i:                             ; preds = %1106
+  %1112 = zext i8 %1110 to i32
   br label %.lr.ph25.i
 
 .lr.ph25.i:                                       ; preds = %.lr.ph25.i, %.lr.ph25.preheader.i
-  %1127 = phi i32 [ %1136, %.lr.ph25.i ], [ %1126, %.lr.ph25.preheader.i ]
-  %.2023.i = phi i16 [ %1134, %.lr.ph25.i ], [ %1125, %.lr.ph25.preheader.i ]
-  %1128 = load i32, ptr @hf_cdma2k_Sync_Id, align 4
-  %1129 = zext i16 %.2023.i to i32
-  %1130 = lshr i32 %1129, 3
-  %1131 = tail call ptr @proto_tree_add_item(ptr noundef %.2.i180, i32 noundef %1128, ptr noundef %0, i32 noundef %1130, i32 noundef %1127, i32 noundef 0) #4
-  %1132 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1129, i32 noundef 8) #4
-  %1133 = zext i8 %1132 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1131, ptr noundef nonnull @.str.1184, i32 noundef %1133) #4
-  %1134 = add i16 %.2023.i, 8
-  %1135 = add nuw nsw i32 %1127, 65535
-  %1136 = and i32 %1135, 65535
-  %.not521.i = icmp eq i32 %1136, 0
+  %1113 = phi i32 [ %1122, %.lr.ph25.i ], [ %1112, %.lr.ph25.preheader.i ]
+  %.2023.i = phi i16 [ %1120, %.lr.ph25.i ], [ %1111, %.lr.ph25.preheader.i ]
+  %1114 = load i32, ptr @hf_cdma2k_Sync_Id, align 4
+  %1115 = zext i16 %.2023.i to i32
+  %1116 = lshr i32 %1115, 3
+  %1117 = tail call ptr @proto_tree_add_item(ptr noundef %.2.i180, i32 noundef %1114, ptr noundef %0, i32 noundef %1116, i32 noundef %1113, i32 noundef 0) #4
+  %1118 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1115, i32 noundef 8) #4
+  %1119 = zext i8 %1118 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1117, ptr noundef nonnull @.str.1184, i32 noundef %1119) #4
+  %1120 = add i16 %.2023.i, 8
+  %1121 = add nuw nsw i32 %1113, 65535
+  %1122 = and i32 %1121, 65535
+  %.not521.i = icmp eq i32 %1122, 0
   br i1 %.not521.i, label %.loopexit.i, label %.lr.ph25.i, !llvm.loop !13
 
-.loopexit.i:                                      ; preds = %.lr.ph25.i, %1120, %1114
-  %.21.i = phi i16 [ %1119, %1114 ], [ %1125, %1120 ], [ %1134, %.lr.ph25.i ]
-  %1137 = load i32, ptr @hf_cdma2k_Prev_Sid_Incl, align 4
-  %1138 = zext i16 %.21.i to i32
-  %1139 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1137, ptr noundef %0, i32 noundef %1138, i32 noundef 1, i32 noundef 0) #4
-  %1140 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1138, i32 noundef 1) #4
-  %1141 = add i16 %.21.i, 1
-  %.not522.i = icmp eq i8 %1140, 0
-  br i1 %.not522.i, label %1147, label %1142
+.loopexit.i:                                      ; preds = %.lr.ph25.i, %1106, %1100
+  %.21.i = phi i16 [ %1105, %1100 ], [ %1111, %1106 ], [ %1120, %.lr.ph25.i ]
+  %1123 = load i32, ptr @hf_cdma2k_Prev_Sid_Incl, align 4
+  %1124 = zext i16 %.21.i to i32
+  %1125 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %1123, ptr noundef %0, i32 noundef %1124, i32 noundef 1, i32 noundef 0) #4
+  %1126 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1124, i32 noundef 1) #4
+  %1127 = add i16 %.21.i, 1
+  %.not522.i = icmp eq i8 %1126, 0
+  br i1 %.not522.i, label %1133, label %1128
 
-1142:                                             ; preds = %.loopexit.i
-  %1143 = load i32, ptr @hf_cdma2k_Prev_Sid, align 4
-  %1144 = zext i16 %1141 to i32
-  %1145 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1143, ptr noundef %0, i32 noundef %1144, i32 noundef 15, i32 noundef 0) #4
-  %1146 = add i16 %.21.i, 16
-  br label %1147
+1128:                                             ; preds = %.loopexit.i
+  %1129 = load i32, ptr @hf_cdma2k_Prev_Sid, align 4
+  %1130 = zext i16 %1127 to i32
+  %1131 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %1129, ptr noundef %0, i32 noundef %1130, i32 noundef 15, i32 noundef 0) #4
+  %1132 = add i16 %.21.i, 16
+  br label %1133
 
-1147:                                             ; preds = %1142, %.loopexit.i
-  %.22.i = phi i16 [ %1146, %1142 ], [ %1141, %.loopexit.i ]
-  %1148 = load i32, ptr @hf_cdma2k_Prev_Nid_Incl, align 4
-  %1149 = zext i16 %.22.i to i32
-  %1150 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1148, ptr noundef %0, i32 noundef %1149, i32 noundef 1, i32 noundef 0) #4
-  %1151 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1149, i32 noundef 1) #4
-  %1152 = add i16 %.22.i, 1
-  %.not523.i = icmp eq i8 %1151, 0
-  br i1 %.not523.i, label %1158, label %1153
+1133:                                             ; preds = %1128, %.loopexit.i
+  %.22.i = phi i16 [ %1132, %1128 ], [ %1127, %.loopexit.i ]
+  %1134 = load i32, ptr @hf_cdma2k_Prev_Nid_Incl, align 4
+  %1135 = zext i16 %.22.i to i32
+  %1136 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %1134, ptr noundef %0, i32 noundef %1135, i32 noundef 1, i32 noundef 0) #4
+  %1137 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1135, i32 noundef 1) #4
+  %1138 = add i16 %.22.i, 1
+  %.not523.i = icmp eq i8 %1137, 0
+  br i1 %.not523.i, label %1144, label %1139
 
-1153:                                             ; preds = %1147
-  %1154 = load i32, ptr @hf_cdma2k_Prev_Nid, align 4
-  %1155 = zext i16 %1152 to i32
-  %1156 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1154, ptr noundef %0, i32 noundef %1155, i32 noundef 16, i32 noundef 0) #4
-  %1157 = add i16 %.22.i, 17
-  br label %1158
+1139:                                             ; preds = %1133
+  %1140 = load i32, ptr @hf_cdma2k_Prev_Nid, align 4
+  %1141 = zext i16 %1138 to i32
+  %1142 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %1140, ptr noundef %0, i32 noundef %1141, i32 noundef 16, i32 noundef 0) #4
+  %1143 = add i16 %.22.i, 17
+  br label %1144
 
-1158:                                             ; preds = %1153, %1147
-  %.23.i = phi i16 [ %1157, %1153 ], [ %1152, %1147 ]
-  %1159 = load i32, ptr @hf_cdma2k_Prev_Pzid_Incl, align 4
-  %1160 = zext i16 %.23.i to i32
-  %1161 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1159, ptr noundef %0, i32 noundef %1160, i32 noundef 1, i32 noundef 0) #4
-  %1162 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1160, i32 noundef 1) #4
-  %1163 = add i16 %.23.i, 1
-  %.not524.i = icmp eq i8 %1162, 0
-  br i1 %.not524.i, label %1169, label %1164
+1144:                                             ; preds = %1139, %1133
+  %.23.i = phi i16 [ %1143, %1139 ], [ %1138, %1133 ]
+  %1145 = load i32, ptr @hf_cdma2k_Prev_Pzid_Incl, align 4
+  %1146 = zext i16 %.23.i to i32
+  %1147 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %1145, ptr noundef %0, i32 noundef %1146, i32 noundef 1, i32 noundef 0) #4
+  %1148 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1146, i32 noundef 1) #4
+  %1149 = add i16 %.23.i, 1
+  %.not524.i = icmp eq i8 %1148, 0
+  br i1 %.not524.i, label %1155, label %1150
 
-1164:                                             ; preds = %1158
-  %1165 = load i32, ptr @hf_cdma2k_Prev_Pzid, align 4
-  %1166 = zext i16 %1163 to i32
-  %1167 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1165, ptr noundef %0, i32 noundef %1166, i32 noundef 8, i32 noundef 0) #4
-  %1168 = add i16 %.23.i, 9
-  br label %1169
+1150:                                             ; preds = %1144
+  %1151 = load i32, ptr @hf_cdma2k_Prev_Pzid, align 4
+  %1152 = zext i16 %1149 to i32
+  %1153 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %1151, ptr noundef %0, i32 noundef %1152, i32 noundef 8, i32 noundef 0) #4
+  %1154 = add i16 %.23.i, 9
+  br label %1155
 
-1169:                                             ; preds = %1164, %1158
-  %.24.i = phi i16 [ %1168, %1164 ], [ %1163, %1158 ]
-  %1170 = load i32, ptr @hf_cdma2k_So_Bitmap_Ind, align 4
-  %1171 = zext i16 %.24.i to i32
-  %1172 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1170, ptr noundef %0, i32 noundef %1171, i32 noundef 2, i32 noundef 0) #4
-  %1173 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1171, i32 noundef 2) #4
-  %1174 = add i16 %.24.i, 2
-  %.not525.i = icmp eq i8 %1173, 0
-  br i1 %.not525.i, label %cdma2k_message_ORIGINATION.exit, label %1175
+1155:                                             ; preds = %1150, %1144
+  %.24.i = phi i16 [ %1154, %1150 ], [ %1149, %1144 ]
+  %1156 = load i32, ptr @hf_cdma2k_So_Bitmap_Ind, align 4
+  %1157 = zext i16 %.24.i to i32
+  %1158 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %1156, ptr noundef %0, i32 noundef %1157, i32 noundef 2, i32 noundef 0) #4
+  %1159 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1157, i32 noundef 2) #4
+  %1160 = add i16 %.24.i, 2
+  %.not525.i = icmp eq i8 %1159, 0
+  br i1 %.not525.i, label %cdma2k_message_ORIGINATION.exit, label %1161
 
-1175:                                             ; preds = %1169
-  %1176 = zext i8 %1173 to i32
-  %1177 = load i32, ptr @hf_cdma2k_So_Group_Num, align 4
-  %1178 = zext i16 %1174 to i32
-  %1179 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1177, ptr noundef %0, i32 noundef %1178, i32 noundef 5, i32 noundef 0) #4
-  %1180 = add i16 %.24.i, 7
-  %1181 = load i32, ptr @hf_cdma2k_So_Bitmap, align 4
-  %1182 = zext i16 %1180 to i32
-  %1183 = shl nuw nsw i32 %1176, 2
-  %1184 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1181, ptr noundef %0, i32 noundef %1182, i32 noundef %1183, i32 noundef 0) #4
-  %1185 = trunc nuw nsw i32 %1183 to i16
-  %1186 = add i16 %1180, %1185
+1161:                                             ; preds = %1155
+  %1162 = zext i8 %1159 to i32
+  %1163 = load i32, ptr @hf_cdma2k_So_Group_Num, align 4
+  %1164 = zext i16 %1160 to i32
+  %1165 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %1163, ptr noundef %0, i32 noundef %1164, i32 noundef 5, i32 noundef 0) #4
+  %1166 = add i16 %.24.i, 7
+  %1167 = load i32, ptr @hf_cdma2k_So_Bitmap, align 4
+  %1168 = zext i16 %1166 to i32
+  %1169 = shl nuw nsw i32 %1162, 2
+  %1170 = tail call ptr @proto_tree_add_bits_item(ptr noundef %693, i32 noundef %1167, ptr noundef %0, i32 noundef %1168, i32 noundef %1169, i32 noundef 0) #4
+  %1171 = trunc nuw nsw i32 %1169 to i16
+  %1172 = add i16 %1166, %1171
   br label %cdma2k_message_ORIGINATION.exit
 
-cdma2k_message_ORIGINATION.exit:                  ; preds = %._crit_edge.i177, %987, %1169, %1175
-  %.25.i = phi i16 [ %1186, %1175 ], [ %1174, %1169 ], [ %991, %987 ], [ %.7.lcssa.i, %._crit_edge.i177 ]
-  %1187 = zext i16 %.25.i to i32
-  %1188 = and i32 %1187, 7
-  %1189 = icmp ne i32 %1188, 0
-  %1190 = lshr i32 %1187, 3
-  %1191 = zext i1 %1189 to i32
-  %storemerge.i178 = add nuw nsw i32 %1190, %1191
+cdma2k_message_ORIGINATION.exit:                  ; preds = %._crit_edge.i177, %973, %1155, %1161
+  %.25.i = phi i16 [ %1172, %1161 ], [ %1160, %1155 ], [ %977, %973 ], [ %.7.lcssa.i, %._crit_edge.i177 ]
+  %1173 = zext i16 %.25.i to i32
+  %1174 = and i32 %1173, 7
+  %1175 = icmp ne i32 %1174, 0
+  %1176 = lshr i32 %1173, 3
+  %1177 = zext i1 %1175 to i32
+  %storemerge.i178 = add nuw nsw i32 %1176, %1177
   store i32 %storemerge.i178, ptr %2, align 4
   br label %cdma2k_message_GEN_PAGE_REQ.exit
 
-1192:                                             ; preds = %316
-  %1193 = load i32, ptr @hf_cdma2k_PageRspMsg, align 4
-  %1194 = tail call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %1193, ptr noundef %0, i32 noundef %315, i32 noundef -1, i32 noundef 0) #4
-  %1195 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %1196 = tail call ptr @proto_item_add_subtree(ptr noundef %1194, i32 noundef %1195) #4
-  %1197 = load i32, ptr @hf_cdma2k_Mob_Term, align 4
-  %1198 = load i32, ptr %2, align 4
-  %1199 = shl i32 %1198, 3
-  %1200 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1197, ptr noundef %0, i32 noundef %1199, i32 noundef 1, i32 noundef 0) #4
-  %1201 = load i32, ptr %2, align 4
-  %1202 = shl i32 %1201, 3
-  %1203 = load i32, ptr @hf_cdma2k_Slot_Cycle_Index, align 4
-  %1204 = and i32 %1202, 65528
-  %1205 = or disjoint i32 %1204, 1
-  %1206 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1203, ptr noundef %0, i32 noundef %1205, i32 noundef 3, i32 noundef 0) #4
-  %1207 = load i32, ptr @hf_cdma2k_Mob_P_Rev, align 4
-  %1208 = or disjoint i32 %1204, 4
-  %1209 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1207, ptr noundef %0, i32 noundef %1208, i32 noundef 8, i32 noundef 0) #4
-  %1210 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1208, i32 noundef 8) #4
-  %1211 = add i32 %1202, 12
-  %1212 = tail call i8 @llvm.umin.i8(i8 %26, i8 %1210)
-  %1213 = and i32 %1211, 65532
-  tail call fastcc void @dissect_cdma2000_scm(ptr noundef %0, ptr noundef %1196, i32 noundef %1213)
-  %1214 = add i32 %1202, 20
-  %1215 = load i32, ptr @hf_cdma2k_Request_Mode, align 4
-  %1216 = and i32 %1214, 65532
-  %1217 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1215, ptr noundef %0, i32 noundef %1216, i32 noundef 3, i32 noundef 0) #4
-  %1218 = load i32, ptr @hf_cdma2k_service_option, align 4
-  %1219 = or disjoint i32 %1216, 3
-  %1220 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1218, ptr noundef %0, i32 noundef %1219, i32 noundef 16, i32 noundef 0) #4
-  %1221 = add i32 %1202, 39
-  %1222 = load i32, ptr @hf_cdma2k_pm, align 4
-  %1223 = and i32 %1221, 65535
-  %1224 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1222, ptr noundef %0, i32 noundef %1223, i32 noundef 1, i32 noundef 0) #4
-  %1225 = add i32 %1202, 40
-  %1226 = load i32, ptr @hf_cdma2k_Nar_An_Cap, align 4
-  %1227 = and i32 %1225, 65528
-  %1228 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1226, ptr noundef %0, i32 noundef %1227, i32 noundef 1, i32 noundef 0) #4
-  %1229 = trunc i32 %1225 to i16
-  %1230 = or disjoint i16 %1229, 1
-  %1231 = icmp ult i8 %1212, 7
-  %1232 = icmp eq i16 %.0.lcssa, 1
-  %or.cond.i181 = and i1 %1232, %1231
-  br i1 %or.cond.i181, label %1233, label %1238
+1178:                                             ; preds = %302
+  %1179 = load i32, ptr @hf_cdma2k_PageRspMsg, align 4
+  %1180 = tail call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %1179, ptr noundef %0, i32 noundef %301, i32 noundef -1, i32 noundef 0) #4
+  %1181 = load i32, ptr @ett_cdma2k_subtree1, align 4
+  %1182 = tail call ptr @proto_item_add_subtree(ptr noundef %1180, i32 noundef %1181) #4
+  %1183 = load i32, ptr @hf_cdma2k_Mob_Term, align 4
+  %1184 = load i32, ptr %2, align 4
+  %1185 = shl i32 %1184, 3
+  %1186 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1183, ptr noundef %0, i32 noundef %1185, i32 noundef 1, i32 noundef 0) #4
+  %1187 = load i32, ptr %2, align 4
+  %1188 = shl i32 %1187, 3
+  %1189 = load i32, ptr @hf_cdma2k_Slot_Cycle_Index, align 4
+  %1190 = and i32 %1188, 65528
+  %1191 = or disjoint i32 %1190, 1
+  %1192 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1189, ptr noundef %0, i32 noundef %1191, i32 noundef 3, i32 noundef 0) #4
+  %1193 = load i32, ptr @hf_cdma2k_Mob_P_Rev, align 4
+  %1194 = or disjoint i32 %1190, 4
+  %1195 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1193, ptr noundef %0, i32 noundef %1194, i32 noundef 8, i32 noundef 0) #4
+  %1196 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1194, i32 noundef 8) #4
+  %1197 = add i32 %1188, 12
+  %1198 = tail call i8 @llvm.umin.i8(i8 %26, i8 %1196)
+  %1199 = and i32 %1197, 65532
+  tail call fastcc void @dissect_cdma2000_scm(ptr noundef %0, ptr noundef %1182, i32 noundef %1199)
+  %1200 = add i32 %1188, 20
+  %1201 = load i32, ptr @hf_cdma2k_Request_Mode, align 4
+  %1202 = and i32 %1200, 65532
+  %1203 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1201, ptr noundef %0, i32 noundef %1202, i32 noundef 3, i32 noundef 0) #4
+  %1204 = load i32, ptr @hf_cdma2k_service_option, align 4
+  %1205 = or disjoint i32 %1202, 3
+  %1206 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1204, ptr noundef %0, i32 noundef %1205, i32 noundef 16, i32 noundef 0) #4
+  %1207 = add i32 %1188, 39
+  %1208 = load i32, ptr @hf_cdma2k_pm, align 4
+  %1209 = and i32 %1207, 65535
+  %1210 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1208, ptr noundef %0, i32 noundef %1209, i32 noundef 1, i32 noundef 0) #4
+  %1211 = add i32 %1188, 40
+  %1212 = load i32, ptr @hf_cdma2k_Nar_An_Cap, align 4
+  %1213 = and i32 %1211, 65528
+  %1214 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1212, ptr noundef %0, i32 noundef %1213, i32 noundef 1, i32 noundef 0) #4
+  %1215 = trunc i32 %1211 to i16
+  %1216 = or disjoint i16 %1215, 1
+  %1217 = icmp ult i8 %1198, 7
+  %1218 = icmp eq i16 %.0.lcssa, 1
+  %or.cond.i181 = and i1 %1218, %1217
+  br i1 %or.cond.i181, label %1219, label %1224
 
-1233:                                             ; preds = %1192
-  %1234 = load i32, ptr @hf_cdma2k_encryption_supported, align 4
-  %1235 = zext i16 %1230 to i32
-  %1236 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1234, ptr noundef %0, i32 noundef %1235, i32 noundef 4, i32 noundef 0) #4
-  %1237 = or disjoint i16 %1229, 5
-  br label %1238
+1219:                                             ; preds = %1178
+  %1220 = load i32, ptr @hf_cdma2k_encryption_supported, align 4
+  %1221 = zext i16 %1216 to i32
+  %1222 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1220, ptr noundef %0, i32 noundef %1221, i32 noundef 4, i32 noundef 0) #4
+  %1223 = or disjoint i16 %1215, 5
+  br label %1224
 
-1238:                                             ; preds = %1233, %1192
-  %.0.i182 = phi i16 [ %1237, %1233 ], [ %1230, %1192 ]
-  %1239 = load i32, ptr @hf_cdma2k_num_alt_so, align 4
-  %1240 = zext i16 %.0.i182 to i32
-  %1241 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1239, ptr noundef %0, i32 noundef %1240, i32 noundef 3, i32 noundef 0) #4
-  %1242 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1240, i32 noundef 3) #4
-  %1243 = add i16 %.0.i182, 3
-  %.not3.i = icmp eq i8 %1242, 0
+1224:                                             ; preds = %1219, %1178
+  %.0.i182 = phi i16 [ %1223, %1219 ], [ %1216, %1178 ]
+  %1225 = load i32, ptr @hf_cdma2k_num_alt_so, align 4
+  %1226 = zext i16 %.0.i182 to i32
+  %1227 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1225, ptr noundef %0, i32 noundef %1226, i32 noundef 3, i32 noundef 0) #4
+  %1228 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1226, i32 noundef 3) #4
+  %1229 = add i16 %.0.i182, 3
+  %.not3.i = icmp eq i8 %1228, 0
   br i1 %.not3.i, label %._crit_edge.i186, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %1238
-  %1244 = zext i8 %1242 to i16
+.lr.ph.preheader.i:                               ; preds = %1224
+  %1230 = zext i8 %1228 to i16
   br label %.lr.ph.i183
 
 .lr.ph.i183:                                      ; preds = %.lr.ph.i183, %.lr.ph.preheader.i
-  %.15.i184 = phi i16 [ %1248, %.lr.ph.i183 ], [ %1243, %.lr.ph.preheader.i ]
-  %.03154.i = phi i16 [ %1249, %.lr.ph.i183 ], [ %1244, %.lr.ph.preheader.i ]
-  %1245 = load i32, ptr @hf_cdma2k_Alt_So, align 4
-  %1246 = zext i16 %.15.i184 to i32
-  %1247 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1245, ptr noundef %0, i32 noundef %1246, i32 noundef 16, i32 noundef 0) #4
-  %1248 = add i16 %.15.i184, 16
-  %1249 = add nsw i16 %.03154.i, -1
-  %.not.i185 = icmp eq i16 %1249, 0
+  %.15.i184 = phi i16 [ %1234, %.lr.ph.i183 ], [ %1229, %.lr.ph.preheader.i ]
+  %.03154.i = phi i16 [ %1235, %.lr.ph.i183 ], [ %1230, %.lr.ph.preheader.i ]
+  %1231 = load i32, ptr @hf_cdma2k_Alt_So, align 4
+  %1232 = zext i16 %.15.i184 to i32
+  %1233 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1231, ptr noundef %0, i32 noundef %1232, i32 noundef 16, i32 noundef 0) #4
+  %1234 = add i16 %.15.i184, 16
+  %1235 = add nsw i16 %.03154.i, -1
+  %.not.i185 = icmp eq i16 %1235, 0
   br i1 %.not.i185, label %._crit_edge.i186, label %.lr.ph.i183, !llvm.loop !14
 
-._crit_edge.i186:                                 ; preds = %.lr.ph.i183, %1238
-  %.1.lcssa.i = phi i16 [ %1243, %1238 ], [ %1248, %.lr.ph.i183 ]
-  %1250 = icmp ugt i8 %1212, 5
-  br i1 %1250, label %1251, label %cdma2k_message_PAGE_RESPONSE.exit
+._crit_edge.i186:                                 ; preds = %.lr.ph.i183, %1224
+  %.1.lcssa.i = phi i16 [ %1229, %1224 ], [ %1234, %.lr.ph.i183 ]
+  %1236 = icmp ugt i8 %1198, 5
+  br i1 %1236, label %1237, label %cdma2k_message_PAGE_RESPONSE.exit
 
-1251:                                             ; preds = %._crit_edge.i186
-  %1252 = load i32, ptr @hf_cdma2k_Uzid_Incl, align 4
-  %1253 = zext i16 %.1.lcssa.i to i32
-  %1254 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1252, ptr noundef %0, i32 noundef %1253, i32 noundef 1, i32 noundef 0) #4
-  %1255 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1253, i32 noundef 1) #4
-  %1256 = or disjoint i16 %.1.lcssa.i, 1
-  %1257 = icmp eq i8 %1255, 1
-  br i1 %1257, label %1258, label %1263
+1237:                                             ; preds = %._crit_edge.i186
+  %1238 = load i32, ptr @hf_cdma2k_Uzid_Incl, align 4
+  %1239 = zext i16 %.1.lcssa.i to i32
+  %1240 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1238, ptr noundef %0, i32 noundef %1239, i32 noundef 1, i32 noundef 0) #4
+  %1241 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1239, i32 noundef 1) #4
+  %1242 = or disjoint i16 %.1.lcssa.i, 1
+  %1243 = icmp eq i8 %1241, 1
+  br i1 %1243, label %1244, label %1249
 
-1258:                                             ; preds = %1251
-  %1259 = load i32, ptr @hf_cdma2k_Uzid, align 4
-  %1260 = zext i16 %1256 to i32
-  %1261 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1259, ptr noundef %0, i32 noundef %1260, i32 noundef 16, i32 noundef 0) #4
-  %1262 = add i16 %.1.lcssa.i, 17
-  br label %1263
+1244:                                             ; preds = %1237
+  %1245 = load i32, ptr @hf_cdma2k_Uzid, align 4
+  %1246 = zext i16 %1242 to i32
+  %1247 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1245, ptr noundef %0, i32 noundef %1246, i32 noundef 16, i32 noundef 0) #4
+  %1248 = add i16 %.1.lcssa.i, 17
+  br label %1249
 
-1263:                                             ; preds = %1258, %1251
-  %.2.i190 = phi i16 [ %1262, %1258 ], [ %1256, %1251 ]
-  %1264 = load i32, ptr @hf_cdma2k_Ch_Ind, align 4
-  %1265 = zext i16 %.2.i190 to i32
-  %1266 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1264, ptr noundef %0, i32 noundef %1265, i32 noundef 2, i32 noundef 0) #4
-  %1267 = add i16 %.2.i190, 2
-  %1268 = load i32, ptr @hf_cdma2k_Otd_Supported, align 4
-  %1269 = zext i16 %1267 to i32
-  %1270 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1268, ptr noundef %0, i32 noundef %1269, i32 noundef 1, i32 noundef 0) #4
-  %1271 = add i16 %.2.i190, 3
-  %1272 = load i32, ptr @hf_cdma2k_Qpch_Supported, align 4
-  %1273 = zext i16 %1271 to i32
-  %1274 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1272, ptr noundef %0, i32 noundef %1273, i32 noundef 1, i32 noundef 0) #4
-  %1275 = add i16 %.2.i190, 4
-  %1276 = load i32, ptr @hf_cdma2k_Enhanced_Rc, align 4
-  %1277 = zext i16 %1275 to i32
-  %1278 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1276, ptr noundef %0, i32 noundef %1277, i32 noundef 1, i32 noundef 0) #4
-  %1279 = add i16 %.2.i190, 5
-  %1280 = load i32, ptr @hf_cdma2k_For_Rc_Pref, align 4
-  %1281 = zext i16 %1279 to i32
-  %1282 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1280, ptr noundef %0, i32 noundef %1281, i32 noundef 5, i32 noundef 0) #4
-  %1283 = add i16 %.2.i190, 10
-  %1284 = load i32, ptr @hf_cdma2k_Rev_Rc_Pref, align 4
-  %1285 = zext i16 %1283 to i32
-  %1286 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1284, ptr noundef %0, i32 noundef %1285, i32 noundef 5, i32 noundef 0) #4
-  %1287 = add i16 %.2.i190, 15
-  %1288 = load i32, ptr @hf_cdma2k_Fch_Supported, align 4
-  %1289 = zext i16 %1287 to i32
-  %1290 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1288, ptr noundef %0, i32 noundef %1289, i32 noundef 1, i32 noundef 0) #4
-  %1291 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1289, i32 noundef 1) #4
-  %1292 = add i16 %.2.i190, 16
-  %1293 = icmp eq i8 %1291, 1
-  br i1 %1293, label %1294, label %1331
+1249:                                             ; preds = %1244, %1237
+  %.2.i190 = phi i16 [ %1248, %1244 ], [ %1242, %1237 ]
+  %1250 = load i32, ptr @hf_cdma2k_Ch_Ind, align 4
+  %1251 = zext i16 %.2.i190 to i32
+  %1252 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1250, ptr noundef %0, i32 noundef %1251, i32 noundef 2, i32 noundef 0) #4
+  %1253 = add i16 %.2.i190, 2
+  %1254 = load i32, ptr @hf_cdma2k_Otd_Supported, align 4
+  %1255 = zext i16 %1253 to i32
+  %1256 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1254, ptr noundef %0, i32 noundef %1255, i32 noundef 1, i32 noundef 0) #4
+  %1257 = add i16 %.2.i190, 3
+  %1258 = load i32, ptr @hf_cdma2k_Qpch_Supported, align 4
+  %1259 = zext i16 %1257 to i32
+  %1260 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1258, ptr noundef %0, i32 noundef %1259, i32 noundef 1, i32 noundef 0) #4
+  %1261 = add i16 %.2.i190, 4
+  %1262 = load i32, ptr @hf_cdma2k_Enhanced_Rc, align 4
+  %1263 = zext i16 %1261 to i32
+  %1264 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1262, ptr noundef %0, i32 noundef %1263, i32 noundef 1, i32 noundef 0) #4
+  %1265 = add i16 %.2.i190, 5
+  %1266 = load i32, ptr @hf_cdma2k_For_Rc_Pref, align 4
+  %1267 = zext i16 %1265 to i32
+  %1268 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1266, ptr noundef %0, i32 noundef %1267, i32 noundef 5, i32 noundef 0) #4
+  %1269 = add i16 %.2.i190, 10
+  %1270 = load i32, ptr @hf_cdma2k_Rev_Rc_Pref, align 4
+  %1271 = zext i16 %1269 to i32
+  %1272 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1270, ptr noundef %0, i32 noundef %1271, i32 noundef 5, i32 noundef 0) #4
+  %1273 = add i16 %.2.i190, 15
+  %1274 = load i32, ptr @hf_cdma2k_Fch_Supported, align 4
+  %1275 = zext i16 %1273 to i32
+  %1276 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1274, ptr noundef %0, i32 noundef %1275, i32 noundef 1, i32 noundef 0) #4
+  %1277 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1275, i32 noundef 1) #4
+  %1278 = add i16 %.2.i190, 16
+  %1279 = icmp eq i8 %1277, 1
+  br i1 %1279, label %1280, label %1317
 
-1294:                                             ; preds = %1263
-  %1295 = load i32, ptr @hf_cdma2k_Type_Specific_Fields, align 4
-  %1296 = zext i16 %1292 to i32
-  %1297 = lshr i32 %1296, 3
-  %1298 = tail call ptr @proto_tree_add_item(ptr noundef %1196, i32 noundef %1295, ptr noundef %0, i32 noundef %1297, i32 noundef 1, i32 noundef 0) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1298, ptr noundef nonnull @.str.1186) #4
-  %1299 = load i32, ptr @ett_cdma2k_subtree2, align 4
-  %1300 = tail call ptr @proto_item_add_subtree(ptr noundef %1298, i32 noundef %1299) #4
-  %1301 = load i32, ptr @hf_cdma2k_Fch_Frame_Size, align 4
-  %1302 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1300, i32 noundef %1301, ptr noundef %0, i32 noundef %1296, i32 noundef 1, i32 noundef 0) #4
-  %1303 = add i16 %.2.i190, 17
-  %1304 = load i32, ptr @hf_cdma2k_For_Fch_Len, align 4
-  %1305 = zext i16 %1303 to i32
-  %1306 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1300, i32 noundef %1304, ptr noundef %0, i32 noundef %1305, i32 noundef 3, i32 noundef 0) #4
+1280:                                             ; preds = %1249
+  %1281 = load i32, ptr @hf_cdma2k_Type_Specific_Fields, align 4
+  %1282 = zext i16 %1278 to i32
+  %1283 = lshr i32 %1282, 3
+  %1284 = tail call ptr @proto_tree_add_item(ptr noundef %1182, i32 noundef %1281, ptr noundef %0, i32 noundef %1283, i32 noundef 1, i32 noundef 0) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1284, ptr noundef nonnull @.str.1186) #4
+  %1285 = load i32, ptr @ett_cdma2k_subtree2, align 4
+  %1286 = tail call ptr @proto_item_add_subtree(ptr noundef %1284, i32 noundef %1285) #4
+  %1287 = load i32, ptr @hf_cdma2k_Fch_Frame_Size, align 4
+  %1288 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1286, i32 noundef %1287, ptr noundef %0, i32 noundef %1282, i32 noundef 1, i32 noundef 0) #4
+  %1289 = add i16 %.2.i190, 17
+  %1290 = load i32, ptr @hf_cdma2k_For_Fch_Len, align 4
+  %1291 = zext i16 %1289 to i32
+  %1292 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1286, i32 noundef %1290, ptr noundef %0, i32 noundef %1291, i32 noundef 3, i32 noundef 0) #4
+  %1293 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1291, i32 noundef 3) #4
+  %1294 = add i16 %.2.i190, 20
+  %.not321.i = icmp eq i8 %1293, 0
+  br i1 %.not321.i, label %1303, label %1295
+
+1295:                                             ; preds = %1280
+  %1296 = zext i8 %1293 to i32
+  %1297 = load i32, ptr @hf_cdma2k_For_Fch_Rc_Map, align 4
+  %1298 = zext i16 %1294 to i32
+  %1299 = mul nuw nsw i32 %1296, 3
+  %1300 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1286, i32 noundef %1297, ptr noundef %0, i32 noundef %1298, i32 noundef %1299, i32 noundef 0) #4
+  %1301 = trunc nuw nsw i32 %1299 to i16
+  %1302 = add i16 %1294, %1301
+  br label %1303
+
+1303:                                             ; preds = %1295, %1280
+  %.3.i200 = phi i16 [ %1302, %1295 ], [ %1294, %1280 ]
+  %1304 = load i32, ptr @hf_cdma2k_Rev_Fch_Len, align 4
+  %1305 = zext i16 %.3.i200 to i32
+  %1306 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1286, i32 noundef %1304, ptr noundef %0, i32 noundef %1305, i32 noundef 3, i32 noundef 0) #4
   %1307 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1305, i32 noundef 3) #4
-  %1308 = add i16 %.2.i190, 20
-  %.not321.i = icmp eq i8 %1307, 0
-  br i1 %.not321.i, label %1317, label %1309
+  %1308 = add i16 %.3.i200, 3
+  %.not322.i = icmp eq i8 %1307, 0
+  br i1 %.not322.i, label %1317, label %1309
 
-1309:                                             ; preds = %1294
+1309:                                             ; preds = %1303
   %1310 = zext i8 %1307 to i32
-  %1311 = load i32, ptr @hf_cdma2k_For_Fch_Rc_Map, align 4
+  %1311 = load i32, ptr @hf_cdma2k_Rev_Fch_Rc_Map, align 4
   %1312 = zext i16 %1308 to i32
   %1313 = mul nuw nsw i32 %1310, 3
-  %1314 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1300, i32 noundef %1311, ptr noundef %0, i32 noundef %1312, i32 noundef %1313, i32 noundef 0) #4
+  %1314 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1286, i32 noundef %1311, ptr noundef %0, i32 noundef %1312, i32 noundef %1313, i32 noundef 0) #4
   %1315 = trunc nuw nsw i32 %1313 to i16
   %1316 = add i16 %1308, %1315
   br label %1317
 
-1317:                                             ; preds = %1309, %1294
-  %.3.i200 = phi i16 [ %1316, %1309 ], [ %1308, %1294 ]
-  %1318 = load i32, ptr @hf_cdma2k_Rev_Fch_Len, align 4
-  %1319 = zext i16 %.3.i200 to i32
-  %1320 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1300, i32 noundef %1318, ptr noundef %0, i32 noundef %1319, i32 noundef 3, i32 noundef 0) #4
-  %1321 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1319, i32 noundef 3) #4
-  %1322 = add i16 %.3.i200, 3
-  %.not322.i = icmp eq i8 %1321, 0
-  br i1 %.not322.i, label %1331, label %1323
+1317:                                             ; preds = %1309, %1303, %1249
+  %.4.i191 = phi i16 [ %1316, %1309 ], [ %1308, %1303 ], [ %1278, %1249 ]
+  %1318 = load i32, ptr @hf_cdma2k_Dcch_Supported, align 4
+  %1319 = zext i16 %.4.i191 to i32
+  %1320 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1318, ptr noundef %0, i32 noundef %1319, i32 noundef 1, i32 noundef 0) #4
+  %1321 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1319, i32 noundef 1) #4
+  %1322 = add i16 %.4.i191, 1
+  %1323 = icmp eq i8 %1321, 1
+  br i1 %1323, label %1324, label %1361
 
-1323:                                             ; preds = %1317
-  %1324 = zext i8 %1321 to i32
-  %1325 = load i32, ptr @hf_cdma2k_Rev_Fch_Rc_Map, align 4
+1324:                                             ; preds = %1317
+  %1325 = load i32, ptr @hf_cdma2k_Type_Specific_Fields, align 4
   %1326 = zext i16 %1322 to i32
-  %1327 = mul nuw nsw i32 %1324, 3
-  %1328 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1300, i32 noundef %1325, ptr noundef %0, i32 noundef %1326, i32 noundef %1327, i32 noundef 0) #4
-  %1329 = trunc nuw nsw i32 %1327 to i16
-  %1330 = add i16 %1322, %1329
-  br label %1331
+  %1327 = lshr i32 %1326, 3
+  %1328 = tail call ptr @proto_tree_add_item(ptr noundef %1182, i32 noundef %1325, ptr noundef %0, i32 noundef %1327, i32 noundef 1, i32 noundef 0) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1328, ptr noundef nonnull @.str.1187) #4
+  %1329 = load i32, ptr @ett_cdma2k_subtree2, align 4
+  %1330 = tail call ptr @proto_item_add_subtree(ptr noundef %1328, i32 noundef %1329) #4
+  %1331 = load i32, ptr @hf_cdma2k_Dcch_Frame_Size, align 4
+  %1332 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1330, i32 noundef %1331, ptr noundef %0, i32 noundef %1326, i32 noundef 2, i32 noundef 0) #4
+  %1333 = add i16 %.4.i191, 3
+  %1334 = load i32, ptr @hf_cdma2k_For_Dcch_Len, align 4
+  %1335 = zext i16 %1333 to i32
+  %1336 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1330, i32 noundef %1334, ptr noundef %0, i32 noundef %1335, i32 noundef 3, i32 noundef 0) #4
+  %1337 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1335, i32 noundef 3) #4
+  %1338 = add i16 %.4.i191, 6
+  %.not323.i = icmp eq i8 %1337, 0
+  br i1 %.not323.i, label %1347, label %1339
 
-1331:                                             ; preds = %1323, %1317, %1263
-  %.4.i191 = phi i16 [ %1330, %1323 ], [ %1322, %1317 ], [ %1292, %1263 ]
-  %1332 = load i32, ptr @hf_cdma2k_Dcch_Supported, align 4
-  %1333 = zext i16 %.4.i191 to i32
-  %1334 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1332, ptr noundef %0, i32 noundef %1333, i32 noundef 1, i32 noundef 0) #4
-  %1335 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1333, i32 noundef 1) #4
-  %1336 = add i16 %.4.i191, 1
-  %1337 = icmp eq i8 %1335, 1
-  br i1 %1337, label %1338, label %1375
+1339:                                             ; preds = %1324
+  %1340 = zext i8 %1337 to i32
+  %1341 = load i32, ptr @hf_cdma2k_For_Dcch_Rc_Map, align 4
+  %1342 = zext i16 %1338 to i32
+  %1343 = mul nuw nsw i32 %1340, 3
+  %1344 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1330, i32 noundef %1341, ptr noundef %0, i32 noundef %1342, i32 noundef %1343, i32 noundef 0) #4
+  %1345 = trunc nuw nsw i32 %1343 to i16
+  %1346 = add i16 %1338, %1345
+  br label %1347
 
-1338:                                             ; preds = %1331
-  %1339 = load i32, ptr @hf_cdma2k_Type_Specific_Fields, align 4
-  %1340 = zext i16 %1336 to i32
-  %1341 = lshr i32 %1340, 3
-  %1342 = tail call ptr @proto_tree_add_item(ptr noundef %1196, i32 noundef %1339, ptr noundef %0, i32 noundef %1341, i32 noundef 1, i32 noundef 0) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1342, ptr noundef nonnull @.str.1187) #4
-  %1343 = load i32, ptr @ett_cdma2k_subtree2, align 4
-  %1344 = tail call ptr @proto_item_add_subtree(ptr noundef %1342, i32 noundef %1343) #4
-  %1345 = load i32, ptr @hf_cdma2k_Dcch_Frame_Size, align 4
-  %1346 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1344, i32 noundef %1345, ptr noundef %0, i32 noundef %1340, i32 noundef 2, i32 noundef 0) #4
-  %1347 = add i16 %.4.i191, 3
-  %1348 = load i32, ptr @hf_cdma2k_For_Dcch_Len, align 4
-  %1349 = zext i16 %1347 to i32
-  %1350 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1344, i32 noundef %1348, ptr noundef %0, i32 noundef %1349, i32 noundef 3, i32 noundef 0) #4
+1347:                                             ; preds = %1339, %1324
+  %.5.i199 = phi i16 [ %1346, %1339 ], [ %1338, %1324 ]
+  %1348 = load i32, ptr @hf_cdma2k_Rev_Dcch_Len, align 4
+  %1349 = zext i16 %.5.i199 to i32
+  %1350 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1330, i32 noundef %1348, ptr noundef %0, i32 noundef %1349, i32 noundef 3, i32 noundef 0) #4
   %1351 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1349, i32 noundef 3) #4
-  %1352 = add i16 %.4.i191, 6
-  %.not323.i = icmp eq i8 %1351, 0
-  br i1 %.not323.i, label %1361, label %1353
+  %1352 = add i16 %.5.i199, 3
+  %.not324.i = icmp eq i8 %1351, 0
+  br i1 %.not324.i, label %1361, label %1353
 
-1353:                                             ; preds = %1338
+1353:                                             ; preds = %1347
   %1354 = zext i8 %1351 to i32
-  %1355 = load i32, ptr @hf_cdma2k_For_Dcch_Rc_Map, align 4
+  %1355 = load i32, ptr @hf_cdma2k_Rev_Dcch_Rc_Map, align 4
   %1356 = zext i16 %1352 to i32
   %1357 = mul nuw nsw i32 %1354, 3
-  %1358 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1344, i32 noundef %1355, ptr noundef %0, i32 noundef %1356, i32 noundef %1357, i32 noundef 0) #4
+  %1358 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1330, i32 noundef %1355, ptr noundef %0, i32 noundef %1356, i32 noundef %1357, i32 noundef 0) #4
   %1359 = trunc nuw nsw i32 %1357 to i16
   %1360 = add i16 %1352, %1359
   br label %1361
 
-1361:                                             ; preds = %1353, %1338
-  %.5.i199 = phi i16 [ %1360, %1353 ], [ %1352, %1338 ]
-  %1362 = load i32, ptr @hf_cdma2k_Rev_Dcch_Len, align 4
-  %1363 = zext i16 %.5.i199 to i32
-  %1364 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1344, i32 noundef %1362, ptr noundef %0, i32 noundef %1363, i32 noundef 3, i32 noundef 0) #4
-  %1365 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1363, i32 noundef 3) #4
-  %1366 = add i16 %.5.i199, 3
-  %.not324.i = icmp eq i8 %1365, 0
-  br i1 %.not324.i, label %1375, label %1367
+1361:                                             ; preds = %1353, %1347, %1317
+  %.6.i192 = phi i16 [ %1360, %1353 ], [ %1352, %1347 ], [ %1322, %1317 ]
+  %1362 = load i32, ptr @hf_cdma2k_Rev_Fch_Gating_Req, align 4
+  %1363 = zext i16 %.6.i192 to i32
+  %1364 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1362, ptr noundef %0, i32 noundef %1363, i32 noundef 1, i32 noundef 0) #4
+  %1365 = add i16 %.6.i192, 1
+  %.not2.i = icmp eq i8 %1198, 6
+  br i1 %.not2.i, label %cdma2k_message_PAGE_RESPONSE.exit, label %1366
 
-1367:                                             ; preds = %1361
-  %1368 = zext i8 %1365 to i32
-  %1369 = load i32, ptr @hf_cdma2k_Rev_Dcch_Rc_Map, align 4
-  %1370 = zext i16 %1366 to i32
-  %1371 = mul nuw nsw i32 %1368, 3
-  %1372 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1344, i32 noundef %1369, ptr noundef %0, i32 noundef %1370, i32 noundef %1371, i32 noundef 0) #4
-  %1373 = trunc nuw nsw i32 %1371 to i16
-  %1374 = add i16 %1366, %1373
-  br label %1375
+1366:                                             ; preds = %1361
+  %1367 = load i32, ptr @hf_cdma2k_Sts_Supported, align 4
+  %1368 = zext i16 %1365 to i32
+  %1369 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1367, ptr noundef %0, i32 noundef %1368, i32 noundef 1, i32 noundef 0) #4
+  %1370 = add i16 %.6.i192, 2
+  %1371 = load i32, ptr @hf_cdma2k_ThreeXCchSupported, align 4
+  %1372 = zext i16 %1370 to i32
+  %1373 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1371, ptr noundef %0, i32 noundef %1372, i32 noundef 1, i32 noundef 0) #4
+  %1374 = add i16 %.6.i192, 3
+  %1375 = load i32, ptr @hf_cdma2k_Wll_Incl, align 4
+  %1376 = zext i16 %1374 to i32
+  %1377 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1375, ptr noundef %0, i32 noundef %1376, i32 noundef 1, i32 noundef 0) #4
+  %1378 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1376, i32 noundef 1) #4
+  %1379 = add i16 %.6.i192, 4
+  %1380 = icmp eq i8 %1378, 1
+  br i1 %1380, label %1381, label %1390
 
-1375:                                             ; preds = %1367, %1361, %1331
-  %.6.i192 = phi i16 [ %1374, %1367 ], [ %1366, %1361 ], [ %1336, %1331 ]
-  %1376 = load i32, ptr @hf_cdma2k_Rev_Fch_Gating_Req, align 4
-  %1377 = zext i16 %.6.i192 to i32
-  %1378 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1376, ptr noundef %0, i32 noundef %1377, i32 noundef 1, i32 noundef 0) #4
-  %1379 = add i16 %.6.i192, 1
-  %.not2.i = icmp eq i8 %1212, 6
-  br i1 %.not2.i, label %cdma2k_message_PAGE_RESPONSE.exit, label %1380
+1381:                                             ; preds = %1366
+  %1382 = load i32, ptr @hf_cdma2k_Wll_Device_Type, align 4
+  %1383 = zext i16 %1379 to i32
+  %1384 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1382, ptr noundef %0, i32 noundef %1383, i32 noundef 3, i32 noundef 0) #4
+  %1385 = add i16 %.6.i192, 7
+  %1386 = load i32, ptr @hf_cdma2k_Hook_Status, align 4
+  %1387 = zext i16 %1385 to i32
+  %1388 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1386, ptr noundef %0, i32 noundef %1387, i32 noundef 4, i32 noundef 0) #4
+  %1389 = add i16 %.6.i192, 11
+  br label %1390
 
-1380:                                             ; preds = %1375
-  %1381 = load i32, ptr @hf_cdma2k_Sts_Supported, align 4
-  %1382 = zext i16 %1379 to i32
-  %1383 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1381, ptr noundef %0, i32 noundef %1382, i32 noundef 1, i32 noundef 0) #4
-  %1384 = add i16 %.6.i192, 2
-  %1385 = load i32, ptr @hf_cdma2k_ThreeXCchSupported, align 4
-  %1386 = zext i16 %1384 to i32
-  %1387 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1385, ptr noundef %0, i32 noundef %1386, i32 noundef 1, i32 noundef 0) #4
-  %1388 = add i16 %.6.i192, 3
-  %1389 = load i32, ptr @hf_cdma2k_Wll_Incl, align 4
-  %1390 = zext i16 %1388 to i32
-  %1391 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1389, ptr noundef %0, i32 noundef %1390, i32 noundef 1, i32 noundef 0) #4
-  %1392 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1390, i32 noundef 1) #4
-  %1393 = add i16 %.6.i192, 4
-  %1394 = icmp eq i8 %1392, 1
-  br i1 %1394, label %1395, label %1404
+1390:                                             ; preds = %1381, %1366
+  %.8.i193 = phi i16 [ %1389, %1381 ], [ %1379, %1366 ]
+  %1391 = load i32, ptr @hf_cdma2k_Enc_Info_Incl, align 4
+  %1392 = zext i16 %.8.i193 to i32
+  %1393 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1391, ptr noundef %0, i32 noundef %1392, i32 noundef 1, i32 noundef 0) #4
+  %1394 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1392, i32 noundef 1) #4
+  %1395 = add i16 %.8.i193, 1
+  %1396 = icmp eq i8 %1394, 1
+  br i1 %1396, label %1397, label %1449
 
-1395:                                             ; preds = %1380
-  %1396 = load i32, ptr @hf_cdma2k_Wll_Device_Type, align 4
-  %1397 = zext i16 %1393 to i32
-  %1398 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1396, ptr noundef %0, i32 noundef %1397, i32 noundef 3, i32 noundef 0) #4
-  %1399 = add i16 %.6.i192, 7
-  %1400 = load i32, ptr @hf_cdma2k_Hook_Status, align 4
-  %1401 = zext i16 %1399 to i32
-  %1402 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1400, ptr noundef %0, i32 noundef %1401, i32 noundef 4, i32 noundef 0) #4
-  %1403 = add i16 %.6.i192, 11
-  br label %1404
-
-1404:                                             ; preds = %1395, %1380
-  %.8.i193 = phi i16 [ %1403, %1395 ], [ %1393, %1380 ]
-  %1405 = load i32, ptr @hf_cdma2k_Enc_Info_Incl, align 4
-  %1406 = zext i16 %.8.i193 to i32
-  %1407 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1405, ptr noundef %0, i32 noundef %1406, i32 noundef 1, i32 noundef 0) #4
-  %1408 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1406, i32 noundef 1) #4
-  %1409 = add i16 %.8.i193, 1
-  %1410 = icmp eq i8 %1408, 1
-  br i1 %1410, label %1411, label %1463
-
-1411:                                             ; preds = %1404
-  %1412 = load i32, ptr @hf_cdma2k_Sig_Encrypt_Supp, align 4
-  %1413 = zext i16 %1409 to i32
-  %1414 = lshr i32 %1413, 3
-  %1415 = tail call ptr @proto_tree_add_item(ptr noundef %1196, i32 noundef %1412, ptr noundef %0, i32 noundef %1414, i32 noundef 1, i32 noundef 0) #4
-  %1416 = load i32, ptr @ett_cdma2k_subtree2, align 4
-  %1417 = tail call ptr @proto_item_add_subtree(ptr noundef %1415, i32 noundef %1416) #4
-  %1418 = load i32, ptr @hf_cdma2k_Cmea, align 4
-  %1419 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1417, i32 noundef %1418, ptr noundef %0, i32 noundef %1413, i32 noundef 1, i32 noundef 0) #4
-  %1420 = add i16 %.8.i193, 2
-  %1421 = load i32, ptr @hf_cdma2k_Ecmea, align 4
+1397:                                             ; preds = %1390
+  %1398 = load i32, ptr @hf_cdma2k_Sig_Encrypt_Supp, align 4
+  %1399 = zext i16 %1395 to i32
+  %1400 = lshr i32 %1399, 3
+  %1401 = tail call ptr @proto_tree_add_item(ptr noundef %1182, i32 noundef %1398, ptr noundef %0, i32 noundef %1400, i32 noundef 1, i32 noundef 0) #4
+  %1402 = load i32, ptr @ett_cdma2k_subtree2, align 4
+  %1403 = tail call ptr @proto_item_add_subtree(ptr noundef %1401, i32 noundef %1402) #4
+  %1404 = load i32, ptr @hf_cdma2k_Cmea, align 4
+  %1405 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1403, i32 noundef %1404, ptr noundef %0, i32 noundef %1399, i32 noundef 1, i32 noundef 0) #4
+  %1406 = add i16 %.8.i193, 2
+  %1407 = load i32, ptr @hf_cdma2k_Ecmea, align 4
+  %1408 = zext i16 %1406 to i32
+  %1409 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1403, i32 noundef %1407, ptr noundef %0, i32 noundef %1408, i32 noundef 1, i32 noundef 0) #4
+  %1410 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1408, i32 noundef 1) #4
+  %1411 = add i16 %.8.i193, 3
+  %1412 = load i32, ptr @hf_cdma2k_Rea, align 4
+  %1413 = zext i16 %1411 to i32
+  %1414 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1403, i32 noundef %1412, ptr noundef %0, i32 noundef %1413, i32 noundef 1, i32 noundef 0) #4
+  %1415 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1413, i32 noundef 1) #4
+  %1416 = add i16 %.8.i193, 4
+  %1417 = load i32, ptr @hf_cdma2k_Reserved, align 4
+  %1418 = zext i16 %1416 to i32
+  %1419 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1403, i32 noundef %1417, ptr noundef %0, i32 noundef %1418, i32 noundef 5, i32 noundef 0) #4
+  %1420 = add i16 %.8.i193, 9
+  %1421 = load i32, ptr @hf_cdma2k_DSig_Encrypt_Req, align 4
   %1422 = zext i16 %1420 to i32
-  %1423 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1417, i32 noundef %1421, ptr noundef %0, i32 noundef %1422, i32 noundef 1, i32 noundef 0) #4
-  %1424 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1422, i32 noundef 1) #4
-  %1425 = add i16 %.8.i193, 3
-  %1426 = load i32, ptr @hf_cdma2k_Rea, align 4
-  %1427 = zext i16 %1425 to i32
-  %1428 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1417, i32 noundef %1426, ptr noundef %0, i32 noundef %1427, i32 noundef 1, i32 noundef 0) #4
-  %1429 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1427, i32 noundef 1) #4
-  %1430 = add i16 %.8.i193, 4
-  %1431 = load i32, ptr @hf_cdma2k_Reserved, align 4
-  %1432 = zext i16 %1430 to i32
-  %1433 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1417, i32 noundef %1431, ptr noundef %0, i32 noundef %1432, i32 noundef 5, i32 noundef 0) #4
-  %1434 = add i16 %.8.i193, 9
-  %1435 = load i32, ptr @hf_cdma2k_DSig_Encrypt_Req, align 4
-  %1436 = zext i16 %1434 to i32
-  %1437 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1435, ptr noundef %0, i32 noundef %1436, i32 noundef 1, i32 noundef 0) #4
-  %1438 = add i16 %.8.i193, 10
-  %1439 = load i32, ptr @hf_cdma2k_CSig_Encrypt_Req, align 4
-  %1440 = zext i16 %1438 to i32
-  %1441 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1439, ptr noundef %0, i32 noundef %1440, i32 noundef 1, i32 noundef 0) #4
-  %1442 = add i16 %.8.i193, 11
-  %1443 = icmp eq i8 %1424, 1
-  %1444 = icmp eq i8 %1429, 1
-  %or.cond5.i197 = select i1 %1443, i1 true, i1 %1444
-  br i1 %or.cond5.i197, label %1445, label %1454
+  %1423 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1421, ptr noundef %0, i32 noundef %1422, i32 noundef 1, i32 noundef 0) #4
+  %1424 = add i16 %.8.i193, 10
+  %1425 = load i32, ptr @hf_cdma2k_CSig_Encrypt_Req, align 4
+  %1426 = zext i16 %1424 to i32
+  %1427 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1425, ptr noundef %0, i32 noundef %1426, i32 noundef 1, i32 noundef 0) #4
+  %1428 = add i16 %.8.i193, 11
+  %1429 = icmp eq i8 %1410, 1
+  %1430 = icmp eq i8 %1415, 1
+  %or.cond5.i197 = select i1 %1429, i1 true, i1 %1430
+  br i1 %or.cond5.i197, label %1431, label %1440
 
-1445:                                             ; preds = %1411
-  %1446 = load i32, ptr @hf_cdma2k_New_Sseq_H, align 4
-  %1447 = zext i16 %1442 to i32
-  %1448 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1446, ptr noundef %0, i32 noundef %1447, i32 noundef 24, i32 noundef 0) #4
-  %1449 = add i16 %.8.i193, 35
-  %1450 = load i32, ptr @hf_cdma2k_New_Sseq_H_Sig, align 4
-  %1451 = zext i16 %1449 to i32
-  %1452 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1450, ptr noundef %0, i32 noundef %1451, i32 noundef 8, i32 noundef 0) #4
-  %1453 = add i16 %.8.i193, 43
-  br label %1454
+1431:                                             ; preds = %1397
+  %1432 = load i32, ptr @hf_cdma2k_New_Sseq_H, align 4
+  %1433 = zext i16 %1428 to i32
+  %1434 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1432, ptr noundef %0, i32 noundef %1433, i32 noundef 24, i32 noundef 0) #4
+  %1435 = add i16 %.8.i193, 35
+  %1436 = load i32, ptr @hf_cdma2k_New_Sseq_H_Sig, align 4
+  %1437 = zext i16 %1435 to i32
+  %1438 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1436, ptr noundef %0, i32 noundef %1437, i32 noundef 8, i32 noundef 0) #4
+  %1439 = add i16 %.8.i193, 43
+  br label %1440
 
-1454:                                             ; preds = %1445, %1411
-  %.9.i198 = phi i16 [ %1453, %1445 ], [ %1442, %1411 ]
-  %1455 = load i32, ptr @hf_cdma2k_Ui_Encrypt_Req, align 4
-  %1456 = zext i16 %.9.i198 to i32
-  %1457 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1455, ptr noundef %0, i32 noundef %1456, i32 noundef 1, i32 noundef 0) #4
-  %1458 = add i16 %.9.i198, 1
-  %1459 = load i32, ptr @hf_cdma2k_Ui_Encrypt_Sup, align 4
-  %1460 = zext i16 %1458 to i32
-  %1461 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1459, ptr noundef %0, i32 noundef %1460, i32 noundef 8, i32 noundef 0) #4
-  %1462 = add i16 %.9.i198, 9
-  br label %1463
+1440:                                             ; preds = %1431, %1397
+  %.9.i198 = phi i16 [ %1439, %1431 ], [ %1428, %1397 ]
+  %1441 = load i32, ptr @hf_cdma2k_Ui_Encrypt_Req, align 4
+  %1442 = zext i16 %.9.i198 to i32
+  %1443 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1441, ptr noundef %0, i32 noundef %1442, i32 noundef 1, i32 noundef 0) #4
+  %1444 = add i16 %.9.i198, 1
+  %1445 = load i32, ptr @hf_cdma2k_Ui_Encrypt_Sup, align 4
+  %1446 = zext i16 %1444 to i32
+  %1447 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1445, ptr noundef %0, i32 noundef %1446, i32 noundef 8, i32 noundef 0) #4
+  %1448 = add i16 %.9.i198, 9
+  br label %1449
 
-1463:                                             ; preds = %1454, %1404
-  %.10.i194 = phi i16 [ %1462, %1454 ], [ %1409, %1404 ]
-  %1464 = load i32, ptr @hf_cdma2k_Sync_Id_Incl, align 4
-  %1465 = zext i16 %.10.i194 to i32
-  %1466 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1464, ptr noundef %0, i32 noundef %1465, i32 noundef 1, i32 noundef 0) #4
-  %1467 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1465, i32 noundef 1) #4
-  %1468 = add i16 %.10.i194, 1
-  %1469 = icmp eq i8 %1467, 1
-  br i1 %1469, label %1470, label %.loopexit.i195
+1449:                                             ; preds = %1440, %1390
+  %.10.i194 = phi i16 [ %1448, %1440 ], [ %1395, %1390 ]
+  %1450 = load i32, ptr @hf_cdma2k_Sync_Id_Incl, align 4
+  %1451 = zext i16 %.10.i194 to i32
+  %1452 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1450, ptr noundef %0, i32 noundef %1451, i32 noundef 1, i32 noundef 0) #4
+  %1453 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1451, i32 noundef 1) #4
+  %1454 = add i16 %.10.i194, 1
+  %1455 = icmp eq i8 %1453, 1
+  br i1 %1455, label %1456, label %.loopexit.i195
 
-1470:                                             ; preds = %1463
-  %1471 = load i32, ptr @hf_cdma2k_Sync_Id_Len, align 4
-  %1472 = zext i16 %1468 to i32
-  %1473 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1471, ptr noundef %0, i32 noundef %1472, i32 noundef 4, i32 noundef 0) #4
-  %1474 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1472, i32 noundef 4) #4
-  %1475 = add i16 %.10.i194, 5
-  %1476 = load i32, ptr @hf_cdma2k_Sync_Id, align 4
-  %1477 = lshr i16 %1475, 3
-  %1478 = zext nneg i16 %1477 to i32
-  %1479 = zext i8 %1474 to i32
-  %1480 = tail call ptr @proto_tree_add_item(ptr noundef %1196, i32 noundef %1476, ptr noundef %0, i32 noundef %1478, i32 noundef %1479, i32 noundef 0) #4
-  %.not3256.i = icmp eq i8 %1474, 0
+1456:                                             ; preds = %1449
+  %1457 = load i32, ptr @hf_cdma2k_Sync_Id_Len, align 4
+  %1458 = zext i16 %1454 to i32
+  %1459 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1457, ptr noundef %0, i32 noundef %1458, i32 noundef 4, i32 noundef 0) #4
+  %1460 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1458, i32 noundef 4) #4
+  %1461 = add i16 %.10.i194, 5
+  %1462 = load i32, ptr @hf_cdma2k_Sync_Id, align 4
+  %1463 = lshr i16 %1461, 3
+  %1464 = zext nneg i16 %1463 to i32
+  %1465 = zext i8 %1460 to i32
+  %1466 = tail call ptr @proto_tree_add_item(ptr noundef %1182, i32 noundef %1462, ptr noundef %0, i32 noundef %1464, i32 noundef %1465, i32 noundef 0) #4
+  %.not3256.i = icmp eq i8 %1460, 0
   br i1 %.not3256.i, label %.loopexit.i195, label %.lr.ph10.preheader.i
 
-.lr.ph10.preheader.i:                             ; preds = %1470
-  %1481 = zext i8 %1474 to i16
+.lr.ph10.preheader.i:                             ; preds = %1456
+  %1467 = zext i8 %1460 to i16
   br label %.lr.ph10.i
 
 .lr.ph10.i:                                       ; preds = %.lr.ph10.i, %.lr.ph10.preheader.i
-  %.118.i = phi i16 [ %1485, %.lr.ph10.i ], [ %1475, %.lr.ph10.preheader.i ]
-  %.03147.i = phi i16 [ %1486, %.lr.ph10.i ], [ %1481, %.lr.ph10.preheader.i ]
-  %1482 = zext i16 %.118.i to i32
-  %1483 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1482, i32 noundef 8) #4
-  %1484 = zext i8 %1483 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1480, ptr noundef nonnull @.str.1188, i32 noundef %1484) #4
-  %1485 = add i16 %.118.i, 8
-  %1486 = add nsw i16 %.03147.i, -1
-  %.not325.i = icmp eq i16 %1486, 0
+  %.118.i = phi i16 [ %1471, %.lr.ph10.i ], [ %1461, %.lr.ph10.preheader.i ]
+  %.03147.i = phi i16 [ %1472, %.lr.ph10.i ], [ %1467, %.lr.ph10.preheader.i ]
+  %1468 = zext i16 %.118.i to i32
+  %1469 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1468, i32 noundef 8) #4
+  %1470 = zext i8 %1469 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1466, ptr noundef nonnull @.str.1188, i32 noundef %1470) #4
+  %1471 = add i16 %.118.i, 8
+  %1472 = add nsw i16 %.03147.i, -1
+  %.not325.i = icmp eq i16 %1472, 0
   br i1 %.not325.i, label %.loopexit.i195, label %.lr.ph10.i, !llvm.loop !15
 
-.loopexit.i195:                                   ; preds = %.lr.ph10.i, %1470, %1463
-  %.12.i196 = phi i16 [ %1468, %1463 ], [ %1475, %1470 ], [ %1485, %.lr.ph10.i ]
-  %1487 = load i32, ptr @hf_cdma2k_So_Bitmap_Ind, align 4
-  %1488 = zext i16 %.12.i196 to i32
-  %1489 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1487, ptr noundef %0, i32 noundef %1488, i32 noundef 2, i32 noundef 0) #4
-  %1490 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1488, i32 noundef 2) #4
-  %1491 = add i16 %.12.i196, 2
-  %.not326.i = icmp eq i8 %1490, 0
-  br i1 %.not326.i, label %cdma2k_message_PAGE_RESPONSE.exit, label %1492
+.loopexit.i195:                                   ; preds = %.lr.ph10.i, %1456, %1449
+  %.12.i196 = phi i16 [ %1454, %1449 ], [ %1461, %1456 ], [ %1471, %.lr.ph10.i ]
+  %1473 = load i32, ptr @hf_cdma2k_So_Bitmap_Ind, align 4
+  %1474 = zext i16 %.12.i196 to i32
+  %1475 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1473, ptr noundef %0, i32 noundef %1474, i32 noundef 2, i32 noundef 0) #4
+  %1476 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1474, i32 noundef 2) #4
+  %1477 = add i16 %.12.i196, 2
+  %.not326.i = icmp eq i8 %1476, 0
+  br i1 %.not326.i, label %cdma2k_message_PAGE_RESPONSE.exit, label %1478
 
-1492:                                             ; preds = %.loopexit.i195
-  %1493 = zext i8 %1490 to i32
-  %1494 = load i32, ptr @hf_cdma2k_So_Group_Num, align 4
-  %1495 = zext i16 %1491 to i32
-  %1496 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1494, ptr noundef %0, i32 noundef %1495, i32 noundef 5, i32 noundef 0) #4
-  %1497 = add i16 %.12.i196, 7
-  %1498 = load i32, ptr @hf_cdma2k_So_Bitmap, align 4
-  %1499 = zext i16 %1497 to i32
-  %1500 = shl nuw nsw i32 %1493, 2
-  %1501 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1196, i32 noundef %1498, ptr noundef %0, i32 noundef %1499, i32 noundef %1500, i32 noundef 0) #4
-  %1502 = trunc nuw nsw i32 %1500 to i16
-  %1503 = add i16 %1497, %1502
+1478:                                             ; preds = %.loopexit.i195
+  %1479 = zext i8 %1476 to i32
+  %1480 = load i32, ptr @hf_cdma2k_So_Group_Num, align 4
+  %1481 = zext i16 %1477 to i32
+  %1482 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1480, ptr noundef %0, i32 noundef %1481, i32 noundef 5, i32 noundef 0) #4
+  %1483 = add i16 %.12.i196, 7
+  %1484 = load i32, ptr @hf_cdma2k_So_Bitmap, align 4
+  %1485 = zext i16 %1483 to i32
+  %1486 = shl nuw nsw i32 %1479, 2
+  %1487 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1182, i32 noundef %1484, ptr noundef %0, i32 noundef %1485, i32 noundef %1486, i32 noundef 0) #4
+  %1488 = trunc nuw nsw i32 %1486 to i16
+  %1489 = add i16 %1483, %1488
   br label %cdma2k_message_PAGE_RESPONSE.exit
 
-cdma2k_message_PAGE_RESPONSE.exit:                ; preds = %._crit_edge.i186, %1375, %.loopexit.i195, %1492
-  %.13.i188 = phi i16 [ %1503, %1492 ], [ %1491, %.loopexit.i195 ], [ %1379, %1375 ], [ %.1.lcssa.i, %._crit_edge.i186 ]
-  %1504 = zext i16 %.13.i188 to i32
-  %1505 = and i32 %1504, 7
-  %1506 = icmp ne i32 %1505, 0
-  %1507 = lshr i32 %1504, 3
-  %1508 = zext i1 %1506 to i32
-  %storemerge.i189 = add nuw nsw i32 %1507, %1508
+cdma2k_message_PAGE_RESPONSE.exit:                ; preds = %._crit_edge.i186, %1361, %.loopexit.i195, %1478
+  %.13.i188 = phi i16 [ %1489, %1478 ], [ %1477, %.loopexit.i195 ], [ %1365, %1361 ], [ %.1.lcssa.i, %._crit_edge.i186 ]
+  %1490 = zext i16 %.13.i188 to i32
+  %1491 = and i32 %1490, 7
+  %1492 = icmp ne i32 %1491, 0
+  %1493 = lshr i32 %1490, 3
+  %1494 = zext i1 %1492 to i32
+  %storemerge.i189 = add nuw nsw i32 %1493, %1494
   store i32 %storemerge.i189, ptr %2, align 4
   br label %cdma2k_message_GEN_PAGE_REQ.exit
 
-1509:                                             ; preds = %316
-  %1510 = load i32, ptr @hf_cdma2k_AuthChallRspMsg, align 4
-  %1511 = tail call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %1510, ptr noundef %0, i32 noundef %315, i32 noundef -1, i32 noundef 0) #4
-  %1512 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %1513 = tail call ptr @proto_item_add_subtree(ptr noundef %1511, i32 noundef %1512) #4
-  %1514 = load i32, ptr @hf_cdma2k_Authu, align 4
-  %1515 = load i32, ptr %2, align 4
-  %1516 = shl i32 %1515, 3
-  %1517 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1513, i32 noundef %1514, ptr noundef %0, i32 noundef %1516, i32 noundef 18, i32 noundef 0) #4
-  %1518 = load i32, ptr %2, align 4
-  %1519 = add i32 %1518, 3
-  store i32 %1519, ptr %2, align 4
+1495:                                             ; preds = %302
+  %1496 = load i32, ptr @hf_cdma2k_AuthChallRspMsg, align 4
+  %1497 = tail call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %1496, ptr noundef %0, i32 noundef %301, i32 noundef -1, i32 noundef 0) #4
+  %1498 = load i32, ptr @ett_cdma2k_subtree1, align 4
+  %1499 = tail call ptr @proto_item_add_subtree(ptr noundef %1497, i32 noundef %1498) #4
+  %1500 = load i32, ptr @hf_cdma2k_Authu, align 4
+  %1501 = load i32, ptr %2, align 4
+  %1502 = shl i32 %1501, 3
+  %1503 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1499, i32 noundef %1500, ptr noundef %0, i32 noundef %1502, i32 noundef 18, i32 noundef 0) #4
+  %1504 = load i32, ptr %2, align 4
+  %1505 = add i32 %1504, 3
+  store i32 %1505, ptr %2, align 4
   br label %cdma2k_message_GEN_PAGE_REQ.exit
 
-1520:                                             ; preds = %316
-  %1521 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %1522 = tail call ptr @proto_tree_add_subtree(ptr noundef %307, ptr noundef %0, i32 noundef %315, i32 noundef -1, i32 noundef %1521, ptr noundef null, ptr noundef nonnull @.str.1189) #4
-  %1523 = load i32, ptr @hf_cdma2k_Order_Cmd, align 4
-  %1524 = load i32, ptr %2, align 4
-  %1525 = tail call ptr @proto_tree_add_item(ptr noundef %1522, i32 noundef %1523, ptr noundef %0, i32 noundef %1524, i32 noundef 1, i32 noundef 0) #4
-  %1526 = load i32, ptr %2, align 4
-  %1527 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1526) #4
-  %1528 = load i32, ptr @hf_cdma2k_Add_Record_Len, align 4
-  %1529 = load i32, ptr %2, align 4
-  %1530 = shl i32 %1529, 3
-  %1531 = or disjoint i32 %1530, 6
-  %1532 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1522, i32 noundef %1528, ptr noundef %0, i32 noundef %1531, i32 noundef 3, i32 noundef 0) #4
-  %1533 = load i32, ptr %2, align 4
-  %1534 = shl i32 %1533, 3
-  %1535 = or disjoint i32 %1534, 6
-  %1536 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1535, i32 noundef 3) #4
-  %1537 = load i32, ptr %2, align 4
-  %1538 = add i32 %1537, 1
-  store i32 %1538, ptr %2, align 4
-  %.tr.i201 = trunc i32 %1538 to i16
-  %1539 = shl i16 %.tr.i201, 3
-  %1540 = or disjoint i16 %1539, 1
-  %.not.i202 = icmp eq i8 %1536, 0
-  br i1 %.not.i202, label %cdma2k_message_ORDER_CMD.exit, label %1541
+1506:                                             ; preds = %302
+  %1507 = load i32, ptr @ett_cdma2k_subtree1, align 4
+  %1508 = tail call ptr @proto_tree_add_subtree(ptr noundef %293, ptr noundef %0, i32 noundef %301, i32 noundef -1, i32 noundef %1507, ptr noundef null, ptr noundef nonnull @.str.1189) #4
+  %1509 = load i32, ptr @hf_cdma2k_Order_Cmd, align 4
+  %1510 = load i32, ptr %2, align 4
+  %1511 = tail call ptr @proto_tree_add_item(ptr noundef %1508, i32 noundef %1509, ptr noundef %0, i32 noundef %1510, i32 noundef 1, i32 noundef 0) #4
+  %1512 = load i32, ptr %2, align 4
+  %1513 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1512) #4
+  %1514 = load i32, ptr @hf_cdma2k_Add_Record_Len, align 4
+  %1515 = load i32, ptr %2, align 4
+  %1516 = shl i32 %1515, 3
+  %1517 = or disjoint i32 %1516, 6
+  %1518 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1508, i32 noundef %1514, ptr noundef %0, i32 noundef %1517, i32 noundef 3, i32 noundef 0) #4
+  %1519 = load i32, ptr %2, align 4
+  %1520 = shl i32 %1519, 3
+  %1521 = or disjoint i32 %1520, 6
+  %1522 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1521, i32 noundef 3) #4
+  %1523 = load i32, ptr %2, align 4
+  %1524 = add i32 %1523, 1
+  store i32 %1524, ptr %2, align 4
+  %.tr.i201 = trunc i32 %1524 to i16
+  %1525 = shl i16 %.tr.i201, 3
+  %1526 = or disjoint i16 %1525, 1
+  %.not.i202 = icmp eq i8 %1522, 0
+  br i1 %.not.i202, label %cdma2k_message_ORDER_CMD.exit, label %1527
 
-1541:                                             ; preds = %1520
-  %1542 = lshr i8 %1527, 2
-  %1543 = load i32, ptr @hf_cdma2k_Order_Specific_Fields, align 4
-  %1544 = tail call ptr @proto_tree_add_item(ptr noundef %1522, i32 noundef %1543, ptr noundef %0, i32 noundef %1538, i32 noundef -1, i32 noundef 0) #4
-  %1545 = load i32, ptr @ett_cdma2k_subtree2, align 4
-  %1546 = tail call ptr @proto_item_add_subtree(ptr noundef %1544, i32 noundef %1545) #4
-  switch i8 %1542, label %1900 [
-    i8 2, label %1547
-    i8 4, label %1560
-    i8 21, label %1565
-    i8 27, label %1600
-    i8 32, label %1655
-    i8 33, label %1675
-    i8 35, label %1692
-    i8 36, label %1775
-    i8 37, label %1868
-    i8 38, label %1884
+1527:                                             ; preds = %1506
+  %1528 = lshr i8 %1513, 2
+  %1529 = load i32, ptr @hf_cdma2k_Order_Specific_Fields, align 4
+  %1530 = tail call ptr @proto_tree_add_item(ptr noundef %1508, i32 noundef %1529, ptr noundef %0, i32 noundef %1524, i32 noundef -1, i32 noundef 0) #4
+  %1531 = load i32, ptr @ett_cdma2k_subtree2, align 4
+  %1532 = tail call ptr @proto_item_add_subtree(ptr noundef %1530, i32 noundef %1531) #4
+  switch i8 %1528, label %1886 [
+    i8 2, label %1533
+    i8 4, label %1546
+    i8 21, label %1551
+    i8 27, label %1586
+    i8 32, label %1641
+    i8 33, label %1661
+    i8 35, label %1678
+    i8 36, label %1761
+    i8 37, label %1854
+    i8 38, label %1870
   ]
 
-1547:                                             ; preds = %1541
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1544, ptr noundef nonnull @.str.1190) #4
-  %1548 = load i32, ptr @hf_cdma2k_Ordq, align 4
-  %1549 = zext i16 %1540 to i32
-  %1550 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1548, ptr noundef %0, i32 noundef %1549, i32 noundef 8, i32 noundef 0) #4
-  %1551 = add i16 %1539, 9
-  %1552 = load i32, ptr @hf_cdma2k_Authbs, align 4
-  %1553 = zext i16 %1551 to i32
-  %1554 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1552, ptr noundef %0, i32 noundef %1553, i32 noundef 18, i32 noundef 0) #4
-  %1555 = add i16 %1539, 27
-  %1556 = load i32, ptr @hf_cdma2k_Reserved, align 4
-  %1557 = zext i16 %1555 to i32
-  %1558 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1556, ptr noundef %0, i32 noundef %1557, i32 noundef 6, i32 noundef 0) #4
-  %1559 = add i16 %1539, 33
+1533:                                             ; preds = %1527
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1530, ptr noundef nonnull @.str.1190) #4
+  %1534 = load i32, ptr @hf_cdma2k_Ordq, align 4
+  %1535 = zext i16 %1526 to i32
+  %1536 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1534, ptr noundef %0, i32 noundef %1535, i32 noundef 8, i32 noundef 0) #4
+  %1537 = add i16 %1525, 9
+  %1538 = load i32, ptr @hf_cdma2k_Authbs, align 4
+  %1539 = zext i16 %1537 to i32
+  %1540 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1538, ptr noundef %0, i32 noundef %1539, i32 noundef 18, i32 noundef 0) #4
+  %1541 = add i16 %1525, 27
+  %1542 = load i32, ptr @hf_cdma2k_Reserved, align 4
+  %1543 = zext i16 %1541 to i32
+  %1544 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1542, ptr noundef %0, i32 noundef %1543, i32 noundef 6, i32 noundef 0) #4
+  %1545 = add i16 %1525, 33
   br label %cdma2k_message_ORDER_CMD.exit
 
-1560:                                             ; preds = %1541
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1544, ptr noundef nonnull @.str.1174) #4
-  %1561 = load i32, ptr @hf_cdma2k_Ordq, align 4
-  %1562 = zext i16 %1540 to i32
-  %1563 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1561, ptr noundef %0, i32 noundef %1562, i32 noundef 8, i32 noundef 0) #4
-  %1564 = add i16 %1539, 9
+1546:                                             ; preds = %1527
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1530, ptr noundef nonnull @.str.1174) #4
+  %1547 = load i32, ptr @hf_cdma2k_Ordq, align 4
+  %1548 = zext i16 %1526 to i32
+  %1549 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1547, ptr noundef %0, i32 noundef %1548, i32 noundef 8, i32 noundef 0) #4
+  %1550 = add i16 %1525, 9
   br label %cdma2k_message_ORDER_CMD.exit
 
-1565:                                             ; preds = %1541
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1544, ptr noundef nonnull @.str.1178) #4
-  %1566 = load i32, ptr @hf_cdma2k_Ordq, align 4
+1551:                                             ; preds = %1527
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1530, ptr noundef nonnull @.str.1178) #4
+  %1552 = load i32, ptr @hf_cdma2k_Ordq, align 4
+  %1553 = load i32, ptr %2, align 4
+  %1554 = shl i32 %1553, 3
+  %1555 = or disjoint i32 %1554, 1
+  %1556 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1552, ptr noundef %0, i32 noundef %1555, i32 noundef 8, i32 noundef 0) #4
+  %1557 = load i32, ptr %2, align 4
+  %1558 = shl i32 %1557, 3
+  %1559 = or disjoint i32 %1558, 1
+  %1560 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1559, i32 noundef 8) #4
+  %1561 = add i16 %1525, 9
+  %1562 = icmp eq i8 %1560, 3
+  br i1 %1562, label %1563, label %cdma2k_message_ORDER_CMD.exit
+
+1563:                                             ; preds = %1551
+  %1564 = load i32, ptr @hf_cdma2k_Rsc_Mode_Ind, align 4
+  %1565 = zext i16 %1561 to i32
+  %1566 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1564, ptr noundef %0, i32 noundef %1565, i32 noundef 1, i32 noundef 0) #4
   %1567 = load i32, ptr %2, align 4
   %1568 = shl i32 %1567, 3
   %1569 = or disjoint i32 %1568, 1
-  %1570 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1566, ptr noundef %0, i32 noundef %1569, i32 noundef 8, i32 noundef 0) #4
-  %1571 = load i32, ptr %2, align 4
-  %1572 = shl i32 %1571, 3
-  %1573 = or disjoint i32 %1572, 1
-  %1574 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1573, i32 noundef 8) #4
-  %1575 = add i16 %1539, 9
-  %1576 = icmp eq i8 %1574, 3
-  br i1 %1576, label %1577, label %cdma2k_message_ORDER_CMD.exit
+  %1570 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1569, i32 noundef 1) #4
+  %1571 = add i16 %1525, 10
+  %1572 = icmp eq i8 %1570, 1
+  br i1 %1572, label %1573, label %cdma2k_message_ORDER_CMD.exit
 
-1577:                                             ; preds = %1565
-  %1578 = load i32, ptr @hf_cdma2k_Rsc_Mode_Ind, align 4
-  %1579 = zext i16 %1575 to i32
-  %1580 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1578, ptr noundef %0, i32 noundef %1579, i32 noundef 1, i32 noundef 0) #4
-  %1581 = load i32, ptr %2, align 4
-  %1582 = shl i32 %1581, 3
-  %1583 = or disjoint i32 %1582, 1
-  %1584 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1583, i32 noundef 1) #4
-  %1585 = add i16 %1539, 10
-  %1586 = icmp eq i8 %1584, 1
-  br i1 %1586, label %1587, label %cdma2k_message_ORDER_CMD.exit
-
-1587:                                             ; preds = %1577
-  %1588 = load i32, ptr @hf_cdma2k_Rsci, align 4
-  %1589 = zext i16 %1585 to i32
-  %1590 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1588, ptr noundef %0, i32 noundef %1589, i32 noundef 4, i32 noundef 0) #4
-  %1591 = or disjoint i16 %1585, 4
-  %1592 = load i32, ptr @hf_cdma2k_Rsc_End_Time_Unit, align 4
-  %1593 = zext i16 %1591 to i32
-  %1594 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1592, ptr noundef %0, i32 noundef %1593, i32 noundef 2, i32 noundef 0) #4
-  %1595 = add i16 %1539, 16
-  %1596 = load i32, ptr @hf_cdma2k_Rsc_End_Time_Value, align 4
-  %1597 = zext i16 %1595 to i32
-  %1598 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1596, ptr noundef %0, i32 noundef %1597, i32 noundef 4, i32 noundef 0) #4
-  %1599 = or disjoint i16 %1595, 4
+1573:                                             ; preds = %1563
+  %1574 = load i32, ptr @hf_cdma2k_Rsci, align 4
+  %1575 = zext i16 %1571 to i32
+  %1576 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1574, ptr noundef %0, i32 noundef %1575, i32 noundef 4, i32 noundef 0) #4
+  %1577 = or disjoint i16 %1571, 4
+  %1578 = load i32, ptr @hf_cdma2k_Rsc_End_Time_Unit, align 4
+  %1579 = zext i16 %1577 to i32
+  %1580 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1578, ptr noundef %0, i32 noundef %1579, i32 noundef 2, i32 noundef 0) #4
+  %1581 = add i16 %1525, 16
+  %1582 = load i32, ptr @hf_cdma2k_Rsc_End_Time_Value, align 4
+  %1583 = zext i16 %1581 to i32
+  %1584 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1582, ptr noundef %0, i32 noundef %1583, i32 noundef 4, i32 noundef 0) #4
+  %1585 = or disjoint i16 %1581, 4
   br label %cdma2k_message_ORDER_CMD.exit
 
-1600:                                             ; preds = %1541
-  %1601 = load i32, ptr @hf_cdma2k_Ordq, align 4
-  %1602 = zext i16 %1540 to i32
-  %1603 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1601, ptr noundef %0, i32 noundef %1602, i32 noundef 8, i32 noundef 0) #4
-  %1604 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1602, i32 noundef 8) #4
-  %1605 = add i16 %1539, 9
-  switch i8 %1604, label %.thread5.i [
-    i8 0, label %1606
-    i8 1, label %1607
-    i8 2, label %1608
-    i8 4, label %1609
-    i8 5, label %1610
-    i8 7, label %1615
+1586:                                             ; preds = %1527
+  %1587 = load i32, ptr @hf_cdma2k_Ordq, align 4
+  %1588 = zext i16 %1526 to i32
+  %1589 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1587, ptr noundef %0, i32 noundef %1588, i32 noundef 8, i32 noundef 0) #4
+  %1590 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1588, i32 noundef 8) #4
+  %1591 = add i16 %1525, 9
+  switch i8 %1590, label %.thread5.i [
+    i8 0, label %1592
+    i8 1, label %1593
+    i8 2, label %1594
+    i8 4, label %1595
+    i8 5, label %1596
+    i8 7, label %1601
   ]
 
-1606:                                             ; preds = %1600
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1544, ptr noundef nonnull @.str.1191) #4
+1592:                                             ; preds = %1586
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1530, ptr noundef nonnull @.str.1191) #4
   br label %.thread5.i
 
-1607:                                             ; preds = %1600
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1544, ptr noundef nonnull @.str.1192) #4
+1593:                                             ; preds = %1586
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1530, ptr noundef nonnull @.str.1192) #4
   br label %.thread5.i
 
-1608:                                             ; preds = %1600
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1544, ptr noundef nonnull @.str.1193) #4
+1594:                                             ; preds = %1586
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1530, ptr noundef nonnull @.str.1193) #4
   br label %.thread5.i
 
-1609:                                             ; preds = %1600
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1544, ptr noundef nonnull @.str.1194) #4
+1595:                                             ; preds = %1586
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1530, ptr noundef nonnull @.str.1194) #4
   br label %.thread5.i
 
-1610:                                             ; preds = %1600
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1544, ptr noundef nonnull @.str.1191) #4
-  %1611 = load i32, ptr @hf_cdma2k_Roam_Ind, align 4
-  %1612 = zext i16 %1605 to i32
-  %1613 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1611, ptr noundef %0, i32 noundef %1612, i32 noundef 8, i32 noundef 0) #4
-  %1614 = add i16 %1539, 17
+1596:                                             ; preds = %1586
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1530, ptr noundef nonnull @.str.1191) #4
+  %1597 = load i32, ptr @hf_cdma2k_Roam_Ind, align 4
+  %1598 = zext i16 %1591 to i32
+  %1599 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1597, ptr noundef %0, i32 noundef %1598, i32 noundef 8, i32 noundef 0) #4
+  %1600 = add i16 %1525, 17
   br label %.thread5.i
 
-1615:                                             ; preds = %1600
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1544, ptr noundef nonnull @.str.1191) #4
-  %1616 = load i32, ptr @hf_cdma2k_Roam_Ind, align 4
-  %1617 = zext i16 %1605 to i32
-  %1618 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1616, ptr noundef %0, i32 noundef %1617, i32 noundef 8, i32 noundef 0) #4
-  %1619 = add i16 %1539, 17
-  %1620 = load i32, ptr @hf_cdma2k_C_Sig_Encrypt_Mode, align 4
-  %1621 = zext i16 %1619 to i32
-  %1622 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1620, ptr noundef %0, i32 noundef %1621, i32 noundef 3, i32 noundef 0) #4
-  %1623 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1621, i32 noundef 3) #4
-  %1624 = add i16 %1539, 25
-  %1625 = load i32, ptr @hf_cdma2k_Msg_Int_Info_Incl, align 4
-  %1626 = zext i16 %1624 to i32
-  %1627 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1625, ptr noundef %0, i32 noundef %1626, i32 noundef 1, i32 noundef 0) #4
-  %1628 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1626, i32 noundef 1) #4
-  %1629 = add i16 %1539, 26
-  %1630 = zext i8 %1623 to i32
-  %1631 = add nsw i32 %1630, -1
-  %1632 = icmp ult i32 %1631, 2
-  %1633 = icmp eq i8 %1628, 1
-  br i1 %1632, label %1634, label %1639
+1601:                                             ; preds = %1586
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1530, ptr noundef nonnull @.str.1191) #4
+  %1602 = load i32, ptr @hf_cdma2k_Roam_Ind, align 4
+  %1603 = zext i16 %1591 to i32
+  %1604 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1602, ptr noundef %0, i32 noundef %1603, i32 noundef 8, i32 noundef 0) #4
+  %1605 = add i16 %1525, 17
+  %1606 = load i32, ptr @hf_cdma2k_C_Sig_Encrypt_Mode, align 4
+  %1607 = zext i16 %1605 to i32
+  %1608 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1606, ptr noundef %0, i32 noundef %1607, i32 noundef 3, i32 noundef 0) #4
+  %1609 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1607, i32 noundef 3) #4
+  %1610 = add i16 %1525, 25
+  %1611 = load i32, ptr @hf_cdma2k_Msg_Int_Info_Incl, align 4
+  %1612 = zext i16 %1610 to i32
+  %1613 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1611, ptr noundef %0, i32 noundef %1612, i32 noundef 1, i32 noundef 0) #4
+  %1614 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1612, i32 noundef 1) #4
+  %1615 = add i16 %1525, 26
+  %1616 = zext i8 %1609 to i32
+  %1617 = add nsw i32 %1616, -1
+  %1618 = icmp ult i32 %1617, 2
+  %1619 = icmp eq i8 %1614, 1
+  br i1 %1618, label %1620, label %1625
 
-1634:                                             ; preds = %1615
-  %1635 = load i32, ptr @hf_cdma2k_Enc_Key_Size, align 4
-  %1636 = zext i16 %1629 to i32
-  %1637 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1635, ptr noundef %0, i32 noundef %1636, i32 noundef 3, i32 noundef 0) #4
-  %1638 = add i16 %1539, 29
-  br i1 %1633, label %1640, label %.thread5.i
+1620:                                             ; preds = %1601
+  %1621 = load i32, ptr @hf_cdma2k_Enc_Key_Size, align 4
+  %1622 = zext i16 %1615 to i32
+  %1623 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1621, ptr noundef %0, i32 noundef %1622, i32 noundef 3, i32 noundef 0) #4
+  %1624 = add i16 %1525, 29
+  br i1 %1619, label %1626, label %.thread5.i
 
-1639:                                             ; preds = %1615
-  br i1 %1633, label %1640, label %.thread5.i
+1625:                                             ; preds = %1601
+  br i1 %1619, label %1626, label %.thread5.i
 
-1640:                                             ; preds = %1639, %1634
-  %.18.i213 = phi i16 [ %1638, %1634 ], [ %1629, %1639 ]
-  %1641 = load i32, ptr @hf_cdma2k_Change_Keys, align 4
-  %1642 = zext i16 %.18.i213 to i32
-  %1643 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1641, ptr noundef %0, i32 noundef %1642, i32 noundef 1, i32 noundef 0) #4
-  %1644 = add i16 %.18.i213, 1
-  %1645 = load i32, ptr @hf_cdma2k_Use_Uak, align 4
-  %1646 = zext i16 %1644 to i32
-  %1647 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1645, ptr noundef %0, i32 noundef %1646, i32 noundef 1, i32 noundef 0) #4
-  %1648 = add i16 %.18.i213, 2
+1626:                                             ; preds = %1625, %1620
+  %.18.i213 = phi i16 [ %1624, %1620 ], [ %1615, %1625 ]
+  %1627 = load i32, ptr @hf_cdma2k_Change_Keys, align 4
+  %1628 = zext i16 %.18.i213 to i32
+  %1629 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1627, ptr noundef %0, i32 noundef %1628, i32 noundef 1, i32 noundef 0) #4
+  %1630 = add i16 %.18.i213, 1
+  %1631 = load i32, ptr @hf_cdma2k_Use_Uak, align 4
+  %1632 = zext i16 %1630 to i32
+  %1633 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1631, ptr noundef %0, i32 noundef %1632, i32 noundef 1, i32 noundef 0) #4
+  %1634 = add i16 %.18.i213, 2
   br label %.thread5.i
 
-.thread5.i:                                       ; preds = %1640, %1639, %1634, %1610, %1609, %1608, %1607, %1606, %1600
-  %.2.i212 = phi i16 [ %1648, %1640 ], [ %1629, %1639 ], [ %1638, %1634 ], [ %1605, %1606 ], [ %1605, %1607 ], [ %1605, %1608 ], [ %1605, %1609 ], [ %1614, %1610 ], [ %1605, %1600 ]
-  %1649 = zext i16 %.2.i212 to i32
-  %1650 = and i32 %1649, 7
-  %.not403.i = icmp eq i32 %1650, 0
-  br i1 %.not403.i, label %cdma2k_message_ORDER_CMD.exit, label %1651
+.thread5.i:                                       ; preds = %1626, %1625, %1620, %1596, %1595, %1594, %1593, %1592, %1586
+  %.2.i212 = phi i16 [ %1634, %1626 ], [ %1615, %1625 ], [ %1624, %1620 ], [ %1591, %1592 ], [ %1591, %1593 ], [ %1591, %1594 ], [ %1591, %1595 ], [ %1600, %1596 ], [ %1591, %1586 ]
+  %1635 = zext i16 %.2.i212 to i32
+  %1636 = and i32 %1635, 7
+  %.not403.i = icmp eq i32 %1636, 0
+  br i1 %.not403.i, label %cdma2k_message_ORDER_CMD.exit, label %1637
 
-1651:                                             ; preds = %.thread5.i
-  %1652 = load i32, ptr @hf_cdma2k_Reserved, align 4
-  %1653 = sub nuw nsw i32 8, %1650
-  %1654 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1652, ptr noundef %0, i32 noundef %1649, i32 noundef %1653, i32 noundef 0) #4
+1637:                                             ; preds = %.thread5.i
+  %1638 = load i32, ptr @hf_cdma2k_Reserved, align 4
+  %1639 = sub nuw nsw i32 8, %1636
+  %1640 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1638, ptr noundef %0, i32 noundef %1635, i32 noundef %1639, i32 noundef 0) #4
   br label %cdma2k_message_ORDER_CMD.exit
 
-1655:                                             ; preds = %1541
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1544, ptr noundef nonnull @.str.1195) #4
-  %1656 = load i32, ptr @hf_cdma2k_Ordq, align 4
-  %1657 = zext i16 %1540 to i32
-  %1658 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1656, ptr noundef %0, i32 noundef %1657, i32 noundef 8, i32 noundef 0) #4
-  %1659 = add i16 %1539, 9
-  %1660 = load i32, ptr @hf_cdma2k_Retry_Type, align 4
-  %1661 = zext i16 %1659 to i32
-  %1662 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1660, ptr noundef %0, i32 noundef %1661, i32 noundef 3, i32 noundef 0) #4
-  %1663 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1661, i32 noundef 3) #4
-  %1664 = add i16 %1539, 12
-  %.not402.i = icmp eq i8 %1663, 0
-  br i1 %.not402.i, label %1670, label %1665
+1641:                                             ; preds = %1527
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1530, ptr noundef nonnull @.str.1195) #4
+  %1642 = load i32, ptr @hf_cdma2k_Ordq, align 4
+  %1643 = zext i16 %1526 to i32
+  %1644 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1642, ptr noundef %0, i32 noundef %1643, i32 noundef 8, i32 noundef 0) #4
+  %1645 = add i16 %1525, 9
+  %1646 = load i32, ptr @hf_cdma2k_Retry_Type, align 4
+  %1647 = zext i16 %1645 to i32
+  %1648 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1646, ptr noundef %0, i32 noundef %1647, i32 noundef 3, i32 noundef 0) #4
+  %1649 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1647, i32 noundef 3) #4
+  %1650 = add i16 %1525, 12
+  %.not402.i = icmp eq i8 %1649, 0
+  br i1 %.not402.i, label %1656, label %1651
 
-1665:                                             ; preds = %1655
-  %1666 = load i32, ptr @hf_cdma2k_Retry_Delay, align 4
-  %1667 = zext i16 %1664 to i32
-  %1668 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1666, ptr noundef %0, i32 noundef %1667, i32 noundef 8, i32 noundef 0) #4
-  %1669 = add i16 %1539, 20
-  br label %1670
+1651:                                             ; preds = %1641
+  %1652 = load i32, ptr @hf_cdma2k_Retry_Delay, align 4
+  %1653 = zext i16 %1650 to i32
+  %1654 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1652, ptr noundef %0, i32 noundef %1653, i32 noundef 8, i32 noundef 0) #4
+  %1655 = add i16 %1525, 20
+  br label %1656
 
-1670:                                             ; preds = %1665, %1655
-  %.3.i211 = phi i16 [ %1669, %1665 ], [ %1664, %1655 ]
-  %1671 = load i32, ptr @hf_cdma2k_Reserved, align 4
-  %1672 = zext i16 %.3.i211 to i32
-  %1673 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1671, ptr noundef %0, i32 noundef %1672, i32 noundef 5, i32 noundef 0) #4
-  %1674 = add i16 %.3.i211, 5
+1656:                                             ; preds = %1651, %1641
+  %.3.i211 = phi i16 [ %1655, %1651 ], [ %1650, %1641 ]
+  %1657 = load i32, ptr @hf_cdma2k_Reserved, align 4
+  %1658 = zext i16 %.3.i211 to i32
+  %1659 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1657, ptr noundef %0, i32 noundef %1658, i32 noundef 5, i32 noundef 0) #4
+  %1660 = add i16 %.3.i211, 5
   br label %cdma2k_message_ORDER_CMD.exit
 
-1675:                                             ; preds = %1541
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1544, ptr noundef nonnull @.str.1196) #4
-  %1676 = load i32, ptr @hf_cdma2k_Ordq, align 4
-  %1677 = zext i16 %1540 to i32
-  %1678 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1676, ptr noundef %0, i32 noundef %1677, i32 noundef 8, i32 noundef 0) #4
-  %1679 = add i16 %1539, 9
-  %1680 = load i32, ptr @hf_cdma2k_Reject_Reason, align 4
-  %1681 = zext i16 %1679 to i32
-  %1682 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1680, ptr noundef %0, i32 noundef %1681, i32 noundef 4, i32 noundef 0) #4
-  %1683 = or disjoint i16 %1679, 4
-  %1684 = load i32, ptr @hf_cdma2k_Rejected_Msg_Type, align 4
-  %1685 = zext i16 %1683 to i32
-  %1686 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1684, ptr noundef %0, i32 noundef %1685, i32 noundef 8, i32 noundef 0) #4
-  %1687 = add i16 %1539, 21
-  %1688 = load i32, ptr @hf_cdma2k_Rejected_Msg_Seq, align 4
-  %1689 = zext i16 %1687 to i32
-  %1690 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1688, ptr noundef %0, i32 noundef %1689, i32 noundef 3, i32 noundef 0) #4
-  %1691 = add i16 %1539, 24
+1661:                                             ; preds = %1527
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1530, ptr noundef nonnull @.str.1196) #4
+  %1662 = load i32, ptr @hf_cdma2k_Ordq, align 4
+  %1663 = zext i16 %1526 to i32
+  %1664 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1662, ptr noundef %0, i32 noundef %1663, i32 noundef 8, i32 noundef 0) #4
+  %1665 = add i16 %1525, 9
+  %1666 = load i32, ptr @hf_cdma2k_Reject_Reason, align 4
+  %1667 = zext i16 %1665 to i32
+  %1668 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1666, ptr noundef %0, i32 noundef %1667, i32 noundef 4, i32 noundef 0) #4
+  %1669 = or disjoint i16 %1665, 4
+  %1670 = load i32, ptr @hf_cdma2k_Rejected_Msg_Type, align 4
+  %1671 = zext i16 %1669 to i32
+  %1672 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1670, ptr noundef %0, i32 noundef %1671, i32 noundef 8, i32 noundef 0) #4
+  %1673 = add i16 %1525, 21
+  %1674 = load i32, ptr @hf_cdma2k_Rejected_Msg_Seq, align 4
+  %1675 = zext i16 %1673 to i32
+  %1676 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1674, ptr noundef %0, i32 noundef %1675, i32 noundef 3, i32 noundef 0) #4
+  %1677 = add i16 %1525, 24
   br label %cdma2k_message_ORDER_CMD.exit
 
-1692:                                             ; preds = %1541
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1544, ptr noundef nonnull @.str.1197) #4
-  %1693 = load i32, ptr @hf_cdma2k_Ordq, align 4
-  %1694 = zext i16 %1540 to i32
-  %1695 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1693, ptr noundef %0, i32 noundef %1694, i32 noundef 8, i32 noundef 0) #4
-  %1696 = add i16 %1539, 9
-  %1697 = load i32, ptr @hf_cdma2k_All_Bcmc_Flows_Ind, align 4
-  %1698 = zext i16 %1696 to i32
-  %1699 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1697, ptr noundef %0, i32 noundef %1698, i32 noundef 1, i32 noundef 0) #4
-  %1700 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1698, i32 noundef 1) #4
-  %1701 = add i16 %1539, 10
-  %1702 = icmp eq i8 %1700, 1
-  br i1 %1702, label %1703, label %1713
+1678:                                             ; preds = %1527
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1530, ptr noundef nonnull @.str.1197) #4
+  %1679 = load i32, ptr @hf_cdma2k_Ordq, align 4
+  %1680 = zext i16 %1526 to i32
+  %1681 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1679, ptr noundef %0, i32 noundef %1680, i32 noundef 8, i32 noundef 0) #4
+  %1682 = add i16 %1525, 9
+  %1683 = load i32, ptr @hf_cdma2k_All_Bcmc_Flows_Ind, align 4
+  %1684 = zext i16 %1682 to i32
+  %1685 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1683, ptr noundef %0, i32 noundef %1684, i32 noundef 1, i32 noundef 0) #4
+  %1686 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1684, i32 noundef 1) #4
+  %1687 = add i16 %1525, 10
+  %1688 = icmp eq i8 %1686, 1
+  br i1 %1688, label %1689, label %1699
 
-1703:                                             ; preds = %1692
-  %1704 = load i32, ptr @hf_cdma2k_Clear_All_Retry_Delay, align 4
-  %1705 = zext i16 %1701 to i32
-  %1706 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1704, ptr noundef %0, i32 noundef %1705, i32 noundef 1, i32 noundef 0) #4
-  %1707 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1705, i32 noundef 1) #4
-  %1708 = or disjoint i16 %1701, 1
-  %1709 = load i32, ptr @hf_cdma2k_All_Bcmc_Reason, align 4
-  %1710 = zext i16 %1708 to i32
-  %1711 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1709, ptr noundef %0, i32 noundef %1710, i32 noundef 4, i32 noundef 0) #4
-  %1712 = add i16 %1539, 15
-  br label %1713
+1689:                                             ; preds = %1678
+  %1690 = load i32, ptr @hf_cdma2k_Clear_All_Retry_Delay, align 4
+  %1691 = zext i16 %1687 to i32
+  %1692 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1690, ptr noundef %0, i32 noundef %1691, i32 noundef 1, i32 noundef 0) #4
+  %1693 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1691, i32 noundef 1) #4
+  %1694 = or disjoint i16 %1687, 1
+  %1695 = load i32, ptr @hf_cdma2k_All_Bcmc_Reason, align 4
+  %1696 = zext i16 %1694 to i32
+  %1697 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1695, ptr noundef %0, i32 noundef %1696, i32 noundef 4, i32 noundef 0) #4
+  %1698 = add i16 %1525, 15
+  br label %1699
 
-1713:                                             ; preds = %1703, %1692
-  %.5.i209 = phi i16 [ %1712, %1703 ], [ %1701, %1692 ]
-  %1714 = load i32, ptr @hf_cdma2k_All_Bcmc_Retry_Delay, align 4
-  %1715 = zext i16 %.5.i209 to i32
-  %1716 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1714, ptr noundef %0, i32 noundef %1715, i32 noundef 8, i32 noundef 0) #4
-  %1717 = add i16 %.5.i209, 8
-  %1718 = icmp eq i8 %1700, 0
-  br i1 %1718, label %1719, label %.thread12.i
+1699:                                             ; preds = %1689, %1678
+  %.5.i209 = phi i16 [ %1698, %1689 ], [ %1687, %1678 ]
+  %1700 = load i32, ptr @hf_cdma2k_All_Bcmc_Retry_Delay, align 4
+  %1701 = zext i16 %.5.i209 to i32
+  %1702 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1700, ptr noundef %0, i32 noundef %1701, i32 noundef 8, i32 noundef 0) #4
+  %1703 = add i16 %.5.i209, 8
+  %1704 = icmp eq i8 %1686, 0
+  br i1 %1704, label %1705, label %.thread12.i
 
-1719:                                             ; preds = %1713
-  %1720 = load i32, ptr @hf_cdma2k_Num_Bcmc_Programs, align 4
-  %1721 = zext i16 %1717 to i32
-  %1722 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1720, ptr noundef %0, i32 noundef %1721, i32 noundef 6, i32 noundef 0) #4
-  %1723 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1721, i32 noundef 8) #4
-  %1724 = add i16 %.5.i209, 14
-  %1725 = icmp eq i8 %1723, 0
-  br i1 %1725, label %cdma2k_message_ORDER_CMD.exit, label %.thread12.i
+1705:                                             ; preds = %1699
+  %1706 = load i32, ptr @hf_cdma2k_Num_Bcmc_Programs, align 4
+  %1707 = zext i16 %1703 to i32
+  %1708 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1706, ptr noundef %0, i32 noundef %1707, i32 noundef 6, i32 noundef 0) #4
+  %1709 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1707, i32 noundef 8) #4
+  %1710 = add i16 %.5.i209, 14
+  %1711 = icmp eq i8 %1709, 0
+  br i1 %1711, label %cdma2k_message_ORDER_CMD.exit, label %.thread12.i
 
-.thread12.i:                                      ; preds = %1719, %1713
-  %.615.i = phi i16 [ %1724, %1719 ], [ %1717, %1713 ]
-  %1726 = load i32, ptr @hf_cdma2k_Bcmc_Program_Id_Len, align 4
-  %1727 = zext i16 %.615.i to i32
-  %1728 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1726, ptr noundef %0, i32 noundef %1727, i32 noundef 5, i32 noundef 0) #4
-  %1729 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1727, i32 noundef 5) #4
-  %1730 = add i16 %.615.i, 5
-  %1731 = load i32, ptr @hf_cdma2k_Bcmc_Program_Id, align 4
-  %1732 = zext i16 %1730 to i32
-  %1733 = zext i8 %1729 to i32
-  %1734 = add nuw nsw i32 %1733, 1
-  %1735 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1731, ptr noundef %0, i32 noundef %1732, i32 noundef %1734, i32 noundef 0) #4
-  %1736 = trunc nuw nsw i32 %1734 to i16
-  %1737 = add i16 %1730, %1736
-  %1738 = load i32, ptr @hf_cdma2k_Bcmc_Flow_Discriminator_Len, align 4
-  %1739 = zext i16 %1737 to i32
-  %1740 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1738, ptr noundef %0, i32 noundef %1739, i32 noundef 3, i32 noundef 0) #4
-  %1741 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1739, i32 noundef 3) #4
-  %1742 = add i16 %1737, 3
-  %1743 = zext i8 %1741 to i32
-  %.not401.i = icmp eq i8 %1741, 0
-  br i1 %.not401.i, label %.thread12._crit_edge.i, label %1744
+.thread12.i:                                      ; preds = %1705, %1699
+  %.615.i = phi i16 [ %1710, %1705 ], [ %1703, %1699 ]
+  %1712 = load i32, ptr @hf_cdma2k_Bcmc_Program_Id_Len, align 4
+  %1713 = zext i16 %.615.i to i32
+  %1714 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1712, ptr noundef %0, i32 noundef %1713, i32 noundef 5, i32 noundef 0) #4
+  %1715 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1713, i32 noundef 5) #4
+  %1716 = add i16 %.615.i, 5
+  %1717 = load i32, ptr @hf_cdma2k_Bcmc_Program_Id, align 4
+  %1718 = zext i16 %1716 to i32
+  %1719 = zext i8 %1715 to i32
+  %1720 = add nuw nsw i32 %1719, 1
+  %1721 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1717, ptr noundef %0, i32 noundef %1718, i32 noundef %1720, i32 noundef 0) #4
+  %1722 = trunc nuw nsw i32 %1720 to i16
+  %1723 = add i16 %1716, %1722
+  %1724 = load i32, ptr @hf_cdma2k_Bcmc_Flow_Discriminator_Len, align 4
+  %1725 = zext i16 %1723 to i32
+  %1726 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1724, ptr noundef %0, i32 noundef %1725, i32 noundef 3, i32 noundef 0) #4
+  %1727 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1725, i32 noundef 3) #4
+  %1728 = add i16 %1723, 3
+  %1729 = zext i8 %1727 to i32
+  %.not401.i = icmp eq i8 %1727, 0
+  br i1 %.not401.i, label %.thread12._crit_edge.i, label %1730
 
-1744:                                             ; preds = %.thread12.i
-  %1745 = load i32, ptr @hf_cdma2k_Num_Flow_Discriminator, align 4
-  %1746 = zext i16 %1742 to i32
-  %1747 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1745, ptr noundef %0, i32 noundef %1746, i32 noundef %1743, i32 noundef 0) #4
-  %1748 = zext i8 %1741 to i16
-  %1749 = add i16 %1742, %1748
+1730:                                             ; preds = %.thread12.i
+  %1731 = load i32, ptr @hf_cdma2k_Num_Flow_Discriminator, align 4
+  %1732 = zext i16 %1728 to i32
+  %1733 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1731, ptr noundef %0, i32 noundef %1732, i32 noundef %1729, i32 noundef 0) #4
+  %1734 = zext i8 %1727 to i16
+  %1735 = add i16 %1728, %1734
   br label %.thread12._crit_edge.i
 
-.thread12._crit_edge.i:                           ; preds = %1744, %.thread12.i
-  %.pre-phi.i = phi i16 [ %1748, %1744 ], [ 0, %.thread12.i ]
-  %.7.i = phi i16 [ %1749, %1744 ], [ %1742, %.thread12.i ]
-  %1750 = load i32, ptr @hf_cdma2k_Bcmc_Flow_Discriminator, align 4
-  %1751 = zext i16 %.7.i to i32
-  %1752 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1750, ptr noundef %0, i32 noundef %1751, i32 noundef %1743, i32 noundef 0) #4
-  %1753 = add i16 %.7.i, %.pre-phi.i
-  %1754 = load i32, ptr @hf_cdma2k_Same_As_Previous_Bcmc_Flow, align 4
-  %1755 = zext i16 %1753 to i32
-  %1756 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1754, ptr noundef %0, i32 noundef %1755, i32 noundef 1, i32 noundef 0) #4
-  %1757 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1755, i32 noundef 1) #4
-  %1758 = add i16 %1753, 1
-  %1759 = icmp eq i8 %1757, 0
-  br i1 %1759, label %1760, label %1770
+.thread12._crit_edge.i:                           ; preds = %1730, %.thread12.i
+  %.pre-phi.i = phi i16 [ %1734, %1730 ], [ 0, %.thread12.i ]
+  %.7.i = phi i16 [ %1735, %1730 ], [ %1728, %.thread12.i ]
+  %1736 = load i32, ptr @hf_cdma2k_Bcmc_Flow_Discriminator, align 4
+  %1737 = zext i16 %.7.i to i32
+  %1738 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1736, ptr noundef %0, i32 noundef %1737, i32 noundef %1729, i32 noundef 0) #4
+  %1739 = add i16 %.7.i, %.pre-phi.i
+  %1740 = load i32, ptr @hf_cdma2k_Same_As_Previous_Bcmc_Flow, align 4
+  %1741 = zext i16 %1739 to i32
+  %1742 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1740, ptr noundef %0, i32 noundef %1741, i32 noundef 1, i32 noundef 0) #4
+  %1743 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1741, i32 noundef 1) #4
+  %1744 = add i16 %1739, 1
+  %1745 = icmp eq i8 %1743, 0
+  br i1 %1745, label %1746, label %1756
 
-1760:                                             ; preds = %.thread12._crit_edge.i
-  %1761 = load i32, ptr @hf_cdma2k_Clear_Retry_Delay, align 4
-  %1762 = zext i16 %1758 to i32
-  %1763 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1761, ptr noundef %0, i32 noundef %1762, i32 noundef 1, i32 noundef 0) #4
-  %1764 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1762, i32 noundef 1) #4
-  %1765 = add i16 %1753, 2
-  %1766 = load i32, ptr @hf_cdma2k_Bcmc_Reason, align 4
-  %1767 = zext i16 %1765 to i32
-  %1768 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1766, ptr noundef %0, i32 noundef %1767, i32 noundef 4, i32 noundef 0) #4
-  %1769 = add i16 %1753, 6
-  br label %1770
+1746:                                             ; preds = %.thread12._crit_edge.i
+  %1747 = load i32, ptr @hf_cdma2k_Clear_Retry_Delay, align 4
+  %1748 = zext i16 %1744 to i32
+  %1749 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1747, ptr noundef %0, i32 noundef %1748, i32 noundef 1, i32 noundef 0) #4
+  %1750 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1748, i32 noundef 1) #4
+  %1751 = add i16 %1739, 2
+  %1752 = load i32, ptr @hf_cdma2k_Bcmc_Reason, align 4
+  %1753 = zext i16 %1751 to i32
+  %1754 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1752, ptr noundef %0, i32 noundef %1753, i32 noundef 4, i32 noundef 0) #4
+  %1755 = add i16 %1739, 6
+  br label %1756
 
-1770:                                             ; preds = %1760, %.thread12._crit_edge.i
-  %.9.i210 = phi i16 [ %1769, %1760 ], [ %1758, %.thread12._crit_edge.i ]
-  %1771 = load i32, ptr @hf_cdma2k_Bcmc_Retry_Delay, align 4
-  %1772 = zext i16 %.9.i210 to i32
-  %1773 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1771, ptr noundef %0, i32 noundef %1772, i32 noundef 8, i32 noundef 0) #4
-  %1774 = add i16 %.9.i210, 8
+1756:                                             ; preds = %1746, %.thread12._crit_edge.i
+  %.9.i210 = phi i16 [ %1755, %1746 ], [ %1744, %.thread12._crit_edge.i ]
+  %1757 = load i32, ptr @hf_cdma2k_Bcmc_Retry_Delay, align 4
+  %1758 = zext i16 %.9.i210 to i32
+  %1759 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1757, ptr noundef %0, i32 noundef %1758, i32 noundef 8, i32 noundef 0) #4
+  %1760 = add i16 %.9.i210, 8
   br label %cdma2k_message_ORDER_CMD.exit
 
-1775:                                             ; preds = %1541
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1544, ptr noundef nonnull @.str.1179) #4
-  %1776 = load i32, ptr @hf_cdma2k_Ordq, align 4
-  %1777 = zext i16 %1540 to i32
-  %1778 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1776, ptr noundef %0, i32 noundef %1777, i32 noundef 8, i32 noundef 0) #4
-  %1779 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1777, i32 noundef 1) #4
-  %1780 = add i16 %1539, 9
-  %1781 = load i32, ptr @hf_cdma2k_Rsc_Mode_Supported, align 4
-  %1782 = zext i16 %1780 to i32
-  %1783 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1781, ptr noundef %0, i32 noundef %1782, i32 noundef 1, i32 noundef 0) #4
-  %1784 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1782, i32 noundef 1) #4
-  %1785 = add i16 %1539, 10
-  %1786 = icmp eq i8 %1784, 1
+1761:                                             ; preds = %1527
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1530, ptr noundef nonnull @.str.1179) #4
+  %1762 = load i32, ptr @hf_cdma2k_Ordq, align 4
+  %1763 = zext i16 %1526 to i32
+  %1764 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1762, ptr noundef %0, i32 noundef %1763, i32 noundef 8, i32 noundef 0) #4
+  %1765 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1763, i32 noundef 1) #4
+  %1766 = add i16 %1525, 9
+  %1767 = load i32, ptr @hf_cdma2k_Rsc_Mode_Supported, align 4
+  %1768 = zext i16 %1766 to i32
+  %1769 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1767, ptr noundef %0, i32 noundef %1768, i32 noundef 1, i32 noundef 0) #4
+  %1770 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1768, i32 noundef 1) #4
+  %1771 = add i16 %1525, 10
+  %1772 = icmp eq i8 %1770, 1
+  br i1 %1772, label %1773, label %.thread19.i
+
+1773:                                             ; preds = %1761
+  %1774 = load i32, ptr @hf_cdma2k_Max_Rsc_End_Time_Unit, align 4
+  %1775 = zext i16 %1771 to i32
+  %1776 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1774, ptr noundef %0, i32 noundef %1775, i32 noundef 2, i32 noundef 0) #4
+  %1777 = add i16 %1525, 12
+  %1778 = load i32, ptr @hf_cdma2k_Max_Rsc_End_Time_Value, align 4
+  %1779 = zext i16 %1777 to i32
+  %1780 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1778, ptr noundef %0, i32 noundef %1779, i32 noundef 4, i32 noundef 0) #4
+  %1781 = add i16 %1525, 16
+  %1782 = load i32, ptr @hf_cdma2k_Ignore_Qpch, align 4
+  %1783 = zext i16 %1781 to i32
+  %1784 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1782, ptr noundef %0, i32 noundef %1783, i32 noundef 1, i32 noundef 0) #4
+  %1785 = or disjoint i16 %1781, 1
+  %1786 = icmp eq i8 %1765, 0
   br i1 %1786, label %1787, label %.thread19.i
 
-1787:                                             ; preds = %1775
-  %1788 = load i32, ptr @hf_cdma2k_Max_Rsc_End_Time_Unit, align 4
+1787:                                             ; preds = %1773
+  %1788 = load i32, ptr @hf_cdma2k_Req_Rsci, align 4
   %1789 = zext i16 %1785 to i32
-  %1790 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1788, ptr noundef %0, i32 noundef %1789, i32 noundef 2, i32 noundef 0) #4
-  %1791 = add i16 %1539, 12
-  %1792 = load i32, ptr @hf_cdma2k_Max_Rsc_End_Time_Value, align 4
-  %1793 = zext i16 %1791 to i32
-  %1794 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1792, ptr noundef %0, i32 noundef %1793, i32 noundef 4, i32 noundef 0) #4
-  %1795 = add i16 %1539, 16
-  %1796 = load i32, ptr @hf_cdma2k_Ignore_Qpch, align 4
-  %1797 = zext i16 %1795 to i32
-  %1798 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1796, ptr noundef %0, i32 noundef %1797, i32 noundef 1, i32 noundef 0) #4
-  %1799 = or disjoint i16 %1795, 1
-  %1800 = icmp eq i8 %1779, 0
-  br i1 %1800, label %1801, label %.thread19.i
-
-1801:                                             ; preds = %1787
-  %1802 = load i32, ptr @hf_cdma2k_Req_Rsci, align 4
-  %1803 = zext i16 %1799 to i32
-  %1804 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1802, ptr noundef %0, i32 noundef %1803, i32 noundef 4, i32 noundef 0) #4
-  %1805 = add i16 %1539, 21
+  %1790 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1788, ptr noundef %0, i32 noundef %1789, i32 noundef 4, i32 noundef 0) #4
+  %1791 = add i16 %1525, 21
   br label %.thread19.i
 
-.thread19.i:                                      ; preds = %1801, %1787, %1775
-  %.11.i205 = phi i16 [ %1805, %1801 ], [ %1799, %1787 ], [ %1785, %1775 ]
-  %1806 = load i32, ptr @hf_cdma2k_Rer_Mode_Incl, align 4
-  %1807 = zext i16 %.11.i205 to i32
-  %1808 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1806, ptr noundef %0, i32 noundef %1807, i32 noundef 1, i32 noundef 0) #4
-  %1809 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1807, i32 noundef 1) #4
-  %1810 = add i16 %.11.i205, 1
-  %1811 = icmp eq i8 %1809, 1
-  br i1 %1811, label %1812, label %1819
+.thread19.i:                                      ; preds = %1787, %1773, %1761
+  %.11.i205 = phi i16 [ %1791, %1787 ], [ %1785, %1773 ], [ %1771, %1761 ]
+  %1792 = load i32, ptr @hf_cdma2k_Rer_Mode_Incl, align 4
+  %1793 = zext i16 %.11.i205 to i32
+  %1794 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1792, ptr noundef %0, i32 noundef %1793, i32 noundef 1, i32 noundef 0) #4
+  %1795 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1793, i32 noundef 1) #4
+  %1796 = add i16 %.11.i205, 1
+  %1797 = icmp eq i8 %1795, 1
+  br i1 %1797, label %1798, label %1805
 
-1812:                                             ; preds = %.thread19.i
-  %1813 = load i32, ptr @hf_cdma2k_Rer_Mode_Enabled, align 4
-  %1814 = zext i16 %1810 to i32
-  %1815 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1813, ptr noundef %0, i32 noundef %1814, i32 noundef 1, i32 noundef 0) #4
-  %1816 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1814, i32 noundef 1) #4
-  %1817 = add i16 %.11.i205, 2
-  %1818 = icmp eq i8 %1816, 1
-  br label %1819
+1798:                                             ; preds = %.thread19.i
+  %1799 = load i32, ptr @hf_cdma2k_Rer_Mode_Enabled, align 4
+  %1800 = zext i16 %1796 to i32
+  %1801 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1799, ptr noundef %0, i32 noundef %1800, i32 noundef 1, i32 noundef 0) #4
+  %1802 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1800, i32 noundef 1) #4
+  %1803 = add i16 %.11.i205, 2
+  %1804 = icmp eq i8 %1802, 1
+  br label %1805
 
-1819:                                             ; preds = %1812, %.thread19.i
-  %.12.i206 = phi i16 [ %1817, %1812 ], [ %1810, %.thread19.i ]
-  %.0391.i = phi i1 [ %1818, %1812 ], [ false, %.thread19.i ]
-  %1820 = load i32, ptr @hf_cdma2k_Rer_Max_Num_Msg_Idx, align 4
-  %1821 = zext i16 %.12.i206 to i32
-  %1822 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1820, ptr noundef %0, i32 noundef %1821, i32 noundef 3, i32 noundef 0) #4
-  %1823 = add i16 %.12.i206, 3
-  %1824 = load i32, ptr @hf_cdma2k_Rer_Time, align 4
-  %1825 = zext i16 %1823 to i32
-  %1826 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1824, ptr noundef %0, i32 noundef %1825, i32 noundef 3, i32 noundef 0) #4
-  %1827 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1825, i32 noundef 3) #4
-  %1828 = add i16 %.12.i206, 6
-  %1829 = icmp ne i8 %1827, 7
-  %or.cond14.i = select i1 %1829, i1 %.0391.i, i1 false
-  br i1 %or.cond14.i, label %1830, label %1835
+1805:                                             ; preds = %1798, %.thread19.i
+  %.12.i206 = phi i16 [ %1803, %1798 ], [ %1796, %.thread19.i ]
+  %.0391.i = phi i1 [ %1804, %1798 ], [ false, %.thread19.i ]
+  %1806 = load i32, ptr @hf_cdma2k_Rer_Max_Num_Msg_Idx, align 4
+  %1807 = zext i16 %.12.i206 to i32
+  %1808 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1806, ptr noundef %0, i32 noundef %1807, i32 noundef 3, i32 noundef 0) #4
+  %1809 = add i16 %.12.i206, 3
+  %1810 = load i32, ptr @hf_cdma2k_Rer_Time, align 4
+  %1811 = zext i16 %1809 to i32
+  %1812 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1810, ptr noundef %0, i32 noundef %1811, i32 noundef 3, i32 noundef 0) #4
+  %1813 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1811, i32 noundef 3) #4
+  %1814 = add i16 %.12.i206, 6
+  %1815 = icmp ne i8 %1813, 7
+  %or.cond14.i = select i1 %1815, i1 %.0391.i, i1 false
+  br i1 %or.cond14.i, label %1816, label %1821
 
-1830:                                             ; preds = %1819
-  %1831 = load i32, ptr @hf_cdma2k_Rer_Time_Unit, align 4
-  %1832 = zext i16 %1828 to i32
-  %1833 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1831, ptr noundef %0, i32 noundef %1832, i32 noundef 2, i32 noundef 0) #4
-  %1834 = add i16 %.12.i206, 8
-  br label %1835
+1816:                                             ; preds = %1805
+  %1817 = load i32, ptr @hf_cdma2k_Rer_Time_Unit, align 4
+  %1818 = zext i16 %1814 to i32
+  %1819 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1817, ptr noundef %0, i32 noundef %1818, i32 noundef 2, i32 noundef 0) #4
+  %1820 = add i16 %.12.i206, 8
+  br label %1821
 
-1835:                                             ; preds = %1830, %1819
-  %.13.i207 = phi i16 [ %1834, %1830 ], [ %1828, %1819 ]
-  %1836 = load i32, ptr @hf_cdma2k_Max_Rer_Pilot_List_Size, align 4
-  %1837 = zext i16 %.13.i207 to i32
-  %1838 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1836, ptr noundef %0, i32 noundef %1837, i32 noundef 3, i32 noundef 0) #4
-  %1839 = add i16 %.13.i207, 3
-  %1840 = load i32, ptr @hf_cdma2k_Tkz_Mode_Incl, align 4
-  %1841 = zext i16 %1839 to i32
-  %1842 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1840, ptr noundef %0, i32 noundef %1841, i32 noundef 1, i32 noundef 0) #4
-  %1843 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1841, i32 noundef 1) #4
-  %1844 = add i16 %.13.i207, 4
-  %1845 = icmp eq i8 %1843, 1
-  br i1 %1845, label %1846, label %1851
+1821:                                             ; preds = %1816, %1805
+  %.13.i207 = phi i16 [ %1820, %1816 ], [ %1814, %1805 ]
+  %1822 = load i32, ptr @hf_cdma2k_Max_Rer_Pilot_List_Size, align 4
+  %1823 = zext i16 %.13.i207 to i32
+  %1824 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1822, ptr noundef %0, i32 noundef %1823, i32 noundef 3, i32 noundef 0) #4
+  %1825 = add i16 %.13.i207, 3
+  %1826 = load i32, ptr @hf_cdma2k_Tkz_Mode_Incl, align 4
+  %1827 = zext i16 %1825 to i32
+  %1828 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1826, ptr noundef %0, i32 noundef %1827, i32 noundef 1, i32 noundef 0) #4
+  %1829 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1827, i32 noundef 1) #4
+  %1830 = add i16 %.13.i207, 4
+  %1831 = icmp eq i8 %1829, 1
+  br i1 %1831, label %1832, label %1837
 
-1846:                                             ; preds = %1835
-  %1847 = load i32, ptr @hf_cdma2k_Tkz_Mode_Enabled, align 4
-  %1848 = zext i16 %1844 to i32
-  %1849 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1847, ptr noundef %0, i32 noundef %1848, i32 noundef 1, i32 noundef 0) #4
-  %1850 = add i16 %.13.i207, 5
-  br label %1851
+1832:                                             ; preds = %1821
+  %1833 = load i32, ptr @hf_cdma2k_Tkz_Mode_Enabled, align 4
+  %1834 = zext i16 %1830 to i32
+  %1835 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1833, ptr noundef %0, i32 noundef %1834, i32 noundef 1, i32 noundef 0) #4
+  %1836 = add i16 %.13.i207, 5
+  br label %1837
 
-1851:                                             ; preds = %1846, %1835
-  %.14.i208 = phi i16 [ %1850, %1846 ], [ %1844, %1835 ]
-  %1852 = load i32, ptr @hf_cdma2k_Tkz_Max_Num_Msg_Idx, align 4
-  %1853 = zext i16 %.14.i208 to i32
-  %1854 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1852, ptr noundef %0, i32 noundef %1853, i32 noundef 3, i32 noundef 0) #4
-  %1855 = add i16 %.14.i208, 3
-  %1856 = load i32, ptr @hf_cdma2k_Tkz_Update_Prd, align 4
-  %1857 = zext i16 %1855 to i32
-  %1858 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1856, ptr noundef %0, i32 noundef %1857, i32 noundef 4, i32 noundef 0) #4
-  %1859 = add i16 %.14.i208, 7
-  %1860 = load i32, ptr @hf_cdma2k_Tkz_List_Len, align 4
-  %1861 = zext i16 %1859 to i32
-  %1862 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1860, ptr noundef %0, i32 noundef %1861, i32 noundef 4, i32 noundef 0) #4
-  %1863 = add i16 %.14.i208, 11
-  %1864 = load i32, ptr @hf_cdma2k_Tkz_Timer, align 4
-  %1865 = zext i16 %1863 to i32
-  %1866 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1864, ptr noundef %0, i32 noundef %1865, i32 noundef 8, i32 noundef 0) #4
-  %1867 = add i16 %.14.i208, 19
+1837:                                             ; preds = %1832, %1821
+  %.14.i208 = phi i16 [ %1836, %1832 ], [ %1830, %1821 ]
+  %1838 = load i32, ptr @hf_cdma2k_Tkz_Max_Num_Msg_Idx, align 4
+  %1839 = zext i16 %.14.i208 to i32
+  %1840 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1838, ptr noundef %0, i32 noundef %1839, i32 noundef 3, i32 noundef 0) #4
+  %1841 = add i16 %.14.i208, 3
+  %1842 = load i32, ptr @hf_cdma2k_Tkz_Update_Prd, align 4
+  %1843 = zext i16 %1841 to i32
+  %1844 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1842, ptr noundef %0, i32 noundef %1843, i32 noundef 4, i32 noundef 0) #4
+  %1845 = add i16 %.14.i208, 7
+  %1846 = load i32, ptr @hf_cdma2k_Tkz_List_Len, align 4
+  %1847 = zext i16 %1845 to i32
+  %1848 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1846, ptr noundef %0, i32 noundef %1847, i32 noundef 4, i32 noundef 0) #4
+  %1849 = add i16 %.14.i208, 11
+  %1850 = load i32, ptr @hf_cdma2k_Tkz_Timer, align 4
+  %1851 = zext i16 %1849 to i32
+  %1852 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1850, ptr noundef %0, i32 noundef %1851, i32 noundef 8, i32 noundef 0) #4
+  %1853 = add i16 %.14.i208, 19
   br label %cdma2k_message_ORDER_CMD.exit
 
-1868:                                             ; preds = %1541
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1544, ptr noundef nonnull @.str.1198) #4
-  %1869 = load i32, ptr @hf_cdma2k_Ordq, align 4
-  %1870 = zext i16 %1540 to i32
-  %1871 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1869, ptr noundef %0, i32 noundef %1870, i32 noundef 8, i32 noundef 0) #4
-  %1872 = add i16 %1539, 9
-  %1873 = load i32, ptr @hf_cdma2k_Sr_Id_Bitmap, align 4
-  %1874 = zext i16 %1872 to i32
-  %1875 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1873, ptr noundef %0, i32 noundef %1874, i32 noundef 6, i32 noundef 0) #4
-  %1876 = or disjoint i16 %1872, 6
-  %1877 = load i32, ptr @hf_cdma2k_Service_Status, align 4
-  %1878 = zext i16 %1876 to i32
-  %1879 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1877, ptr noundef %0, i32 noundef %1878, i32 noundef 3, i32 noundef 0) #4
-  %1880 = add i16 %1539, 18
-  %1881 = zext i16 %1880 to i32
-  %1882 = load i32, ptr @hf_cdma2k_Reserved, align 4
-  %1883 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1882, ptr noundef %0, i32 noundef %1881, i32 noundef 6, i32 noundef 0) #4
+1854:                                             ; preds = %1527
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1530, ptr noundef nonnull @.str.1198) #4
+  %1855 = load i32, ptr @hf_cdma2k_Ordq, align 4
+  %1856 = zext i16 %1526 to i32
+  %1857 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1855, ptr noundef %0, i32 noundef %1856, i32 noundef 8, i32 noundef 0) #4
+  %1858 = add i16 %1525, 9
+  %1859 = load i32, ptr @hf_cdma2k_Sr_Id_Bitmap, align 4
+  %1860 = zext i16 %1858 to i32
+  %1861 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1859, ptr noundef %0, i32 noundef %1860, i32 noundef 6, i32 noundef 0) #4
+  %1862 = or disjoint i16 %1858, 6
+  %1863 = load i32, ptr @hf_cdma2k_Service_Status, align 4
+  %1864 = zext i16 %1862 to i32
+  %1865 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1863, ptr noundef %0, i32 noundef %1864, i32 noundef 3, i32 noundef 0) #4
+  %1866 = add i16 %1525, 18
+  %1867 = zext i16 %1866 to i32
+  %1868 = load i32, ptr @hf_cdma2k_Reserved, align 4
+  %1869 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1868, ptr noundef %0, i32 noundef %1867, i32 noundef 6, i32 noundef 0) #4
   br label %cdma2k_message_ORDER_CMD.exit
 
-1884:                                             ; preds = %1541
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1544, ptr noundef nonnull @.str.1199) #4
-  %1885 = load i32, ptr @hf_cdma2k_Ordq, align 4
-  %1886 = zext i16 %1540 to i32
-  %1887 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1885, ptr noundef %0, i32 noundef %1886, i32 noundef 8, i32 noundef 0) #4
-  %1888 = add i16 %1539, 9
-  %1889 = load i32, ptr @hf_cdma2k_Regulatory_Ind_Incl, align 4
-  %1890 = zext i16 %1888 to i32
-  %1891 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1889, ptr noundef %0, i32 noundef %1890, i32 noundef 1, i32 noundef 0) #4
-  %1892 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1890, i32 noundef 1) #4
-  %1893 = add i16 %1539, 10
-  %1894 = icmp eq i8 %1892, 1
-  br i1 %1894, label %1895, label %cdma2k_message_ORDER_CMD.exit
+1870:                                             ; preds = %1527
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1530, ptr noundef nonnull @.str.1199) #4
+  %1871 = load i32, ptr @hf_cdma2k_Ordq, align 4
+  %1872 = zext i16 %1526 to i32
+  %1873 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1871, ptr noundef %0, i32 noundef %1872, i32 noundef 8, i32 noundef 0) #4
+  %1874 = add i16 %1525, 9
+  %1875 = load i32, ptr @hf_cdma2k_Regulatory_Ind_Incl, align 4
+  %1876 = zext i16 %1874 to i32
+  %1877 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1875, ptr noundef %0, i32 noundef %1876, i32 noundef 1, i32 noundef 0) #4
+  %1878 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1876, i32 noundef 1) #4
+  %1879 = add i16 %1525, 10
+  %1880 = icmp eq i8 %1878, 1
+  br i1 %1880, label %1881, label %cdma2k_message_ORDER_CMD.exit
 
-1895:                                             ; preds = %1884
-  %1896 = load i32, ptr @hf_cdma2k_Regulatory_Ind, align 4
-  %1897 = zext i16 %1893 to i32
-  %1898 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1546, i32 noundef %1896, ptr noundef %0, i32 noundef %1897, i32 noundef 2, i32 noundef 0) #4
-  %1899 = add i16 %1539, 12
+1881:                                             ; preds = %1870
+  %1882 = load i32, ptr @hf_cdma2k_Regulatory_Ind, align 4
+  %1883 = zext i16 %1879 to i32
+  %1884 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1532, i32 noundef %1882, ptr noundef %0, i32 noundef %1883, i32 noundef 2, i32 noundef 0) #4
+  %1885 = add i16 %1525, 12
   br label %cdma2k_message_ORDER_CMD.exit
 
-1900:                                             ; preds = %1541
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1544, ptr noundef nonnull @.str.1200) #4
+1886:                                             ; preds = %1527
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1530, ptr noundef nonnull @.str.1200) #4
   br label %cdma2k_message_ORDER_CMD.exit
 
-cdma2k_message_ORDER_CMD.exit:                    ; preds = %1520, %1547, %1560, %1565, %1577, %1587, %.thread5.i, %1651, %1670, %1675, %1719, %1770, %1851, %1868, %1884, %1895, %1900
-  %.15.i203 = phi i16 [ %1540, %1900 ], [ %1899, %1895 ], [ %1893, %1884 ], [ %1880, %1868 ], [ %1867, %1851 ], [ %1774, %1770 ], [ %1724, %1719 ], [ %1691, %1675 ], [ %1674, %1670 ], [ %.2.i212, %1651 ], [ %.2.i212, %.thread5.i ], [ %1599, %1587 ], [ %1585, %1577 ], [ %1575, %1565 ], [ %1564, %1560 ], [ %1559, %1547 ], [ %1540, %1520 ]
-  %1901 = zext i16 %.15.i203 to i32
-  %1902 = and i32 %1901, 7
-  %1903 = icmp ne i32 %1902, 0
-  %1904 = lshr i32 %1901, 3
-  %1905 = zext i1 %1903 to i32
-  %storemerge.i204 = add nuw nsw i32 %1904, %1905
+cdma2k_message_ORDER_CMD.exit:                    ; preds = %1506, %1533, %1546, %1551, %1563, %1573, %.thread5.i, %1637, %1656, %1661, %1705, %1756, %1837, %1854, %1870, %1881, %1886
+  %.15.i203 = phi i16 [ %1526, %1886 ], [ %1885, %1881 ], [ %1879, %1870 ], [ %1866, %1854 ], [ %1853, %1837 ], [ %1760, %1756 ], [ %1710, %1705 ], [ %1677, %1661 ], [ %1660, %1656 ], [ %.2.i212, %1637 ], [ %.2.i212, %.thread5.i ], [ %1585, %1573 ], [ %1571, %1563 ], [ %1561, %1551 ], [ %1550, %1546 ], [ %1545, %1533 ], [ %1526, %1506 ]
+  %1887 = zext i16 %.15.i203 to i32
+  %1888 = and i32 %1887, 7
+  %1889 = icmp ne i32 %1888, 0
+  %1890 = lshr i32 %1887, 3
+  %1891 = zext i1 %1889 to i32
+  %storemerge.i204 = add nuw nsw i32 %1890, %1891
   store i32 %storemerge.i204, ptr %2, align 4
   br label %cdma2k_message_GEN_PAGE_REQ.exit
 
-1906:                                             ; preds = %316
-  %1907 = load i32, ptr @hf_cdma2k_DataBurstCmdMsg, align 4
-  %1908 = tail call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %1907, ptr noundef %0, i32 noundef %315, i32 noundef -1, i32 noundef 0) #4
-  %1909 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %1910 = tail call ptr @proto_item_add_subtree(ptr noundef %1908, i32 noundef %1909) #4
-  %1911 = load i32, ptr @hf_cdma2k_Msg_Number, align 4
-  %1912 = load i32, ptr %2, align 4
-  %1913 = tail call ptr @proto_tree_add_item(ptr noundef %1910, i32 noundef %1911, ptr noundef %0, i32 noundef %1912, i32 noundef 1, i32 noundef 0) #4
-  %1914 = load i32, ptr %2, align 4
-  %1915 = add i32 %1914, 1
-  store i32 %1915, ptr %2, align 4
-  %1916 = load i32, ptr @hf_cdma2k_Burst_Type, align 4
-  %1917 = shl i32 %1915, 3
-  %1918 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1910, i32 noundef %1916, ptr noundef %0, i32 noundef %1917, i32 noundef 6, i32 noundef 0) #4
-  %1919 = load i32, ptr @hf_cdma2k_Num_Msgs, align 4
+1892:                                             ; preds = %302
+  %1893 = load i32, ptr @hf_cdma2k_DataBurstCmdMsg, align 4
+  %1894 = tail call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %1893, ptr noundef %0, i32 noundef %301, i32 noundef -1, i32 noundef 0) #4
+  %1895 = load i32, ptr @ett_cdma2k_subtree1, align 4
+  %1896 = tail call ptr @proto_item_add_subtree(ptr noundef %1894, i32 noundef %1895) #4
+  %1897 = load i32, ptr @hf_cdma2k_Msg_Number, align 4
+  %1898 = load i32, ptr %2, align 4
+  %1899 = tail call ptr @proto_tree_add_item(ptr noundef %1896, i32 noundef %1897, ptr noundef %0, i32 noundef %1898, i32 noundef 1, i32 noundef 0) #4
+  %1900 = load i32, ptr %2, align 4
+  %1901 = add i32 %1900, 1
+  store i32 %1901, ptr %2, align 4
+  %1902 = load i32, ptr @hf_cdma2k_Burst_Type, align 4
+  %1903 = shl i32 %1901, 3
+  %1904 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1896, i32 noundef %1902, ptr noundef %0, i32 noundef %1903, i32 noundef 6, i32 noundef 0) #4
+  %1905 = load i32, ptr @hf_cdma2k_Num_Msgs, align 4
+  %1906 = load i32, ptr %2, align 4
+  %1907 = shl i32 %1906, 3
+  %1908 = or disjoint i32 %1907, 6
+  %1909 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1896, i32 noundef %1905, ptr noundef %0, i32 noundef %1908, i32 noundef 8, i32 noundef 0) #4
+  %1910 = load i32, ptr %2, align 4
+  %1911 = add i32 %1910, 1
+  store i32 %1911, ptr %2, align 4
+  %1912 = load i32, ptr @hf_cdma2k_Num_Fields, align 4
+  %1913 = shl i32 %1911, 3
+  %1914 = or disjoint i32 %1913, 6
+  %1915 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1896, i32 noundef %1912, ptr noundef %0, i32 noundef %1914, i32 noundef 8, i32 noundef 0) #4
+  %1916 = load i32, ptr %2, align 4
+  %1917 = shl i32 %1916, 3
+  %1918 = or disjoint i32 %1917, 6
+  %1919 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1918, i32 noundef 8) #4
   %1920 = load i32, ptr %2, align 4
-  %1921 = shl i32 %1920, 3
-  %1922 = or disjoint i32 %1921, 6
-  %1923 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1910, i32 noundef %1919, ptr noundef %0, i32 noundef %1922, i32 noundef 8, i32 noundef 0) #4
-  %1924 = load i32, ptr %2, align 4
-  %1925 = add i32 %1924, 1
-  store i32 %1925, ptr %2, align 4
-  %1926 = load i32, ptr @hf_cdma2k_Num_Fields, align 4
-  %1927 = shl i32 %1925, 3
-  %1928 = or disjoint i32 %1927, 6
-  %1929 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1910, i32 noundef %1926, ptr noundef %0, i32 noundef %1928, i32 noundef 8, i32 noundef 0) #4
-  %1930 = load i32, ptr %2, align 4
-  %1931 = shl i32 %1930, 3
-  %1932 = or disjoint i32 %1931, 6
-  %1933 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1932, i32 noundef 8) #4
-  %1934 = load i32, ptr %2, align 4
-  %1935 = add i32 %1934, 1
-  store i32 %1935, ptr %2, align 4
-  %1936 = load i32, ptr @hf_cdma2k_Chari_Data, align 4
-  %1937 = tail call ptr @proto_tree_add_item(ptr noundef %1910, i32 noundef %1936, ptr noundef %0, i32 noundef %1935, i32 noundef -1, i32 noundef 0) #4
-  %1938 = load i32, ptr @ett_cdma2k_subtree2, align 4
-  %1939 = tail call ptr @proto_item_add_subtree(ptr noundef %1937, i32 noundef %1938) #4
-  %1940 = load i32, ptr @hf_cdma2k_Msg_Identifier, align 4
-  %1941 = load i32, ptr %2, align 4
-  %1942 = shl i32 %1941, 3
-  %1943 = or disjoint i32 %1942, 6
-  %1944 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1939, i32 noundef %1940, ptr noundef %0, i32 noundef %1943, i32 noundef 8, i32 noundef 0) #4
-  %1945 = load i32, ptr %2, align 4
-  %1946 = add i32 %1945, 1
-  store i32 %1946, ptr %2, align 4
-  %1947 = zext i8 %1933 to i32
-  %1948 = add nuw nsw i32 %1947, 65535
-  %1949 = and i32 %1948, 65535
-  %.not4.i214 = icmp eq i32 %1949, 0
+  %1921 = add i32 %1920, 1
+  store i32 %1921, ptr %2, align 4
+  %1922 = load i32, ptr @hf_cdma2k_Chari_Data, align 4
+  %1923 = tail call ptr @proto_tree_add_item(ptr noundef %1896, i32 noundef %1922, ptr noundef %0, i32 noundef %1921, i32 noundef -1, i32 noundef 0) #4
+  %1924 = load i32, ptr @ett_cdma2k_subtree2, align 4
+  %1925 = tail call ptr @proto_item_add_subtree(ptr noundef %1923, i32 noundef %1924) #4
+  %1926 = load i32, ptr @hf_cdma2k_Msg_Identifier, align 4
+  %1927 = load i32, ptr %2, align 4
+  %1928 = shl i32 %1927, 3
+  %1929 = or disjoint i32 %1928, 6
+  %1930 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1925, i32 noundef %1926, ptr noundef %0, i32 noundef %1929, i32 noundef 8, i32 noundef 0) #4
+  %1931 = load i32, ptr %2, align 4
+  %1932 = add i32 %1931, 1
+  store i32 %1932, ptr %2, align 4
+  %1933 = zext i8 %1919 to i32
+  %1934 = add nuw nsw i32 %1933, 65535
+  %1935 = and i32 %1934, 65535
+  %.not4.i214 = icmp eq i32 %1935, 0
   br i1 %.not4.i214, label %cdma2k_message_DATA_BURST_CMD.exit, label %.lr.ph8.i215
 
-.lr.ph8.i215:                                     ; preds = %1906, %._crit_edge.i228
-  %.0756.i216 = phi i16 [ %.176.lcssa.i229, %._crit_edge.i228 ], [ 1, %1906 ]
-  %.0785.i217 = phi i32 [ %2002, %._crit_edge.i228 ], [ %1948, %1906 ]
-  %1950 = load i32, ptr @hf_cdma2k_Parm_Id, align 4
-  %1951 = load i32, ptr %2, align 4
-  %1952 = shl i32 %1951, 3
-  %1953 = or disjoint i32 %1952, 6
-  %1954 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1939, i32 noundef %1950, ptr noundef %0, i32 noundef %1953, i32 noundef 8, i32 noundef 0) #4
-  %1955 = load i32, ptr @ett_cdma2k_subtree2, align 4
-  %1956 = tail call ptr @proto_item_add_subtree(ptr noundef %1954, i32 noundef %1955) #4
-  %1957 = load i32, ptr %2, align 4
-  %1958 = add i32 %1957, 1
-  store i32 %1958, ptr %2, align 4
-  %1959 = load i32, ptr @hf_cdma2k_Parm_Length, align 4
-  %1960 = shl i32 %1958, 3
-  %1961 = or disjoint i32 %1960, 6
-  %1962 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1956, i32 noundef %1959, ptr noundef %0, i32 noundef %1961, i32 noundef 8, i32 noundef 0) #4
+.lr.ph8.i215:                                     ; preds = %1892, %._crit_edge.i228
+  %.0756.i216 = phi i16 [ %.176.lcssa.i229, %._crit_edge.i228 ], [ 1, %1892 ]
+  %.0785.i217 = phi i32 [ %1988, %._crit_edge.i228 ], [ %1934, %1892 ]
+  %1936 = load i32, ptr @hf_cdma2k_Parm_Id, align 4
+  %1937 = load i32, ptr %2, align 4
+  %1938 = shl i32 %1937, 3
+  %1939 = or disjoint i32 %1938, 6
+  %1940 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1925, i32 noundef %1936, ptr noundef %0, i32 noundef %1939, i32 noundef 8, i32 noundef 0) #4
+  %1941 = load i32, ptr @ett_cdma2k_subtree2, align 4
+  %1942 = tail call ptr @proto_item_add_subtree(ptr noundef %1940, i32 noundef %1941) #4
+  %1943 = load i32, ptr %2, align 4
+  %1944 = add i32 %1943, 1
+  store i32 %1944, ptr %2, align 4
+  %1945 = load i32, ptr @hf_cdma2k_Parm_Length, align 4
+  %1946 = shl i32 %1944, 3
+  %1947 = or disjoint i32 %1946, 6
+  %1948 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1942, i32 noundef %1945, ptr noundef %0, i32 noundef %1947, i32 noundef 8, i32 noundef 0) #4
+  %1949 = load i32, ptr %2, align 4
+  %1950 = shl i32 %1949, 3
+  %1951 = or disjoint i32 %1950, 6
+  %1952 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1951, i32 noundef 8) #4
+  %1953 = load i32, ptr %2, align 4
+  %1954 = add i32 %1953, 1
+  store i32 %1954, ptr %2, align 4
+  %1955 = add i32 %.0785.i217, 65534
+  %1956 = zext i16 %.0756.i216 to i32
+  %1957 = shl nuw nsw i32 %1956, 5
+  %1958 = zext i8 %1952 to i32
+  %1959 = icmp ult i32 %1957, %1958
+  %1960 = add nuw nsw i32 %1958, 1
+  %.073.i218 = select i1 %1959, i32 32, i32 %1960
+  %1961 = load i32, ptr @hf_cdma2k_Parm_Value, align 4
+  %1962 = tail call ptr @proto_tree_add_item(ptr noundef %1942, i32 noundef %1961, ptr noundef %0, i32 noundef %1954, i32 noundef %.073.i218, i32 noundef 0) #4
+  %.not10.i219 = icmp eq i8 %1952, 0
+  br i1 %.not10.i219, label %._crit_edge.i228, label %.lr.ph.i220
+
+.lr.ph.i220:                                      ; preds = %.lr.ph8.i215, %1987
+  %indvars.iv.i221 = phi i32 [ %indvars.iv.next.i226, %1987 ], [ 0, %.lr.ph8.i215 ]
+  %.03.i222 = phi ptr [ %.1.i225, %1987 ], [ %1962, %.lr.ph8.i215 ]
+  %.1762.i223 = phi i16 [ %.2.i224, %1987 ], [ %.0756.i216, %.lr.ph8.i215 ]
   %1963 = load i32, ptr %2, align 4
   %1964 = shl i32 %1963, 3
   %1965 = or disjoint i32 %1964, 6
   %1966 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1965, i32 noundef 8) #4
-  %1967 = load i32, ptr %2, align 4
-  %1968 = add i32 %1967, 1
-  store i32 %1968, ptr %2, align 4
-  %1969 = add i32 %.0785.i217, 65534
-  %1970 = zext i16 %.0756.i216 to i32
-  %1971 = shl nuw nsw i32 %1970, 5
-  %1972 = zext i8 %1966 to i32
-  %1973 = icmp ult i32 %1971, %1972
-  %1974 = add nuw nsw i32 %1972, 1
-  %.073.i218 = select i1 %1973, i32 32, i32 %1974
-  %1975 = load i32, ptr @hf_cdma2k_Parm_Value, align 4
-  %1976 = tail call ptr @proto_tree_add_item(ptr noundef %1956, i32 noundef %1975, ptr noundef %0, i32 noundef %1968, i32 noundef %.073.i218, i32 noundef 0) #4
-  %.not10.i219 = icmp eq i8 %1966, 0
-  br i1 %.not10.i219, label %._crit_edge.i228, label %.lr.ph.i220
+  %1967 = zext i8 %1966 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.03.i222, ptr noundef nonnull @.str.1164, i32 noundef %1967) #4
+  %1968 = load i32, ptr %2, align 4
+  %1969 = add i32 %1968, 1
+  store i32 %1969, ptr %2, align 4
+  %1970 = and i32 %indvars.iv.i221, 7
+  %1971 = icmp eq i32 %1970, 7
+  br i1 %1971, label %1972, label %1973
 
-.lr.ph.i220:                                      ; preds = %.lr.ph8.i215, %2001
-  %indvars.iv.i221 = phi i32 [ %indvars.iv.next.i226, %2001 ], [ 0, %.lr.ph8.i215 ]
-  %.03.i222 = phi ptr [ %.1.i225, %2001 ], [ %1976, %.lr.ph8.i215 ]
-  %.1762.i223 = phi i16 [ %.2.i224, %2001 ], [ %.0756.i216, %.lr.ph8.i215 ]
-  %1977 = load i32, ptr %2, align 4
-  %1978 = shl i32 %1977, 3
-  %1979 = or disjoint i32 %1978, 6
-  %1980 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1979, i32 noundef 8) #4
-  %1981 = zext i8 %1980 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.03.i222, ptr noundef nonnull @.str.1164, i32 noundef %1981) #4
-  %1982 = load i32, ptr %2, align 4
-  %1983 = add i32 %1982, 1
-  store i32 %1983, ptr %2, align 4
-  %1984 = and i32 %indvars.iv.i221, 7
-  %1985 = icmp eq i32 %1984, 7
-  br i1 %1985, label %1986, label %1987
-
-1986:                                             ; preds = %.lr.ph.i220
+1972:                                             ; preds = %.lr.ph.i220
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.03.i222, ptr noundef nonnull @.str.1181) #4
+  br label %1973
+
+1973:                                             ; preds = %1972, %.lr.ph.i220
+  %1974 = and i32 %indvars.iv.i221, 31
+  %1975 = icmp eq i32 %1974, 31
+  br i1 %1975, label %1976, label %1987
+
+1976:                                             ; preds = %1973
+  %1977 = zext i16 %.1762.i223 to i32
+  %1978 = shl nuw nsw i32 %1977, 5
+  %1979 = icmp ult i32 %1978, %1958
+  %1980 = sub nsw i32 %1958, %1978
+  %1981 = and i32 %1980, 65535
+  %1982 = load i32, ptr @hf_cdma2k_Parm_Value, align 4
+  %1983 = load i32, ptr %2, align 4
+  %1984 = select i1 %1979, i32 32, i32 %1981
+  %1985 = tail call ptr @proto_tree_add_item(ptr noundef %1942, i32 noundef %1982, ptr noundef %0, i32 noundef %1983, i32 noundef %1984, i32 noundef 0) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1985, ptr noundef nonnull @.str.1182) #4
+  %1986 = add i16 %.1762.i223, 1
   br label %1987
 
-1987:                                             ; preds = %1986, %.lr.ph.i220
-  %1988 = and i32 %indvars.iv.i221, 31
-  %1989 = icmp eq i32 %1988, 31
-  br i1 %1989, label %1990, label %2001
-
-1990:                                             ; preds = %1987
-  %1991 = zext i16 %.1762.i223 to i32
-  %1992 = shl nuw nsw i32 %1991, 5
-  %1993 = icmp ult i32 %1992, %1972
-  %1994 = sub nsw i32 %1972, %1992
-  %1995 = and i32 %1994, 65535
-  %1996 = load i32, ptr @hf_cdma2k_Parm_Value, align 4
-  %1997 = load i32, ptr %2, align 4
-  %1998 = select i1 %1993, i32 32, i32 %1995
-  %1999 = tail call ptr @proto_tree_add_item(ptr noundef %1956, i32 noundef %1996, ptr noundef %0, i32 noundef %1997, i32 noundef %1998, i32 noundef 0) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1999, ptr noundef nonnull @.str.1182) #4
-  %2000 = add i16 %.1762.i223, 1
-  br label %2001
-
-2001:                                             ; preds = %1990, %1987
-  %.2.i224 = phi i16 [ %2000, %1990 ], [ %.1762.i223, %1987 ]
-  %.1.i225 = phi ptr [ %1999, %1990 ], [ %.03.i222, %1987 ]
+1987:                                             ; preds = %1976, %1973
+  %.2.i224 = phi i16 [ %1986, %1976 ], [ %.1762.i223, %1973 ]
+  %.1.i225 = phi ptr [ %1985, %1976 ], [ %.03.i222, %1973 ]
   %indvars.iv.next.i226 = add nuw nsw i32 %indvars.iv.i221, 1
-  %exitcond.not.i227 = icmp eq i32 %indvars.iv.next.i226, %1972
+  %exitcond.not.i227 = icmp eq i32 %indvars.iv.next.i226, %1958
   br i1 %exitcond.not.i227, label %._crit_edge.i228, label %.lr.ph.i220, !llvm.loop !16
 
-._crit_edge.i228:                                 ; preds = %2001, %.lr.ph8.i215
-  %.176.lcssa.i229 = phi i16 [ %.0756.i216, %.lr.ph8.i215 ], [ %.2.i224, %2001 ]
-  %2002 = sub i32 %1969, %1972
-  %2003 = and i32 %2002, 65535
-  %.not.i230 = icmp eq i32 %2003, 0
+._crit_edge.i228:                                 ; preds = %1987, %.lr.ph8.i215
+  %.176.lcssa.i229 = phi i16 [ %.0756.i216, %.lr.ph8.i215 ], [ %.2.i224, %1987 ]
+  %1988 = sub i32 %1955, %1958
+  %1989 = and i32 %1988, 65535
+  %.not.i230 = icmp eq i32 %1989, 0
   br i1 %.not.i230, label %._crit_edge9.loopexit.i231, label %.lr.ph8.i215, !llvm.loop !17
 
 ._crit_edge9.loopexit.i231:                       ; preds = %._crit_edge.i228
   %.pre.i232 = load i32, ptr %2, align 4
   br label %cdma2k_message_DATA_BURST_CMD.exit
 
-cdma2k_message_DATA_BURST_CMD.exit:               ; preds = %1906, %._crit_edge9.loopexit.i231
-  %2004 = phi i32 [ %.pre.i232, %._crit_edge9.loopexit.i231 ], [ %1946, %1906 ]
-  %2005 = add i32 %2004, 1
-  store i32 %2005, ptr %2, align 4
+cdma2k_message_DATA_BURST_CMD.exit:               ; preds = %1892, %._crit_edge9.loopexit.i231
+  %1990 = phi i32 [ %.pre.i232, %._crit_edge9.loopexit.i231 ], [ %1932, %1892 ]
+  %1991 = add i32 %1990, 1
+  store i32 %1991, ptr %2, align 4
   br label %cdma2k_message_GEN_PAGE_REQ.exit
 
-2006:                                             ; preds = %316
-  %2007 = load i32, ptr @hf_cdma2k_AuthChallReqMsg, align 4
-  %2008 = tail call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %2007, ptr noundef %0, i32 noundef %315, i32 noundef -1, i32 noundef 0) #4
-  %2009 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %2010 = tail call ptr @proto_item_add_subtree(ptr noundef %2008, i32 noundef %2009) #4
-  %2011 = load i32, ptr @hf_cdma2k_Randu, align 4
-  %2012 = load i32, ptr %2, align 4
-  %2013 = shl i32 %2012, 3
-  %2014 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2010, i32 noundef %2011, ptr noundef %0, i32 noundef %2013, i32 noundef 24, i32 noundef 0) #4
-  %2015 = load i32, ptr %2, align 4
-  %2016 = add i32 %2015, 3
-  store i32 %2016, ptr %2, align 4
-  %2017 = load i32, ptr @hf_cdma2k_Gen_Cmea_Key, align 4
-  %2018 = tail call ptr @proto_tree_add_item(ptr noundef %2010, i32 noundef %2017, ptr noundef %0, i32 noundef %2016, i32 noundef 1, i32 noundef 0) #4
-  %2019 = load i32, ptr %2, align 4
-  %2020 = add i32 %2019, 1
-  store i32 %2020, ptr %2, align 4
+1992:                                             ; preds = %302
+  %1993 = load i32, ptr @hf_cdma2k_AuthChallReqMsg, align 4
+  %1994 = tail call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %1993, ptr noundef %0, i32 noundef %301, i32 noundef -1, i32 noundef 0) #4
+  %1995 = load i32, ptr @ett_cdma2k_subtree1, align 4
+  %1996 = tail call ptr @proto_item_add_subtree(ptr noundef %1994, i32 noundef %1995) #4
+  %1997 = load i32, ptr @hf_cdma2k_Randu, align 4
+  %1998 = load i32, ptr %2, align 4
+  %1999 = shl i32 %1998, 3
+  %2000 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1996, i32 noundef %1997, ptr noundef %0, i32 noundef %1999, i32 noundef 24, i32 noundef 0) #4
+  %2001 = load i32, ptr %2, align 4
+  %2002 = add i32 %2001, 3
+  store i32 %2002, ptr %2, align 4
+  %2003 = load i32, ptr @hf_cdma2k_Gen_Cmea_Key, align 4
+  %2004 = tail call ptr @proto_tree_add_item(ptr noundef %1996, i32 noundef %2003, ptr noundef %0, i32 noundef %2002, i32 noundef 1, i32 noundef 0) #4
+  %2005 = load i32, ptr %2, align 4
+  %2006 = add i32 %2005, 1
+  store i32 %2006, ptr %2, align 4
   br label %cdma2k_message_GEN_PAGE_REQ.exit
 
-2021:                                             ; preds = %316
-  %2022 = load i32, ptr @hf_cdma2k_GenPageReqMsg, align 4
-  %2023 = tail call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %2022, ptr noundef %0, i32 noundef %315, i32 noundef -1, i32 noundef 0) #4
-  %2024 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %2025 = tail call ptr @proto_item_add_subtree(ptr noundef %2023, i32 noundef %2024) #4
-  %.not.i233 = icmp eq i16 %313, 0
-  br i1 %.not.i233, label %cdma2k_message_GEN_PAGE_REQ.exit, label %2026
+2007:                                             ; preds = %302
+  %2008 = load i32, ptr @hf_cdma2k_GenPageReqMsg, align 4
+  %2009 = tail call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %2008, ptr noundef %0, i32 noundef %301, i32 noundef -1, i32 noundef 0) #4
+  %2010 = load i32, ptr @ett_cdma2k_subtree1, align 4
+  %2011 = tail call ptr @proto_item_add_subtree(ptr noundef %2009, i32 noundef %2010) #4
+  %.not.i233 = icmp eq i16 %299, 0
+  br i1 %.not.i233, label %cdma2k_message_GEN_PAGE_REQ.exit, label %2012
 
-2026:                                             ; preds = %2021
-  %2027 = load i32, ptr @hf_cdma2k_service_option, align 4
-  %2028 = load i32, ptr %2, align 4
-  %2029 = tail call ptr @proto_tree_add_item(ptr noundef %2025, i32 noundef %2027, ptr noundef %0, i32 noundef %2028, i32 noundef 2, i32 noundef 0) #4
-  %2030 = load i32, ptr %2, align 4
-  %2031 = add i32 %2030, 2
-  store i32 %2031, ptr %2, align 4
+2012:                                             ; preds = %2007
+  %2013 = load i32, ptr @hf_cdma2k_service_option, align 4
+  %2014 = load i32, ptr %2, align 4
+  %2015 = tail call ptr @proto_tree_add_item(ptr noundef %2011, i32 noundef %2013, ptr noundef %0, i32 noundef %2014, i32 noundef 2, i32 noundef 0) #4
+  %2016 = load i32, ptr %2, align 4
+  %2017 = add i32 %2016, 2
+  store i32 %2017, ptr %2, align 4
   br label %cdma2k_message_GEN_PAGE_REQ.exit
 
-2032:                                             ; preds = %316
+2018:                                             ; preds = %302
   store i16 0, ptr %3, align 2
   br label %cdma2k_message_GEN_PAGE_REQ.exit
 
-2033:                                             ; preds = %303
-  switch i8 %37, label %2554 [
-    i8 3, label %2034
-    i8 34, label %2553
-    i8 53, label %2553
+2019:                                             ; preds = %289
+  switch i8 %37, label %2540 [
+    i8 3, label %2020
+    i8 34, label %2539
+    i8 53, label %2539
   ]
 
-2034:                                             ; preds = %2033
-  %2035 = load i32, ptr @hf_cdma2k_AlertWithInfoMsg, align 4
-  %2036 = tail call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %2035, ptr noundef %0, i32 noundef %315, i32 noundef -1, i32 noundef 0) #4
-  %2037 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %2038 = tail call ptr @proto_item_add_subtree(ptr noundef %2036, i32 noundef %2037) #4
-  %2039 = load i32, ptr %2, align 4
-  %2040 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %2039) #4
-  %.not31.i = icmp eq i32 %2040, 0
+2020:                                             ; preds = %2019
+  %2021 = load i32, ptr @hf_cdma2k_AlertWithInfoMsg, align 4
+  %2022 = tail call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %2021, ptr noundef %0, i32 noundef %301, i32 noundef -1, i32 noundef 0) #4
+  %2023 = load i32, ptr @ett_cdma2k_subtree1, align 4
+  %2024 = tail call ptr @proto_item_add_subtree(ptr noundef %2022, i32 noundef %2023) #4
+  %2025 = load i32, ptr %2, align 4
+  %2026 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %2025) #4
+  %.not31.i = icmp eq i32 %2026, 0
   br i1 %.not31.i, label %cdma2k_message_GEN_PAGE_REQ.exit, label %.lr.ph34.i
 
-.lr.ph34.i:                                       ; preds = %2034, %.loopexit.i234
-  %.032.i = phi i16 [ %2045, %.loopexit.i234 ], [ 1, %2034 ]
-  %2041 = load i32, ptr @hf_cdma2k_Info_Rec, align 4
-  %2042 = load i32, ptr %2, align 4
-  %2043 = tail call ptr @proto_tree_add_item(ptr noundef %2038, i32 noundef %2041, ptr noundef %0, i32 noundef %2042, i32 noundef 1, i32 noundef 0) #4
-  %2044 = zext i16 %.032.i to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2043, ptr noundef nonnull @.str.1201, i32 noundef %2044) #4
-  %2045 = add i16 %.032.i, 1
-  %2046 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %2047 = tail call ptr @proto_item_add_subtree(ptr noundef %2043, i32 noundef %2046) #4
-  %2048 = load i32, ptr @hf_cdma2k_Record_Type, align 4
-  %2049 = load i32, ptr %2, align 4
-  %2050 = tail call ptr @proto_tree_add_item(ptr noundef %2047, i32 noundef %2048, ptr noundef %0, i32 noundef %2049, i32 noundef 1, i32 noundef 0) #4
-  %2051 = load i32, ptr %2, align 4
-  %2052 = shl i32 %2051, 3
-  %2053 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2052, i32 noundef 8) #4
-  %2054 = load i32, ptr %2, align 4
-  %2055 = add i32 %2054, 1
-  store i32 %2055, ptr %2, align 4
-  %2056 = load i32, ptr @hf_cdma2k_Record_Len, align 4
-  %2057 = tail call ptr @proto_tree_add_item(ptr noundef %2047, i32 noundef %2056, ptr noundef %0, i32 noundef %2055, i32 noundef 1, i32 noundef 0) #4
-  %2058 = load i32, ptr %2, align 4
-  %2059 = shl i32 %2058, 3
-  %2060 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2059, i32 noundef 8) #4
-  %2061 = zext i8 %2060 to i16
-  %2062 = load i32, ptr %2, align 4
-  %2063 = add i32 %2062, 1
-  store i32 %2063, ptr %2, align 4
-  %2064 = load i32, ptr @hf_cdma2k_Type_Specific_Fields, align 4
-  %2065 = zext i8 %2060 to i32
-  %2066 = tail call ptr @proto_tree_add_item(ptr noundef %2047, i32 noundef %2064, ptr noundef %0, i32 noundef %2063, i32 noundef %2065, i32 noundef 0) #4
-  switch i8 %2053, label %2550 [
-    i8 1, label %2067
-    i8 2, label %2080
-    i8 3, label %2112
-    i8 5, label %2157
-    i8 6, label %2182
-    i8 8, label %2190
-    i8 9, label %2228
-    i8 11, label %2266
-    i8 12, label %2347
-    i8 13, label %2385
-    i8 14, label %2417
-    i8 15, label %2490
-    i8 21, label %2536
+.lr.ph34.i:                                       ; preds = %2020, %.loopexit.i234
+  %.032.i = phi i16 [ %2031, %.loopexit.i234 ], [ 1, %2020 ]
+  %2027 = load i32, ptr @hf_cdma2k_Info_Rec, align 4
+  %2028 = load i32, ptr %2, align 4
+  %2029 = tail call ptr @proto_tree_add_item(ptr noundef %2024, i32 noundef %2027, ptr noundef %0, i32 noundef %2028, i32 noundef 1, i32 noundef 0) #4
+  %2030 = zext i16 %.032.i to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2029, ptr noundef nonnull @.str.1201, i32 noundef %2030) #4
+  %2031 = add i16 %.032.i, 1
+  %2032 = load i32, ptr @ett_cdma2k_subtree1, align 4
+  %2033 = tail call ptr @proto_item_add_subtree(ptr noundef %2029, i32 noundef %2032) #4
+  %2034 = load i32, ptr @hf_cdma2k_Record_Type, align 4
+  %2035 = load i32, ptr %2, align 4
+  %2036 = tail call ptr @proto_tree_add_item(ptr noundef %2033, i32 noundef %2034, ptr noundef %0, i32 noundef %2035, i32 noundef 1, i32 noundef 0) #4
+  %2037 = load i32, ptr %2, align 4
+  %2038 = shl i32 %2037, 3
+  %2039 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2038, i32 noundef 8) #4
+  %2040 = load i32, ptr %2, align 4
+  %2041 = add i32 %2040, 1
+  store i32 %2041, ptr %2, align 4
+  %2042 = load i32, ptr @hf_cdma2k_Record_Len, align 4
+  %2043 = tail call ptr @proto_tree_add_item(ptr noundef %2033, i32 noundef %2042, ptr noundef %0, i32 noundef %2041, i32 noundef 1, i32 noundef 0) #4
+  %2044 = load i32, ptr %2, align 4
+  %2045 = shl i32 %2044, 3
+  %2046 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2045, i32 noundef 8) #4
+  %2047 = zext i8 %2046 to i16
+  %2048 = load i32, ptr %2, align 4
+  %2049 = add i32 %2048, 1
+  store i32 %2049, ptr %2, align 4
+  %2050 = load i32, ptr @hf_cdma2k_Type_Specific_Fields, align 4
+  %2051 = zext i8 %2046 to i32
+  %2052 = tail call ptr @proto_tree_add_item(ptr noundef %2033, i32 noundef %2050, ptr noundef %0, i32 noundef %2049, i32 noundef %2051, i32 noundef 0) #4
+  switch i8 %2039, label %2536 [
+    i8 1, label %2053
+    i8 2, label %2066
+    i8 3, label %2098
+    i8 5, label %2143
+    i8 6, label %2168
+    i8 8, label %2176
+    i8 9, label %2214
+    i8 11, label %2252
+    i8 12, label %2333
+    i8 13, label %2371
+    i8 14, label %2403
+    i8 15, label %2476
+    i8 21, label %2522
   ]
 
-2067:                                             ; preds = %.lr.ph34.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2066, ptr noundef nonnull @.str.1202) #4
-  %2068 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %2069 = tail call ptr @proto_item_add_subtree(ptr noundef %2066, i32 noundef %2068) #4
-  %2070 = load i32, ptr @hf_cdma2k_Chari, align 4
-  %2071 = load i32, ptr %2, align 4
-  %2072 = tail call ptr @proto_tree_add_item(ptr noundef %2069, i32 noundef %2070, ptr noundef %0, i32 noundef %2071, i32 noundef %2065, i32 noundef 0) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2072, ptr noundef nonnull @.str.1203) #4
-  %.not38027.i = icmp eq i8 %2060, 0
+2053:                                             ; preds = %.lr.ph34.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2052, ptr noundef nonnull @.str.1202) #4
+  %2054 = load i32, ptr @ett_cdma2k_subtree1, align 4
+  %2055 = tail call ptr @proto_item_add_subtree(ptr noundef %2052, i32 noundef %2054) #4
+  %2056 = load i32, ptr @hf_cdma2k_Chari, align 4
+  %2057 = load i32, ptr %2, align 4
+  %2058 = tail call ptr @proto_tree_add_item(ptr noundef %2055, i32 noundef %2056, ptr noundef %0, i32 noundef %2057, i32 noundef %2051, i32 noundef 0) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2058, ptr noundef nonnull @.str.1203) #4
+  %.not38027.i = icmp eq i8 %2046, 0
   %.pre53.i = load i32, ptr %2, align 4
   br i1 %.not38027.i, label %.loopexit.i234, label %.lr.ph30.i
 
-.lr.ph30.i:                                       ; preds = %2067, %.lr.ph30.i
-  %2073 = phi i32 [ %2078, %.lr.ph30.i ], [ %.pre53.i, %2067 ]
-  %.037028.i = phi i16 [ %2079, %.lr.ph30.i ], [ %2061, %2067 ]
-  %2074 = shl i32 %2073, 3
-  %2075 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2074, i32 noundef 8) #4
-  %2076 = zext i8 %2075 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2072, ptr noundef nonnull @.str.1204, i32 noundef %2076) #4
-  %2077 = load i32, ptr %2, align 4
-  %2078 = add i32 %2077, 1
-  store i32 %2078, ptr %2, align 4
-  %2079 = add nsw i16 %.037028.i, -1
-  %.not380.i = icmp eq i16 %2079, 0
+.lr.ph30.i:                                       ; preds = %2053, %.lr.ph30.i
+  %2059 = phi i32 [ %2064, %.lr.ph30.i ], [ %.pre53.i, %2053 ]
+  %.037028.i = phi i16 [ %2065, %.lr.ph30.i ], [ %2047, %2053 ]
+  %2060 = shl i32 %2059, 3
+  %2061 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2060, i32 noundef 8) #4
+  %2062 = zext i8 %2061 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2058, ptr noundef nonnull @.str.1204, i32 noundef %2062) #4
+  %2063 = load i32, ptr %2, align 4
+  %2064 = add i32 %2063, 1
+  store i32 %2064, ptr %2, align 4
+  %2065 = add nsw i16 %.037028.i, -1
+  %.not380.i = icmp eq i16 %2065, 0
   br i1 %.not380.i, label %.loopexit.i234, label %.lr.ph30.i, !llvm.loop !18
 
-2080:                                             ; preds = %.lr.ph34.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2066, ptr noundef nonnull @.str.1205) #4
-  %2081 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %2082 = tail call ptr @proto_item_add_subtree(ptr noundef %2066, i32 noundef %2081) #4
-  %2083 = load i32, ptr @hf_cdma2k_Number_Type, align 4
-  %2084 = load i32, ptr %2, align 4
-  %2085 = shl i32 %2084, 3
-  %2086 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2082, i32 noundef %2083, ptr noundef %0, i32 noundef %2085, i32 noundef 3, i32 noundef 0) #4
-  %2087 = load i32, ptr @hf_cdma2k_Number_Plan, align 4
-  %2088 = load i32, ptr %2, align 4
-  %2089 = shl i32 %2088, 3
-  %2090 = or disjoint i32 %2089, 3
-  %2091 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2082, i32 noundef %2087, ptr noundef %0, i32 noundef %2090, i32 noundef 4, i32 noundef 0) #4
-  %2092 = load i32, ptr @hf_cdma2k_Chari, align 4
-  %2093 = load i32, ptr %2, align 4
-  %2094 = tail call ptr @proto_tree_add_item(ptr noundef %2082, i32 noundef %2092, ptr noundef %0, i32 noundef %2093, i32 noundef %2065, i32 noundef 0) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2094, ptr noundef nonnull @.str.1206) #4
-  %2095 = icmp ugt i8 %2060, 1
+2066:                                             ; preds = %.lr.ph34.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2052, ptr noundef nonnull @.str.1205) #4
+  %2067 = load i32, ptr @ett_cdma2k_subtree1, align 4
+  %2068 = tail call ptr @proto_item_add_subtree(ptr noundef %2052, i32 noundef %2067) #4
+  %2069 = load i32, ptr @hf_cdma2k_Number_Type, align 4
+  %2070 = load i32, ptr %2, align 4
+  %2071 = shl i32 %2070, 3
+  %2072 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2068, i32 noundef %2069, ptr noundef %0, i32 noundef %2071, i32 noundef 3, i32 noundef 0) #4
+  %2073 = load i32, ptr @hf_cdma2k_Number_Plan, align 4
+  %2074 = load i32, ptr %2, align 4
+  %2075 = shl i32 %2074, 3
+  %2076 = or disjoint i32 %2075, 3
+  %2077 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2068, i32 noundef %2073, ptr noundef %0, i32 noundef %2076, i32 noundef 4, i32 noundef 0) #4
+  %2078 = load i32, ptr @hf_cdma2k_Chari, align 4
+  %2079 = load i32, ptr %2, align 4
+  %2080 = tail call ptr @proto_tree_add_item(ptr noundef %2068, i32 noundef %2078, ptr noundef %0, i32 noundef %2079, i32 noundef %2051, i32 noundef 0) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2080, ptr noundef nonnull @.str.1206) #4
+  %2081 = icmp ugt i8 %2046, 1
   %.pre47.i = load i32, ptr %2, align 4
-  br i1 %2095, label %.lr.ph25.i244, label %._crit_edge26.i
+  br i1 %2081, label %.lr.ph25.i244, label %._crit_edge26.i
 
-.lr.ph25.i244:                                    ; preds = %2080, %.lr.ph25.i244
-  %2096 = phi i32 [ %2102, %.lr.ph25.i244 ], [ %.pre47.i, %2080 ]
-  %.123.i = phi i16 [ %2103, %.lr.ph25.i244 ], [ %2061, %2080 ]
-  %2097 = shl i32 %2096, 3
-  %2098 = or disjoint i32 %2097, 7
-  %2099 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2098, i32 noundef 8) #4
-  %2100 = zext i8 %2099 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2094, ptr noundef nonnull @.str.1204, i32 noundef %2100) #4
-  %2101 = load i32, ptr %2, align 4
-  %2102 = add i32 %2101, 1
-  store i32 %2102, ptr %2, align 4
-  %2103 = add i16 %.123.i, -1
-  %2104 = icmp ugt i16 %2103, 1
-  br i1 %2104, label %.lr.ph25.i244, label %._crit_edge26.i, !llvm.loop !19
+.lr.ph25.i244:                                    ; preds = %2066, %.lr.ph25.i244
+  %2082 = phi i32 [ %2088, %.lr.ph25.i244 ], [ %.pre47.i, %2066 ]
+  %.123.i = phi i16 [ %2089, %.lr.ph25.i244 ], [ %2047, %2066 ]
+  %2083 = shl i32 %2082, 3
+  %2084 = or disjoint i32 %2083, 7
+  %2085 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2084, i32 noundef 8) #4
+  %2086 = zext i8 %2085 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2080, ptr noundef nonnull @.str.1204, i32 noundef %2086) #4
+  %2087 = load i32, ptr %2, align 4
+  %2088 = add i32 %2087, 1
+  store i32 %2088, ptr %2, align 4
+  %2089 = add i16 %.123.i, -1
+  %2090 = icmp ugt i16 %2089, 1
+  br i1 %2090, label %.lr.ph25.i244, label %._crit_edge26.i, !llvm.loop !19
 
-._crit_edge26.i:                                  ; preds = %.lr.ph25.i244, %2080
-  %2105 = phi i32 [ %.pre47.i, %2080 ], [ %2102, %.lr.ph25.i244 ]
-  %2106 = load i32, ptr @hf_cdma2k_Reserved, align 4
-  %2107 = shl i32 %2105, 3
-  %2108 = or disjoint i32 %2107, 7
-  %2109 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2082, i32 noundef %2106, ptr noundef %0, i32 noundef %2108, i32 noundef 1, i32 noundef 0) #4
-  %2110 = load i32, ptr %2, align 4
-  %2111 = add i32 %2110, 1
-  store i32 %2111, ptr %2, align 4
+._crit_edge26.i:                                  ; preds = %.lr.ph25.i244, %2066
+  %2091 = phi i32 [ %.pre47.i, %2066 ], [ %2088, %.lr.ph25.i244 ]
+  %2092 = load i32, ptr @hf_cdma2k_Reserved, align 4
+  %2093 = shl i32 %2091, 3
+  %2094 = or disjoint i32 %2093, 7
+  %2095 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2068, i32 noundef %2092, ptr noundef %0, i32 noundef %2094, i32 noundef 1, i32 noundef 0) #4
+  %2096 = load i32, ptr %2, align 4
+  %2097 = add i32 %2096, 1
+  store i32 %2097, ptr %2, align 4
   br label %.loopexit.i234
 
-2112:                                             ; preds = %.lr.ph34.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2066, ptr noundef nonnull @.str.1207) #4
-  %2113 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %2114 = tail call ptr @proto_item_add_subtree(ptr noundef %2066, i32 noundef %2113) #4
-  %2115 = load i32, ptr @hf_cdma2k_Number_Type, align 4
-  %2116 = load i32, ptr %2, align 4
-  %2117 = shl i32 %2116, 3
-  %2118 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2114, i32 noundef %2115, ptr noundef %0, i32 noundef %2117, i32 noundef 3, i32 noundef 0) #4
-  %2119 = load i32, ptr @hf_cdma2k_Number_Plan, align 4
-  %2120 = load i32, ptr %2, align 4
-  %2121 = shl i32 %2120, 3
-  %2122 = or disjoint i32 %2121, 3
-  %2123 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2114, i32 noundef %2119, ptr noundef %0, i32 noundef %2122, i32 noundef 4, i32 noundef 0) #4
-  %2124 = load i32, ptr @hf_cdma2k_Pres_Indicator, align 4
-  %2125 = load i32, ptr %2, align 4
-  %2126 = shl i32 %2125, 3
-  %2127 = or disjoint i32 %2126, 7
-  %2128 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2114, i32 noundef %2124, ptr noundef %0, i32 noundef %2127, i32 noundef 2, i32 noundef 0) #4
-  %2129 = load i32, ptr %2, align 4
-  %2130 = add i32 %2129, 1
-  store i32 %2130, ptr %2, align 4
-  %2131 = add nsw i16 %2061, -1
-  %2132 = load i32, ptr @hf_cdma2k_Scr_Indicator, align 4
-  %2133 = shl i32 %2130, 3
-  %2134 = or disjoint i32 %2133, 1
-  %2135 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2114, i32 noundef %2132, ptr noundef %0, i32 noundef %2134, i32 noundef 2, i32 noundef 0) #4
-  %2136 = load i32, ptr @hf_cdma2k_Chari, align 4
-  %2137 = load i32, ptr %2, align 4
-  %2138 = zext i16 %2131 to i32
-  %2139 = tail call ptr @proto_tree_add_item(ptr noundef %2114, i32 noundef %2136, ptr noundef %0, i32 noundef %2137, i32 noundef %2138, i32 noundef 0) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2139, ptr noundef nonnull @.str.1208) #4
-  %2140 = icmp ugt i16 %2131, 1
+2098:                                             ; preds = %.lr.ph34.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2052, ptr noundef nonnull @.str.1207) #4
+  %2099 = load i32, ptr @ett_cdma2k_subtree1, align 4
+  %2100 = tail call ptr @proto_item_add_subtree(ptr noundef %2052, i32 noundef %2099) #4
+  %2101 = load i32, ptr @hf_cdma2k_Number_Type, align 4
+  %2102 = load i32, ptr %2, align 4
+  %2103 = shl i32 %2102, 3
+  %2104 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2100, i32 noundef %2101, ptr noundef %0, i32 noundef %2103, i32 noundef 3, i32 noundef 0) #4
+  %2105 = load i32, ptr @hf_cdma2k_Number_Plan, align 4
+  %2106 = load i32, ptr %2, align 4
+  %2107 = shl i32 %2106, 3
+  %2108 = or disjoint i32 %2107, 3
+  %2109 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2100, i32 noundef %2105, ptr noundef %0, i32 noundef %2108, i32 noundef 4, i32 noundef 0) #4
+  %2110 = load i32, ptr @hf_cdma2k_Pres_Indicator, align 4
+  %2111 = load i32, ptr %2, align 4
+  %2112 = shl i32 %2111, 3
+  %2113 = or disjoint i32 %2112, 7
+  %2114 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2100, i32 noundef %2110, ptr noundef %0, i32 noundef %2113, i32 noundef 2, i32 noundef 0) #4
+  %2115 = load i32, ptr %2, align 4
+  %2116 = add i32 %2115, 1
+  store i32 %2116, ptr %2, align 4
+  %2117 = add nsw i16 %2047, -1
+  %2118 = load i32, ptr @hf_cdma2k_Scr_Indicator, align 4
+  %2119 = shl i32 %2116, 3
+  %2120 = or disjoint i32 %2119, 1
+  %2121 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2100, i32 noundef %2118, ptr noundef %0, i32 noundef %2120, i32 noundef 2, i32 noundef 0) #4
+  %2122 = load i32, ptr @hf_cdma2k_Chari, align 4
+  %2123 = load i32, ptr %2, align 4
+  %2124 = zext i16 %2117 to i32
+  %2125 = tail call ptr @proto_tree_add_item(ptr noundef %2100, i32 noundef %2122, ptr noundef %0, i32 noundef %2123, i32 noundef %2124, i32 noundef 0) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2125, ptr noundef nonnull @.str.1208) #4
+  %2126 = icmp ugt i16 %2117, 1
   %.pre45.i = load i32, ptr %2, align 4
-  br i1 %2140, label %.lr.ph21.i, label %._crit_edge22.i
+  br i1 %2126, label %.lr.ph21.i, label %._crit_edge22.i
 
-.lr.ph21.i:                                       ; preds = %2112, %.lr.ph21.i
-  %2141 = phi i32 [ %2147, %.lr.ph21.i ], [ %.pre45.i, %2112 ]
-  %.219.i = phi i16 [ %2148, %.lr.ph21.i ], [ %2131, %2112 ]
-  %2142 = shl i32 %2141, 3
-  %2143 = or disjoint i32 %2142, 3
-  %2144 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2143, i32 noundef 8) #4
-  %2145 = zext i8 %2144 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2139, ptr noundef nonnull @.str.1204, i32 noundef %2145) #4
-  %2146 = load i32, ptr %2, align 4
-  %2147 = add i32 %2146, 1
-  store i32 %2147, ptr %2, align 4
-  %2148 = add i16 %.219.i, -1
-  %2149 = icmp ugt i16 %2148, 1
-  br i1 %2149, label %.lr.ph21.i, label %._crit_edge22.i, !llvm.loop !20
+.lr.ph21.i:                                       ; preds = %2098, %.lr.ph21.i
+  %2127 = phi i32 [ %2133, %.lr.ph21.i ], [ %.pre45.i, %2098 ]
+  %.219.i = phi i16 [ %2134, %.lr.ph21.i ], [ %2117, %2098 ]
+  %2128 = shl i32 %2127, 3
+  %2129 = or disjoint i32 %2128, 3
+  %2130 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2129, i32 noundef 8) #4
+  %2131 = zext i8 %2130 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2125, ptr noundef nonnull @.str.1204, i32 noundef %2131) #4
+  %2132 = load i32, ptr %2, align 4
+  %2133 = add i32 %2132, 1
+  store i32 %2133, ptr %2, align 4
+  %2134 = add i16 %.219.i, -1
+  %2135 = icmp ugt i16 %2134, 1
+  br i1 %2135, label %.lr.ph21.i, label %._crit_edge22.i, !llvm.loop !20
 
-._crit_edge22.i:                                  ; preds = %.lr.ph21.i, %2112
-  %2150 = phi i32 [ %.pre45.i, %2112 ], [ %2147, %.lr.ph21.i ]
-  %2151 = load i32, ptr @hf_cdma2k_Reserved, align 4
-  %2152 = shl i32 %2150, 3
-  %2153 = or disjoint i32 %2152, 3
-  %2154 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2114, i32 noundef %2151, ptr noundef %0, i32 noundef %2153, i32 noundef 5, i32 noundef 0) #4
-  %2155 = load i32, ptr %2, align 4
-  %2156 = add i32 %2155, 1
-  store i32 %2156, ptr %2, align 4
+._crit_edge22.i:                                  ; preds = %.lr.ph21.i, %2098
+  %2136 = phi i32 [ %.pre45.i, %2098 ], [ %2133, %.lr.ph21.i ]
+  %2137 = load i32, ptr @hf_cdma2k_Reserved, align 4
+  %2138 = shl i32 %2136, 3
+  %2139 = or disjoint i32 %2138, 3
+  %2140 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2100, i32 noundef %2137, ptr noundef %0, i32 noundef %2139, i32 noundef 5, i32 noundef 0) #4
+  %2141 = load i32, ptr %2, align 4
+  %2142 = add i32 %2141, 1
+  store i32 %2142, ptr %2, align 4
   br label %.loopexit.i234
 
-2157:                                             ; preds = %.lr.ph34.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2066, ptr noundef nonnull @.str.1209) #4
-  %2158 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %2159 = tail call ptr @proto_item_add_subtree(ptr noundef %2066, i32 noundef %2158) #4
-  %2160 = load i32, ptr @hf_cdma2k_Signal_Type, align 4
-  %2161 = load i32, ptr %2, align 4
-  %2162 = shl i32 %2161, 3
-  %2163 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2159, i32 noundef %2160, ptr noundef %0, i32 noundef %2162, i32 noundef 2, i32 noundef 0) #4
-  %2164 = load i32, ptr @hf_cdma2k_Alert_Pitch, align 4
-  %2165 = load i32, ptr %2, align 4
-  %2166 = shl i32 %2165, 3
-  %2167 = or disjoint i32 %2166, 2
-  %2168 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2159, i32 noundef %2164, ptr noundef %0, i32 noundef %2167, i32 noundef 2, i32 noundef 0) #4
-  %2169 = load i32, ptr @hf_cdma2k_Signal, align 4
-  %2170 = load i32, ptr %2, align 4
-  %2171 = shl i32 %2170, 3
-  %2172 = or disjoint i32 %2171, 4
-  %2173 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2159, i32 noundef %2169, ptr noundef %0, i32 noundef %2172, i32 noundef 6, i32 noundef 0) #4
+2143:                                             ; preds = %.lr.ph34.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2052, ptr noundef nonnull @.str.1209) #4
+  %2144 = load i32, ptr @ett_cdma2k_subtree1, align 4
+  %2145 = tail call ptr @proto_item_add_subtree(ptr noundef %2052, i32 noundef %2144) #4
+  %2146 = load i32, ptr @hf_cdma2k_Signal_Type, align 4
+  %2147 = load i32, ptr %2, align 4
+  %2148 = shl i32 %2147, 3
+  %2149 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2145, i32 noundef %2146, ptr noundef %0, i32 noundef %2148, i32 noundef 2, i32 noundef 0) #4
+  %2150 = load i32, ptr @hf_cdma2k_Alert_Pitch, align 4
+  %2151 = load i32, ptr %2, align 4
+  %2152 = shl i32 %2151, 3
+  %2153 = or disjoint i32 %2152, 2
+  %2154 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2145, i32 noundef %2150, ptr noundef %0, i32 noundef %2153, i32 noundef 2, i32 noundef 0) #4
+  %2155 = load i32, ptr @hf_cdma2k_Signal, align 4
+  %2156 = load i32, ptr %2, align 4
+  %2157 = shl i32 %2156, 3
+  %2158 = or disjoint i32 %2157, 4
+  %2159 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2145, i32 noundef %2155, ptr noundef %0, i32 noundef %2158, i32 noundef 6, i32 noundef 0) #4
+  %2160 = load i32, ptr %2, align 4
+  %2161 = add i32 %2160, 1
+  store i32 %2161, ptr %2, align 4
+  %2162 = load i32, ptr @hf_cdma2k_Reserved, align 4
+  %2163 = shl i32 %2161, 3
+  %2164 = or disjoint i32 %2163, 2
+  %2165 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2145, i32 noundef %2162, ptr noundef %0, i32 noundef %2164, i32 noundef 6, i32 noundef 0) #4
+  %2166 = load i32, ptr %2, align 4
+  %2167 = add i32 %2166, 1
+  store i32 %2167, ptr %2, align 4
+  br label %.loopexit.i234
+
+2168:                                             ; preds = %.lr.ph34.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2052, ptr noundef nonnull @.str.1210) #4
+  %2169 = load i32, ptr @ett_cdma2k_subtree1, align 4
+  %2170 = tail call ptr @proto_item_add_subtree(ptr noundef %2052, i32 noundef %2169) #4
+  %2171 = load i32, ptr @hf_cdma2k_Msg_Count, align 4
+  %2172 = load i32, ptr %2, align 4
+  %2173 = tail call ptr @proto_tree_add_item(ptr noundef %2170, i32 noundef %2171, ptr noundef %0, i32 noundef %2172, i32 noundef 1, i32 noundef 0) #4
   %2174 = load i32, ptr %2, align 4
   %2175 = add i32 %2174, 1
   store i32 %2175, ptr %2, align 4
-  %2176 = load i32, ptr @hf_cdma2k_Reserved, align 4
-  %2177 = shl i32 %2175, 3
-  %2178 = or disjoint i32 %2177, 2
-  %2179 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2159, i32 noundef %2176, ptr noundef %0, i32 noundef %2178, i32 noundef 6, i32 noundef 0) #4
+  br label %.loopexit.i234
+
+2176:                                             ; preds = %.lr.ph34.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2052, ptr noundef nonnull @.str.1211) #4
+  %2177 = load i32, ptr @ett_cdma2k_subtree1, align 4
+  %2178 = tail call ptr @proto_item_add_subtree(ptr noundef %2052, i32 noundef %2177) #4
+  %2179 = load i32, ptr @hf_cdma2k_Extension_Bit, align 4
   %2180 = load i32, ptr %2, align 4
-  %2181 = add i32 %2180, 1
-  store i32 %2181, ptr %2, align 4
-  br label %.loopexit.i234
-
-2182:                                             ; preds = %.lr.ph34.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2066, ptr noundef nonnull @.str.1210) #4
-  %2183 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %2184 = tail call ptr @proto_item_add_subtree(ptr noundef %2066, i32 noundef %2183) #4
-  %2185 = load i32, ptr @hf_cdma2k_Msg_Count, align 4
-  %2186 = load i32, ptr %2, align 4
-  %2187 = tail call ptr @proto_tree_add_item(ptr noundef %2184, i32 noundef %2185, ptr noundef %0, i32 noundef %2186, i32 noundef 1, i32 noundef 0) #4
-  %2188 = load i32, ptr %2, align 4
-  %2189 = add i32 %2188, 1
-  store i32 %2189, ptr %2, align 4
-  br label %.loopexit.i234
-
-2190:                                             ; preds = %.lr.ph34.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2066, ptr noundef nonnull @.str.1211) #4
-  %2191 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %2192 = tail call ptr @proto_item_add_subtree(ptr noundef %2066, i32 noundef %2191) #4
-  %2193 = load i32, ptr @hf_cdma2k_Extension_Bit, align 4
+  %2181 = shl i32 %2180, 3
+  %2182 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2178, i32 noundef %2179, ptr noundef %0, i32 noundef %2181, i32 noundef 1, i32 noundef 0) #4
+  %2183 = load i32, ptr @hf_cdma2k_Subaddress_Type, align 4
+  %2184 = load i32, ptr %2, align 4
+  %2185 = shl i32 %2184, 3
+  %2186 = or disjoint i32 %2185, 1
+  %2187 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2178, i32 noundef %2183, ptr noundef %0, i32 noundef %2186, i32 noundef 3, i32 noundef 0) #4
+  %2188 = load i32, ptr @hf_cdma2k_Odd_Even_Ind, align 4
+  %2189 = load i32, ptr %2, align 4
+  %2190 = shl i32 %2189, 3
+  %2191 = or disjoint i32 %2190, 4
+  %2192 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2178, i32 noundef %2188, ptr noundef %0, i32 noundef %2191, i32 noundef 1, i32 noundef 0) #4
+  %2193 = load i32, ptr @hf_cdma2k_Reserved, align 4
   %2194 = load i32, ptr %2, align 4
   %2195 = shl i32 %2194, 3
-  %2196 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2192, i32 noundef %2193, ptr noundef %0, i32 noundef %2195, i32 noundef 1, i32 noundef 0) #4
-  %2197 = load i32, ptr @hf_cdma2k_Subaddress_Type, align 4
+  %2196 = or disjoint i32 %2195, 5
+  %2197 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2178, i32 noundef %2193, ptr noundef %0, i32 noundef %2196, i32 noundef 3, i32 noundef 0) #4
   %2198 = load i32, ptr %2, align 4
-  %2199 = shl i32 %2198, 3
-  %2200 = or disjoint i32 %2199, 1
-  %2201 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2192, i32 noundef %2197, ptr noundef %0, i32 noundef %2200, i32 noundef 3, i32 noundef 0) #4
-  %2202 = load i32, ptr @hf_cdma2k_Odd_Even_Ind, align 4
-  %2203 = load i32, ptr %2, align 4
-  %2204 = shl i32 %2203, 3
-  %2205 = or disjoint i32 %2204, 4
-  %2206 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2192, i32 noundef %2202, ptr noundef %0, i32 noundef %2205, i32 noundef 1, i32 noundef 0) #4
-  %2207 = load i32, ptr @hf_cdma2k_Reserved, align 4
-  %2208 = load i32, ptr %2, align 4
-  %2209 = shl i32 %2208, 3
-  %2210 = or disjoint i32 %2209, 5
-  %2211 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2192, i32 noundef %2207, ptr noundef %0, i32 noundef %2210, i32 noundef 3, i32 noundef 0) #4
-  %2212 = load i32, ptr %2, align 4
-  %2213 = add i32 %2212, 1
-  store i32 %2213, ptr %2, align 4
-  %2214 = add nsw i16 %2061, -1
-  %2215 = load i32, ptr @hf_cdma2k_Chari, align 4
-  %2216 = zext i16 %2214 to i32
-  %2217 = add nsw i32 %2216, -1
-  %2218 = tail call ptr @proto_tree_add_item(ptr noundef %2192, i32 noundef %2215, ptr noundef %0, i32 noundef %2213, i32 noundef %2217, i32 noundef 0) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2218, ptr noundef nonnull @.str.1212) #4
-  %2219 = icmp ugt i16 %2214, 1
+  %2199 = add i32 %2198, 1
+  store i32 %2199, ptr %2, align 4
+  %2200 = add nsw i16 %2047, -1
+  %2201 = load i32, ptr @hf_cdma2k_Chari, align 4
+  %2202 = zext i16 %2200 to i32
+  %2203 = add nsw i32 %2202, -1
+  %2204 = tail call ptr @proto_tree_add_item(ptr noundef %2178, i32 noundef %2201, ptr noundef %0, i32 noundef %2199, i32 noundef %2203, i32 noundef 0) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2204, ptr noundef nonnull @.str.1212) #4
+  %2205 = icmp ugt i16 %2200, 1
   %.pre52.i = load i32, ptr %2, align 4
-  br i1 %2219, label %.lr.ph18.i, label %.loopexit.i234
+  br i1 %2205, label %.lr.ph18.i, label %.loopexit.i234
 
-.lr.ph18.i:                                       ; preds = %2190, %.lr.ph18.i
-  %2220 = phi i32 [ %2225, %.lr.ph18.i ], [ %.pre52.i, %2190 ]
-  %.316.i = phi i16 [ %2226, %.lr.ph18.i ], [ %2214, %2190 ]
-  %2221 = shl i32 %2220, 3
-  %2222 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2221, i32 noundef 8) #4
-  %2223 = zext i8 %2222 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2218, ptr noundef nonnull @.str.1204, i32 noundef %2223) #4
-  %2224 = load i32, ptr %2, align 4
-  %2225 = add i32 %2224, 1
-  store i32 %2225, ptr %2, align 4
-  %2226 = add i16 %.316.i, -1
-  %2227 = icmp ugt i16 %2226, 1
-  br i1 %2227, label %.lr.ph18.i, label %.loopexit.i234, !llvm.loop !21
+.lr.ph18.i:                                       ; preds = %2176, %.lr.ph18.i
+  %2206 = phi i32 [ %2211, %.lr.ph18.i ], [ %.pre52.i, %2176 ]
+  %.316.i = phi i16 [ %2212, %.lr.ph18.i ], [ %2200, %2176 ]
+  %2207 = shl i32 %2206, 3
+  %2208 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2207, i32 noundef 8) #4
+  %2209 = zext i8 %2208 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2204, ptr noundef nonnull @.str.1204, i32 noundef %2209) #4
+  %2210 = load i32, ptr %2, align 4
+  %2211 = add i32 %2210, 1
+  store i32 %2211, ptr %2, align 4
+  %2212 = add i16 %.316.i, -1
+  %2213 = icmp ugt i16 %2212, 1
+  br i1 %2213, label %.lr.ph18.i, label %.loopexit.i234, !llvm.loop !21
 
-2228:                                             ; preds = %.lr.ph34.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2066, ptr noundef nonnull @.str.1213) #4
-  %2229 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %2230 = tail call ptr @proto_item_add_subtree(ptr noundef %2066, i32 noundef %2229) #4
-  %2231 = load i32, ptr @hf_cdma2k_Extension_Bit, align 4
+2214:                                             ; preds = %.lr.ph34.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2052, ptr noundef nonnull @.str.1213) #4
+  %2215 = load i32, ptr @ett_cdma2k_subtree1, align 4
+  %2216 = tail call ptr @proto_item_add_subtree(ptr noundef %2052, i32 noundef %2215) #4
+  %2217 = load i32, ptr @hf_cdma2k_Extension_Bit, align 4
+  %2218 = load i32, ptr %2, align 4
+  %2219 = shl i32 %2218, 3
+  %2220 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2216, i32 noundef %2217, ptr noundef %0, i32 noundef %2219, i32 noundef 1, i32 noundef 0) #4
+  %2221 = load i32, ptr @hf_cdma2k_Subaddress_Type, align 4
+  %2222 = load i32, ptr %2, align 4
+  %2223 = shl i32 %2222, 3
+  %2224 = or disjoint i32 %2223, 1
+  %2225 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2216, i32 noundef %2221, ptr noundef %0, i32 noundef %2224, i32 noundef 3, i32 noundef 0) #4
+  %2226 = load i32, ptr @hf_cdma2k_Odd_Even_Ind, align 4
+  %2227 = load i32, ptr %2, align 4
+  %2228 = shl i32 %2227, 3
+  %2229 = or disjoint i32 %2228, 4
+  %2230 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2216, i32 noundef %2226, ptr noundef %0, i32 noundef %2229, i32 noundef 1, i32 noundef 0) #4
+  %2231 = load i32, ptr @hf_cdma2k_Reserved, align 4
   %2232 = load i32, ptr %2, align 4
   %2233 = shl i32 %2232, 3
-  %2234 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2230, i32 noundef %2231, ptr noundef %0, i32 noundef %2233, i32 noundef 1, i32 noundef 0) #4
-  %2235 = load i32, ptr @hf_cdma2k_Subaddress_Type, align 4
+  %2234 = or disjoint i32 %2233, 5
+  %2235 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2216, i32 noundef %2231, ptr noundef %0, i32 noundef %2234, i32 noundef 3, i32 noundef 0) #4
   %2236 = load i32, ptr %2, align 4
-  %2237 = shl i32 %2236, 3
-  %2238 = or disjoint i32 %2237, 1
-  %2239 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2230, i32 noundef %2235, ptr noundef %0, i32 noundef %2238, i32 noundef 3, i32 noundef 0) #4
-  %2240 = load i32, ptr @hf_cdma2k_Odd_Even_Ind, align 4
-  %2241 = load i32, ptr %2, align 4
-  %2242 = shl i32 %2241, 3
-  %2243 = or disjoint i32 %2242, 4
-  %2244 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2230, i32 noundef %2240, ptr noundef %0, i32 noundef %2243, i32 noundef 1, i32 noundef 0) #4
-  %2245 = load i32, ptr @hf_cdma2k_Reserved, align 4
-  %2246 = load i32, ptr %2, align 4
-  %2247 = shl i32 %2246, 3
-  %2248 = or disjoint i32 %2247, 5
-  %2249 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2230, i32 noundef %2245, ptr noundef %0, i32 noundef %2248, i32 noundef 3, i32 noundef 0) #4
-  %2250 = load i32, ptr %2, align 4
-  %2251 = add i32 %2250, 1
-  store i32 %2251, ptr %2, align 4
-  %2252 = add nsw i16 %2061, -1
-  %2253 = load i32, ptr @hf_cdma2k_Chari, align 4
-  %2254 = zext i16 %2252 to i32
-  %2255 = add nsw i32 %2254, -1
-  %2256 = tail call ptr @proto_tree_add_item(ptr noundef %2230, i32 noundef %2253, ptr noundef %0, i32 noundef %2251, i32 noundef %2255, i32 noundef 0) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2256, ptr noundef nonnull @.str.1214) #4
-  %2257 = icmp ugt i16 %2252, 1
+  %2237 = add i32 %2236, 1
+  store i32 %2237, ptr %2, align 4
+  %2238 = add nsw i16 %2047, -1
+  %2239 = load i32, ptr @hf_cdma2k_Chari, align 4
+  %2240 = zext i16 %2238 to i32
+  %2241 = add nsw i32 %2240, -1
+  %2242 = tail call ptr @proto_tree_add_item(ptr noundef %2216, i32 noundef %2239, ptr noundef %0, i32 noundef %2237, i32 noundef %2241, i32 noundef 0) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2242, ptr noundef nonnull @.str.1214) #4
+  %2243 = icmp ugt i16 %2238, 1
   %.pre51.i = load i32, ptr %2, align 4
-  br i1 %2257, label %.lr.ph15.i, label %.loopexit.i234
+  br i1 %2243, label %.lr.ph15.i, label %.loopexit.i234
 
-.lr.ph15.i:                                       ; preds = %2228, %.lr.ph15.i
-  %2258 = phi i32 [ %2263, %.lr.ph15.i ], [ %.pre51.i, %2228 ]
-  %.413.i = phi i16 [ %2264, %.lr.ph15.i ], [ %2252, %2228 ]
-  %2259 = shl i32 %2258, 3
-  %2260 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2259, i32 noundef 8) #4
-  %2261 = zext i8 %2260 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2256, ptr noundef nonnull @.str.1204, i32 noundef %2261) #4
-  %2262 = load i32, ptr %2, align 4
-  %2263 = add i32 %2262, 1
-  store i32 %2263, ptr %2, align 4
-  %2264 = add i16 %.413.i, -1
-  %2265 = icmp ugt i16 %2264, 1
-  br i1 %2265, label %.lr.ph15.i, label %.loopexit.i234, !llvm.loop !22
+.lr.ph15.i:                                       ; preds = %2214, %.lr.ph15.i
+  %2244 = phi i32 [ %2249, %.lr.ph15.i ], [ %.pre51.i, %2214 ]
+  %.413.i = phi i16 [ %2250, %.lr.ph15.i ], [ %2238, %2214 ]
+  %2245 = shl i32 %2244, 3
+  %2246 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2245, i32 noundef 8) #4
+  %2247 = zext i8 %2246 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2242, ptr noundef nonnull @.str.1204, i32 noundef %2247) #4
+  %2248 = load i32, ptr %2, align 4
+  %2249 = add i32 %2248, 1
+  store i32 %2249, ptr %2, align 4
+  %2250 = add i16 %.413.i, -1
+  %2251 = icmp ugt i16 %2250, 1
+  br i1 %2251, label %.lr.ph15.i, label %.loopexit.i234, !llvm.loop !22
 
-2266:                                             ; preds = %.lr.ph34.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2066, ptr noundef nonnull @.str.1215) #4
-  %2267 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %2268 = tail call ptr @proto_item_add_subtree(ptr noundef %2066, i32 noundef %2267) #4
-  %2269 = load i32, ptr @hf_cdma2k_Extension_Bit, align 4
-  %2270 = load i32, ptr %2, align 4
-  %2271 = shl i32 %2270, 3
-  %2272 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2268, i32 noundef %2269, ptr noundef %0, i32 noundef %2271, i32 noundef 1, i32 noundef 0) #4
-  %2273 = load i32, ptr %2, align 4
-  %2274 = shl i32 %2273, 3
-  %2275 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2274, i32 noundef 1) #4
-  %2276 = load i32, ptr @hf_cdma2k_Number_Type, align 4
-  %2277 = load i32, ptr %2, align 4
-  %2278 = shl i32 %2277, 3
-  %2279 = or disjoint i32 %2278, 1
-  %2280 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2268, i32 noundef %2276, ptr noundef %0, i32 noundef %2279, i32 noundef 3, i32 noundef 0) #4
-  %2281 = load i32, ptr @hf_cdma2k_Number_Plan, align 4
-  %2282 = load i32, ptr %2, align 4
-  %2283 = shl i32 %2282, 3
-  %2284 = or disjoint i32 %2283, 4
-  %2285 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2268, i32 noundef %2281, ptr noundef %0, i32 noundef %2284, i32 noundef 4, i32 noundef 0) #4
-  %2286 = load i32, ptr %2, align 4
-  %2287 = add i32 %2286, 1
-  store i32 %2287, ptr %2, align 4
-  %2288 = add nsw i16 %2061, -1
-  %2289 = icmp eq i8 %2275, 0
-  br i1 %2289, label %2290, label %.thread.i240
+2252:                                             ; preds = %.lr.ph34.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2052, ptr noundef nonnull @.str.1215) #4
+  %2253 = load i32, ptr @ett_cdma2k_subtree1, align 4
+  %2254 = tail call ptr @proto_item_add_subtree(ptr noundef %2052, i32 noundef %2253) #4
+  %2255 = load i32, ptr @hf_cdma2k_Extension_Bit, align 4
+  %2256 = load i32, ptr %2, align 4
+  %2257 = shl i32 %2256, 3
+  %2258 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2254, i32 noundef %2255, ptr noundef %0, i32 noundef %2257, i32 noundef 1, i32 noundef 0) #4
+  %2259 = load i32, ptr %2, align 4
+  %2260 = shl i32 %2259, 3
+  %2261 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2260, i32 noundef 1) #4
+  %2262 = load i32, ptr @hf_cdma2k_Number_Type, align 4
+  %2263 = load i32, ptr %2, align 4
+  %2264 = shl i32 %2263, 3
+  %2265 = or disjoint i32 %2264, 1
+  %2266 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2254, i32 noundef %2262, ptr noundef %0, i32 noundef %2265, i32 noundef 3, i32 noundef 0) #4
+  %2267 = load i32, ptr @hf_cdma2k_Number_Plan, align 4
+  %2268 = load i32, ptr %2, align 4
+  %2269 = shl i32 %2268, 3
+  %2270 = or disjoint i32 %2269, 4
+  %2271 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2254, i32 noundef %2267, ptr noundef %0, i32 noundef %2270, i32 noundef 4, i32 noundef 0) #4
+  %2272 = load i32, ptr %2, align 4
+  %2273 = add i32 %2272, 1
+  store i32 %2273, ptr %2, align 4
+  %2274 = add nsw i16 %2047, -1
+  %2275 = icmp eq i8 %2261, 0
+  br i1 %2275, label %2276, label %.thread.i240
 
-2290:                                             ; preds = %2266
-  %2291 = load i32, ptr @hf_cdma2k_Extension_Bit, align 4
-  %2292 = shl i32 %2287, 3
-  %2293 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2268, i32 noundef %2291, ptr noundef %0, i32 noundef %2292, i32 noundef 1, i32 noundef 0) #4
+2276:                                             ; preds = %2252
+  %2277 = load i32, ptr @hf_cdma2k_Extension_Bit, align 4
+  %2278 = shl i32 %2273, 3
+  %2279 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2254, i32 noundef %2277, ptr noundef %0, i32 noundef %2278, i32 noundef 1, i32 noundef 0) #4
+  %2280 = load i32, ptr %2, align 4
+  %2281 = shl i32 %2280, 3
+  %2282 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2281, i32 noundef 1) #4
+  %2283 = load i32, ptr @hf_cdma2k_Pres_Indicator, align 4
+  %2284 = load i32, ptr %2, align 4
+  %2285 = shl i32 %2284, 3
+  %2286 = or disjoint i32 %2285, 1
+  %2287 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2254, i32 noundef %2283, ptr noundef %0, i32 noundef %2286, i32 noundef 2, i32 noundef 0) #4
+  %2288 = load i32, ptr @hf_cdma2k_Reserved, align 4
+  %2289 = load i32, ptr %2, align 4
+  %2290 = shl i32 %2289, 3
+  %2291 = or disjoint i32 %2290, 3
+  %2292 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2254, i32 noundef %2288, ptr noundef %0, i32 noundef %2291, i32 noundef 3, i32 noundef 0) #4
+  %2293 = load i32, ptr @hf_cdma2k_Scr_Indicator, align 4
   %2294 = load i32, ptr %2, align 4
   %2295 = shl i32 %2294, 3
-  %2296 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2295, i32 noundef 1) #4
-  %2297 = load i32, ptr @hf_cdma2k_Pres_Indicator, align 4
+  %2296 = or disjoint i32 %2295, 6
+  %2297 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2254, i32 noundef %2293, ptr noundef %0, i32 noundef %2296, i32 noundef 2, i32 noundef 0) #4
   %2298 = load i32, ptr %2, align 4
-  %2299 = shl i32 %2298, 3
-  %2300 = or disjoint i32 %2299, 1
-  %2301 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2268, i32 noundef %2297, ptr noundef %0, i32 noundef %2300, i32 noundef 2, i32 noundef 0) #4
-  %2302 = load i32, ptr @hf_cdma2k_Reserved, align 4
-  %2303 = load i32, ptr %2, align 4
-  %2304 = shl i32 %2303, 3
-  %2305 = or disjoint i32 %2304, 3
-  %2306 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2268, i32 noundef %2302, ptr noundef %0, i32 noundef %2305, i32 noundef 3, i32 noundef 0) #4
-  %2307 = load i32, ptr @hf_cdma2k_Scr_Indicator, align 4
-  %2308 = load i32, ptr %2, align 4
-  %2309 = shl i32 %2308, 3
-  %2310 = or disjoint i32 %2309, 6
-  %2311 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2268, i32 noundef %2307, ptr noundef %0, i32 noundef %2310, i32 noundef 2, i32 noundef 0) #4
-  %2312 = load i32, ptr %2, align 4
-  %2313 = add i32 %2312, 1
-  store i32 %2313, ptr %2, align 4
-  %2314 = add nsw i16 %2061, -2
-  %2315 = icmp eq i8 %2296, 0
-  br i1 %2315, label %2316, label %.thread.i240
+  %2299 = add i32 %2298, 1
+  store i32 %2299, ptr %2, align 4
+  %2300 = add nsw i16 %2047, -2
+  %2301 = icmp eq i8 %2282, 0
+  br i1 %2301, label %2302, label %.thread.i240
 
-2316:                                             ; preds = %2290
-  %2317 = load i32, ptr @hf_cdma2k_Extension_Bit, align 4
-  %2318 = shl i32 %2313, 3
-  %2319 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2268, i32 noundef %2317, ptr noundef %0, i32 noundef %2318, i32 noundef 1, i32 noundef 0) #4
-  %2320 = load i32, ptr @hf_cdma2k_Reserved, align 4
-  %2321 = load i32, ptr %2, align 4
-  %2322 = shl i32 %2321, 3
-  %2323 = or disjoint i32 %2322, 1
-  %2324 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2268, i32 noundef %2320, ptr noundef %0, i32 noundef %2323, i32 noundef 3, i32 noundef 0) #4
-  %2325 = load i32, ptr @hf_cdma2k_Redirection_Reason, align 4
-  %2326 = load i32, ptr %2, align 4
-  %2327 = shl i32 %2326, 3
-  %2328 = or disjoint i32 %2327, 4
-  %2329 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2268, i32 noundef %2325, ptr noundef %0, i32 noundef %2328, i32 noundef 4, i32 noundef 0) #4
-  %2330 = load i32, ptr %2, align 4
-  %2331 = add i32 %2330, 1
-  store i32 %2331, ptr %2, align 4
-  %2332 = add nsw i16 %2061, -3
+2302:                                             ; preds = %2276
+  %2303 = load i32, ptr @hf_cdma2k_Extension_Bit, align 4
+  %2304 = shl i32 %2299, 3
+  %2305 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2254, i32 noundef %2303, ptr noundef %0, i32 noundef %2304, i32 noundef 1, i32 noundef 0) #4
+  %2306 = load i32, ptr @hf_cdma2k_Reserved, align 4
+  %2307 = load i32, ptr %2, align 4
+  %2308 = shl i32 %2307, 3
+  %2309 = or disjoint i32 %2308, 1
+  %2310 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2254, i32 noundef %2306, ptr noundef %0, i32 noundef %2309, i32 noundef 3, i32 noundef 0) #4
+  %2311 = load i32, ptr @hf_cdma2k_Redirection_Reason, align 4
+  %2312 = load i32, ptr %2, align 4
+  %2313 = shl i32 %2312, 3
+  %2314 = or disjoint i32 %2313, 4
+  %2315 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2254, i32 noundef %2311, ptr noundef %0, i32 noundef %2314, i32 noundef 4, i32 noundef 0) #4
+  %2316 = load i32, ptr %2, align 4
+  %2317 = add i32 %2316, 1
+  store i32 %2317, ptr %2, align 4
+  %2318 = add nsw i16 %2047, -3
   br label %.thread.i240
 
-.thread.i240:                                     ; preds = %2316, %2290, %2266
-  %2333 = phi i32 [ %2331, %2316 ], [ %2313, %2290 ], [ %2287, %2266 ]
-  %.6.i241 = phi i16 [ %2332, %2316 ], [ %2314, %2290 ], [ %2288, %2266 ]
-  %2334 = load i32, ptr @hf_cdma2k_Chari, align 4
-  %2335 = zext i16 %.6.i241 to i32
-  %2336 = add nsw i32 %2335, -1
-  %2337 = tail call ptr @proto_tree_add_item(ptr noundef %2268, i32 noundef %2334, ptr noundef %0, i32 noundef %2333, i32 noundef %2336, i32 noundef 0) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2337, ptr noundef nonnull @.str.1216) #4
-  %2338 = icmp ugt i16 %.6.i241, 1
+.thread.i240:                                     ; preds = %2302, %2276, %2252
+  %2319 = phi i32 [ %2317, %2302 ], [ %2299, %2276 ], [ %2273, %2252 ]
+  %.6.i241 = phi i16 [ %2318, %2302 ], [ %2300, %2276 ], [ %2274, %2252 ]
+  %2320 = load i32, ptr @hf_cdma2k_Chari, align 4
+  %2321 = zext i16 %.6.i241 to i32
+  %2322 = add nsw i32 %2321, -1
+  %2323 = tail call ptr @proto_tree_add_item(ptr noundef %2254, i32 noundef %2320, ptr noundef %0, i32 noundef %2319, i32 noundef %2322, i32 noundef 0) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2323, ptr noundef nonnull @.str.1216) #4
+  %2324 = icmp ugt i16 %.6.i241, 1
   %.pre.i242 = load i32, ptr %2, align 4
-  br i1 %2338, label %.lr.ph12.i, label %.loopexit.i234
+  br i1 %2324, label %.lr.ph12.i, label %.loopexit.i234
 
 .lr.ph12.i:                                       ; preds = %.thread.i240, %.lr.ph12.i
-  %2339 = phi i32 [ %2344, %.lr.ph12.i ], [ %.pre.i242, %.thread.i240 ]
-  %.711.i243 = phi i16 [ %2345, %.lr.ph12.i ], [ %.6.i241, %.thread.i240 ]
-  %2340 = shl i32 %2339, 3
-  %2341 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2340, i32 noundef 8) #4
-  %2342 = zext i8 %2341 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2337, ptr noundef nonnull @.str.1204, i32 noundef %2342) #4
-  %2343 = load i32, ptr %2, align 4
-  %2344 = add i32 %2343, 1
-  store i32 %2344, ptr %2, align 4
-  %2345 = add i16 %.711.i243, -1
-  %2346 = icmp ugt i16 %2345, 1
-  br i1 %2346, label %.lr.ph12.i, label %.loopexit.i234, !llvm.loop !23
+  %2325 = phi i32 [ %2330, %.lr.ph12.i ], [ %.pre.i242, %.thread.i240 ]
+  %.711.i243 = phi i16 [ %2331, %.lr.ph12.i ], [ %.6.i241, %.thread.i240 ]
+  %2326 = shl i32 %2325, 3
+  %2327 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2326, i32 noundef 8) #4
+  %2328 = zext i8 %2327 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2323, ptr noundef nonnull @.str.1204, i32 noundef %2328) #4
+  %2329 = load i32, ptr %2, align 4
+  %2330 = add i32 %2329, 1
+  store i32 %2330, ptr %2, align 4
+  %2331 = add i16 %.711.i243, -1
+  %2332 = icmp ugt i16 %2331, 1
+  br i1 %2332, label %.lr.ph12.i, label %.loopexit.i234, !llvm.loop !23
 
-2347:                                             ; preds = %.lr.ph34.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2066, ptr noundef nonnull @.str.1217) #4
-  %2348 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %2349 = tail call ptr @proto_item_add_subtree(ptr noundef %2066, i32 noundef %2348) #4
-  %2350 = load i32, ptr @hf_cdma2k_Extension_Bit, align 4
+2333:                                             ; preds = %.lr.ph34.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2052, ptr noundef nonnull @.str.1217) #4
+  %2334 = load i32, ptr @ett_cdma2k_subtree1, align 4
+  %2335 = tail call ptr @proto_item_add_subtree(ptr noundef %2052, i32 noundef %2334) #4
+  %2336 = load i32, ptr @hf_cdma2k_Extension_Bit, align 4
+  %2337 = load i32, ptr %2, align 4
+  %2338 = shl i32 %2337, 3
+  %2339 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2335, i32 noundef %2336, ptr noundef %0, i32 noundef %2338, i32 noundef 1, i32 noundef 0) #4
+  %2340 = load i32, ptr @hf_cdma2k_Subaddress_Type, align 4
+  %2341 = load i32, ptr %2, align 4
+  %2342 = shl i32 %2341, 3
+  %2343 = or disjoint i32 %2342, 1
+  %2344 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2335, i32 noundef %2340, ptr noundef %0, i32 noundef %2343, i32 noundef 3, i32 noundef 0) #4
+  %2345 = load i32, ptr @hf_cdma2k_Odd_Even_Ind, align 4
+  %2346 = load i32, ptr %2, align 4
+  %2347 = shl i32 %2346, 3
+  %2348 = or disjoint i32 %2347, 4
+  %2349 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2335, i32 noundef %2345, ptr noundef %0, i32 noundef %2348, i32 noundef 1, i32 noundef 0) #4
+  %2350 = load i32, ptr @hf_cdma2k_Reserved, align 4
   %2351 = load i32, ptr %2, align 4
   %2352 = shl i32 %2351, 3
-  %2353 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2349, i32 noundef %2350, ptr noundef %0, i32 noundef %2352, i32 noundef 1, i32 noundef 0) #4
-  %2354 = load i32, ptr @hf_cdma2k_Subaddress_Type, align 4
+  %2353 = or disjoint i32 %2352, 5
+  %2354 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2335, i32 noundef %2350, ptr noundef %0, i32 noundef %2353, i32 noundef 3, i32 noundef 0) #4
   %2355 = load i32, ptr %2, align 4
-  %2356 = shl i32 %2355, 3
-  %2357 = or disjoint i32 %2356, 1
-  %2358 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2349, i32 noundef %2354, ptr noundef %0, i32 noundef %2357, i32 noundef 3, i32 noundef 0) #4
-  %2359 = load i32, ptr @hf_cdma2k_Odd_Even_Ind, align 4
-  %2360 = load i32, ptr %2, align 4
-  %2361 = shl i32 %2360, 3
-  %2362 = or disjoint i32 %2361, 4
-  %2363 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2349, i32 noundef %2359, ptr noundef %0, i32 noundef %2362, i32 noundef 1, i32 noundef 0) #4
-  %2364 = load i32, ptr @hf_cdma2k_Reserved, align 4
-  %2365 = load i32, ptr %2, align 4
-  %2366 = shl i32 %2365, 3
-  %2367 = or disjoint i32 %2366, 5
-  %2368 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2349, i32 noundef %2364, ptr noundef %0, i32 noundef %2367, i32 noundef 3, i32 noundef 0) #4
-  %2369 = load i32, ptr %2, align 4
-  %2370 = add i32 %2369, 1
-  store i32 %2370, ptr %2, align 4
-  %2371 = add nsw i16 %2061, -1
-  %2372 = load i32, ptr @hf_cdma2k_Chari, align 4
-  %2373 = zext i16 %2371 to i32
-  %2374 = add nsw i32 %2373, -1
-  %2375 = tail call ptr @proto_tree_add_item(ptr noundef %2349, i32 noundef %2372, ptr noundef %0, i32 noundef %2370, i32 noundef %2374, i32 noundef 0) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2375, ptr noundef nonnull @.str.1218) #4
-  %2376 = icmp ugt i16 %2371, 1
+  %2356 = add i32 %2355, 1
+  store i32 %2356, ptr %2, align 4
+  %2357 = add nsw i16 %2047, -1
+  %2358 = load i32, ptr @hf_cdma2k_Chari, align 4
+  %2359 = zext i16 %2357 to i32
+  %2360 = add nsw i32 %2359, -1
+  %2361 = tail call ptr @proto_tree_add_item(ptr noundef %2335, i32 noundef %2358, ptr noundef %0, i32 noundef %2356, i32 noundef %2360, i32 noundef 0) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2361, ptr noundef nonnull @.str.1218) #4
+  %2362 = icmp ugt i16 %2357, 1
   %.pre50.i = load i32, ptr %2, align 4
-  br i1 %2376, label %.lr.ph10.i239, label %.loopexit.i234
+  br i1 %2362, label %.lr.ph10.i239, label %.loopexit.i234
 
-.lr.ph10.i239:                                    ; preds = %2347, %.lr.ph10.i239
-  %2377 = phi i32 [ %2382, %.lr.ph10.i239 ], [ %.pre50.i, %2347 ]
-  %.88.i = phi i16 [ %2383, %.lr.ph10.i239 ], [ %2371, %2347 ]
-  %2378 = shl i32 %2377, 3
-  %2379 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2378, i32 noundef 8) #4
-  %2380 = zext i8 %2379 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2375, ptr noundef nonnull @.str.1204, i32 noundef %2380) #4
-  %2381 = load i32, ptr %2, align 4
-  %2382 = add i32 %2381, 1
-  store i32 %2382, ptr %2, align 4
-  %2383 = add i16 %.88.i, -1
-  %2384 = icmp ugt i16 %2383, 1
-  br i1 %2384, label %.lr.ph10.i239, label %.loopexit.i234, !llvm.loop !24
+.lr.ph10.i239:                                    ; preds = %2333, %.lr.ph10.i239
+  %2363 = phi i32 [ %2368, %.lr.ph10.i239 ], [ %.pre50.i, %2333 ]
+  %.88.i = phi i16 [ %2369, %.lr.ph10.i239 ], [ %2357, %2333 ]
+  %2364 = shl i32 %2363, 3
+  %2365 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2364, i32 noundef 8) #4
+  %2366 = zext i8 %2365 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2361, ptr noundef nonnull @.str.1204, i32 noundef %2366) #4
+  %2367 = load i32, ptr %2, align 4
+  %2368 = add i32 %2367, 1
+  store i32 %2368, ptr %2, align 4
+  %2369 = add i16 %.88.i, -1
+  %2370 = icmp ugt i16 %2369, 1
+  br i1 %2370, label %.lr.ph10.i239, label %.loopexit.i234, !llvm.loop !24
 
-2385:                                             ; preds = %.lr.ph34.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2066, ptr noundef nonnull @.str.1219) #4
-  %2386 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %2387 = tail call ptr @proto_item_add_subtree(ptr noundef %2066, i32 noundef %2386) #4
-  %2388 = load i32, ptr @hf_cdma2k_Pulse_Freq, align 4
-  %2389 = load i32, ptr %2, align 4
-  %2390 = shl i32 %2389, 3
-  %2391 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2387, i32 noundef %2388, ptr noundef %0, i32 noundef %2390, i32 noundef 11, i32 noundef 0) #4
-  %2392 = load i32, ptr %2, align 4
-  %2393 = add i32 %2392, 1
-  store i32 %2393, ptr %2, align 4
-  %2394 = load i32, ptr @hf_cdma2k_Pulse_On_Time, align 4
-  %2395 = shl i32 %2393, 3
-  %2396 = or disjoint i32 %2395, 3
-  %2397 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2387, i32 noundef %2394, ptr noundef %0, i32 noundef %2396, i32 noundef 8, i32 noundef 0) #4
-  %2398 = load i32, ptr %2, align 4
-  %2399 = add i32 %2398, 1
-  store i32 %2399, ptr %2, align 4
-  %2400 = load i32, ptr @hf_cdma2k_Pulse_Off_Time, align 4
-  %2401 = shl i32 %2399, 3
-  %2402 = or disjoint i32 %2401, 3
-  %2403 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2387, i32 noundef %2400, ptr noundef %0, i32 noundef %2402, i32 noundef 8, i32 noundef 0) #4
-  %2404 = load i32, ptr %2, align 4
-  %2405 = add i32 %2404, 1
-  store i32 %2405, ptr %2, align 4
-  %2406 = load i32, ptr @hf_cdma2k_Pulse_Count, align 4
-  %2407 = shl i32 %2405, 3
-  %2408 = or disjoint i32 %2407, 3
-  %2409 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2387, i32 noundef %2406, ptr noundef %0, i32 noundef %2408, i32 noundef 4, i32 noundef 0) #4
-  %2410 = load i32, ptr @hf_cdma2k_Reserved, align 4
-  %2411 = load i32, ptr %2, align 4
-  %2412 = shl i32 %2411, 3
-  %2413 = or disjoint i32 %2412, 7
-  %2414 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2387, i32 noundef %2410, ptr noundef %0, i32 noundef %2413, i32 noundef 1, i32 noundef 0) #4
-  %2415 = load i32, ptr %2, align 4
-  %2416 = add i32 %2415, 1
-  store i32 %2416, ptr %2, align 4
+2371:                                             ; preds = %.lr.ph34.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2052, ptr noundef nonnull @.str.1219) #4
+  %2372 = load i32, ptr @ett_cdma2k_subtree1, align 4
+  %2373 = tail call ptr @proto_item_add_subtree(ptr noundef %2052, i32 noundef %2372) #4
+  %2374 = load i32, ptr @hf_cdma2k_Pulse_Freq, align 4
+  %2375 = load i32, ptr %2, align 4
+  %2376 = shl i32 %2375, 3
+  %2377 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2373, i32 noundef %2374, ptr noundef %0, i32 noundef %2376, i32 noundef 11, i32 noundef 0) #4
+  %2378 = load i32, ptr %2, align 4
+  %2379 = add i32 %2378, 1
+  store i32 %2379, ptr %2, align 4
+  %2380 = load i32, ptr @hf_cdma2k_Pulse_On_Time, align 4
+  %2381 = shl i32 %2379, 3
+  %2382 = or disjoint i32 %2381, 3
+  %2383 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2373, i32 noundef %2380, ptr noundef %0, i32 noundef %2382, i32 noundef 8, i32 noundef 0) #4
+  %2384 = load i32, ptr %2, align 4
+  %2385 = add i32 %2384, 1
+  store i32 %2385, ptr %2, align 4
+  %2386 = load i32, ptr @hf_cdma2k_Pulse_Off_Time, align 4
+  %2387 = shl i32 %2385, 3
+  %2388 = or disjoint i32 %2387, 3
+  %2389 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2373, i32 noundef %2386, ptr noundef %0, i32 noundef %2388, i32 noundef 8, i32 noundef 0) #4
+  %2390 = load i32, ptr %2, align 4
+  %2391 = add i32 %2390, 1
+  store i32 %2391, ptr %2, align 4
+  %2392 = load i32, ptr @hf_cdma2k_Pulse_Count, align 4
+  %2393 = shl i32 %2391, 3
+  %2394 = or disjoint i32 %2393, 3
+  %2395 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2373, i32 noundef %2392, ptr noundef %0, i32 noundef %2394, i32 noundef 4, i32 noundef 0) #4
+  %2396 = load i32, ptr @hf_cdma2k_Reserved, align 4
+  %2397 = load i32, ptr %2, align 4
+  %2398 = shl i32 %2397, 3
+  %2399 = or disjoint i32 %2398, 7
+  %2400 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2373, i32 noundef %2396, ptr noundef %0, i32 noundef %2399, i32 noundef 1, i32 noundef 0) #4
+  %2401 = load i32, ptr %2, align 4
+  %2402 = add i32 %2401, 1
+  store i32 %2402, ptr %2, align 4
   br label %.loopexit.i234
 
-2417:                                             ; preds = %.lr.ph34.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2066, ptr noundef nonnull @.str.1220) #4
-  %2418 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %2419 = tail call ptr @proto_item_add_subtree(ptr noundef %2066, i32 noundef %2418) #4
-  %2420 = load i32, ptr @hf_cdma2k_Cadence_Count, align 4
-  %2421 = load i32, ptr %2, align 4
-  %2422 = tail call ptr @proto_tree_add_item(ptr noundef %2419, i32 noundef %2420, ptr noundef %0, i32 noundef %2421, i32 noundef 1, i32 noundef 0) #4
-  %2423 = load i32, ptr %2, align 4
-  %2424 = add i32 %2423, 1
-  store i32 %2424, ptr %2, align 4
-  %2425 = load i32, ptr @hf_cdma2k_Num_Grps, align 4
-  %2426 = shl i32 %2424, 3
-  %2427 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2419, i32 noundef %2425, ptr noundef %0, i32 noundef %2426, i32 noundef 4, i32 noundef 0) #4
-  %2428 = load i32, ptr %2, align 4
-  %2429 = shl i32 %2428, 3
-  %2430 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2429, i32 noundef 4) #4
-  %.not3797.i = icmp eq i8 %2430, 0
+2403:                                             ; preds = %.lr.ph34.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2052, ptr noundef nonnull @.str.1220) #4
+  %2404 = load i32, ptr @ett_cdma2k_subtree1, align 4
+  %2405 = tail call ptr @proto_item_add_subtree(ptr noundef %2052, i32 noundef %2404) #4
+  %2406 = load i32, ptr @hf_cdma2k_Cadence_Count, align 4
+  %2407 = load i32, ptr %2, align 4
+  %2408 = tail call ptr @proto_tree_add_item(ptr noundef %2405, i32 noundef %2406, ptr noundef %0, i32 noundef %2407, i32 noundef 1, i32 noundef 0) #4
+  %2409 = load i32, ptr %2, align 4
+  %2410 = add i32 %2409, 1
+  store i32 %2410, ptr %2, align 4
+  %2411 = load i32, ptr @hf_cdma2k_Num_Grps, align 4
+  %2412 = shl i32 %2410, 3
+  %2413 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2405, i32 noundef %2411, ptr noundef %0, i32 noundef %2412, i32 noundef 4, i32 noundef 0) #4
+  %2414 = load i32, ptr %2, align 4
+  %2415 = shl i32 %2414, 3
+  %2416 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2415, i32 noundef 4) #4
+  %.not3797.i = icmp eq i8 %2416, 0
   %.pre40.i = load i32, ptr %2, align 4
   br i1 %.not3797.i, label %._crit_edge.i238, label %.lr.ph.preheader.i236
 
-.lr.ph.preheader.i236:                            ; preds = %2417
-  %2431 = zext i8 %2430 to i32
+.lr.ph.preheader.i236:                            ; preds = %2403
+  %2417 = zext i8 %2416 to i32
   br label %.lr.ph.i237
 
 .lr.ph.i237:                                      ; preds = %.lr.ph.i237, %.lr.ph.preheader.i236
-  %2432 = phi i32 [ %2475, %.lr.ph.i237 ], [ %.pre40.i, %.lr.ph.preheader.i236 ]
-  %2433 = phi i32 [ %2477, %.lr.ph.i237 ], [ %2431, %.lr.ph.preheader.i236 ]
-  %2434 = load i32, ptr @hf_cdma2k_Amplitude, align 4
-  %2435 = shl i32 %2432, 3
-  %2436 = or disjoint i32 %2435, 4
-  %2437 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2419, i32 noundef %2434, ptr noundef %0, i32 noundef %2436, i32 noundef 8, i32 noundef 0) #4
-  %2438 = load i32, ptr %2, align 4
-  %2439 = add i32 %2438, 1
-  store i32 %2439, ptr %2, align 4
-  %2440 = load i32, ptr @hf_cdma2k_Freq, align 4
-  %2441 = tail call ptr @proto_tree_add_item(ptr noundef %2419, i32 noundef %2440, ptr noundef %0, i32 noundef %2439, i32 noundef 2, i32 noundef 0) #4
+  %2418 = phi i32 [ %2461, %.lr.ph.i237 ], [ %.pre40.i, %.lr.ph.preheader.i236 ]
+  %2419 = phi i32 [ %2463, %.lr.ph.i237 ], [ %2417, %.lr.ph.preheader.i236 ]
+  %2420 = load i32, ptr @hf_cdma2k_Amplitude, align 4
+  %2421 = shl i32 %2418, 3
+  %2422 = or disjoint i32 %2421, 4
+  %2423 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2405, i32 noundef %2420, ptr noundef %0, i32 noundef %2422, i32 noundef 8, i32 noundef 0) #4
+  %2424 = load i32, ptr %2, align 4
+  %2425 = add i32 %2424, 1
+  store i32 %2425, ptr %2, align 4
+  %2426 = load i32, ptr @hf_cdma2k_Freq, align 4
+  %2427 = tail call ptr @proto_tree_add_item(ptr noundef %2405, i32 noundef %2426, ptr noundef %0, i32 noundef %2425, i32 noundef 2, i32 noundef 0) #4
+  %2428 = load i32, ptr %2, align 4
+  %2429 = shl i32 %2428, 3
+  %2430 = or disjoint i32 %2429, 4
+  %2431 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2430, i32 noundef 10) #4
+  %2432 = zext i8 %2431 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2427, ptr noundef nonnull @.str.1221, i32 noundef %2432) #4
+  %2433 = load i32, ptr %2, align 4
+  %2434 = add i32 %2433, 1
+  store i32 %2434, ptr %2, align 4
+  %2435 = load i32, ptr @hf_cdma2k_Freq, align 4
+  %2436 = tail call ptr @proto_tree_add_item(ptr noundef %2405, i32 noundef %2435, ptr noundef %0, i32 noundef %2434, i32 noundef 2, i32 noundef 0) #4
+  %2437 = load i32, ptr %2, align 4
+  %2438 = shl i32 %2437, 3
+  %2439 = or disjoint i32 %2438, 6
+  %2440 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2439, i32 noundef 10) #4
+  %2441 = zext i8 %2440 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2436, ptr noundef nonnull @.str.1222, i32 noundef %2441) #4
   %2442 = load i32, ptr %2, align 4
-  %2443 = shl i32 %2442, 3
-  %2444 = or disjoint i32 %2443, 4
-  %2445 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2444, i32 noundef 10) #4
-  %2446 = zext i8 %2445 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2441, ptr noundef nonnull @.str.1221, i32 noundef %2446) #4
-  %2447 = load i32, ptr %2, align 4
-  %2448 = add i32 %2447, 1
-  store i32 %2448, ptr %2, align 4
-  %2449 = load i32, ptr @hf_cdma2k_Freq, align 4
-  %2450 = tail call ptr @proto_tree_add_item(ptr noundef %2419, i32 noundef %2449, ptr noundef %0, i32 noundef %2448, i32 noundef 2, i32 noundef 0) #4
-  %2451 = load i32, ptr %2, align 4
-  %2452 = shl i32 %2451, 3
-  %2453 = or disjoint i32 %2452, 6
-  %2454 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2453, i32 noundef 10) #4
-  %2455 = zext i8 %2454 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2450, ptr noundef nonnull @.str.1222, i32 noundef %2455) #4
+  %2443 = add i32 %2442, 2
+  store i32 %2443, ptr %2, align 4
+  %2444 = load i32, ptr @hf_cdma2k_On_Time, align 4
+  %2445 = tail call ptr @proto_tree_add_item(ptr noundef %2405, i32 noundef %2444, ptr noundef %0, i32 noundef %2443, i32 noundef 1, i32 noundef 0) #4
+  %2446 = load i32, ptr %2, align 4
+  %2447 = add i32 %2446, 1
+  store i32 %2447, ptr %2, align 4
+  %2448 = load i32, ptr @hf_cdma2k_Off_Time, align 4
+  %2449 = tail call ptr @proto_tree_add_item(ptr noundef %2405, i32 noundef %2448, ptr noundef %0, i32 noundef %2447, i32 noundef 1, i32 noundef 0) #4
+  %2450 = load i32, ptr %2, align 4
+  %2451 = add i32 %2450, 1
+  store i32 %2451, ptr %2, align 4
+  %2452 = load i32, ptr @hf_cdma2k_Repeat, align 4
+  %2453 = shl i32 %2451, 3
+  %2454 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2405, i32 noundef %2452, ptr noundef %0, i32 noundef %2453, i32 noundef 4, i32 noundef 0) #4
+  %2455 = load i32, ptr @hf_cdma2k_Delay, align 4
   %2456 = load i32, ptr %2, align 4
-  %2457 = add i32 %2456, 2
-  store i32 %2457, ptr %2, align 4
-  %2458 = load i32, ptr @hf_cdma2k_On_Time, align 4
-  %2459 = tail call ptr @proto_tree_add_item(ptr noundef %2419, i32 noundef %2458, ptr noundef %0, i32 noundef %2457, i32 noundef 1, i32 noundef 0) #4
+  %2457 = shl i32 %2456, 3
+  %2458 = or disjoint i32 %2457, 4
+  %2459 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2405, i32 noundef %2455, ptr noundef %0, i32 noundef %2458, i32 noundef 8, i32 noundef 0) #4
   %2460 = load i32, ptr %2, align 4
   %2461 = add i32 %2460, 1
   store i32 %2461, ptr %2, align 4
-  %2462 = load i32, ptr @hf_cdma2k_Off_Time, align 4
-  %2463 = tail call ptr @proto_tree_add_item(ptr noundef %2419, i32 noundef %2462, ptr noundef %0, i32 noundef %2461, i32 noundef 1, i32 noundef 0) #4
-  %2464 = load i32, ptr %2, align 4
-  %2465 = add i32 %2464, 1
-  store i32 %2465, ptr %2, align 4
-  %2466 = load i32, ptr @hf_cdma2k_Repeat, align 4
-  %2467 = shl i32 %2465, 3
-  %2468 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2419, i32 noundef %2466, ptr noundef %0, i32 noundef %2467, i32 noundef 4, i32 noundef 0) #4
-  %2469 = load i32, ptr @hf_cdma2k_Delay, align 4
+  %2462 = add nuw nsw i32 %2419, 65535
+  %2463 = and i32 %2462, 65535
+  %.not379.i = icmp eq i32 %2463, 0
+  br i1 %.not379.i, label %._crit_edge.i238, label %.lr.ph.i237, !llvm.loop !25
+
+._crit_edge.i238:                                 ; preds = %.lr.ph.i237, %2403
+  %2464 = phi i32 [ %.pre40.i, %2403 ], [ %2461, %.lr.ph.i237 ]
+  %2465 = load i32, ptr @hf_cdma2k_Cadence_Type, align 4
+  %2466 = shl i32 %2464, 3
+  %2467 = or disjoint i32 %2466, 4
+  %2468 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2405, i32 noundef %2465, ptr noundef %0, i32 noundef %2467, i32 noundef 2, i32 noundef 0) #4
+  %2469 = load i32, ptr @hf_cdma2k_Reserved, align 4
   %2470 = load i32, ptr %2, align 4
   %2471 = shl i32 %2470, 3
-  %2472 = or disjoint i32 %2471, 4
-  %2473 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2419, i32 noundef %2469, ptr noundef %0, i32 noundef %2472, i32 noundef 8, i32 noundef 0) #4
+  %2472 = or disjoint i32 %2471, 6
+  %2473 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2405, i32 noundef %2469, ptr noundef %0, i32 noundef %2472, i32 noundef 2, i32 noundef 0) #4
   %2474 = load i32, ptr %2, align 4
   %2475 = add i32 %2474, 1
   store i32 %2475, ptr %2, align 4
-  %2476 = add nuw nsw i32 %2433, 65535
-  %2477 = and i32 %2476, 65535
-  %.not379.i = icmp eq i32 %2477, 0
-  br i1 %.not379.i, label %._crit_edge.i238, label %.lr.ph.i237, !llvm.loop !25
-
-._crit_edge.i238:                                 ; preds = %.lr.ph.i237, %2417
-  %2478 = phi i32 [ %.pre40.i, %2417 ], [ %2475, %.lr.ph.i237 ]
-  %2479 = load i32, ptr @hf_cdma2k_Cadence_Type, align 4
-  %2480 = shl i32 %2478, 3
-  %2481 = or disjoint i32 %2480, 4
-  %2482 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2419, i32 noundef %2479, ptr noundef %0, i32 noundef %2481, i32 noundef 2, i32 noundef 0) #4
-  %2483 = load i32, ptr @hf_cdma2k_Reserved, align 4
-  %2484 = load i32, ptr %2, align 4
-  %2485 = shl i32 %2484, 3
-  %2486 = or disjoint i32 %2485, 6
-  %2487 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2419, i32 noundef %2483, ptr noundef %0, i32 noundef %2486, i32 noundef 2, i32 noundef 0) #4
-  %2488 = load i32, ptr %2, align 4
-  %2489 = add i32 %2488, 1
-  store i32 %2489, ptr %2, align 4
   br label %.loopexit.i234
 
-2490:                                             ; preds = %.lr.ph34.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2066, ptr noundef nonnull @.str.1223) #4
-  %2491 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %2492 = tail call ptr @proto_item_add_subtree(ptr noundef %2066, i32 noundef %2491) #4
-  %2493 = load i32, ptr @hf_cdma2k_Polarity_Incl, align 4
+2476:                                             ; preds = %.lr.ph34.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2052, ptr noundef nonnull @.str.1223) #4
+  %2477 = load i32, ptr @ett_cdma2k_subtree1, align 4
+  %2478 = tail call ptr @proto_item_add_subtree(ptr noundef %2052, i32 noundef %2477) #4
+  %2479 = load i32, ptr @hf_cdma2k_Polarity_Incl, align 4
+  %2480 = load i32, ptr %2, align 4
+  %2481 = shl i32 %2480, 3
+  %2482 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2478, i32 noundef %2479, ptr noundef %0, i32 noundef %2481, i32 noundef 1, i32 noundef 0) #4
+  %2483 = load i32, ptr %2, align 4
+  %2484 = shl i32 %2483, 3
+  %2485 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2484, i32 noundef 1) #4
+  %2486 = icmp eq i8 %2485, 1
+  %2487 = load i32, ptr %2, align 4
+  %2488 = shl i32 %2487, 3
+  %2489 = or disjoint i32 %2488, 1
+  br i1 %2486, label %2490, label %2511
+
+2490:                                             ; preds = %2476
+  %2491 = load i32, ptr @hf_cdma2k_Toggle_Mode, align 4
+  %2492 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2478, i32 noundef %2491, ptr noundef %0, i32 noundef %2489, i32 noundef 1, i32 noundef 0) #4
+  %2493 = load i32, ptr @hf_cdma2k_Reverse_Polarity, align 4
   %2494 = load i32, ptr %2, align 4
   %2495 = shl i32 %2494, 3
-  %2496 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2492, i32 noundef %2493, ptr noundef %0, i32 noundef %2495, i32 noundef 1, i32 noundef 0) #4
-  %2497 = load i32, ptr %2, align 4
-  %2498 = shl i32 %2497, 3
-  %2499 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2498, i32 noundef 1) #4
-  %2500 = icmp eq i8 %2499, 1
-  %2501 = load i32, ptr %2, align 4
-  %2502 = shl i32 %2501, 3
-  %2503 = or disjoint i32 %2502, 1
-  br i1 %2500, label %2504, label %2525
-
-2504:                                             ; preds = %2490
-  %2505 = load i32, ptr @hf_cdma2k_Toggle_Mode, align 4
-  %2506 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2492, i32 noundef %2505, ptr noundef %0, i32 noundef %2503, i32 noundef 1, i32 noundef 0) #4
-  %2507 = load i32, ptr @hf_cdma2k_Reverse_Polarity, align 4
-  %2508 = load i32, ptr %2, align 4
-  %2509 = shl i32 %2508, 3
-  %2510 = or disjoint i32 %2509, 2
-  %2511 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2492, i32 noundef %2507, ptr noundef %0, i32 noundef %2510, i32 noundef 1, i32 noundef 0) #4
-  %2512 = load i32, ptr @hf_cdma2k_Pwr_Denial_Time, align 4
-  %2513 = load i32, ptr %2, align 4
-  %2514 = shl i32 %2513, 3
-  %2515 = or disjoint i32 %2514, 3
-  %2516 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2492, i32 noundef %2512, ptr noundef %0, i32 noundef %2515, i32 noundef 8, i32 noundef 0) #4
-  %2517 = load i32, ptr %2, align 4
-  %2518 = add i32 %2517, 1
-  store i32 %2518, ptr %2, align 4
-  %2519 = load i32, ptr @hf_cdma2k_Reserved, align 4
-  %2520 = shl i32 %2518, 3
-  %2521 = or disjoint i32 %2520, 3
-  %2522 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2492, i32 noundef %2519, ptr noundef %0, i32 noundef %2521, i32 noundef 5, i32 noundef 0) #4
-  %2523 = load i32, ptr %2, align 4
-  %2524 = add i32 %2523, 1
-  store i32 %2524, ptr %2, align 4
+  %2496 = or disjoint i32 %2495, 2
+  %2497 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2478, i32 noundef %2493, ptr noundef %0, i32 noundef %2496, i32 noundef 1, i32 noundef 0) #4
+  %2498 = load i32, ptr @hf_cdma2k_Pwr_Denial_Time, align 4
+  %2499 = load i32, ptr %2, align 4
+  %2500 = shl i32 %2499, 3
+  %2501 = or disjoint i32 %2500, 3
+  %2502 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2478, i32 noundef %2498, ptr noundef %0, i32 noundef %2501, i32 noundef 8, i32 noundef 0) #4
+  %2503 = load i32, ptr %2, align 4
+  %2504 = add i32 %2503, 1
+  store i32 %2504, ptr %2, align 4
+  %2505 = load i32, ptr @hf_cdma2k_Reserved, align 4
+  %2506 = shl i32 %2504, 3
+  %2507 = or disjoint i32 %2506, 3
+  %2508 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2478, i32 noundef %2505, ptr noundef %0, i32 noundef %2507, i32 noundef 5, i32 noundef 0) #4
+  %2509 = load i32, ptr %2, align 4
+  %2510 = add i32 %2509, 1
+  store i32 %2510, ptr %2, align 4
   br label %.loopexit.i234
 
-2525:                                             ; preds = %2490
-  %2526 = load i32, ptr @hf_cdma2k_Pwr_Denial_Time, align 4
-  %2527 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2492, i32 noundef %2526, ptr noundef %0, i32 noundef %2503, i32 noundef 8, i32 noundef 0) #4
-  %2528 = load i32, ptr %2, align 4
-  %2529 = add i32 %2528, 1
-  store i32 %2529, ptr %2, align 4
-  %2530 = load i32, ptr @hf_cdma2k_Reserved, align 4
-  %2531 = shl i32 %2529, 3
+2511:                                             ; preds = %2476
+  %2512 = load i32, ptr @hf_cdma2k_Pwr_Denial_Time, align 4
+  %2513 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2478, i32 noundef %2512, ptr noundef %0, i32 noundef %2489, i32 noundef 8, i32 noundef 0) #4
+  %2514 = load i32, ptr %2, align 4
+  %2515 = add i32 %2514, 1
+  store i32 %2515, ptr %2, align 4
+  %2516 = load i32, ptr @hf_cdma2k_Reserved, align 4
+  %2517 = shl i32 %2515, 3
+  %2518 = or disjoint i32 %2517, 1
+  %2519 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2478, i32 noundef %2516, ptr noundef %0, i32 noundef %2518, i32 noundef 7, i32 noundef 0) #4
+  %2520 = load i32, ptr %2, align 4
+  %2521 = add i32 %2520, 1
+  store i32 %2521, ptr %2, align 4
+  br label %.loopexit.i234
+
+2522:                                             ; preds = %.lr.ph34.i
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2052, ptr noundef nonnull @.str.1224) #4
+  %2523 = load i32, ptr @ett_cdma2k_subtree1, align 4
+  %2524 = tail call ptr @proto_item_add_subtree(ptr noundef %2052, i32 noundef %2523) #4
+  %2525 = load i32, ptr @hf_cdma2k_Call_Waiting_Ind, align 4
+  %2526 = load i32, ptr %2, align 4
+  %2527 = shl i32 %2526, 3
+  %2528 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2524, i32 noundef %2525, ptr noundef %0, i32 noundef %2527, i32 noundef 1, i32 noundef 0) #4
+  %2529 = load i32, ptr @hf_cdma2k_Reserved, align 4
+  %2530 = load i32, ptr %2, align 4
+  %2531 = shl i32 %2530, 3
   %2532 = or disjoint i32 %2531, 1
-  %2533 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2492, i32 noundef %2530, ptr noundef %0, i32 noundef %2532, i32 noundef 7, i32 noundef 0) #4
+  %2533 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2524, i32 noundef %2529, ptr noundef %0, i32 noundef %2532, i32 noundef 7, i32 noundef 0) #4
   %2534 = load i32, ptr %2, align 4
   %2535 = add i32 %2534, 1
   store i32 %2535, ptr %2, align 4
   br label %.loopexit.i234
 
 2536:                                             ; preds = %.lr.ph34.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2066, ptr noundef nonnull @.str.1224) #4
-  %2537 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %2538 = tail call ptr @proto_item_add_subtree(ptr noundef %2066, i32 noundef %2537) #4
-  %2539 = load i32, ptr @hf_cdma2k_Call_Waiting_Ind, align 4
-  %2540 = load i32, ptr %2, align 4
-  %2541 = shl i32 %2540, 3
-  %2542 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2538, i32 noundef %2539, ptr noundef %0, i32 noundef %2541, i32 noundef 1, i32 noundef 0) #4
-  %2543 = load i32, ptr @hf_cdma2k_Reserved, align 4
-  %2544 = load i32, ptr %2, align 4
-  %2545 = shl i32 %2544, 3
-  %2546 = or disjoint i32 %2545, 1
-  %2547 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2538, i32 noundef %2543, ptr noundef %0, i32 noundef %2546, i32 noundef 7, i32 noundef 0) #4
-  %2548 = load i32, ptr %2, align 4
-  %2549 = add i32 %2548, 1
-  store i32 %2549, ptr %2, align 4
-  br label %.loopexit.i234
-
-2550:                                             ; preds = %.lr.ph34.i
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2066, ptr noundef nonnull @.str.1225) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2052, ptr noundef nonnull @.str.1225) #4
   %.pre49.i = load i32, ptr %2, align 4
   br label %.loopexit.i234
 
-.loopexit.i234:                                   ; preds = %.lr.ph10.i239, %.lr.ph12.i, %.lr.ph15.i, %.lr.ph18.i, %.lr.ph30.i, %2550, %2536, %2525, %2504, %._crit_edge.i238, %2385, %2347, %.thread.i240, %2228, %2190, %2182, %2157, %._crit_edge22.i, %._crit_edge26.i, %2067
-  %2551 = phi i32 [ %.pre50.i, %2347 ], [ %.pre.i242, %.thread.i240 ], [ %.pre51.i, %2228 ], [ %.pre52.i, %2190 ], [ %.pre53.i, %2067 ], [ %2524, %2504 ], [ %2535, %2525 ], [ %.pre49.i, %2550 ], [ %2549, %2536 ], [ %2489, %._crit_edge.i238 ], [ %2416, %2385 ], [ %2189, %2182 ], [ %2181, %2157 ], [ %2156, %._crit_edge22.i ], [ %2111, %._crit_edge26.i ], [ %2078, %.lr.ph30.i ], [ %2225, %.lr.ph18.i ], [ %2263, %.lr.ph15.i ], [ %2344, %.lr.ph12.i ], [ %2382, %.lr.ph10.i239 ]
-  %2552 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %2551) #4
-  %.not.i235 = icmp eq i32 %2552, 0
+.loopexit.i234:                                   ; preds = %.lr.ph10.i239, %.lr.ph12.i, %.lr.ph15.i, %.lr.ph18.i, %.lr.ph30.i, %2536, %2522, %2511, %2490, %._crit_edge.i238, %2371, %2333, %.thread.i240, %2214, %2176, %2168, %2143, %._crit_edge22.i, %._crit_edge26.i, %2053
+  %2537 = phi i32 [ %.pre50.i, %2333 ], [ %.pre.i242, %.thread.i240 ], [ %.pre51.i, %2214 ], [ %.pre52.i, %2176 ], [ %.pre53.i, %2053 ], [ %2510, %2490 ], [ %2521, %2511 ], [ %.pre49.i, %2536 ], [ %2535, %2522 ], [ %2475, %._crit_edge.i238 ], [ %2402, %2371 ], [ %2175, %2168 ], [ %2167, %2143 ], [ %2142, %._crit_edge22.i ], [ %2097, %._crit_edge26.i ], [ %2064, %.lr.ph30.i ], [ %2211, %.lr.ph18.i ], [ %2249, %.lr.ph15.i ], [ %2330, %.lr.ph12.i ], [ %2368, %.lr.ph10.i239 ]
+  %2538 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %2537) #4
+  %.not.i235 = icmp eq i32 %2538, 0
   br i1 %.not.i235, label %cdma2k_message_GEN_PAGE_REQ.exit, label %.lr.ph34.i, !llvm.loop !26
 
-2553:                                             ; preds = %2033, %2033
-  tail call fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noundef %307, ptr noundef nonnull %2, i16 noundef zeroext %.0159)
+2539:                                             ; preds = %2019, %2019
+  tail call fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noundef %293, ptr noundef nonnull %2, i16 noundef zeroext %.0159)
   br label %cdma2k_message_GEN_PAGE_REQ.exit
 
-2554:                                             ; preds = %2033
+2540:                                             ; preds = %2019
   store i16 0, ptr %3, align 2
   br label %cdma2k_message_GEN_PAGE_REQ.exit
 
-cdma2k_message_GEN_PAGE_REQ.exit:                 ; preds = %.loopexit.i234, %2034, %2026, %2021, %2553, %2554, %cdma2k_message_REGISTRATION.exit, %cdma2k_message_ORDER_IND.exit, %cdma2k_message_DATA_BURST_IND.exit, %cdma2k_message_ORIGINATION.exit, %cdma2k_message_PAGE_RESPONSE.exit, %1509, %cdma2k_message_ORDER_CMD.exit, %cdma2k_message_DATA_BURST_CMD.exit, %2006, %2032
+cdma2k_message_GEN_PAGE_REQ.exit:                 ; preds = %.loopexit.i234, %2020, %2012, %2007, %2539, %2540, %cdma2k_message_REGISTRATION.exit, %cdma2k_message_ORDER_IND.exit, %cdma2k_message_DATA_BURST_IND.exit, %cdma2k_message_ORIGINATION.exit, %cdma2k_message_PAGE_RESPONSE.exit, %1495, %cdma2k_message_ORDER_CMD.exit, %cdma2k_message_DATA_BURST_CMD.exit, %1992, %2018
   ret void
 }
 

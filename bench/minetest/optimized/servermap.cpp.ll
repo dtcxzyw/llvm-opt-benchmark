@@ -5297,6 +5297,7 @@ for.body42:                                       ; preds = %for.cond46.for.cond
   %call44 = call noundef ptr @_ZN9ServerMap12createSectorEN3irr4core8vector2dIsEE(ptr noundef nonnull align 8 dereferenceable(560) %this, i32 %sectorpos.sroa.0.0.insert.insert)
   %p.sroa.7.0.insert.ext217 = zext i16 %z.0229 to i48
   %p.sroa.7.0.insert.shift218 = shl nuw i48 %p.sroa.7.0.insert.ext217, 32
+  %invariant.op = or disjoint i48 %p.sroa.7.0.insert.shift218, %p.sroa.0.0.insert.ext202
   br label %for.body52
 
 for.cond46.for.cond.cleanup51_crit_edge:          ; preds = %if.end64
@@ -5309,19 +5310,18 @@ for.body52:                                       ; preds = %if.end64, %for.body
   %y.0226 = phi i16 [ %full_bpmin.sroa.7.0.extract.trunc, %for.body42 ], [ %inc, %if.end64 ]
   %p.sroa.6.0.insert.ext209 = zext i16 %y.0226 to i48
   %p.sroa.6.0.insert.shift210 = shl nuw nsw i48 %p.sroa.6.0.insert.ext209, 16
-  %p.sroa.6.0.insert.insert212 = or disjoint i48 %p.sroa.6.0.insert.shift210, %p.sroa.7.0.insert.shift218
-  %p.sroa.0.0.insert.insert204 = or disjoint i48 %p.sroa.6.0.insert.insert212, %p.sroa.0.0.insert.ext202
+  %p.sroa.0.0.insert.insert204.reass = or disjoint i48 %p.sroa.6.0.insert.shift210, %invariant.op
   %vtable = load ptr, ptr %this, align 8, !tbaa !15
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %37 = load ptr, ptr %vfn, align 8
-  %call54 = call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(560) %this, i48 %p.sroa.0.0.insert.insert204, i1 noundef zeroext false)
+  %call54 = call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(560) %this, i48 %p.sroa.0.0.insert.insert204.reass, i1 noundef zeroext false)
   %cmp55 = icmp eq ptr %call54, null
   br i1 %cmp55, label %if.then56, label %if.end64
 
 if.then56:                                        ; preds = %for.body52
-  %call58 = call noundef ptr @_ZN9ServerMap11createBlockEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(560) %this, i48 %p.sroa.0.0.insert.insert204)
+  %call58 = call noundef ptr @_ZN9ServerMap11createBlockEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(560) %this, i48 %p.sroa.0.0.insert.insert204.reass)
   %38 = load ptr, ptr %m_emerge, align 8, !tbaa !23
-  %call61 = call noundef zeroext i1 @_ZN13EmergeManager18isBlockUndergroundEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(464) %38, i48 %p.sroa.0.0.insert.insert204)
+  %call61 = call noundef zeroext i1 @_ZN13EmergeManager18isBlockUndergroundEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(464) %38, i48 %p.sroa.0.0.insert.insert204.reass)
   %frombool.i = zext i1 %call61 to i8
   %is_underground.i = getelementptr inbounds i8, ptr %call58, i64 91
   store i8 %frombool.i, ptr %is_underground.i, align 1, !tbaa !196
@@ -6145,6 +6145,7 @@ for.body47:                                       ; preds = %for.body47.lr.ph, %
 for.body54.lr.ph:                                 ; preds = %for.body47
   %agg.tmp.sroa.3.0.insert.ext = zext i16 %z.0168 to i48
   %agg.tmp.sroa.3.0.insert.shift = shl nuw i48 %agg.tmp.sroa.3.0.insert.ext, 32
+  %invariant.op = or disjoint i48 %agg.tmp.sroa.3.0.insert.shift, %agg.tmp.sroa.0.0.insert.ext
   br label %for.body54
 
 for.cond.cleanup53.loopexit:                      ; preds = %cleanup60
@@ -6162,9 +6163,8 @@ for.body54:                                       ; preds = %cleanup60, %for.bod
   %y.0166 = phi i16 [ %67, %for.body54.lr.ph ], [ %inc, %cleanup60 ]
   %agg.tmp.sroa.2.0.insert.ext = zext i16 %y.0166 to i48
   %agg.tmp.sroa.2.0.insert.shift = shl nuw nsw i48 %agg.tmp.sroa.2.0.insert.ext, 16
-  %agg.tmp.sroa.2.0.insert.insert = or disjoint i48 %agg.tmp.sroa.2.0.insert.shift, %agg.tmp.sroa.3.0.insert.shift
-  %agg.tmp.sroa.0.0.insert.insert = or disjoint i48 %agg.tmp.sroa.2.0.insert.insert, %agg.tmp.sroa.0.0.insert.ext
-  %call56 = call noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %this, i48 %agg.tmp.sroa.0.0.insert.insert)
+  %agg.tmp.sroa.0.0.insert.insert.reass = or disjoint i48 %agg.tmp.sroa.2.0.insert.shift, %invariant.op
+  %call56 = call noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %this, i48 %agg.tmp.sroa.0.0.insert.insert.reass)
   %tobool57.not = icmp eq ptr %call56, null
   br i1 %tobool57.not, label %cleanup60, label %if.end59
 

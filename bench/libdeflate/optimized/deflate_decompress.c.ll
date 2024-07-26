@@ -2787,6 +2787,7 @@ while.end154:                                     ; preds = %while.cond107.loope
   %sorted_syms.addr.0.lcssa = phi ptr [ %add.ptr, %while.end105 ], [ %incdec.ptr, %while.cond107.loopexit ]
   %shl155 = shl nuw i32 1, %table_bits.addr.0
   %sub161 = add i32 %shl155, -1
+  %invariant.op = add nuw i32 %table_bits.addr.0, 1
   br label %for.cond156.outer
 
 for.cond156.outer:                                ; preds = %while.body226, %while.end154
@@ -2824,8 +2825,8 @@ while.body174:                                    ; preds = %if.then165, %while.
   %codespace_used.1156 = phi i32 [ %add180, %while.body174 ], [ %count.2, %if.then165 ]
   %inc175 = add i32 %subtable_bits.0157, 1
   %shl176 = shl i32 %codespace_used.1156, 1
-  %add177 = add i32 %inc175, %table_bits.addr.0
-  %idxprom178 = zext i32 %add177 to i64
+  %add177.reass = add i32 %subtable_bits.0157, %invariant.op
+  %idxprom178 = zext i32 %add177.reass to i64
   %arrayidx179 = getelementptr inbounds [16 x i32], ptr %len_counts, i64 0, i64 %idxprom178
   %24 = load i32, ptr %arrayidx179, align 4
   %add180 = add i32 %24, %shl176

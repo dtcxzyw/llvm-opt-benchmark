@@ -3746,6 +3746,7 @@ for.cond15.preheader:                             ; preds = %for.inc63, %for.con
   %add8.i = add i16 %4, %pos_of_block.sroa.4.0.extract.trunc
   %retval.sroa.2.0.insert.ext.i = zext i16 %add8.i to i48
   %retval.sroa.2.0.insert.shift.i = shl nuw nsw i48 %retval.sroa.2.0.insert.ext.i, 16
+  %invariant.op = or disjoint i48 %retval.sroa.2.0.insert.shift.i, %retval.sroa.0.0.insert.ext.i
   br label %for.body19
 
 for.body19:                                       ; preds = %for.inc60, %for.cond15.preheader
@@ -3841,8 +3842,7 @@ for.body37.lr.ph:                                 ; preds = %if.end30
   %add13.i = add i16 %17, %pos_of_block.sroa.5.0.extract.trunc
   %retval.sroa.3.0.insert.ext.i = zext i16 %add13.i to i48
   %retval.sroa.3.0.insert.shift.i = shl nuw i48 %retval.sroa.3.0.insert.ext.i, 32
-  %retval.sroa.2.0.insert.insert.i = or disjoint i48 %retval.sroa.3.0.insert.shift.i, %retval.sroa.2.0.insert.shift.i
-  %retval.sroa.0.0.insert.insert.i = or disjoint i48 %retval.sroa.2.0.insert.insert.i, %retval.sroa.0.0.insert.ext.i
+  %retval.sroa.0.0.insert.insert.i.reass = or disjoint i48 %retval.sroa.3.0.insert.shift.i, %invariant.op
   br label %for.body37
 
 for.body37:                                       ; preds = %cleanup, %for.body37.lr.ph
@@ -3852,7 +3852,7 @@ for.body37:                                       ; preds = %cleanup, %for.body3
   %vtable = load ptr, ptr %18, align 8, !tbaa !19
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %19 = load ptr, ptr %vfn, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(89) %18, ptr noundef %env, i48 %retval.sroa.0.0.insert.insert.i, i32 %n.sroa.7.sroa.0.0.in.in179, float noundef %dtime_s)
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(89) %18, ptr noundef %env, i48 %retval.sroa.0.0.insert.insert.i.reass, i32 %n.sroa.7.sroa.0.0.in.in179, float noundef %dtime_s)
   %20 = load i8, ptr %m_orphan.i, align 1, !tbaa !179, !range !97, !noundef !98
   %tobool.i.not = icmp eq i8 %20, 0
   br i1 %tobool.i.not, label %cleanup, label %cleanup78
@@ -4162,15 +4162,15 @@ for.body27.i:                                     ; preds = %for.cond33.for.inc4
   %storemerge6687.i = phi i16 [ %conv17.i253, %for.body.i ], [ %inc50.i, %for.cond33.for.inc48_crit_edge.i ]
   %p.sroa.10.0.insert.ext.i = zext i16 %storemerge6687.i to i48
   %p.sroa.10.0.insert.shift.i = shl nuw nsw i48 %p.sroa.10.0.insert.ext.i, 16
+  %invariant.op = or disjoint i48 %p.sroa.10.0.insert.shift.i, %p.sroa.0.0.insert.ext.i
   br label %for.body41.i
 
 for.body41.i:                                     ; preds = %for.inc.i, %for.body27.i
   %storemerge6881.i = phi i16 [ %conv31.i, %for.body27.i ], [ %inc.i, %for.inc.i ]
   %p.sroa.16.0.insert.ext.i = zext i16 %storemerge6881.i to i48
   %p.sroa.16.0.insert.shift.i = shl nuw i48 %p.sroa.16.0.insert.ext.i, 32
-  %p.sroa.10.0.insert.insert.i = or disjoint i48 %p.sroa.16.0.insert.shift.i, %p.sroa.10.0.insert.shift.i
-  %p.sroa.0.0.insert.insert.i = or disjoint i48 %p.sroa.10.0.insert.insert.i, %p.sroa.0.0.insert.ext.i
-  %call.i258 = invoke noundef zeroext i1 @_Z14isBlockInSightN3irr4core8vector3dIsEENS1_IfEES3_ffPf(i48 %p.sroa.0.0.insert.insert.i, <2 x float> %49, float %add6.i.i, <2 x float> %camera_dir.sroa.0.1, float %camera_dir.sroa.15.0, float noundef %51, float noundef %conv44.i, ptr noundef null)
+  %p.sroa.0.0.insert.insert.i.reass = or disjoint i48 %p.sroa.16.0.insert.shift.i, %invariant.op
+  %call.i258 = invoke noundef zeroext i1 @_Z14isBlockInSightN3irr4core8vector3dIsEENS1_IfEES3_ffPf(i48 %p.sroa.0.0.insert.insert.i.reass, <2 x float> %49, float %add6.i.i, <2 x float> %camera_dir.sroa.0.1, float %camera_dir.sroa.15.0, float noundef %51, float noundef %conv44.i, ptr noundef null)
           to label %call.i.noexc unwind label %lpad29.loopexit
 
 call.i.noexc:                                     ; preds = %for.body41.i

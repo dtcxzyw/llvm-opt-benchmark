@@ -1296,93 +1296,91 @@ define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKdd
   ]
 
 .preheader126.preheader:                          ; preds = %3
-  %invariant.gep192 = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = load double, ptr %invariant.gep192, align 8
+  %invariant.gep203 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = load double, ptr %invariant.gep203, align 8
   store double %4, ptr %.sroa.0, align 16
-  %gep191.c = getelementptr inbounds i8, ptr %0, i64 48
+  %gep202.c = getelementptr inbounds i8, ptr %0, i64 48
   br label %.thread111.sink.split
 
 .preheader120.preheader:                          ; preds = %3
-  %invariant.gep198 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load double, ptr %invariant.gep198, align 8
+  %invariant.gep209 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = load double, ptr %invariant.gep209, align 8
   store double %5, ptr %.sroa.0, align 16
-  %gep197.c = getelementptr inbounds i8, ptr %0, i64 48
+  %gep208.c = getelementptr inbounds i8, ptr %0, i64 48
   br label %.thread111.sink.split
 
 .preheader:                                       ; preds = %3
-  %invariant.gep202 = getelementptr inbounds i8, ptr %0, i64 0
-  %6 = load double, ptr %invariant.gep202, align 8
+  %invariant.gep215 = getelementptr inbounds i8, ptr %0, i64 0
+  %6 = load double, ptr %invariant.gep215, align 8
   store double %6, ptr %.sroa.0, align 16
-  %gep203.c = getelementptr inbounds i8, ptr %invariant.gep202, i64 32
-  %7 = load double, ptr %gep203.c, align 8
+  %gep216.c = getelementptr inbounds i8, ptr %invariant.gep215, i64 32
+  %7 = load double, ptr %gep216.c, align 8
   store double %7, ptr %.sroa.7, align 8
-  %invariant.gep202.c = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = load double, ptr %invariant.gep202.c, align 8
+  %invariant.gep215.c = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = load double, ptr %invariant.gep215.c, align 8
   store double %8, ptr %.sroa.11, align 16
-  %gep203.c.c = getelementptr inbounds i8, ptr %invariant.gep202.c, i64 32
-  %9 = load double, ptr %gep203.c.c, align 8
+  %gep216.c.c = getelementptr inbounds i8, ptr %invariant.gep215.c, i64 32
+  %9 = load double, ptr %gep216.c.c, align 8
   store double %9, ptr %.sroa.15, align 8
   br label %.thread111
 
 .preheader114:                                    ; preds = %3
-  %10 = or disjoint i64 0, 1
-  %11 = getelementptr inbounds double, ptr %0, i64 %10
-  %12 = load double, ptr %11, align 8
-  store double %12, ptr %.sroa.0, align 16
-  %13 = or disjoint i64 0, 5
-  %14 = getelementptr inbounds double, ptr %0, i64 %13
-  %15 = load double, ptr %14, align 8
-  store double %15, ptr %.sroa.7, align 8
-  %16 = getelementptr inbounds double, ptr %0, i64 3
-  %17 = load double, ptr %16, align 8
-  store double %17, ptr %.sroa.11, align 16
-  %18 = getelementptr inbounds double, ptr %0, i64 7
-  %19 = load double, ptr %18, align 8
-  store double %19, ptr %.sroa.15, align 8
+  %invariant.gep213 = getelementptr inbounds double, ptr %0, i64 1
+  %10 = load double, ptr %invariant.gep213, align 8
+  store double %10, ptr %.sroa.0, align 16
+  %gep214.c = getelementptr inbounds i8, ptr %invariant.gep213, i64 32
+  %11 = load double, ptr %gep214.c, align 8
+  store double %11, ptr %.sroa.7, align 8
+  %invariant.gep213.c = getelementptr inbounds double, ptr %0, i64 3
+  %12 = load double, ptr %invariant.gep213.c, align 8
+  store double %12, ptr %.sroa.11, align 16
+  %gep214.c.c = getelementptr inbounds i8, ptr %invariant.gep213.c, i64 32
+  %13 = load double, ptr %gep214.c.c, align 8
+  store double %13, ptr %.sroa.15, align 8
   br label %.thread111
 
 .preheader117:                                    ; preds = %3
-  %20 = load double, ptr %0, align 8
-  store double %20, ptr %.sroa.0, align 16
-  %gep201.c = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = load double, ptr %0, align 8
+  store double %14, ptr %.sroa.0, align 16
+  %gep212.c = getelementptr inbounds i8, ptr %0, i64 32
   br label %.thread111.sink.split
 
 .preheader123:                                    ; preds = %3
-  %21 = load double, ptr %0, align 8
-  store double %21, ptr %.sroa.0, align 16
-  %gep193.c = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = load double, ptr %0, align 8
+  store double %15, ptr %.sroa.0, align 16
+  %gep204.c = getelementptr inbounds i8, ptr %0, i64 16
   br label %.thread111.sink.split
 
 .thread111.sink.split:                            ; preds = %.preheader117, %.preheader120.preheader, %.preheader123, %.preheader126.preheader
-  %gep191.c.sink = phi ptr [ %gep191.c, %.preheader126.preheader ], [ %gep193.c, %.preheader123 ], [ %gep197.c, %.preheader120.preheader ], [ %gep201.c, %.preheader117 ]
-  %invariant.gep192.sink = phi ptr [ %invariant.gep192, %.preheader126.preheader ], [ %0, %.preheader123 ], [ %invariant.gep198, %.preheader120.preheader ], [ %0, %.preheader117 ]
+  %gep202.c.sink = phi ptr [ %gep202.c, %.preheader126.preheader ], [ %gep204.c, %.preheader123 ], [ %gep208.c, %.preheader120.preheader ], [ %gep212.c, %.preheader117 ]
+  %invariant.gep203.sink = phi ptr [ %invariant.gep203, %.preheader126.preheader ], [ %0, %.preheader123 ], [ %invariant.gep209, %.preheader120.preheader ], [ %0, %.preheader117 ]
   %.sink = phi i64 [ 16, %.preheader126.preheader ], [ 16, %.preheader123 ], [ 32, %.preheader120.preheader ], [ 32, %.preheader117 ]
-  %22 = load double, ptr %gep191.c.sink, align 8
-  store double %22, ptr %.sroa.7, align 8
-  %gep.c = getelementptr inbounds i8, ptr %invariant.gep192.sink, i64 8
-  %23 = load double, ptr %gep.c, align 8
-  store double %23, ptr %.sroa.11, align 16
-  %gep191.c.c = getelementptr inbounds i8, ptr %gep.c, i64 %.sink
-  %24 = load double, ptr %gep191.c.c, align 8
-  store double %24, ptr %.sroa.15, align 8
+  %16 = load double, ptr %gep202.c.sink, align 8
+  store double %16, ptr %.sroa.7, align 8
+  %gep.c = getelementptr inbounds i8, ptr %invariant.gep203.sink, i64 8
+  %17 = load double, ptr %gep.c, align 8
+  store double %17, ptr %.sroa.11, align 16
+  %gep202.c.c = getelementptr inbounds i8, ptr %gep.c, i64 %.sink
+  %18 = load double, ptr %gep202.c.c, align 8
+  store double %18, ptr %.sroa.15, align 8
   br label %.thread111
 
 .thread111:                                       ; preds = %.preheader114, %.preheader, %.thread111.sink.split, %3
   %.sroa.0.0..sroa.0.0. = load double, ptr %.sroa.0, align 16
-  %25 = fcmp olt double %.sroa.0.0..sroa.0.0., %1
-  %.0 = zext i1 %25 to i8
+  %19 = fcmp olt double %.sroa.0.0..sroa.0.0., %1
+  %.0 = zext i1 %19 to i8
   %.sroa.11.0..sroa.11.16. = load double, ptr %.sroa.11, align 16
-  %26 = fcmp olt double %.sroa.11.0..sroa.11.16., %1
-  %27 = or disjoint i8 %.0, 2
-  %.1 = select i1 %26, i8 %27, i8 %.0
+  %20 = fcmp olt double %.sroa.11.0..sroa.11.16., %1
+  %21 = or disjoint i8 %.0, 2
+  %.1 = select i1 %20, i8 %21, i8 %.0
   %.sroa.15.0..sroa.15.24. = load double, ptr %.sroa.15, align 8
-  %28 = fcmp olt double %.sroa.15.0..sroa.15.24., %1
-  %29 = or disjoint i8 %.1, 4
-  %.2 = select i1 %28, i8 %29, i8 %.1
+  %22 = fcmp olt double %.sroa.15.0..sroa.15.24., %1
+  %23 = or disjoint i8 %.1, 4
+  %.2 = select i1 %22, i8 %23, i8 %.1
   %.sroa.7.0..sroa.7.8. = load double, ptr %.sroa.7, align 8
-  %30 = fcmp olt double %.sroa.7.0..sroa.7.8., %1
-  %31 = or disjoint i8 %.2, 8
-  %.3 = select i1 %30, i8 %31, i8 %.2
+  %24 = fcmp olt double %.sroa.7.0..sroa.7.8., %1
+  %25 = or disjoint i8 %.2, 8
+  %.3 = select i1 %24, i8 %25, i8 %.2
   ret i8 %.3
 }
 
@@ -1872,19 +1870,19 @@ define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKff
   ]
 
 .preheader126.preheader:                          ; preds = %3
-  %invariant.gep192 = getelementptr inbounds i8, ptr %0, i64 16
-  %gep = getelementptr inbounds float, ptr %invariant.gep192, i64 0
+  %invariant.gep203 = getelementptr inbounds i8, ptr %0, i64 16
+  %gep = getelementptr inbounds float, ptr %invariant.gep203, i64 0
   %4 = load float, ptr %gep, align 4
-  %gep191.c = getelementptr inbounds i8, ptr %gep, i64 8
-  %5 = load float, ptr %gep191.c, align 4
+  %gep202.c = getelementptr inbounds i8, ptr %gep, i64 8
+  %5 = load float, ptr %gep202.c, align 4
   %6 = insertelement <2 x float> poison, float %4, i64 0
   %7 = insertelement <2 x float> %6, float %5, i64 1
   %8 = fpext <2 x float> %7 to <2 x double>
   store <2 x double> %8, ptr %.sroa.0, align 16
-  %gep.c = getelementptr inbounds float, ptr %invariant.gep192, i64 1
+  %gep.c = getelementptr inbounds float, ptr %invariant.gep203, i64 1
   %9 = load float, ptr %gep.c, align 4
-  %gep191.c.c = getelementptr inbounds i8, ptr %gep.c, i64 8
-  %10 = load float, ptr %gep191.c.c, align 4
+  %gep202.c.c = getelementptr inbounds i8, ptr %gep.c, i64 8
+  %10 = load float, ptr %gep202.c.c, align 4
   %11 = insertelement <2 x float> poison, float %9, i64 0
   %12 = insertelement <2 x float> %11, float %10, i64 1
   %13 = fpext <2 x float> %12 to <2 x double>
@@ -1892,19 +1890,19 @@ define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKff
   br label %.thread111
 
 .preheader120.preheader:                          ; preds = %3
-  %invariant.gep198 = getelementptr inbounds i8, ptr %0, i64 8
-  %gep199 = getelementptr inbounds float, ptr %invariant.gep198, i64 0
-  %14 = load float, ptr %gep199, align 4
-  %gep197.c = getelementptr inbounds i8, ptr %gep199, i64 16
-  %15 = load float, ptr %gep197.c, align 4
+  %invariant.gep209 = getelementptr inbounds i8, ptr %0, i64 8
+  %gep210 = getelementptr inbounds float, ptr %invariant.gep209, i64 0
+  %14 = load float, ptr %gep210, align 4
+  %gep208.c = getelementptr inbounds i8, ptr %gep210, i64 16
+  %15 = load float, ptr %gep208.c, align 4
   %16 = insertelement <2 x float> poison, float %14, i64 0
   %17 = insertelement <2 x float> %16, float %15, i64 1
   %18 = fpext <2 x float> %17 to <2 x double>
   store <2 x double> %18, ptr %.sroa.0, align 16
-  %gep199.c = getelementptr inbounds float, ptr %invariant.gep198, i64 1
-  %19 = load float, ptr %gep199.c, align 4
-  %gep197.c.c = getelementptr inbounds i8, ptr %gep199.c, i64 16
-  %20 = load float, ptr %gep197.c.c, align 4
+  %gep210.c = getelementptr inbounds float, ptr %invariant.gep209, i64 1
+  %19 = load float, ptr %gep210.c, align 4
+  %gep208.c.c = getelementptr inbounds i8, ptr %gep210.c, i64 16
+  %20 = load float, ptr %gep208.c.c, align 4
   %21 = insertelement <2 x float> poison, float %19, i64 0
   %22 = insertelement <2 x float> %21, float %20, i64 1
   %23 = fpext <2 x float> %22 to <2 x double>
@@ -1912,18 +1910,18 @@ define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKff
   br label %.thread111
 
 .preheader:                                       ; preds = %3
-  %invariant.gep202 = getelementptr inbounds i8, ptr %0, i64 0
-  %24 = load float, ptr %invariant.gep202, align 4
-  %gep203.c = getelementptr inbounds i8, ptr %invariant.gep202, i64 16
-  %25 = load float, ptr %gep203.c, align 4
+  %invariant.gep215 = getelementptr inbounds i8, ptr %0, i64 0
+  %24 = load float, ptr %invariant.gep215, align 4
+  %gep216.c = getelementptr inbounds i8, ptr %invariant.gep215, i64 16
+  %25 = load float, ptr %gep216.c, align 4
   %26 = insertelement <2 x float> poison, float %24, i64 0
   %27 = insertelement <2 x float> %26, float %25, i64 1
   %28 = fpext <2 x float> %27 to <2 x double>
   store <2 x double> %28, ptr %.sroa.0, align 16
-  %invariant.gep202.c = getelementptr inbounds i8, ptr %0, i64 8
-  %29 = load float, ptr %invariant.gep202.c, align 4
-  %gep203.c.c = getelementptr inbounds i8, ptr %invariant.gep202.c, i64 16
-  %30 = load float, ptr %gep203.c.c, align 4
+  %invariant.gep215.c = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = load float, ptr %invariant.gep215.c, align 4
+  %gep216.c.c = getelementptr inbounds i8, ptr %invariant.gep215.c, i64 16
+  %30 = load float, ptr %gep216.c.c, align 4
   %31 = insertelement <2 x float> poison, float %29, i64 0
   %32 = insertelement <2 x float> %31, float %30, i64 1
   %33 = fpext <2 x float> %32 to <2 x double>
@@ -1931,83 +1929,81 @@ define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKff
   br label %.thread111
 
 .preheader114:                                    ; preds = %3
-  %34 = or disjoint i64 0, 1
-  %35 = getelementptr inbounds float, ptr %0, i64 %34
-  %36 = load float, ptr %35, align 4
-  %37 = or disjoint i64 0, 5
-  %38 = getelementptr inbounds float, ptr %0, i64 %37
-  %39 = load float, ptr %38, align 4
-  %40 = insertelement <2 x float> poison, float %36, i64 0
-  %41 = insertelement <2 x float> %40, float %39, i64 1
-  %42 = fpext <2 x float> %41 to <2 x double>
-  store <2 x double> %42, ptr %.sroa.0, align 16
-  %43 = getelementptr inbounds float, ptr %0, i64 3
-  %44 = load float, ptr %43, align 4
-  %45 = getelementptr inbounds float, ptr %0, i64 7
-  %46 = load float, ptr %45, align 4
-  %47 = insertelement <2 x float> poison, float %44, i64 0
-  %48 = insertelement <2 x float> %47, float %46, i64 1
-  %49 = fpext <2 x float> %48 to <2 x double>
-  store <2 x double> %49, ptr %.sroa.8, align 16
+  %invariant.gep213 = getelementptr inbounds float, ptr %0, i64 1
+  %34 = load float, ptr %invariant.gep213, align 4
+  %gep214.c = getelementptr inbounds i8, ptr %invariant.gep213, i64 16
+  %35 = load float, ptr %gep214.c, align 4
+  %36 = insertelement <2 x float> poison, float %34, i64 0
+  %37 = insertelement <2 x float> %36, float %35, i64 1
+  %38 = fpext <2 x float> %37 to <2 x double>
+  store <2 x double> %38, ptr %.sroa.0, align 16
+  %invariant.gep213.c = getelementptr inbounds float, ptr %0, i64 3
+  %39 = load float, ptr %invariant.gep213.c, align 4
+  %gep214.c.c = getelementptr inbounds i8, ptr %invariant.gep213.c, i64 16
+  %40 = load float, ptr %gep214.c.c, align 4
+  %41 = insertelement <2 x float> poison, float %39, i64 0
+  %42 = insertelement <2 x float> %41, float %40, i64 1
+  %43 = fpext <2 x float> %42 to <2 x double>
+  store <2 x double> %43, ptr %.sroa.8, align 16
   br label %.thread111
 
 .preheader117:                                    ; preds = %3
-  %invariant.gep200 = getelementptr inbounds float, ptr %0, i64 0
-  %50 = load float, ptr %invariant.gep200, align 4
-  %gep201.c = getelementptr inbounds i8, ptr %invariant.gep200, i64 16
-  %51 = load float, ptr %gep201.c, align 4
-  %52 = insertelement <2 x float> poison, float %50, i64 0
-  %53 = insertelement <2 x float> %52, float %51, i64 1
-  %54 = fpext <2 x float> %53 to <2 x double>
-  store <2 x double> %54, ptr %.sroa.0, align 16
-  %invariant.gep200.c = getelementptr inbounds float, ptr %0, i64 1
-  %55 = load float, ptr %invariant.gep200.c, align 4
-  %gep201.c.c = getelementptr inbounds i8, ptr %invariant.gep200.c, i64 16
-  %56 = load float, ptr %gep201.c.c, align 4
-  %57 = insertelement <2 x float> poison, float %55, i64 0
-  %58 = insertelement <2 x float> %57, float %56, i64 1
-  %59 = fpext <2 x float> %58 to <2 x double>
-  store <2 x double> %59, ptr %.sroa.8, align 16
+  %invariant.gep211 = getelementptr inbounds float, ptr %0, i64 0
+  %44 = load float, ptr %invariant.gep211, align 4
+  %gep212.c = getelementptr inbounds i8, ptr %invariant.gep211, i64 16
+  %45 = load float, ptr %gep212.c, align 4
+  %46 = insertelement <2 x float> poison, float %44, i64 0
+  %47 = insertelement <2 x float> %46, float %45, i64 1
+  %48 = fpext <2 x float> %47 to <2 x double>
+  store <2 x double> %48, ptr %.sroa.0, align 16
+  %invariant.gep211.c = getelementptr inbounds float, ptr %0, i64 1
+  %49 = load float, ptr %invariant.gep211.c, align 4
+  %gep212.c.c = getelementptr inbounds i8, ptr %invariant.gep211.c, i64 16
+  %50 = load float, ptr %gep212.c.c, align 4
+  %51 = insertelement <2 x float> poison, float %49, i64 0
+  %52 = insertelement <2 x float> %51, float %50, i64 1
+  %53 = fpext <2 x float> %52 to <2 x double>
+  store <2 x double> %53, ptr %.sroa.8, align 16
   br label %.thread111
 
 .preheader123:                                    ; preds = %3
   %invariant.gep = getelementptr inbounds float, ptr %0, i64 0
-  %60 = load float, ptr %invariant.gep, align 4
-  %gep193.c = getelementptr inbounds i8, ptr %invariant.gep, i64 8
-  %61 = load float, ptr %gep193.c, align 4
-  %62 = insertelement <2 x float> poison, float %60, i64 0
-  %63 = insertelement <2 x float> %62, float %61, i64 1
-  %64 = fpext <2 x float> %63 to <2 x double>
-  store <2 x double> %64, ptr %.sroa.0, align 16
+  %54 = load float, ptr %invariant.gep, align 4
+  %gep204.c = getelementptr inbounds i8, ptr %invariant.gep, i64 8
+  %55 = load float, ptr %gep204.c, align 4
+  %56 = insertelement <2 x float> poison, float %54, i64 0
+  %57 = insertelement <2 x float> %56, float %55, i64 1
+  %58 = fpext <2 x float> %57 to <2 x double>
+  store <2 x double> %58, ptr %.sroa.0, align 16
   %invariant.gep.c = getelementptr inbounds float, ptr %0, i64 1
-  %65 = load float, ptr %invariant.gep.c, align 4
-  %gep193.c.c = getelementptr inbounds i8, ptr %invariant.gep.c, i64 8
-  %66 = load float, ptr %gep193.c.c, align 4
-  %67 = insertelement <2 x float> poison, float %65, i64 0
-  %68 = insertelement <2 x float> %67, float %66, i64 1
-  %69 = fpext <2 x float> %68 to <2 x double>
-  store <2 x double> %69, ptr %.sroa.8, align 16
+  %59 = load float, ptr %invariant.gep.c, align 4
+  %gep204.c.c = getelementptr inbounds i8, ptr %invariant.gep.c, i64 8
+  %60 = load float, ptr %gep204.c.c, align 4
+  %61 = insertelement <2 x float> poison, float %59, i64 0
+  %62 = insertelement <2 x float> %61, float %60, i64 1
+  %63 = fpext <2 x float> %62 to <2 x double>
+  store <2 x double> %63, ptr %.sroa.8, align 16
   br label %.thread111
 
 .thread111:                                       ; preds = %.preheader126.preheader, %.preheader123, %.preheader120.preheader, %.preheader117, %.preheader114, %.preheader, %3
   %.sroa.0.0..sroa.0.0. = load double, ptr %.sroa.0, align 16
-  %70 = fpext float %1 to double
-  %71 = fcmp olt double %.sroa.0.0..sroa.0.0., %70
-  %.0 = zext i1 %71 to i8
+  %64 = fpext float %1 to double
+  %65 = fcmp olt double %.sroa.0.0..sroa.0.0., %64
+  %.0 = zext i1 %65 to i8
   %.sroa.8.0..sroa.8.16. = load double, ptr %.sroa.8, align 16
-  %72 = fcmp olt double %.sroa.8.0..sroa.8.16., %70
-  %73 = or disjoint i8 %.0, 2
-  %.1 = select i1 %72, i8 %73, i8 %.0
+  %66 = fcmp olt double %.sroa.8.0..sroa.8.16., %64
+  %67 = or disjoint i8 %.0, 2
+  %.1 = select i1 %66, i8 %67, i8 %.0
   %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.8, i64 8
   %.sroa.8.8..sroa.8.24. = load double, ptr %.sroa.8.8..sroa_idx, align 8
-  %74 = fcmp olt double %.sroa.8.8..sroa.8.24., %70
-  %75 = or disjoint i8 %.1, 4
-  %.2 = select i1 %74, i8 %75, i8 %.1
-  %.sroa.0.8..sroa_idx228 = getelementptr inbounds i8, ptr %.sroa.0, i64 8
-  %.sroa.0.8..sroa.0.8. = load double, ptr %.sroa.0.8..sroa_idx228, align 8
-  %76 = fcmp olt double %.sroa.0.8..sroa.0.8., %70
-  %77 = or disjoint i8 %.2, 8
-  %.3 = select i1 %76, i8 %77, i8 %.2
+  %68 = fcmp olt double %.sroa.8.8..sroa.8.24., %64
+  %69 = or disjoint i8 %.1, 4
+  %.2 = select i1 %68, i8 %69, i8 %.1
+  %.sroa.0.8..sroa_idx241 = getelementptr inbounds i8, ptr %.sroa.0, i64 8
+  %.sroa.0.8..sroa.0.8. = load double, ptr %.sroa.0.8..sroa_idx241, align 8
+  %70 = fcmp olt double %.sroa.0.8..sroa.0.8., %64
+  %71 = or disjoint i8 %.2, 8
+  %.3 = select i1 %70, i8 %71, i8 %.2
   ret i8 %.3
 }
 
@@ -2052,114 +2048,114 @@ _ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader: ; preds = %2
 
 .preheader:                                       ; preds = %_ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader, %.preheader
   %9 = phi i1 [ true, %_ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader ], [ false, %.preheader ]
-  %indvars.iv177.sroa.phi = phi ptr [ %.sroa.0, %_ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader ], [ %.sroa.14, %.preheader ]
-  %indvars.iv177.sroa.phi209 = phi ptr [ %.sroa.7, %_ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader ], [ %.sroa.21, %.preheader ]
-  %indvars.iv177 = phi i64 [ 0, %_ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader ], [ 2, %.preheader ]
-  %10 = getelementptr inbounds [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %indvars.iv177
+  %indvars.iv191.sroa.phi = phi ptr [ %.sroa.0, %_ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader ], [ %.sroa.14, %.preheader ]
+  %indvars.iv191.sroa.phi223 = phi ptr [ %.sroa.7, %_ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader ], [ %.sroa.21, %.preheader ]
+  %indvars.iv191 = phi i64 [ 0, %_ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader ], [ 2, %.preheader ]
+  %10 = getelementptr inbounds [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %indvars.iv191
   %11 = load i32, ptr %10, align 8
   %12 = shl nuw i32 1, %11
   %13 = and i32 %12, %8
-  store i32 %13, ptr %indvars.iv177.sroa.phi, align 8
-  %14 = or disjoint i64 %indvars.iv177, 4
+  store i32 %13, ptr %indvars.iv191.sroa.phi, align 8
+  %14 = or disjoint i64 %indvars.iv191, 4
   %15 = getelementptr inbounds [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %14
   %16 = load i32, ptr %15, align 8
   %17 = shl nuw i32 1, %16
   %18 = and i32 %17, %8
-  store i32 %18, ptr %indvars.iv177.sroa.phi209, align 4
+  store i32 %18, ptr %indvars.iv191.sroa.phi223, align 4
   br i1 %9, label %.preheader, label %.thread111, !llvm.loop !13
 
 .preheader114:                                    ; preds = %.preheader115, %.preheader114
   %19 = phi i1 [ true, %.preheader115 ], [ false, %.preheader114 ]
-  %indvars.iv171.sroa.phi = phi ptr [ %.sroa.0, %.preheader115 ], [ %.sroa.14, %.preheader114 ]
-  %indvars.iv171.sroa.phi212 = phi ptr [ %.sroa.7, %.preheader115 ], [ %.sroa.21, %.preheader114 ]
-  %indvars.iv171 = phi i64 [ 0, %.preheader115 ], [ 2, %.preheader114 ]
-  %20 = or disjoint i64 %indvars.iv171, 1
+  %indvars.iv184.sroa.phi = phi ptr [ %.sroa.0, %.preheader115 ], [ %.sroa.14, %.preheader114 ]
+  %indvars.iv184.sroa.phi226 = phi ptr [ %.sroa.7, %.preheader115 ], [ %.sroa.21, %.preheader114 ]
+  %indvars.iv184 = phi i64 [ 0, %.preheader115 ], [ 2, %.preheader114 ]
+  %20 = or disjoint i64 %indvars.iv184, 1
   %21 = getelementptr inbounds [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = shl nuw i32 1, %22
   %24 = and i32 %23, %7
-  store i32 %24, ptr %indvars.iv171.sroa.phi, align 8
-  %25 = or disjoint i64 %indvars.iv171, 5
+  store i32 %24, ptr %indvars.iv184.sroa.phi, align 8
+  %25 = or disjoint i64 %indvars.iv184, 5
   %26 = getelementptr inbounds [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = shl nuw i32 1, %27
   %29 = and i32 %28, %7
-  store i32 %29, ptr %indvars.iv171.sroa.phi212, align 4
+  store i32 %29, ptr %indvars.iv184.sroa.phi226, align 4
   br i1 %19, label %.preheader114, label %.thread111, !llvm.loop !14
 
 .preheader117:                                    ; preds = %.preheader118, %.preheader117
   %30 = phi i1 [ true, %.preheader118 ], [ false, %.preheader117 ]
-  %indvars.iv165.sroa.phi = phi ptr [ %.sroa.0, %.preheader118 ], [ %.sroa.14, %.preheader117 ]
-  %indvars.iv165.sroa.phi215 = phi ptr [ %.sroa.7, %.preheader118 ], [ %.sroa.21, %.preheader117 ]
-  %indvars.iv165 = phi i64 [ 0, %.preheader118 ], [ 1, %.preheader117 ]
-  %31 = getelementptr inbounds [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %indvars.iv165
+  %indvars.iv177.sroa.phi = phi ptr [ %.sroa.0, %.preheader118 ], [ %.sroa.14, %.preheader117 ]
+  %indvars.iv177.sroa.phi229 = phi ptr [ %.sroa.7, %.preheader118 ], [ %.sroa.21, %.preheader117 ]
+  %indvars.iv177 = phi i64 [ 0, %.preheader118 ], [ 1, %.preheader117 ]
+  %31 = getelementptr inbounds [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %indvars.iv177
   %32 = load i32, ptr %31, align 4
   %33 = shl nuw i32 1, %32
   %34 = and i32 %33, %6
-  store i32 %34, ptr %indvars.iv165.sroa.phi, align 8
-  %35 = or disjoint i64 %indvars.iv165, 4
+  store i32 %34, ptr %indvars.iv177.sroa.phi, align 8
+  %35 = or disjoint i64 %indvars.iv177, 4
   %36 = getelementptr inbounds [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = shl nuw i32 1, %37
   %39 = and i32 %38, %6
-  store i32 %39, ptr %indvars.iv165.sroa.phi215, align 4
+  store i32 %39, ptr %indvars.iv177.sroa.phi229, align 4
   br i1 %30, label %.preheader117, label %.thread111, !llvm.loop !15
 
 .preheader120:                                    ; preds = %.preheader121, %.preheader120
   %40 = phi i1 [ true, %.preheader121 ], [ false, %.preheader120 ]
-  %indvars.iv159.sroa.phi = phi ptr [ %.sroa.0, %.preheader121 ], [ %.sroa.14, %.preheader120 ]
-  %indvars.iv159.sroa.phi218 = phi ptr [ %.sroa.7, %.preheader121 ], [ %.sroa.21, %.preheader120 ]
-  %indvars.iv159 = phi i64 [ 0, %.preheader121 ], [ 1, %.preheader120 ]
-  %41 = or disjoint i64 %indvars.iv159, 2
+  %indvars.iv170.sroa.phi = phi ptr [ %.sroa.0, %.preheader121 ], [ %.sroa.14, %.preheader120 ]
+  %indvars.iv170.sroa.phi232 = phi ptr [ %.sroa.7, %.preheader121 ], [ %.sroa.21, %.preheader120 ]
+  %indvars.iv170 = phi i64 [ 0, %.preheader121 ], [ 1, %.preheader120 ]
+  %41 = or disjoint i64 %indvars.iv170, 2
   %42 = getelementptr inbounds [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = shl nuw i32 1, %43
   %45 = and i32 %44, %5
-  store i32 %45, ptr %indvars.iv159.sroa.phi, align 8
-  %46 = or disjoint i64 %indvars.iv159, 6
+  store i32 %45, ptr %indvars.iv170.sroa.phi, align 8
+  %46 = or disjoint i64 %indvars.iv170, 6
   %47 = getelementptr inbounds [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = shl nuw i32 1, %48
   %50 = and i32 %49, %5
-  store i32 %50, ptr %indvars.iv159.sroa.phi218, align 4
+  store i32 %50, ptr %indvars.iv170.sroa.phi232, align 4
   br i1 %40, label %.preheader120, label %.thread111, !llvm.loop !16
 
 .preheader123:                                    ; preds = %.preheader124, %.preheader123
   %51 = phi i1 [ true, %.preheader124 ], [ false, %.preheader123 ]
-  %indvars.iv153.sroa.phi = phi ptr [ %.sroa.0, %.preheader124 ], [ %.sroa.14, %.preheader123 ]
-  %indvars.iv153.sroa.phi221 = phi ptr [ %.sroa.7, %.preheader124 ], [ %.sroa.21, %.preheader123 ]
-  %indvars.iv153 = phi i64 [ 0, %.preheader124 ], [ 1, %.preheader123 ]
-  %52 = or disjoint i64 %indvars.iv153, 4
+  %indvars.iv162.sroa.phi = phi ptr [ %.sroa.0, %.preheader124 ], [ %.sroa.14, %.preheader123 ]
+  %indvars.iv162.sroa.phi235 = phi ptr [ %.sroa.7, %.preheader124 ], [ %.sroa.21, %.preheader123 ]
+  %indvars.iv162 = phi i64 [ 0, %.preheader124 ], [ 1, %.preheader123 ]
+  %52 = or disjoint i64 %indvars.iv162, 4
   %53 = getelementptr inbounds [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = shl nuw i32 1, %54
   %56 = and i32 %55, %4
-  store i32 %56, ptr %indvars.iv153.sroa.phi, align 8
-  %57 = or disjoint i64 %indvars.iv153, 6
+  store i32 %56, ptr %indvars.iv162.sroa.phi, align 8
+  %57 = or disjoint i64 %indvars.iv162, 6
   %58 = getelementptr inbounds [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = shl nuw i32 1, %59
   %61 = and i32 %60, %4
-  store i32 %61, ptr %indvars.iv153.sroa.phi221, align 4
+  store i32 %61, ptr %indvars.iv162.sroa.phi235, align 4
   br i1 %51, label %.preheader123, label %.thread111, !llvm.loop !17
 
 .preheader126:                                    ; preds = %.preheader127, %.preheader126
   %62 = phi i1 [ true, %.preheader127 ], [ false, %.preheader126 ]
-  %indvars.iv147.sroa.phi = phi ptr [ %.sroa.0, %.preheader127 ], [ %.sroa.14, %.preheader126 ]
-  %indvars.iv147.sroa.phi224 = phi ptr [ %.sroa.7, %.preheader127 ], [ %.sroa.21, %.preheader126 ]
-  %indvars.iv147 = phi i64 [ 0, %.preheader127 ], [ 1, %.preheader126 ]
-  %63 = or disjoint i64 %indvars.iv147, 4
+  %indvars.iv154.sroa.phi = phi ptr [ %.sroa.0, %.preheader127 ], [ %.sroa.14, %.preheader126 ]
+  %indvars.iv154.sroa.phi238 = phi ptr [ %.sroa.7, %.preheader127 ], [ %.sroa.21, %.preheader126 ]
+  %indvars.iv154 = phi i64 [ 0, %.preheader127 ], [ 1, %.preheader126 ]
+  %63 = or disjoint i64 %indvars.iv154, 4
   %64 = getelementptr inbounds [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = shl nuw i32 1, %65
   %67 = and i32 %66, %3
-  store i32 %67, ptr %indvars.iv147.sroa.phi, align 8
-  %68 = or disjoint i64 %indvars.iv147, 6
+  store i32 %67, ptr %indvars.iv154.sroa.phi, align 8
+  %68 = or disjoint i64 %indvars.iv154, 6
   %69 = getelementptr inbounds [8 x i32], ptr @_ZN13MarchingCubes9cornerMapE, i64 0, i64 %68
   %70 = load i32, ptr %69, align 4
   %71 = shl nuw i32 1, %70
   %72 = and i32 %71, %3
-  store i32 %72, ptr %indvars.iv147.sroa.phi224, align 4
+  store i32 %72, ptr %indvars.iv154.sroa.phi238, align 4
   br i1 %62, label %.preheader126, label %.thread111, !llvm.loop !18
 
 .thread111:                                       ; preds = %.preheader126, %.preheader123, %.preheader120, %.preheader117, %.preheader114, %.preheader, %2

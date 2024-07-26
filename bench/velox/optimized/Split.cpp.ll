@@ -12217,6 +12217,7 @@ entry:
   %conv.i12 = and i64 %delim.coerce0, 4294967295
   %cmp.i.i = icmp eq i32 %4, 0
   %inc = zext i1 %cmp.i.i to i64
+  %invariant.op = add nuw nsw i64 %conv.i12, %inc
   %length_.i = getelementptr inbounds i8, ptr %resultWriter, i64 44
   %needCommit_.i.i.i = getelementptr inbounds i8, ptr %resultWriter, i64 40
   %childWriter_.i.i.i = getelementptr inbounds i8, ptr %resultWriter, i64 32
@@ -12366,9 +12367,9 @@ _ZN8facebook5velox10StringViewC2EPKci.exit:       ; preds = %if.then2.i, %if.end
   call void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE9setNoCopyEiRKS2_(ptr noundef nonnull align 8 dereferenceable(280) %20, i32 noundef %21, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   %finalized_.i = getelementptr inbounds i8, ptr %18, i64 48
   store i8 1, ptr %finalized_.i, align 8
-  %add = add i64 %spec.select, %conv.i12
-  %add.ptr = getelementptr inbounds i8, ptr %sinput.sroa.6.0, i64 %add
-  %sub = sub i64 %sinput.sroa.0.0, %add
+  %add.reass = add i64 %retval.0.i.i, %invariant.op
+  %add.ptr = getelementptr inbounds i8, ptr %sinput.sroa.6.0, i64 %add.reass
+  %sub = sub i64 %sinput.sroa.0.0, %add.reass
   br label %while.body, !llvm.loop !153
 
 while.end:                                        ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit
@@ -12681,6 +12682,7 @@ if.end:                                           ; preds = %entry
   %conv.i26 = and i64 %delim.coerce0, 4294967295
   %cmp.i.i = icmp eq i32 %32, 0
   %inc = zext i1 %cmp.i.i to i64
+  %invariant.op = add nuw nsw i64 %conv.i26, %inc
   %length_.i32 = getelementptr inbounds i8, ptr %resultWriter, i64 44
   %needCommit_.i.i.i34 = getelementptr inbounds i8, ptr %resultWriter, i64 40
   %childWriter_.i.i.i56 = getelementptr inbounds i8, ptr %resultWriter, i64 32
@@ -12831,9 +12833,9 @@ _ZN8facebook5velox10StringViewC2EPKci.exit:       ; preds = %if.then2.i, %if.end
   call void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE9setNoCopyEiRKS2_(ptr noundef nonnull align 8 dereferenceable(280) %49, i32 noundef %50, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   %finalized_.i67 = getelementptr inbounds i8, ptr %47, i64 48
   store i8 1, ptr %finalized_.i67, align 8
-  %add = add i64 %spec.select, %conv.i26
-  %add.ptr = getelementptr inbounds i8, ptr %sinput.sroa.6.0, i64 %add
-  %sub = sub i64 %sinput.sroa.0.0, %add
+  %add.reass = add i64 %retval.0.i.i, %invariant.op
+  %add.ptr = getelementptr inbounds i8, ptr %sinput.sroa.6.0, i64 %add.reass
+  %sub = sub i64 %sinput.sroa.0.0, %add.reass
   %inc21 = add nuw nsw i32 %addedElements.0, 1
   %add22 = add nuw nsw i32 %addedElements.0, 2
   %cmp23 = icmp eq i32 %add22, %limit
@@ -13327,6 +13329,7 @@ entry:
   %conv.i12 = and i64 %delim.coerce0, 4294967295
   %cmp.i.i = icmp eq i32 %4, 0
   %inc = zext i1 %cmp.i.i to i64
+  %invariant.op = add nuw nsw i64 %conv.i12, %inc
   %length_.i = getelementptr inbounds i8, ptr %resultWriter, i64 44
   %needCommit_.i.i.i = getelementptr inbounds i8, ptr %resultWriter, i64 40
   %childWriter_.i.i.i = getelementptr inbounds i8, ptr %resultWriter, i64 32
@@ -13476,9 +13479,9 @@ _ZN8facebook5velox10StringViewC2EPKci.exit:       ; preds = %if.then2.i, %if.end
   call void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE9setNoCopyEiRKS2_(ptr noundef nonnull align 8 dereferenceable(280) %20, i32 noundef %21, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   %finalized_.i = getelementptr inbounds i8, ptr %18, i64 48
   store i8 1, ptr %finalized_.i, align 8
-  %add = add i64 %spec.select, %conv.i12
-  %add.ptr = getelementptr inbounds i8, ptr %sinput.sroa.6.0, i64 %add
-  %sub = sub i64 %sinput.sroa.0.0, %add
+  %add.reass = add i64 %retval.0.i.i, %invariant.op
+  %add.ptr = getelementptr inbounds i8, ptr %sinput.sroa.6.0, i64 %add.reass
+  %sub = sub i64 %sinput.sroa.0.0, %add.reass
   br label %while.body, !llvm.loop !158
 
 while.end:                                        ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit
@@ -13782,6 +13785,7 @@ if.end:                                           ; preds = %entry
   %conv.i26 = and i64 %delim.coerce0, 4294967295
   %cmp.i.i = icmp eq i32 %32, 0
   %inc = zext i1 %cmp.i.i to i64
+  %invariant.op = add nuw nsw i64 %conv.i26, %inc
   %length_.i32 = getelementptr inbounds i8, ptr %resultWriter, i64 44
   %needCommit_.i.i.i34 = getelementptr inbounds i8, ptr %resultWriter, i64 40
   %childWriter_.i.i.i56 = getelementptr inbounds i8, ptr %resultWriter, i64 32
@@ -13932,9 +13936,9 @@ _ZN8facebook5velox10StringViewC2EPKci.exit:       ; preds = %if.then2.i, %if.end
   call void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE9setNoCopyEiRKS2_(ptr noundef nonnull align 8 dereferenceable(280) %49, i32 noundef %50, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   %finalized_.i67 = getelementptr inbounds i8, ptr %47, i64 48
   store i8 1, ptr %finalized_.i67, align 8
-  %add = add i64 %spec.select, %conv.i26
-  %add.ptr = getelementptr inbounds i8, ptr %sinput.sroa.6.0, i64 %add
-  %sub = sub i64 %sinput.sroa.0.0, %add
+  %add.reass = add i64 %retval.0.i.i, %invariant.op
+  %add.ptr = getelementptr inbounds i8, ptr %sinput.sroa.6.0, i64 %add.reass
+  %sub = sub i64 %sinput.sroa.0.0, %add.reass
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = add nuw nsw i64 %indvars.iv, 2
   %cmp24 = icmp eq i64 %51, %limit

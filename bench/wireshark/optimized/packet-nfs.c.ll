@@ -11704,7 +11704,7 @@ define internal fastcc noundef i32 @dissect_nfs4_device_errors(ptr noundef %0, i
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %dissect_nfs4_status.exit
-  %.033 = phi i32 [ %.0, %dissect_nfs4_status.exit ], [ %.030, %3 ]
+  %.033 = phi i32 [ %.0.reass, %dissect_nfs4_status.exit ], [ %.030, %3 ]
   %.0.in32 = phi i32 [ %29, %dissect_nfs4_status.exit ], [ %1, %3 ]
   %.02931 = phi i32 [ %33, %dissect_nfs4_status.exit ], [ 0, %3 ]
   %10 = load i32, ptr @hf_nfs4_device_errors_index, align 4
@@ -11743,12 +11743,12 @@ dissect_nfs4_status.exit:                         ; preds = %.lr.ph, %22, %25
   %31 = load i32, ptr @hf_nfs4_io_error_op, align 4
   %32 = call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %31, ptr noundef %0, i32 noundef %29, i32 noundef 4, i32 noundef %30) #18
   %33 = add nuw i32 %.02931, 1
-  %.0 = add i32 %.0.in32, 28
+  %.0.reass = add i32 %.0.in32, 28
   %exitcond.not = icmp eq i32 %33, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %dissect_nfs4_status.exit, %3
-  %.0.lcssa = phi i32 [ %.030, %3 ], [ %.0, %dissect_nfs4_status.exit ]
+  %.0.lcssa = phi i32 [ %.030, %3 ], [ %.0.reass, %dissect_nfs4_status.exit ]
   ret i32 %.0.lcssa
 }
 

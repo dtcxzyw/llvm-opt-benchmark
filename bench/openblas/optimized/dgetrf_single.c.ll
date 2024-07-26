@@ -61,133 +61,133 @@ define i32 @dgetrf_single(ptr noundef %0, ptr nocapture readnone %1, ptr noundef
   %49 = and i64 %48, -16384
   %50 = inttoptr i64 %49 to ptr
   %51 = getelementptr inbounds i8, ptr %7, i64 8
-  br label %55
+  %invariant.op = add i64 %28, 1
+  br label %54
 
 52:                                               ; preds = %.loopexit12
-  %53 = add i64 %28, 1
-  %54 = add nsw i64 %36, %28
-  br label %128
+  %53 = add nsw i64 %36, %28
+  br label %126
 
-55:                                               ; preds = %.loopexit12, %44
-  %56 = phi i32 [ 0, %44 ], [ %70, %.loopexit12 ]
-  %57 = phi i64 [ 0, %44 ], [ %126, %.loopexit12 ]
-  %58 = sub nsw i64 %36, %57
-  %59 = call i64 @llvm.smin.i64(i64 %58, i64 %40)
-  %60 = mul nsw i64 %57, %14
-  %61 = getelementptr inbounds double, ptr %30, i64 %60
-  %62 = add nsw i64 %57, %28
-  store i64 %62, ptr %7, align 16, !tbaa !13
-  %63 = add nsw i64 %59, %62
-  store i64 %63, ptr %51, align 8, !tbaa !13
-  %64 = call i32 @dgetrf_single(ptr noundef nonnull %0, ptr poison, ptr noundef nonnull %7, ptr noundef %3, ptr noundef %4, i64 poison)
-  %65 = icmp eq i32 %64, 0
-  %66 = icmp ne i32 %56, 0
-  %67 = select i1 %65, i1 true, i1 %66
-  %68 = trunc i64 %57 to i32
-  %69 = add i32 %64, %68
-  %70 = select i1 %67, i32 %56, i32 %69
-  %71 = add nsw i64 %59, %57
-  %72 = icmp slt i64 %71, %29
-  br i1 %72, label %73, label %.loopexit12
+54:                                               ; preds = %.loopexit12, %44
+  %55 = phi i32 [ 0, %44 ], [ %69, %.loopexit12 ]
+  %56 = phi i64 [ 0, %44 ], [ %124, %.loopexit12 ]
+  %57 = sub nsw i64 %36, %56
+  %58 = call i64 @llvm.smin.i64(i64 %57, i64 %40)
+  %59 = mul nsw i64 %56, %14
+  %60 = getelementptr inbounds double, ptr %30, i64 %59
+  %61 = add nsw i64 %56, %28
+  store i64 %61, ptr %7, align 16, !tbaa !13
+  %62 = add nsw i64 %58, %61
+  store i64 %62, ptr %51, align 8, !tbaa !13
+  %63 = call i32 @dgetrf_single(ptr noundef nonnull %0, ptr poison, ptr noundef nonnull %7, ptr noundef %3, ptr noundef %4, i64 poison)
+  %64 = icmp eq i32 %63, 0
+  %65 = icmp ne i32 %55, 0
+  %66 = select i1 %64, i1 true, i1 %65
+  %67 = trunc i64 %56 to i32
+  %68 = add i32 %63, %67
+  %69 = select i1 %66, i32 %55, i32 %68
+  %70 = add nsw i64 %58, %56
+  %71 = icmp slt i64 %70, %29
+  br i1 %71, label %72, label %.loopexit12
 
-73:                                               ; preds = %55
-  %74 = getelementptr inbounds double, ptr %61, i64 %57
-  %75 = call i32 @dtrsm_iltucopy(i64 noundef %59, i64 noundef %59, ptr noundef %74, i64 noundef %14, i64 noundef 0, ptr noundef %4) #4
-  %76 = add nsw i64 %62, 1
-  %77 = add nsw i64 %71, %28
-  %78 = icmp sgt i64 %58, 0
-  %79 = icmp slt i64 %71, %31
-  br label %80
+72:                                               ; preds = %54
+  %73 = getelementptr inbounds double, ptr %60, i64 %56
+  %74 = call i32 @dtrsm_iltucopy(i64 noundef %58, i64 noundef %58, ptr noundef %73, i64 noundef %14, i64 noundef 0, ptr noundef %4) #4
+  %.reass = add i64 %56, %invariant.op
+  %75 = add nsw i64 %70, %28
+  %76 = icmp sgt i64 %57, 0
+  %77 = icmp slt i64 %70, %31
+  br label %78
 
-80:                                               ; preds = %.loopexit9, %73
-  %81 = phi i64 [ %71, %73 ], [ %124, %.loopexit9 ]
-  %82 = sub nsw i64 %29, %81
-  %83 = call i64 @llvm.smin.i64(i64 %82, i64 8256)
-  %84 = add nsw i64 %83, %81
-  %85 = icmp sgt i64 %82, 0
-  br i1 %85, label %.preheader10, label %.loopexit11
+78:                                               ; preds = %.loopexit9, %72
+  %79 = phi i64 [ %70, %72 ], [ %122, %.loopexit9 ]
+  %80 = sub nsw i64 %29, %79
+  %81 = call i64 @llvm.smin.i64(i64 %80, i64 8256)
+  %82 = add nsw i64 %81, %79
+  %83 = icmp sgt i64 %80, 0
+  br i1 %83, label %.preheader10, label %.loopexit11
 
-.loopexit11:                                      ; preds = %.loopexit8, %80
-  br i1 %79, label %86, label %.loopexit9
+.loopexit11:                                      ; preds = %.loopexit8, %78
+  br i1 %77, label %84, label %.loopexit9
 
-86:                                               ; preds = %.loopexit11
-  %87 = mul nsw i64 %81, %14
-  br label %113
+84:                                               ; preds = %.loopexit11
+  %85 = mul nsw i64 %79, %14
+  br label %111
 
-.preheader10:                                     ; preds = %80, %.loopexit8
-  %88 = phi i64 [ %111, %.loopexit8 ], [ %81, %80 ]
-  %89 = sub nsw i64 %84, %88
-  %90 = call i64 @llvm.smin.i64(i64 %89, i64 2)
-  %91 = mul nsw i64 %88, %14
-  %92 = sub i64 %91, %28
-  %93 = getelementptr inbounds double, ptr %30, i64 %92
-  %94 = call i32 @dlaswp_plus(i64 noundef %90, i64 noundef %76, i64 noundef %77, double noundef 0.000000e+00, ptr noundef %93, i64 noundef %14, ptr noundef null, i64 noundef 0, ptr noundef %16, i64 noundef 1) #4
-  %95 = add nsw i64 %91, %57
-  %96 = getelementptr inbounds double, ptr %30, i64 %95
-  %97 = sub nsw i64 %88, %81
-  %98 = mul nsw i64 %97, %59
-  %99 = getelementptr inbounds double, ptr %50, i64 %98
-  %100 = call i32 @dgemm_oncopy(i64 noundef %59, i64 noundef %90, ptr noundef %96, i64 noundef %14, ptr noundef %99) #4
-  br i1 %78, label %.preheader, label %.loopexit8
+.preheader10:                                     ; preds = %78, %.loopexit8
+  %86 = phi i64 [ %109, %.loopexit8 ], [ %79, %78 ]
+  %87 = sub nsw i64 %82, %86
+  %88 = call i64 @llvm.smin.i64(i64 %87, i64 2)
+  %89 = mul nsw i64 %86, %14
+  %90 = sub i64 %89, %28
+  %91 = getelementptr inbounds double, ptr %30, i64 %90
+  %92 = call i32 @dlaswp_plus(i64 noundef %88, i64 noundef %.reass, i64 noundef %75, double noundef 0.000000e+00, ptr noundef %91, i64 noundef %14, ptr noundef null, i64 noundef 0, ptr noundef %16, i64 noundef 1) #4
+  %93 = add nsw i64 %89, %56
+  %94 = getelementptr inbounds double, ptr %30, i64 %93
+  %95 = sub nsw i64 %86, %79
+  %96 = mul nsw i64 %95, %58
+  %97 = getelementptr inbounds double, ptr %50, i64 %96
+  %98 = call i32 @dgemm_oncopy(i64 noundef %58, i64 noundef %88, ptr noundef %94, i64 noundef %14, ptr noundef %97) #4
+  br i1 %76, label %.preheader, label %.loopexit8
 
 .preheader:                                       ; preds = %.preheader10, %.preheader
-  %101 = phi i64 [ %109, %.preheader ], [ 0, %.preheader10 ]
-  %102 = sub nsw i64 %59, %101
-  %103 = call i64 @llvm.smin.i64(i64 %102, i64 192)
-  %104 = mul nuw nsw i64 %101, %59
-  %105 = getelementptr inbounds double, ptr %4, i64 %104
-  %106 = add i64 %101, %95
-  %107 = getelementptr inbounds double, ptr %30, i64 %106
-  %108 = call i32 @dtrsm_kernel_LT(i64 noundef %103, i64 noundef %90, i64 noundef %59, double noundef -1.000000e+00, ptr noundef %105, ptr noundef %99, ptr noundef %107, i64 noundef %14, i64 noundef %101) #4
-  %109 = add nuw nsw i64 %101, 192
-  %110 = icmp slt i64 %109, %59
-  br i1 %110, label %.preheader, label %.loopexit8, !llvm.loop !14
+  %99 = phi i64 [ %107, %.preheader ], [ 0, %.preheader10 ]
+  %100 = sub nsw i64 %58, %99
+  %101 = call i64 @llvm.smin.i64(i64 %100, i64 192)
+  %102 = mul nuw nsw i64 %99, %58
+  %103 = getelementptr inbounds double, ptr %4, i64 %102
+  %104 = add i64 %99, %93
+  %105 = getelementptr inbounds double, ptr %30, i64 %104
+  %106 = call i32 @dtrsm_kernel_LT(i64 noundef %101, i64 noundef %88, i64 noundef %58, double noundef -1.000000e+00, ptr noundef %103, ptr noundef %97, ptr noundef %105, i64 noundef %14, i64 noundef %99) #4
+  %107 = add nuw nsw i64 %99, 192
+  %108 = icmp slt i64 %107, %58
+  br i1 %108, label %.preheader, label %.loopexit8, !llvm.loop !14
 
 .loopexit8:                                       ; preds = %.preheader, %.preheader10
-  %111 = add nsw i64 %88, 2
-  %112 = icmp slt i64 %111, %84
-  br i1 %112, label %.preheader10, label %.loopexit11, !llvm.loop !17
+  %109 = add nsw i64 %86, 2
+  %110 = icmp slt i64 %109, %82
+  br i1 %110, label %.preheader10, label %.loopexit11, !llvm.loop !17
 
-113:                                              ; preds = %113, %86
-  %114 = phi i64 [ %71, %86 ], [ %122, %113 ]
-  %115 = sub nsw i64 %31, %114
-  %116 = call i64 @llvm.smin.i64(i64 %115, i64 192)
-  %117 = getelementptr inbounds double, ptr %61, i64 %114
-  %118 = call i32 @dgemm_itcopy(i64 noundef %59, i64 noundef %116, ptr noundef %117, i64 noundef %14, ptr noundef %3) #4
-  %119 = add nsw i64 %114, %87
-  %120 = getelementptr inbounds double, ptr %30, i64 %119
-  %121 = call i32 @dgemm_kernel(i64 noundef %116, i64 noundef %83, i64 noundef %59, double noundef -1.000000e+00, ptr noundef %3, ptr noundef %50, ptr noundef %120, i64 noundef %14) #4
-  %122 = add nsw i64 %114, 192
-  %123 = icmp slt i64 %122, %31
-  br i1 %123, label %113, label %.loopexit9, !llvm.loop !18
+111:                                              ; preds = %111, %84
+  %112 = phi i64 [ %70, %84 ], [ %120, %111 ]
+  %113 = sub nsw i64 %31, %112
+  %114 = call i64 @llvm.smin.i64(i64 %113, i64 192)
+  %115 = getelementptr inbounds double, ptr %60, i64 %112
+  %116 = call i32 @dgemm_itcopy(i64 noundef %58, i64 noundef %114, ptr noundef %115, i64 noundef %14, ptr noundef %3) #4
+  %117 = add nsw i64 %112, %85
+  %118 = getelementptr inbounds double, ptr %30, i64 %117
+  %119 = call i32 @dgemm_kernel(i64 noundef %114, i64 noundef %81, i64 noundef %58, double noundef -1.000000e+00, ptr noundef %3, ptr noundef %50, ptr noundef %118, i64 noundef %14) #4
+  %120 = add nsw i64 %112, 192
+  %121 = icmp slt i64 %120, %31
+  br i1 %121, label %111, label %.loopexit9, !llvm.loop !18
 
-.loopexit9:                                       ; preds = %113, %.loopexit11
-  %124 = add nsw i64 %81, 8256
-  %125 = icmp slt i64 %124, %29
-  br i1 %125, label %80, label %.loopexit12, !llvm.loop !19
+.loopexit9:                                       ; preds = %111, %.loopexit11
+  %122 = add nsw i64 %79, 8256
+  %123 = icmp slt i64 %122, %29
+  br i1 %123, label %78, label %.loopexit12, !llvm.loop !19
 
-.loopexit12:                                      ; preds = %.loopexit9, %55
-  %126 = add nuw nsw i64 %57, %40
-  %127 = icmp slt i64 %126, %36
-  br i1 %127, label %55, label %52, !llvm.loop !20
+.loopexit12:                                      ; preds = %.loopexit9, %54
+  %124 = add nuw nsw i64 %56, %40
+  %125 = icmp slt i64 %124, %36
+  br i1 %125, label %54, label %52, !llvm.loop !20
 
-128:                                              ; preds = %128, %52
-  %129 = phi i64 [ 0, %52 ], [ %132, %128 ]
-  %130 = sub nsw i64 %36, %129
-  %131 = call i64 @llvm.smin.i64(i64 %130, i64 %40)
-  %132 = add nsw i64 %131, %129
-  %133 = add i64 %53, %132
-  %134 = mul nsw i64 %129, %14
-  %135 = sub i64 %134, %28
-  %136 = getelementptr inbounds double, ptr %30, i64 %135
-  %137 = call i32 @dlaswp_plus(i64 noundef %131, i64 noundef %133, i64 noundef %54, double noundef 0.000000e+00, ptr noundef %136, i64 noundef %14, ptr noundef null, i64 noundef 0, ptr noundef %16, i64 noundef 1) #4
-  %138 = icmp slt i64 %132, %36
-  br i1 %138, label %128, label %.loopexit, !llvm.loop !21
+126:                                              ; preds = %126, %52
+  %127 = phi i64 [ 0, %52 ], [ %130, %126 ]
+  %128 = sub nsw i64 %36, %127
+  %129 = call i64 @llvm.smin.i64(i64 %128, i64 %40)
+  %130 = add nsw i64 %129, %127
+  %131 = add i64 %invariant.op, %130
+  %132 = mul nsw i64 %127, %14
+  %133 = sub i64 %132, %28
+  %134 = getelementptr inbounds double, ptr %30, i64 %133
+  %135 = call i32 @dlaswp_plus(i64 noundef %129, i64 noundef %131, i64 noundef %53, double noundef 0.000000e+00, ptr noundef %134, i64 noundef %14, ptr noundef null, i64 noundef 0, ptr noundef %16, i64 noundef 1) #4
+  %136 = icmp slt i64 %130, %36
+  br i1 %136, label %126, label %.loopexit, !llvm.loop !21
 
-.loopexit:                                        ; preds = %128, %42, %27
-  %139 = phi i32 [ %43, %42 ], [ 0, %27 ], [ %70, %128 ]
+.loopexit:                                        ; preds = %126, %42, %27
+  %137 = phi i32 [ %43, %42 ], [ 0, %27 ], [ %69, %126 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #4
-  ret i32 %139
+  ret i32 %137
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

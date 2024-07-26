@@ -1129,6 +1129,7 @@ for.body88.lr.ph:                                 ; preds = %for.body72
   %pos.sroa.10.0.insert.ext = zext i16 %storemerge294505 to i48
   %pos.sroa.10.0.insert.shift = shl nuw i48 %pos.sroa.10.0.insert.ext, 32
   %25 = sext i32 %i.1506 to i64
+  %invariant.op = or disjoint i48 %pos.sroa.10.0.insert.shift, %pos.sroa.0.0.insert.ext
   br label %for.body88
 
 for.body88:                                       ; preds = %if.end104, %for.body88.lr.ph
@@ -1143,9 +1144,8 @@ for.body88:                                       ; preds = %if.end104, %for.bod
 if.then92:                                        ; preds = %for.body88
   %pos.sroa.7.0.insert.ext = zext i16 %storemerge295499 to i48
   %pos.sroa.7.0.insert.shift = shl nuw nsw i48 %pos.sroa.7.0.insert.ext, 16
-  %pos.sroa.7.0.insert.insert = or disjoint i48 %pos.sroa.7.0.insert.shift, %pos.sroa.10.0.insert.shift
-  %pos.sroa.0.0.insert.insert = or disjoint i48 %pos.sroa.7.0.insert.insert, %pos.sroa.0.0.insert.ext
-  %call96 = invoke noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %map, i48 %pos.sroa.0.0.insert.insert)
+  %pos.sroa.0.0.insert.insert.reass = or disjoint i48 %pos.sroa.7.0.insert.shift, %invariant.op
+  %call96 = invoke noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %map, i48 %pos.sroa.0.0.insert.insert.reass)
           to label %invoke.cont95 unwind label %lpad94
 
 invoke.cont95:                                    ; preds = %if.then92
@@ -1281,6 +1281,7 @@ for.body173:                                      ; preds = %for.inc204, %for.bo
 for.body188.lr.ph:                                ; preds = %for.body173
   %pos141.sroa.10.0.insert.ext = zext i16 %storemerge289534 to i48
   %pos141.sroa.10.0.insert.shift = shl nuw i48 %pos141.sroa.10.0.insert.ext, 32
+  %invariant.op15 = or disjoint i48 %pos141.sroa.10.0.insert.shift, %pos141.sroa.0.0.insert.ext
   br label %for.body188
 
 for.body188:                                      ; preds = %if.end198, %for.body188.lr.ph
@@ -1290,9 +1291,8 @@ for.body188:                                      ; preds = %if.end198, %for.bod
   %map_blocks127.sroa.0.3520 = phi ptr [ %map_blocks127.sroa.0.2531, %for.body188.lr.ph ], [ %map_blocks127.sroa.0.4, %if.end198 ]
   %pos141.sroa.7.0.insert.ext = zext i16 %storemerge290523 to i48
   %pos141.sroa.7.0.insert.shift = shl nuw nsw i48 %pos141.sroa.7.0.insert.ext, 16
-  %pos141.sroa.7.0.insert.insert = or disjoint i48 %pos141.sroa.7.0.insert.shift, %pos141.sroa.10.0.insert.shift
-  %pos141.sroa.0.0.insert.insert = or disjoint i48 %pos141.sroa.7.0.insert.insert, %pos141.sroa.0.0.insert.ext
-  %call193 = invoke noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %map, i48 %pos141.sroa.0.0.insert.insert)
+  %pos141.sroa.0.0.insert.insert.reass = or disjoint i48 %pos141.sroa.7.0.insert.shift, %invariant.op15
+  %call193 = invoke noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %map, i48 %pos141.sroa.0.0.insert.insert.reass)
           to label %invoke.cont192 unwind label %lpad191.loopexit
 
 invoke.cont192:                                   ; preds = %for.body188

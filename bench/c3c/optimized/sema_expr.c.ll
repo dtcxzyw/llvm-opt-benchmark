@@ -5048,21 +5048,21 @@ define dso_local ptr @sema_expand_vasplat_exprs(ptr noundef %0, ptr noundef %1) 
   br i1 %.not121150, label %.thread104, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %10, %.thread
-  %.078152 = phi i32 [ %51, %.thread ], [ %.087, %10 ]
+  %.078152 = phi i32 [ %50, %.thread ], [ %.087, %10 ]
   %.079151 = phi ptr [ %.084100, %.thread ], [ %1, %10 ]
   %wide.trip.count = zext i32 %.078152 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %50
-  %indvars.iv133 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next134, %50 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %50 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %49
+  %indvars.iv133 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next134, %49 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %49 ]
   %11 = getelementptr inbounds ptr, ptr %.079151, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load i16, ptr %13, align 8
   %15 = and i16 %14, 255
   %16 = icmp eq i16 %15, 65
-  br i1 %16, label %17, label %50
+  br i1 %16, label %17, label %49
 
 17:                                               ; preds = %.lr.ph
   %18 = trunc nuw i64 %indvars.iv to i32
@@ -5070,7 +5070,7 @@ define dso_local ptr @sema_expand_vasplat_exprs(ptr noundef %0, ptr noundef %1) 
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %20, -1
   %22 = icmp eq i32 %21, %18
-  br i1 %22, label %48, label %23
+  br i1 %22, label %47, label %23
 
 23:                                               ; preds = %17
   %24 = tail call fastcc ptr @sema_vasplat_append(ptr noundef nonnull %0, ptr noundef nonnull %.079151, ptr noundef nonnull %12)
@@ -5085,6 +5085,7 @@ define dso_local ptr @sema_expand_vasplat_exprs(ptr noundef %0, ptr noundef %1) 
 
 .lr.ph115.preheader:                              ; preds = %25
   %29 = sub i32 %27, %20
+  %invariant.op = add nuw i64 %indvars.iv, 1
   %wide.trip.count131 = zext i32 %29 to i64
   br label %.lr.ph115
 
@@ -5113,53 +5114,53 @@ define dso_local ptr @sema_expand_vasplat_exprs(ptr noundef %0, ptr noundef %1) 
 .lr.ph115:                                        ; preds = %.lr.ph115.preheader, %.lr.ph115
   %indvars.iv128 = phi i64 [ 0, %.lr.ph115.preheader ], [ %indvars.iv.next129, %.lr.ph115 ]
   %35 = trunc nuw i64 %indvars.iv128 to i32
-  %36 = add i32 %35, %18
+  %36 = add nuw i64 %indvars.iv128, %indvars.iv
   %37 = add i32 %20, %35
   %38 = zext i32 %37 to i64
   %39 = getelementptr inbounds ptr, ptr %24, i64 %38
   %40 = load ptr, ptr %39, align 8
-  %41 = zext i32 %36 to i64
+  %41 = and i64 %36, 4294967295
   %42 = getelementptr inbounds ptr, ptr %24, i64 %41
   store ptr %40, ptr %42, align 8
-  %43 = add i32 %36, 1
-  %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr %24, i64 %44
-  %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr %39, align 8
+  %.reass = add i64 %invariant.op, %indvars.iv128
+  %43 = and i64 %.reass, 4294967295
+  %44 = getelementptr inbounds ptr, ptr %24, i64 %43
+  %45 = load ptr, ptr %44, align 8
+  store ptr %45, ptr %39, align 8
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
   br i1 %exitcond132.not, label %._crit_edge, label %.lr.ph115, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph115
-  %47 = add i32 %27, -1
-  store i32 %47, ptr %26, align 4
+  %46 = add i32 %27, -1
+  store i32 %46, ptr %26, align 4
   br label %.thread
 
-48:                                               ; preds = %17
+47:                                               ; preds = %17
   store i32 %18, ptr %19, align 4
-  %49 = tail call fastcc ptr @sema_vasplat_append(ptr noundef nonnull %0, ptr noundef nonnull %.079151, ptr noundef nonnull %12)
-  %.not97 = icmp eq ptr %49, null
+  %48 = tail call fastcc ptr @sema_vasplat_append(ptr noundef nonnull %0, ptr noundef nonnull %.079151, ptr noundef nonnull %12)
+  %.not97 = icmp eq ptr %48, null
   br i1 %.not97, label %.thread104, label %..thread_crit_edge
 
-..thread_crit_edge:                               ; preds = %48
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %49, i64 -8
+..thread_crit_edge:                               ; preds = %47
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %48, i64 -8
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %.thread
 
-50:                                               ; preds = %.lr.ph
+49:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   br i1 %exitcond.not, label %.thread104, label %.lr.ph, !llvm.loop !30
 
 .thread:                                          ; preds = %..thread_crit_edge, %._crit_edge, %._crit_edge120
-  %51 = phi i32 [ %.pre, %..thread_crit_edge ], [ %21, %._crit_edge120 ], [ %47, %._crit_edge ]
-  %.084100 = phi ptr [ %49, %..thread_crit_edge ], [ %24, %._crit_edge120 ], [ %24, %._crit_edge ]
-  %.not121 = icmp eq i32 %51, 0
+  %50 = phi i32 [ %.pre, %..thread_crit_edge ], [ %21, %._crit_edge120 ], [ %46, %._crit_edge ]
+  %.084100 = phi ptr [ %48, %..thread_crit_edge ], [ %24, %._crit_edge120 ], [ %24, %._crit_edge ]
+  %.not121 = icmp eq i32 %50, 0
   br i1 %.not121, label %.thread104, label %.lr.ph.preheader, !llvm.loop !31
 
-.thread104:                                       ; preds = %.thread, %48, %23, %50, %10, %2, %3
-  %.082 = phi ptr [ %1, %3 ], [ %1, %2 ], [ %1, %10 ], [ %.079151, %50 ], [ null, %23 ], [ null, %48 ], [ %.084100, %.thread ]
+.thread104:                                       ; preds = %.thread, %47, %23, %49, %10, %2, %3
+  %.082 = phi ptr [ %1, %3 ], [ %1, %2 ], [ %1, %10 ], [ %.079151, %49 ], [ null, %23 ], [ null, %47 ], [ %.084100, %.thread ]
   ret ptr %.082
 }
 

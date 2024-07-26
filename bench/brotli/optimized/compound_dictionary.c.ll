@@ -100,8 +100,8 @@ cond.end51.i:                                     ; preds = %cond.false48.i, %fo
   %spec.select.i = tail call i16 @llvm.umin.i16(i16 %inc.i, i16 32)
   store i16 %spec.select.i, ptr %arrayidx43.i, align 2
   %inc65.i = add i32 %i.0129.i, 1
-  %add31.i = add i32 %i.0129.i, 8
-  %conv32.i = zext i32 %add31.i to i64
+  %add31.reass.i = add i32 %i.0129.i, 8
+  %conv32.i = zext i32 %add31.reass.i to i64
   %cmp33.i = icmp ult i64 %conv32.i, %source_size
   br i1 %cmp33.i, label %for.body.i, label %for.body69.i.preheader, !llvm.loop !6
 

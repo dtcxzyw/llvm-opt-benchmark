@@ -3100,6 +3100,7 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i, %if
 
 for.body8.preheader.i.i.i:                        ; preds = %if.end.i.i.i
   %wide.trip.count39.i.i.i = zext i32 %sub25.i.i to i64
+  %invariant.op.i = or disjoint i32 %conv.i.i, 33554432
   br label %for.body8.i.i.i
 
 for.body8.i.i.i:                                  ; preds = %do.end.i.i.i, %for.body8.preheader.i.i.i
@@ -3122,8 +3123,7 @@ for.body8.i.i.i:                                  ; preds = %do.end.i.i.i, %for.
   %DElt.sroa.4.0.insert.ext.i.i.i = shl i32 %add28.i.i.i, 16
   %DElt.sroa.4.0.insert.shift.i.i.i = and i32 %DElt.sroa.4.0.insert.ext.i.i.i, 16711680
   %22 = or disjoint i32 %DElt.sroa.4.0.insert.shift.i.i.i, %shl25.i.i.i
-  %DElt.sroa.4.0.insert.insert.i.i.i = or disjoint i32 %22, %conv.i.i
-  %DElt.sroa.0.0.insert.insert.i.i.i = or disjoint i32 %DElt.sroa.4.0.insert.insert.i.i.i, 33554432
+  %DElt.sroa.0.0.insert.insert.i.i.reass.i = or disjoint i32 %22, %invariant.op.i
   br label %do.body.i.i.i
 
 do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %for.body8.i.i.i
@@ -3131,7 +3131,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %for
   %inc32.i.i.i = add i32 %i22.0.i.i.i, 1
   %idxprom33.i.i.i = zext i32 %i22.0.i.i.i to i64
   %arrayidx34.i.i.i = getelementptr inbounds %struct.HUF_DEltX4, ptr %add.ptr.i.i, i64 %idxprom33.i.i.i
-  store i32 %DElt.sroa.0.0.insert.insert.i.i.i, ptr %arrayidx34.i.i.i, align 4
+  store i32 %DElt.sroa.0.0.insert.insert.i.i.reass.i, ptr %arrayidx34.i.i.i, align 4
   %cmp35.i.i.i = icmp ult i32 %inc32.i.i.i, %add.i.i.i
   br i1 %cmp35.i.i.i, label %do.body.i.i.i, label %do.end.i.i.i, !llvm.loop !25
 

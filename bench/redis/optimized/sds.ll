@@ -3575,6 +3575,7 @@ for.cond.preheader:                               ; preds = %if.end
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %cmp22 = icmp eq i32 %seplen, 1
   %conv30 = zext nneg i32 %seplen to i64
+  %invariant.op = add nsw i64 %conv30, -1
   br i1 %cmp22, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
@@ -3621,17 +3622,15 @@ if.then34.us:                                     ; preds = %lor.lhs.false28.us,
 
 if.end44.us:                                      ; preds = %if.then34.us
   %inc.us = add nsw i32 %elements.051.us, 1
-  %add46.us = add nsw i64 %j.054.us, %conv30
-  %sub49.us = add nsw i64 %add46.us, -1
+  %add46.us = add nuw nsw i64 %j.054.us, %conv30
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end44.us, %lor.lhs.false28.us
   %elements.1.us = phi i32 [ %inc.us, %if.end44.us ], [ %elements.051.us, %lor.lhs.false28.us ]
   %start.1.us = phi i64 [ %add46.us, %if.end44.us ], [ %start.053.us, %lor.lhs.false28.us ]
-  %j.1.us = phi i64 [ %sub49.us, %if.end44.us ], [ %j.054.us, %lor.lhs.false28.us ]
-  %inc51.us = add nsw i64 %j.1.us, 1
-  %cmp8.us = icmp slt i64 %inc51.us, %sub7
-  br i1 %cmp8.us, label %for.body.us, label %for.end, !llvm.loop !11
+  %inc51.us = add nuw nsw i64 %j.054.us, 1
+  %exitcond.not = icmp eq i64 %inc51.us, %sub7
+  br i1 %exitcond.not, label %for.end, label %for.body.us, !llvm.loop !11
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %tokens.055 = phi ptr [ %tokens.1, %for.inc ], [ %call, %for.body.lr.ph ]
@@ -3672,13 +3671,13 @@ if.then34:                                        ; preds = %if.end21
 if.end44:                                         ; preds = %if.then34
   %inc = add nsw i32 %elements.051, 1
   %add46 = add nsw i64 %j.054, %conv30
-  %sub49 = add nsw i64 %add46, -1
+  %sub49.reass = add i64 %j.054, %invariant.op
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end21, %if.end44
   %elements.1 = phi i32 [ %inc, %if.end44 ], [ %elements.051, %if.end21 ]
   %start.1 = phi i64 [ %add46, %if.end44 ], [ %start.053, %if.end21 ]
-  %j.1 = phi i64 [ %sub49, %if.end44 ], [ %j.054, %if.end21 ]
+  %j.1 = phi i64 [ %sub49.reass, %if.end44 ], [ %j.054, %if.end21 ]
   %inc51 = add nsw i64 %j.1, 1
   %cmp8 = icmp slt i64 %inc51, %sub7
   br i1 %cmp8, label %for.body, label %for.end, !llvm.loop !11
@@ -3738,8 +3737,8 @@ sdsHdrSize.exit.i:                                ; preds = %if.end.i, %switch.l
 
 sdsfree.exit:                                     ; preds = %for.body67, %sdsHdrSize.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end72, label %for.body67, !llvm.loop !12
+  %exitcond70.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond70.not, label %for.end72, label %for.body67, !llvm.loop !12
 
 for.end72:                                        ; preds = %sdsfree.exit, %cleanup
   tail call void @zfree(ptr noundef %tokens.2) #25

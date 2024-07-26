@@ -101,7 +101,7 @@ define range(i32 -1, 1) i32 @H5T__conv_f_f(ptr noundef readonly %0, ptr noundef 
   %10 = alloca [64 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %10, i8 0, i64 64, i1 false)
   %11 = load i32, ptr %2, align 8
-  switch i32 %11, label %415 [
+  switch i32 %11, label %414 [
     i32 0, label %12
     i32 2, label %.thread703
     i32 1, label %52
@@ -308,6 +308,7 @@ define range(i32 -1, 1) i32 @H5T__conv_f_f(ptr noundef readonly %0, ptr noundef 
   %105 = phi i64 [ %77, %.thread ], [ %5, %100 ]
   %106 = mul nsw i64 %105, %.0594649670
   %107 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %75) #9
+  %invariant.op = add i64 %.sroa.26.0.copyload441, -1
   %.not734 = icmp eq i64 %4, 0
   br i1 %.not734, label %.loopexit714, label %.lr.ph733
 
@@ -337,13 +338,13 @@ define range(i32 -1, 1) i32 @H5T__conv_f_f(ptr noundef readonly %0, ptr noundef 
   %127 = icmp eq i32 %.sroa.16.0.copyload330, 1
   br label %128
 
-128:                                              ; preds = %.lr.ph733, %411
-  %.0556732 = phi i8 [ 0, %.lr.ph733 ], [ %.4560, %411 ]
-  %.0566731 = phi i1 [ false, %.lr.ph733 ], [ %.3569, %411 ]
-  %.0572730 = phi i64 [ 0, %.lr.ph733 ], [ %.4576, %411 ]
-  %.1582729 = phi ptr [ %.0581655664, %.lr.ph733 ], [ %413, %411 ]
-  %.1585724 = phi ptr [ %.0584653666, %.lr.ph733 ], [ %412, %411 ]
-  %.0593722 = phi i64 [ 0, %.lr.ph733 ], [ %414, %411 ]
+128:                                              ; preds = %.lr.ph733, %410
+  %.0556732 = phi i8 [ 0, %.lr.ph733 ], [ %.4560, %410 ]
+  %.0566731 = phi i1 [ false, %.lr.ph733 ], [ %.3569, %410 ]
+  %.0572730 = phi i64 [ 0, %.lr.ph733 ], [ %.4576, %410 ]
+  %.1582729 = phi ptr [ %.0581655664, %.lr.ph733 ], [ %412, %410 ]
+  %.1585724 = phi ptr [ %.0584653666, %.lr.ph733 ], [ %411, %410 ]
+  %.0593722 = phi i64 [ 0, %.lr.ph733 ], [ %413, %410 ]
   br i1 %104, label %129, label %132
 
 129:                                              ; preds = %128
@@ -436,7 +437,7 @@ define range(i32 -1, 1) i32 @H5T__conv_f_f(ptr noundef readonly %0, ptr noundef 
   call void @H5T__bit_copy(ptr noundef %.0583, i64 noundef %.sroa.17.0.copyload332, ptr noundef %.1585724, i64 noundef %.sroa.7416.0.copyload418, i64 noundef 1) #8
   call void @H5T__bit_set(ptr noundef %.0583, i64 noundef %.sroa.22.0.copyload338, i64 noundef %.sroa.27.0.copyload344, i1 noundef zeroext false) #8
   call void @H5T__bit_set(ptr noundef %.0583, i64 noundef %.sroa.35.0.copyload354, i64 noundef %.sroa.54.0.copyload374, i1 noundef zeroext false) #8
-  br label %362
+  br label %361
 
 177:                                              ; preds = %173
   %178 = call i64 @H5T__bit_find(ptr noundef %.1585724, i64 noundef %.sroa.13.0.copyload425, i64 noundef %.sroa.18.0.copyload431, i32 noundef 0, i1 noundef zeroext false) #8
@@ -462,7 +463,7 @@ define range(i32 -1, 1) i32 @H5T__conv_f_f(ptr noundef readonly %0, ptr noundef 
   %192 = load ptr, ptr %112, align 8
   %. = select i1 %.not635, i32 4, i32 5
   %193 = call i32 %189(i32 noundef %., i64 noundef %190, i64 noundef %191, ptr noundef %107, ptr noundef %.0583, ptr noundef %192) #8
-  switch i32 %193, label %362 [
+  switch i32 %193, label %361 [
     i32 0, label %.thread671
     i32 1, label %.loopexit
     i32 -1, label %195
@@ -472,11 +473,11 @@ define range(i32 -1, 1) i32 @H5T__conv_f_f(ptr noundef readonly %0, ptr noundef 
   call void @H5T__bit_copy(ptr noundef %.0583, i64 noundef %.sroa.17.0.copyload332, ptr noundef %.1585724, i64 noundef %.sroa.7416.0.copyload418, i64 noundef 1) #8
   call void @H5T__bit_set(ptr noundef %.0583, i64 noundef %.sroa.22.0.copyload338, i64 noundef %.sroa.27.0.copyload344, i1 noundef zeroext true) #8
   call void @H5T__bit_set(ptr noundef %.0583, i64 noundef %.sroa.35.0.copyload354, i64 noundef %.sroa.54.0.copyload374, i1 noundef zeroext false) #8
-  br i1 %113, label %194, label %362
+  br i1 %113, label %194, label %361
 
 194:                                              ; preds = %.thread671
   call void @H5T__bit_set(ptr noundef %.0583, i64 noundef %115, i64 noundef 1, i1 noundef zeroext true) #8
-  br label %362
+  br label %361
 
 195:                                              ; preds = %182
   %196 = load i64, ptr @H5E_DATATYPE_g, align 8
@@ -516,7 +517,7 @@ define range(i32 -1, 1) i32 @H5T__conv_f_f(ptr noundef readonly %0, ptr noundef 
   %218 = load ptr, ptr %112, align 8
   %.746 = select i1 %.not623, i32 4, i32 5
   %219 = call i32 %215(i32 noundef %.746, i64 noundef %216, i64 noundef %217, ptr noundef %107, ptr noundef %.0583, ptr noundef %218) #8
-  switch i32 %219, label %362 [
+  switch i32 %219, label %361 [
     i32 0, label %.thread673
     i32 1, label %.loopexit
     i32 -1, label %221
@@ -526,11 +527,11 @@ define range(i32 -1, 1) i32 @H5T__conv_f_f(ptr noundef readonly %0, ptr noundef 
   call void @H5T__bit_copy(ptr noundef %.0583, i64 noundef %.sroa.17.0.copyload332, ptr noundef %.1585724, i64 noundef %.sroa.7416.0.copyload418, i64 noundef 1) #8
   call void @H5T__bit_set(ptr noundef %.0583, i64 noundef %.sroa.22.0.copyload338, i64 noundef %.sroa.27.0.copyload344, i1 noundef zeroext true) #8
   call void @H5T__bit_set(ptr noundef %.0583, i64 noundef %.sroa.35.0.copyload354, i64 noundef %.sroa.54.0.copyload374, i1 noundef zeroext false) #8
-  br i1 %113, label %220, label %362
+  br i1 %113, label %220, label %361
 
 220:                                              ; preds = %.thread673
   call void @H5T__bit_set(ptr noundef %.0583, i64 noundef %115, i64 noundef 1, i1 noundef zeroext true) #8
-  br label %362
+  br label %361
 
 221:                                              ; preds = %208
   %222 = load i64, ptr @H5E_DATATYPE_g, align 8
@@ -560,7 +561,7 @@ define range(i32 -1, 1) i32 @H5T__conv_f_f(ptr noundef readonly %0, ptr noundef 
   %239 = load i64, ptr %111, align 8
   %240 = load ptr, ptr %112, align 8
   %241 = call i32 %237(i32 noundef 6, i64 noundef %238, i64 noundef %239, ptr noundef %107, ptr noundef %.0583, ptr noundef %240) #8
-  switch i32 %241, label %362 [
+  switch i32 %241, label %361 [
     i32 0, label %.thread675
     i32 1, label %.loopexit
     i32 -1, label %242
@@ -570,7 +571,7 @@ define range(i32 -1, 1) i32 @H5T__conv_f_f(ptr noundef readonly %0, ptr noundef 
   call void @H5T__bit_copy(ptr noundef %.0583, i64 noundef %.sroa.17.0.copyload332, ptr noundef %.1585724, i64 noundef %.sroa.7416.0.copyload418, i64 noundef 1) #8
   call void @H5T__bit_set(ptr noundef %.0583, i64 noundef %.sroa.22.0.copyload338, i64 noundef %.sroa.27.0.copyload344, i1 noundef zeroext true) #8
   call void @H5T__bit_set(ptr noundef %.0583, i64 noundef %.sroa.35.0.copyload354, i64 noundef %.sroa.54.0.copyload374, i1 noundef zeroext true) #8
-  br label %362
+  br label %361
 
 242:                                              ; preds = %230
   %243 = load i64, ptr @H5E_DATATYPE_g, align 8
@@ -692,281 +693,281 @@ define range(i32 -1, 1) i32 @H5T__conv_f_f(ptr noundef readonly %0, ptr noundef 
 294:                                              ; preds = %291
   %295 = sub nuw i64 %292, %.sroa.54.0.copyload374
   %296 = add i64 %295, %.sroa.26.0.copyload441
-  %297 = add i64 %296, -1
-  %298 = call i64 @H5T__bit_get_d(ptr noundef %.1585724, i64 noundef %297, i64 noundef 1) #8
-  %.not628 = icmp eq i64 %298, 0
-  br i1 %.not628, label %310, label %299
+  %.reass = add i64 %295, %invariant.op
+  %297 = call i64 @H5T__bit_get_d(ptr noundef %.1585724, i64 noundef %.reass, i64 noundef 1) #8
+  %.not628 = icmp eq i64 %297, 0
+  br i1 %.not628, label %309, label %298
 
-299:                                              ; preds = %294
-  %300 = trunc nuw i8 %.2558 to i1
-  br i1 %300, label %310, label %301
+298:                                              ; preds = %294
+  %299 = trunc nuw i8 %.2558 to i1
+  br i1 %299, label %309, label %300
 
-301:                                              ; preds = %299
-  %302 = sub i64 %.1573683, %295
-  %303 = call i64 @H5T__bit_find(ptr noundef %.1585724, i64 noundef %296, i64 noundef %302, i32 noundef 0, i1 noundef zeroext false) #8
-  %304 = icmp sgt i64 %303, -1
-  %305 = icmp slt i64 %.1578, %119
-  %or.cond642 = select i1 %304, i1 true, i1 %305
-  br i1 %or.cond642, label %306, label %.thread688
+300:                                              ; preds = %298
+  %301 = sub i64 %.1573683, %295
+  %302 = call i64 @H5T__bit_find(ptr noundef %.1585724, i64 noundef %296, i64 noundef %301, i32 noundef 0, i1 noundef zeroext false) #8
+  %303 = icmp sgt i64 %302, -1
+  %304 = icmp slt i64 %.1578, %119
+  %or.cond642 = select i1 %303, i1 true, i1 %304
+  br i1 %or.cond642, label %305, label %.thread688
 
-306:                                              ; preds = %301
-  %307 = add i64 %.1573683, 1
-  %308 = sub i64 %307, %295
-  %309 = call zeroext i1 @H5T__bit_inc(ptr noundef %.1585724, i64 noundef %297, i64 noundef %308) #8
-  %spec.select643 = select i1 %309, i64 2, i64 1
+305:                                              ; preds = %300
+  %306 = add i64 %.1573683, 1
+  %307 = sub i64 %306, %295
+  %308 = call zeroext i1 @H5T__bit_inc(ptr noundef %.1585724, i64 noundef %.reass, i64 noundef %307) #8
+  %spec.select643 = select i1 %308, i64 2, i64 1
   br label %.thread688
 
-310:                                              ; preds = %299, %294
-  %311 = call i64 @H5T__bit_get_d(ptr noundef %.1585724, i64 noundef %297, i64 noundef 1) #8
-  %.not629 = icmp eq i64 %311, 0
-  br i1 %.not629, label %.thread688, label %312
+309:                                              ; preds = %298, %294
+  %310 = call i64 @H5T__bit_get_d(ptr noundef %.1585724, i64 noundef %.reass, i64 noundef 1) #8
+  %.not629 = icmp eq i64 %310, 0
+  br i1 %.not629, label %.thread688, label %311
 
-312:                                              ; preds = %310
-  %313 = trunc nuw i8 %.2558 to i1
-  br i1 %313, label %314, label %.thread688
+311:                                              ; preds = %309
+  %312 = trunc nuw i8 %.2558 to i1
+  br i1 %312, label %313, label %.thread688
 
-314:                                              ; preds = %312
-  %315 = add i64 %.1573683, 1
-  %316 = sub i64 %315, %295
-  %317 = call zeroext i1 @H5T__bit_inc(ptr noundef %.1585724, i64 noundef %297, i64 noundef %316) #8
+313:                                              ; preds = %311
+  %314 = add i64 %.1573683, 1
+  %315 = sub i64 %314, %295
+  %316 = call zeroext i1 @H5T__bit_inc(ptr noundef %.1585724, i64 noundef %.reass, i64 noundef %315) #8
   br label %.thread688
 
-.thread688:                                       ; preds = %.thread685, %266, %306, %290, %291, %301, %314, %312, %310
-  %.4701 = phi i32 [ %.4, %314 ], [ %.4, %312 ], [ %.4, %310 ], [ %.4, %301 ], [ %.4, %306 ], [ %.4, %291 ], [ %.4, %290 ], [ 0, %266 ], [ 0, %.thread685 ]
-  %.2558700 = phi i8 [ %.2558, %314 ], [ %.2558, %312 ], [ %.2558, %310 ], [ %.2558, %301 ], [ %.2558, %306 ], [ %.2558, %291 ], [ %.2558, %290 ], [ %spec.select, %266 ], [ %spec.select, %.thread685 ]
-  %.1571699 = phi i64 [ %.1571, %314 ], [ %.1571, %312 ], [ %.1571, %310 ], [ %.1571, %301 ], [ %.1571, %306 ], [ %.1571, %291 ], [ %.1571, %290 ], [ %spec.select639, %266 ], [ %spec.select639, %.thread685 ]
-  %.2574698 = phi i64 [ %.1573683, %314 ], [ %.1573683, %312 ], [ %.1573683, %310 ], [ %.1573683, %301 ], [ %.1573683, %306 ], [ %.1573683, %291 ], [ %.1573683, %290 ], [ 0, %266 ], [ 0, %.thread685 ]
-  %.1578697 = phi i64 [ %.1578, %314 ], [ %.1578, %312 ], [ %.1578, %310 ], [ %.1578, %301 ], [ %.1578, %306 ], [ %.1578, %291 ], [ %.1578, %290 ], [ 0, %266 ], [ %73, %.thread685 ]
-  %.1567 = phi i1 [ %.0566731, %314 ], [ %.0566731, %312 ], [ %.0566731, %310 ], [ %.0566731, %301 ], [ %309, %306 ], [ false, %291 ], [ false, %290 ], [ false, %266 ], [ false, %.thread685 ]
-  %.0561 = phi i64 [ 1, %314 ], [ 1, %312 ], [ 1, %310 ], [ 1, %301 ], [ %spec.select643, %306 ], [ 1, %291 ], [ 1, %290 ], [ 1, %266 ], [ 1, %.thread685 ]
-  %318 = icmp ugt i64 %.1571699, %120
-  br i1 %318, label %319, label %320
+.thread688:                                       ; preds = %.thread685, %266, %305, %290, %291, %300, %313, %311, %309
+  %.4701 = phi i32 [ %.4, %313 ], [ %.4, %311 ], [ %.4, %309 ], [ %.4, %300 ], [ %.4, %305 ], [ %.4, %291 ], [ %.4, %290 ], [ 0, %266 ], [ 0, %.thread685 ]
+  %.2558700 = phi i8 [ %.2558, %313 ], [ %.2558, %311 ], [ %.2558, %309 ], [ %.2558, %300 ], [ %.2558, %305 ], [ %.2558, %291 ], [ %.2558, %290 ], [ %spec.select, %266 ], [ %spec.select, %.thread685 ]
+  %.1571699 = phi i64 [ %.1571, %313 ], [ %.1571, %311 ], [ %.1571, %309 ], [ %.1571, %300 ], [ %.1571, %305 ], [ %.1571, %291 ], [ %.1571, %290 ], [ %spec.select639, %266 ], [ %spec.select639, %.thread685 ]
+  %.2574698 = phi i64 [ %.1573683, %313 ], [ %.1573683, %311 ], [ %.1573683, %309 ], [ %.1573683, %300 ], [ %.1573683, %305 ], [ %.1573683, %291 ], [ %.1573683, %290 ], [ 0, %266 ], [ 0, %.thread685 ]
+  %.1578697 = phi i64 [ %.1578, %313 ], [ %.1578, %311 ], [ %.1578, %309 ], [ %.1578, %300 ], [ %.1578, %305 ], [ %.1578, %291 ], [ %.1578, %290 ], [ 0, %266 ], [ %73, %.thread685 ]
+  %.1567 = phi i1 [ %.0566731, %313 ], [ %.0566731, %311 ], [ %.0566731, %309 ], [ %.0566731, %300 ], [ %308, %305 ], [ false, %291 ], [ false, %290 ], [ false, %266 ], [ false, %.thread685 ]
+  %.0561 = phi i64 [ 1, %313 ], [ 1, %311 ], [ 1, %309 ], [ 1, %300 ], [ %spec.select643, %305 ], [ 1, %291 ], [ 1, %290 ], [ 1, %266 ], [ 1, %.thread685 ]
+  %317 = icmp ugt i64 %.1571699, %120
+  br i1 %317, label %318, label %319
+
+318:                                              ; preds = %.thread688
+  call void @H5T__bit_set(ptr noundef %.0583, i64 noundef %.sroa.35.0.copyload354, i64 noundef %.sroa.54.0.copyload374, i1 noundef zeroext false) #8
+  br label %337
 
 319:                                              ; preds = %.thread688
-  call void @H5T__bit_set(ptr noundef %.0583, i64 noundef %.sroa.35.0.copyload354, i64 noundef %.sroa.54.0.copyload374, i1 noundef zeroext false) #8
-  br label %338
+  %320 = icmp eq i64 %.1571699, %120
+  br i1 %320, label %321, label %322
 
-320:                                              ; preds = %.thread688
-  %321 = icmp eq i64 %.1571699, %120
-  br i1 %321, label %322, label %323
-
-322:                                              ; preds = %320
+321:                                              ; preds = %319
   call void @H5T__bit_set(ptr noundef %.0583, i64 noundef %123, i64 noundef %124, i1 noundef zeroext false) #8
   call void @H5T__bit_set(ptr noundef %.0583, i64 noundef %.sroa.35.0.copyload354, i64 noundef 1, i1 noundef zeroext true) #8
-  br label %338
+  br label %337
 
-323:                                              ; preds = %320
-  %324 = icmp eq i64 %.1571699, %.sroa.54.0.copyload374
-  br i1 %324, label %325, label %326
+322:                                              ; preds = %319
+  %323 = icmp eq i64 %.1571699, %.sroa.54.0.copyload374
+  br i1 %323, label %324, label %325
 
-325:                                              ; preds = %323
+324:                                              ; preds = %322
   call void @H5T__bit_set(ptr noundef %.0583, i64 noundef %.sroa.35.0.copyload354, i64 noundef %.sroa.54.0.copyload374, i1 noundef zeroext false) #8
   call void @H5T__bit_set_d(ptr noundef %.0583, i64 noundef %.sroa.35.0.copyload354, i64 noundef %122, i64 noundef %.0561) #8
-  br label %338
+  br label %337
 
-326:                                              ; preds = %323
+325:                                              ; preds = %322
   %.not630 = icmp eq i64 %.1571699, 0
-  br i1 %.not630, label %329, label %327
+  br i1 %.not630, label %328, label %326
 
-327:                                              ; preds = %326
-  %328 = sub i64 %114, %.1571699
-  call void @H5T__bit_set(ptr noundef %.0583, i64 noundef %328, i64 noundef %.1571699, i1 noundef zeroext false) #8
-  call void @H5T__bit_set_d(ptr noundef %.0583, i64 noundef %328, i64 noundef 2, i64 noundef %.0561) #8
-  br label %329
+326:                                              ; preds = %325
+  %327 = sub i64 %114, %.1571699
+  call void @H5T__bit_set(ptr noundef %.0583, i64 noundef %327, i64 noundef %.1571699, i1 noundef zeroext false) #8
+  call void @H5T__bit_set_d(ptr noundef %.0583, i64 noundef %327, i64 noundef 2, i64 noundef %.0561) #8
+  br label %328
 
-329:                                              ; preds = %327, %326
-  %330 = add i64 %.2574698, %.1571699
-  %.not631 = icmp ult i64 %330, %.sroa.54.0.copyload374
-  br i1 %.not631, label %335, label %331
+328:                                              ; preds = %326, %325
+  %329 = add i64 %.2574698, %.1571699
+  %.not631 = icmp ult i64 %329, %.sroa.54.0.copyload374
+  br i1 %.not631, label %334, label %330
 
-331:                                              ; preds = %329
-  %332 = add i64 %121, %.1571699
-  %333 = add i64 %332, %.2574698
-  %334 = sub i64 %.sroa.54.0.copyload374, %.1571699
-  call void @H5T__bit_copy(ptr noundef %.0583, i64 noundef %.sroa.35.0.copyload354, ptr noundef %.1585724, i64 noundef %333, i64 noundef %334) #8
-  br label %338
+330:                                              ; preds = %328
+  %331 = add i64 %121, %.1571699
+  %332 = add i64 %331, %.2574698
+  %333 = sub i64 %.sroa.54.0.copyload374, %.1571699
+  call void @H5T__bit_copy(ptr noundef %.0583, i64 noundef %.sroa.35.0.copyload354, ptr noundef %.1585724, i64 noundef %332, i64 noundef %333) #8
+  br label %337
 
-335:                                              ; preds = %329
-  %336 = sub i64 %114, %330
-  call void @H5T__bit_copy(ptr noundef %.0583, i64 noundef %336, ptr noundef %.1585724, i64 noundef %.sroa.26.0.copyload441, i64 noundef %.2574698) #8
-  %337 = sub nuw i64 %.sroa.54.0.copyload374, %330
-  call void @H5T__bit_set(ptr noundef %.0583, i64 noundef %.sroa.35.0.copyload354, i64 noundef %337, i1 noundef zeroext false) #8
-  br label %338
+334:                                              ; preds = %328
+  %335 = sub i64 %114, %329
+  call void @H5T__bit_copy(ptr noundef %.0583, i64 noundef %335, ptr noundef %.1585724, i64 noundef %.sroa.26.0.copyload441, i64 noundef %.2574698) #8
+  %336 = sub nuw i64 %.sroa.54.0.copyload374, %329
+  call void @H5T__bit_set(ptr noundef %.0583, i64 noundef %.sroa.35.0.copyload354, i64 noundef %336, i1 noundef zeroext false) #8
+  br label %337
 
-338:                                              ; preds = %322, %331, %335, %325, %319
-  br i1 %.1567, label %339, label %361
+337:                                              ; preds = %321, %330, %334, %324, %318
+  br i1 %.1567, label %338, label %360
 
-339:                                              ; preds = %338
-  %340 = add nsw i64 %.1578697, 1
-  %.not632 = icmp slt i64 %340, %73
-  br i1 %.not632, label %361, label %341
+338:                                              ; preds = %337
+  %339 = add nsw i64 %.1578697, 1
+  %.not632 = icmp slt i64 %339, %73
+  br i1 %.not632, label %360, label %340
 
-341:                                              ; preds = %339
-  %342 = load ptr, ptr %3, align 8
-  %.not633 = icmp eq ptr %342, null
-  br i1 %.not633, label %355, label %343
+340:                                              ; preds = %338
+  %341 = load ptr, ptr %3, align 8
+  %.not633 = icmp eq ptr %341, null
+  br i1 %.not633, label %354, label %342
 
-343:                                              ; preds = %341
-  %344 = load ptr, ptr %66, align 8
-  %345 = getelementptr inbounds i8, ptr %344, i64 16
-  %346 = load i64, ptr %345, align 8
-  %347 = getelementptr inbounds i8, ptr %344, i64 48
-  %348 = load i32, ptr %347, align 8
-  %349 = call i32 @H5T__reverse_order(ptr noundef %107, ptr noundef %.1585724, i64 noundef %346, i32 noundef %348) #8
-  %350 = load ptr, ptr %3, align 8
-  %351 = load i64, ptr %110, align 8
-  %352 = load i64, ptr %111, align 8
-  %353 = load ptr, ptr %112, align 8
-  %354 = call i32 %350(i32 noundef 0, i64 noundef %351, i64 noundef %352, ptr noundef %107, ptr noundef %.0583, ptr noundef %353) #8
-  br label %355
+342:                                              ; preds = %340
+  %343 = load ptr, ptr %66, align 8
+  %344 = getelementptr inbounds i8, ptr %343, i64 16
+  %345 = load i64, ptr %344, align 8
+  %346 = getelementptr inbounds i8, ptr %343, i64 48
+  %347 = load i32, ptr %346, align 8
+  %348 = call i32 @H5T__reverse_order(ptr noundef %107, ptr noundef %.1585724, i64 noundef %345, i32 noundef %347) #8
+  %349 = load ptr, ptr %3, align 8
+  %350 = load i64, ptr %110, align 8
+  %351 = load i64, ptr %111, align 8
+  %352 = load ptr, ptr %112, align 8
+  %353 = call i32 %349(i32 noundef 0, i64 noundef %350, i64 noundef %351, ptr noundef %107, ptr noundef %.0583, ptr noundef %352) #8
+  br label %354
 
-355:                                              ; preds = %343, %341
-  %.5 = phi i32 [ %354, %343 ], [ %.4701, %341 ]
-  switch i32 %.5, label %361 [
-    i32 0, label %356
-    i32 -1, label %357
+354:                                              ; preds = %342, %340
+  %.5 = phi i32 [ %353, %342 ], [ %.4701, %340 ]
+  switch i32 %.5, label %360 [
+    i32 0, label %355
+    i32 -1, label %356
     i32 1, label %.loopexit
   ]
 
-356:                                              ; preds = %355
+355:                                              ; preds = %354
   call void @H5T__bit_set(ptr noundef %.0583, i64 noundef %.sroa.35.0.copyload354, i64 noundef %.sroa.54.0.copyload374, i1 noundef zeroext false) #8
-  br label %361
+  br label %360
 
-357:                                              ; preds = %355
-  %358 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %359 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %360 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_f_f, i32 noundef 540, i64 noundef %358, i64 noundef %359, ptr noundef nonnull @.str.6) #8
+356:                                              ; preds = %354
+  %357 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %358 = load i64, ptr @H5E_CANTCONVERT_g, align 8
+  %359 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_f_f, i32 noundef 540, i64 noundef %357, i64 noundef %358, ptr noundef nonnull @.str.6) #8
   br label %.loopexit714
 
-361:                                              ; preds = %355, %339, %356, %338
-  %.2579 = phi i64 [ %73, %356 ], [ %340, %339 ], [ %.1578697, %338 ], [ %340, %355 ]
+360:                                              ; preds = %354, %338, %355, %337
+  %.2579 = phi i64 [ %73, %355 ], [ %339, %338 ], [ %.1578697, %337 ], [ %339, %354 ]
   call void @H5T__bit_set_d(ptr noundef %.0583, i64 noundef %.sroa.22.0.copyload338, i64 noundef %.sroa.27.0.copyload344, i64 noundef %.2579) #8
-  br label %362
+  br label %361
 
-362:                                              ; preds = %230, %208, %182, %.thread675, %220, %.thread673, %194, %.thread671, %361, %176
-  %.3575 = phi i64 [ %.0572730, %176 ], [ %.0572730, %194 ], [ %.0572730, %.thread671 ], [ %.2574698, %361 ], [ %.0572730, %220 ], [ %.0572730, %.thread673 ], [ %.0572730, %.thread675 ], [ %.0572730, %182 ], [ %.0572730, %208 ], [ %.0572730, %230 ]
-  %.2568 = phi i1 [ %.0566731, %176 ], [ %.0566731, %194 ], [ %.0566731, %.thread671 ], [ false, %361 ], [ %.0566731, %220 ], [ %.0566731, %.thread673 ], [ %.0566731, %.thread675 ], [ %.0566731, %182 ], [ %.0566731, %208 ], [ %.0566731, %230 ]
-  %.3559 = phi i8 [ %.0556732, %176 ], [ %.0556732, %194 ], [ %.0556732, %.thread671 ], [ %.2558700, %361 ], [ %.0556732, %220 ], [ %.0556732, %.thread673 ], [ %.0556732, %.thread675 ], [ %.0556732, %182 ], [ %.0556732, %208 ], [ %.0556732, %230 ]
-  br i1 %.not636, label %364, label %363
+361:                                              ; preds = %230, %208, %182, %.thread675, %220, %.thread673, %194, %.thread671, %360, %176
+  %.3575 = phi i64 [ %.0572730, %176 ], [ %.0572730, %194 ], [ %.0572730, %.thread671 ], [ %.2574698, %360 ], [ %.0572730, %220 ], [ %.0572730, %.thread673 ], [ %.0572730, %.thread675 ], [ %.0572730, %182 ], [ %.0572730, %208 ], [ %.0572730, %230 ]
+  %.2568 = phi i1 [ %.0566731, %176 ], [ %.0566731, %194 ], [ %.0566731, %.thread671 ], [ false, %360 ], [ %.0566731, %220 ], [ %.0566731, %.thread673 ], [ %.0566731, %.thread675 ], [ %.0566731, %182 ], [ %.0566731, %208 ], [ %.0566731, %230 ]
+  %.3559 = phi i8 [ %.0556732, %176 ], [ %.0556732, %194 ], [ %.0556732, %.thread671 ], [ %.2558700, %360 ], [ %.0556732, %220 ], [ %.0556732, %.thread673 ], [ %.0556732, %.thread675 ], [ %.0556732, %182 ], [ %.0556732, %208 ], [ %.0556732, %230 ]
+  br i1 %.not636, label %363, label %362
 
-363:                                              ; preds = %362
+362:                                              ; preds = %361
   call void @H5T__bit_set(ptr noundef %.0583, i64 noundef 0, i64 noundef %.sroa.10.0.copyload322, i1 noundef zeroext %125) #8
-  br label %364
+  br label %363
 
-364:                                              ; preds = %363, %362
-  %365 = load ptr, ptr %69, align 8
-  %366 = getelementptr inbounds i8, ptr %365, i64 16
-  %367 = load i64, ptr %366, align 8
-  %368 = shl i64 %367, 3
-  %.not637 = icmp eq i64 %126, %368
-  br i1 %.not637, label %371, label %369
+363:                                              ; preds = %362, %361
+  %364 = load ptr, ptr %69, align 8
+  %365 = getelementptr inbounds i8, ptr %364, i64 16
+  %366 = load i64, ptr %365, align 8
+  %367 = shl i64 %366, 3
+  %.not637 = icmp eq i64 %126, %367
+  br i1 %.not637, label %370, label %368
 
-369:                                              ; preds = %364
-  %370 = sub i64 %368, %126
-  call void @H5T__bit_set(ptr noundef %.0583, i64 noundef %126, i64 noundef %370, i1 noundef zeroext %127) #8
-  br label %371
+368:                                              ; preds = %363
+  %369 = sub i64 %367, %126
+  call void @H5T__bit_set(ptr noundef %.0583, i64 noundef %126, i64 noundef %369, i1 noundef zeroext %127) #8
+  br label %370
 
-371:                                              ; preds = %369, %364
+370:                                              ; preds = %368, %363
   switch i32 %.sroa.0.0.copyload313, label %.loopexit [
-    i32 1, label %372
-    i32 2, label %386
+    i32 1, label %371
+    i32 2, label %385
   ]
 
-372:                                              ; preds = %371
-  %373 = load ptr, ptr %69, align 8
-  %374 = getelementptr inbounds i8, ptr %373, i64 16
-  %375 = load i64, ptr %374, align 8
-  %376 = lshr i64 %375, 1
-  %.not738 = icmp ult i64 %375, 2
+371:                                              ; preds = %370
+  %372 = load ptr, ptr %69, align 8
+  %373 = getelementptr inbounds i8, ptr %372, i64 16
+  %374 = load i64, ptr %373, align 8
+  %375 = lshr i64 %374, 1
+  %.not738 = icmp ult i64 %374, 2
   br i1 %.not738, label %.loopexit, label %.lr.ph721
 
-.lr.ph721:                                        ; preds = %372, %.lr.ph721
-  %.2564720 = phi i64 [ %380, %.lr.ph721 ], [ 0, %372 ]
-  %377 = load ptr, ptr %69, align 8
-  %378 = getelementptr inbounds i8, ptr %377, i64 16
-  %379 = load i64, ptr %378, align 8
-  %380 = add nuw nsw i64 %.2564720, 1
-  %381 = sub i64 %379, %380
-  %382 = getelementptr inbounds i8, ptr %.0583, i64 %381
-  %383 = load i8, ptr %382, align 1
-  %384 = getelementptr inbounds i8, ptr %.0583, i64 %.2564720
-  %385 = load i8, ptr %384, align 1
-  store i8 %385, ptr %382, align 1
-  store i8 %383, ptr %384, align 1
-  %exitcond741.not = icmp eq i64 %380, %376
+.lr.ph721:                                        ; preds = %371, %.lr.ph721
+  %.2564720 = phi i64 [ %379, %.lr.ph721 ], [ 0, %371 ]
+  %376 = load ptr, ptr %69, align 8
+  %377 = getelementptr inbounds i8, ptr %376, i64 16
+  %378 = load i64, ptr %377, align 8
+  %379 = add nuw nsw i64 %.2564720, 1
+  %380 = sub i64 %378, %379
+  %381 = getelementptr inbounds i8, ptr %.0583, i64 %380
+  %382 = load i8, ptr %381, align 1
+  %383 = getelementptr inbounds i8, ptr %.0583, i64 %.2564720
+  %384 = load i8, ptr %383, align 1
+  store i8 %384, ptr %381, align 1
+  store i8 %382, ptr %383, align 1
+  %exitcond741.not = icmp eq i64 %379, %375
   br i1 %exitcond741.not, label %.loopexit, label %.lr.ph721
 
-386:                                              ; preds = %371
-  %387 = load ptr, ptr %69, align 8
-  %388 = getelementptr inbounds i8, ptr %387, i64 16
-  %389 = load i64, ptr %388, align 8
-  %.not737 = icmp eq i64 %389, 0
+385:                                              ; preds = %370
+  %386 = load ptr, ptr %69, align 8
+  %387 = getelementptr inbounds i8, ptr %386, i64 16
+  %388 = load i64, ptr %387, align 8
+  %.not737 = icmp eq i64 %388, 0
   br i1 %.not737, label %.loopexit, label %.lr.ph719
 
-.lr.ph719:                                        ; preds = %386
-  %390 = add i64 %389, -2
-  br label %391
+.lr.ph719:                                        ; preds = %385
+  %389 = add i64 %388, -2
+  br label %390
 
-391:                                              ; preds = %.lr.ph719, %391
-  %.3565718 = phi i64 [ 0, %.lr.ph719 ], [ %404, %391 ]
-  %392 = getelementptr inbounds i8, ptr %.0583, i64 %.3565718
-  %393 = load i8, ptr %392, align 1
-  %394 = or disjoint i64 %.3565718, 1
-  %395 = getelementptr inbounds i8, ptr %.0583, i64 %394
-  %396 = load i8, ptr %395, align 1
-  %397 = sub i64 %390, %.3565718
-  %398 = getelementptr inbounds i8, ptr %.0583, i64 %397
-  %399 = load i8, ptr %398, align 1
-  store i8 %399, ptr %392, align 1
-  %400 = xor i64 %.3565718, -1
-  %401 = add i64 %389, %400
-  %402 = getelementptr inbounds i8, ptr %.0583, i64 %401
-  %403 = load i8, ptr %402, align 1
-  store i8 %403, ptr %395, align 1
-  store i8 %393, ptr %398, align 1
-  store i8 %396, ptr %402, align 1
-  %404 = add i64 %.3565718, 4
-  %405 = icmp ult i64 %404, %389
-  br i1 %405, label %391, label %.loopexit
+390:                                              ; preds = %.lr.ph719, %390
+  %.3565718 = phi i64 [ 0, %.lr.ph719 ], [ %403, %390 ]
+  %391 = getelementptr inbounds i8, ptr %.0583, i64 %.3565718
+  %392 = load i8, ptr %391, align 1
+  %393 = or disjoint i64 %.3565718, 1
+  %394 = getelementptr inbounds i8, ptr %.0583, i64 %393
+  %395 = load i8, ptr %394, align 1
+  %396 = sub i64 %389, %.3565718
+  %397 = getelementptr inbounds i8, ptr %.0583, i64 %396
+  %398 = load i8, ptr %397, align 1
+  store i8 %398, ptr %391, align 1
+  %399 = xor i64 %.3565718, -1
+  %400 = add i64 %388, %399
+  %401 = getelementptr inbounds i8, ptr %.0583, i64 %400
+  %402 = load i8, ptr %401, align 1
+  store i8 %402, ptr %394, align 1
+  store i8 %392, ptr %397, align 1
+  store i8 %395, ptr %401, align 1
+  %403 = add i64 %.3565718, 4
+  %404 = icmp ult i64 %403, %388
+  br i1 %404, label %390, label %.loopexit
 
-.loopexit:                                        ; preds = %391, %.lr.ph721, %386, %372, %371, %355, %274, %230, %208, %182
-  %.4576 = phi i64 [ %.0572730, %182 ], [ %.0572730, %208 ], [ %.0572730, %230 ], [ %.1573683, %274 ], [ %.2574698, %355 ], [ %.3575, %371 ], [ %.3575, %372 ], [ %.3575, %386 ], [ %.3575, %.lr.ph721 ], [ %.3575, %391 ]
-  %.3569 = phi i1 [ %.0566731, %182 ], [ %.0566731, %208 ], [ %.0566731, %230 ], [ %.0566731, %274 ], [ true, %355 ], [ %.2568, %371 ], [ %.2568, %372 ], [ %.2568, %386 ], [ %.2568, %.lr.ph721 ], [ %.2568, %391 ]
-  %.4560 = phi i8 [ %.0556732, %182 ], [ %.0556732, %208 ], [ %.0556732, %230 ], [ %spec.select, %274 ], [ %.2558700, %355 ], [ %.3559, %371 ], [ %.3559, %372 ], [ %.3559, %386 ], [ %.3559, %.lr.ph721 ], [ %.3559, %391 ]
-  %406 = icmp eq ptr %.0583, %10
-  br i1 %406, label %407, label %411
+.loopexit:                                        ; preds = %390, %.lr.ph721, %385, %371, %370, %354, %274, %230, %208, %182
+  %.4576 = phi i64 [ %.0572730, %182 ], [ %.0572730, %208 ], [ %.0572730, %230 ], [ %.1573683, %274 ], [ %.2574698, %354 ], [ %.3575, %370 ], [ %.3575, %371 ], [ %.3575, %385 ], [ %.3575, %.lr.ph721 ], [ %.3575, %390 ]
+  %.3569 = phi i1 [ %.0566731, %182 ], [ %.0566731, %208 ], [ %.0566731, %230 ], [ %.0566731, %274 ], [ true, %354 ], [ %.2568, %370 ], [ %.2568, %371 ], [ %.2568, %385 ], [ %.2568, %.lr.ph721 ], [ %.2568, %390 ]
+  %.4560 = phi i8 [ %.0556732, %182 ], [ %.0556732, %208 ], [ %.0556732, %230 ], [ %spec.select, %274 ], [ %.2558700, %354 ], [ %.3559, %370 ], [ %.3559, %371 ], [ %.3559, %385 ], [ %.3559, %.lr.ph721 ], [ %.3559, %390 ]
+  %405 = icmp eq ptr %.0583, %10
+  br i1 %405, label %406, label %410
 
-407:                                              ; preds = %.loopexit
-  %408 = load ptr, ptr %69, align 8
-  %409 = getelementptr inbounds i8, ptr %408, i64 16
-  %410 = load i64, ptr %409, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1582729, ptr align 1 %.0583, i64 %410, i1 false)
-  br label %411
+406:                                              ; preds = %.loopexit
+  %407 = load ptr, ptr %69, align 8
+  %408 = getelementptr inbounds i8, ptr %407, i64 16
+  %409 = load i64, ptr %408, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1582729, ptr align 1 %.0583, i64 %409, i1 false)
+  br label %410
 
-411:                                              ; preds = %407, %.loopexit
-  %412 = getelementptr inbounds i8, ptr %.1585724, i64 %103
-  %413 = getelementptr inbounds i8, ptr %.1582729, i64 %106
-  %414 = add nuw i64 %.0593722, 1
-  %exitcond742.not = icmp eq i64 %414, %4
+410:                                              ; preds = %406, %.loopexit
+  %411 = getelementptr inbounds i8, ptr %.1585724, i64 %103
+  %412 = getelementptr inbounds i8, ptr %.1582729, i64 %106
+  %413 = add nuw i64 %.0593722, 1
+  %exitcond742.not = icmp eq i64 %413, %4
   br i1 %exitcond742.not, label %.loopexit714, label %128
 
-415:                                              ; preds = %9
-  %416 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %417 = load i64, ptr @H5E_UNSUPPORTED_g, align 8
-  %418 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_f_f, i32 noundef 612, i64 noundef %416, i64 noundef %417, ptr noundef nonnull @.str.8) #8
+414:                                              ; preds = %9
+  %415 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %416 = load i64, ptr @H5E_UNSUPPORTED_g, align 8
+  %417 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_f_f, i32 noundef 612, i64 noundef %415, i64 noundef %416, ptr noundef nonnull @.str.8) #8
   br label %.thread703
 
-.loopexit714:                                     ; preds = %411, %102, %357, %286, %256, %242, %221, %195
-  %.0 = phi i32 [ -1, %195 ], [ -1, %357 ], [ -1, %286 ], [ -1, %256 ], [ -1, %221 ], [ -1, %242 ], [ 0, %102 ], [ 0, %411 ]
+.loopexit714:                                     ; preds = %410, %102, %356, %286, %256, %242, %221, %195
+  %.0 = phi i32 [ -1, %195 ], [ -1, %356 ], [ -1, %286 ], [ -1, %256 ], [ -1, %221 ], [ -1, %242 ], [ 0, %102 ], [ 0, %410 ]
   %.not638 = icmp eq ptr %107, null
-  br i1 %.not638, label %.thread703, label %419
+  br i1 %.not638, label %.thread703, label %418
 
-419:                                              ; preds = %.loopexit714
+418:                                              ; preds = %.loopexit714
   call void @free(ptr noundef nonnull %107) #8
   br label %.thread703
 
-.thread703:                                       ; preds = %50, %46, %39, %31, %25, %15, %9, %61, %55, %415, %419, %.loopexit714
-  %.0707 = phi i32 [ %.0, %419 ], [ %.0, %.loopexit714 ], [ 0, %50 ], [ -1, %46 ], [ -1, %39 ], [ -1, %31 ], [ -1, %25 ], [ -1, %15 ], [ 0, %9 ], [ -1, %61 ], [ -1, %55 ], [ -1, %415 ]
+.thread703:                                       ; preds = %50, %46, %39, %31, %25, %15, %9, %61, %55, %414, %418, %.loopexit714
+  %.0707 = phi i32 [ %.0, %418 ], [ %.0, %.loopexit714 ], [ 0, %50 ], [ -1, %46 ], [ -1, %39 ], [ -1, %31 ], [ -1, %25 ], [ -1, %15 ], [ 0, %9 ], [ -1, %61 ], [ -1, %55 ], [ -1, %414 ]
   ret i32 %.0707
 }
 

@@ -226,7 +226,7 @@ define internal i32 @archive_compressor_compress_write(ptr nocapture noundef rea
   store i32 %44, ptr %16, align 4
   br label %.backedge
 
-.backedge:                                        ; preds = %97, %98, %41, %57, %68, %75
+.backedge:                                        ; preds = %96, %97, %41, %56, %67, %74
   %.not = icmp eq i64 %26, 0
   br i1 %.not, label %.loopexit95, label %25, !llvm.loop !5
 
@@ -238,112 +238,113 @@ define internal i32 @archive_compressor_compress_write(ptr nocapture noundef rea
   %48 = icmp eq i32 %35, %33
   %.neg = add i32 %36, -69001
   %.072.neg = select i1 %48, i32 -1, i32 %.neg
+  %invariant.op = add i32 %.072.neg, 69001
   br label %49
 
-49:                                               ; preds = %61, %47
-  %.075 = phi i32 [ %36, %47 ], [ %spec.select, %61 ]
+49:                                               ; preds = %60, %47
+  %.075 = phi i32 [ %36, %47 ], [ %spec.select, %60 ]
   %50 = add i32 %.075, %.072.neg
   %51 = icmp slt i32 %50, 0
-  %52 = add nsw i32 %50, 69001
-  %spec.select = select i1 %51, i32 %52, i32 %50
-  %53 = sext i32 %spec.select to i64
-  %54 = getelementptr inbounds [69001 x i32], ptr %18, i64 0, i64 %53
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, %34
-  br i1 %56, label %57, label %61
+  %.reass = add i32 %.075, %invariant.op
+  %spec.select = select i1 %51, i32 %.reass, i32 %50
+  %52 = sext i32 %spec.select to i64
+  %53 = getelementptr inbounds [69001 x i32], ptr %18, i64 0, i64 %52
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, %34
+  br i1 %55, label %56, label %60
 
-57:                                               ; preds = %49
-  %58 = getelementptr inbounds [69001 x i16], ptr %19, i64 0, i64 %53
-  %59 = load i16, ptr %58, align 2
-  %60 = zext i16 %59 to i32
-  store i32 %60, ptr %16, align 4
+56:                                               ; preds = %49
+  %57 = getelementptr inbounds [69001 x i16], ptr %19, i64 0, i64 %52
+  %58 = load i16, ptr %57, align 2
+  %59 = zext i16 %58 to i32
+  store i32 %59, ptr %16, align 4
   br label %.backedge
 
-61:                                               ; preds = %49
-  %62 = icmp sgt i32 %55, -1
-  br i1 %62, label %49, label %.loopexit
+60:                                               ; preds = %49
+  %61 = icmp sgt i32 %54, -1
+  br i1 %61, label %49, label %.loopexit
 
-.loopexit:                                        ; preds = %61, %45
-  %.2 = phi i32 [ %36, %45 ], [ %spec.select, %61 ]
-  %63 = tail call fastcc i32 @output_code(ptr noundef %0, i32 noundef %33)
-  %.not92 = icmp eq i32 %63, 0
-  br i1 %.not92, label %64, label %.loopexit95
+.loopexit:                                        ; preds = %60, %45
+  %.2 = phi i32 [ %36, %45 ], [ %spec.select, %60 ]
+  %62 = tail call fastcc i32 @output_code(ptr noundef %0, i32 noundef %33)
+  %.not92 = icmp eq i32 %62, 0
+  br i1 %.not92, label %63, label %.loopexit95
 
-64:                                               ; preds = %.loopexit
+63:                                               ; preds = %.loopexit
   store i32 %29, ptr %16, align 4
-  %65 = load i32, ptr %20, align 4
-  %66 = load i32, ptr %21, align 8
-  %67 = icmp slt i32 %65, %66
-  br i1 %67, label %68, label %75
+  %64 = load i32, ptr %20, align 4
+  %65 = load i32, ptr %21, align 8
+  %66 = icmp slt i32 %64, %65
+  br i1 %66, label %67, label %74
 
-68:                                               ; preds = %64
-  %69 = add nsw i32 %65, 1
-  store i32 %69, ptr %20, align 4
-  %70 = trunc i32 %65 to i16
-  %71 = sext i32 %.2 to i64
-  %72 = getelementptr inbounds [69001 x i16], ptr %19, i64 0, i64 %71
-  store i16 %70, ptr %72, align 2
-  %73 = load i32, ptr %17, align 8
-  %74 = getelementptr inbounds [69001 x i32], ptr %18, i64 0, i64 %71
-  store i32 %73, ptr %74, align 4
+67:                                               ; preds = %63
+  %68 = add nsw i32 %64, 1
+  store i32 %68, ptr %20, align 4
+  %69 = trunc i32 %64 to i16
+  %70 = sext i32 %.2 to i64
+  %71 = getelementptr inbounds [69001 x i16], ptr %19, i64 0, i64 %70
+  store i16 %69, ptr %71, align 2
+  %72 = load i32, ptr %17, align 8
+  %73 = getelementptr inbounds [69001 x i32], ptr %18, i64 0, i64 %70
+  store i32 %72, ptr %73, align 4
   br label %.backedge
 
-75:                                               ; preds = %64
-  %76 = load i64, ptr %5, align 8
-  %77 = load i64, ptr %22, align 8
-  %78 = icmp slt i64 %76, %77
-  br i1 %78, label %.backedge, label %79
+74:                                               ; preds = %63
+  %75 = load i64, ptr %5, align 8
+  %76 = load i64, ptr %22, align 8
+  %77 = icmp slt i64 %75, %76
+  br i1 %77, label %.backedge, label %78
 
-79:                                               ; preds = %75
-  %80 = add nsw i64 %76, 10000
-  store i64 %80, ptr %22, align 8
-  %81 = icmp slt i64 %76, 8388608
+78:                                               ; preds = %74
+  %79 = add nsw i64 %75, 10000
+  store i64 %79, ptr %22, align 8
+  %80 = icmp slt i64 %75, 8388608
   %.pre = load i64, ptr %23, align 8
-  br i1 %81, label %82, label %87
+  br i1 %80, label %81, label %86
 
-82:                                               ; preds = %79
+81:                                               ; preds = %78
   %.not93 = icmp eq i64 %.pre, 0
-  br i1 %.not93, label %.thread111, label %83
+  br i1 %.not93, label %.thread111, label %82
 
-83:                                               ; preds = %82
-  %84 = shl nsw i64 %76, 8
-  %85 = sdiv i64 %84, %.pre
-  %86 = trunc i64 %85 to i32
+82:                                               ; preds = %81
+  %83 = shl nsw i64 %75, 8
+  %84 = sdiv i64 %83, %.pre
+  %85 = trunc i64 %84 to i32
   br label %.thread111
 
-87:                                               ; preds = %79
-  %88 = sdiv i64 %.pre, 256
-  %89 = and i64 %88, 4294967295
-  %90 = icmp eq i64 %89, 0
-  br i1 %90, label %.thread111, label %91
+86:                                               ; preds = %78
+  %87 = sdiv i64 %.pre, 256
+  %88 = and i64 %87, 4294967295
+  %89 = icmp eq i64 %88, 0
+  br i1 %89, label %.thread111, label %90
 
-91:                                               ; preds = %87
-  %sext = shl i64 %88, 32
-  %92 = ashr exact i64 %sext, 32
-  %93 = sdiv i64 %76, %92
-  %94 = trunc i64 %93 to i32
+90:                                               ; preds = %86
+  %sext = shl i64 %87, 32
+  %91 = ashr exact i64 %sext, 32
+  %92 = sdiv i64 %75, %91
+  %93 = trunc i64 %92 to i32
   br label %.thread111
 
-.thread111:                                       ; preds = %82, %87, %91, %83
-  %.074 = phi i32 [ %86, %83 ], [ %94, %91 ], [ 2147483647, %87 ], [ 2147483647, %82 ]
-  %95 = load i32, ptr %24, align 8
-  %96 = icmp sgt i32 %.074, %95
-  br i1 %96, label %97, label %98
+.thread111:                                       ; preds = %81, %86, %90, %82
+  %.074 = phi i32 [ %85, %82 ], [ %93, %90 ], [ 2147483647, %86 ], [ 2147483647, %81 ]
+  %94 = load i32, ptr %24, align 8
+  %95 = icmp sgt i32 %.074, %94
+  br i1 %95, label %96, label %97
 
-97:                                               ; preds = %.thread111
+96:                                               ; preds = %.thread111
   store i32 %.074, ptr %24, align 8
   br label %.backedge
 
-98:                                               ; preds = %.thread111
+97:                                               ; preds = %.thread111
   store i32 0, ptr %24, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(276004) %18, i8 -1, i64 276004, i1 false)
   store i32 257, ptr %20, align 4
-  %99 = tail call fastcc i32 @output_code(ptr noundef %0, i32 noundef 256)
-  %.not94 = icmp eq i32 %99, 0
+  %98 = tail call fastcc i32 @output_code(ptr noundef %0, i32 noundef 256)
+  %.not94 = icmp eq i32 %98, 0
   br i1 %.not94, label %.backedge, label %.loopexit95
 
-.loopexit95:                                      ; preds = %.loopexit, %98, %.backedge, %10, %3
-  %.073 = phi i32 [ 0, %3 ], [ 0, %10 ], [ %63, %.loopexit ], [ %99, %98 ], [ 0, %.backedge ]
+.loopexit95:                                      ; preds = %.loopexit, %97, %.backedge, %10, %3
+  %.073 = phi i32 [ 0, %3 ], [ 0, %10 ], [ %62, %.loopexit ], [ %98, %97 ], [ 0, %.backedge ]
   ret i32 %.073
 }
 

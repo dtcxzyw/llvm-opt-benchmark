@@ -180,8 +180,8 @@ if.end20.i.us:                                    ; preds = %while.body.i.us
   br i1 %cmp23.not.i.us, label %if.end25.i.us, label %while.end.thread.i
 
 if.end25.i.us:                                    ; preds = %if.end20.i.us
-  %dec56.i.us = add nuw nsw i64 %cond.i.us, 4294967292
-  %2 = and i64 %dec56.i.us, 4294967295
+  %dec56.reass.i.us = add nuw nsw i64 %cond.i.us, 4294967292
+  %2 = and i64 %dec56.reass.i.us, 4294967295
   br label %for.body.i.us
 
 for.body.i.us:                                    ; preds = %if.end55.i.us, %if.end25.i.us
@@ -481,8 +481,8 @@ if.end20.i73.us:                                  ; preds = %while.body.i66.us
   br i1 %cmp23.not.i75.us, label %if.end25.i76.us, label %unz64local_SearchCentralDir.exit.thread.sink.split
 
 if.end25.i76.us:                                  ; preds = %if.end20.i73.us
-  %dec36.i.us = add nuw nsw i64 %cond.i70.us, 4294967292
-  %61 = and i64 %dec36.i.us, 4294967295
+  %dec36.reass.i.us = add nuw nsw i64 %cond.i70.us, 4294967292
+  %61 = and i64 %dec36.reass.i.us, 4294967295
   br label %for.body.i81.us
 
 for.body.i81.us:                                  ; preds = %if.end55.i85.us, %if.end25.i76.us

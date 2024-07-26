@@ -220,6 +220,7 @@ define dso_local void @__bitmap_shift_right(ptr nocapture noundef writeonly %0, 
   %25 = and i64 %18, 4294967295
   %26 = sub nuw nsw i32 %8, %9
   %27 = zext nneg i32 %26 to i64
+  %invariant.op = add nuw nsw i64 %23, 1
   br i1 %17, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %15, %.split.us
@@ -236,51 +237,51 @@ define dso_local void @__bitmap_shift_right(ptr nocapture noundef writeonly %0, 
   %37 = icmp eq i64 %36, %27
   br i1 %37, label %.loopexit, label %.split.us, !llvm.loop !10
 
-.split:                                           ; preds = %15, %49
-  %38 = phi i64 [ %59, %49 ], [ 0, %15 ]
+.split:                                           ; preds = %15, %48
+  %38 = phi i64 [ %58, %48 ], [ 0, %15 ]
   %39 = add nuw nsw i64 %38, %23
-  %40 = add nuw nsw i64 %39, 1
-  %41 = icmp ult i64 %40, %7
-  br i1 %41, label %42, label %49
+  %.reass = add nuw i64 %38, %invariant.op
+  %40 = icmp ult i64 %.reass, %7
+  br i1 %40, label %41, label %48
 
-42:                                               ; preds = %.split
-  %43 = getelementptr i64, ptr %1, i64 %40
-  %44 = load i64, ptr %43, align 8
-  %45 = icmp eq i64 %39, %25
-  %46 = select i1 %45, i64 %13, i64 -1
-  %47 = and i64 %44, %46
-  %48 = shl i64 %47, %20
-  br label %49
+41:                                               ; preds = %.split
+  %42 = getelementptr i64, ptr %1, i64 %.reass
+  %43 = load i64, ptr %42, align 8
+  %44 = icmp eq i64 %39, %25
+  %45 = select i1 %44, i64 %13, i64 -1
+  %46 = and i64 %43, %45
+  %47 = shl i64 %46, %20
+  br label %48
 
-49:                                               ; preds = %42, %.split
-  %50 = phi i64 [ %48, %42 ], [ 0, %.split ]
-  %51 = getelementptr i64, ptr %1, i64 %39
-  %52 = load i64, ptr %51, align 8
-  %53 = icmp eq i64 %39, %24
-  %54 = select i1 %53, i64 %13, i64 -1
-  %55 = and i64 %52, %54
-  %56 = lshr i64 %55, %22
-  %57 = or i64 %56, %50
-  %58 = getelementptr i64, ptr %0, i64 %38
-  store i64 %57, ptr %58, align 8
-  %59 = add nuw nsw i64 %38, 1
-  %60 = icmp eq i64 %59, %27
-  br i1 %60, label %.loopexit, label %.split, !llvm.loop !10
+48:                                               ; preds = %41, %.split
+  %49 = phi i64 [ %47, %41 ], [ 0, %.split ]
+  %50 = getelementptr i64, ptr %1, i64 %39
+  %51 = load i64, ptr %50, align 8
+  %52 = icmp eq i64 %39, %24
+  %53 = select i1 %52, i64 %13, i64 -1
+  %54 = and i64 %51, %53
+  %55 = lshr i64 %54, %22
+  %56 = or i64 %55, %49
+  %57 = getelementptr i64, ptr %0, i64 %38
+  store i64 %56, ptr %57, align 8
+  %58 = add nuw nsw i64 %38, 1
+  %59 = icmp eq i64 %58, %27
+  br i1 %59, label %.loopexit, label %.split, !llvm.loop !10
 
-.loopexit:                                        ; preds = %49, %.split.us, %4
-  %61 = icmp ult i32 %2, 64
-  br i1 %61, label %68, label %62
+.loopexit:                                        ; preds = %48, %.split.us, %4
+  %60 = icmp ult i32 %2, 64
+  br i1 %60, label %67, label %61
 
-62:                                               ; preds = %.loopexit
-  %63 = sub nsw i32 %8, %9
-  %64 = zext i32 %63 to i64
-  %65 = getelementptr i64, ptr %0, i64 %64
-  %66 = shl nuw nsw i32 %9, 3
-  %67 = zext nneg i32 %66 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 8 %65, i8 0, i64 %67, i1 false)
-  br label %68
+61:                                               ; preds = %.loopexit
+  %62 = sub nsw i32 %8, %9
+  %63 = zext i32 %62 to i64
+  %64 = getelementptr i64, ptr %0, i64 %63
+  %65 = shl nuw nsw i32 %9, 3
+  %66 = zext nneg i32 %65 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 8 %64, i8 0, i64 %66, i1 false)
+  br label %67
 
-68:                                               ; preds = %62, %.loopexit
+67:                                               ; preds = %61, %.loopexit
   ret void
 }
 

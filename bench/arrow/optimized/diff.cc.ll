@@ -8853,13 +8853,13 @@ if.then.i26:                                      ; preds = %_ZNSt6vectorIlSaIlE
 if.else.i24:                                      ; preds = %_ZNSt6vectorIlSaIlEE6resizeEmRKl.exit
   %sub.i25 = sub nuw i64 %div.i22, %add.i.i.i
   tail call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %insert_, ptr %4, i32 %5, i64 noundef %sub.i25, i1 noundef zeroext false)
-  %.pre117 = load i64, ptr %edit_count_, align 8
-  %.pre118 = add nsw i64 %.pre117, 1
+  %.pre118 = load i64, ptr %edit_count_, align 8
+  %.pre119 = add nsw i64 %.pre118, 1
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
 _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %if.then.i26, %if.else.i24
-  %add.i30.pre-phi = phi i64 [ %add4, %if.then.i26 ], [ %.pre118, %if.else.i24 ]
-  %9 = phi i64 [ %3, %if.then.i26 ], [ %.pre117, %if.else.i24 ]
+  %add.i30.pre-phi = phi i64 [ %add4, %if.then.i26 ], [ %.pre119, %if.else.i24 ]
+  %9 = phi i64 [ %3, %if.then.i26 ], [ %.pre118, %if.else.i24 ]
   %sub = add nsw i64 %9, -1
   %mul.i28 = mul nsw i64 %sub, %9
   %div.i29 = sdiv i64 %mul.i28, 2
@@ -8945,8 +8945,8 @@ for.body26:                                       ; preds = %for.body26.lr.ph, %
   %mul.i57 = shl nsw i64 %sub.i56, 1
   %add.ptr.i.i59 = getelementptr inbounds i64, ptr %23, i64 %add33
   %28 = load i64, ptr %add.ptr.i.i59, align 8
-  %reass.sub113 = sub i64 %mul.i57, %22
-  %sub22.i62 = add i64 %reass.sub113, 1
+  %reass.sub114 = sub i64 %mul.i57, %22
+  %sub22.i62 = add i64 %reass.sub114, 1
   %sub20.i63 = add i64 %sub22.i62, %25
   %add23.i64 = sub i64 %sub20.i63, %26
   %add24.i65 = add i64 %add23.i64, %28
@@ -9001,11 +9001,13 @@ for.end53:                                        ; preds = %for.inc50, %_ZNSt6v
 for.body60.lr.ph:                                 ; preds = %for.end53
   %add.i.i84 = add nuw i64 %.lcssa, 1
   %mul.i.i85 = mul nuw nsw i64 %add.i.i84, %.lcssa
-  %div.i.neg.i86114 = lshr i64 %mul.i.i85, 1
+  %div.i.neg.i86115 = lshr i64 %mul.i.i85, 1
+  %invariant.op = sub nsw i64 %div.i32, %div.i.neg.i86115
   %39 = load ptr, ptr %endpoint_base_, align 8
   %target_begin_.i91 = getelementptr inbounds i8, ptr %this, i64 40
   %40 = load i64, ptr %target_begin_.i91, align 8
   %41 = load i64, ptr %base_begin_, align 8
+  %invariant.op113 = sub i64 %40, %41
   br label %for.body60
 
 for.cond56:                                       ; preds = %for.body60
@@ -9016,16 +9018,15 @@ for.cond56:                                       ; preds = %for.body60
 for.body60:                                       ; preds = %for.body60.lr.ph, %for.cond56
   %i_out55.0112 = phi i64 [ 0, %for.body60.lr.ph ], [ %inc71, %for.cond56 ]
   %add63 = add nsw i64 %i_out55.0112, %div.i32
-  %sub.i87 = sub i64 %add63, %div.i.neg.i86114
-  %mul.i88 = shl nsw i64 %sub.i87, 1
+  %sub.i87.reass = add i64 %i_out55.0112, %invariant.op
+  %mul.i88 = shl nsw i64 %sub.i87.reass, 1
   %add.ptr.i.i90 = getelementptr inbounds i64, ptr %39, i64 %add63
   %42 = load i64, ptr %add.ptr.i.i90, align 8
   %sub22.i93 = sub i64 %mul.i88, %.lcssa
   %sub20.i94 = add i64 %sub22.i93, %42
-  %add23.i95 = add i64 %sub20.i94, %40
-  %add24.i96 = sub i64 %add23.i95, %41
+  %add24.i96.reass = add i64 %sub20.i94, %invariant.op113
   %cmp.i101 = icmp eq i64 %42, %37
-  %cmp4.i = icmp sle i64 %38, %add24.i96
+  %cmp4.i = icmp sle i64 %38, %add24.i96.reass
   %43 = select i1 %cmp.i101, i1 %cmp4.i, i1 false
   br i1 %43, label %if.then67, label %for.cond56
 
@@ -27147,7 +27148,7 @@ invoke.cont31:                                    ; preds = %land.end
   %frombool = zext i1 %12 to i8
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp24) #19
   %invariant.gep = getelementptr i8, ptr %os, i64 24
-  %invariant.gep2371 = getelementptr i8, ptr %os, i64 16
+  %invariant.gep2372 = getelementptr i8, ptr %os, i64 16
   %cmp2369 = icmp eq ptr %abbrev, null
   %cmp2289 = icmp eq ptr %offset_sec, null
   %arrayinit.element2258 = getelementptr inbounds i8, ptr %f2256, i64 1
@@ -27396,7 +27397,7 @@ if.then.i:                                        ; preds = %if.then76
           to label %if.then.i.invoke.cont77_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then.i.invoke.cont77_crit_edge:                ; preds = %if.then.i
-  %.pre2519 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2521 = load i8, ptr %fmt.addr.0, align 1
   br label %invoke.cont77
 
 if.end.i:                                         ; preds = %if.then76
@@ -27404,7 +27405,7 @@ if.end.i:                                         ; preds = %if.then76
   br label %invoke.cont77
 
 invoke.cont77:                                    ; preds = %if.then.i.invoke.cont77_crit_edge, %if.end.i
-  %20 = phi i8 [ %14, %if.end.i ], [ %.pre2519, %if.then.i.invoke.cont77_crit_edge ]
+  %20 = phi i8 [ %14, %if.end.i ], [ %.pre2521, %if.then.i.invoke.cont77_crit_edge ]
   %retval.0.i = phi i32 [ %conv.i.i, %if.end.i ], [ 0, %if.then.i.invoke.cont77_crit_edge ]
   %sub = add nsw i32 %retval.0.i, -1
   store i32 %sub, ptr %tm_mon997, align 8
@@ -27493,11 +27494,11 @@ if.then124:                                       ; preds = %if.end.i639, %if.el
           to label %if.then124.if.end130_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then124.if.end130_crit_edge:                   ; preds = %if.then124
-  %.pre2516 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2518 = load i8, ptr %fmt.addr.0, align 1
   br label %if.end130
 
 if.end130:                                        ; preds = %if.then124.if.end130_crit_edge, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit
-  %29 = phi i8 [ %.pre2516, %if.then124.if.end130_crit_edge ], [ %14, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit ]
+  %29 = phi i8 [ %.pre2518, %if.then124.if.end130_crit_edge ], [ %14, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit ]
   %cmp132 = icmp eq i8 %29, 99
   br i1 %cmp132, label %land.lhs.true, label %if.end141
 
@@ -27515,11 +27516,11 @@ if.then135:                                       ; preds = %land.lhs.true
           to label %if.then135.if.end141_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then135.if.end141_crit_edge:                   ; preds = %if.then135
-  %.pre2517 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2519 = load i8, ptr %fmt.addr.0, align 1
   br label %if.end141
 
 if.end141:                                        ; preds = %if.then135.if.end141_crit_edge, %land.lhs.true, %if.end130
-  %31 = phi i8 [ %.pre2517, %if.then135.if.end141_crit_edge ], [ 99, %land.lhs.true ], [ %29, %if.end130 ]
+  %31 = phi i8 [ %.pre2519, %if.then135.if.end141_crit_edge ], [ 99, %land.lhs.true ], [ %29, %if.end130 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %tm, i8 0, i64 56, i1 false)
   %32 = load i16, ptr %fds, align 8
   %conv.i.i.i640 = sext i16 %32 to i32
@@ -27575,11 +27576,11 @@ if.then.i652:                                     ; preds = %if.end171
 
 if.then.i652.invoke.cont176_crit_edge:            ; preds = %if.then.i652
   %retval.sroa.0.0.copyload.i662.pre = load i16, ptr %fds, align 8
-  %.pre2520 = sext i16 %retval.sroa.0.0.copyload.i662.pre to i32
+  %.pre2522 = sext i16 %retval.sroa.0.0.copyload.i662.pre to i32
   br label %invoke.cont176
 
 invoke.cont176:                                   ; preds = %if.then.i652.invoke.cont176_crit_edge, %if.end171
-  %conv.i663.pre-phi = phi i32 [ %.pre2520, %if.then.i652.invoke.cont176_crit_edge ], [ %conv.i.i.i640, %if.end171 ]
+  %conv.i663.pre-phi = phi i32 [ %.pre2522, %if.then.i652.invoke.cont176_crit_edge ], [ %conv.i.i.i640, %if.end171 ]
   %retval.0.i657 = phi i32 [ 0, %if.then.i652.invoke.cont176_crit_edge ], [ %conv.i11.i.i, %if.end171 ]
   %sub178 = add nsw i32 %retval.0.i657, -1
   store i32 %sub178, ptr %tm_mon997, align 8
@@ -27747,8 +27748,8 @@ invoke.cont283:                                   ; preds = %invoke.cont277
   %vtable285 = load ptr, ptr %os, align 8
   %vbase.offset.ptr286 = getelementptr i8, ptr %vtable285, i64 -24
   %vbase.offset287 = load i64, ptr %vbase.offset.ptr286, align 8
-  %gep2398 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset287
-  store i32 130, ptr %gep2398, align 8
+  %gep2400 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset287
+  store i32 130, ptr %gep2400, align 8
   %cmp293 = icmp sgt i16 %retval.sroa.0.0.copyload.i711, -1
   br i1 %cmp293, label %if.then294, label %if.else303
 
@@ -27756,8 +27757,8 @@ if.then294:                                       ; preds = %invoke.cont283
   %vtable295 = load ptr, ptr %os, align 8
   %vbase.offset.ptr296 = getelementptr i8, ptr %vtable295, i64 -24
   %vbase.offset297 = load i64, ptr %vbase.offset.ptr296, align 8
-  %gep2402 = getelementptr i8, ptr %invariant.gep2371, i64 %vbase.offset297
-  store i64 2, ptr %gep2402, align 8
+  %gep2404 = getelementptr i8, ptr %invariant.gep2372, i64 %vbase.offset297
+  store i64 2, ptr %gep2404, align 8
   br label %invoke.cont304.invoke
 
 lpad282:                                          ; preds = %invoke.cont304.invoke, %if.else303, %invoke.cont277
@@ -27774,8 +27775,8 @@ invoke.cont304:                                   ; preds = %if.else303
   %vtable306 = load ptr, ptr %os, align 8
   %vbase.offset.ptr307 = getelementptr i8, ptr %vtable306, i64 -24
   %vbase.offset308 = load i64, ptr %vbase.offset.ptr307, align 8
-  %gep2400 = getelementptr i8, ptr %invariant.gep2371, i64 %vbase.offset308
-  store i64 2, ptr %gep2400, align 8
+  %gep2402 = getelementptr i8, ptr %invariant.gep2372, i64 %vbase.offset308
+  store i64 2, ptr %gep2402, align 8
   %sub313 = sub i16 99, %retval.sroa.0.0.copyload.i711
   br label %invoke.cont304.invoke
 
@@ -27943,13 +27944,13 @@ if.end405:                                        ; preds = %invoke.cont387
   %vtable406 = load ptr, ptr %os, align 8
   %vbase.offset.ptr407 = getelementptr i8, ptr %vtable406, i64 -24
   %vbase.offset408 = load i64, ptr %vbase.offset.ptr407, align 8
-  %gep2394 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset408
-  store i32 130, ptr %gep2394, align 8
+  %gep2396 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset408
+  store i32 130, ptr %gep2396, align 8
   %vtable414 = load ptr, ptr %os, align 8
   %vbase.offset.ptr415 = getelementptr i8, ptr %vtable414, i64 -24
   %vbase.offset416 = load i64, ptr %vbase.offset.ptr415, align 8
-  %gep2396 = getelementptr i8, ptr %invariant.gep2371, i64 %vbase.offset416
-  store i64 2, ptr %gep2396, align 8
+  %gep2398 = getelementptr i8, ptr %invariant.gep2372, i64 %vbase.offset416
+  store i64 2, ptr %gep2398, align 8
   %call421 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %conv.i756)
           to label %invoke.cont420 unwind label %lpad395
 
@@ -28128,13 +28129,13 @@ invoke.cont482:                                   ; preds = %invoke.cont476
   %vtable484 = load ptr, ptr %os, align 8
   %vbase.offset.ptr485 = getelementptr i8, ptr %vtable484, i64 -24
   %vbase.offset486 = load i64, ptr %vbase.offset.ptr485, align 8
-  %gep2386 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset486
-  store i32 130, ptr %gep2386, align 8
+  %gep2388 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset486
+  store i32 130, ptr %gep2388, align 8
   %vtable492 = load ptr, ptr %os, align 8
   %vbase.offset.ptr493 = getelementptr i8, ptr %vtable492, i64 -24
   %vbase.offset494 = load i64, ptr %vbase.offset.ptr493, align 8
-  %gep2388 = getelementptr i8, ptr %invariant.gep2371, i64 %vbase.offset494
-  store i64 2, ptr %gep2388, align 8
+  %gep2390 = getelementptr i8, ptr %invariant.gep2372, i64 %vbase.offset494
+  store i64 2, ptr %gep2390, align 8
   %retval.sroa.0.0.copyload.i858 = load i8, ptr %m_.i1747, align 2
   %conv.i859 = zext i8 %retval.sroa.0.0.copyload.i858 to i32
   %call503 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %conv.i859)
@@ -28148,8 +28149,8 @@ invoke.cont504:                                   ; preds = %invoke.cont502
   %vtable506 = load ptr, ptr %os, align 8
   %vbase.offset.ptr507 = getelementptr i8, ptr %vtable506, i64 -24
   %vbase.offset508 = load i64, ptr %vbase.offset.ptr507, align 8
-  %gep2390 = getelementptr i8, ptr %invariant.gep2371, i64 %vbase.offset508
-  store i64 2, ptr %gep2390, align 8
+  %gep2392 = getelementptr i8, ptr %invariant.gep2372, i64 %vbase.offset508
+  store i64 2, ptr %gep2392, align 8
   %retval.sroa.0.0.copyload.i862 = load i8, ptr %d_.i1751, align 1
   %conv.i863 = zext i8 %retval.sroa.0.0.copyload.i862 to i32
   %call517 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %conv.i863)
@@ -28163,8 +28164,8 @@ invoke.cont518:                                   ; preds = %invoke.cont516
   %vtable520 = load ptr, ptr %os, align 8
   %vbase.offset.ptr521 = getelementptr i8, ptr %vtable520, i64 -24
   %vbase.offset522 = load i64, ptr %vbase.offset.ptr521, align 8
-  %gep2392 = getelementptr i8, ptr %invariant.gep2371, i64 %vbase.offset522
-  store i64 2, ptr %gep2392, align 8
+  %gep2394 = getelementptr i8, ptr %invariant.gep2372, i64 %vbase.offset522
+  store i64 2, ptr %gep2394, align 8
   %retval.sroa.0.0.copyload.i8652242 = load i16, ptr %fds, align 8
   %rem2232 = srem i16 %retval.sroa.0.0.copyload.i8652242, 100
   %rem.sext = sext i16 %rem2232 to i32
@@ -28337,13 +28338,13 @@ invoke.cont579:                                   ; preds = %invoke.cont574
   %vtable581 = load ptr, ptr %os, align 8
   %vbase.offset.ptr582 = getelementptr i8, ptr %vtable581, i64 -24
   %vbase.offset583 = load i64, ptr %vbase.offset.ptr582, align 8
-  %gep2378 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset583
-  store i32 130, ptr %gep2378, align 8
+  %gep2380 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset583
+  store i32 130, ptr %gep2380, align 8
   %vtable589 = load ptr, ptr %os, align 8
   %vbase.offset.ptr590 = getelementptr i8, ptr %vtable589, i64 -24
   %vbase.offset591 = load i64, ptr %vbase.offset.ptr590, align 8
-  %gep2380 = getelementptr i8, ptr %invariant.gep2371, i64 %vbase.offset591
-  store i64 4, ptr %gep2380, align 8
+  %gep2382 = getelementptr i8, ptr %invariant.gep2372, i64 %vbase.offset591
+  store i64 4, ptr %gep2382, align 8
   %retval.sroa.0.0.copyload.i933 = load i16, ptr %fds, align 8
   %conv.i934 = sext i16 %retval.sroa.0.0.copyload.i933 to i32
   %call600 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %conv.i934)
@@ -28357,8 +28358,8 @@ invoke.cont601:                                   ; preds = %invoke.cont599
   %vtable603 = load ptr, ptr %os, align 8
   %vbase.offset.ptr604 = getelementptr i8, ptr %vtable603, i64 -24
   %vbase.offset605 = load i64, ptr %vbase.offset.ptr604, align 8
-  %gep2382 = getelementptr i8, ptr %invariant.gep2371, i64 %vbase.offset605
-  store i64 2, ptr %gep2382, align 8
+  %gep2384 = getelementptr i8, ptr %invariant.gep2372, i64 %vbase.offset605
+  store i64 2, ptr %gep2384, align 8
   %retval.sroa.0.0.copyload.i937 = load i8, ptr %m_.i1747, align 2
   %conv.i938 = zext i8 %retval.sroa.0.0.copyload.i937 to i32
   %call614 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %conv.i938)
@@ -28372,8 +28373,8 @@ invoke.cont615:                                   ; preds = %invoke.cont613
   %vtable617 = load ptr, ptr %os, align 8
   %vbase.offset.ptr618 = getelementptr i8, ptr %vtable617, i64 -24
   %vbase.offset619 = load i64, ptr %vbase.offset.ptr618, align 8
-  %gep2384 = getelementptr i8, ptr %invariant.gep2371, i64 %vbase.offset619
-  store i64 2, ptr %gep2384, align 8
+  %gep2386 = getelementptr i8, ptr %invariant.gep2372, i64 %vbase.offset619
+  store i64 2, ptr %gep2386, align 8
   %retval.sroa.0.0.copyload.i941 = load i8, ptr %d_.i1751, align 1
   %conv.i942 = zext i8 %retval.sroa.0.0.copyload.i941 to i32
   %call628 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %conv.i942)
@@ -28481,17 +28482,17 @@ if.then649:                                       ; preds = %if.end.i964, %if.th
           to label %if.then649.invoke.cont667_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then649.invoke.cont667_crit_edge:              ; preds = %if.then649
-  %.pre2510 = load i16, ptr %fds, align 8
-  %.pre2511 = load i8, ptr %m_.i1747, align 2
-  %.pre2512 = load i8, ptr %d_.i1751, align 1
-  %.pre2513 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2512 = load i16, ptr %fds, align 8
+  %.pre2513 = load i8, ptr %m_.i1747, align 2
+  %.pre2514 = load i8, ptr %d_.i1751, align 1
+  %.pre2515 = load i8, ptr %fmt.addr.0, align 1
   br label %invoke.cont667
 
 invoke.cont667:                                   ; preds = %if.then649.invoke.cont667_crit_edge, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985
-  %109 = phi i8 [ %.pre2513, %if.then649.invoke.cont667_crit_edge ], [ %14, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
-  %110 = phi i8 [ %.pre2512, %if.then649.invoke.cont667_crit_edge ], [ %106, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
-  %111 = phi i8 [ %.pre2511, %if.then649.invoke.cont667_crit_edge ], [ %104, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
-  %112 = phi i16 [ %.pre2510, %if.then649.invoke.cont667_crit_edge ], [ %103, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
+  %109 = phi i8 [ %.pre2515, %if.then649.invoke.cont667_crit_edge ], [ %14, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
+  %110 = phi i8 [ %.pre2514, %if.then649.invoke.cont667_crit_edge ], [ %106, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
+  %111 = phi i8 [ %.pre2513, %if.then649.invoke.cont667_crit_edge ], [ %104, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
+  %112 = phi i16 [ %.pre2512, %if.then649.invoke.cont667_crit_edge ], [ %103, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
   %conv.i.i.i986 = sext i16 %112 to i32
   %cmp.i.i.i.i988 = icmp ult i8 %111, 3
   %conv.neg.i.i989 = sext i1 %cmp.i.i.i.i988 to i32
@@ -28650,13 +28651,13 @@ invoke.cont723:                                   ; preds = %invoke.cont717
   %vtable725 = load ptr, ptr %os, align 8
   %vbase.offset.ptr726 = getelementptr i8, ptr %vtable725, i64 -24
   %vbase.offset727 = load i64, ptr %vbase.offset.ptr726, align 8
-  %gep2374 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset727
-  store i32 130, ptr %gep2374, align 8
+  %gep2376 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset727
+  store i32 130, ptr %gep2376, align 8
   %vtable733 = load ptr, ptr %os, align 8
   %vbase.offset.ptr734 = getelementptr i8, ptr %vtable733, i64 -24
   %vbase.offset735 = load i64, ptr %vbase.offset.ptr734, align 8
-  %gep2376 = getelementptr i8, ptr %invariant.gep2371, i64 %vbase.offset735
-  store i64 2, ptr %gep2376, align 8
+  %gep2378 = getelementptr i8, ptr %invariant.gep2372, i64 %vbase.offset735
+  store i64 2, ptr %gep2378, align 8
   %122 = load i16, ptr %y661, align 2
   %123 = call i16 @llvm.abs.i16(i16 %122, i1 false)
   %rem7402234 = urem i16 %123, 100
@@ -28826,7 +28827,7 @@ land.lhs.true.i1112:                              ; preds = %if.then851
   %136 = load i8, ptr %m_.i1747, align 2
   %137 = add i8 %136, -1
   %spec.select.i.i1114 = icmp ult i8 %137, 12
-  br i1 %spec.select.i.i1114, label %if.end.i1116, label %lor.lhs.false.thread2521
+  br i1 %spec.select.i.i1114, label %if.end.i1116, label %lor.lhs.false.thread2523
 
 if.end.i1116:                                     ; preds = %land.lhs.true.i1112
   %138 = load i8, ptr %d_.i1751, align 1
@@ -28866,10 +28867,10 @@ lor.lhs.false:                                    ; preds = %if.end.i1116
   %tobool855 = trunc i8 %141 to i1
   br i1 %tobool855, label %if.else888, label %if.else928
 
-lor.lhs.false.thread2521:                         ; preds = %land.lhs.true.i1112
+lor.lhs.false.thread2523:                         ; preds = %land.lhs.true.i1112
   %142 = load i8, ptr %has_tod, align 8
-  %tobool8552522 = trunc i8 %142 to i1
-  br i1 %tobool8552522, label %if.else888, label %if.else928
+  %tobool8552524 = trunc i8 %142 to i1
+  br i1 %tobool8552524, label %if.else888, label %if.else928
 
 lor.lhs.false.thread2227:                         ; preds = %if.then851
   %143 = load i8, ptr %has_tod, align 8
@@ -28958,7 +28959,7 @@ invoke.cont879:                                   ; preds = %_ZNK14arrow_vendore
   %add.i = add nsw i32 %sub.i.i1238, %reass.mul
   br label %if.end897
 
-if.else888:                                       ; preds = %lor.lhs.false.thread2521, %lor.lhs.false, %lor.lhs.false.thread2227, %if.end.i1143, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1164
+if.else888:                                       ; preds = %lor.lhs.false.thread2523, %lor.lhs.false, %lor.lhs.false.thread2227, %if.end.i1143, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1164
   %147 = load i64, ptr %s_.i1921, align 8
   %148 = load i64, ptr %sub_s_.i.i1341, align 8
   %add.i.i.i1241 = add nsw i64 %148, %147
@@ -29036,8 +29037,8 @@ invoke.cont909:                                   ; preds = %invoke.cont903
   %vtable919 = load ptr, ptr %os, align 8
   %vbase.offset.ptr920 = getelementptr i8, ptr %vtable919, i64 -24
   %vbase.offset921 = load i64, ptr %vbase.offset.ptr920, align 8
-  %gep2372 = getelementptr i8, ptr %invariant.gep2371, i64 %vbase.offset921
-  store i64 3, ptr %gep2372, align 8
+  %gep2373 = getelementptr i8, ptr %invariant.gep2372, i64 %vbase.offset921
+  store i64 3, ptr %gep2373, align 8
   %call927 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %storemerge)
           to label %invoke.cont926 unwind label %lpad908
 
@@ -29082,7 +29083,7 @@ lpad908:                                          ; preds = %invoke.cont909, %in
   call void @_ZN14arrow_vendored4date6detail12save_ostreamIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %_898) #19
   br label %ehcleanup
 
-if.else928:                                       ; preds = %lor.lhs.false.thread2521, %lor.lhs.false.thread2227, %lor.lhs.false.thread, %lor.lhs.false
+if.else928:                                       ; preds = %lor.lhs.false.thread2523, %lor.lhs.false.thread2227, %lor.lhs.false.thread, %lor.lhs.false
   %vtable929 = load ptr, ptr %os, align 8
   %vbase.offset.ptr930 = getelementptr i8, ptr %vtable929, i64 -24
   %vbase.offset931 = load i64, ptr %vbase.offset.ptr930, align 8
@@ -29281,11 +29282,11 @@ if.then1137:                                      ; preds = %if.then1134
           to label %if.then1137.if.end1143_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then1137.if.end1143_crit_edge:                 ; preds = %if.then1137
-  %.pre2507 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2509 = load i8, ptr %fmt.addr.0, align 1
   br label %if.end1143
 
 if.end1143:                                       ; preds = %if.then1137.if.end1143_crit_edge, %if.then1134
-  %173 = phi i8 [ %.pre2507, %if.then1137.if.end1143_crit_edge ], [ 112, %if.then1134 ]
+  %173 = phi i8 [ %.pre2509, %if.then1137.if.end1143_crit_edge ], [ 112, %if.then1134 ]
   store i8 37, ptr %f1144, align 1
   store i8 %173, ptr %arrayinit.element1146, align 1
   %retval.sroa.0.0.copyload.i1328 = load i64, ptr %tod2091, align 8
@@ -29335,11 +29336,11 @@ if.then1190:                                      ; preds = %if.then1187
           to label %if.then1190.if.end1196_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then1190.if.end1196_crit_edge:                 ; preds = %if.then1190
-  %.pre2506 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2508 = load i8, ptr %fmt.addr.0, align 1
   br label %if.end1196
 
 if.end1196:                                       ; preds = %if.then1190.if.end1196_crit_edge, %if.then1187
-  %177 = phi i8 [ %.pre2506, %if.then1190.if.end1196_crit_edge ], [ %14, %if.then1187 ]
+  %177 = phi i8 [ %.pre2508, %if.then1190.if.end1196_crit_edge ], [ %14, %if.then1187 ]
   %cmp1202 = icmp eq i8 %177, 113
   br i1 %cmp1202, label %if.then1203, label %if.else1211
 
@@ -29392,11 +29393,11 @@ if.then1236:                                      ; preds = %if.then1233
           to label %if.then1236.if.end1242_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then1236.if.end1242_crit_edge:                 ; preds = %if.then1236
-  %.pre2505 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2507 = load i8, ptr %fmt.addr.0, align 1
   br label %if.end1242
 
 if.end1242:                                       ; preds = %if.then1236.if.end1242_crit_edge, %if.then1233
-  %188 = phi i8 [ %.pre2505, %if.then1236.if.end1242_crit_edge ], [ 114, %if.then1233 ]
+  %188 = phi i8 [ %.pre2507, %if.then1236.if.end1242_crit_edge ], [ 114, %if.then1233 ]
   store i8 37, ptr %f1243, align 1
   store i8 %188, ptr %arrayinit.element1245, align 1
   %retval.sroa.0.0.copyload.i1354 = load i64, ptr %tod2091, align 8
@@ -29707,15 +29708,15 @@ if.then1558:                                      ; preds = %if.end.i1410, %if.e
           to label %if.then1558.if.end1564_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then1558.if.end1564_crit_edge:                 ; preds = %if.then1558
-  %.pre2500 = load i16, ptr %fds, align 8
-  %.pre2501 = load i8, ptr %m_.i1747, align 2
-  %.pre2502 = load i8, ptr %d_.i1751, align 1
+  %.pre2502 = load i16, ptr %fds, align 8
+  %.pre2503 = load i8, ptr %m_.i1747, align 2
+  %.pre2504 = load i8, ptr %d_.i1751, align 1
   br label %if.end1564
 
 if.end1564:                                       ; preds = %if.then1558.if.end1564_crit_edge, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1431
-  %206 = phi i8 [ %.pre2502, %if.then1558.if.end1564_crit_edge ], [ %203, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1431 ]
-  %207 = phi i8 [ %.pre2501, %if.then1558.if.end1564_crit_edge ], [ %201, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1431 ]
-  %208 = phi i16 [ %.pre2500, %if.then1558.if.end1564_crit_edge ], [ %200, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1431 ]
+  %206 = phi i8 [ %.pre2504, %if.then1558.if.end1564_crit_edge ], [ %203, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1431 ]
+  %207 = phi i8 [ %.pre2503, %if.then1558.if.end1564_crit_edge ], [ %201, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1431 ]
+  %208 = phi i16 [ %.pre2502, %if.then1558.if.end1564_crit_edge ], [ %200, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1431 ]
   %conv.i.i.i1432 = sext i16 %208 to i32
   %cmp.i.i.i.i1434 = icmp ult i8 %207, 3
   %conv.neg.i.i1435 = sext i1 %cmp.i.i.i.i1434 to i32
@@ -29916,15 +29917,15 @@ if.then1691:                                      ; preds = %if.end.i1542, %if.e
           to label %if.then1691.if.end1697_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then1691.if.end1697_crit_edge:                 ; preds = %if.then1691
-  %.pre2497 = load i16, ptr %fds, align 8
-  %.pre2498 = load i8, ptr %m_.i1747, align 2
-  %.pre2499 = load i8, ptr %d_.i1751, align 1
+  %.pre2499 = load i16, ptr %fds, align 8
+  %.pre2500 = load i8, ptr %m_.i1747, align 2
+  %.pre2501 = load i8, ptr %d_.i1751, align 1
   br label %if.end1697
 
 if.end1697:                                       ; preds = %if.then1691.if.end1697_crit_edge, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1563
-  %221 = phi i8 [ %.pre2499, %if.then1691.if.end1697_crit_edge ], [ %218, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1563 ]
-  %222 = phi i8 [ %.pre2498, %if.then1691.if.end1697_crit_edge ], [ %216, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1563 ]
-  %223 = phi i16 [ %.pre2497, %if.then1691.if.end1697_crit_edge ], [ %215, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1563 ]
+  %221 = phi i8 [ %.pre2501, %if.then1691.if.end1697_crit_edge ], [ %218, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1563 ]
+  %222 = phi i8 [ %.pre2500, %if.then1691.if.end1697_crit_edge ], [ %216, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1563 ]
+  %223 = phi i16 [ %.pre2499, %if.then1691.if.end1697_crit_edge ], [ %215, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1563 ]
   %conv.i.i.i1564 = sext i16 %223 to i32
   %cmp.i.i.i.i1566 = icmp ult i8 %222, 3
   %conv.neg.i.i1567 = sext i1 %cmp.i.i.i.i1566 to i32
@@ -30255,13 +30256,13 @@ if.then1938:                                      ; preds = %if.end.i1750, %if.e
 
 if.then1938.if.end1944_crit_edge:                 ; preds = %if.then1938
   %.pre = load i16, ptr %fds, align 8
-  %.pre2495 = load i8, ptr %m_.i1747, align 2
-  %.pre2496 = load i8, ptr %d_.i1751, align 1
+  %.pre2497 = load i8, ptr %m_.i1747, align 2
+  %.pre2498 = load i8, ptr %d_.i1751, align 1
   br label %if.end1944
 
 if.end1944:                                       ; preds = %if.then1938.if.end1944_crit_edge, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1771
-  %247 = phi i8 [ %.pre2496, %if.then1938.if.end1944_crit_edge ], [ %244, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1771 ]
-  %248 = phi i8 [ %.pre2495, %if.then1938.if.end1944_crit_edge ], [ %242, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1771 ]
+  %247 = phi i8 [ %.pre2498, %if.then1938.if.end1944_crit_edge ], [ %244, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1771 ]
+  %248 = phi i8 [ %.pre2497, %if.then1938.if.end1944_crit_edge ], [ %242, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1771 ]
   %249 = phi i16 [ %.pre, %if.then1938.if.end1944_crit_edge ], [ %241, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1771 ]
   %conv.i.i.i1772 = sext i16 %249 to i32
   %cmp.i.i.i.i1774 = icmp ult i8 %248, 3
@@ -32001,7 +32002,7 @@ invoke.cont27:                                    ; preds = %land.end
   %frombool = zext i1 %12 to i8
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp21) #19
   %invariant.gep = getelementptr i8, ptr %os, i64 24
-  %invariant.gep2373 = getelementptr i8, ptr %os, i64 16
+  %invariant.gep2374 = getelementptr i8, ptr %os, i64 16
   %cmp2327 = icmp eq ptr %abbrev, null
   %cmp2251 = icmp eq ptr %offset_sec, null
   %arrayinit.element2220 = getelementptr inbounds i8, ptr %f2218, i64 1
@@ -32250,7 +32251,7 @@ if.then.i:                                        ; preds = %if.then72
           to label %if.then.i.invoke.cont73_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then.i.invoke.cont73_crit_edge:                ; preds = %if.then.i
-  %.pre2521 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2523 = load i8, ptr %fmt.addr.0, align 1
   br label %invoke.cont73
 
 if.end.i:                                         ; preds = %if.then72
@@ -32258,7 +32259,7 @@ if.end.i:                                         ; preds = %if.then72
   br label %invoke.cont73
 
 invoke.cont73:                                    ; preds = %if.then.i.invoke.cont73_crit_edge, %if.end.i
-  %20 = phi i8 [ %14, %if.end.i ], [ %.pre2521, %if.then.i.invoke.cont73_crit_edge ]
+  %20 = phi i8 [ %14, %if.end.i ], [ %.pre2523, %if.then.i.invoke.cont73_crit_edge ]
   %retval.0.i = phi i32 [ %conv.i.i, %if.end.i ], [ 0, %if.then.i.invoke.cont73_crit_edge ]
   %sub = add nsw i32 %retval.0.i, -1
   store i32 %sub, ptr %tm_mon968, align 8
@@ -32347,11 +32348,11 @@ if.then120:                                       ; preds = %if.end.i639, %if.el
           to label %if.then120.if.end126_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then120.if.end126_crit_edge:                   ; preds = %if.then120
-  %.pre2518 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2520 = load i8, ptr %fmt.addr.0, align 1
   br label %if.end126
 
 if.end126:                                        ; preds = %if.then120.if.end126_crit_edge, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit
-  %29 = phi i8 [ %.pre2518, %if.then120.if.end126_crit_edge ], [ %14, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit ]
+  %29 = phi i8 [ %.pre2520, %if.then120.if.end126_crit_edge ], [ %14, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit ]
   %cmp128 = icmp eq i8 %29, 99
   br i1 %cmp128, label %land.lhs.true, label %if.end137
 
@@ -32369,11 +32370,11 @@ if.then131:                                       ; preds = %land.lhs.true
           to label %if.then131.if.end137_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then131.if.end137_crit_edge:                   ; preds = %if.then131
-  %.pre2519 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2521 = load i8, ptr %fmt.addr.0, align 1
   br label %if.end137
 
 if.end137:                                        ; preds = %if.then131.if.end137_crit_edge, %land.lhs.true, %if.end126
-  %31 = phi i8 [ %.pre2519, %if.then131.if.end137_crit_edge ], [ 99, %land.lhs.true ], [ %29, %if.end126 ]
+  %31 = phi i8 [ %.pre2521, %if.then131.if.end137_crit_edge ], [ 99, %land.lhs.true ], [ %29, %if.end126 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %tm, i8 0, i64 56, i1 false)
   %32 = load i16, ptr %fds, align 8
   %conv.i.i.i640 = sext i16 %32 to i32
@@ -32429,11 +32430,11 @@ if.then.i652:                                     ; preds = %if.end167
 
 if.then.i652.invoke.cont172_crit_edge:            ; preds = %if.then.i652
   %retval.sroa.0.0.copyload.i662.pre = load i16, ptr %fds, align 8
-  %.pre2522 = sext i16 %retval.sroa.0.0.copyload.i662.pre to i32
+  %.pre2524 = sext i16 %retval.sroa.0.0.copyload.i662.pre to i32
   br label %invoke.cont172
 
 invoke.cont172:                                   ; preds = %if.then.i652.invoke.cont172_crit_edge, %if.end167
-  %conv.i663.pre-phi = phi i32 [ %.pre2522, %if.then.i652.invoke.cont172_crit_edge ], [ %conv.i.i.i640, %if.end167 ]
+  %conv.i663.pre-phi = phi i32 [ %.pre2524, %if.then.i652.invoke.cont172_crit_edge ], [ %conv.i.i.i640, %if.end167 ]
   %retval.0.i657 = phi i32 [ 0, %if.then.i652.invoke.cont172_crit_edge ], [ %conv.i11.i.i, %if.end167 ]
   %sub174 = add nsw i32 %retval.0.i657, -1
   store i32 %sub174, ptr %tm_mon968, align 8
@@ -32601,8 +32602,8 @@ invoke.cont279:                                   ; preds = %invoke.cont273
   %vtable281 = load ptr, ptr %os, align 8
   %vbase.offset.ptr282 = getelementptr i8, ptr %vtable281, i64 -24
   %vbase.offset283 = load i64, ptr %vbase.offset.ptr282, align 8
-  %gep2400 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset283
-  store i32 130, ptr %gep2400, align 8
+  %gep2402 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset283
+  store i32 130, ptr %gep2402, align 8
   %cmp287 = icmp sgt i16 %retval.sroa.0.0.copyload.i711, -1
   br i1 %cmp287, label %if.then288, label %if.else296
 
@@ -32610,8 +32611,8 @@ if.then288:                                       ; preds = %invoke.cont279
   %vtable289 = load ptr, ptr %os, align 8
   %vbase.offset.ptr290 = getelementptr i8, ptr %vtable289, i64 -24
   %vbase.offset291 = load i64, ptr %vbase.offset.ptr290, align 8
-  %gep2404 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset291
-  store i64 2, ptr %gep2404, align 8
+  %gep2406 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset291
+  store i64 2, ptr %gep2406, align 8
   br label %invoke.cont297.invoke
 
 lpad278:                                          ; preds = %invoke.cont297.invoke, %if.else296, %invoke.cont273
@@ -32628,8 +32629,8 @@ invoke.cont297:                                   ; preds = %if.else296
   %vtable299 = load ptr, ptr %os, align 8
   %vbase.offset.ptr300 = getelementptr i8, ptr %vtable299, i64 -24
   %vbase.offset301 = load i64, ptr %vbase.offset.ptr300, align 8
-  %gep2402 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset301
-  store i64 2, ptr %gep2402, align 8
+  %gep2404 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset301
+  store i64 2, ptr %gep2404, align 8
   %sub305 = sub i16 99, %retval.sroa.0.0.copyload.i711
   br label %invoke.cont297.invoke
 
@@ -32797,13 +32798,13 @@ if.end397:                                        ; preds = %invoke.cont379
   %vtable398 = load ptr, ptr %os, align 8
   %vbase.offset.ptr399 = getelementptr i8, ptr %vtable398, i64 -24
   %vbase.offset400 = load i64, ptr %vbase.offset.ptr399, align 8
-  %gep2396 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset400
-  store i32 130, ptr %gep2396, align 8
+  %gep2398 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset400
+  store i32 130, ptr %gep2398, align 8
   %vtable404 = load ptr, ptr %os, align 8
   %vbase.offset.ptr405 = getelementptr i8, ptr %vtable404, i64 -24
   %vbase.offset406 = load i64, ptr %vbase.offset.ptr405, align 8
-  %gep2398 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset406
-  store i64 2, ptr %gep2398, align 8
+  %gep2400 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset406
+  store i64 2, ptr %gep2400, align 8
   %call410 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %conv.i756)
           to label %invoke.cont409 unwind label %lpad387
 
@@ -32982,13 +32983,13 @@ invoke.cont471:                                   ; preds = %invoke.cont465
   %vtable473 = load ptr, ptr %os, align 8
   %vbase.offset.ptr474 = getelementptr i8, ptr %vtable473, i64 -24
   %vbase.offset475 = load i64, ptr %vbase.offset.ptr474, align 8
-  %gep2388 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset475
-  store i32 130, ptr %gep2388, align 8
+  %gep2390 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset475
+  store i32 130, ptr %gep2390, align 8
   %vtable479 = load ptr, ptr %os, align 8
   %vbase.offset.ptr480 = getelementptr i8, ptr %vtable479, i64 -24
   %vbase.offset481 = load i64, ptr %vbase.offset.ptr480, align 8
-  %gep2390 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset481
-  store i64 2, ptr %gep2390, align 8
+  %gep2392 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset481
+  store i64 2, ptr %gep2392, align 8
   %retval.sroa.0.0.copyload.i858 = load i8, ptr %m_.i1749, align 2
   %conv.i859 = zext i8 %retval.sroa.0.0.copyload.i858 to i32
   %call489 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %conv.i859)
@@ -33002,8 +33003,8 @@ invoke.cont490:                                   ; preds = %invoke.cont488
   %vtable492 = load ptr, ptr %os, align 8
   %vbase.offset.ptr493 = getelementptr i8, ptr %vtable492, i64 -24
   %vbase.offset494 = load i64, ptr %vbase.offset.ptr493, align 8
-  %gep2392 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset494
-  store i64 2, ptr %gep2392, align 8
+  %gep2394 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset494
+  store i64 2, ptr %gep2394, align 8
   %retval.sroa.0.0.copyload.i862 = load i8, ptr %d_.i1753, align 1
   %conv.i863 = zext i8 %retval.sroa.0.0.copyload.i862 to i32
   %call502 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %conv.i863)
@@ -33017,8 +33018,8 @@ invoke.cont503:                                   ; preds = %invoke.cont501
   %vtable505 = load ptr, ptr %os, align 8
   %vbase.offset.ptr506 = getelementptr i8, ptr %vtable505, i64 -24
   %vbase.offset507 = load i64, ptr %vbase.offset.ptr506, align 8
-  %gep2394 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset507
-  store i64 2, ptr %gep2394, align 8
+  %gep2396 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset507
+  store i64 2, ptr %gep2396, align 8
   %retval.sroa.0.0.copyload.i8652244 = load i16, ptr %fds, align 8
   %rem2234 = srem i16 %retval.sroa.0.0.copyload.i8652244, 100
   %rem.sext = sext i16 %rem2234 to i32
@@ -33191,13 +33192,13 @@ invoke.cont563:                                   ; preds = %invoke.cont558
   %vtable565 = load ptr, ptr %os, align 8
   %vbase.offset.ptr566 = getelementptr i8, ptr %vtable565, i64 -24
   %vbase.offset567 = load i64, ptr %vbase.offset.ptr566, align 8
-  %gep2380 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset567
-  store i32 130, ptr %gep2380, align 8
+  %gep2382 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset567
+  store i32 130, ptr %gep2382, align 8
   %vtable571 = load ptr, ptr %os, align 8
   %vbase.offset.ptr572 = getelementptr i8, ptr %vtable571, i64 -24
   %vbase.offset573 = load i64, ptr %vbase.offset.ptr572, align 8
-  %gep2382 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset573
-  store i64 4, ptr %gep2382, align 8
+  %gep2384 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset573
+  store i64 4, ptr %gep2384, align 8
   %retval.sroa.0.0.copyload.i933 = load i16, ptr %fds, align 8
   %conv.i934 = sext i16 %retval.sroa.0.0.copyload.i933 to i32
   %call581 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %conv.i934)
@@ -33211,8 +33212,8 @@ invoke.cont582:                                   ; preds = %invoke.cont580
   %vtable584 = load ptr, ptr %os, align 8
   %vbase.offset.ptr585 = getelementptr i8, ptr %vtable584, i64 -24
   %vbase.offset586 = load i64, ptr %vbase.offset.ptr585, align 8
-  %gep2384 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset586
-  store i64 2, ptr %gep2384, align 8
+  %gep2386 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset586
+  store i64 2, ptr %gep2386, align 8
   %retval.sroa.0.0.copyload.i937 = load i8, ptr %m_.i1749, align 2
   %conv.i938 = zext i8 %retval.sroa.0.0.copyload.i937 to i32
   %call594 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %conv.i938)
@@ -33226,8 +33227,8 @@ invoke.cont595:                                   ; preds = %invoke.cont593
   %vtable597 = load ptr, ptr %os, align 8
   %vbase.offset.ptr598 = getelementptr i8, ptr %vtable597, i64 -24
   %vbase.offset599 = load i64, ptr %vbase.offset.ptr598, align 8
-  %gep2386 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset599
-  store i64 2, ptr %gep2386, align 8
+  %gep2388 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset599
+  store i64 2, ptr %gep2388, align 8
   %retval.sroa.0.0.copyload.i941 = load i8, ptr %d_.i1753, align 1
   %conv.i942 = zext i8 %retval.sroa.0.0.copyload.i941 to i32
   %call607 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %conv.i942)
@@ -33335,17 +33336,17 @@ if.then628:                                       ; preds = %if.end.i964, %if.th
           to label %if.then628.invoke.cont646_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then628.invoke.cont646_crit_edge:              ; preds = %if.then628
-  %.pre2512 = load i16, ptr %fds, align 8
-  %.pre2513 = load i8, ptr %m_.i1749, align 2
-  %.pre2514 = load i8, ptr %d_.i1753, align 1
-  %.pre2515 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2514 = load i16, ptr %fds, align 8
+  %.pre2515 = load i8, ptr %m_.i1749, align 2
+  %.pre2516 = load i8, ptr %d_.i1753, align 1
+  %.pre2517 = load i8, ptr %fmt.addr.0, align 1
   br label %invoke.cont646
 
 invoke.cont646:                                   ; preds = %if.then628.invoke.cont646_crit_edge, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985
-  %109 = phi i8 [ %.pre2515, %if.then628.invoke.cont646_crit_edge ], [ %14, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
-  %110 = phi i8 [ %.pre2514, %if.then628.invoke.cont646_crit_edge ], [ %106, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
-  %111 = phi i8 [ %.pre2513, %if.then628.invoke.cont646_crit_edge ], [ %104, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
-  %112 = phi i16 [ %.pre2512, %if.then628.invoke.cont646_crit_edge ], [ %103, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
+  %109 = phi i8 [ %.pre2517, %if.then628.invoke.cont646_crit_edge ], [ %14, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
+  %110 = phi i8 [ %.pre2516, %if.then628.invoke.cont646_crit_edge ], [ %106, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
+  %111 = phi i8 [ %.pre2515, %if.then628.invoke.cont646_crit_edge ], [ %104, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
+  %112 = phi i16 [ %.pre2514, %if.then628.invoke.cont646_crit_edge ], [ %103, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
   %conv.i.i.i986 = sext i16 %112 to i32
   %cmp.i.i.i.i988 = icmp ult i8 %111, 3
   %conv.neg.i.i989 = sext i1 %cmp.i.i.i.i988 to i32
@@ -33504,13 +33505,13 @@ invoke.cont701:                                   ; preds = %invoke.cont695
   %vtable703 = load ptr, ptr %os, align 8
   %vbase.offset.ptr704 = getelementptr i8, ptr %vtable703, i64 -24
   %vbase.offset705 = load i64, ptr %vbase.offset.ptr704, align 8
-  %gep2376 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset705
-  store i32 130, ptr %gep2376, align 8
+  %gep2378 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset705
+  store i32 130, ptr %gep2378, align 8
   %vtable709 = load ptr, ptr %os, align 8
   %vbase.offset.ptr710 = getelementptr i8, ptr %vtable709, i64 -24
   %vbase.offset711 = load i64, ptr %vbase.offset.ptr710, align 8
-  %gep2378 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset711
-  store i64 2, ptr %gep2378, align 8
+  %gep2380 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset711
+  store i64 2, ptr %gep2380, align 8
   %122 = load i16, ptr %y640, align 2
   %123 = call i16 @llvm.abs.i16(i16 %122, i1 false)
   %rem7152236 = urem i16 %123, 100
@@ -33680,7 +33681,7 @@ land.lhs.true.i1112:                              ; preds = %if.then825
   %136 = load i8, ptr %m_.i1749, align 2
   %137 = add i8 %136, -1
   %spec.select.i.i1114 = icmp ult i8 %137, 12
-  br i1 %spec.select.i.i1114, label %if.end.i1116, label %lor.lhs.false.thread2523
+  br i1 %spec.select.i.i1114, label %if.end.i1116, label %lor.lhs.false.thread2525
 
 if.end.i1116:                                     ; preds = %land.lhs.true.i1112
   %138 = load i8, ptr %d_.i1753, align 1
@@ -33720,10 +33721,10 @@ lor.lhs.false:                                    ; preds = %if.end.i1116
   %tobool829 = trunc i8 %141 to i1
   br i1 %tobool829, label %if.else862, label %if.else899
 
-lor.lhs.false.thread2523:                         ; preds = %land.lhs.true.i1112
+lor.lhs.false.thread2525:                         ; preds = %land.lhs.true.i1112
   %142 = load i8, ptr %has_tod, align 8
-  %tobool8292524 = trunc i8 %142 to i1
-  br i1 %tobool8292524, label %if.else862, label %if.else899
+  %tobool8292526 = trunc i8 %142 to i1
+  br i1 %tobool8292526, label %if.else862, label %if.else899
 
 lor.lhs.false.thread2229:                         ; preds = %if.then825
   %143 = load i8, ptr %has_tod, align 8
@@ -33812,7 +33813,7 @@ invoke.cont853:                                   ; preds = %_ZNK14arrow_vendore
   %add.i = add nsw i32 %sub.i.i1238, %reass.mul
   br label %if.end871
 
-if.else862:                                       ; preds = %lor.lhs.false.thread2523, %lor.lhs.false, %lor.lhs.false.thread2229, %if.end.i1143, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1164
+if.else862:                                       ; preds = %lor.lhs.false.thread2525, %lor.lhs.false, %lor.lhs.false.thread2229, %if.end.i1143, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1164
   %147 = load i64, ptr %s_.i1923, align 8
   %mul.i.i.i.i.i.i1241 = mul nsw i64 %147, 1000
   %148 = load i64, ptr %sub_s_.i.i1342, align 8
@@ -33891,8 +33892,8 @@ invoke.cont883:                                   ; preds = %invoke.cont877
   %vtable891 = load ptr, ptr %os, align 8
   %vbase.offset.ptr892 = getelementptr i8, ptr %vtable891, i64 -24
   %vbase.offset893 = load i64, ptr %vbase.offset.ptr892, align 8
-  %gep2374 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset893
-  store i64 3, ptr %gep2374, align 8
+  %gep2375 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset893
+  store i64 3, ptr %gep2375, align 8
   %call898 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %storemerge)
           to label %invoke.cont897 unwind label %lpad882
 
@@ -33937,7 +33938,7 @@ lpad882:                                          ; preds = %invoke.cont883, %in
   call void @_ZN14arrow_vendored4date6detail12save_ostreamIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %_872) #19
   br label %ehcleanup
 
-if.else899:                                       ; preds = %lor.lhs.false.thread2523, %lor.lhs.false.thread2229, %lor.lhs.false.thread, %lor.lhs.false
+if.else899:                                       ; preds = %lor.lhs.false.thread2525, %lor.lhs.false.thread2229, %lor.lhs.false.thread, %lor.lhs.false
   %vtable900 = load ptr, ptr %os, align 8
   %vbase.offset.ptr901 = getelementptr i8, ptr %vtable900, i64 -24
   %vbase.offset902 = load i64, ptr %vbase.offset.ptr901, align 8
@@ -34136,11 +34137,11 @@ if.then1107:                                      ; preds = %if.then1104
           to label %if.then1107.if.end1113_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then1107.if.end1113_crit_edge:                 ; preds = %if.then1107
-  %.pre2509 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2511 = load i8, ptr %fmt.addr.0, align 1
   br label %if.end1113
 
 if.end1113:                                       ; preds = %if.then1107.if.end1113_crit_edge, %if.then1104
-  %173 = phi i8 [ %.pre2509, %if.then1107.if.end1113_crit_edge ], [ 112, %if.then1104 ]
+  %173 = phi i8 [ %.pre2511, %if.then1107.if.end1113_crit_edge ], [ 112, %if.then1104 ]
   store i8 37, ptr %f1114, align 1
   store i8 %173, ptr %arrayinit.element1116, align 1
   %retval.sroa.0.0.copyload.i1329 = load i64, ptr %tod2053, align 8
@@ -34190,11 +34191,11 @@ if.then1160:                                      ; preds = %if.then1157
           to label %if.then1160.if.end1166_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then1160.if.end1166_crit_edge:                 ; preds = %if.then1160
-  %.pre2508 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2510 = load i8, ptr %fmt.addr.0, align 1
   br label %if.end1166
 
 if.end1166:                                       ; preds = %if.then1160.if.end1166_crit_edge, %if.then1157
-  %177 = phi i8 [ %.pre2508, %if.then1160.if.end1166_crit_edge ], [ %14, %if.then1157 ]
+  %177 = phi i8 [ %.pre2510, %if.then1160.if.end1166_crit_edge ], [ %14, %if.then1157 ]
   %cmp1172 = icmp eq i8 %177, 113
   br i1 %cmp1172, label %if.then1173, label %if.else1181
 
@@ -34248,11 +34249,11 @@ if.then1206:                                      ; preds = %if.then1203
           to label %if.then1206.if.end1212_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then1206.if.end1212_crit_edge:                 ; preds = %if.then1206
-  %.pre2507 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2509 = load i8, ptr %fmt.addr.0, align 1
   br label %if.end1212
 
 if.end1212:                                       ; preds = %if.then1206.if.end1212_crit_edge, %if.then1203
-  %188 = phi i8 [ %.pre2507, %if.then1206.if.end1212_crit_edge ], [ 114, %if.then1203 ]
+  %188 = phi i8 [ %.pre2509, %if.then1206.if.end1212_crit_edge ], [ 114, %if.then1203 ]
   store i8 37, ptr %f1213, align 1
   store i8 %188, ptr %arrayinit.element1215, align 1
   %retval.sroa.0.0.copyload.i1356 = load i64, ptr %tod2053, align 8
@@ -34563,15 +34564,15 @@ if.then1526:                                      ; preds = %if.end.i1412, %if.e
           to label %if.then1526.if.end1532_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then1526.if.end1532_crit_edge:                 ; preds = %if.then1526
-  %.pre2502 = load i16, ptr %fds, align 8
-  %.pre2503 = load i8, ptr %m_.i1749, align 2
-  %.pre2504 = load i8, ptr %d_.i1753, align 1
+  %.pre2504 = load i16, ptr %fds, align 8
+  %.pre2505 = load i8, ptr %m_.i1749, align 2
+  %.pre2506 = load i8, ptr %d_.i1753, align 1
   br label %if.end1532
 
 if.end1532:                                       ; preds = %if.then1526.if.end1532_crit_edge, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1433
-  %206 = phi i8 [ %.pre2504, %if.then1526.if.end1532_crit_edge ], [ %203, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1433 ]
-  %207 = phi i8 [ %.pre2503, %if.then1526.if.end1532_crit_edge ], [ %201, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1433 ]
-  %208 = phi i16 [ %.pre2502, %if.then1526.if.end1532_crit_edge ], [ %200, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1433 ]
+  %206 = phi i8 [ %.pre2506, %if.then1526.if.end1532_crit_edge ], [ %203, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1433 ]
+  %207 = phi i8 [ %.pre2505, %if.then1526.if.end1532_crit_edge ], [ %201, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1433 ]
+  %208 = phi i16 [ %.pre2504, %if.then1526.if.end1532_crit_edge ], [ %200, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1433 ]
   %conv.i.i.i1434 = sext i16 %208 to i32
   %cmp.i.i.i.i1436 = icmp ult i8 %207, 3
   %conv.neg.i.i1437 = sext i1 %cmp.i.i.i.i1436 to i32
@@ -34772,15 +34773,15 @@ if.then1657:                                      ; preds = %if.end.i1544, %if.e
           to label %if.then1657.if.end1663_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then1657.if.end1663_crit_edge:                 ; preds = %if.then1657
-  %.pre2499 = load i16, ptr %fds, align 8
-  %.pre2500 = load i8, ptr %m_.i1749, align 2
-  %.pre2501 = load i8, ptr %d_.i1753, align 1
+  %.pre2501 = load i16, ptr %fds, align 8
+  %.pre2502 = load i8, ptr %m_.i1749, align 2
+  %.pre2503 = load i8, ptr %d_.i1753, align 1
   br label %if.end1663
 
 if.end1663:                                       ; preds = %if.then1657.if.end1663_crit_edge, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1565
-  %221 = phi i8 [ %.pre2501, %if.then1657.if.end1663_crit_edge ], [ %218, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1565 ]
-  %222 = phi i8 [ %.pre2500, %if.then1657.if.end1663_crit_edge ], [ %216, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1565 ]
-  %223 = phi i16 [ %.pre2499, %if.then1657.if.end1663_crit_edge ], [ %215, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1565 ]
+  %221 = phi i8 [ %.pre2503, %if.then1657.if.end1663_crit_edge ], [ %218, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1565 ]
+  %222 = phi i8 [ %.pre2502, %if.then1657.if.end1663_crit_edge ], [ %216, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1565 ]
+  %223 = phi i16 [ %.pre2501, %if.then1657.if.end1663_crit_edge ], [ %215, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1565 ]
   %conv.i.i.i1566 = sext i16 %223 to i32
   %cmp.i.i.i.i1568 = icmp ult i8 %222, 3
   %conv.neg.i.i1569 = sext i1 %cmp.i.i.i.i1568 to i32
@@ -35111,13 +35112,13 @@ if.then1902:                                      ; preds = %if.end.i1752, %if.e
 
 if.then1902.if.end1908_crit_edge:                 ; preds = %if.then1902
   %.pre = load i16, ptr %fds, align 8
-  %.pre2497 = load i8, ptr %m_.i1749, align 2
-  %.pre2498 = load i8, ptr %d_.i1753, align 1
+  %.pre2499 = load i8, ptr %m_.i1749, align 2
+  %.pre2500 = load i8, ptr %d_.i1753, align 1
   br label %if.end1908
 
 if.end1908:                                       ; preds = %if.then1902.if.end1908_crit_edge, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1773
-  %247 = phi i8 [ %.pre2498, %if.then1902.if.end1908_crit_edge ], [ %244, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1773 ]
-  %248 = phi i8 [ %.pre2497, %if.then1902.if.end1908_crit_edge ], [ %242, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1773 ]
+  %247 = phi i8 [ %.pre2500, %if.then1902.if.end1908_crit_edge ], [ %244, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1773 ]
+  %248 = phi i8 [ %.pre2499, %if.then1902.if.end1908_crit_edge ], [ %242, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1773 ]
   %249 = phi i16 [ %.pre, %if.then1902.if.end1908_crit_edge ], [ %241, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1773 ]
   %conv.i.i.i1774 = sext i16 %249 to i32
   %cmp.i.i.i.i1776 = icmp ult i8 %248, 3
@@ -36905,7 +36906,7 @@ invoke.cont27:                                    ; preds = %land.end
   %frombool = zext i1 %12 to i8
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp21) #19
   %invariant.gep = getelementptr i8, ptr %os, i64 24
-  %invariant.gep2373 = getelementptr i8, ptr %os, i64 16
+  %invariant.gep2374 = getelementptr i8, ptr %os, i64 16
   %cmp2327 = icmp eq ptr %abbrev, null
   %cmp2251 = icmp eq ptr %offset_sec, null
   %arrayinit.element2220 = getelementptr inbounds i8, ptr %f2218, i64 1
@@ -37154,7 +37155,7 @@ if.then.i:                                        ; preds = %if.then72
           to label %if.then.i.invoke.cont73_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then.i.invoke.cont73_crit_edge:                ; preds = %if.then.i
-  %.pre2521 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2523 = load i8, ptr %fmt.addr.0, align 1
   br label %invoke.cont73
 
 if.end.i:                                         ; preds = %if.then72
@@ -37162,7 +37163,7 @@ if.end.i:                                         ; preds = %if.then72
   br label %invoke.cont73
 
 invoke.cont73:                                    ; preds = %if.then.i.invoke.cont73_crit_edge, %if.end.i
-  %20 = phi i8 [ %14, %if.end.i ], [ %.pre2521, %if.then.i.invoke.cont73_crit_edge ]
+  %20 = phi i8 [ %14, %if.end.i ], [ %.pre2523, %if.then.i.invoke.cont73_crit_edge ]
   %retval.0.i = phi i32 [ %conv.i.i, %if.end.i ], [ 0, %if.then.i.invoke.cont73_crit_edge ]
   %sub = add nsw i32 %retval.0.i, -1
   store i32 %sub, ptr %tm_mon968, align 8
@@ -37251,11 +37252,11 @@ if.then120:                                       ; preds = %if.end.i639, %if.el
           to label %if.then120.if.end126_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then120.if.end126_crit_edge:                   ; preds = %if.then120
-  %.pre2518 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2520 = load i8, ptr %fmt.addr.0, align 1
   br label %if.end126
 
 if.end126:                                        ; preds = %if.then120.if.end126_crit_edge, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit
-  %29 = phi i8 [ %.pre2518, %if.then120.if.end126_crit_edge ], [ %14, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit ]
+  %29 = phi i8 [ %.pre2520, %if.then120.if.end126_crit_edge ], [ %14, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit ]
   %cmp128 = icmp eq i8 %29, 99
   br i1 %cmp128, label %land.lhs.true, label %if.end137
 
@@ -37273,11 +37274,11 @@ if.then131:                                       ; preds = %land.lhs.true
           to label %if.then131.if.end137_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then131.if.end137_crit_edge:                   ; preds = %if.then131
-  %.pre2519 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2521 = load i8, ptr %fmt.addr.0, align 1
   br label %if.end137
 
 if.end137:                                        ; preds = %if.then131.if.end137_crit_edge, %land.lhs.true, %if.end126
-  %31 = phi i8 [ %.pre2519, %if.then131.if.end137_crit_edge ], [ 99, %land.lhs.true ], [ %29, %if.end126 ]
+  %31 = phi i8 [ %.pre2521, %if.then131.if.end137_crit_edge ], [ 99, %land.lhs.true ], [ %29, %if.end126 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %tm, i8 0, i64 56, i1 false)
   %32 = load i16, ptr %fds, align 8
   %conv.i.i.i640 = sext i16 %32 to i32
@@ -37333,11 +37334,11 @@ if.then.i652:                                     ; preds = %if.end167
 
 if.then.i652.invoke.cont172_crit_edge:            ; preds = %if.then.i652
   %retval.sroa.0.0.copyload.i662.pre = load i16, ptr %fds, align 8
-  %.pre2522 = sext i16 %retval.sroa.0.0.copyload.i662.pre to i32
+  %.pre2524 = sext i16 %retval.sroa.0.0.copyload.i662.pre to i32
   br label %invoke.cont172
 
 invoke.cont172:                                   ; preds = %if.then.i652.invoke.cont172_crit_edge, %if.end167
-  %conv.i663.pre-phi = phi i32 [ %.pre2522, %if.then.i652.invoke.cont172_crit_edge ], [ %conv.i.i.i640, %if.end167 ]
+  %conv.i663.pre-phi = phi i32 [ %.pre2524, %if.then.i652.invoke.cont172_crit_edge ], [ %conv.i.i.i640, %if.end167 ]
   %retval.0.i657 = phi i32 [ 0, %if.then.i652.invoke.cont172_crit_edge ], [ %conv.i11.i.i, %if.end167 ]
   %sub174 = add nsw i32 %retval.0.i657, -1
   store i32 %sub174, ptr %tm_mon968, align 8
@@ -37505,8 +37506,8 @@ invoke.cont279:                                   ; preds = %invoke.cont273
   %vtable281 = load ptr, ptr %os, align 8
   %vbase.offset.ptr282 = getelementptr i8, ptr %vtable281, i64 -24
   %vbase.offset283 = load i64, ptr %vbase.offset.ptr282, align 8
-  %gep2400 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset283
-  store i32 130, ptr %gep2400, align 8
+  %gep2402 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset283
+  store i32 130, ptr %gep2402, align 8
   %cmp287 = icmp sgt i16 %retval.sroa.0.0.copyload.i711, -1
   br i1 %cmp287, label %if.then288, label %if.else296
 
@@ -37514,8 +37515,8 @@ if.then288:                                       ; preds = %invoke.cont279
   %vtable289 = load ptr, ptr %os, align 8
   %vbase.offset.ptr290 = getelementptr i8, ptr %vtable289, i64 -24
   %vbase.offset291 = load i64, ptr %vbase.offset.ptr290, align 8
-  %gep2404 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset291
-  store i64 2, ptr %gep2404, align 8
+  %gep2406 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset291
+  store i64 2, ptr %gep2406, align 8
   br label %invoke.cont297.invoke
 
 lpad278:                                          ; preds = %invoke.cont297.invoke, %if.else296, %invoke.cont273
@@ -37532,8 +37533,8 @@ invoke.cont297:                                   ; preds = %if.else296
   %vtable299 = load ptr, ptr %os, align 8
   %vbase.offset.ptr300 = getelementptr i8, ptr %vtable299, i64 -24
   %vbase.offset301 = load i64, ptr %vbase.offset.ptr300, align 8
-  %gep2402 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset301
-  store i64 2, ptr %gep2402, align 8
+  %gep2404 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset301
+  store i64 2, ptr %gep2404, align 8
   %sub305 = sub i16 99, %retval.sroa.0.0.copyload.i711
   br label %invoke.cont297.invoke
 
@@ -37701,13 +37702,13 @@ if.end397:                                        ; preds = %invoke.cont379
   %vtable398 = load ptr, ptr %os, align 8
   %vbase.offset.ptr399 = getelementptr i8, ptr %vtable398, i64 -24
   %vbase.offset400 = load i64, ptr %vbase.offset.ptr399, align 8
-  %gep2396 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset400
-  store i32 130, ptr %gep2396, align 8
+  %gep2398 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset400
+  store i32 130, ptr %gep2398, align 8
   %vtable404 = load ptr, ptr %os, align 8
   %vbase.offset.ptr405 = getelementptr i8, ptr %vtable404, i64 -24
   %vbase.offset406 = load i64, ptr %vbase.offset.ptr405, align 8
-  %gep2398 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset406
-  store i64 2, ptr %gep2398, align 8
+  %gep2400 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset406
+  store i64 2, ptr %gep2400, align 8
   %call410 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %conv.i756)
           to label %invoke.cont409 unwind label %lpad387
 
@@ -37886,13 +37887,13 @@ invoke.cont471:                                   ; preds = %invoke.cont465
   %vtable473 = load ptr, ptr %os, align 8
   %vbase.offset.ptr474 = getelementptr i8, ptr %vtable473, i64 -24
   %vbase.offset475 = load i64, ptr %vbase.offset.ptr474, align 8
-  %gep2388 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset475
-  store i32 130, ptr %gep2388, align 8
+  %gep2390 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset475
+  store i32 130, ptr %gep2390, align 8
   %vtable479 = load ptr, ptr %os, align 8
   %vbase.offset.ptr480 = getelementptr i8, ptr %vtable479, i64 -24
   %vbase.offset481 = load i64, ptr %vbase.offset.ptr480, align 8
-  %gep2390 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset481
-  store i64 2, ptr %gep2390, align 8
+  %gep2392 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset481
+  store i64 2, ptr %gep2392, align 8
   %retval.sroa.0.0.copyload.i858 = load i8, ptr %m_.i1749, align 2
   %conv.i859 = zext i8 %retval.sroa.0.0.copyload.i858 to i32
   %call489 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %conv.i859)
@@ -37906,8 +37907,8 @@ invoke.cont490:                                   ; preds = %invoke.cont488
   %vtable492 = load ptr, ptr %os, align 8
   %vbase.offset.ptr493 = getelementptr i8, ptr %vtable492, i64 -24
   %vbase.offset494 = load i64, ptr %vbase.offset.ptr493, align 8
-  %gep2392 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset494
-  store i64 2, ptr %gep2392, align 8
+  %gep2394 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset494
+  store i64 2, ptr %gep2394, align 8
   %retval.sroa.0.0.copyload.i862 = load i8, ptr %d_.i1753, align 1
   %conv.i863 = zext i8 %retval.sroa.0.0.copyload.i862 to i32
   %call502 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %conv.i863)
@@ -37921,8 +37922,8 @@ invoke.cont503:                                   ; preds = %invoke.cont501
   %vtable505 = load ptr, ptr %os, align 8
   %vbase.offset.ptr506 = getelementptr i8, ptr %vtable505, i64 -24
   %vbase.offset507 = load i64, ptr %vbase.offset.ptr506, align 8
-  %gep2394 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset507
-  store i64 2, ptr %gep2394, align 8
+  %gep2396 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset507
+  store i64 2, ptr %gep2396, align 8
   %retval.sroa.0.0.copyload.i8652244 = load i16, ptr %fds, align 8
   %rem2234 = srem i16 %retval.sroa.0.0.copyload.i8652244, 100
   %rem.sext = sext i16 %rem2234 to i32
@@ -38095,13 +38096,13 @@ invoke.cont563:                                   ; preds = %invoke.cont558
   %vtable565 = load ptr, ptr %os, align 8
   %vbase.offset.ptr566 = getelementptr i8, ptr %vtable565, i64 -24
   %vbase.offset567 = load i64, ptr %vbase.offset.ptr566, align 8
-  %gep2380 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset567
-  store i32 130, ptr %gep2380, align 8
+  %gep2382 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset567
+  store i32 130, ptr %gep2382, align 8
   %vtable571 = load ptr, ptr %os, align 8
   %vbase.offset.ptr572 = getelementptr i8, ptr %vtable571, i64 -24
   %vbase.offset573 = load i64, ptr %vbase.offset.ptr572, align 8
-  %gep2382 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset573
-  store i64 4, ptr %gep2382, align 8
+  %gep2384 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset573
+  store i64 4, ptr %gep2384, align 8
   %retval.sroa.0.0.copyload.i933 = load i16, ptr %fds, align 8
   %conv.i934 = sext i16 %retval.sroa.0.0.copyload.i933 to i32
   %call581 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %conv.i934)
@@ -38115,8 +38116,8 @@ invoke.cont582:                                   ; preds = %invoke.cont580
   %vtable584 = load ptr, ptr %os, align 8
   %vbase.offset.ptr585 = getelementptr i8, ptr %vtable584, i64 -24
   %vbase.offset586 = load i64, ptr %vbase.offset.ptr585, align 8
-  %gep2384 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset586
-  store i64 2, ptr %gep2384, align 8
+  %gep2386 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset586
+  store i64 2, ptr %gep2386, align 8
   %retval.sroa.0.0.copyload.i937 = load i8, ptr %m_.i1749, align 2
   %conv.i938 = zext i8 %retval.sroa.0.0.copyload.i937 to i32
   %call594 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %conv.i938)
@@ -38130,8 +38131,8 @@ invoke.cont595:                                   ; preds = %invoke.cont593
   %vtable597 = load ptr, ptr %os, align 8
   %vbase.offset.ptr598 = getelementptr i8, ptr %vtable597, i64 -24
   %vbase.offset599 = load i64, ptr %vbase.offset.ptr598, align 8
-  %gep2386 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset599
-  store i64 2, ptr %gep2386, align 8
+  %gep2388 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset599
+  store i64 2, ptr %gep2388, align 8
   %retval.sroa.0.0.copyload.i941 = load i8, ptr %d_.i1753, align 1
   %conv.i942 = zext i8 %retval.sroa.0.0.copyload.i941 to i32
   %call607 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %conv.i942)
@@ -38239,17 +38240,17 @@ if.then628:                                       ; preds = %if.end.i964, %if.th
           to label %if.then628.invoke.cont646_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then628.invoke.cont646_crit_edge:              ; preds = %if.then628
-  %.pre2512 = load i16, ptr %fds, align 8
-  %.pre2513 = load i8, ptr %m_.i1749, align 2
-  %.pre2514 = load i8, ptr %d_.i1753, align 1
-  %.pre2515 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2514 = load i16, ptr %fds, align 8
+  %.pre2515 = load i8, ptr %m_.i1749, align 2
+  %.pre2516 = load i8, ptr %d_.i1753, align 1
+  %.pre2517 = load i8, ptr %fmt.addr.0, align 1
   br label %invoke.cont646
 
 invoke.cont646:                                   ; preds = %if.then628.invoke.cont646_crit_edge, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985
-  %109 = phi i8 [ %.pre2515, %if.then628.invoke.cont646_crit_edge ], [ %14, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
-  %110 = phi i8 [ %.pre2514, %if.then628.invoke.cont646_crit_edge ], [ %106, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
-  %111 = phi i8 [ %.pre2513, %if.then628.invoke.cont646_crit_edge ], [ %104, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
-  %112 = phi i16 [ %.pre2512, %if.then628.invoke.cont646_crit_edge ], [ %103, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
+  %109 = phi i8 [ %.pre2517, %if.then628.invoke.cont646_crit_edge ], [ %14, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
+  %110 = phi i8 [ %.pre2516, %if.then628.invoke.cont646_crit_edge ], [ %106, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
+  %111 = phi i8 [ %.pre2515, %if.then628.invoke.cont646_crit_edge ], [ %104, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
+  %112 = phi i16 [ %.pre2514, %if.then628.invoke.cont646_crit_edge ], [ %103, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
   %conv.i.i.i986 = sext i16 %112 to i32
   %cmp.i.i.i.i988 = icmp ult i8 %111, 3
   %conv.neg.i.i989 = sext i1 %cmp.i.i.i.i988 to i32
@@ -38408,13 +38409,13 @@ invoke.cont701:                                   ; preds = %invoke.cont695
   %vtable703 = load ptr, ptr %os, align 8
   %vbase.offset.ptr704 = getelementptr i8, ptr %vtable703, i64 -24
   %vbase.offset705 = load i64, ptr %vbase.offset.ptr704, align 8
-  %gep2376 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset705
-  store i32 130, ptr %gep2376, align 8
+  %gep2378 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset705
+  store i32 130, ptr %gep2378, align 8
   %vtable709 = load ptr, ptr %os, align 8
   %vbase.offset.ptr710 = getelementptr i8, ptr %vtable709, i64 -24
   %vbase.offset711 = load i64, ptr %vbase.offset.ptr710, align 8
-  %gep2378 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset711
-  store i64 2, ptr %gep2378, align 8
+  %gep2380 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset711
+  store i64 2, ptr %gep2380, align 8
   %122 = load i16, ptr %y640, align 2
   %123 = call i16 @llvm.abs.i16(i16 %122, i1 false)
   %rem7152236 = urem i16 %123, 100
@@ -38584,7 +38585,7 @@ land.lhs.true.i1112:                              ; preds = %if.then825
   %136 = load i8, ptr %m_.i1749, align 2
   %137 = add i8 %136, -1
   %spec.select.i.i1114 = icmp ult i8 %137, 12
-  br i1 %spec.select.i.i1114, label %if.end.i1116, label %lor.lhs.false.thread2523
+  br i1 %spec.select.i.i1114, label %if.end.i1116, label %lor.lhs.false.thread2525
 
 if.end.i1116:                                     ; preds = %land.lhs.true.i1112
   %138 = load i8, ptr %d_.i1753, align 1
@@ -38624,10 +38625,10 @@ lor.lhs.false:                                    ; preds = %if.end.i1116
   %tobool829 = trunc i8 %141 to i1
   br i1 %tobool829, label %if.else862, label %if.else899
 
-lor.lhs.false.thread2523:                         ; preds = %land.lhs.true.i1112
+lor.lhs.false.thread2525:                         ; preds = %land.lhs.true.i1112
   %142 = load i8, ptr %has_tod, align 8
-  %tobool8292524 = trunc i8 %142 to i1
-  br i1 %tobool8292524, label %if.else862, label %if.else899
+  %tobool8292526 = trunc i8 %142 to i1
+  br i1 %tobool8292526, label %if.else862, label %if.else899
 
 lor.lhs.false.thread2229:                         ; preds = %if.then825
   %143 = load i8, ptr %has_tod, align 8
@@ -38716,7 +38717,7 @@ invoke.cont853:                                   ; preds = %_ZNK14arrow_vendore
   %add.i = add nsw i32 %sub.i.i1238, %reass.mul
   br label %if.end871
 
-if.else862:                                       ; preds = %lor.lhs.false.thread2523, %lor.lhs.false, %lor.lhs.false.thread2229, %if.end.i1143, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1164
+if.else862:                                       ; preds = %lor.lhs.false.thread2525, %lor.lhs.false, %lor.lhs.false.thread2229, %if.end.i1143, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1164
   %147 = load i64, ptr %s_.i1923, align 8
   %mul.i.i.i.i.i.i1241 = mul nsw i64 %147, 1000000000
   %148 = load i64, ptr %sub_s_.i.i1342, align 8
@@ -38795,8 +38796,8 @@ invoke.cont883:                                   ; preds = %invoke.cont877
   %vtable891 = load ptr, ptr %os, align 8
   %vbase.offset.ptr892 = getelementptr i8, ptr %vtable891, i64 -24
   %vbase.offset893 = load i64, ptr %vbase.offset.ptr892, align 8
-  %gep2374 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset893
-  store i64 3, ptr %gep2374, align 8
+  %gep2375 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset893
+  store i64 3, ptr %gep2375, align 8
   %call898 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %storemerge)
           to label %invoke.cont897 unwind label %lpad882
 
@@ -38841,7 +38842,7 @@ lpad882:                                          ; preds = %invoke.cont883, %in
   call void @_ZN14arrow_vendored4date6detail12save_ostreamIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %_872) #19
   br label %ehcleanup
 
-if.else899:                                       ; preds = %lor.lhs.false.thread2523, %lor.lhs.false.thread2229, %lor.lhs.false.thread, %lor.lhs.false
+if.else899:                                       ; preds = %lor.lhs.false.thread2525, %lor.lhs.false.thread2229, %lor.lhs.false.thread, %lor.lhs.false
   %vtable900 = load ptr, ptr %os, align 8
   %vbase.offset.ptr901 = getelementptr i8, ptr %vtable900, i64 -24
   %vbase.offset902 = load i64, ptr %vbase.offset.ptr901, align 8
@@ -39040,11 +39041,11 @@ if.then1107:                                      ; preds = %if.then1104
           to label %if.then1107.if.end1113_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then1107.if.end1113_crit_edge:                 ; preds = %if.then1107
-  %.pre2509 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2511 = load i8, ptr %fmt.addr.0, align 1
   br label %if.end1113
 
 if.end1113:                                       ; preds = %if.then1107.if.end1113_crit_edge, %if.then1104
-  %173 = phi i8 [ %.pre2509, %if.then1107.if.end1113_crit_edge ], [ 112, %if.then1104 ]
+  %173 = phi i8 [ %.pre2511, %if.then1107.if.end1113_crit_edge ], [ 112, %if.then1104 ]
   store i8 37, ptr %f1114, align 1
   store i8 %173, ptr %arrayinit.element1116, align 1
   %retval.sroa.0.0.copyload.i1329 = load i64, ptr %tod2053, align 8
@@ -39094,11 +39095,11 @@ if.then1160:                                      ; preds = %if.then1157
           to label %if.then1160.if.end1166_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then1160.if.end1166_crit_edge:                 ; preds = %if.then1160
-  %.pre2508 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2510 = load i8, ptr %fmt.addr.0, align 1
   br label %if.end1166
 
 if.end1166:                                       ; preds = %if.then1160.if.end1166_crit_edge, %if.then1157
-  %177 = phi i8 [ %.pre2508, %if.then1160.if.end1166_crit_edge ], [ %14, %if.then1157 ]
+  %177 = phi i8 [ %.pre2510, %if.then1160.if.end1166_crit_edge ], [ %14, %if.then1157 ]
   %cmp1172 = icmp eq i8 %177, 113
   br i1 %cmp1172, label %if.then1173, label %if.else1181
 
@@ -39152,11 +39153,11 @@ if.then1206:                                      ; preds = %if.then1203
           to label %if.then1206.if.end1212_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then1206.if.end1212_crit_edge:                 ; preds = %if.then1206
-  %.pre2507 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2509 = load i8, ptr %fmt.addr.0, align 1
   br label %if.end1212
 
 if.end1212:                                       ; preds = %if.then1206.if.end1212_crit_edge, %if.then1203
-  %188 = phi i8 [ %.pre2507, %if.then1206.if.end1212_crit_edge ], [ 114, %if.then1203 ]
+  %188 = phi i8 [ %.pre2509, %if.then1206.if.end1212_crit_edge ], [ 114, %if.then1203 ]
   store i8 37, ptr %f1213, align 1
   store i8 %188, ptr %arrayinit.element1215, align 1
   %retval.sroa.0.0.copyload.i1356 = load i64, ptr %tod2053, align 8
@@ -39467,15 +39468,15 @@ if.then1526:                                      ; preds = %if.end.i1412, %if.e
           to label %if.then1526.if.end1532_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then1526.if.end1532_crit_edge:                 ; preds = %if.then1526
-  %.pre2502 = load i16, ptr %fds, align 8
-  %.pre2503 = load i8, ptr %m_.i1749, align 2
-  %.pre2504 = load i8, ptr %d_.i1753, align 1
+  %.pre2504 = load i16, ptr %fds, align 8
+  %.pre2505 = load i8, ptr %m_.i1749, align 2
+  %.pre2506 = load i8, ptr %d_.i1753, align 1
   br label %if.end1532
 
 if.end1532:                                       ; preds = %if.then1526.if.end1532_crit_edge, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1433
-  %206 = phi i8 [ %.pre2504, %if.then1526.if.end1532_crit_edge ], [ %203, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1433 ]
-  %207 = phi i8 [ %.pre2503, %if.then1526.if.end1532_crit_edge ], [ %201, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1433 ]
-  %208 = phi i16 [ %.pre2502, %if.then1526.if.end1532_crit_edge ], [ %200, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1433 ]
+  %206 = phi i8 [ %.pre2506, %if.then1526.if.end1532_crit_edge ], [ %203, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1433 ]
+  %207 = phi i8 [ %.pre2505, %if.then1526.if.end1532_crit_edge ], [ %201, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1433 ]
+  %208 = phi i16 [ %.pre2504, %if.then1526.if.end1532_crit_edge ], [ %200, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1433 ]
   %conv.i.i.i1434 = sext i16 %208 to i32
   %cmp.i.i.i.i1436 = icmp ult i8 %207, 3
   %conv.neg.i.i1437 = sext i1 %cmp.i.i.i.i1436 to i32
@@ -39676,15 +39677,15 @@ if.then1657:                                      ; preds = %if.end.i1544, %if.e
           to label %if.then1657.if.end1663_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then1657.if.end1663_crit_edge:                 ; preds = %if.then1657
-  %.pre2499 = load i16, ptr %fds, align 8
-  %.pre2500 = load i8, ptr %m_.i1749, align 2
-  %.pre2501 = load i8, ptr %d_.i1753, align 1
+  %.pre2501 = load i16, ptr %fds, align 8
+  %.pre2502 = load i8, ptr %m_.i1749, align 2
+  %.pre2503 = load i8, ptr %d_.i1753, align 1
   br label %if.end1663
 
 if.end1663:                                       ; preds = %if.then1657.if.end1663_crit_edge, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1565
-  %221 = phi i8 [ %.pre2501, %if.then1657.if.end1663_crit_edge ], [ %218, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1565 ]
-  %222 = phi i8 [ %.pre2500, %if.then1657.if.end1663_crit_edge ], [ %216, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1565 ]
-  %223 = phi i16 [ %.pre2499, %if.then1657.if.end1663_crit_edge ], [ %215, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1565 ]
+  %221 = phi i8 [ %.pre2503, %if.then1657.if.end1663_crit_edge ], [ %218, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1565 ]
+  %222 = phi i8 [ %.pre2502, %if.then1657.if.end1663_crit_edge ], [ %216, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1565 ]
+  %223 = phi i16 [ %.pre2501, %if.then1657.if.end1663_crit_edge ], [ %215, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1565 ]
   %conv.i.i.i1566 = sext i16 %223 to i32
   %cmp.i.i.i.i1568 = icmp ult i8 %222, 3
   %conv.neg.i.i1569 = sext i1 %cmp.i.i.i.i1568 to i32
@@ -40015,13 +40016,13 @@ if.then1902:                                      ; preds = %if.end.i1752, %if.e
 
 if.then1902.if.end1908_crit_edge:                 ; preds = %if.then1902
   %.pre = load i16, ptr %fds, align 8
-  %.pre2497 = load i8, ptr %m_.i1749, align 2
-  %.pre2498 = load i8, ptr %d_.i1753, align 1
+  %.pre2499 = load i8, ptr %m_.i1749, align 2
+  %.pre2500 = load i8, ptr %d_.i1753, align 1
   br label %if.end1908
 
 if.end1908:                                       ; preds = %if.then1902.if.end1908_crit_edge, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1773
-  %247 = phi i8 [ %.pre2498, %if.then1902.if.end1908_crit_edge ], [ %244, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1773 ]
-  %248 = phi i8 [ %.pre2497, %if.then1902.if.end1908_crit_edge ], [ %242, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1773 ]
+  %247 = phi i8 [ %.pre2500, %if.then1902.if.end1908_crit_edge ], [ %244, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1773 ]
+  %248 = phi i8 [ %.pre2499, %if.then1902.if.end1908_crit_edge ], [ %242, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1773 ]
   %249 = phi i16 [ %.pre, %if.then1902.if.end1908_crit_edge ], [ %241, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1773 ]
   %conv.i.i.i1774 = sext i16 %249 to i32
   %cmp.i.i.i.i1776 = icmp ult i8 %248, 3
@@ -41537,7 +41538,7 @@ invoke.cont27:                                    ; preds = %land.end
   %frombool = zext i1 %12 to i8
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp21) #19
   %invariant.gep = getelementptr i8, ptr %os, i64 24
-  %invariant.gep2373 = getelementptr i8, ptr %os, i64 16
+  %invariant.gep2374 = getelementptr i8, ptr %os, i64 16
   %cmp2327 = icmp eq ptr %abbrev, null
   %cmp2251 = icmp eq ptr %offset_sec, null
   %arrayinit.element2220 = getelementptr inbounds i8, ptr %f2218, i64 1
@@ -41786,7 +41787,7 @@ if.then.i:                                        ; preds = %if.then72
           to label %if.then.i.invoke.cont73_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then.i.invoke.cont73_crit_edge:                ; preds = %if.then.i
-  %.pre2521 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2523 = load i8, ptr %fmt.addr.0, align 1
   br label %invoke.cont73
 
 if.end.i:                                         ; preds = %if.then72
@@ -41794,7 +41795,7 @@ if.end.i:                                         ; preds = %if.then72
   br label %invoke.cont73
 
 invoke.cont73:                                    ; preds = %if.then.i.invoke.cont73_crit_edge, %if.end.i
-  %20 = phi i8 [ %14, %if.end.i ], [ %.pre2521, %if.then.i.invoke.cont73_crit_edge ]
+  %20 = phi i8 [ %14, %if.end.i ], [ %.pre2523, %if.then.i.invoke.cont73_crit_edge ]
   %retval.0.i = phi i32 [ %conv.i.i, %if.end.i ], [ 0, %if.then.i.invoke.cont73_crit_edge ]
   %sub = add nsw i32 %retval.0.i, -1
   store i32 %sub, ptr %tm_mon968, align 8
@@ -41883,11 +41884,11 @@ if.then120:                                       ; preds = %if.end.i639, %if.el
           to label %if.then120.if.end126_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then120.if.end126_crit_edge:                   ; preds = %if.then120
-  %.pre2518 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2520 = load i8, ptr %fmt.addr.0, align 1
   br label %if.end126
 
 if.end126:                                        ; preds = %if.then120.if.end126_crit_edge, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit
-  %29 = phi i8 [ %.pre2518, %if.then120.if.end126_crit_edge ], [ %14, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit ]
+  %29 = phi i8 [ %.pre2520, %if.then120.if.end126_crit_edge ], [ %14, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit ]
   %cmp128 = icmp eq i8 %29, 99
   br i1 %cmp128, label %land.lhs.true, label %if.end137
 
@@ -41905,11 +41906,11 @@ if.then131:                                       ; preds = %land.lhs.true
           to label %if.then131.if.end137_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then131.if.end137_crit_edge:                   ; preds = %if.then131
-  %.pre2519 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2521 = load i8, ptr %fmt.addr.0, align 1
   br label %if.end137
 
 if.end137:                                        ; preds = %if.then131.if.end137_crit_edge, %land.lhs.true, %if.end126
-  %31 = phi i8 [ %.pre2519, %if.then131.if.end137_crit_edge ], [ 99, %land.lhs.true ], [ %29, %if.end126 ]
+  %31 = phi i8 [ %.pre2521, %if.then131.if.end137_crit_edge ], [ 99, %land.lhs.true ], [ %29, %if.end126 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %tm, i8 0, i64 56, i1 false)
   %32 = load i16, ptr %fds, align 8
   %conv.i.i.i640 = sext i16 %32 to i32
@@ -41965,11 +41966,11 @@ if.then.i652:                                     ; preds = %if.end167
 
 if.then.i652.invoke.cont172_crit_edge:            ; preds = %if.then.i652
   %retval.sroa.0.0.copyload.i662.pre = load i16, ptr %fds, align 8
-  %.pre2522 = sext i16 %retval.sroa.0.0.copyload.i662.pre to i32
+  %.pre2524 = sext i16 %retval.sroa.0.0.copyload.i662.pre to i32
   br label %invoke.cont172
 
 invoke.cont172:                                   ; preds = %if.then.i652.invoke.cont172_crit_edge, %if.end167
-  %conv.i663.pre-phi = phi i32 [ %.pre2522, %if.then.i652.invoke.cont172_crit_edge ], [ %conv.i.i.i640, %if.end167 ]
+  %conv.i663.pre-phi = phi i32 [ %.pre2524, %if.then.i652.invoke.cont172_crit_edge ], [ %conv.i.i.i640, %if.end167 ]
   %retval.0.i657 = phi i32 [ 0, %if.then.i652.invoke.cont172_crit_edge ], [ %conv.i11.i.i, %if.end167 ]
   %sub174 = add nsw i32 %retval.0.i657, -1
   store i32 %sub174, ptr %tm_mon968, align 8
@@ -42137,8 +42138,8 @@ invoke.cont279:                                   ; preds = %invoke.cont273
   %vtable281 = load ptr, ptr %os, align 8
   %vbase.offset.ptr282 = getelementptr i8, ptr %vtable281, i64 -24
   %vbase.offset283 = load i64, ptr %vbase.offset.ptr282, align 8
-  %gep2400 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset283
-  store i32 130, ptr %gep2400, align 8
+  %gep2402 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset283
+  store i32 130, ptr %gep2402, align 8
   %cmp287 = icmp sgt i16 %retval.sroa.0.0.copyload.i711, -1
   br i1 %cmp287, label %if.then288, label %if.else296
 
@@ -42146,8 +42147,8 @@ if.then288:                                       ; preds = %invoke.cont279
   %vtable289 = load ptr, ptr %os, align 8
   %vbase.offset.ptr290 = getelementptr i8, ptr %vtable289, i64 -24
   %vbase.offset291 = load i64, ptr %vbase.offset.ptr290, align 8
-  %gep2404 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset291
-  store i64 2, ptr %gep2404, align 8
+  %gep2406 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset291
+  store i64 2, ptr %gep2406, align 8
   br label %invoke.cont297.invoke
 
 lpad278:                                          ; preds = %invoke.cont297.invoke, %if.else296, %invoke.cont273
@@ -42164,8 +42165,8 @@ invoke.cont297:                                   ; preds = %if.else296
   %vtable299 = load ptr, ptr %os, align 8
   %vbase.offset.ptr300 = getelementptr i8, ptr %vtable299, i64 -24
   %vbase.offset301 = load i64, ptr %vbase.offset.ptr300, align 8
-  %gep2402 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset301
-  store i64 2, ptr %gep2402, align 8
+  %gep2404 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset301
+  store i64 2, ptr %gep2404, align 8
   %sub305 = sub i16 99, %retval.sroa.0.0.copyload.i711
   br label %invoke.cont297.invoke
 
@@ -42333,13 +42334,13 @@ if.end397:                                        ; preds = %invoke.cont379
   %vtable398 = load ptr, ptr %os, align 8
   %vbase.offset.ptr399 = getelementptr i8, ptr %vtable398, i64 -24
   %vbase.offset400 = load i64, ptr %vbase.offset.ptr399, align 8
-  %gep2396 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset400
-  store i32 130, ptr %gep2396, align 8
+  %gep2398 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset400
+  store i32 130, ptr %gep2398, align 8
   %vtable404 = load ptr, ptr %os, align 8
   %vbase.offset.ptr405 = getelementptr i8, ptr %vtable404, i64 -24
   %vbase.offset406 = load i64, ptr %vbase.offset.ptr405, align 8
-  %gep2398 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset406
-  store i64 2, ptr %gep2398, align 8
+  %gep2400 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset406
+  store i64 2, ptr %gep2400, align 8
   %call410 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %conv.i756)
           to label %invoke.cont409 unwind label %lpad387
 
@@ -42518,13 +42519,13 @@ invoke.cont471:                                   ; preds = %invoke.cont465
   %vtable473 = load ptr, ptr %os, align 8
   %vbase.offset.ptr474 = getelementptr i8, ptr %vtable473, i64 -24
   %vbase.offset475 = load i64, ptr %vbase.offset.ptr474, align 8
-  %gep2388 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset475
-  store i32 130, ptr %gep2388, align 8
+  %gep2390 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset475
+  store i32 130, ptr %gep2390, align 8
   %vtable479 = load ptr, ptr %os, align 8
   %vbase.offset.ptr480 = getelementptr i8, ptr %vtable479, i64 -24
   %vbase.offset481 = load i64, ptr %vbase.offset.ptr480, align 8
-  %gep2390 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset481
-  store i64 2, ptr %gep2390, align 8
+  %gep2392 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset481
+  store i64 2, ptr %gep2392, align 8
   %retval.sroa.0.0.copyload.i858 = load i8, ptr %m_.i1749, align 2
   %conv.i859 = zext i8 %retval.sroa.0.0.copyload.i858 to i32
   %call489 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %conv.i859)
@@ -42538,8 +42539,8 @@ invoke.cont490:                                   ; preds = %invoke.cont488
   %vtable492 = load ptr, ptr %os, align 8
   %vbase.offset.ptr493 = getelementptr i8, ptr %vtable492, i64 -24
   %vbase.offset494 = load i64, ptr %vbase.offset.ptr493, align 8
-  %gep2392 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset494
-  store i64 2, ptr %gep2392, align 8
+  %gep2394 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset494
+  store i64 2, ptr %gep2394, align 8
   %retval.sroa.0.0.copyload.i862 = load i8, ptr %d_.i1753, align 1
   %conv.i863 = zext i8 %retval.sroa.0.0.copyload.i862 to i32
   %call502 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %conv.i863)
@@ -42553,8 +42554,8 @@ invoke.cont503:                                   ; preds = %invoke.cont501
   %vtable505 = load ptr, ptr %os, align 8
   %vbase.offset.ptr506 = getelementptr i8, ptr %vtable505, i64 -24
   %vbase.offset507 = load i64, ptr %vbase.offset.ptr506, align 8
-  %gep2394 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset507
-  store i64 2, ptr %gep2394, align 8
+  %gep2396 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset507
+  store i64 2, ptr %gep2396, align 8
   %retval.sroa.0.0.copyload.i8652244 = load i16, ptr %fds, align 8
   %rem2234 = srem i16 %retval.sroa.0.0.copyload.i8652244, 100
   %rem.sext = sext i16 %rem2234 to i32
@@ -42727,13 +42728,13 @@ invoke.cont563:                                   ; preds = %invoke.cont558
   %vtable565 = load ptr, ptr %os, align 8
   %vbase.offset.ptr566 = getelementptr i8, ptr %vtable565, i64 -24
   %vbase.offset567 = load i64, ptr %vbase.offset.ptr566, align 8
-  %gep2380 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset567
-  store i32 130, ptr %gep2380, align 8
+  %gep2382 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset567
+  store i32 130, ptr %gep2382, align 8
   %vtable571 = load ptr, ptr %os, align 8
   %vbase.offset.ptr572 = getelementptr i8, ptr %vtable571, i64 -24
   %vbase.offset573 = load i64, ptr %vbase.offset.ptr572, align 8
-  %gep2382 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset573
-  store i64 4, ptr %gep2382, align 8
+  %gep2384 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset573
+  store i64 4, ptr %gep2384, align 8
   %retval.sroa.0.0.copyload.i933 = load i16, ptr %fds, align 8
   %conv.i934 = sext i16 %retval.sroa.0.0.copyload.i933 to i32
   %call581 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %conv.i934)
@@ -42747,8 +42748,8 @@ invoke.cont582:                                   ; preds = %invoke.cont580
   %vtable584 = load ptr, ptr %os, align 8
   %vbase.offset.ptr585 = getelementptr i8, ptr %vtable584, i64 -24
   %vbase.offset586 = load i64, ptr %vbase.offset.ptr585, align 8
-  %gep2384 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset586
-  store i64 2, ptr %gep2384, align 8
+  %gep2386 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset586
+  store i64 2, ptr %gep2386, align 8
   %retval.sroa.0.0.copyload.i937 = load i8, ptr %m_.i1749, align 2
   %conv.i938 = zext i8 %retval.sroa.0.0.copyload.i937 to i32
   %call594 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %conv.i938)
@@ -42762,8 +42763,8 @@ invoke.cont595:                                   ; preds = %invoke.cont593
   %vtable597 = load ptr, ptr %os, align 8
   %vbase.offset.ptr598 = getelementptr i8, ptr %vtable597, i64 -24
   %vbase.offset599 = load i64, ptr %vbase.offset.ptr598, align 8
-  %gep2386 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset599
-  store i64 2, ptr %gep2386, align 8
+  %gep2388 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset599
+  store i64 2, ptr %gep2388, align 8
   %retval.sroa.0.0.copyload.i941 = load i8, ptr %d_.i1753, align 1
   %conv.i942 = zext i8 %retval.sroa.0.0.copyload.i941 to i32
   %call607 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %conv.i942)
@@ -42871,17 +42872,17 @@ if.then628:                                       ; preds = %if.end.i964, %if.th
           to label %if.then628.invoke.cont646_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then628.invoke.cont646_crit_edge:              ; preds = %if.then628
-  %.pre2512 = load i16, ptr %fds, align 8
-  %.pre2513 = load i8, ptr %m_.i1749, align 2
-  %.pre2514 = load i8, ptr %d_.i1753, align 1
-  %.pre2515 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2514 = load i16, ptr %fds, align 8
+  %.pre2515 = load i8, ptr %m_.i1749, align 2
+  %.pre2516 = load i8, ptr %d_.i1753, align 1
+  %.pre2517 = load i8, ptr %fmt.addr.0, align 1
   br label %invoke.cont646
 
 invoke.cont646:                                   ; preds = %if.then628.invoke.cont646_crit_edge, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985
-  %109 = phi i8 [ %.pre2515, %if.then628.invoke.cont646_crit_edge ], [ %14, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
-  %110 = phi i8 [ %.pre2514, %if.then628.invoke.cont646_crit_edge ], [ %106, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
-  %111 = phi i8 [ %.pre2513, %if.then628.invoke.cont646_crit_edge ], [ %104, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
-  %112 = phi i16 [ %.pre2512, %if.then628.invoke.cont646_crit_edge ], [ %103, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
+  %109 = phi i8 [ %.pre2517, %if.then628.invoke.cont646_crit_edge ], [ %14, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
+  %110 = phi i8 [ %.pre2516, %if.then628.invoke.cont646_crit_edge ], [ %106, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
+  %111 = phi i8 [ %.pre2515, %if.then628.invoke.cont646_crit_edge ], [ %104, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
+  %112 = phi i16 [ %.pre2514, %if.then628.invoke.cont646_crit_edge ], [ %103, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit985 ]
   %conv.i.i.i986 = sext i16 %112 to i32
   %cmp.i.i.i.i988 = icmp ult i8 %111, 3
   %conv.neg.i.i989 = sext i1 %cmp.i.i.i.i988 to i32
@@ -43040,13 +43041,13 @@ invoke.cont701:                                   ; preds = %invoke.cont695
   %vtable703 = load ptr, ptr %os, align 8
   %vbase.offset.ptr704 = getelementptr i8, ptr %vtable703, i64 -24
   %vbase.offset705 = load i64, ptr %vbase.offset.ptr704, align 8
-  %gep2376 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset705
-  store i32 130, ptr %gep2376, align 8
+  %gep2378 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset705
+  store i32 130, ptr %gep2378, align 8
   %vtable709 = load ptr, ptr %os, align 8
   %vbase.offset.ptr710 = getelementptr i8, ptr %vtable709, i64 -24
   %vbase.offset711 = load i64, ptr %vbase.offset.ptr710, align 8
-  %gep2378 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset711
-  store i64 2, ptr %gep2378, align 8
+  %gep2380 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset711
+  store i64 2, ptr %gep2380, align 8
   %122 = load i16, ptr %y640, align 2
   %123 = call i16 @llvm.abs.i16(i16 %122, i1 false)
   %rem7152236 = urem i16 %123, 100
@@ -43216,7 +43217,7 @@ land.lhs.true.i1112:                              ; preds = %if.then825
   %136 = load i8, ptr %m_.i1749, align 2
   %137 = add i8 %136, -1
   %spec.select.i.i1114 = icmp ult i8 %137, 12
-  br i1 %spec.select.i.i1114, label %if.end.i1116, label %lor.lhs.false.thread2523
+  br i1 %spec.select.i.i1114, label %if.end.i1116, label %lor.lhs.false.thread2525
 
 if.end.i1116:                                     ; preds = %land.lhs.true.i1112
   %138 = load i8, ptr %d_.i1753, align 1
@@ -43256,10 +43257,10 @@ lor.lhs.false:                                    ; preds = %if.end.i1116
   %tobool829 = trunc i8 %141 to i1
   br i1 %tobool829, label %if.else862, label %if.else899
 
-lor.lhs.false.thread2523:                         ; preds = %land.lhs.true.i1112
+lor.lhs.false.thread2525:                         ; preds = %land.lhs.true.i1112
   %142 = load i8, ptr %has_tod, align 8
-  %tobool8292524 = trunc i8 %142 to i1
-  br i1 %tobool8292524, label %if.else862, label %if.else899
+  %tobool8292526 = trunc i8 %142 to i1
+  br i1 %tobool8292526, label %if.else862, label %if.else899
 
 lor.lhs.false.thread2229:                         ; preds = %if.then825
   %143 = load i8, ptr %has_tod, align 8
@@ -43348,7 +43349,7 @@ invoke.cont853:                                   ; preds = %_ZNK14arrow_vendore
   %add.i = add nsw i32 %sub.i.i1238, %reass.mul
   br label %if.end871
 
-if.else862:                                       ; preds = %lor.lhs.false.thread2523, %lor.lhs.false, %lor.lhs.false.thread2229, %if.end.i1143, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1164
+if.else862:                                       ; preds = %lor.lhs.false.thread2525, %lor.lhs.false, %lor.lhs.false.thread2229, %if.end.i1143, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1164
   %147 = load i64, ptr %s_.i1923, align 8
   %mul.i.i.i.i.i.i1241 = mul nsw i64 %147, 1000000
   %148 = load i64, ptr %sub_s_.i.i1342, align 8
@@ -43427,8 +43428,8 @@ invoke.cont883:                                   ; preds = %invoke.cont877
   %vtable891 = load ptr, ptr %os, align 8
   %vbase.offset.ptr892 = getelementptr i8, ptr %vtable891, i64 -24
   %vbase.offset893 = load i64, ptr %vbase.offset.ptr892, align 8
-  %gep2374 = getelementptr i8, ptr %invariant.gep2373, i64 %vbase.offset893
-  store i64 3, ptr %gep2374, align 8
+  %gep2375 = getelementptr i8, ptr %invariant.gep2374, i64 %vbase.offset893
+  store i64 3, ptr %gep2375, align 8
   %call898 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %storemerge)
           to label %invoke.cont897 unwind label %lpad882
 
@@ -43473,7 +43474,7 @@ lpad882:                                          ; preds = %invoke.cont883, %in
   call void @_ZN14arrow_vendored4date6detail12save_ostreamIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %_872) #19
   br label %ehcleanup
 
-if.else899:                                       ; preds = %lor.lhs.false.thread2523, %lor.lhs.false.thread2229, %lor.lhs.false.thread, %lor.lhs.false
+if.else899:                                       ; preds = %lor.lhs.false.thread2525, %lor.lhs.false.thread2229, %lor.lhs.false.thread, %lor.lhs.false
   %vtable900 = load ptr, ptr %os, align 8
   %vbase.offset.ptr901 = getelementptr i8, ptr %vtable900, i64 -24
   %vbase.offset902 = load i64, ptr %vbase.offset.ptr901, align 8
@@ -43672,11 +43673,11 @@ if.then1107:                                      ; preds = %if.then1104
           to label %if.then1107.if.end1113_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then1107.if.end1113_crit_edge:                 ; preds = %if.then1107
-  %.pre2509 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2511 = load i8, ptr %fmt.addr.0, align 1
   br label %if.end1113
 
 if.end1113:                                       ; preds = %if.then1107.if.end1113_crit_edge, %if.then1104
-  %173 = phi i8 [ %.pre2509, %if.then1107.if.end1113_crit_edge ], [ 112, %if.then1104 ]
+  %173 = phi i8 [ %.pre2511, %if.then1107.if.end1113_crit_edge ], [ 112, %if.then1104 ]
   store i8 37, ptr %f1114, align 1
   store i8 %173, ptr %arrayinit.element1116, align 1
   %retval.sroa.0.0.copyload.i1329 = load i64, ptr %tod2053, align 8
@@ -43726,11 +43727,11 @@ if.then1160:                                      ; preds = %if.then1157
           to label %if.then1160.if.end1166_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then1160.if.end1166_crit_edge:                 ; preds = %if.then1160
-  %.pre2508 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2510 = load i8, ptr %fmt.addr.0, align 1
   br label %if.end1166
 
 if.end1166:                                       ; preds = %if.then1160.if.end1166_crit_edge, %if.then1157
-  %177 = phi i8 [ %.pre2508, %if.then1160.if.end1166_crit_edge ], [ %14, %if.then1157 ]
+  %177 = phi i8 [ %.pre2510, %if.then1160.if.end1166_crit_edge ], [ %14, %if.then1157 ]
   %cmp1172 = icmp eq i8 %177, 113
   br i1 %cmp1172, label %if.then1173, label %if.else1181
 
@@ -43784,11 +43785,11 @@ if.then1206:                                      ; preds = %if.then1203
           to label %if.then1206.if.end1212_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then1206.if.end1212_crit_edge:                 ; preds = %if.then1206
-  %.pre2507 = load i8, ptr %fmt.addr.0, align 1
+  %.pre2509 = load i8, ptr %fmt.addr.0, align 1
   br label %if.end1212
 
 if.end1212:                                       ; preds = %if.then1206.if.end1212_crit_edge, %if.then1203
-  %188 = phi i8 [ %.pre2507, %if.then1206.if.end1212_crit_edge ], [ 114, %if.then1203 ]
+  %188 = phi i8 [ %.pre2509, %if.then1206.if.end1212_crit_edge ], [ 114, %if.then1203 ]
   store i8 37, ptr %f1213, align 1
   store i8 %188, ptr %arrayinit.element1215, align 1
   %retval.sroa.0.0.copyload.i1356 = load i64, ptr %tod2053, align 8
@@ -44099,15 +44100,15 @@ if.then1526:                                      ; preds = %if.end.i1412, %if.e
           to label %if.then1526.if.end1532_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then1526.if.end1532_crit_edge:                 ; preds = %if.then1526
-  %.pre2502 = load i16, ptr %fds, align 8
-  %.pre2503 = load i8, ptr %m_.i1749, align 2
-  %.pre2504 = load i8, ptr %d_.i1753, align 1
+  %.pre2504 = load i16, ptr %fds, align 8
+  %.pre2505 = load i8, ptr %m_.i1749, align 2
+  %.pre2506 = load i8, ptr %d_.i1753, align 1
   br label %if.end1532
 
 if.end1532:                                       ; preds = %if.then1526.if.end1532_crit_edge, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1433
-  %206 = phi i8 [ %.pre2504, %if.then1526.if.end1532_crit_edge ], [ %203, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1433 ]
-  %207 = phi i8 [ %.pre2503, %if.then1526.if.end1532_crit_edge ], [ %201, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1433 ]
-  %208 = phi i16 [ %.pre2502, %if.then1526.if.end1532_crit_edge ], [ %200, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1433 ]
+  %206 = phi i8 [ %.pre2506, %if.then1526.if.end1532_crit_edge ], [ %203, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1433 ]
+  %207 = phi i8 [ %.pre2505, %if.then1526.if.end1532_crit_edge ], [ %201, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1433 ]
+  %208 = phi i16 [ %.pre2504, %if.then1526.if.end1532_crit_edge ], [ %200, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1433 ]
   %conv.i.i.i1434 = sext i16 %208 to i32
   %cmp.i.i.i.i1436 = icmp ult i8 %207, 3
   %conv.neg.i.i1437 = sext i1 %cmp.i.i.i.i1436 to i32
@@ -44308,15 +44309,15 @@ if.then1657:                                      ; preds = %if.end.i1544, %if.e
           to label %if.then1657.if.end1663_crit_edge unwind label %lpad.loopexit.split-lp.loopexit
 
 if.then1657.if.end1663_crit_edge:                 ; preds = %if.then1657
-  %.pre2499 = load i16, ptr %fds, align 8
-  %.pre2500 = load i8, ptr %m_.i1749, align 2
-  %.pre2501 = load i8, ptr %d_.i1753, align 1
+  %.pre2501 = load i16, ptr %fds, align 8
+  %.pre2502 = load i8, ptr %m_.i1749, align 2
+  %.pre2503 = load i8, ptr %d_.i1753, align 1
   br label %if.end1663
 
 if.end1663:                                       ; preds = %if.then1657.if.end1663_crit_edge, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1565
-  %221 = phi i8 [ %.pre2501, %if.then1657.if.end1663_crit_edge ], [ %218, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1565 ]
-  %222 = phi i8 [ %.pre2500, %if.then1657.if.end1663_crit_edge ], [ %216, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1565 ]
-  %223 = phi i16 [ %.pre2499, %if.then1657.if.end1663_crit_edge ], [ %215, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1565 ]
+  %221 = phi i8 [ %.pre2503, %if.then1657.if.end1663_crit_edge ], [ %218, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1565 ]
+  %222 = phi i8 [ %.pre2502, %if.then1657.if.end1663_crit_edge ], [ %216, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1565 ]
+  %223 = phi i16 [ %.pre2501, %if.then1657.if.end1663_crit_edge ], [ %215, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1565 ]
   %conv.i.i.i1566 = sext i16 %223 to i32
   %cmp.i.i.i.i1568 = icmp ult i8 %222, 3
   %conv.neg.i.i1569 = sext i1 %cmp.i.i.i.i1568 to i32
@@ -44647,13 +44648,13 @@ if.then1902:                                      ; preds = %if.end.i1752, %if.e
 
 if.then1902.if.end1908_crit_edge:                 ; preds = %if.then1902
   %.pre = load i16, ptr %fds, align 8
-  %.pre2497 = load i8, ptr %m_.i1749, align 2
-  %.pre2498 = load i8, ptr %d_.i1753, align 1
+  %.pre2499 = load i8, ptr %m_.i1749, align 2
+  %.pre2500 = load i8, ptr %d_.i1753, align 1
   br label %if.end1908
 
 if.end1908:                                       ; preds = %if.then1902.if.end1908_crit_edge, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1773
-  %247 = phi i8 [ %.pre2498, %if.then1902.if.end1908_crit_edge ], [ %244, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1773 ]
-  %248 = phi i8 [ %.pre2497, %if.then1902.if.end1908_crit_edge ], [ %242, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1773 ]
+  %247 = phi i8 [ %.pre2500, %if.then1902.if.end1908_crit_edge ], [ %244, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1773 ]
+  %248 = phi i8 [ %.pre2499, %if.then1902.if.end1908_crit_edge ], [ %242, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1773 ]
   %249 = phi i16 [ %.pre, %if.then1902.if.end1908_crit_edge ], [ %241, %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1773 ]
   %conv.i.i.i1774 = sext i16 %249 to i32
   %cmp.i.i.i.i1776 = icmp ult i8 %248, 3

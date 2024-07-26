@@ -55,7 +55,7 @@ define void @LAPACKE_dtr_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %40 = sext i32 %5 to i64
   %41 = zext nneg i32 %33 to i64
   %42 = sub nsw i64 %39, %37
-  br label %76
+  br label %74
 
 43:                                               ; preds = %28
   %44 = tail call i32 @llvm.smin.i32(i32 %3, i32 %7)
@@ -65,73 +65,74 @@ define void @LAPACKE_dtr_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
 46:                                               ; preds = %43
   %47 = sext i32 %7 to i64
   %48 = zext i1 %24 to i64
-  %49 = sext i1 %24 to i64
-  %50 = sext i32 %5 to i64
-  %51 = zext nneg i32 %44 to i64
-  br label %54
+  %49 = sext i32 %5 to i64
+  %50 = zext nneg i32 %44 to i64
+  %not. = xor i1 %24, true
+  %invariant.op = zext i1 %not. to i64
+  br label %53
 
-.loopexit:                                        ; preds = %68, %54
-  %52 = add nuw i32 %56, 1
-  %53 = icmp eq i64 %57, %51
-  br i1 %53, label %.loopexit7, label %54, !llvm.loop !3
+.loopexit:                                        ; preds = %66, %53
+  %51 = add nuw i32 %55, 1
+  %52 = icmp eq i64 %56, %50
+  br i1 %52, label %.loopexit7, label %53, !llvm.loop !3
 
-54:                                               ; preds = %.loopexit, %46
-  %55 = phi i64 [ %48, %46 ], [ %57, %.loopexit ]
-  %56 = phi i32 [ 1, %46 ], [ %52, %.loopexit ]
-  %57 = add nuw nsw i64 %55, 1
-  %58 = add i64 %57, %49
-  %59 = trunc i64 %58 to i32
-  %60 = tail call i32 @llvm.smin.i32(i32 %59, i32 %5)
-  %61 = icmp sgt i32 %60, 0
-  br i1 %61, label %62, label %.loopexit
+53:                                               ; preds = %.loopexit, %46
+  %54 = phi i64 [ %48, %46 ], [ %56, %.loopexit ]
+  %55 = phi i32 [ 1, %46 ], [ %51, %.loopexit ]
+  %56 = add nuw nsw i64 %54, 1
+  %.reass = add nuw i64 %54, %invariant.op
+  %57 = trunc i64 %.reass to i32
+  %58 = tail call i32 @llvm.smin.i32(i32 %57, i32 %5)
+  %59 = icmp sgt i32 %58, 0
+  br i1 %59, label %60, label %.loopexit
 
-62:                                               ; preds = %54
-  %63 = tail call i32 @llvm.smin.i32(i32 %5, i32 %56)
-  %64 = mul nsw i64 %55, %50
-  %65 = zext i32 %63 to i64
-  %66 = getelementptr double, ptr %4, i64 %64
-  %67 = getelementptr double, ptr %6, i64 %55
-  br label %68
+60:                                               ; preds = %53
+  %61 = tail call i32 @llvm.smin.i32(i32 %5, i32 %55)
+  %62 = mul nsw i64 %54, %49
+  %63 = zext i32 %61 to i64
+  %64 = getelementptr double, ptr %4, i64 %62
+  %65 = getelementptr double, ptr %6, i64 %54
+  br label %66
 
-68:                                               ; preds = %68, %62
-  %69 = phi i64 [ 0, %62 ], [ %74, %68 ]
-  %70 = getelementptr double, ptr %66, i64 %69
-  %71 = load double, ptr %70, align 8, !tbaa !6
-  %72 = mul nsw i64 %69, %47
-  %73 = getelementptr double, ptr %67, i64 %72
-  store double %71, ptr %73, align 8, !tbaa !6
-  %74 = add nuw nsw i64 %69, 1
-  %75 = icmp eq i64 %74, %65
-  br i1 %75, label %.loopexit, label %68, !llvm.loop !10
+66:                                               ; preds = %66, %60
+  %67 = phi i64 [ 0, %60 ], [ %72, %66 ]
+  %68 = getelementptr double, ptr %64, i64 %67
+  %69 = load double, ptr %68, align 8, !tbaa !6
+  %70 = mul nsw i64 %67, %47
+  %71 = getelementptr double, ptr %65, i64 %70
+  store double %69, ptr %71, align 8, !tbaa !6
+  %72 = add nuw nsw i64 %67, 1
+  %73 = icmp eq i64 %72, %63
+  br i1 %73, label %.loopexit, label %66, !llvm.loop !10
 
-76:                                               ; preds = %.loopexit8, %35
-  %77 = phi i64 [ 0, %35 ], [ %92, %.loopexit8 ]
-  %78 = phi i64 [ %37, %35 ], [ %93, %.loopexit8 ]
-  %79 = icmp slt i64 %77, %42
-  br i1 %79, label %80, label %.loopexit8
+74:                                               ; preds = %.loopexit8, %35
+  %75 = phi i64 [ 0, %35 ], [ %90, %.loopexit8 ]
+  %76 = phi i64 [ %37, %35 ], [ %91, %.loopexit8 ]
+  %77 = icmp slt i64 %75, %42
+  br i1 %77, label %78, label %.loopexit8
 
-80:                                               ; preds = %76
-  %81 = mul nsw i64 %77, %40
-  %82 = getelementptr double, ptr %4, i64 %81
-  %83 = getelementptr double, ptr %6, i64 %77
-  br label %84
+78:                                               ; preds = %74
+  %79 = mul nsw i64 %75, %40
+  %80 = getelementptr double, ptr %4, i64 %79
+  %81 = getelementptr double, ptr %6, i64 %75
+  br label %82
 
-84:                                               ; preds = %84, %80
-  %85 = phi i64 [ %78, %80 ], [ %90, %84 ]
-  %86 = getelementptr double, ptr %82, i64 %85
-  %87 = load double, ptr %86, align 8, !tbaa !6
-  %88 = mul nsw i64 %85, %38
-  %89 = getelementptr double, ptr %83, i64 %88
-  store double %87, ptr %89, align 8, !tbaa !6
-  %90 = add nuw nsw i64 %85, 1
-  %91 = icmp slt i64 %90, %39
-  br i1 %91, label %84, label %.loopexit8, !llvm.loop !11
+82:                                               ; preds = %82, %78
+  %83 = phi i64 [ %76, %78 ], [ %88, %82 ]
+  %84 = getelementptr double, ptr %80, i64 %83
+  %85 = load double, ptr %84, align 8, !tbaa !6
+  %86 = mul nsw i64 %83, %38
+  %87 = getelementptr double, ptr %81, i64 %86
+  store double %85, ptr %87, align 8, !tbaa !6
+  %88 = add nuw nsw i64 %83, 1
+  %89 = icmp slt i64 %88, %39
+  br i1 %89, label %82, label %.loopexit8, !llvm.loop !11
 
-.loopexit8:                                       ; preds = %84, %76
-  %92 = add nuw nsw i64 %77, 1
-  %93 = add nuw nsw i64 %78, 1
-  %94 = icmp eq i64 %92, %41
-  br i1 %94, label %.loopexit7, label %76, !llvm.loop !12
+.loopexit8:                                       ; preds = %82, %74
+  %90 = add nuw nsw i64 %75, 1
+  %91 = add nuw nsw i64 %76, 1
+  %92 = icmp eq i64 %90, %41
+  br i1 %92, label %.loopexit7, label %74, !llvm.loop !12
 
 .loopexit7:                                       ; preds = %.loopexit8, %.loopexit, %43, %31, %25, %20, %12, %8
   ret void

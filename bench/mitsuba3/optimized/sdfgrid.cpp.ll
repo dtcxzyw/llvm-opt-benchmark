@@ -2664,15 +2664,15 @@ define weak_odr void @_ZN7mitsuba7SDFGridIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
 .loopexit.loopexit:                               ; preds = %.lr.ph.i
   %.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert327 = getelementptr inbounds i8, ptr %9, i64 8
-  %.pre328 = load i64, ptr %.phi.trans.insert327, align 8
-  %.pre329 = load i64, ptr %9, align 8
-  %16 = add i64 %.pre329, -1
+  %.phi.trans.insert328 = getelementptr inbounds i8, ptr %9, i64 8
+  %.pre329 = load i64, ptr %.phi.trans.insert328, align 8
+  %.pre330 = load i64, ptr %9, align 8
+  %16 = add i64 %.pre330, -1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %2
   %17 = phi i64 [ %16, %.loopexit.loopexit ], [ undef, %2 ]
-  %18 = phi i64 [ %.pre328, %.loopexit.loopexit ], [ undef, %2 ]
+  %18 = phi i64 [ %.pre329, %.loopexit.loopexit ], [ undef, %2 ]
   %19 = phi i64 [ %.pre, %.loopexit.loopexit ], [ undef, %2 ]
   %20 = getelementptr inbounds i8, ptr %9, i64 16
   %21 = getelementptr inbounds i8, ptr %9, i64 8
@@ -2713,22 +2713,24 @@ define weak_odr void @_ZN7mitsuba7SDFGridIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
 .preheader290.lr.ph:                              ; preds = %.preheader291
   %41 = load i64, ptr %21, align 8
   %42 = add i64 %41, -1
-  %.not320 = icmp eq i64 %42, 0
-  br i1 %.not320, label %_ZN5drjit9dr_vectorImED2Ev.exit80, label %.preheader290.lr.ph.split.us
+  %.not321 = icmp eq i64 %42, 0
+  br i1 %.not321, label %_ZN5drjit9dr_vectorImED2Ev.exit80, label %.preheader290.lr.ph.split.us
 
 .preheader290.lr.ph.split.us:                     ; preds = %.preheader290.lr.ph
   %43 = load i64, ptr %20, align 8
   %44 = add i64 %43, -1
-  %.not321 = icmp eq i64 %44, 0
-  br i1 %.not321, label %_ZN5drjit9dr_vectorImED2Ev.exit80, label %.preheader290.us.us
+  %.not322 = icmp eq i64 %44, 0
+  br i1 %.not322, label %_ZN5drjit9dr_vectorImED2Ev.exit80, label %.preheader290.us.us
 
 .preheader290.us.us:                              ; preds = %.preheader290.lr.ph.split.us, %._crit_edge310.split.us.us.us
-  %storemerge313.us.us = phi i64 [ %46, %._crit_edge310.split.us.us.us ], [ 0, %.preheader290.lr.ph.split.us ]
-  %.0312.us.us = phi i64 [ %.3.us.us.us, %._crit_edge310.split.us.us.us ], [ 0, %.preheader290.lr.ph.split.us ]
-  %45 = mul i64 %storemerge313.us.us, %18
-  %46 = add nuw i64 %storemerge313.us.us, 1
+  %storemerge314.us.us = phi i64 [ %46, %._crit_edge310.split.us.us.us ], [ 0, %.preheader290.lr.ph.split.us ]
+  %.0313.us.us = phi i64 [ %.3.us.us.us, %._crit_edge310.split.us.us.us ], [ 0, %.preheader290.lr.ph.split.us ]
+  %45 = mul i64 %storemerge314.us.us, %18
+  %invariant.op.us.us = add i64 %45, 1
+  %46 = add nuw i64 %storemerge314.us.us, 1
   %47 = mul i64 %46, %18
-  %48 = uitofp i64 %storemerge313.us.us to float
+  %invariant.op312.us.us = add i64 %47, 1
+  %48 = uitofp i64 %storemerge314.us.us to float
   %49 = fmul contract float %23, %48
   %50 = insertelement <4 x float> poison, float %49, i64 0
   %51 = shufflevector <4 x float> %50, <4 x float> poison, <4 x i32> zeroinitializer
@@ -2736,21 +2738,21 @@ define weak_odr void @_ZN7mitsuba7SDFGridIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %53 = fmul contract float %23, %52
   %54 = insertelement <4 x float> poison, float %53, i64 0
   %55 = shufflevector <4 x float> %54, <4 x float> poison, <4 x i32> zeroinitializer
-  %56 = mul i64 %storemerge313.us.us, %28
+  %56 = mul i64 %storemerge314.us.us, %28
   br label %.preheader.us.us.us
 
 .preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us, %.preheader290.us.us
   %storemerge57309.us.us.us = phi i64 [ 0, %.preheader290.us.us ], [ %57, %._crit_edge.us.us.us ]
-  %.1308.us.us.us = phi i64 [ %.0312.us.us, %.preheader290.us.us ], [ %.3.us.us.us, %._crit_edge.us.us.us ]
+  %.1308.us.us.us = phi i64 [ %.0313.us.us, %.preheader290.us.us ], [ %.3.us.us.us, %._crit_edge.us.us.us ]
   %reass.add.i.us.us.us = add i64 %storemerge57309.us.us.us, %45
   %reass.mul.i.us.us.us = mul i64 %reass.add.i.us.us.us, %19
   %57 = add nuw i64 %storemerge57309.us.us.us, 1
-  %reass.add.i61.us.us.us = add i64 %57, %45
-  %reass.mul.i62.us.us.us = mul i64 %reass.add.i61.us.us.us, %19
+  %reass.add.i61.reass.us.us.us = add i64 %storemerge57309.us.us.us, %invariant.op.us.us
+  %reass.mul.i62.us.us.us = mul i64 %reass.add.i61.reass.us.us.us, %19
   %reass.add.i65.us.us.us = add i64 %storemerge57309.us.us.us, %47
   %reass.mul.i66.us.us.us = mul i64 %reass.add.i65.us.us.us, %19
-  %reass.add.i69.us.us.us = add i64 %57, %47
-  %reass.mul.i70.us.us.us = mul i64 %reass.add.i69.us.us.us, %19
+  %reass.add.i69.reass.us.us.us = add i64 %storemerge57309.us.us.us, %invariant.op312.us.us
+  %reass.mul.i70.us.us.us = mul i64 %reass.add.i69.reass.us.us.us, %19
   %invariant.gep.us.us.us = getelementptr float, ptr %33, i64 %reass.mul.i.us.us.us
   %invariant.gep296.us.us.us = getelementptr float, ptr %33, i64 %reass.mul.i62.us.us.us
   %invariant.gep300.us.us.us = getelementptr float, ptr %33, i64 %reass.mul.i66.us.us.us
@@ -2765,17 +2767,17 @@ define weak_odr void @_ZN7mitsuba7SDFGridIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %65 = shufflevector <4 x float> %64, <4 x float> poison, <4 x i32> zeroinitializer
   %reass.add.us.us.us = add i64 %storemerge57309.us.us.us, %56
   %reass.mul.us.us.us = mul i64 %reass.add.us.us.us, %29
-  %.pre330 = load float, ptr %invariant.gep.us.us.us, align 4
-  %.pre331 = load float, ptr %invariant.gep296.us.us.us, align 4
-  %.pre332 = load float, ptr %invariant.gep300.us.us.us, align 4
-  %.pre333 = load float, ptr %invariant.gep304.us.us.us, align 4
+  %.pre331 = load float, ptr %invariant.gep.us.us.us, align 4
+  %.pre332 = load float, ptr %invariant.gep296.us.us.us, align 4
+  %.pre333 = load float, ptr %invariant.gep300.us.us.us, align 4
+  %.pre334 = load float, ptr %invariant.gep304.us.us.us, align 4
   br label %66
 
 66:                                               ; preds = %127, %.preheader.us.us.us
-  %67 = phi float [ %.pre333, %.preheader.us.us.us ], [ %75, %127 ]
-  %68 = phi float [ %.pre332, %.preheader.us.us.us ], [ %74, %127 ]
-  %69 = phi float [ %.pre331, %.preheader.us.us.us ], [ %73, %127 ]
-  %70 = phi float [ %.pre330, %.preheader.us.us.us ], [ %72, %127 ]
+  %67 = phi float [ %.pre334, %.preheader.us.us.us ], [ %75, %127 ]
+  %68 = phi float [ %.pre333, %.preheader.us.us.us ], [ %74, %127 ]
+  %69 = phi float [ %.pre332, %.preheader.us.us.us ], [ %73, %127 ]
+  %70 = phi float [ %.pre331, %.preheader.us.us.us ], [ %72, %127 ]
   %storemerge58293.us.us.us = phi i64 [ 0, %.preheader.us.us.us ], [ %71, %127 ]
   %.2292.us.us.us = phi i64 [ %.1308.us.us.us, %.preheader.us.us.us ], [ %.3.us.us.us, %127 ]
   %71 = add nuw i64 %storemerge58293.us.us.us, 1
@@ -2855,16 +2857,16 @@ define weak_odr void @_ZN7mitsuba7SDFGridIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
 
 127:                                              ; preds = %84, %66
   %.3.us.us.us = phi i64 [ %.2292.us.us.us, %66 ], [ %126, %84 ]
-  %exitcond324.not = icmp eq i64 %71, %44
-  br i1 %exitcond324.not, label %._crit_edge.us.us.us, label %66, !llvm.loop !62
+  %exitcond325.not = icmp eq i64 %71, %44
+  br i1 %exitcond325.not, label %._crit_edge.us.us.us, label %66, !llvm.loop !62
 
 ._crit_edge.us.us.us:                             ; preds = %127
-  %exitcond325.not = icmp eq i64 %57, %42
-  br i1 %exitcond325.not, label %._crit_edge310.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !63
+  %exitcond326.not = icmp eq i64 %57, %42
+  br i1 %exitcond326.not, label %._crit_edge310.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !63
 
 ._crit_edge310.split.us.us.us:                    ; preds = %._crit_edge.us.us.us
-  %exitcond326.not = icmp eq i64 %46, %40
-  br i1 %exitcond326.not, label %_ZN5drjit9dr_vectorImED2Ev.exit80, label %.preheader290.us.us, !llvm.loop !64
+  %exitcond327.not = icmp eq i64 %46, %40
+  br i1 %exitcond327.not, label %_ZN5drjit9dr_vectorImED2Ev.exit80, label %.preheader290.us.us, !llvm.loop !64
 
 _ZN5drjit9dr_vectorImED2Ev.exit:                  ; preds = %36, %.loopexit
   %128 = landingpad { ptr, i32 }
@@ -21366,19 +21368,19 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit: ; preds =
 
 .preheader70.i:                                   ; preds = %121, %102
   %108 = phi i1 [ true, %102 ], [ false, %121 ]
-  %indvars.iv79.i = phi i64 [ 0, %102 ], [ 1, %121 ]
-  %109 = shl nuw nsw i64 %indvars.iv79.i, 2
+  %indvars.iv81.i = phi i64 [ 0, %102 ], [ 1, %121 ]
+  %109 = shl nuw nsw i64 %indvars.iv81.i, 2
   %invariant.gep.i = getelementptr inbounds i32, ptr %106, i64 %109
-  %invariant.gep87.i = getelementptr inbounds i32, ptr %107, i64 %indvars.iv79.i
+  %invariant.gep89.i = getelementptr inbounds i32, ptr %107, i64 %indvars.iv81.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %120, %.preheader70.i
   %110 = phi i1 [ true, %.preheader70.i ], [ false, %120 ]
-  %indvars.iv76.i = phi i64 [ 0, %.preheader70.i ], [ 1, %120 ]
-  %111 = shl nuw nsw i64 %indvars.iv76.i, 1
+  %indvars.iv78.i = phi i64 [ 0, %.preheader70.i ], [ 1, %120 ]
+  %111 = shl nuw nsw i64 %indvars.iv78.i, 1
   %112 = or disjoint i64 %111, %109
-  %invariant.gep82.i = getelementptr inbounds i32, ptr %invariant.gep.i, i64 %indvars.iv76.i
-  %gep.i = getelementptr inbounds i32, ptr %invariant.gep87.i, i64 %111
+  %invariant.gep84.i = getelementptr inbounds i32, ptr %invariant.gep.i, i64 %indvars.iv78.i
+  %gep.i = getelementptr inbounds i32, ptr %invariant.gep89.i, i64 %111
   br label %113
 
 113:                                              ; preds = %113, %.preheader.i
@@ -21391,12 +21393,12 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit: ; preds =
   store i32 %115, ptr %117, align 4, !alias.scope !868
   %118 = add nsw i32 %indvars.iv.i.sroa.phi.sroa.speculated, %.sroa.0391.4.vec.extract
   %.idx.i = shl nuw nsw i64 %indvars.iv.i, 3
-  %gep83.i = getelementptr inbounds i8, ptr %invariant.gep82.i, i64 %.idx.i
-  store i32 %118, ptr %gep83.i, align 4, !alias.scope !868
+  %gep85.i = getelementptr inbounds i8, ptr %invariant.gep84.i, i64 %.idx.i
+  store i32 %118, ptr %gep85.i, align 4, !alias.scope !868
   %119 = add nsw i32 %indvars.iv.i.sroa.phi.sroa.speculated, %.sroa.0391.8.vec.extract
-  %.idx74.i = shl nuw nsw i64 %indvars.iv.i, 4
-  %gep86.i = getelementptr inbounds i8, ptr %gep.i, i64 %.idx74.i
-  store i32 %119, ptr %gep86.i, align 4, !alias.scope !868
+  %.idx76.i = shl nuw nsw i64 %indvars.iv.i, 4
+  %gep88.i = getelementptr inbounds i8, ptr %gep.i, i64 %.idx76.i
+  store i32 %119, ptr %gep88.i, align 4, !alias.scope !868
   br i1 %114, label %113, label %120, !llvm.loop !871
 
 120:                                              ; preds = %113

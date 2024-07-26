@@ -238,8 +238,8 @@ for.cond19.preheader.lr.ph:                       ; preds = %if.end
   %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %conv178 = sext i16 %nmax.sroa.2.0.extract.trunc to i32
   %conv180 = sext i16 %nmin.sroa.6.0.extract.trunc to i32
-  %reass.sub17 = sub nsw i32 %conv178, %conv180
-  %add182 = add nsw i32 %reass.sub17, 1
+  %reass.sub18 = sub nsw i32 %conv178, %conv180
+  %add182 = add nsw i32 %reass.sub18, 1
   %div183 = sdiv i32 %add182, 2
   %1 = and i32 %div183, 65535
   %conv185 = zext nneg i32 %1 to i64
@@ -478,12 +478,11 @@ if.end213.us:                                     ; preds = %for.body203.us
   %25 = load ptr, ptr %vm, align 8, !tbaa !68
   %pos.sroa.6.0.insert.ext614.us = zext i16 %22 to i48
   %pos.sroa.6.0.insert.shift615.us = shl nuw nsw i48 %pos.sroa.6.0.insert.ext614.us, 16
-  %pos.sroa.6.0.insert.insert617.us = or disjoint i48 %pos.sroa.6.0.insert.shift615.us, %pos.sroa.7.0.insert.shift619.us
-  %pos.sroa.0.0.insert.insert613.us = or disjoint i48 %pos.sroa.6.0.insert.insert617.us, %pos.sroa.0.0.insert.ext611.us
+  %pos.sroa.0.0.insert.insert613.us.reass = or disjoint i48 %pos.sroa.6.0.insert.shift615.us, %invariant.op
   %vtable.us = load ptr, ptr %this, align 8, !tbaa !4
   %vfn.us = getelementptr inbounds i8, ptr %vtable.us, i64 32
   %26 = load ptr, ptr %vfn.us, align 8
-  %call218.us = invoke noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %25, ptr noundef nonnull %ps, i48 %pos.sroa.0.0.insert.insert613.us, i1 noundef zeroext false)
+  %call218.us = invoke noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %25, ptr noundef nonnull %ps, i48 %pos.sroa.0.0.insert.insert613.us.reass, i1 noundef zeroext false)
           to label %invoke.cont217.us unwind label %lpad214.split.us
 
 invoke.cont217.us:                                ; preds = %if.end213.us
@@ -492,7 +491,7 @@ invoke.cont217.us:                                ; preds = %if.end213.us
 
 if.then220.us:                                    ; preds = %invoke.cont217.us
   %27 = load i32, ptr %index, align 8, !tbaa !69
-  %call223.us = invoke noundef zeroext i1 @_ZN16GenerateNotifier18addDecorationEventEN3irr4core8vector3dIsEEj(ptr noundef nonnull align 8 dereferenceable(104) %gennotify, i48 %pos.sroa.0.0.insert.insert613.us, i32 noundef %27)
+  %call223.us = invoke noundef zeroext i1 @_ZN16GenerateNotifier18addDecorationEventEN3irr4core8vector3dIsEEj(ptr noundef nonnull align 8 dereferenceable(104) %gennotify, i48 %pos.sroa.0.0.insert.insert613.us.reass, i32 noundef %27)
           to label %cleanup225.us unwind label %lpad214.split.us
 
 cleanup225.us:                                    ; preds = %if.then220.us, %invoke.cont217.us, %for.body203.us
@@ -530,12 +529,11 @@ if.end260.us:                                     ; preds = %for.body247.us
   %33 = load ptr, ptr %vm, align 8, !tbaa !68
   %pos261.sroa.6.0.insert.ext601.us = zext i16 %30 to i48
   %pos261.sroa.6.0.insert.shift602.us = shl nuw nsw i48 %pos261.sroa.6.0.insert.ext601.us, 16
-  %pos261.sroa.6.0.insert.insert604.us = or disjoint i48 %pos261.sroa.6.0.insert.shift602.us, %pos261.sroa.7.0.insert.shift606.us
-  %pos261.sroa.0.0.insert.insert600.us = or disjoint i48 %pos261.sroa.6.0.insert.insert604.us, %pos261.sroa.0.0.insert.ext598.us
+  %pos261.sroa.0.0.insert.insert600.us.reass = or disjoint i48 %pos261.sroa.6.0.insert.shift602.us, %invariant.op17
   %vtable266.us = load ptr, ptr %this, align 8, !tbaa !4
   %vfn267.us = getelementptr inbounds i8, ptr %vtable266.us, i64 32
   %34 = load ptr, ptr %vfn267.us, align 8
-  %call269.us = invoke noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %33, ptr noundef nonnull %ps, i48 %pos261.sroa.0.0.insert.insert600.us, i1 noundef zeroext true)
+  %call269.us = invoke noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %33, ptr noundef nonnull %ps, i48 %pos261.sroa.0.0.insert.insert600.us.reass, i1 noundef zeroext true)
           to label %invoke.cont268.us unwind label %lpad262.split.us
 
 invoke.cont268.us:                                ; preds = %if.end260.us
@@ -544,7 +542,7 @@ invoke.cont268.us:                                ; preds = %if.end260.us
 
 if.then271.us:                                    ; preds = %invoke.cont268.us
   %35 = load i32, ptr %index, align 8, !tbaa !69
-  %call276.us = invoke noundef zeroext i1 @_ZN16GenerateNotifier18addDecorationEventEN3irr4core8vector3dIsEEj(ptr noundef nonnull align 8 dereferenceable(104) %gennotify, i48 %pos261.sroa.0.0.insert.insert600.us, i32 noundef %35)
+  %call276.us = invoke noundef zeroext i1 @_ZN16GenerateNotifier18addDecorationEventEN3irr4core8vector3dIsEEj(ptr noundef nonnull align 8 dereferenceable(104) %gennotify, i48 %pos261.sroa.0.0.insert.insert600.us.reass, i32 noundef %35)
           to label %cleanup278.us unwind label %lpad262.split.us
 
 cleanup278.us:                                    ; preds = %if.then271.us, %invoke.cont268.us, %for.body247.us
@@ -700,12 +698,14 @@ for.body203.lr.ph.us:                             ; preds = %if.then195.us
   %pos.sroa.7.0.insert.ext618.us = zext i16 %z.1.us to i48
   %pos.sroa.7.0.insert.shift619.us = shl nuw i48 %pos.sroa.7.0.insert.ext618.us, 32
   %pos.sroa.0.0.insert.ext611.us = zext i16 %x.1.us to i48
+  %invariant.op = or disjoint i48 %pos.sroa.7.0.insert.shift619.us, %pos.sroa.0.0.insert.ext611.us
   br label %for.body203.us
 
 for.body247.lr.ph.us:                             ; preds = %if.then236.us
   %pos261.sroa.7.0.insert.ext605.us = zext i16 %z.1.us to i48
   %pos261.sroa.7.0.insert.shift606.us = shl nuw i48 %pos261.sroa.7.0.insert.ext605.us, 32
   %pos261.sroa.0.0.insert.ext598.us = zext i16 %x.1.us to i48
+  %invariant.op17 = or disjoint i48 %pos261.sroa.7.0.insert.shift606.us, %pos261.sroa.0.0.insert.ext598.us
   br label %for.body247.us
 
 for.body119.lr.ph.us:                             ; preds = %if.end110.us, %if.then101.us

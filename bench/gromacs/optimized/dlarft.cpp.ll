@@ -154,6 +154,7 @@ define void @dlarft_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 79:                                               ; preds = %25
   %80 = load i32, ptr %3, align 4
   %invariant.gep222 = getelementptr i8, ptr %18, i64 8
+  %invariant.op = add i32 %16, 1
   %81 = icmp sgt i32 %80, 0
   br i1 %81, label %.lr.ph229, label %.loopexit206
 
@@ -168,7 +169,6 @@ define void @dlarft_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %wide.trip.count = zext nneg i32 %80 to i64
   %88 = add i32 %16, 1
   %invariant.gep259 = getelementptr double, ptr %18, i64 %86
-  %invariant.gep261 = getelementptr double, ptr %18, i64 %86
   br label %89
 
 89:                                               ; preds = %.lr.ph229, %.loopexit
@@ -206,7 +206,7 @@ define void @dlarft_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 107:                                              ; preds = %89
   %108 = sext i32 %100 to i64
   %109 = icmp slt i64 %indvars.iv241, %108
-  br i1 %109, label %110, label %175
+  br i1 %109, label %110, label %177
 
 110:                                              ; preds = %107
   %111 = load i8, ptr %1, align 1
@@ -250,7 +250,7 @@ define void @dlarft_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %137 = sext i32 %136 to i64
   %138 = getelementptr inbounds double, ptr %18, i64 %137
   store double %120, ptr %138, align 8
-  br label %167
+  br label %169
 
 139:                                              ; preds = %110
   %140 = load i32, ptr %2, align 4
@@ -273,47 +273,49 @@ define void @dlarft_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %154 = fneg double %153
   store double %154, ptr %13, align 8
   %155 = add nuw nsw i64 %indvars.iv241, 1
-  %gep260 = getelementptr double, ptr %invariant.gep259, i64 %155
-  %gep262 = getelementptr double, ptr %invariant.gep261, i64 %indvars.iv241
-  %156 = mul nsw i64 %indvars.iv241, %87
-  %157 = add nsw i64 %155, %156
-  %158 = getelementptr inbounds double, ptr %22, i64 %157
-  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef %gep260, ptr noundef nonnull %5, ptr noundef %gep262, ptr noundef nonnull %5, ptr noundef nonnull %15, ptr noundef %158, ptr noundef nonnull %14)
-  %159 = load i32, ptr %2, align 4
-  %160 = load i32, ptr %3, align 4
-  %161 = add i32 %159, %indvars250
-  %162 = sub i32 %161, %160
-  %163 = mul nsw i32 %162, %16
-  %164 = sext i32 %163 to i64
-  %165 = getelementptr double, ptr %18, i64 %indvars.iv241
-  %166 = getelementptr double, ptr %165, i64 %164
-  store double %147, ptr %166, align 8
-  br label %167
+  %.reass = add i32 %invariant.op, %indvars250
+  %156 = sext i32 %.reass to i64
+  %157 = getelementptr inbounds double, ptr %18, i64 %156
+  %gep260 = getelementptr double, ptr %invariant.gep259, i64 %indvars.iv241
+  %158 = mul nsw i64 %indvars.iv241, %87
+  %159 = add nsw i64 %155, %158
+  %160 = getelementptr inbounds double, ptr %22, i64 %159
+  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef %157, ptr noundef nonnull %5, ptr noundef %gep260, ptr noundef nonnull %5, ptr noundef nonnull %15, ptr noundef %160, ptr noundef nonnull %14)
+  %161 = load i32, ptr %2, align 4
+  %162 = load i32, ptr %3, align 4
+  %163 = add i32 %161, %indvars250
+  %164 = sub i32 %163, %162
+  %165 = mul nsw i32 %164, %16
+  %166 = sext i32 %165 to i64
+  %167 = getelementptr double, ptr %18, i64 %indvars.iv241
+  %168 = getelementptr double, ptr %167, i64 %166
+  store double %147, ptr %168, align 8
+  br label %169
 
-167:                                              ; preds = %139, %112
-  %.pre-phi252 = phi i64 [ %157, %139 ], [ %131, %112 ]
+169:                                              ; preds = %139, %112
+  %.pre-phi252 = phi i64 [ %159, %139 ], [ %131, %112 ]
   %.pre-phi = phi i64 [ %155, %139 ], [ %128, %112 ]
-  %168 = load i32, ptr %3, align 4
-  %169 = sub nsw i32 %168, %indvars250
-  store i32 %169, ptr %10, align 4
-  %170 = trunc nsw i64 %.pre-phi to i32
-  %171 = mul i32 %82, %170
-  %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds double, ptr %22, i64 %172
-  %174 = getelementptr inbounds double, ptr %22, i64 %.pre-phi252
-  call void @dtrmv_(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, ptr noundef nonnull %10, ptr noundef %173, ptr noundef nonnull %8, ptr noundef %174, ptr noundef nonnull %14)
+  %170 = load i32, ptr %3, align 4
+  %171 = sub nsw i32 %170, %indvars250
+  store i32 %171, ptr %10, align 4
+  %172 = trunc nsw i64 %.pre-phi to i32
+  %173 = mul i32 %82, %172
+  %174 = sext i32 %173 to i64
+  %175 = getelementptr inbounds double, ptr %22, i64 %174
+  %176 = getelementptr inbounds double, ptr %22, i64 %.pre-phi252
+  call void @dtrmv_(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, ptr noundef nonnull %10, ptr noundef %175, ptr noundef nonnull %8, ptr noundef %176, ptr noundef nonnull %14)
   %.pre = load double, ptr %96, align 8
-  br label %175
+  br label %177
 
-175:                                              ; preds = %167, %107
-  %176 = phi double [ %.pre, %167 ], [ %97, %107 ]
-  %177 = mul i32 %82, %indvars250
-  %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds double, ptr %22, i64 %178
-  store double %176, ptr %179, align 8
+177:                                              ; preds = %169, %107
+  %178 = phi double [ %.pre, %169 ], [ %97, %107 ]
+  %179 = mul i32 %82, %indvars250
+  %180 = sext i32 %179 to i64
+  %181 = getelementptr inbounds double, ptr %22, i64 %180
+  store double %178, ptr %181, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph221, %101, %175
+.loopexit:                                        ; preds = %.lr.ph221, %101, %177
   %indvars.iv.next242 = add nsw i64 %indvars.iv241, -1
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next247, %wide.trip.count

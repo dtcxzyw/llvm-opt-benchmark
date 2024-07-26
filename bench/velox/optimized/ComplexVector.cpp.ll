@@ -10984,6 +10984,7 @@ if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %rawSizes_, align 8
   %arrayidx3 = getelementptr inbounds i32, ptr %3, i64 %idxprom
   %4 = load i32, ptr %arrayidx3, align 4
+  %invariant.op = add i32 %2, -1
   %cmp7 = icmp sgt i32 %4, 1
   br i1 %cmp7, label %for.body.lr.ph, label %return
 
@@ -10995,11 +10996,11 @@ for.body:                                         ; preds = %_ZNK8facebook5velox
   %i.08 = phi i32 [ 1, %for.body.lr.ph ], [ %inc, %_ZNK8facebook5velox10BaseVector7compareEPKS1_ii.exit ]
   %5 = load ptr, ptr %keys_, align 8
   %add = add nsw i32 %i.08, %2
-  %sub = add nsw i32 %add, -1
+  %sub.reass = add i32 %i.08, %invariant.op
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 80
   %6 = load ptr, ptr %vfn.i, align 8
-  %call.i = tail call i64 %6(ptr noundef nonnull align 8 dereferenceable(99) %5, ptr noundef nonnull %5, i32 noundef %sub, i32 noundef %add, i64 257)
+  %call.i = tail call i64 %6(ptr noundef nonnull align 8 dereferenceable(99) %5, ptr noundef nonnull %5, i32 noundef %sub.reass, i32 noundef %add, i64 257)
   %7 = and i64 %call.i, 4294967296
   %tobool.i.i.not.i = icmp eq i64 %7, 0
   br i1 %tobool.i.i.not.i, label %if.end.i.i, label %_ZNK8facebook5velox10BaseVector7compareEPKS1_ii.exit
@@ -11114,6 +11115,7 @@ if.end.i:                                         ; preds = %call.i.noexc
   %11 = load ptr, ptr %rawSizes_.i, align 8
   %arrayidx3.i = getelementptr inbounds i32, ptr %11, i64 %indvars.iv
   %12 = load i32, ptr %arrayidx3.i, align 4
+  %invariant.op.i = add i32 %10, -1
   %cmp7.i = icmp sgt i32 %12, 1
   br i1 %cmp7.i, label %for.body.lr.ph.i, label %for.inc
 
@@ -11130,11 +11132,11 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %i.08.i = phi i32 [ 1, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
   %13 = load ptr, ptr %keys_.i, align 8
   %add.i = add nsw i32 %i.08.i, %10
-  %sub.i = add nsw i32 %add.i, -1
+  %sub.reass.i = add i32 %invariant.op.i, %i.08.i
   %vtable.i.i = load ptr, ptr %13, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 80
   %14 = load ptr, ptr %vfn.i.i, align 8
-  %call.i.i27 = invoke i64 %14(ptr noundef nonnull align 8 dereferenceable(99) %13, ptr noundef nonnull %13, i32 noundef %sub.i, i32 noundef %add.i, i64 257)
+  %call.i.i27 = invoke i64 %14(ptr noundef nonnull align 8 dereferenceable(99) %13, ptr noundef nonnull %13, i32 noundef %sub.reass.i, i32 noundef %add.i, i64 257)
           to label %call.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.noexc:                                   ; preds = %for.body.i

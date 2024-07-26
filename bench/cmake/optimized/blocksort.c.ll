@@ -1370,6 +1370,9 @@ define internal fastcc void @fallbackSort(ptr nocapture noundef %0, ptr nocaptur
   %34 = icmp sgt i32 %3, -64
   br i1 %34, label %.lr.ph254.preheader, label %.preheader194.preheader
 
+.preheader194.preheader:                          ; preds = %.lr.ph254.preheader, %._crit_edge
+  br label %.preheader194
+
 .lr.ph254.preheader:                              ; preds = %._crit_edge
   %35 = sdiv i32 %3, 32
   %smax = add nsw i32 %35, 1
@@ -1379,8 +1382,9 @@ define internal fastcc void @fallbackSort(ptr nocapture noundef %0, ptr nocaptur
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %2, i8 0, i64 %38, i1 false)
   br label %.preheader194.preheader
 
-.preheader194.preheader:                          ; preds = %.lr.ph254.preheader, %._crit_edge
-  br label %.preheader194
+.preheader193:                                    ; preds = %.preheader194
+  %invariant.op = add i32 %3, 1
+  br label %48
 
 .preheader194:                                    ; preds = %.preheader194.preheader, %.preheader194
   %indvars.iv330 = phi i64 [ %indvars.iv.next331, %.preheader194 ], [ 0, %.preheader194.preheader ]
@@ -1398,28 +1402,28 @@ define internal fastcc void @fallbackSort(ptr nocapture noundef %0, ptr nocaptur
   %exitcond333.not = icmp eq i64 %indvars.iv.next331, 256
   br i1 %exitcond333.not, label %.preheader193, label %.preheader194, !llvm.loop !35
 
-.preheader192:                                    ; preds = %.preheader193
+.preheader192:                                    ; preds = %48
   %invariant.gep.i.i = getelementptr i8, ptr %0, i64 -4
   %wide.trip.count338 = zext nneg i32 %3 to i64
   br label %.backedge
 
-.preheader193:                                    ; preds = %.preheader194, %.preheader193
-  %.7256 = phi i32 [ %66, %.preheader193 ], [ 0, %.preheader194 ]
-  %48 = shl nuw nsw i32 %.7256, 1
-  %49 = add nsw i32 %48, %3
-  %50 = and i32 %49, 31
-  %51 = shl nuw i32 1, %50
-  %52 = ashr i32 %49, 5
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i32, ptr %2, i64 %53
-  %55 = load i32, ptr %54, align 4
-  %56 = or i32 %55, %51
-  store i32 %56, ptr %54, align 4
-  %57 = add nsw i32 %49, 1
-  %58 = and i32 %57, 31
+48:                                               ; preds = %.preheader193, %48
+  %.7256 = phi i32 [ 0, %.preheader193 ], [ %66, %48 ]
+  %49 = shl nuw nsw i32 %.7256, 1
+  %50 = add nsw i32 %49, %3
+  %51 = and i32 %50, 31
+  %52 = shl nuw i32 1, %51
+  %53 = ashr i32 %50, 5
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds i32, ptr %2, i64 %54
+  %56 = load i32, ptr %55, align 4
+  %57 = or i32 %56, %52
+  store i32 %57, ptr %55, align 4
+  %.reass = add i32 %49, %invariant.op
+  %58 = and i32 %.reass, 31
   %59 = shl nuw i32 1, %58
   %60 = xor i32 %59, -1
-  %61 = ashr i32 %57, 5
+  %61 = ashr i32 %.reass, 5
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds i32, ptr %2, i64 %62
   %64 = load i32, ptr %63, align 4
@@ -1427,7 +1431,7 @@ define internal fastcc void @fallbackSort(ptr nocapture noundef %0, ptr nocaptur
   store i32 %65, ptr %63, align 4
   %66 = add nuw nsw i32 %.7256, 1
   %exitcond334.not = icmp eq i32 %66, 32
-  br i1 %exitcond334.not, label %.preheader192, label %.preheader193, !llvm.loop !36
+  br i1 %exitcond334.not, label %.preheader192, label %48, !llvm.loop !36
 
 .backedge:                                        ; preds = %.backedge.backedge, %.preheader192
   %.0 = phi i32 [ 1, %.preheader192 ], [ %.0.be, %.backedge.backedge ]

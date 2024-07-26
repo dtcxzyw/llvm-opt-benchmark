@@ -3993,13 +3993,15 @@ define internal fastcc i64 @record_print_text(ptr nocapture noundef readonly %0,
 42:                                               ; preds = %27, %29
   %43 = phi i64 [ %39, %29 ], [ %28, %27 ]
   %44 = add nsw i64 %11, -1
+  %invariant.op = add nsw i64 %43, 2
+  %invariant.op9 = add nsw i64 %43, 1
   br label %45
 
-45:                                               ; preds = %82, %42
-  %46 = phi i64 [ %14, %42 ], [ %85, %82 ]
-  %47 = phi ptr [ %13, %42 ], [ %83, %82 ]
-  %48 = phi i8 [ 0, %42 ], [ %74, %82 ]
-  %49 = phi i64 [ 0, %42 ], [ %78, %82 ]
+45:                                               ; preds = %80, %42
+  %46 = phi i64 [ %14, %42 ], [ %83, %80 ]
+  %47 = phi ptr [ %13, %42 ], [ %81, %80 ]
+  %48 = phi i8 [ 0, %42 ], [ %73, %80 ]
+  %49 = phi i64 [ 0, %42 ], [ %75, %80 ]
   %50 = tail call ptr @memchr(ptr noundef %47, i32 noundef 10, i64 noundef %46) #26
   %51 = icmp eq ptr %50, null
   br i1 %51, label %56, label %52
@@ -4021,56 +4023,56 @@ define internal fastcc i64 @record_print_text(ptr nocapture noundef readonly %0,
   %62 = add i64 %46, 2
   %63 = add i64 %62, %61
   %64 = icmp ugt i64 %63, %11
-  br i1 %64, label %65, label %72
+  br i1 %64, label %65, label %71
 
 65:                                               ; preds = %59
-  %66 = add i64 %61, 2
-  %67 = add i64 %66, %60
-  %68 = icmp ugt i64 %67, %11
-  br i1 %68, label %.loopexit, label %69
+  %.reass = add i64 %49, %invariant.op
+  %66 = add i64 %.reass, %60
+  %67 = icmp ugt i64 %66, %11
+  br i1 %67, label %.loopexit, label %68
 
-69:                                               ; preds = %65
-  %70 = xor i64 %61, -1
-  %71 = add i64 %44, %70
-  br label %72
+68:                                               ; preds = %65
+  %69 = xor i64 %61, -1
+  %70 = add i64 %44, %69
+  br label %71
 
-72:                                               ; preds = %69, %59
-  %73 = phi i64 [ %71, %69 ], [ %46, %59 ]
-  %74 = phi i8 [ 1, %69 ], [ %48, %59 ]
-  %75 = getelementptr i8, ptr %47, i64 %43
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %75, ptr align 1 %47, i64 %73, i1 false)
+71:                                               ; preds = %68, %59
+  %72 = phi i64 [ %70, %68 ], [ %46, %59 ]
+  %73 = phi i8 [ 1, %68 ], [ %48, %59 ]
+  %74 = getelementptr i8, ptr %47, i64 %43
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %74, ptr align 1 %47, i64 %72, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr nonnull align 16 %4, i64 %43, i1 false)
-  %76 = add i64 %60, %43
-  %77 = add i64 %76, 1
-  %78 = add i64 %77, %49
-  %79 = icmp eq i64 %73, %60
-  br i1 %79, label %80, label %82
+  %.reass10 = add i64 %60, %invariant.op9
+  %75 = add i64 %.reass10, %49
+  %76 = icmp eq i64 %72, %60
+  br i1 %76, label %77, label %80
 
-80:                                               ; preds = %72
-  %81 = getelementptr i8, ptr %47, i64 %76
-  store i8 10, ptr %81, align 1
+77:                                               ; preds = %71
+  %78 = add i64 %60, %43
+  %79 = getelementptr i8, ptr %47, i64 %78
+  store i8 10, ptr %79, align 1
   br label %.loopexit
 
-82:                                               ; preds = %72
-  %83 = getelementptr i8, ptr %47, i64 %77
-  %84 = xor i64 %60, -1
-  %85 = add i64 %73, %84
+80:                                               ; preds = %71
+  %81 = getelementptr i8, ptr %47, i64 %.reass10
+  %82 = xor i64 %60, -1
+  %83 = add i64 %72, %82
   br label %45, !llvm.loop !76
 
-.loopexit:                                        ; preds = %65, %56, %80
-  %86 = phi i64 [ %78, %80 ], [ %49, %56 ], [ %49, %65 ]
-  %87 = icmp eq i32 %10, 0
-  br i1 %87, label %91, label %88
+.loopexit:                                        ; preds = %65, %56, %77
+  %84 = phi i64 [ %75, %77 ], [ %49, %56 ], [ %49, %65 ]
+  %85 = icmp eq i32 %10, 0
+  br i1 %85, label %89, label %86
 
-88:                                               ; preds = %.loopexit
-  %89 = load ptr, ptr %12, align 8
-  %90 = getelementptr i8, ptr %89, i64 %86
-  store i8 0, ptr %90, align 1
-  br label %91
+86:                                               ; preds = %.loopexit
+  %87 = load ptr, ptr %12, align 8
+  %88 = getelementptr i8, ptr %87, i64 %84
+  store i8 0, ptr %88, align 1
+  br label %89
 
-91:                                               ; preds = %88, %.loopexit
+89:                                               ; preds = %86, %.loopexit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #26
-  ret i64 %86
+  ret i64 %84
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

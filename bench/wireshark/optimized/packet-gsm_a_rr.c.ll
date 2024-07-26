@@ -12649,7 +12649,7 @@ define internal fastcc i32 @de_rr_rtd_desc(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %.0.in.in.not128, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %38, %.lr.ph
-  %.1110131 = phi i32 [ %.1110, %.lr.ph ], [ %.1110129, %38 ]
+  %.1110131 = phi i32 [ %.1110.reass, %.lr.ph ], [ %.1110129, %38 ]
   %.1110.in130 = phi i32 [ %54, %.lr.ph ], [ %.0109, %38 ]
   %47 = load i32, ptr @hf_gsm_a_rr_rtd_index, align 4
   %48 = ashr i32 %.1110131, 3
@@ -12668,12 +12668,12 @@ define internal fastcc i32 @de_rr_rtd_desc(ptr noundef %0, ptr noundef %1, i32 n
   %61 = zext i8 %59 to i32
   %62 = and i32 %57, %61
   %.0.in.in.not = icmp eq i32 %62, 0
-  %.1110 = add i32 %.1110.in130, 8
+  %.1110.reass = add i32 %.1110.in130, 8
   br i1 %.0.in.in.not, label %.lr.ph, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.lr.ph, %38
   %.1110.in.lcssa = phi i32 [ %.0109, %38 ], [ %54, %.lr.ph ]
-  %.1110.lcssa = phi i32 [ %.1110129, %38 ], [ %.1110, %.lr.ph ]
+  %.1110.lcssa = phi i32 [ %.1110129, %38 ], [ %.1110.reass, %.lr.ph ]
   %63 = load i32, ptr @hf_gsm_a_rr_additional_rtd_struct, align 4
   %64 = and i32 %.1110.lcssa, 7
   %65 = lshr exact i32 128, %64
@@ -12682,29 +12682,30 @@ define internal fastcc i32 @de_rr_rtd_desc(ptr noundef %0, ptr noundef %1, i32 n
   %68 = call ptr @proto_tree_add_bits_item(ptr noundef %12, i32 noundef %63, ptr noundef %0, i32 noundef %.1110.lcssa, i32 noundef 1, i32 noundef 0) #10
   %69 = zext i8 %67 to i32
   %70 = and i32 %65, %69
-  %.1.in.in.not142 = icmp eq i32 %70, 0
-  %.2111143 = add i32 %.1110.in.lcssa, 2
-  br i1 %.1.in.in.not142, label %.lr.ph147, label %.loopexit125
+  %.1.in.in.not144 = icmp eq i32 %70, 0
+  %.2111145 = add i32 %.1110.in.lcssa, 2
+  br i1 %.1.in.in.not144, label %.lr.ph150, label %.loopexit125
 
-.lr.ph147:                                        ; preds = %._crit_edge, %._crit_edge139
-  %.2111145 = phi i32 [ %.2111, %._crit_edge139 ], [ %.2111143, %._crit_edge ]
-  %.1107144 = phi i32 [ %71, %._crit_edge139 ], [ %.0106, %._crit_edge ]
-  %71 = add i32 %.1107144, 1
+.lr.ph150:                                        ; preds = %._crit_edge, %._crit_edge139
+  %.2111148 = phi i32 [ %.2111, %._crit_edge139 ], [ %.2111145, %._crit_edge ]
+  %.1107147 = phi i32 [ %71, %._crit_edge139 ], [ %.0106, %._crit_edge ]
+  %.2111.in146 = phi i32 [ %.3112.in.lcssa, %._crit_edge139 ], [ %.1110.in.lcssa, %._crit_edge ]
+  %71 = add i32 %.1107147, 1
   %72 = load i32, ptr @hf_gsm_a_rr_rtd, align 4
-  %73 = and i32 %.2111145, 7
+  %73 = and i32 %.2111148, 7
   %74 = lshr exact i32 128, %73
-  %75 = ashr i32 %.2111145, 3
+  %75 = ashr i32 %.2111148, 3
   %76 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %75) #10
-  %77 = call ptr @proto_tree_add_bits_item(ptr noundef %12, i32 noundef %72, ptr noundef %0, i32 noundef %.2111145, i32 noundef 1, i32 noundef 0) #10
+  %77 = call ptr @proto_tree_add_bits_item(ptr noundef %12, i32 noundef %72, ptr noundef %0, i32 noundef %.2111148, i32 noundef 1, i32 noundef 0) #10
   %78 = zext i8 %76 to i32
   %79 = and i32 %74, %78
   %.2.in.in.not133 = icmp eq i32 %79, 0
-  %.3112134 = add i32 %.2111145, 1
+  %.3112134.reass = add i32 %.2111.in146, 3
   br i1 %.2.in.in.not133, label %.lr.ph138, label %._crit_edge139
 
-.lr.ph138:                                        ; preds = %.lr.ph147, %.lr.ph138
-  %.3112136 = phi i32 [ %.3112, %.lr.ph138 ], [ %.3112134, %.lr.ph147 ]
-  %.3112.in135 = phi i32 [ %87, %.lr.ph138 ], [ %.2111145, %.lr.ph147 ]
+.lr.ph138:                                        ; preds = %.lr.ph150, %.lr.ph138
+  %.3112136 = phi i32 [ %.3112.reass, %.lr.ph138 ], [ %.3112134.reass, %.lr.ph150 ]
+  %.3112.in135 = phi i32 [ %87, %.lr.ph138 ], [ %.2111148, %.lr.ph150 ]
   %80 = load i32, ptr @hf_gsm_a_rr_rtd_index, align 4
   %81 = ashr i32 %.3112136, 3
   %82 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %.3112136, i32 noundef 6) #10
@@ -12722,12 +12723,12 @@ define internal fastcc i32 @de_rr_rtd_desc(ptr noundef %0, ptr noundef %1, i32 n
   %94 = zext i8 %92 to i32
   %95 = and i32 %90, %94
   %.2.in.in.not = icmp eq i32 %95, 0
-  %.3112 = add i32 %.3112.in135, 8
+  %.3112.reass = add i32 %.3112.in135, 8
   br i1 %.2.in.in.not, label %.lr.ph138, label %._crit_edge139, !llvm.loop !58
 
-._crit_edge139:                                   ; preds = %.lr.ph138, %.lr.ph147
-  %.3112.in.lcssa = phi i32 [ %.2111145, %.lr.ph147 ], [ %87, %.lr.ph138 ]
-  %.3112.lcssa = phi i32 [ %.3112134, %.lr.ph147 ], [ %.3112, %.lr.ph138 ]
+._crit_edge139:                                   ; preds = %.lr.ph138, %.lr.ph150
+  %.3112.in.lcssa = phi i32 [ %.2111148, %.lr.ph150 ], [ %87, %.lr.ph138 ]
+  %.3112.lcssa = phi i32 [ %.3112134.reass, %.lr.ph150 ], [ %.3112.reass, %.lr.ph138 ]
   %96 = load i32, ptr @hf_gsm_a_rr_additional_rtd_struct, align 4
   %97 = and i32 %.3112.lcssa, 7
   %98 = lshr exact i32 128, %97
@@ -12738,10 +12739,10 @@ define internal fastcc i32 @de_rr_rtd_desc(ptr noundef %0, ptr noundef %1, i32 n
   %103 = and i32 %98, %102
   %.1.in.in.not = icmp eq i32 %103, 0
   %.2111 = add i32 %.3112.in.lcssa, 2
-  br i1 %.1.in.in.not, label %.lr.ph147, label %.loopexit125, !llvm.loop !59
+  br i1 %.1.in.in.not, label %.lr.ph150, label %.loopexit125, !llvm.loop !59
 
 .loopexit125:                                     ; preds = %._crit_edge139, %._crit_edge, %4
-  %.4 = phi i32 [ %13, %4 ], [ %.2111143, %._crit_edge ], [ %.2111, %._crit_edge139 ]
+  %.4 = phi i32 [ %13, %4 ], [ %.2111145, %._crit_edge ], [ %.2111, %._crit_edge139 ]
   %104 = add i32 %.4, 1
   %105 = load i32, ptr @hf_gsm_a_rr_rtd12, align 4
   %106 = and i32 %.4, 7
@@ -19292,7 +19293,7 @@ define internal void @sacch_rr_meas_info(ptr noundef %0, ptr noundef %1, ptr nou
   %117 = and i32 %112, %116
   %.not365 = icmp eq i32 %117, 0
   %.pre = ashr i32 %109, 3
-  br i1 %.not365, label %._crit_edge421, label %118
+  br i1 %.not365, label %._crit_edge429, label %118
 
 118:                                              ; preds = %108
   %119 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 48), align 16
@@ -19404,28 +19405,28 @@ define internal void @sacch_rr_meas_info(ptr noundef %0, ptr noundef %1, ptr nou
   %195 = zext i8 %193 to i32
   %196 = and i32 %191, %195
   %.not371 = icmp eq i32 %196, 0
-  %.pre426 = ashr i32 %188, 3
-  br i1 %.not371, label %._crit_edge418, label %197
+  %.pre434 = ashr i32 %188, 3
+  br i1 %.not371, label %._crit_edge426, label %197
 
-._crit_edge418:                                   ; preds = %187
-  %.pre428 = sub nsw i32 %.pre426, %.pre
-  %.pre429 = add nsw i32 %.pre428, 1
-  br label %265
+._crit_edge426:                                   ; preds = %187
+  %.pre436 = sub nsw i32 %.pre434, %.pre
+  %.pre437 = add nsw i32 %.pre436, 1
+  br label %260
 
 197:                                              ; preds = %187
   %198 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 176), align 16
-  %199 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %.pre426, i32 noundef -1, i32 noundef %198, ptr noundef nonnull %12, ptr noundef nonnull @.str.1502) #10
+  %199 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %.pre434, i32 noundef -1, i32 noundef %198, ptr noundef nonnull %12, ptr noundef nonnull @.str.1502) #10
   %200 = add i32 %.9, 17
   %201 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %200, i32 noundef 5) #10
   %202 = add i32 %.9, 22
-  %.not333401 = icmp eq i8 %201, 0
-  br i1 %.not333401, label %._crit_edge, label %.lr.ph
+  %.not333409 = icmp eq i8 %201, 0
+  br i1 %.not333409, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %197, %256
-  %.0319403 = phi i8 [ %257, %256 ], [ %201, %197 ]
-  %.10402 = phi i32 [ %.12, %256 ], [ %202, %197 ]
-  %203 = add i32 %.10402, 9
-  %204 = add i32 %.10402, 10
+.lr.ph:                                           ; preds = %197, %251
+  %.0319411 = phi i8 [ %252, %251 ], [ %201, %197 ]
+  %.10410 = phi i32 [ %.12, %251 ], [ %202, %197 ]
+  %203 = add i32 %.10410, 9
+  %204 = add i32 %.10410, 10
   %205 = load i32, ptr @hf_gsm_a_rr_additional_information_for_3x_auxiliary_pilot, align 4
   %206 = and i32 %203, 7
   %207 = lshr exact i32 128, %206
@@ -19435,772 +19436,772 @@ define internal void @sacch_rr_meas_info(ptr noundef %0, ptr noundef %1, ptr nou
   %211 = zext i8 %209 to i32
   %212 = and i32 %207, %211
   %.not372 = icmp eq i32 %212, 0
-  br i1 %.not372, label %256, label %213
+  br i1 %.not372, label %251, label %213
 
 213:                                              ; preds = %.lr.ph
   %214 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %204, i32 noundef 3) #10
   switch i8 %214, label %.loopexit [
     i8 0, label %215
     i8 1, label %217
-    i8 2, label %223
-    i8 3, label %229
-    i8 6, label %231
+    i8 2, label %222
+    i8 3, label %227
+    i8 6, label %229
   ]
 
 215:                                              ; preds = %213
-  %216 = add i32 %.10402, 15
-  br label %256
+  %216 = add i32 %.10410, 15
+  br label %251
 
 217:                                              ; preds = %213
-  %218 = add i32 %.10402, 12
+  %218 = add i32 %.10410, 12
   %219 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %218, i32 noundef 3) #10
   %220 = zext i8 %219 to i32
-  %221 = add i32 %.10402, 21
-  %222 = add i32 %221, %220
-  br label %256
+  %.reass408 = add i32 %.10410, 21
+  %221 = add i32 %.reass408, %220
+  br label %251
 
-223:                                              ; preds = %213
-  %224 = add i32 %.10402, 12
-  %225 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %224, i32 noundef 3) #10
-  %226 = zext i8 %225 to i32
-  %227 = add i32 %.10402, 25
-  %228 = add i32 %227, %226
-  br label %256
+222:                                              ; preds = %213
+  %223 = add i32 %.10410, 12
+  %224 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %223, i32 noundef 3) #10
+  %225 = zext i8 %224 to i32
+  %.reass406 = add i32 %.10410, 25
+  %226 = add i32 %.reass406, %225
+  br label %251
+
+227:                                              ; preds = %213
+  %228 = add i32 %.10410, 18
+  br label %251
 
 229:                                              ; preds = %213
-  %230 = add i32 %.10402, 18
-  br label %256
+  %230 = add i32 %.10410, 20
+  %231 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %230, i32 noundef 3) #10
+  %232 = zext i8 %231 to i32
+  %.reass = add i32 %.10410, 29
+  %233 = add i32 %.reass, %232
+  %234 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %233, i32 noundef 1) #10
+  %.not351 = icmp eq i8 %234, 0
+  br i1 %.not351, label %240, label %235
 
-231:                                              ; preds = %213
-  %232 = add i32 %.10402, 20
-  %233 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %232, i32 noundef 3) #10
-  %234 = zext i8 %233 to i32
-  %235 = add i32 %.10402, 29
-  %236 = add i32 %235, %234
-  %237 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %236, i32 noundef 1) #10
-  %.not351 = icmp eq i8 %237, 0
-  br i1 %.not351, label %244, label %238
+235:                                              ; preds = %229
+  %236 = add i32 %233, 3
+  %237 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %236, i32 noundef 3) #10
+  %238 = zext i8 %237 to i32
+  %.reass402 = add i32 %233, 12
+  %239 = add i32 %.reass402, %238
+  br label %242
 
-238:                                              ; preds = %231
-  %239 = add i32 %236, 3
-  %240 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %239, i32 noundef 3) #10
-  %241 = zext i8 %240 to i32
-  %242 = add i32 %236, 12
-  %243 = add i32 %242, %241
-  br label %246
+240:                                              ; preds = %229
+  %241 = add i32 %233, 1
+  br label %242
 
-244:                                              ; preds = %231
-  %245 = add i32 %236, 1
-  br label %246
+242:                                              ; preds = %240, %235
+  %.11 = phi i32 [ %239, %235 ], [ %241, %240 ]
+  %243 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %.11, i32 noundef 1) #10
+  %.not352 = icmp eq i8 %243, 0
+  br i1 %.not352, label %249, label %244
 
-246:                                              ; preds = %244, %238
-  %.11 = phi i32 [ %243, %238 ], [ %245, %244 ]
-  %247 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %.11, i32 noundef 1) #10
-  %.not352 = icmp eq i8 %247, 0
-  br i1 %.not352, label %254, label %248
+244:                                              ; preds = %242
+  %245 = add i32 %.11, 3
+  %246 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %245, i32 noundef 3) #10
+  %247 = zext i8 %246 to i32
+  %.reass404 = add i32 %.11, 12
+  %248 = add i32 %.reass404, %247
+  br label %251
 
-248:                                              ; preds = %246
-  %249 = add i32 %.11, 3
-  %250 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %249, i32 noundef 3) #10
-  %251 = zext i8 %250 to i32
-  %252 = add i32 %.11, 12
-  %253 = add i32 %252, %251
-  br label %256
+249:                                              ; preds = %242
+  %250 = add i32 %.11, 1
+  br label %251
 
-254:                                              ; preds = %246
-  %255 = add i32 %.11, 1
-  br label %256
-
-256:                                              ; preds = %215, %217, %223, %229, %254, %248, %.lr.ph
-  %.12 = phi i32 [ %253, %248 ], [ %255, %254 ], [ %230, %229 ], [ %228, %223 ], [ %222, %217 ], [ %216, %215 ], [ %204, %.lr.ph ]
-  %257 = add i8 %.0319403, -1
-  %.not333 = icmp eq i8 %257, 0
+251:                                              ; preds = %215, %217, %222, %227, %249, %244, %.lr.ph
+  %.12 = phi i32 [ %248, %244 ], [ %250, %249 ], [ %228, %227 ], [ %226, %222 ], [ %221, %217 ], [ %216, %215 ], [ %204, %.lr.ph ]
+  %252 = add i8 %.0319411, -1
+  %.not333 = icmp eq i8 %252, 0
   br i1 %.not333, label %._crit_edge, label %.lr.ph, !llvm.loop !89
 
-._crit_edge:                                      ; preds = %256, %197
-  %.10.lcssa = phi i32 [ %202, %197 ], [ %.12, %256 ]
-  %258 = sub i32 %.10.lcssa, %188
-  %259 = ashr i32 %258, 3
-  %260 = add nsw i32 %259, 1
-  %261 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %199, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_rr_data_not_dissected, ptr noundef %0, i32 noundef %.pre426, i32 noundef %260, ptr noundef nonnull @.str.80) #10
-  %262 = load ptr, ptr %12, align 8
-  %263 = ashr i32 %.10.lcssa, 3
-  %reass.sub = sub nsw i32 %263, %.pre
-  %264 = add nsw i32 %reass.sub, 1
-  call void @proto_item_set_len(ptr noundef %262, i32 noundef %264) #10
-  br label %265
+._crit_edge:                                      ; preds = %251, %197
+  %.10.lcssa = phi i32 [ %202, %197 ], [ %.12, %251 ]
+  %253 = sub i32 %.10.lcssa, %188
+  %254 = ashr i32 %253, 3
+  %255 = add nsw i32 %254, 1
+  %256 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %199, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_rr_data_not_dissected, ptr noundef %0, i32 noundef %.pre434, i32 noundef %255, ptr noundef nonnull @.str.80) #10
+  %257 = load ptr, ptr %12, align 8
+  %258 = ashr i32 %.10.lcssa, 3
+  %reass.sub = sub nsw i32 %258, %.pre
+  %259 = add nsw i32 %reass.sub, 1
+  call void @proto_item_set_len(ptr noundef %257, i32 noundef %259) #10
+  br label %260
 
-265:                                              ; preds = %._crit_edge418, %._crit_edge
-  %.pre-phi430 = phi i32 [ %.pre429, %._crit_edge418 ], [ %264, %._crit_edge ]
-  %.pre-phi427 = phi i32 [ %.pre426, %._crit_edge418 ], [ %263, %._crit_edge ]
-  %.13 = phi i32 [ %188, %._crit_edge418 ], [ %.10.lcssa, %._crit_edge ]
-  %266 = load ptr, ptr %11, align 8
-  call void @proto_item_set_len(ptr noundef %266, i32 noundef %.pre-phi430) #10
-  br label %._crit_edge421
+260:                                              ; preds = %._crit_edge426, %._crit_edge
+  %.pre-phi438 = phi i32 [ %.pre437, %._crit_edge426 ], [ %259, %._crit_edge ]
+  %.pre-phi435 = phi i32 [ %.pre434, %._crit_edge426 ], [ %258, %._crit_edge ]
+  %.13 = phi i32 [ %188, %._crit_edge426 ], [ %.10.lcssa, %._crit_edge ]
+  %261 = load ptr, ptr %11, align 8
+  call void @proto_item_set_len(ptr noundef %261, i32 noundef %.pre-phi438) #10
+  br label %._crit_edge429
 
-._crit_edge421:                                   ; preds = %108, %265
-  %.pre-phi = phi i32 [ %.pre-phi427, %265 ], [ %.pre, %108 ]
-  %.14 = phi i32 [ %.13, %265 ], [ %109, %108 ]
-  %.0 = phi ptr [ %120, %265 ], [ null, %108 ]
-  %267 = add i32 %.14, 1
-  %268 = load i32, ptr @hf_gsm_a_rr_3g_measurement_parameters_description, align 4
-  %269 = and i32 %.14, 7
-  %270 = lshr exact i32 128, %269
-  %271 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.pre-phi) #10
-  %272 = call ptr @proto_tree_add_bits_item(ptr noundef %.0, i32 noundef %268, ptr noundef %0, i32 noundef %.14, i32 noundef 1, i32 noundef 0) #10
-  %273 = zext i8 %271 to i32
-  %274 = and i32 %270, %273
-  %.not373 = icmp eq i32 %274, 0
-  br i1 %.not373, label %377, label %275
+._crit_edge429:                                   ; preds = %108, %260
+  %.pre-phi = phi i32 [ %.pre-phi435, %260 ], [ %.pre, %108 ]
+  %.14 = phi i32 [ %.13, %260 ], [ %109, %108 ]
+  %.0 = phi ptr [ %120, %260 ], [ null, %108 ]
+  %262 = add i32 %.14, 1
+  %263 = load i32, ptr @hf_gsm_a_rr_3g_measurement_parameters_description, align 4
+  %264 = and i32 %.14, 7
+  %265 = lshr exact i32 128, %264
+  %266 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.pre-phi) #10
+  %267 = call ptr @proto_tree_add_bits_item(ptr noundef %.0, i32 noundef %263, ptr noundef %0, i32 noundef %.14, i32 noundef 1, i32 noundef 0) #10
+  %268 = zext i8 %266 to i32
+  %269 = and i32 %265, %268
+  %.not373 = icmp eq i32 %269, 0
+  br i1 %.not373, label %372, label %270
 
-275:                                              ; preds = %._crit_edge421
-  %276 = ashr i32 %267, 3
-  %277 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 8), align 8
-  %278 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %276, i32 noundef -1, i32 noundef %277, ptr noundef nonnull %11, ptr noundef nonnull @.str.1272) #10
-  %279 = load i32, ptr @hf_gsm_a_rr_qsearch_c, align 4
-  %280 = call ptr @proto_tree_add_bits_item(ptr noundef %278, i32 noundef %279, ptr noundef %0, i32 noundef %267, i32 noundef 4, i32 noundef 0) #10
-  %281 = add i32 %.14, 5
-  %282 = load i32, ptr @hf_gsm_a_rr_3g_search_prio, align 4
-  %283 = call ptr @proto_tree_add_bits_item(ptr noundef %278, i32 noundef %282, ptr noundef %0, i32 noundef %281, i32 noundef 1, i32 noundef 0) #10
-  %284 = add i32 %.14, 6
-  %285 = load i32, ptr @hf_gsm_a_rr_fdd_rep_quant, align 4
-  %286 = call ptr @proto_tree_add_bits_item(ptr noundef %278, i32 noundef %285, ptr noundef %0, i32 noundef %284, i32 noundef 1, i32 noundef 0) #10
-  %287 = add i32 %.14, 7
-  %288 = load i32, ptr @hf_gsm_a_rr_3g_reporting_quantity, align 4
-  %289 = and i32 %284, 7
-  %290 = lshr exact i32 128, %289
-  %291 = ashr i32 %284, 3
-  %292 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %291) #10
-  %293 = call ptr @proto_tree_add_bits_item(ptr noundef %278, i32 noundef %288, ptr noundef %0, i32 noundef %284, i32 noundef 1, i32 noundef 0) #10
-  %294 = zext i8 %292 to i32
-  %295 = and i32 %290, %294
-  %.not378 = icmp eq i32 %295, 0
-  %296 = add i32 %.14, 8
-  %297 = load i32, ptr @hf_gsm_a_rr_fdd_multirat_reporting_present, align 4
-  %298 = and i32 %287, 7
-  %299 = lshr exact i32 128, %298
-  %300 = ashr i32 %287, 3
-  %301 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %300) #10
-  %302 = call ptr @proto_tree_add_bits_item(ptr noundef %278, i32 noundef %297, ptr noundef %0, i32 noundef %287, i32 noundef 1, i32 noundef 0) #10
-  %303 = zext i8 %301 to i32
-  %304 = and i32 %299, %303
-  %.not374 = icmp eq i32 %304, 0
-  br i1 %.not374, label %309, label %305
+270:                                              ; preds = %._crit_edge429
+  %271 = ashr i32 %262, 3
+  %272 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 8), align 8
+  %273 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %271, i32 noundef -1, i32 noundef %272, ptr noundef nonnull %11, ptr noundef nonnull @.str.1272) #10
+  %274 = load i32, ptr @hf_gsm_a_rr_qsearch_c, align 4
+  %275 = call ptr @proto_tree_add_bits_item(ptr noundef %273, i32 noundef %274, ptr noundef %0, i32 noundef %262, i32 noundef 4, i32 noundef 0) #10
+  %276 = add i32 %.14, 5
+  %277 = load i32, ptr @hf_gsm_a_rr_3g_search_prio, align 4
+  %278 = call ptr @proto_tree_add_bits_item(ptr noundef %273, i32 noundef %277, ptr noundef %0, i32 noundef %276, i32 noundef 1, i32 noundef 0) #10
+  %279 = add i32 %.14, 6
+  %280 = load i32, ptr @hf_gsm_a_rr_fdd_rep_quant, align 4
+  %281 = call ptr @proto_tree_add_bits_item(ptr noundef %273, i32 noundef %280, ptr noundef %0, i32 noundef %279, i32 noundef 1, i32 noundef 0) #10
+  %282 = add i32 %.14, 7
+  %283 = load i32, ptr @hf_gsm_a_rr_3g_reporting_quantity, align 4
+  %284 = and i32 %279, 7
+  %285 = lshr exact i32 128, %284
+  %286 = ashr i32 %279, 3
+  %287 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %286) #10
+  %288 = call ptr @proto_tree_add_bits_item(ptr noundef %273, i32 noundef %283, ptr noundef %0, i32 noundef %279, i32 noundef 1, i32 noundef 0) #10
+  %289 = zext i8 %287 to i32
+  %290 = and i32 %285, %289
+  %.not378 = icmp eq i32 %290, 0
+  %291 = add i32 %.14, 8
+  %292 = load i32, ptr @hf_gsm_a_rr_fdd_multirat_reporting_present, align 4
+  %293 = and i32 %282, 7
+  %294 = lshr exact i32 128, %293
+  %295 = ashr i32 %282, 3
+  %296 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %295) #10
+  %297 = call ptr @proto_tree_add_bits_item(ptr noundef %273, i32 noundef %292, ptr noundef %0, i32 noundef %282, i32 noundef 1, i32 noundef 0) #10
+  %298 = zext i8 %296 to i32
+  %299 = and i32 %294, %298
+  %.not374 = icmp eq i32 %299, 0
+  br i1 %.not374, label %304, label %300
 
-305:                                              ; preds = %275
-  %306 = load i32, ptr @hf_gsm_a_rr_fdd_multirat_reporting, align 4
-  %307 = call ptr @proto_tree_add_bits_item(ptr noundef %278, i32 noundef %306, ptr noundef %0, i32 noundef %296, i32 noundef 2, i32 noundef 0) #10
-  %308 = add i32 %.14, 10
-  br label %309
+300:                                              ; preds = %270
+  %301 = load i32, ptr @hf_gsm_a_rr_fdd_multirat_reporting, align 4
+  %302 = call ptr @proto_tree_add_bits_item(ptr noundef %273, i32 noundef %301, ptr noundef %0, i32 noundef %291, i32 noundef 2, i32 noundef 0) #10
+  %303 = add i32 %.14, 10
+  br label %304
 
-309:                                              ; preds = %305, %275
-  %.15 = phi i32 [ %308, %305 ], [ %296, %275 ]
-  %310 = add i32 %.15, 1
-  %311 = load i32, ptr @hf_gsm_a_rr_fdd_reporting_offset_present, align 4
-  %312 = and i32 %.15, 7
-  %313 = lshr exact i32 128, %312
-  %314 = ashr i32 %.15, 3
-  %315 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %314) #10
-  %316 = call ptr @proto_tree_add_bits_item(ptr noundef %278, i32 noundef %311, ptr noundef %0, i32 noundef %.15, i32 noundef 1, i32 noundef 0) #10
-  %317 = zext i8 %315 to i32
-  %318 = and i32 %313, %317
-  %.not375 = icmp eq i32 %318, 0
-  br i1 %.not375, label %326, label %319
+304:                                              ; preds = %300, %270
+  %.15 = phi i32 [ %303, %300 ], [ %291, %270 ]
+  %305 = add i32 %.15, 1
+  %306 = load i32, ptr @hf_gsm_a_rr_fdd_reporting_offset_present, align 4
+  %307 = and i32 %.15, 7
+  %308 = lshr exact i32 128, %307
+  %309 = ashr i32 %.15, 3
+  %310 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %309) #10
+  %311 = call ptr @proto_tree_add_bits_item(ptr noundef %273, i32 noundef %306, ptr noundef %0, i32 noundef %.15, i32 noundef 1, i32 noundef 0) #10
+  %312 = zext i8 %310 to i32
+  %313 = and i32 %308, %312
+  %.not375 = icmp eq i32 %313, 0
+  br i1 %.not375, label %321, label %314
 
-319:                                              ; preds = %309
-  %320 = load i32, ptr @hf_gsm_a_rr_fdd_reporting_offset, align 4
-  %321 = call ptr @proto_tree_add_bits_item(ptr noundef %278, i32 noundef %320, ptr noundef %0, i32 noundef %310, i32 noundef 3, i32 noundef 0) #10
-  %322 = add i32 %.15, 4
+314:                                              ; preds = %304
+  %315 = load i32, ptr @hf_gsm_a_rr_fdd_reporting_offset, align 4
+  %316 = call ptr @proto_tree_add_bits_item(ptr noundef %273, i32 noundef %315, ptr noundef %0, i32 noundef %305, i32 noundef 3, i32 noundef 0) #10
+  %317 = add i32 %.15, 4
   %hf_gsm_a_rr_fdd_reporting_threshold_rscp.val = load i32, ptr @hf_gsm_a_rr_fdd_reporting_threshold_rscp, align 4
   %hf_gsm_a_rr_fdd_reporting_threshold_ecn0.val = load i32, ptr @hf_gsm_a_rr_fdd_reporting_threshold_ecn0, align 4
-  %323 = select i1 %.not378, i32 %hf_gsm_a_rr_fdd_reporting_threshold_rscp.val, i32 %hf_gsm_a_rr_fdd_reporting_threshold_ecn0.val
-  %324 = call ptr @proto_tree_add_bits_item(ptr noundef %278, i32 noundef %323, ptr noundef %0, i32 noundef %322, i32 noundef 3, i32 noundef 0) #10
-  %325 = add i32 %.15, 7
-  br label %326
+  %318 = select i1 %.not378, i32 %hf_gsm_a_rr_fdd_reporting_threshold_rscp.val, i32 %hf_gsm_a_rr_fdd_reporting_threshold_ecn0.val
+  %319 = call ptr @proto_tree_add_bits_item(ptr noundef %273, i32 noundef %318, ptr noundef %0, i32 noundef %317, i32 noundef 3, i32 noundef 0) #10
+  %320 = add i32 %.15, 7
+  br label %321
 
-326:                                              ; preds = %319, %309
-  %.16 = phi i32 [ %325, %319 ], [ %310, %309 ]
-  %327 = add i32 %.16, 1
-  %328 = load i32, ptr @hf_gsm_a_rr_tdd_multirat_reporting_present, align 4
-  %329 = and i32 %.16, 7
-  %330 = lshr exact i32 128, %329
-  %331 = ashr i32 %.16, 3
-  %332 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %331) #10
-  %333 = call ptr @proto_tree_add_bits_item(ptr noundef %278, i32 noundef %328, ptr noundef %0, i32 noundef %.16, i32 noundef 1, i32 noundef 0) #10
-  %334 = zext i8 %332 to i32
-  %335 = and i32 %330, %334
-  %.not376 = icmp eq i32 %335, 0
-  br i1 %.not376, label %340, label %336
+321:                                              ; preds = %314, %304
+  %.16 = phi i32 [ %320, %314 ], [ %305, %304 ]
+  %322 = add i32 %.16, 1
+  %323 = load i32, ptr @hf_gsm_a_rr_tdd_multirat_reporting_present, align 4
+  %324 = and i32 %.16, 7
+  %325 = lshr exact i32 128, %324
+  %326 = ashr i32 %.16, 3
+  %327 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %326) #10
+  %328 = call ptr @proto_tree_add_bits_item(ptr noundef %273, i32 noundef %323, ptr noundef %0, i32 noundef %.16, i32 noundef 1, i32 noundef 0) #10
+  %329 = zext i8 %327 to i32
+  %330 = and i32 %325, %329
+  %.not376 = icmp eq i32 %330, 0
+  br i1 %.not376, label %335, label %331
 
-336:                                              ; preds = %326
-  %337 = load i32, ptr @hf_gsm_a_rr_tdd_multirat_reporting, align 4
-  %338 = call ptr @proto_tree_add_bits_item(ptr noundef %278, i32 noundef %337, ptr noundef %0, i32 noundef %327, i32 noundef 2, i32 noundef 0) #10
-  %339 = add i32 %.16, 3
-  br label %340
+331:                                              ; preds = %321
+  %332 = load i32, ptr @hf_gsm_a_rr_tdd_multirat_reporting, align 4
+  %333 = call ptr @proto_tree_add_bits_item(ptr noundef %273, i32 noundef %332, ptr noundef %0, i32 noundef %322, i32 noundef 2, i32 noundef 0) #10
+  %334 = add i32 %.16, 3
+  br label %335
 
-340:                                              ; preds = %336, %326
-  %.17 = phi i32 [ %339, %336 ], [ %327, %326 ]
-  %341 = add i32 %.17, 1
-  %342 = load i32, ptr @hf_gsm_a_rr_tdd_reporting_offset_present, align 4
-  %343 = and i32 %.17, 7
-  %344 = lshr exact i32 128, %343
-  %345 = ashr i32 %.17, 3
-  %346 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %345) #10
-  %347 = call ptr @proto_tree_add_bits_item(ptr noundef %278, i32 noundef %342, ptr noundef %0, i32 noundef %.17, i32 noundef 1, i32 noundef 0) #10
-  %348 = zext i8 %346 to i32
-  %349 = and i32 %344, %348
-  %.not377 = icmp eq i32 %349, 0
-  br i1 %.not377, label %357, label %350
+335:                                              ; preds = %331, %321
+  %.17 = phi i32 [ %334, %331 ], [ %322, %321 ]
+  %336 = add i32 %.17, 1
+  %337 = load i32, ptr @hf_gsm_a_rr_tdd_reporting_offset_present, align 4
+  %338 = and i32 %.17, 7
+  %339 = lshr exact i32 128, %338
+  %340 = ashr i32 %.17, 3
+  %341 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %340) #10
+  %342 = call ptr @proto_tree_add_bits_item(ptr noundef %273, i32 noundef %337, ptr noundef %0, i32 noundef %.17, i32 noundef 1, i32 noundef 0) #10
+  %343 = zext i8 %341 to i32
+  %344 = and i32 %339, %343
+  %.not377 = icmp eq i32 %344, 0
+  br i1 %.not377, label %352, label %345
 
-350:                                              ; preds = %340
-  %351 = load i32, ptr @hf_gsm_a_rr_tdd_reporting_offset, align 4
-  %352 = call ptr @proto_tree_add_bits_item(ptr noundef %278, i32 noundef %351, ptr noundef %0, i32 noundef %341, i32 noundef 3, i32 noundef 0) #10
-  %353 = add i32 %.17, 4
+345:                                              ; preds = %335
+  %346 = load i32, ptr @hf_gsm_a_rr_tdd_reporting_offset, align 4
+  %347 = call ptr @proto_tree_add_bits_item(ptr noundef %273, i32 noundef %346, ptr noundef %0, i32 noundef %336, i32 noundef 3, i32 noundef 0) #10
+  %348 = add i32 %.17, 4
   %hf_gsm_a_rr_tdd_reporting_threshold_rscp.val = load i32, ptr @hf_gsm_a_rr_tdd_reporting_threshold_rscp, align 4
   %hf_gsm_a_rr_tdd_reporting_threshold_ecn0.val = load i32, ptr @hf_gsm_a_rr_tdd_reporting_threshold_ecn0, align 4
-  %354 = select i1 %.not378, i32 %hf_gsm_a_rr_tdd_reporting_threshold_rscp.val, i32 %hf_gsm_a_rr_tdd_reporting_threshold_ecn0.val
-  %355 = call ptr @proto_tree_add_bits_item(ptr noundef %278, i32 noundef %354, ptr noundef %0, i32 noundef %353, i32 noundef 3, i32 noundef 0) #10
-  %356 = add i32 %.17, 7
-  br label %357
+  %349 = select i1 %.not378, i32 %hf_gsm_a_rr_tdd_reporting_threshold_rscp.val, i32 %hf_gsm_a_rr_tdd_reporting_threshold_ecn0.val
+  %350 = call ptr @proto_tree_add_bits_item(ptr noundef %273, i32 noundef %349, ptr noundef %0, i32 noundef %348, i32 noundef 3, i32 noundef 0) #10
+  %351 = add i32 %.17, 7
+  br label %352
 
-357:                                              ; preds = %350, %340
-  %.18 = phi i32 [ %356, %350 ], [ %341, %340 ]
-  %358 = load i32, ptr @hf_gsm_a_rr_cdma2000_multirat_reporting, align 4
-  %359 = and i32 %.18, 7
-  %360 = lshr exact i32 128, %359
-  %361 = ashr i32 %.18, 3
-  %362 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %361) #10
-  %363 = call ptr @proto_tree_add_bits_item(ptr noundef %278, i32 noundef %358, ptr noundef %0, i32 noundef %.18, i32 noundef 1, i32 noundef 0) #10
-  %364 = zext i8 %362 to i32
-  %365 = and i32 %360, %364
-  %.not379 = icmp eq i32 %365, 0
+352:                                              ; preds = %345, %335
+  %.18 = phi i32 [ %351, %345 ], [ %336, %335 ]
+  %353 = load i32, ptr @hf_gsm_a_rr_cdma2000_multirat_reporting, align 4
+  %354 = and i32 %.18, 7
+  %355 = lshr exact i32 128, %354
+  %356 = ashr i32 %.18, 3
+  %357 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %356) #10
+  %358 = call ptr @proto_tree_add_bits_item(ptr noundef %273, i32 noundef %353, ptr noundef %0, i32 noundef %.18, i32 noundef 1, i32 noundef 0) #10
+  %359 = zext i8 %357 to i32
+  %360 = and i32 %355, %359
+  %.not379 = icmp eq i32 %360, 0
   %spec.select.v = select i1 %.not379, i32 1, i32 3
   %spec.select = add i32 %spec.select.v, %.18
-  %366 = load i32, ptr @hf_gsm_a_rr_cdma2000_reporting_threshold, align 4
-  %367 = and i32 %spec.select, 7
-  %368 = lshr exact i32 128, %367
-  %369 = ashr i32 %spec.select, 3
-  %370 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %369) #10
-  %371 = call ptr @proto_tree_add_bits_item(ptr noundef %278, i32 noundef %366, ptr noundef %0, i32 noundef %spec.select, i32 noundef 1, i32 noundef 0) #10
-  %372 = zext i8 %370 to i32
-  %373 = and i32 %368, %372
-  %.not380 = icmp eq i32 %373, 0
+  %361 = load i32, ptr @hf_gsm_a_rr_cdma2000_reporting_threshold, align 4
+  %362 = and i32 %spec.select, 7
+  %363 = lshr exact i32 128, %362
+  %364 = ashr i32 %spec.select, 3
+  %365 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %364) #10
+  %366 = call ptr @proto_tree_add_bits_item(ptr noundef %273, i32 noundef %361, ptr noundef %0, i32 noundef %spec.select, i32 noundef 1, i32 noundef 0) #10
+  %367 = zext i8 %365 to i32
+  %368 = and i32 %363, %367
+  %.not380 = icmp eq i32 %368, 0
   %.20.v = select i1 %.not380, i32 1, i32 7
   %.20 = add i32 %.20.v, %spec.select
-  %374 = load ptr, ptr %11, align 8
-  %375 = ashr i32 %.20, 3
-  %reass.sub405 = sub nsw i32 %375, %276
-  %376 = add nsw i32 %reass.sub405, 1
-  call void @proto_item_set_len(ptr noundef %374, i32 noundef %376) #10
-  br label %377
+  %369 = load ptr, ptr %11, align 8
+  %370 = ashr i32 %.20, 3
+  %reass.sub413 = sub nsw i32 %370, %271
+  %371 = add nsw i32 %reass.sub413, 1
+  call void @proto_item_set_len(ptr noundef %369, i32 noundef %371) #10
+  br label %372
 
-377:                                              ; preds = %357, %._crit_edge421
-  %.21 = phi i32 [ %.20, %357 ], [ %267, %._crit_edge421 ]
-  %.1 = phi ptr [ %278, %357 ], [ %.0, %._crit_edge421 ]
-  %378 = sub i32 %16, %.21
-  %379 = icmp sgt i32 %378, 0
-  br i1 %379, label %380, label %694
+372:                                              ; preds = %352, %._crit_edge429
+  %.21 = phi i32 [ %.20, %352 ], [ %262, %._crit_edge429 ]
+  %.1 = phi ptr [ %273, %352 ], [ %.0, %._crit_edge429 ]
+  %373 = sub i32 %16, %.21
+  %374 = icmp sgt i32 %373, 0
+  br i1 %374, label %375, label %689
 
-380:                                              ; preds = %377
-  %381 = add i32 %.21, 1
-  %382 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_5, align 4
-  %383 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.21, i32 noundef %382)
-  %.not341 = icmp eq i32 %383, 0
-  br i1 %.not341, label %694, label %384
+375:                                              ; preds = %372
+  %376 = add i32 %.21, 1
+  %377 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_5, align 4
+  %378 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.21, i32 noundef %377)
+  %.not341 = icmp eq i32 %378, 0
+  br i1 %.not341, label %689, label %379
 
-384:                                              ; preds = %380
-  %385 = add i32 %.21, 2
-  %386 = load i32, ptr @hf_gsm_a_rr_3g_additional_measurement_parameters_description_2, align 4
-  %387 = and i32 %381, 7
-  %388 = lshr exact i32 128, %387
-  %389 = ashr i32 %381, 3
-  %390 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %389) #10
-  %391 = call ptr @proto_tree_add_bits_item(ptr noundef %.1, i32 noundef %386, ptr noundef %0, i32 noundef %381, i32 noundef 1, i32 noundef 0) #10
-  %392 = zext i8 %390 to i32
-  %393 = and i32 %388, %392
-  %.not381 = icmp eq i32 %393, 0
-  br i1 %.not381, label %397, label %394
+379:                                              ; preds = %375
+  %380 = add i32 %.21, 2
+  %381 = load i32, ptr @hf_gsm_a_rr_3g_additional_measurement_parameters_description_2, align 4
+  %382 = and i32 %376, 7
+  %383 = lshr exact i32 128, %382
+  %384 = ashr i32 %376, 3
+  %385 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %384) #10
+  %386 = call ptr @proto_tree_add_bits_item(ptr noundef %.1, i32 noundef %381, ptr noundef %0, i32 noundef %376, i32 noundef 1, i32 noundef 0) #10
+  %387 = zext i8 %385 to i32
+  %388 = and i32 %383, %387
+  %.not381 = icmp eq i32 %388, 0
+  br i1 %.not381, label %392, label %389
 
-394:                                              ; preds = %384
-  %395 = call fastcc i32 @de_rr_3g_add_meas_param_desc2(ptr noundef %0, ptr noundef %1, i32 noundef %385)
-  %396 = add i32 %395, %385
-  br label %397
+389:                                              ; preds = %379
+  %390 = call fastcc i32 @de_rr_3g_add_meas_param_desc2(ptr noundef %0, ptr noundef %1, i32 noundef %380)
+  %391 = add i32 %390, %380
+  br label %392
 
-397:                                              ; preds = %394, %384
-  %.22 = phi i32 [ %396, %394 ], [ %385, %384 ]
-  %398 = sub i32 %16, %.22
-  %399 = icmp sgt i32 %398, 0
-  br i1 %399, label %400, label %694
+392:                                              ; preds = %389, %379
+  %.22 = phi i32 [ %391, %389 ], [ %380, %379 ]
+  %393 = sub i32 %16, %.22
+  %394 = icmp sgt i32 %393, 0
+  br i1 %394, label %395, label %689
 
-400:                                              ; preds = %397
-  %401 = add i32 %.22, 1
-  %402 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_7, align 4
-  %403 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.22, i32 noundef %402)
-  %.not343 = icmp eq i32 %403, 0
-  br i1 %.not343, label %694, label %404
+395:                                              ; preds = %392
+  %396 = add i32 %.22, 1
+  %397 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_7, align 4
+  %398 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.22, i32 noundef %397)
+  %.not343 = icmp eq i32 %398, 0
+  br i1 %.not343, label %689, label %399
 
-404:                                              ; preds = %400
-  %405 = add i32 %.22, 2
-  %406 = load i32, ptr @hf_gsm_a_rr_700_reporting, align 4
-  %407 = and i32 %401, 7
-  %408 = lshr exact i32 128, %407
-  %409 = ashr i32 %401, 3
-  %410 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %409) #10
-  %411 = call ptr @proto_tree_add_bits_item(ptr noundef %.1, i32 noundef %406, ptr noundef %0, i32 noundef %401, i32 noundef 1, i32 noundef 0) #10
-  %412 = zext i8 %410 to i32
-  %413 = and i32 %408, %412
-  %.not382 = icmp eq i32 %413, 0
-  br i1 %.not382, label %421, label %414
+399:                                              ; preds = %395
+  %400 = add i32 %.22, 2
+  %401 = load i32, ptr @hf_gsm_a_rr_700_reporting, align 4
+  %402 = and i32 %396, 7
+  %403 = lshr exact i32 128, %402
+  %404 = ashr i32 %396, 3
+  %405 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %404) #10
+  %406 = call ptr @proto_tree_add_bits_item(ptr noundef %.1, i32 noundef %401, ptr noundef %0, i32 noundef %396, i32 noundef 1, i32 noundef 0) #10
+  %407 = zext i8 %405 to i32
+  %408 = and i32 %403, %407
+  %.not382 = icmp eq i32 %408, 0
+  br i1 %.not382, label %416, label %409
 
-414:                                              ; preds = %404
-  %415 = load i32, ptr @hf_gsm_a_rr_700_reporting_offset, align 4
-  %416 = call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %415, ptr noundef %0, i32 noundef %405, i32 noundef 3, i32 noundef 0) #10
-  %417 = add i32 %.22, 5
-  %418 = load i32, ptr @hf_gsm_a_rr_700_reporting_threshold, align 4
-  %419 = call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %418, ptr noundef %0, i32 noundef %417, i32 noundef 3, i32 noundef 0) #10
-  %420 = add i32 %.22, 8
-  br label %421
+409:                                              ; preds = %399
+  %410 = load i32, ptr @hf_gsm_a_rr_700_reporting_offset, align 4
+  %411 = call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %410, ptr noundef %0, i32 noundef %400, i32 noundef 3, i32 noundef 0) #10
+  %412 = add i32 %.22, 5
+  %413 = load i32, ptr @hf_gsm_a_rr_700_reporting_threshold, align 4
+  %414 = call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %413, ptr noundef %0, i32 noundef %412, i32 noundef 3, i32 noundef 0) #10
+  %415 = add i32 %.22, 8
+  br label %416
 
-421:                                              ; preds = %414, %404
-  %.23 = phi i32 [ %420, %414 ], [ %405, %404 ]
-  %422 = add i32 %.23, 1
-  %423 = load i32, ptr @hf_gsm_a_rr_810_reporting, align 4
-  %424 = and i32 %.23, 7
-  %425 = lshr exact i32 128, %424
-  %426 = ashr i32 %.23, 3
-  %427 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %426) #10
-  %428 = call ptr @proto_tree_add_bits_item(ptr noundef %.1, i32 noundef %423, ptr noundef %0, i32 noundef %.23, i32 noundef 1, i32 noundef 0) #10
-  %429 = zext i8 %427 to i32
-  %430 = and i32 %425, %429
-  %.not383 = icmp eq i32 %430, 0
-  br i1 %.not383, label %438, label %431
+416:                                              ; preds = %409, %399
+  %.23 = phi i32 [ %415, %409 ], [ %400, %399 ]
+  %417 = add i32 %.23, 1
+  %418 = load i32, ptr @hf_gsm_a_rr_810_reporting, align 4
+  %419 = and i32 %.23, 7
+  %420 = lshr exact i32 128, %419
+  %421 = ashr i32 %.23, 3
+  %422 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %421) #10
+  %423 = call ptr @proto_tree_add_bits_item(ptr noundef %.1, i32 noundef %418, ptr noundef %0, i32 noundef %.23, i32 noundef 1, i32 noundef 0) #10
+  %424 = zext i8 %422 to i32
+  %425 = and i32 %420, %424
+  %.not383 = icmp eq i32 %425, 0
+  br i1 %.not383, label %433, label %426
 
-431:                                              ; preds = %421
-  %432 = load i32, ptr @hf_gsm_a_rr_810_reporting_offset, align 4
-  %433 = call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %432, ptr noundef %0, i32 noundef %422, i32 noundef 3, i32 noundef 0) #10
-  %434 = add i32 %.23, 4
-  %435 = load i32, ptr @hf_gsm_a_rr_810_reporting_threshold, align 4
-  %436 = call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %435, ptr noundef %0, i32 noundef %434, i32 noundef 3, i32 noundef 0) #10
-  %437 = add i32 %.23, 7
-  br label %438
+426:                                              ; preds = %416
+  %427 = load i32, ptr @hf_gsm_a_rr_810_reporting_offset, align 4
+  %428 = call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %427, ptr noundef %0, i32 noundef %417, i32 noundef 3, i32 noundef 0) #10
+  %429 = add i32 %.23, 4
+  %430 = load i32, ptr @hf_gsm_a_rr_810_reporting_threshold, align 4
+  %431 = call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %430, ptr noundef %0, i32 noundef %429, i32 noundef 3, i32 noundef 0) #10
+  %432 = add i32 %.23, 7
+  br label %433
 
-438:                                              ; preds = %431, %421
-  %.24 = phi i32 [ %437, %431 ], [ %422, %421 ]
-  %439 = sub i32 %16, %.24
-  %440 = icmp sgt i32 %439, 0
-  br i1 %440, label %441, label %694
+433:                                              ; preds = %426, %416
+  %.24 = phi i32 [ %432, %426 ], [ %417, %416 ]
+  %434 = sub i32 %16, %.24
+  %435 = icmp sgt i32 %434, 0
+  br i1 %435, label %436, label %689
 
-441:                                              ; preds = %438
-  %442 = add i32 %.24, 1
-  %443 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_8, align 4
-  %444 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.24, i32 noundef %443)
-  %.not346 = icmp eq i32 %444, 0
-  br i1 %.not346, label %694, label %445
+436:                                              ; preds = %433
+  %437 = add i32 %.24, 1
+  %438 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_8, align 4
+  %439 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.24, i32 noundef %438)
+  %.not346 = icmp eq i32 %439, 0
+  br i1 %.not346, label %689, label %440
 
-445:                                              ; preds = %441
-  %446 = add i32 %.24, 2
-  %447 = load i32, ptr @hf_gsm_a_rr_3g_supplementary_parameters_description, align 4
-  %448 = and i32 %442, 7
-  %449 = lshr exact i32 128, %448
-  %450 = ashr i32 %442, 3
-  %451 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %450) #10
-  %452 = call ptr @proto_tree_add_bits_item(ptr noundef %.1, i32 noundef %447, ptr noundef %0, i32 noundef %442, i32 noundef 1, i32 noundef 0) #10
-  %453 = zext i8 %451 to i32
-  %454 = and i32 %449, %453
-  %.not384 = icmp eq i32 %454, 0
-  br i1 %.not384, label %._crit_edge420, label %455
+440:                                              ; preds = %436
+  %441 = add i32 %.24, 2
+  %442 = load i32, ptr @hf_gsm_a_rr_3g_supplementary_parameters_description, align 4
+  %443 = and i32 %437, 7
+  %444 = lshr exact i32 128, %443
+  %445 = ashr i32 %437, 3
+  %446 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %445) #10
+  %447 = call ptr @proto_tree_add_bits_item(ptr noundef %.1, i32 noundef %442, ptr noundef %0, i32 noundef %437, i32 noundef 1, i32 noundef 0) #10
+  %448 = zext i8 %446 to i32
+  %449 = and i32 %444, %448
+  %.not384 = icmp eq i32 %449, 0
+  br i1 %.not384, label %._crit_edge428, label %450
 
-._crit_edge420:                                   ; preds = %445
-  %.pre422 = ashr i32 %446, 3
-  br label %525
+._crit_edge428:                                   ; preds = %440
+  %.pre430 = ashr i32 %441, 3
+  br label %520
 
-455:                                              ; preds = %445
+450:                                              ; preds = %440
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %456 = ashr i32 %446, 3
-  %457 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 192), align 16
-  %458 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %456, i32 noundef -1, i32 noundef %457, ptr noundef nonnull %10, ptr noundef nonnull @.str.1461) #10
-  %459 = load i32, ptr @hf_gsm_a_rr_3g_priority_param_desc_utran_start, align 4
-  %460 = call ptr @proto_tree_add_bits_item(ptr noundef %458, i32 noundef %459, ptr noundef %0, i32 noundef %446, i32 noundef 1, i32 noundef 0) #10
-  %461 = add i32 %.24, 3
-  %462 = load i32, ptr @hf_gsm_a_rr_3g_priority_param_desc_utran_stop, align 4
-  %463 = call ptr @proto_tree_add_bits_item(ptr noundef %458, i32 noundef %462, ptr noundef %0, i32 noundef %461, i32 noundef 1, i32 noundef 0) #10
-  %464 = add i32 %.24, 4
-  %465 = add i32 %.24, 5
-  %466 = load i32, ptr @hf_gsm_a_rr_3g_measurement_control_parameters_description, align 4
-  %467 = and i32 %464, 7
-  %468 = lshr exact i32 128, %467
-  %469 = ashr i32 %464, 3
-  %470 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %469) #10
-  %471 = call ptr @proto_tree_add_bits_item(ptr noundef %458, i32 noundef %466, ptr noundef %0, i32 noundef %464, i32 noundef 1, i32 noundef 0) #10
-  %472 = zext i8 %470 to i32
-  %473 = and i32 %468, %472
-  %.not34.i = icmp eq i32 %473, 0
-  br i1 %.not34.i, label %de_rr_3g_supplementary_param_desc_mi.exit, label %474
+  %451 = ashr i32 %441, 3
+  %452 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 192), align 16
+  %453 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %451, i32 noundef -1, i32 noundef %452, ptr noundef nonnull %10, ptr noundef nonnull @.str.1461) #10
+  %454 = load i32, ptr @hf_gsm_a_rr_3g_priority_param_desc_utran_start, align 4
+  %455 = call ptr @proto_tree_add_bits_item(ptr noundef %453, i32 noundef %454, ptr noundef %0, i32 noundef %441, i32 noundef 1, i32 noundef 0) #10
+  %456 = add i32 %.24, 3
+  %457 = load i32, ptr @hf_gsm_a_rr_3g_priority_param_desc_utran_stop, align 4
+  %458 = call ptr @proto_tree_add_bits_item(ptr noundef %453, i32 noundef %457, ptr noundef %0, i32 noundef %456, i32 noundef 1, i32 noundef 0) #10
+  %459 = add i32 %.24, 4
+  %460 = add i32 %.24, 5
+  %461 = load i32, ptr @hf_gsm_a_rr_3g_measurement_control_parameters_description, align 4
+  %462 = and i32 %459, 7
+  %463 = lshr exact i32 128, %462
+  %464 = ashr i32 %459, 3
+  %465 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %464) #10
+  %466 = call ptr @proto_tree_add_bits_item(ptr noundef %453, i32 noundef %461, ptr noundef %0, i32 noundef %459, i32 noundef 1, i32 noundef 0) #10
+  %467 = zext i8 %465 to i32
+  %468 = and i32 %463, %467
+  %.not34.i = icmp eq i32 %468, 0
+  br i1 %.not34.i, label %de_rr_3g_supplementary_param_desc_mi.exit, label %469
 
-474:                                              ; preds = %455
-  %475 = add i32 %.24, 6
-  %476 = load i32, ptr @hf_gsm_a_rr_3g_measurement_control_parameters_description_struct, align 4
-  %477 = and i32 %465, 7
-  %478 = lshr exact i32 128, %477
-  %479 = ashr i32 %465, 3
-  %480 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %479) #10
-  %481 = call ptr @proto_tree_add_bits_item(ptr noundef %458, i32 noundef %476, ptr noundef %0, i32 noundef %465, i32 noundef 1, i32 noundef 0) #10
-  %482 = zext i8 %480 to i32
-  %483 = and i32 %478, %482
-  %.not.i = icmp eq i32 %483, 0
-  br i1 %.not.i, label %.preheader451, label %484
+469:                                              ; preds = %450
+  %470 = add i32 %.24, 6
+  %471 = load i32, ptr @hf_gsm_a_rr_3g_measurement_control_parameters_description_struct, align 4
+  %472 = and i32 %460, 7
+  %473 = lshr exact i32 128, %472
+  %474 = ashr i32 %460, 3
+  %475 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %474) #10
+  %476 = call ptr @proto_tree_add_bits_item(ptr noundef %453, i32 noundef %471, ptr noundef %0, i32 noundef %460, i32 noundef 1, i32 noundef 0) #10
+  %477 = zext i8 %475 to i32
+  %478 = and i32 %473, %477
+  %.not.i = icmp eq i32 %478, 0
+  br i1 %.not.i, label %.preheader459, label %479
 
-484:                                              ; preds = %474
-  %485 = load i32, ptr @hf_gsm_a_rr_3g_control_param_desc_meas_ctrl_utran, align 4
-  %486 = call ptr @proto_tree_add_bits_item(ptr noundef %458, i32 noundef %485, ptr noundef %0, i32 noundef %475, i32 noundef 1, i32 noundef 0) #10
-  %487 = add i32 %.24, 7
-  br label %.preheader451
+479:                                              ; preds = %469
+  %480 = load i32, ptr @hf_gsm_a_rr_3g_control_param_desc_meas_ctrl_utran, align 4
+  %481 = call ptr @proto_tree_add_bits_item(ptr noundef %453, i32 noundef %480, ptr noundef %0, i32 noundef %470, i32 noundef 1, i32 noundef 0) #10
+  %482 = add i32 %.24, 7
+  br label %.preheader459
 
-.preheader451:                                    ; preds = %484, %474
-  %.1.i.ph = phi i32 [ %475, %474 ], [ %487, %484 ]
-  br label %488
+.preheader459:                                    ; preds = %479, %469
+  %.1.i.ph = phi i32 [ %470, %469 ], [ %482, %479 ]
+  br label %483
 
-488:                                              ; preds = %.preheader451, %de_rr_utran_measurement_control_param_mi.exit.i
-  %.1.i = phi i32 [ %518, %de_rr_utran_measurement_control_param_mi.exit.i ], [ %.1.i.ph, %.preheader451 ]
-  %489 = add i32 %.1.i, 1
-  %490 = load i32, ptr @hf_gsm_a_rr_repeated_utran_measurement_control_parameters_struct, align 4
-  %491 = and i32 %.1.i, 7
-  %492 = lshr exact i32 128, %491
-  %493 = ashr i32 %.1.i, 3
-  %494 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %493) #10
-  %495 = call ptr @proto_tree_add_bits_item(ptr noundef %458, i32 noundef %490, ptr noundef %0, i32 noundef %.1.i, i32 noundef 1, i32 noundef 0) #10
-  %496 = zext i8 %494 to i32
-  %497 = and i32 %492, %496
-  %.not35.i = icmp eq i32 %497, 0
-  br i1 %.not35.i, label %de_rr_3g_supplementary_param_desc_mi.exit, label %498
+483:                                              ; preds = %.preheader459, %de_rr_utran_measurement_control_param_mi.exit.i
+  %.1.i = phi i32 [ %513, %de_rr_utran_measurement_control_param_mi.exit.i ], [ %.1.i.ph, %.preheader459 ]
+  %484 = add i32 %.1.i, 1
+  %485 = load i32, ptr @hf_gsm_a_rr_repeated_utran_measurement_control_parameters_struct, align 4
+  %486 = and i32 %.1.i, 7
+  %487 = lshr exact i32 128, %486
+  %488 = ashr i32 %.1.i, 3
+  %489 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %488) #10
+  %490 = call ptr @proto_tree_add_bits_item(ptr noundef %453, i32 noundef %485, ptr noundef %0, i32 noundef %.1.i, i32 noundef 1, i32 noundef 0) #10
+  %491 = zext i8 %489 to i32
+  %492 = and i32 %487, %491
+  %.not35.i = icmp eq i32 %492, 0
+  br i1 %.not35.i, label %de_rr_3g_supplementary_param_desc_mi.exit, label %493
 
-498:                                              ; preds = %488
+493:                                              ; preds = %483
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %499 = ashr i32 %489, 3
-  %500 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 196), align 4
-  %501 = call ptr @proto_tree_add_subtree(ptr noundef %458, ptr noundef %0, i32 noundef %499, i32 noundef -1, i32 noundef %500, ptr noundef nonnull %9, ptr noundef nonnull @.str.1800) #10
-  br label %502
+  %494 = ashr i32 %484, 3
+  %495 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 196), align 4
+  %496 = call ptr @proto_tree_add_subtree(ptr noundef %453, ptr noundef %0, i32 noundef %494, i32 noundef -1, i32 noundef %495, ptr noundef nonnull %9, ptr noundef nonnull @.str.1800) #10
+  br label %497
 
-502:                                              ; preds = %512, %498
-  %.0.i.i = phi i32 [ %489, %498 ], [ %515, %512 ]
-  %503 = add i32 %.0.i.i, 1
-  %504 = load i32, ptr @hf_gsm_a_rr_repeated_utran_frequency_index, align 4
-  %505 = and i32 %.0.i.i, 7
-  %506 = lshr exact i32 128, %505
-  %507 = ashr i32 %.0.i.i, 3
-  %508 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %507) #10
-  %509 = call ptr @proto_tree_add_bits_item(ptr noundef %501, i32 noundef %504, ptr noundef %0, i32 noundef %.0.i.i, i32 noundef 1, i32 noundef 0) #10
-  %510 = zext i8 %508 to i32
-  %511 = and i32 %506, %510
-  %.not18.i.i = icmp eq i32 %511, 0
-  br i1 %.not18.i.i, label %de_rr_utran_measurement_control_param_mi.exit.i, label %512
+497:                                              ; preds = %507, %493
+  %.0.i.i = phi i32 [ %484, %493 ], [ %510, %507 ]
+  %498 = add i32 %.0.i.i, 1
+  %499 = load i32, ptr @hf_gsm_a_rr_repeated_utran_frequency_index, align 4
+  %500 = and i32 %.0.i.i, 7
+  %501 = lshr exact i32 128, %500
+  %502 = ashr i32 %.0.i.i, 3
+  %503 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %502) #10
+  %504 = call ptr @proto_tree_add_bits_item(ptr noundef %496, i32 noundef %499, ptr noundef %0, i32 noundef %.0.i.i, i32 noundef 1, i32 noundef 0) #10
+  %505 = zext i8 %503 to i32
+  %506 = and i32 %501, %505
+  %.not18.i.i = icmp eq i32 %506, 0
+  br i1 %.not18.i.i, label %de_rr_utran_measurement_control_param_mi.exit.i, label %507
 
-512:                                              ; preds = %502
-  %513 = load i32, ptr @hf_gsm_a_rr_utran_frequency_index, align 4
-  %514 = call ptr @proto_tree_add_bits_item(ptr noundef %501, i32 noundef %513, ptr noundef %0, i32 noundef %503, i32 noundef 5, i32 noundef 0) #10
-  %515 = add i32 %.0.i.i, 6
-  br label %502, !llvm.loop !90
+507:                                              ; preds = %497
+  %508 = load i32, ptr @hf_gsm_a_rr_utran_frequency_index, align 4
+  %509 = call ptr @proto_tree_add_bits_item(ptr noundef %496, i32 noundef %508, ptr noundef %0, i32 noundef %498, i32 noundef 5, i32 noundef 0) #10
+  %510 = add i32 %.0.i.i, 6
+  br label %497, !llvm.loop !90
 
-de_rr_utran_measurement_control_param_mi.exit.i:  ; preds = %502
-  %516 = load i32, ptr @hf_gsm_a_rr_3g_control_param_desc_meas_ctrl_utran, align 4
-  %517 = call ptr @proto_tree_add_bits_item(ptr noundef %501, i32 noundef %516, ptr noundef %0, i32 noundef %503, i32 noundef 1, i32 noundef 0) #10
-  %518 = add i32 %.0.i.i, 2
-  %519 = load ptr, ptr %9, align 8
-  %520 = ashr i32 %518, 3
-  %reass.sub406 = sub nsw i32 %520, %499
-  %521 = add nsw i32 %reass.sub406, 1
-  call void @proto_item_set_len(ptr noundef %519, i32 noundef %521) #10
+de_rr_utran_measurement_control_param_mi.exit.i:  ; preds = %497
+  %511 = load i32, ptr @hf_gsm_a_rr_3g_control_param_desc_meas_ctrl_utran, align 4
+  %512 = call ptr @proto_tree_add_bits_item(ptr noundef %496, i32 noundef %511, ptr noundef %0, i32 noundef %498, i32 noundef 1, i32 noundef 0) #10
+  %513 = add i32 %.0.i.i, 2
+  %514 = load ptr, ptr %9, align 8
+  %515 = ashr i32 %513, 3
+  %reass.sub414 = sub nsw i32 %515, %494
+  %516 = add nsw i32 %reass.sub414, 1
+  call void @proto_item_set_len(ptr noundef %514, i32 noundef %516) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  br label %488, !llvm.loop !91
+  br label %483, !llvm.loop !91
 
-de_rr_3g_supplementary_param_desc_mi.exit:        ; preds = %488, %455
-  %.2.i = phi i32 [ %465, %455 ], [ %489, %488 ]
-  %522 = load ptr, ptr %10, align 8
-  %523 = ashr i32 %.2.i, 3
-  %reass.sub407 = sub nsw i32 %523, %456
-  %524 = add nsw i32 %reass.sub407, 1
-  call void @proto_item_set_len(ptr noundef %522, i32 noundef %524) #10
+de_rr_3g_supplementary_param_desc_mi.exit:        ; preds = %483, %450
+  %.2.i = phi i32 [ %460, %450 ], [ %484, %483 ]
+  %517 = load ptr, ptr %10, align 8
+  %518 = ashr i32 %.2.i, 3
+  %reass.sub415 = sub nsw i32 %518, %451
+  %519 = add nsw i32 %reass.sub415, 1
+  call void @proto_item_set_len(ptr noundef %517, i32 noundef %519) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br label %525
+  br label %520
 
-525:                                              ; preds = %._crit_edge420, %de_rr_3g_supplementary_param_desc_mi.exit
-  %.pre-phi423 = phi i32 [ %.pre422, %._crit_edge420 ], [ %523, %de_rr_3g_supplementary_param_desc_mi.exit ]
-  %.25 = phi i32 [ %446, %._crit_edge420 ], [ %.2.i, %de_rr_3g_supplementary_param_desc_mi.exit ]
-  %526 = add i32 %.25, 1
-  %527 = load i32, ptr @hf_gsm_a_rr_eutran_parameters_description, align 4
-  %528 = and i32 %.25, 7
-  %529 = lshr exact i32 128, %528
-  %530 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.pre-phi423) #10
-  %531 = call ptr @proto_tree_add_bits_item(ptr noundef %.1, i32 noundef %527, ptr noundef %0, i32 noundef %.25, i32 noundef 1, i32 noundef 0) #10
-  %532 = zext i8 %530 to i32
-  %533 = and i32 %529, %532
-  %.not385 = icmp eq i32 %533, 0
-  br i1 %.not385, label %._crit_edge419, label %534
+520:                                              ; preds = %._crit_edge428, %de_rr_3g_supplementary_param_desc_mi.exit
+  %.pre-phi431 = phi i32 [ %.pre430, %._crit_edge428 ], [ %518, %de_rr_3g_supplementary_param_desc_mi.exit ]
+  %.25 = phi i32 [ %441, %._crit_edge428 ], [ %.2.i, %de_rr_3g_supplementary_param_desc_mi.exit ]
+  %521 = add i32 %.25, 1
+  %522 = load i32, ptr @hf_gsm_a_rr_eutran_parameters_description, align 4
+  %523 = and i32 %.25, 7
+  %524 = lshr exact i32 128, %523
+  %525 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.pre-phi431) #10
+  %526 = call ptr @proto_tree_add_bits_item(ptr noundef %.1, i32 noundef %522, ptr noundef %0, i32 noundef %.25, i32 noundef 1, i32 noundef 0) #10
+  %527 = zext i8 %525 to i32
+  %528 = and i32 %524, %527
+  %.not385 = icmp eq i32 %528, 0
+  br i1 %.not385, label %._crit_edge427, label %529
 
-._crit_edge419:                                   ; preds = %525
-  %.pre424 = ashr i32 %526, 3
-  br label %665
+._crit_edge427:                                   ; preds = %520
+  %.pre432 = ashr i32 %521, 3
+  br label %660
 
-534:                                              ; preds = %525
+529:                                              ; preds = %520
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %535 = ashr i32 %526, 3
-  %536 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 84), align 4
-  %537 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %535, i32 noundef -1, i32 noundef %536, ptr noundef nonnull %8, ptr noundef nonnull @.str.1399) #10
-  %538 = load i32, ptr @hf_gsm_a_rr_eutran_start, align 4
-  %539 = call ptr @proto_tree_add_bits_item(ptr noundef %537, i32 noundef %538, ptr noundef %0, i32 noundef %526, i32 noundef 1, i32 noundef 0) #10
-  %540 = add i32 %.25, 2
-  %541 = load i32, ptr @hf_gsm_a_rr_eutran_stop, align 4
-  %542 = call ptr @proto_tree_add_bits_item(ptr noundef %537, i32 noundef %541, ptr noundef %0, i32 noundef %540, i32 noundef 1, i32 noundef 0) #10
-  %543 = add i32 %.25, 3
-  %544 = add i32 %.25, 4
-  %545 = load i32, ptr @hf_gsm_a_rr_eutran_measurement_parameters_description, align 4
-  %546 = and i32 %543, 7
-  %547 = lshr exact i32 128, %546
-  %548 = ashr i32 %543, 3
-  %549 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %548) #10
-  %550 = call ptr @proto_tree_add_bits_item(ptr noundef %537, i32 noundef %545, ptr noundef %0, i32 noundef %543, i32 noundef 1, i32 noundef 0) #10
-  %551 = zext i8 %549 to i32
-  %552 = and i32 %547, %551
-  %.not66.i = icmp eq i32 %552, 0
-  br i1 %.not66.i, label %.preheader448, label %553
+  %530 = ashr i32 %521, 3
+  %531 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 84), align 4
+  %532 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %530, i32 noundef -1, i32 noundef %531, ptr noundef nonnull %8, ptr noundef nonnull @.str.1399) #10
+  %533 = load i32, ptr @hf_gsm_a_rr_eutran_start, align 4
+  %534 = call ptr @proto_tree_add_bits_item(ptr noundef %532, i32 noundef %533, ptr noundef %0, i32 noundef %521, i32 noundef 1, i32 noundef 0) #10
+  %535 = add i32 %.25, 2
+  %536 = load i32, ptr @hf_gsm_a_rr_eutran_stop, align 4
+  %537 = call ptr @proto_tree_add_bits_item(ptr noundef %532, i32 noundef %536, ptr noundef %0, i32 noundef %535, i32 noundef 1, i32 noundef 0) #10
+  %538 = add i32 %.25, 3
+  %539 = add i32 %.25, 4
+  %540 = load i32, ptr @hf_gsm_a_rr_eutran_measurement_parameters_description, align 4
+  %541 = and i32 %538, 7
+  %542 = lshr exact i32 128, %541
+  %543 = ashr i32 %538, 3
+  %544 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %543) #10
+  %545 = call ptr @proto_tree_add_bits_item(ptr noundef %532, i32 noundef %540, ptr noundef %0, i32 noundef %538, i32 noundef 1, i32 noundef 0) #10
+  %546 = zext i8 %544 to i32
+  %547 = and i32 %542, %546
+  %.not66.i = icmp eq i32 %547, 0
+  br i1 %.not66.i, label %.preheader456, label %548
 
-553:                                              ; preds = %534
-  %554 = call fastcc i32 @de_rr_eutran_measurement_param_desc(ptr noundef %0, ptr noundef %537, i32 noundef %544)
-  %555 = add i32 %554, %544
-  br label %.preheader448
+548:                                              ; preds = %529
+  %549 = call fastcc i32 @de_rr_eutran_measurement_param_desc(ptr noundef %0, ptr noundef %532, i32 noundef %539)
+  %550 = add i32 %549, %539
+  br label %.preheader456
 
-.preheader448:                                    ; preds = %553, %534
-  %.1.i354.ph = phi i32 [ %544, %534 ], [ %555, %553 ]
-  br label %556
+.preheader456:                                    ; preds = %548, %529
+  %.1.i354.ph = phi i32 [ %539, %529 ], [ %550, %548 ]
+  br label %551
 
-556:                                              ; preds = %.preheader448, %de_rr_eutran_neighbour_cells_mi.exit.i
-  %.1.i354 = phi i32 [ %.1.i.i, %de_rr_eutran_neighbour_cells_mi.exit.i ], [ %.1.i354.ph, %.preheader448 ]
-  %557 = add i32 %.1.i354, 1
-  %558 = load i32, ptr @hf_gsm_a_rr_repeated_eutran_neighbour_cells, align 4
-  %559 = and i32 %.1.i354, 7
-  %560 = lshr exact i32 128, %559
-  %561 = ashr i32 %.1.i354, 3
-  %562 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %561) #10
-  %563 = call ptr @proto_tree_add_bits_item(ptr noundef %537, i32 noundef %558, ptr noundef %0, i32 noundef %.1.i354, i32 noundef 1, i32 noundef 0) #10
-  %564 = zext i8 %562 to i32
-  %565 = and i32 %560, %564
-  %.not.i355 = icmp eq i32 %565, 0
-  br i1 %.not.i355, label %.preheader73.i, label %566
+551:                                              ; preds = %.preheader456, %de_rr_eutran_neighbour_cells_mi.exit.i
+  %.1.i354 = phi i32 [ %.1.i.i, %de_rr_eutran_neighbour_cells_mi.exit.i ], [ %.1.i354.ph, %.preheader456 ]
+  %552 = add i32 %.1.i354, 1
+  %553 = load i32, ptr @hf_gsm_a_rr_repeated_eutran_neighbour_cells, align 4
+  %554 = and i32 %.1.i354, 7
+  %555 = lshr exact i32 128, %554
+  %556 = ashr i32 %.1.i354, 3
+  %557 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %556) #10
+  %558 = call ptr @proto_tree_add_bits_item(ptr noundef %532, i32 noundef %553, ptr noundef %0, i32 noundef %.1.i354, i32 noundef 1, i32 noundef 0) #10
+  %559 = zext i8 %557 to i32
+  %560 = and i32 %555, %559
+  %.not.i355 = icmp eq i32 %560, 0
+  br i1 %.not.i355, label %.preheader73.i, label %561
 
-566:                                              ; preds = %556
+561:                                              ; preds = %551
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %567 = ashr i32 %557, 3
-  %568 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 88), align 8
-  %569 = call ptr @proto_tree_add_subtree(ptr noundef %537, ptr noundef %0, i32 noundef %567, i32 noundef -1, i32 noundef %568, ptr noundef nonnull %7, ptr noundef nonnull @.str.1787) #10
-  br label %570
+  %562 = ashr i32 %552, 3
+  %563 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 88), align 8
+  %564 = call ptr @proto_tree_add_subtree(ptr noundef %532, ptr noundef %0, i32 noundef %562, i32 noundef -1, i32 noundef %563, ptr noundef nonnull %7, ptr noundef nonnull @.str.1787) #10
+  br label %565
 
-570:                                              ; preds = %570, %566
-  %.sink27.i.i = phi i32 [ %557, %566 ], [ %573, %570 ]
-  %571 = load i32, ptr @hf_gsm_a_rr_eutran_earfcn, align 4
-  %572 = call ptr @proto_tree_add_bits_item(ptr noundef %569, i32 noundef %571, ptr noundef %0, i32 noundef %.sink27.i.i, i32 noundef 16, i32 noundef 0) #10
+565:                                              ; preds = %565, %561
+  %.sink27.i.i = phi i32 [ %552, %561 ], [ %568, %565 ]
+  %566 = load i32, ptr @hf_gsm_a_rr_eutran_earfcn, align 4
+  %567 = call ptr @proto_tree_add_bits_item(ptr noundef %564, i32 noundef %566, ptr noundef %0, i32 noundef %.sink27.i.i, i32 noundef 16, i32 noundef 0) #10
   %.0.i.i356 = add i32 %.sink27.i.i, 16
-  %573 = add i32 %.sink27.i.i, 17
-  %574 = load i32, ptr @hf_gsm_a_rr_repeated_earfcn, align 4
-  %575 = and i32 %.sink27.i.i, 7
-  %576 = lshr exact i32 128, %575
-  %577 = ashr i32 %.0.i.i356, 3
-  %578 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %577) #10
-  %579 = call ptr @proto_tree_add_bits_item(ptr noundef %569, i32 noundef %574, ptr noundef %0, i32 noundef %.0.i.i356, i32 noundef 1, i32 noundef 0) #10
-  %580 = zext i8 %578 to i32
-  %581 = and i32 %576, %580
-  %.not26.i.i = icmp eq i32 %581, 0
-  br i1 %.not26.i.i, label %582, label %570, !llvm.loop !92
+  %568 = add i32 %.sink27.i.i, 17
+  %569 = load i32, ptr @hf_gsm_a_rr_repeated_earfcn, align 4
+  %570 = and i32 %.sink27.i.i, 7
+  %571 = lshr exact i32 128, %570
+  %572 = ashr i32 %.0.i.i356, 3
+  %573 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %572) #10
+  %574 = call ptr @proto_tree_add_bits_item(ptr noundef %564, i32 noundef %569, ptr noundef %0, i32 noundef %.0.i.i356, i32 noundef 1, i32 noundef 0) #10
+  %575 = zext i8 %573 to i32
+  %576 = and i32 %571, %575
+  %.not26.i.i = icmp eq i32 %576, 0
+  br i1 %.not26.i.i, label %577, label %565, !llvm.loop !92
 
-582:                                              ; preds = %570
-  %583 = add i32 %.sink27.i.i, 18
-  %584 = load i32, ptr @hf_gsm_a_rr_eutran_measurement_bandwidth_present, align 4
-  %585 = and i32 %573, 7
-  %586 = lshr exact i32 128, %585
-  %587 = ashr i32 %573, 3
-  %588 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %587) #10
-  %589 = call ptr @proto_tree_add_bits_item(ptr noundef %569, i32 noundef %584, ptr noundef %0, i32 noundef %573, i32 noundef 1, i32 noundef 0) #10
-  %590 = zext i8 %588 to i32
-  %591 = and i32 %586, %590
-  %.not.i.i = icmp eq i32 %591, 0
-  br i1 %.not.i.i, label %de_rr_eutran_neighbour_cells_mi.exit.i, label %592
+577:                                              ; preds = %565
+  %578 = add i32 %.sink27.i.i, 18
+  %579 = load i32, ptr @hf_gsm_a_rr_eutran_measurement_bandwidth_present, align 4
+  %580 = and i32 %568, 7
+  %581 = lshr exact i32 128, %580
+  %582 = ashr i32 %568, 3
+  %583 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %582) #10
+  %584 = call ptr @proto_tree_add_bits_item(ptr noundef %564, i32 noundef %579, ptr noundef %0, i32 noundef %568, i32 noundef 1, i32 noundef 0) #10
+  %585 = zext i8 %583 to i32
+  %586 = and i32 %581, %585
+  %.not.i.i = icmp eq i32 %586, 0
+  br i1 %.not.i.i, label %de_rr_eutran_neighbour_cells_mi.exit.i, label %587
 
-592:                                              ; preds = %582
-  %593 = load i32, ptr @hf_gsm_a_rr_eutran_measurement_bandwidth, align 4
-  %594 = call ptr @proto_tree_add_bits_item(ptr noundef %569, i32 noundef %593, ptr noundef %0, i32 noundef %583, i32 noundef 3, i32 noundef 0) #10
-  %595 = add i32 %.sink27.i.i, 21
+587:                                              ; preds = %577
+  %588 = load i32, ptr @hf_gsm_a_rr_eutran_measurement_bandwidth, align 4
+  %589 = call ptr @proto_tree_add_bits_item(ptr noundef %564, i32 noundef %588, ptr noundef %0, i32 noundef %578, i32 noundef 3, i32 noundef 0) #10
+  %590 = add i32 %.sink27.i.i, 21
   br label %de_rr_eutran_neighbour_cells_mi.exit.i
 
-de_rr_eutran_neighbour_cells_mi.exit.i:           ; preds = %592, %582
-  %.1.i.i = phi i32 [ %595, %592 ], [ %583, %582 ]
-  %596 = load ptr, ptr %7, align 8
-  %597 = ashr i32 %.1.i.i, 3
-  %reass.sub408 = sub nsw i32 %597, %567
-  %598 = add nsw i32 %reass.sub408, 1
-  call void @proto_item_set_len(ptr noundef %596, i32 noundef %598) #10
+de_rr_eutran_neighbour_cells_mi.exit.i:           ; preds = %587, %577
+  %.1.i.i = phi i32 [ %590, %587 ], [ %578, %577 ]
+  %591 = load ptr, ptr %7, align 8
+  %592 = ashr i32 %.1.i.i, 3
+  %reass.sub416 = sub nsw i32 %592, %562
+  %593 = add nsw i32 %reass.sub416, 1
+  call void @proto_item_set_len(ptr noundef %591, i32 noundef %593) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %556, !llvm.loop !93
+  br label %551, !llvm.loop !93
 
-.preheader73.i:                                   ; preds = %556, %608
-  %.2.i358 = phi i32 [ %610, %608 ], [ %557, %556 ]
-  %599 = add i32 %.2.i358, 1
-  %600 = load i32, ptr @hf_gsm_a_rr_repeated_eutran_not_allowed_cells, align 4
-  %601 = and i32 %.2.i358, 7
-  %602 = lshr exact i32 128, %601
-  %603 = ashr i32 %.2.i358, 3
-  %604 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %603) #10
-  %605 = call ptr @proto_tree_add_bits_item(ptr noundef %537, i32 noundef %600, ptr noundef %0, i32 noundef %.2.i358, i32 noundef 1, i32 noundef 0) #10
-  %606 = zext i8 %604 to i32
-  %607 = and i32 %602, %606
-  %.not67.i = icmp eq i32 %607, 0
-  br i1 %.not67.i, label %611, label %608
+.preheader73.i:                                   ; preds = %551, %603
+  %.2.i358 = phi i32 [ %605, %603 ], [ %552, %551 ]
+  %594 = add i32 %.2.i358, 1
+  %595 = load i32, ptr @hf_gsm_a_rr_repeated_eutran_not_allowed_cells, align 4
+  %596 = and i32 %.2.i358, 7
+  %597 = lshr exact i32 128, %596
+  %598 = ashr i32 %.2.i358, 3
+  %599 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %598) #10
+  %600 = call ptr @proto_tree_add_bits_item(ptr noundef %532, i32 noundef %595, ptr noundef %0, i32 noundef %.2.i358, i32 noundef 1, i32 noundef 0) #10
+  %601 = zext i8 %599 to i32
+  %602 = and i32 %597, %601
+  %.not67.i = icmp eq i32 %602, 0
+  br i1 %.not67.i, label %606, label %603
 
-608:                                              ; preds = %.preheader73.i
-  %609 = call fastcc i32 @de_rr_eutran_not_allowed_cells(ptr noundef %0, ptr noundef %537, i32 noundef %599)
-  %610 = add i32 %609, %599
+603:                                              ; preds = %.preheader73.i
+  %604 = call fastcc i32 @de_rr_eutran_not_allowed_cells(ptr noundef %0, ptr noundef %532, i32 noundef %594)
+  %605 = add i32 %604, %594
   br label %.preheader73.i, !llvm.loop !94
 
-611:                                              ; preds = %.preheader73.i
-  %612 = add i32 %.2.i358, 2
-  %613 = load i32, ptr @hf_gsm_a_rr_measurement_control_parameters_description, align 4
-  %614 = and i32 %599, 7
-  %615 = lshr exact i32 128, %614
-  %616 = ashr i32 %599, 3
-  %617 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %616) #10
-  %618 = call ptr @proto_tree_add_bits_item(ptr noundef %537, i32 noundef %613, ptr noundef %0, i32 noundef %599, i32 noundef 1, i32 noundef 0) #10
-  %619 = zext i8 %617 to i32
-  %620 = and i32 %615, %619
-  %.not68.i = icmp eq i32 %620, 0
-  br i1 %.not68.i, label %de_rr_eutran_param_desc_mi.exit, label %621
+606:                                              ; preds = %.preheader73.i
+  %607 = add i32 %.2.i358, 2
+  %608 = load i32, ptr @hf_gsm_a_rr_measurement_control_parameters_description, align 4
+  %609 = and i32 %594, 7
+  %610 = lshr exact i32 128, %609
+  %611 = ashr i32 %594, 3
+  %612 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %611) #10
+  %613 = call ptr @proto_tree_add_bits_item(ptr noundef %532, i32 noundef %608, ptr noundef %0, i32 noundef %594, i32 noundef 1, i32 noundef 0) #10
+  %614 = zext i8 %612 to i32
+  %615 = and i32 %610, %614
+  %.not68.i = icmp eq i32 %615, 0
+  br i1 %.not68.i, label %de_rr_eutran_param_desc_mi.exit, label %616
 
-621:                                              ; preds = %611
-  %622 = add i32 %.2.i358, 3
-  %623 = load i32, ptr @hf_gsm_a_rr_eutran_default_measurement_control_eutran_present, align 4
-  %624 = and i32 %612, 7
-  %625 = lshr exact i32 128, %624
-  %626 = ashr i32 %612, 3
-  %627 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %626) #10
-  %628 = call ptr @proto_tree_add_bits_item(ptr noundef %537, i32 noundef %623, ptr noundef %0, i32 noundef %612, i32 noundef 1, i32 noundef 0) #10
-  %629 = zext i8 %627 to i32
-  %630 = and i32 %625, %629
-  %.not69.i = icmp eq i32 %630, 0
-  br i1 %.not69.i, label %.preheader, label %631
+616:                                              ; preds = %606
+  %617 = add i32 %.2.i358, 3
+  %618 = load i32, ptr @hf_gsm_a_rr_eutran_default_measurement_control_eutran_present, align 4
+  %619 = and i32 %607, 7
+  %620 = lshr exact i32 128, %619
+  %621 = ashr i32 %607, 3
+  %622 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %621) #10
+  %623 = call ptr @proto_tree_add_bits_item(ptr noundef %532, i32 noundef %618, ptr noundef %0, i32 noundef %607, i32 noundef 1, i32 noundef 0) #10
+  %624 = zext i8 %622 to i32
+  %625 = and i32 %620, %624
+  %.not69.i = icmp eq i32 %625, 0
+  br i1 %.not69.i, label %.preheader, label %626
 
-631:                                              ; preds = %621
-  %632 = load i32, ptr @hf_gsm_a_rr_eutran_default_measurement_control_eutran, align 4
-  %633 = call ptr @proto_tree_add_bits_item(ptr noundef %537, i32 noundef %632, ptr noundef %0, i32 noundef %622, i32 noundef 1, i32 noundef 0) #10
-  %634 = add i32 %.2.i358, 4
+626:                                              ; preds = %616
+  %627 = load i32, ptr @hf_gsm_a_rr_eutran_default_measurement_control_eutran, align 4
+  %628 = call ptr @proto_tree_add_bits_item(ptr noundef %532, i32 noundef %627, ptr noundef %0, i32 noundef %617, i32 noundef 1, i32 noundef 0) #10
+  %629 = add i32 %.2.i358, 4
   br label %.preheader
 
-.preheader:                                       ; preds = %631, %621
-  %.4.i.ph = phi i32 [ %622, %621 ], [ %634, %631 ]
-  br label %635
+.preheader:                                       ; preds = %626, %616
+  %.4.i.ph = phi i32 [ %617, %616 ], [ %629, %626 ]
+  br label %630
 
-635:                                              ; preds = %.preheader, %658
-  %.4.i = phi i32 [ %661, %658 ], [ %.4.i.ph, %.preheader ]
-  %636 = add i32 %.4.i, 1
-  %637 = load i32, ptr @hf_gsm_a_rr_repeated_eutran_measurement_control_parameters, align 4
-  %638 = and i32 %.4.i, 7
-  %639 = lshr exact i32 128, %638
-  %640 = ashr i32 %.4.i, 3
-  %641 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %640) #10
-  %642 = call ptr @proto_tree_add_bits_item(ptr noundef %537, i32 noundef %637, ptr noundef %0, i32 noundef %.4.i, i32 noundef 1, i32 noundef 0) #10
-  %643 = zext i8 %641 to i32
-  %644 = and i32 %639, %643
-  %.not70.i = icmp eq i32 %644, 0
+630:                                              ; preds = %.preheader, %653
+  %.4.i = phi i32 [ %656, %653 ], [ %.4.i.ph, %.preheader ]
+  %631 = add i32 %.4.i, 1
+  %632 = load i32, ptr @hf_gsm_a_rr_repeated_eutran_measurement_control_parameters, align 4
+  %633 = and i32 %.4.i, 7
+  %634 = lshr exact i32 128, %633
+  %635 = ashr i32 %.4.i, 3
+  %636 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %635) #10
+  %637 = call ptr @proto_tree_add_bits_item(ptr noundef %532, i32 noundef %632, ptr noundef %0, i32 noundef %.4.i, i32 noundef 1, i32 noundef 0) #10
+  %638 = zext i8 %636 to i32
+  %639 = and i32 %634, %638
+  %.not70.i = icmp eq i32 %639, 0
   br i1 %.not70.i, label %de_rr_eutran_param_desc_mi.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %635, %654
-  %.5.i = phi i32 [ %657, %654 ], [ %636, %635 ]
-  %645 = add i32 %.5.i, 1
-  %646 = load i32, ptr @hf_gsm_a_rr_repeated_eutran_frequency_index, align 4
-  %647 = and i32 %.5.i, 7
-  %648 = lshr exact i32 128, %647
-  %649 = ashr i32 %.5.i, 3
-  %650 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %649) #10
-  %651 = call ptr @proto_tree_add_bits_item(ptr noundef %537, i32 noundef %646, ptr noundef %0, i32 noundef %.5.i, i32 noundef 1, i32 noundef 0) #10
-  %652 = zext i8 %650 to i32
-  %653 = and i32 %648, %652
-  %.not71.i = icmp eq i32 %653, 0
-  br i1 %.not71.i, label %658, label %654
+.preheader.i:                                     ; preds = %630, %649
+  %.5.i = phi i32 [ %652, %649 ], [ %631, %630 ]
+  %640 = add i32 %.5.i, 1
+  %641 = load i32, ptr @hf_gsm_a_rr_repeated_eutran_frequency_index, align 4
+  %642 = and i32 %.5.i, 7
+  %643 = lshr exact i32 128, %642
+  %644 = ashr i32 %.5.i, 3
+  %645 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %644) #10
+  %646 = call ptr @proto_tree_add_bits_item(ptr noundef %532, i32 noundef %641, ptr noundef %0, i32 noundef %.5.i, i32 noundef 1, i32 noundef 0) #10
+  %647 = zext i8 %645 to i32
+  %648 = and i32 %643, %647
+  %.not71.i = icmp eq i32 %648, 0
+  br i1 %.not71.i, label %653, label %649
 
-654:                                              ; preds = %.preheader.i
-  %655 = load i32, ptr @hf_gsm_a_rr_eutran_frequency_index, align 4
-  %656 = call ptr @proto_tree_add_bits_item(ptr noundef %537, i32 noundef %655, ptr noundef %0, i32 noundef %645, i32 noundef 3, i32 noundef 0) #10
-  %657 = add i32 %.5.i, 4
+649:                                              ; preds = %.preheader.i
+  %650 = load i32, ptr @hf_gsm_a_rr_eutran_frequency_index, align 4
+  %651 = call ptr @proto_tree_add_bits_item(ptr noundef %532, i32 noundef %650, ptr noundef %0, i32 noundef %640, i32 noundef 3, i32 noundef 0) #10
+  %652 = add i32 %.5.i, 4
   br label %.preheader.i, !llvm.loop !95
 
-658:                                              ; preds = %.preheader.i
-  %659 = load i32, ptr @hf_gsm_a_rr_eutran_measurement_control_eutran, align 4
-  %660 = call ptr @proto_tree_add_bits_item(ptr noundef %537, i32 noundef %659, ptr noundef %0, i32 noundef %645, i32 noundef 1, i32 noundef 0) #10
-  %661 = add i32 %.5.i, 2
-  br label %635, !llvm.loop !96
+653:                                              ; preds = %.preheader.i
+  %654 = load i32, ptr @hf_gsm_a_rr_eutran_measurement_control_eutran, align 4
+  %655 = call ptr @proto_tree_add_bits_item(ptr noundef %532, i32 noundef %654, ptr noundef %0, i32 noundef %640, i32 noundef 1, i32 noundef 0) #10
+  %656 = add i32 %.5.i, 2
+  br label %630, !llvm.loop !96
 
-de_rr_eutran_param_desc_mi.exit:                  ; preds = %635, %611
-  %.6.i = phi i32 [ %612, %611 ], [ %636, %635 ]
-  %662 = load ptr, ptr %8, align 8
-  %663 = ashr i32 %.6.i, 3
-  %reass.sub409 = sub nsw i32 %663, %535
-  %664 = add nsw i32 %reass.sub409, 1
-  call void @proto_item_set_len(ptr noundef %662, i32 noundef %664) #10
+de_rr_eutran_param_desc_mi.exit:                  ; preds = %630, %606
+  %.6.i = phi i32 [ %607, %606 ], [ %631, %630 ]
+  %657 = load ptr, ptr %8, align 8
+  %658 = ashr i32 %.6.i, 3
+  %reass.sub417 = sub nsw i32 %658, %530
+  %659 = add nsw i32 %reass.sub417, 1
+  call void @proto_item_set_len(ptr noundef %657, i32 noundef %659) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br label %665
+  br label %660
 
-665:                                              ; preds = %._crit_edge419, %de_rr_eutran_param_desc_mi.exit
-  %.pre-phi425 = phi i32 [ %.pre424, %._crit_edge419 ], [ %663, %de_rr_eutran_param_desc_mi.exit ]
-  %.26 = phi i32 [ %526, %._crit_edge419 ], [ %.6.i, %de_rr_eutran_param_desc_mi.exit ]
-  %666 = add i32 %.26, 1
-  %667 = load i32, ptr @hf_gsm_a_rr_eutran_csg_description, align 4
-  %668 = and i32 %.26, 7
-  %669 = lshr exact i32 128, %668
-  %670 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.pre-phi425) #10
-  %671 = call ptr @proto_tree_add_bits_item(ptr noundef %.1, i32 noundef %667, ptr noundef %0, i32 noundef %.26, i32 noundef 1, i32 noundef 0) #10
-  %672 = zext i8 %670 to i32
-  %673 = and i32 %669, %672
-  %.not386 = icmp eq i32 %673, 0
-  br i1 %.not386, label %694, label %674
+660:                                              ; preds = %._crit_edge427, %de_rr_eutran_param_desc_mi.exit
+  %.pre-phi433 = phi i32 [ %.pre432, %._crit_edge427 ], [ %658, %de_rr_eutran_param_desc_mi.exit ]
+  %.26 = phi i32 [ %521, %._crit_edge427 ], [ %.6.i, %de_rr_eutran_param_desc_mi.exit ]
+  %661 = add i32 %.26, 1
+  %662 = load i32, ptr @hf_gsm_a_rr_eutran_csg_description, align 4
+  %663 = and i32 %.26, 7
+  %664 = lshr exact i32 128, %663
+  %665 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.pre-phi433) #10
+  %666 = call ptr @proto_tree_add_bits_item(ptr noundef %.1, i32 noundef %662, ptr noundef %0, i32 noundef %.26, i32 noundef 1, i32 noundef 0) #10
+  %667 = zext i8 %665 to i32
+  %668 = and i32 %664, %667
+  %.not386 = icmp eq i32 %668, 0
+  br i1 %.not386, label %689, label %669
 
-674:                                              ; preds = %665
+669:                                              ; preds = %660
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %675 = ashr i32 %666, 3
-  %676 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 104), align 8
-  %677 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %675, i32 noundef -1, i32 noundef %676, ptr noundef nonnull %6, ptr noundef nonnull @.str.1515) #10
-  br label %678
+  %670 = ashr i32 %661, 3
+  %671 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 104), align 8
+  %672 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %670, i32 noundef -1, i32 noundef %671, ptr noundef nonnull %6, ptr noundef nonnull @.str.1515) #10
+  br label %673
 
-678:                                              ; preds = %688, %674
-  %.0.i359 = phi i32 [ %666, %674 ], [ %690, %688 ]
-  %679 = add i32 %.0.i359, 1
-  %680 = load i32, ptr @hf_gsm_a_rr_repeated_csg_pci_split, align 4
-  %681 = and i32 %.0.i359, 7
-  %682 = lshr exact i32 128, %681
-  %683 = ashr i32 %.0.i359, 3
-  %684 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %683) #10
-  %685 = call ptr @proto_tree_add_bits_item(ptr noundef %677, i32 noundef %680, ptr noundef %0, i32 noundef %.0.i359, i32 noundef 1, i32 noundef 0) #10
-  %686 = zext i8 %684 to i32
-  %687 = and i32 %682, %686
-  %.not14.i = icmp eq i32 %687, 0
-  br i1 %.not14.i, label %de_rr_eutran_csg_desc_mi.exit, label %688
+673:                                              ; preds = %683, %669
+  %.0.i359 = phi i32 [ %661, %669 ], [ %685, %683 ]
+  %674 = add i32 %.0.i359, 1
+  %675 = load i32, ptr @hf_gsm_a_rr_repeated_csg_pci_split, align 4
+  %676 = and i32 %.0.i359, 7
+  %677 = lshr exact i32 128, %676
+  %678 = ashr i32 %.0.i359, 3
+  %679 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %678) #10
+  %680 = call ptr @proto_tree_add_bits_item(ptr noundef %672, i32 noundef %675, ptr noundef %0, i32 noundef %.0.i359, i32 noundef 1, i32 noundef 0) #10
+  %681 = zext i8 %679 to i32
+  %682 = and i32 %677, %681
+  %.not14.i = icmp eq i32 %682, 0
+  br i1 %.not14.i, label %de_rr_eutran_csg_desc_mi.exit, label %683
 
-688:                                              ; preds = %678
-  %689 = call fastcc i32 @de_rr_eutran_pcid(ptr noundef %0, ptr noundef %677, i32 noundef %679)
-  %690 = add i32 %689, %679
-  br label %678, !llvm.loop !97
+683:                                              ; preds = %673
+  %684 = call fastcc i32 @de_rr_eutran_pcid(ptr noundef %0, ptr noundef %672, i32 noundef %674)
+  %685 = add i32 %684, %674
+  br label %673, !llvm.loop !97
 
-de_rr_eutran_csg_desc_mi.exit:                    ; preds = %678
-  %691 = load ptr, ptr %6, align 8
-  %692 = ashr i32 %679, 3
-  %reass.sub410 = sub nsw i32 %692, %675
-  %693 = add nsw i32 %reass.sub410, 1
-  call void @proto_item_set_len(ptr noundef %691, i32 noundef %693) #10
+de_rr_eutran_csg_desc_mi.exit:                    ; preds = %673
+  %686 = load ptr, ptr %6, align 8
+  %687 = ashr i32 %674, 3
+  %reass.sub418 = sub nsw i32 %687, %670
+  %688 = add nsw i32 %reass.sub418, 1
+  call void @proto_item_set_len(ptr noundef %686, i32 noundef %688) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %694
+  br label %689
 
-694:                                              ; preds = %380, %400, %441, %de_rr_eutran_csg_desc_mi.exit, %665, %438, %397, %377
-  %.27 = phi i32 [ %679, %de_rr_eutran_csg_desc_mi.exit ], [ %666, %665 ], [ %442, %441 ], [ %.24, %438 ], [ %401, %400 ], [ %.22, %397 ], [ %381, %380 ], [ %.21, %377 ]
-  %695 = trunc i32 %.27 to i16
-  call fastcc void @gsm_rr_padding_bits(ptr noundef %1, ptr noundef %0, i16 noundef zeroext %695, i8 noundef zeroext %14, i8 noundef zeroext 43)
+689:                                              ; preds = %375, %395, %436, %de_rr_eutran_csg_desc_mi.exit, %660, %433, %392, %372
+  %.27 = phi i32 [ %674, %de_rr_eutran_csg_desc_mi.exit ], [ %661, %660 ], [ %437, %436 ], [ %.24, %433 ], [ %396, %395 ], [ %.22, %392 ], [ %376, %375 ], [ %.21, %372 ]
+  %690 = trunc i32 %.27 to i16
+  call fastcc void @gsm_rr_padding_bits(ptr noundef %1, ptr noundef %0, i16 noundef zeroext %690, i8 noundef zeroext %14, i8 noundef zeroext 43)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %213, %694
+.loopexit:                                        ; preds = %213, %689
   ret void
 }
 

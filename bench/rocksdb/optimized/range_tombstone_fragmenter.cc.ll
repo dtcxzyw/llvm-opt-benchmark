@@ -6582,6 +6582,7 @@ if.end.i:                                         ; preds = %entry
   %values_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload, i64 72
   %vect_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload, i64 80
   %agg.tmp.sroa.3.0.agg.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  %invariant.op = add i64 %agg.tmp.sroa.3.0.copyload, -1
   %cmp.i.i.i38 = icmp ult i64 %add.i.i, 8
   %0 = load ptr, ptr %values_.i.i.i, align 8
   %arrayidx.i.i.i39 = getelementptr inbounds i64, ptr %0, i64 %add.i.i
@@ -6599,12 +6600,12 @@ if.end.i:                                         ; preds = %entry
 if.end8.split.i:                                  ; preds = %if.end.i, %if.end8.split.i
   %__parent.0.i43 = phi i64 [ %dec.i, %if.end8.split.i ], [ %div1415.i, %if.end.i ]
   %dec.i = add nsw i64 %__parent.0.i43, -1
-  %add.i12.i = add i64 %dec.i, %agg.tmp.sroa.3.0.copyload
-  %cmp.i.i.i = icmp ult i64 %add.i12.i, 8
+  %add.i12.i.reass = add i64 %__parent.0.i43, %invariant.op
+  %cmp.i.i.i = icmp ult i64 %add.i12.i.reass, 8
   %4 = load ptr, ptr %values_.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i64, ptr %4, i64 %add.i12.i
+  %arrayidx.i.i.i = getelementptr inbounds i64, ptr %4, i64 %add.i12.i.reass
   %5 = load ptr, ptr %vect_.i.i.i, align 8
-  %6 = getelementptr i64, ptr %5, i64 %add.i12.i
+  %6 = getelementptr i64, ptr %5, i64 %add.i12.i.reass
   %add.ptr.i.i.i.i = getelementptr i8, ptr %6, i64 -64
   %retval.0.i.i.i = select i1 %cmp.i.i.i, ptr %arrayidx.i.i.i, ptr %add.ptr.i.i.i.i
   %7 = load i64, ptr %retval.0.i.i.i, align 8
@@ -7032,15 +7033,17 @@ if.end.i.i.i:                                     ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp4.i.i.i)
   %sub.i.i.i = add nsw i64 %sub.i61, -2
   %div12.i.i.i = lshr i64 %sub.i.i.i, 1
+  %add.i.i.i.i = add i64 %div12.i.i.i, %.fr.i60
   %user_comparator_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp4.i.i.i, i64 8
   %values_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload, i64 136
   %vect_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload, i64 144
   %agg.tmp.sroa.3.0.agg.tmp.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
+  %invariant.op.i.i = add i64 %.fr.i60, -1
   br label %invoke.cont.i.i.i
 
-invoke.cont.i.i.i:                                ; preds = %invoke.cont.i.i.i, %if.end.i.i.i
-  %__parent.0.i.i.i = phi i64 [ %div12.i.i.i, %if.end.i.i.i ], [ %dec.i.i.i, %invoke.cont.i.i.i ]
-  %ref.tmp.sroa.3.0.i.i.i = add i64 %__parent.0.i.i.i, %.fr.i60
+invoke.cont.i.i.i:                                ; preds = %if.end9.split.i.i.i, %if.end.i.i.i
+  %ref.tmp.sroa.3.0.i.i.i = phi i64 [ %add.i.i.i.i, %if.end.i.i.i ], [ %add.i12.i.reass.i.i, %if.end9.split.i.i.i ]
+  %__parent.0.i.i.i = phi i64 [ %div12.i.i.i, %if.end.i.i.i ], [ %dec.i.i.i, %if.end9.split.i.i.i ]
   %cmp.i.i.i.i.i = icmp ult i64 %ref.tmp.sroa.3.0.i.i.i, 8
   %4 = load ptr, ptr %values_.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %4, i64 %ref.tmp.sroa.3.0.i.i.i
@@ -7057,8 +7060,12 @@ invoke.cont.i.i.i:                                ; preds = %invoke.cont.i.i.i, 
   store i64 %3, ptr %user_comparator_.i.i.i.i.i.i, align 8
   call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_T0_SU_T1_T2_"(ptr noundef nonnull %agg.tmp.i.i.i, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.i61, ptr %__value.sroa.0.0.copyload.i.i.i, i64 %__value.sroa.2.0.copyload.i.i.i, ptr noundef nonnull %agg.tmp4.i.i.i)
   %cmp7.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
+  br i1 %cmp7.i.i.i, label %invoke.cont.i.i, label %if.end9.split.i.i.i
+
+if.end9.split.i.i.i:                              ; preds = %invoke.cont.i.i.i
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
-  br i1 %cmp7.i.i.i, label %invoke.cont.i.i, label %invoke.cont.i.i.i, !llvm.loop !120
+  %add.i12.i.reass.i.i = add i64 %invariant.op.i.i, %__parent.0.i.i.i
+  br label %invoke.cont.i.i.i, !llvm.loop !120
 
 invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i)

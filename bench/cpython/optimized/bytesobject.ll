@@ -2783,7 +2783,7 @@ while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.then53
-  %dec759 = phi i64 [ %dec754816, %while.body.lr.ph ], [ %dec, %if.then53 ]
+  %dec759 = phi i64 [ %dec754816, %while.body.lr.ph ], [ %dec.reass, %if.then53 ]
   %fmt.0758 = phi ptr [ %fmt.0.ph814, %while.body.lr.ph ], [ %incdec.ptr55, %if.then53 ]
   %res.0757 = phi ptr [ %res.0.ph813, %while.body.lr.ph ], [ %incdec.ptr54, %if.then53 ]
   %fmtcnt.0756 = phi i64 [ %fmtcnt.0.ph810, %while.body.lr.ph ], [ %dec56, %if.then53 ]
@@ -2819,8 +2819,8 @@ if.then53:                                        ; preds = %if.else48
   store i8 37, ptr %res.0757, align 1
   %incdec.ptr55 = getelementptr i8, ptr %fmt.0758, i64 2
   %dec56 = add i64 %fmtcnt.0756, -2
-  %dec = add i64 %fmtcnt.0756, -3
-  %cmp35 = icmp sgt i64 %dec, -1
+  %dec.reass = add i64 %fmtcnt.0756, -3
+  %cmp35 = icmp sgt i64 %dec.reass, -1
   br i1 %cmp35, label %while.body, label %while.end580, !llvm.loop !11
 
 if.then61:                                        ; preds = %if.else48
@@ -3193,12 +3193,12 @@ if.then255:                                       ; preds = %land.lhs.true248
   br i1 %cmp259797, label %while.body261.preheader, label %if.then312
 
 while.body261.preheader:                          ; preds = %if.then255
-  %dec258796 = add nsw i64 %fmtcnt.6, -2
+  %dec258796.reass = add nsw i64 %fmtcnt.6, -2
   %sub256 = add nsw i32 %c.4428437, -48
   br label %while.body261
 
 while.body261:                                    ; preds = %while.body261.preheader, %if.end281
-  %dec258800 = phi i64 [ %dec258, %if.end281 ], [ %dec258796, %while.body261.preheader ]
+  %dec258800 = phi i64 [ %dec258, %if.end281 ], [ %dec258796.reass, %while.body261.preheader ]
   %fmt.8799 = phi ptr [ %incdec.ptr262, %if.end281 ], [ %fmt.7429436, %while.body261.preheader ]
   %prec.0798 = phi i32 [ %add284, %if.end281 ], [ %sub256, %while.body261.preheader ]
   %incdec.ptr262 = getelementptr i8, ptr %fmt.8799, i64 1

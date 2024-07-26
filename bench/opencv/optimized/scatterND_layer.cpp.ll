@@ -1190,26 +1190,27 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv3dnn18ScatterNDLayerImpl15
   %sext77 = shl i64 %49, 32
   %60 = ashr exact i64 %sext77, 32
   %invariant.gep = getelementptr i32, ptr %18, i64 %41
+  %invariant.op = add nsw i64 %60, 1
   br label %.lr.ph63
 
 61:                                               ; preds = %.lr.ph63
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %62 = add nsw i64 %indvars.iv.next75, %60
-  %63 = icmp ugt i64 %38, %62
-  br i1 %63, label %.lr.ph63, label %._crit_edge64, !llvm.loop !14
+  %.reass = add i64 %indvars.iv74, %invariant.op
+  %62 = icmp ugt i64 %38, %.reass
+  br i1 %62, label %.lr.ph63, label %._crit_edge64, !llvm.loop !14
 
 .lr.ph63:                                         ; preds = %.lr.ph63.preheader, %61
   %indvars.iv74 = phi i64 [ 0, %.lr.ph63.preheader ], [ %indvars.iv.next75, %61 ]
-  %64 = phi i64 [ %58, %.lr.ph63.preheader ], [ %62, %61 ]
-  %65 = getelementptr inbounds i32, ptr %34, i64 %64
-  %66 = load i32, ptr %65, align 4
+  %63 = phi i64 [ %58, %.lr.ph63.preheader ], [ %.reass, %61 ]
+  %64 = getelementptr inbounds i32, ptr %34, i64 %63
+  %65 = load i32, ptr %64, align 4
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv74
-  %67 = load i32, ptr %gep, align 4
-  %68 = icmp eq i32 %66, %67
-  br i1 %68, label %61, label %69
+  %66 = load i32, ptr %gep, align 4
+  %67 = icmp eq i32 %65, %66
+  br i1 %67, label %61, label %68
 
-69:                                               ; preds = %.lr.ph63
-  tail call void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef %66, i32 noundef %67, ptr noundef nonnull align 8 dereferenceable(48) @_ZZNK2cv3dnn18ScatterNDLayerImpl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_E14__cv_check__68) #20
+68:                                               ; preds = %.lr.ph63
+  tail call void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef %65, i32 noundef %66, ptr noundef nonnull align 8 dereferenceable(48) @_ZZNK2cv3dnn18ScatterNDLayerImpl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_E14__cv_check__68) #20
   unreachable
 
 ._crit_edge64:                                    ; preds = %61, %._crit_edge

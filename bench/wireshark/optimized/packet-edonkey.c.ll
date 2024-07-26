@@ -3354,7 +3354,7 @@ define internal fastcc i32 @dissect_kademlia_udp_message(i8 noundef zeroext %0, 
   %15 = tail call i32 @llvm.smin.i32(i32 %13, i32 %4)
   %.0291 = select i1 %14, i32 %13, i32 %15
   %16 = icmp slt i32 %.0291, 1
-  br i1 %16, label %255, label %17
+  br i1 %16, label %252, label %17
 
 17:                                               ; preds = %6
   %18 = load i32, ptr @hf_kademlia, align 4
@@ -3377,7 +3377,7 @@ define internal fastcc i32 @dissect_kademlia_udp_message(i8 noundef zeroext %0, 
 
 proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
   %27 = add nuw i32 %.0291, %3
-  switch i8 %0, label %255 [
+  switch i8 %0, label %252 [
     i8 0, label %28
     i8 16, label %28
     i8 24, label %28
@@ -3411,7 +3411,7 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
 
 28:                                               ; preds = %proto_item_set_hidden.exit, %proto_item_set_hidden.exit, %proto_item_set_hidden.exit
   %29 = tail call i32 @dissect_kademlia_peer(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5)
-  br label %255
+  br label %252
 
 30:                                               ; preds = %proto_item_set_hidden.exit
   %31 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_peer_id)
@@ -3421,7 +3421,7 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
   %35 = load i32, ptr @hf_kademlia_version, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %35, ptr noundef %1, i32 noundef %34, i32 noundef 1, i32 noundef 0) #7
   %37 = add i32 %31, 3
-  br label %255
+  br label %252
 
 38:                                               ; preds = %proto_item_set_hidden.exit, %proto_item_set_hidden.exit
   %39 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_peer_id)
@@ -3432,11 +3432,11 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %43, ptr noundef %1, i32 noundef %42, i32 noundef 1, i32 noundef 0) #7
   %45 = add i32 %39, 3
   %46 = tail call fastcc i32 @dissect_edonkey_list(ptr noundef %1, ptr noundef %2, i32 noundef %45, ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.550, ptr noundef nonnull @dissect_kademlia_tag)
-  br label %255
+  br label %252
 
 47:                                               ; preds = %proto_item_set_hidden.exit
   %48 = tail call fastcc i32 @dissect_edonkey_list(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.631, ptr noundef nonnull @dissect_kademlia_peer)
-  br label %255
+  br label %252
 
 49:                                               ; preds = %proto_item_set_hidden.exit
   %50 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_peer_id)
@@ -3447,7 +3447,7 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
   %55 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %54, ptr noundef %1, i32 noundef %53, i32 noundef 1, i32 noundef 0) #7
   %56 = add i32 %50, 3
   %57 = tail call fastcc i32 @dissect_edonkey_list(ptr noundef %1, ptr noundef %2, i32 noundef %56, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.631, ptr noundef nonnull @dissect_kademlia2_peer)
-  br label %255
+  br label %252
 
 58:                                               ; preds = %proto_item_set_hidden.exit
   %59 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_target_id)
@@ -3457,36 +3457,36 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
   %63 = load i32, ptr @hf_edonkey_kademlia_filesize, align 4
   %64 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %63, ptr noundef %1, i32 noundef %62, i32 noundef 8, i32 noundef -2147483648) #7
   %65 = add i32 %59, 10
-  br label %255
+  br label %252
 
 66:                                               ; preds = %proto_item_set_hidden.exit
   %67 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_hash)
-  br label %255
+  br label %252
 
 68:                                               ; preds = %proto_item_set_hidden.exit
   %69 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_target_id)
   %70 = load i32, ptr @hf_edonkey_kademlia_start_position, align 4
   %71 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %70, ptr noundef %1, i32 noundef %69, i32 noundef 2, i32 noundef -2147483648) #7
   %72 = add i32 %69, 2
-  br label %255
+  br label %252
 
 73:                                               ; preds = %proto_item_set_hidden.exit, %proto_item_set_hidden.exit
   %74 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_target_id)
   %75 = icmp slt i32 %74, %27
-  br i1 %75, label %76, label %255
+  br i1 %75, label %76, label %252
 
 76:                                               ; preds = %73
   %77 = load i32, ptr @hf_edonkey_kademlia_uload, align 4
   %78 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %77, ptr noundef %1, i32 noundef %74, i32 noundef 1, i32 noundef 0) #7
   %79 = add nsw i32 %74, 1
-  br label %255
+  br label %252
 
 80:                                               ; preds = %proto_item_set_hidden.exit
   %81 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_target_id)
   %82 = load i32, ptr @hf_edonkey_kademlia_uload, align 4
   %83 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %82, ptr noundef %1, i32 noundef %81, i32 noundef 1, i32 noundef 0) #7
   %84 = add i32 %81, 1
-  br label %255
+  br label %252
 
 85:                                               ; preds = %proto_item_set_hidden.exit, %proto_item_set_hidden.exit
   %86 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %3) #7
@@ -3499,9 +3499,9 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
   br label %.preheader326
 
 .preheader326:                                    ; preds = %85, %102
-  %indvars.iv344 = phi i64 [ 0, %85 ], [ %indvars.iv.next345, %102 ]
-  %92 = shl nuw nsw i64 %indvars.iv344, 2
-  %93 = shl nuw nsw i64 %indvars.iv344, 3
+  %indvars.iv348 = phi i64 [ 0, %85 ], [ %indvars.iv.next349, %102 ]
+  %92 = shl nuw nsw i64 %indvars.iv348, 2
+  %93 = shl nuw nsw i64 %indvars.iv348, 3
   %94 = or disjoint i64 %93, 3
   br label %95
 
@@ -3519,8 +3519,8 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
   br i1 %.not, label %102, label %95, !llvm.loop !11
 
 102:                                              ; preds = %95
-  %indvars.iv.next345 = add nuw nsw i64 %indvars.iv344, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next345, 4
+  %indvars.iv.next349 = add nuw nsw i64 %indvars.iv348, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next349, 4
   br i1 %exitcond.not, label %103, label %.preheader326, !llvm.loop !12
 
 103:                                              ; preds = %102
@@ -3528,96 +3528,96 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
   br label %.preheader
 
 .preheader:                                       ; preds = %103, %115
-  %indvars.iv351 = phi i64 [ 0, %103 ], [ %indvars.iv.next352, %115 ]
-  %105 = shl nuw nsw i64 %indvars.iv351, 2
-  %106 = shl nuw nsw i64 %indvars.iv351, 3
+  %indvars.iv355 = phi i64 [ 0, %103 ], [ %indvars.iv.next356, %115 ]
+  %105 = shl nuw nsw i64 %indvars.iv355, 2
+  %106 = shl nuw nsw i64 %indvars.iv355, 3
   %107 = or disjoint i64 %106, 3
   br label %108
 
 108:                                              ; preds = %.preheader, %108
-  %indvars.iv348 = phi i64 [ 3, %.preheader ], [ %indvars.iv.next349, %108 ]
-  %109 = add nuw nsw i64 %indvars.iv348, %105
+  %indvars.iv352 = phi i64 [ 3, %.preheader ], [ %indvars.iv.next353, %108 ]
+  %109 = add nuw nsw i64 %indvars.iv352, %105
   %110 = sub nuw nsw i64 %107, %109
   %111 = trunc nuw nsw i64 %110 to i32
   %112 = add i32 %104, %111
   %113 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %112) #7
   %114 = getelementptr [16 x i8], ptr %11, i64 0, i64 %109
   store i8 %113, ptr %114, align 1
-  %indvars.iv.next349 = add nsw i64 %indvars.iv348, -1
-  %.not372 = icmp eq i64 %indvars.iv348, 0
-  br i1 %.not372, label %115, label %108, !llvm.loop !13
+  %indvars.iv.next353 = add nsw i64 %indvars.iv352, -1
+  %.not376 = icmp eq i64 %indvars.iv352, 0
+  br i1 %.not376, label %115, label %108, !llvm.loop !13
 
 115:                                              ; preds = %108
-  %indvars.iv.next352 = add nuw nsw i64 %indvars.iv351, 1
-  %exitcond355.not = icmp eq i64 %indvars.iv.next352, 4
-  br i1 %exitcond355.not, label %116, label %.preheader, !llvm.loop !14
+  %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
+  %exitcond359.not = icmp eq i64 %indvars.iv.next356, 4
+  br i1 %exitcond359.not, label %116, label %.preheader, !llvm.loop !14
 
 116:                                              ; preds = %115
   %117 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %104, ptr noundef %5, ptr noundef nonnull @hf_kademlia_recipients_id)
   br label %118
 
 118:                                              ; preds = %116, %129
-  %indvars.iv366 = phi i64 [ 0, %116 ], [ %indvars.iv.next367, %129 ]
-  %indvars.iv364 = phi i64 [ 8, %116 ], [ %indvars.iv.next365, %129 ]
-  %indvars.iv356 = phi i64 [ 0, %116 ], [ %indvars.iv.next357, %129 ]
-  %119 = getelementptr [16 x i8], ptr %10, i64 0, i64 %indvars.iv366
+  %indvars.iv370 = phi i64 [ 0, %116 ], [ %indvars.iv.next371, %129 ]
+  %indvars.iv368 = phi i64 [ 8, %116 ], [ %indvars.iv.next369, %129 ]
+  %indvars.iv360 = phi i64 [ 0, %116 ], [ %indvars.iv.next361, %129 ]
+  %119 = getelementptr [16 x i8], ptr %10, i64 0, i64 %indvars.iv370
   %120 = load i8, ptr %119, align 1
-  %121 = getelementptr [16 x i8], ptr %11, i64 0, i64 %indvars.iv366
+  %121 = getelementptr [16 x i8], ptr %11, i64 0, i64 %indvars.iv370
   %122 = load i8, ptr %121, align 1
   %123 = xor i8 %122, %120
   %124 = zext i8 %123 to i32
   br label %125
 
 125:                                              ; preds = %118, %125
-  %indvars.iv358 = phi i64 [ %indvars.iv356, %118 ], [ %indvars.iv.next359, %125 ]
-  %.0298337 = phi i32 [ %124, %118 ], [ %spec.select378, %125 ]
-  %.0300336 = phi i32 [ 128, %118 ], [ %128, %125 ]
-  %.not306 = icmp slt i32 %.0298337, %.0300336
-  %spec.select377 = select i1 %.not306, i8 48, i8 49
-  %126 = select i1 %.not306, i32 0, i32 %.0300336
-  %spec.select378 = sub i32 %.0298337, %126
-  %127 = getelementptr [129 x i8], ptr %12, i64 0, i64 %indvars.iv358
-  store i8 %spec.select377, ptr %127, align 1
-  %128 = sdiv i32 %.0300336, 2
-  %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
-  %exitcond363.not = icmp eq i64 %indvars.iv.next359, %indvars.iv364
-  br i1 %exitcond363.not, label %129, label %125, !llvm.loop !15
+  %indvars.iv362 = phi i64 [ %indvars.iv360, %118 ], [ %indvars.iv.next363, %125 ]
+  %.0298341 = phi i32 [ %124, %118 ], [ %spec.select382, %125 ]
+  %.0300340 = phi i32 [ 128, %118 ], [ %128, %125 ]
+  %.not306 = icmp slt i32 %.0298341, %.0300340
+  %spec.select381 = select i1 %.not306, i8 48, i8 49
+  %126 = select i1 %.not306, i32 0, i32 %.0300340
+  %spec.select382 = sub i32 %.0298341, %126
+  %127 = getelementptr [129 x i8], ptr %12, i64 0, i64 %indvars.iv362
+  store i8 %spec.select381, ptr %127, align 1
+  %128 = sdiv i32 %.0300340, 2
+  %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
+  %exitcond367.not = icmp eq i64 %indvars.iv.next363, %indvars.iv368
+  br i1 %exitcond367.not, label %129, label %125, !llvm.loop !15
 
 129:                                              ; preds = %125
-  %indvars.iv.next367 = add nuw nsw i64 %indvars.iv366, 1
-  %indvars.iv.next357 = add nuw nsw i64 %indvars.iv356, 8
-  %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 8
-  %exitcond371.not = icmp eq i64 %indvars.iv.next367, 16
-  br i1 %exitcond371.not, label %130, label %118, !llvm.loop !16
+  %indvars.iv.next371 = add nuw nsw i64 %indvars.iv370, 1
+  %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 8
+  %indvars.iv.next369 = add nuw nsw i64 %indvars.iv368, 8
+  %exitcond375.not = icmp eq i64 %indvars.iv.next371, 16
+  br i1 %exitcond375.not, label %130, label %118, !llvm.loop !16
 
 130:                                              ; preds = %129
   %131 = getelementptr inbounds i8, ptr %12, i64 128
   store i8 0, ptr %131, align 16
   %132 = load i32, ptr @hf_kademlia_distance, align 4
   %133 = call ptr @proto_tree_add_string(ptr noundef %5, i32 noundef %132, ptr noundef %1, i32 noundef %117, i32 noundef 0, ptr noundef nonnull %12) #7
-  br label %255
+  br label %252
 
 134:                                              ; preds = %proto_item_set_hidden.exit
   %135 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_target_id)
   %136 = tail call fastcc i32 @dissect_edonkey_list(ptr noundef %1, ptr noundef %2, i32 noundef %135, ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.631, ptr noundef nonnull @dissect_kademlia_peer)
-  br label %255
+  br label %252
 
 137:                                              ; preds = %proto_item_set_hidden.exit
   %138 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_target_id)
   %139 = tail call fastcc i32 @dissect_edonkey_list(ptr noundef %1, ptr noundef %2, i32 noundef %138, ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.631, ptr noundef nonnull @dissect_kademlia2_peer)
-  br label %255
+  br label %252
 
 140:                                              ; preds = %proto_item_set_hidden.exit
   %141 = load i32, ptr @hf_kademlia_ip, align 4
   %142 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %141, ptr noundef %1, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #7
   %143 = add i32 %3, 4
-  br label %255
+  br label %252
 
 144:                                              ; preds = %proto_item_set_hidden.exit
   %145 = load i32, ptr @hf_kademlia_tcp_port, align 4
   %146 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %145, ptr noundef %1, i32 noundef %3, i32 noundef 2, i32 noundef -2147483648) #7
   %147 = add i32 %3, 2
-  br label %255
+  br label %252
 
 148:                                              ; preds = %proto_item_set_hidden.exit, %proto_item_set_hidden.exit, %proto_item_set_hidden.exit
   %149 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_hash)
@@ -3625,13 +3625,13 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
   %151 = load i32, ptr @hf_kademlia_tcp_port, align 4
   %152 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %151, ptr noundef %1, i32 noundef %150, i32 noundef 2, i32 noundef -2147483648) #7
   %153 = add i32 %150, 2
-  br label %255
+  br label %252
 
 154:                                              ; preds = %proto_item_set_hidden.exit
   %155 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_file_id)
   %156 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %155, ptr noundef %5, ptr noundef nonnull @hf_kademlia_peer_id)
   %157 = tail call fastcc i32 @dissect_edonkey_list(ptr noundef %1, ptr noundef %2, i32 noundef %156, ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.550, ptr noundef nonnull @dissect_kademlia_tag)
-  br label %255
+  br label %252
 
 158:                                              ; preds = %proto_item_set_hidden.exit
   %159 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_target_id)
@@ -3642,11 +3642,11 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
   %164 = icmp slt i32 %163, %27
   %165 = icmp ne i8 %160, 0
   %or.cond = select i1 %164, i1 %165, i1 false
-  br i1 %or.cond, label %166, label %255
+  br i1 %or.cond, label %166, label %252
 
 166:                                              ; preds = %158
   %167 = tail call fastcc i32 @dissect_kademlia_search_expression_tree(ptr noundef %1, ptr noundef %2, i32 noundef %163, ptr noundef %5)
-  br label %255
+  br label %252
 
 168:                                              ; preds = %proto_item_set_hidden.exit
   %169 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_target_id)
@@ -3678,7 +3678,7 @@ dissect_edonkey_list.exit:                        ; preds = %.lr.ph.i, %168
   %182 = sub i32 %.045.lcssa.i, %169
   call void @proto_item_set_len(ptr noundef %173, i32 noundef %182) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  br label %255
+  br label %252
 
 183:                                              ; preds = %proto_item_set_hidden.exit
   %184 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_sender_id)
@@ -3711,7 +3711,7 @@ dissect_edonkey_list.exit315:                     ; preds = %.lr.ph.i310, %183
   %198 = sub i32 %.045.lcssa.i314, %185
   call void @proto_item_set_len(ptr noundef %189, i32 noundef %198) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br label %255
+  br label %252
 
 199:                                              ; preds = %proto_item_set_hidden.exit
   %200 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_keyword_hash)
@@ -3743,97 +3743,98 @@ dissect_edonkey_list.exit322:                     ; preds = %.lr.ph.i317, %199
   %213 = sub i32 %.045.lcssa.i321, %200
   call void @proto_item_set_len(ptr noundef %204, i32 noundef %213) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %255
+  br label %252
 
 214:                                              ; preds = %proto_item_set_hidden.exit
   %215 = add nuw nsw i32 %3, 34
   %216 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %215) #7
   %217 = zext i8 %216 to i32
-  %.not329 = icmp eq i8 %216, 0
-  br i1 %.not329, label %._crit_edge.thread, label %.lr.ph
+  %invariant.op329 = add i32 %3, 4
+  %.not333 = icmp eq i8 %216, 0
+  br i1 %.not333, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %214
   %218 = add i32 %3, 3
   br label %219
 
-219:                                              ; preds = %.lr.ph, %247
-  %.0288331 = phi i32 [ 35, %.lr.ph ], [ %.1, %247 ]
-  %.0289330 = phi i32 [ 1, %.lr.ph ], [ %248, %247 ]
-  %220 = add i32 %.0288331, %3
+219:                                              ; preds = %.lr.ph, %244
+  %.0288335 = phi i32 [ 35, %.lr.ph ], [ %.1, %244 ]
+  %.0289334 = phi i32 [ 1, %.lr.ph ], [ %245, %244 ]
+  %220 = add i32 %.0288335, %3
   %221 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %220) #7
-  %222 = add i32 %218, %.0288331
+  %222 = add i32 %218, %.0288335
   %223 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %222) #7
   %224 = icmp eq i8 %223, -1
-  %spec.select = select i1 %224, i32 %217, i32 %.0289330
-  %225 = add i32 %.0288331, 4
-  switch i8 %221, label %247 [
+  %spec.select = select i1 %224, i32 %217, i32 %.0289334
+  %225 = add i32 %.0288335, 4
+  switch i8 %221, label %244 [
     i8 1, label %226
     i8 2, label %228
-    i8 9, label %234
-    i8 8, label %236
-    i8 3, label %238
-    i8 4, label %238
-    i8 11, label %240
-    i8 10, label %242
+    i8 9, label %232
+    i8 8, label %234
+    i8 3, label %236
+    i8 4, label %236
+    i8 11, label %238
+    i8 10, label %240
   ]
 
 226:                                              ; preds = %219
-  %227 = add i32 %.0288331, 20
-  br label %247
+  %227 = add i32 %.0288335, 20
+  br label %244
 
 228:                                              ; preds = %219
-  %229 = add i32 %225, %3
-  %230 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %229) #7
-  %231 = zext i16 %230 to i32
-  %232 = add i32 %.0288331, 6
-  %233 = add i32 %232, %231
-  br label %247
+  %.reass330 = add i32 %.0288335, %invariant.op329
+  %229 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %.reass330) #7
+  %230 = zext i16 %229 to i32
+  %.reass332 = add i32 %.0288335, 6
+  %231 = add i32 %.reass332, %230
+  br label %244
+
+232:                                              ; preds = %219
+  %233 = add i32 %.0288335, 5
+  br label %244
 
 234:                                              ; preds = %219
-  %235 = add i32 %.0288331, 5
-  br label %247
+  %235 = add i32 %.0288335, 6
+  br label %244
 
-236:                                              ; preds = %219
-  %237 = add i32 %.0288331, 6
-  br label %247
+236:                                              ; preds = %219, %219
+  %237 = add i32 %.0288335, 8
+  br label %244
 
-238:                                              ; preds = %219, %219
-  %239 = add i32 %.0288331, 8
-  br label %247
+238:                                              ; preds = %219
+  %239 = add i32 %.0288335, 12
+  br label %244
 
 240:                                              ; preds = %219
-  %241 = add i32 %.0288331, 12
-  br label %247
+  %241 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %3) #7
+  %242 = zext i8 %241 to i32
+  %.reass = add i32 %.0288335, 5
+  %243 = add i32 %.reass, %242
+  br label %244
 
-242:                                              ; preds = %219
-  %243 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %3) #7
-  %244 = zext i8 %243 to i32
-  %245 = add i32 %.0288331, 5
-  %246 = add i32 %245, %244
-  br label %247
-
-247:                                              ; preds = %242, %240, %238, %236, %234, %228, %226, %219
-  %.1 = phi i32 [ %225, %219 ], [ %246, %242 ], [ %241, %240 ], [ %239, %238 ], [ %237, %236 ], [ %235, %234 ], [ %233, %228 ], [ %227, %226 ]
-  %248 = add nuw nsw i32 %spec.select, 1
+244:                                              ; preds = %240, %238, %236, %234, %232, %228, %226, %219
+  %.1 = phi i32 [ %225, %219 ], [ %243, %240 ], [ %239, %238 ], [ %237, %236 ], [ %235, %234 ], [ %233, %232 ], [ %231, %228 ], [ %227, %226 ]
+  %245 = add nuw nsw i32 %spec.select, 1
   %.not.not = icmp slt i32 %spec.select, %217
   br i1 %.not.not, label %219, label %._crit_edge, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %247
-  %249 = icmp eq i8 %223, -1
-  br i1 %249, label %250, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %244
+  %246 = icmp eq i8 %223, -1
+  br i1 %246, label %247, label %._crit_edge.thread
 
-250:                                              ; preds = %._crit_edge
-  %251 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_file_id)
-  %252 = tail call fastcc i32 @dissect_edonkey_list(ptr noundef %1, ptr noundef %2, i32 noundef %251, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.549, ptr noundef nonnull @dissect_kademlia_publish_req_entry_peer)
-  br label %255
+247:                                              ; preds = %._crit_edge
+  %248 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_file_id)
+  %249 = tail call fastcc i32 @dissect_edonkey_list(ptr noundef %1, ptr noundef %2, i32 noundef %248, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.549, ptr noundef nonnull @dissect_kademlia_publish_req_entry_peer)
+  br label %252
 
 ._crit_edge.thread:                               ; preds = %214, %._crit_edge
-  %253 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_keyword_hash)
-  %254 = tail call fastcc i32 @dissect_edonkey_list(ptr noundef %1, ptr noundef %2, i32 noundef %253, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.549, ptr noundef nonnull @dissect_kademlia_publish_req_entry_file)
-  br label %255
+  %250 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, ptr noundef nonnull @hf_kademlia_keyword_hash)
+  %251 = tail call fastcc i32 @dissect_edonkey_list(ptr noundef %1, ptr noundef %2, i32 noundef %250, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.549, ptr noundef nonnull @dissect_kademlia_publish_req_entry_file)
+  br label %252
 
-255:                                              ; preds = %proto_item_set_hidden.exit, %28, %30, %38, %47, %49, %58, %66, %68, %80, %130, %134, %137, %140, %144, %148, %154, %dissect_edonkey_list.exit, %dissect_edonkey_list.exit315, %dissect_edonkey_list.exit322, %76, %73, %166, %158, %._crit_edge.thread, %250, %6
-  %.0 = phi i32 [ %3, %6 ], [ %3, %proto_item_set_hidden.exit ], [ %252, %250 ], [ %254, %._crit_edge.thread ], [ %.045.lcssa.i321, %dissect_edonkey_list.exit322 ], [ %.045.lcssa.i314, %dissect_edonkey_list.exit315 ], [ %.045.lcssa.i, %dissect_edonkey_list.exit ], [ %167, %166 ], [ %163, %158 ], [ %157, %154 ], [ %153, %148 ], [ %147, %144 ], [ %143, %140 ], [ %139, %137 ], [ %136, %134 ], [ %117, %130 ], [ %84, %80 ], [ %79, %76 ], [ %74, %73 ], [ %72, %68 ], [ %67, %66 ], [ %65, %58 ], [ %57, %49 ], [ %48, %47 ], [ %46, %38 ], [ %37, %30 ], [ %29, %28 ]
+252:                                              ; preds = %proto_item_set_hidden.exit, %28, %30, %38, %47, %49, %58, %66, %68, %80, %130, %134, %137, %140, %144, %148, %154, %dissect_edonkey_list.exit, %dissect_edonkey_list.exit315, %dissect_edonkey_list.exit322, %76, %73, %166, %158, %._crit_edge.thread, %247, %6
+  %.0 = phi i32 [ %3, %6 ], [ %3, %proto_item_set_hidden.exit ], [ %249, %247 ], [ %251, %._crit_edge.thread ], [ %.045.lcssa.i321, %dissect_edonkey_list.exit322 ], [ %.045.lcssa.i314, %dissect_edonkey_list.exit315 ], [ %.045.lcssa.i, %dissect_edonkey_list.exit ], [ %167, %166 ], [ %163, %158 ], [ %157, %154 ], [ %153, %148 ], [ %147, %144 ], [ %143, %140 ], [ %139, %137 ], [ %136, %134 ], [ %117, %130 ], [ %84, %80 ], [ %79, %76 ], [ %74, %73 ], [ %72, %68 ], [ %67, %66 ], [ %65, %58 ], [ %57, %49 ], [ %48, %47 ], [ %46, %38 ], [ %37, %30 ], [ %29, %28 ]
   ret i32 %.0
 }
 

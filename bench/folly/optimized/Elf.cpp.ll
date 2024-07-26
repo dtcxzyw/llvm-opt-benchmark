@@ -1951,12 +1951,17 @@ while.body.lr.ph.i.i.i.i.i.i:                     ; preds = %_ZNK5folly10symboli
   %16 = and i64 %add.ptr.i.i.i.i.i.i.i.i.idx, -16
   %scevgep.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %agg.tmp.sroa.0.0.copyload.i.i.i, i64 %16
   %17 = and i64 %agg.tmp.sroa.2.0.copyload.i.i.i, 3
-  %conv5.i.i.i.i.i.i.i.i = zext i32 %10 to i64
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %.fr.i.i.i, 64
   %e_shnum.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 60
   %e_shoff.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 40
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %while.body.lr.ph.i.i.i.split.us.i.i.i, label %while.body.i.i.i.i.i.i.preheader
+
+while.body.i.i.i.i.i.i.preheader:                 ; preds = %while.body.lr.ph.i.i.i.i.i.i
+  %conv5.i.i.i.i.i.i.i.i = zext i32 %10 to i64
   %add.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %conv5.i.i.i.i.i.i.i.i, 6
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %while.body.lr.ph.i.i.i.split.us.i.i.i, label %while.body.i.i.i.i.i.i
+  %invariant.op = add nuw nsw i64 %add.i.i.i.i.i.i.i.i.i, 64
+  %invariant.gep = getelementptr i8, ptr %14, i64 %add.i.i.i.i.i.i.i.i.i
+  br label %while.body.i.i.i.i.i.i
 
 while.body.lr.ph.i.i.i.split.us.i.i.i:            ; preds = %while.body.lr.ph.i.i.i.i.i.i
   br i1 %cmp79.i.i.i.i.i.i.i.i.i.i, label %while.body.lr.ph.i.i.i.split.us.split.us.i.i.i, label %while.body.lr.ph.i.i.i.split.us.split.i.i.i
@@ -2123,8 +2128,8 @@ if.end6.i.i.i.us.i.i.i:                           ; preds = %land.rhs.i.i.i.i.us
   %cmp3.i.i.i.us.i.i.i = icmp ult ptr %incdec.ptr.i.i.i.us.i.i.i, %add.ptr.i.i.i.i.i.i
   br i1 %cmp3.i.i.i.us.i.i.i, label %while.body.i.i.i.us.i.i.i, label %for.inc.i, !llvm.loop !97
 
-while.body.i.i.i.i.i.i:                           ; preds = %while.body.lr.ph.i.i.i.i.i.i, %if.end6.i.i.i.i.i.i
-  %ent.055.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %if.end6.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i ]
+while.body.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.i.i.preheader, %if.end6.i.i.i.i.i.i
+  %ent.055.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %if.end6.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.preheader ]
   %st_info.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ent.055.i.i.i.i.i.i, i64 4
   %36 = load i8, ptr %st_info.i.i.i.i.i.i.i, align 4, !tbaa !82
   %37 = and i8 %36, 15
@@ -2238,15 +2243,14 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end4.i.i.i.i.i.i
 
 _ZNK5folly10symbolizer7ElfFile17getSectionByIndexEm.exit.i.i.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i
   %49 = load i64, ptr %e_shoff.i.i.i.i.i.i.i.i.i, align 8, !tbaa !71
-  %mul.i.i.i.i.i.i.i.i.i = add i64 %49, %add.i.i.i.i.i.i.i.i.i
-  %add3.i.i.i.i.i.i.i.i.i = add i64 %mul.i.i.i.i.i.i.i.i.i, 64
-  %cmp4.i.i.i.i.i.i.i.i.i = icmp ugt i64 %add3.i.i.i.i.i.i.i.i.i, %.fr.i.i.i
-  %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 %mul.i.i.i.i.i.i.i.i.i
+  %add3.i.i.i.i.i.i.i.i.i.reass = add i64 %49, %invariant.op
+  %cmp4.i.i.i.i.i.i.i.i.i = icmp ugt i64 %add3.i.i.i.i.i.i.i.i.i.reass, %.fr.i.i.i
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %49
   br i1 %cmp4.i.i.i.i.i.i.i.i.i, label %if.end6.i.i.i.i.i.i, label %if.end7.i.i.i.i.i.i.i.i
 
 if.end7.i.i.i.i.i.i.i.i:                          ; preds = %_ZNK5folly10symbolizer7ElfFile17getSectionByIndexEm.exit.i.i.i.i.i.i.i.i
   %conv9.i.i.i.i.i.i.i.i = zext i32 %46 to i64
-  %sh_type.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, i64 4
+  %sh_type.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gep, i64 4
   %50 = load i32, ptr %sh_type.i.i.i.i.i.i.i.i.i.i, align 4, !tbaa !80
   %cmp.i.i.i9.i.i.i.i.i.i.i = icmp eq i32 %50, 3
   br i1 %cmp.i.i.i9.i.i.i.i.i.i.i, label %do.end.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -2256,10 +2260,10 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end7.i.i.i.i.i.i
   unreachable
 
 do.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end7.i.i.i.i.i.i.i.i
-  %sh_offset.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, i64 24
+  %sh_offset.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gep, i64 24
   %51 = load i64, ptr %sh_offset.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !67
   %add.ptr.i.i20.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 %51
-  %sh_size.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, i64 32
+  %sh_size.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gep, i64 32
   %52 = load i64, ptr %sh_size.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !72
   %cmp3.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %52, 0
   br i1 %cmp3.i.i.i.i.i.i.i.i.i.i, label %_ZNK5folly10symbolizer7ElfFile19validateStringTableERK10Elf64_Shdr.exit.i.i.i.i.i.i.i.i.i, label %lor.rhs.i.i.i.i.i.i.i.i.i.i

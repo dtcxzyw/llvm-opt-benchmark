@@ -4033,9 +4033,9 @@ define hidden noundef i32 @ir_schedule_blocks(ptr nocapture noundef %0) local_un
   br i1 %275, label %.loopexit430, label %.lr.ph462
 
 .lr.ph462:                                        ; preds = %.preheader429, %.lr.ph462
-  %276 = phi i32 [ %290, %.lr.ph462 ], [ %274, %.preheader429 ]
-  %277 = phi ptr [ %289, %.lr.ph462 ], [ %273, %.preheader429 ]
-  %.0322461 = phi i32 [ %287, %.lr.ph462 ], [ 0, %.preheader429 ]
+  %276 = phi i32 [ %289, %.lr.ph462 ], [ %274, %.preheader429 ]
+  %277 = phi ptr [ %288, %.lr.ph462 ], [ %273, %.preheader429 ]
+  %.0322461 = phi i32 [ %286, %.lr.ph462 ], [ 0, %.preheader429 ]
   %278 = zext i32 %276 to i64
   %279 = getelementptr inbounds i32, ptr %16, i64 %278
   %280 = load i32, ptr %279, align 4
@@ -4045,40 +4045,40 @@ define hidden noundef i32 @ir_schedule_blocks(ptr nocapture noundef %0) local_un
   %283 = zext i32 %281 to i64
   %284 = getelementptr inbounds i32, ptr %282, i64 %283
   %285 = load i32, ptr %284, align 4
-  %286 = add i32 %.0322461, 2
-  %287 = add i32 %286, %285
-  %288 = zext i32 %287 to i64
-  %289 = getelementptr inbounds i32, ptr %282, i64 %288
-  %290 = load i32, ptr %289, align 4
-  %291 = icmp eq i32 %290, 0
-  br i1 %291, label %.loopexit430, label %.lr.ph462
+  %.reass = add i32 %.0322461, 2
+  %286 = add i32 %.reass, %285
+  %287 = zext i32 %286 to i64
+  %288 = getelementptr inbounds i32, ptr %282, i64 %287
+  %289 = load i32, ptr %288, align 4
+  %290 = icmp eq i32 %289, 0
+  br i1 %290, label %.loopexit430, label %.lr.ph462
 
 .loopexit430:                                     ; preds = %.lr.ph462, %.preheader429, %._crit_edge
-  %292 = getelementptr inbounds i8, ptr %0, i64 120
-  %293 = load ptr, ptr %292, align 8
-  %.not390 = icmp eq ptr %293, null
+  %291 = getelementptr inbounds i8, ptr %0, i64 120
+  %292 = load ptr, ptr %291, align 8
+  %.not390 = icmp eq ptr %292, null
   br i1 %.not390, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit430
-  %294 = getelementptr inbounds i8, ptr %0, i64 8
-  %295 = load i32, ptr %294, align 8
-  %296 = icmp sgt i32 %295, 1
-  br i1 %296, label %.lr.ph464, label %.loopexit
+  %293 = getelementptr inbounds i8, ptr %0, i64 8
+  %294 = load i32, ptr %293, align 8
+  %295 = icmp sgt i32 %294, 1
+  br i1 %295, label %.lr.ph464, label %.loopexit
 
 .lr.ph464:                                        ; preds = %.preheader, %.lr.ph464
   %indvars.iv477 = phi i64 [ %indvars.iv.next478, %.lr.ph464 ], [ 1, %.preheader ]
-  %297 = load ptr, ptr %292, align 8
-  %298 = getelementptr inbounds i32, ptr %297, i64 %indvars.iv477
-  %299 = load i32, ptr %298, align 4
-  %300 = zext i32 %299 to i64
-  %301 = getelementptr inbounds i32, ptr %16, i64 %300
-  %302 = load i32, ptr %301, align 4
-  store i32 %302, ptr %298, align 4
+  %296 = load ptr, ptr %291, align 8
+  %297 = getelementptr inbounds i32, ptr %296, i64 %indvars.iv477
+  %298 = load i32, ptr %297, align 4
+  %299 = zext i32 %298 to i64
+  %300 = getelementptr inbounds i32, ptr %16, i64 %299
+  %301 = load i32, ptr %300, align 4
+  store i32 %301, ptr %297, align 4
   %indvars.iv.next478 = add nuw nsw i64 %indvars.iv477, 1
-  %303 = load i32, ptr %294, align 8
-  %304 = sext i32 %303 to i64
-  %305 = icmp slt i64 %indvars.iv.next478, %304
-  br i1 %305, label %.lr.ph464, label %.loopexit
+  %302 = load i32, ptr %293, align 8
+  %303 = sext i32 %302 to i64
+  %304 = icmp slt i64 %indvars.iv.next478, %303
+  br i1 %304, label %.lr.ph464, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph464, %.preheader, %.loopexit430, %.thread
   tail call void @_efree(ptr noundef %12) #13

@@ -236,34 +236,34 @@ define dso_local void @makeTorus(i32 noundef %0, i32 noundef %1, ptr nocapture n
   br i1 %4, label %.preheader42.us, label %.preheader42
 
 .preheader42.us:                                  ; preds = %.preheader42.lr.ph, %._crit_edge.us
-  %.046.us = phi i32 [ %10, %._crit_edge.us ], [ 0, %.preheader42.lr.ph ]
-  %.03545.us = phi i32 [ %11, %._crit_edge.us ], [ 1, %.preheader42.lr.ph ]
+  %.046.us = phi i32 [ %8, %._crit_edge.us ], [ 0, %.preheader42.lr.ph ]
+  %.03545.us = phi i32 [ %9, %._crit_edge.us ], [ 1, %.preheader42.lr.ph ]
+  %invariant.op.us = add nuw nsw i32 %.046.us, 1
   br label %5
 
 5:                                                ; preds = %.preheader42.us, %5
-  %.03443.us = phi i32 [ 1, %.preheader42.us ], [ %8, %5 ]
+  %.03443.us = phi i32 [ 1, %.preheader42.us ], [ %7, %5 ]
   %6 = add nuw nsw i32 %.03443.us, %.046.us
-  %7 = add nuw nsw i32 %6, 1
-  tail call void %2(i32 noundef %6, i32 noundef %7) #13
-  %8 = add nuw nsw i32 %.03443.us, 1
-  %exitcond54.not = icmp eq i32 %8, %1
+  %.reass.us = add nuw i32 %.03443.us, %invariant.op.us
+  tail call void %2(i32 noundef %6, i32 noundef %.reass.us) #13
+  %7 = add nuw nsw i32 %.03443.us, 1
+  %exitcond54.not = icmp eq i32 %7, %1
   br i1 %exitcond54.not, label %._crit_edge.us, label %5
 
 ._crit_edge.us:                                   ; preds = %5
-  %9 = add nuw nsw i32 %.046.us, 1
-  %10 = add nuw nsw i32 %.046.us, %1
-  tail call void %2(i32 noundef %9, i32 noundef %10) #13
-  %11 = add nuw i32 %.03545.us, 1
+  %8 = add nuw nsw i32 %.046.us, %1
+  tail call void %2(i32 noundef %invariant.op.us, i32 noundef %8) #13
+  %9 = add nuw i32 %.03545.us, 1
   %exitcond55.not = icmp eq i32 %.03545.us, %0
   br i1 %exitcond55.not, label %.preheader41, label %.preheader42.us
 
 .preheader42:                                     ; preds = %.preheader42.lr.ph, %.preheader42
-  %.046 = phi i32 [ %13, %.preheader42 ], [ 0, %.preheader42.lr.ph ]
-  %.03545 = phi i32 [ %14, %.preheader42 ], [ 1, %.preheader42.lr.ph ]
-  %12 = add nsw i32 %.046, 1
-  %13 = add nsw i32 %.046, %1
-  tail call void %2(i32 noundef %12, i32 noundef %13) #13
-  %14 = add nuw i32 %.03545, 1
+  %.046 = phi i32 [ %11, %.preheader42 ], [ 0, %.preheader42.lr.ph ]
+  %.03545 = phi i32 [ %12, %.preheader42 ], [ 1, %.preheader42.lr.ph ]
+  %10 = add nsw i32 %.046, 1
+  %11 = add nsw i32 %.046, %1
+  tail call void %2(i32 noundef %10, i32 noundef %11) #13
+  %12 = add nuw i32 %.03545, 1
   %exitcond.not = icmp eq i32 %.03545, %0
   br i1 %exitcond.not, label %.preheader41, label %.preheader42
 
@@ -272,39 +272,39 @@ define dso_local void @makeTorus(i32 noundef %0, i32 noundef %1, ptr nocapture n
   br i1 %.not4048, label %._crit_edge50, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader41
-  %15 = icmp sgt i32 %0, 1
-  %16 = add nsw i32 %0, -1
-  %17 = mul nsw i32 %16, %1
-  br i1 %15, label %.preheader.us, label %.preheader
+  %13 = icmp sgt i32 %0, 1
+  %14 = add nsw i32 %0, -1
+  %15 = mul nsw i32 %14, %1
+  br i1 %13, label %.preheader.us, label %.preheader
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us51
-  %.13649.us = phi i32 [ %26, %._crit_edge.us51 ], [ 1, %.preheader.lr.ph ]
-  br label %18
+  %.13649.us = phi i32 [ %24, %._crit_edge.us51 ], [ 1, %.preheader.lr.ph ]
+  br label %16
 
-18:                                               ; preds = %.preheader.us, %18
-  %.147.us = phi i32 [ 1, %.preheader.us ], [ %24, %18 ]
-  %19 = add nsw i32 %.147.us, -1
-  %20 = mul nsw i32 %19, %1
-  %21 = add nsw i32 %20, %.13649.us
-  %22 = mul nuw nsw i32 %.147.us, %1
-  %23 = add nuw nsw i32 %22, %.13649.us
-  tail call void %2(i32 noundef %21, i32 noundef %23) #13
-  %24 = add nuw nsw i32 %.147.us, 1
-  %exitcond57.not = icmp eq i32 %24, %0
-  br i1 %exitcond57.not, label %._crit_edge.us51, label %18
+16:                                               ; preds = %.preheader.us, %16
+  %.147.us = phi i32 [ 1, %.preheader.us ], [ %22, %16 ]
+  %17 = add nsw i32 %.147.us, -1
+  %18 = mul nsw i32 %17, %1
+  %19 = add nsw i32 %18, %.13649.us
+  %20 = mul nuw nsw i32 %.147.us, %1
+  %21 = add nuw nsw i32 %20, %.13649.us
+  tail call void %2(i32 noundef %19, i32 noundef %21) #13
+  %22 = add nuw nsw i32 %.147.us, 1
+  %exitcond57.not = icmp eq i32 %22, %0
+  br i1 %exitcond57.not, label %._crit_edge.us51, label %16
 
-._crit_edge.us51:                                 ; preds = %18
-  %25 = add nsw i32 %.13649.us, %17
-  tail call void %2(i32 noundef %.13649.us, i32 noundef %25) #13
-  %26 = add nuw i32 %.13649.us, 1
+._crit_edge.us51:                                 ; preds = %16
+  %23 = add nsw i32 %.13649.us, %15
+  tail call void %2(i32 noundef %.13649.us, i32 noundef %23) #13
+  %24 = add nuw i32 %.13649.us, 1
   %exitcond58.not = icmp eq i32 %.13649.us, %1
   br i1 %exitcond58.not, label %._crit_edge50, label %.preheader.us
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
-  %.13649 = phi i32 [ %28, %.preheader ], [ 1, %.preheader.lr.ph ]
-  %27 = add nsw i32 %.13649, %17
-  tail call void %2(i32 noundef %.13649, i32 noundef %27) #13
-  %28 = add nuw i32 %.13649, 1
+  %.13649 = phi i32 [ %26, %.preheader ], [ 1, %.preheader.lr.ph ]
+  %25 = add nsw i32 %.13649, %15
+  tail call void %2(i32 noundef %.13649, i32 noundef %25) #13
+  %26 = add nuw i32 %.13649, 1
   %exitcond56.not = icmp eq i32 %.13649, %1
   br i1 %exitcond56.not, label %._crit_edge50, label %.preheader
 
@@ -366,61 +366,61 @@ define dso_local void @makeCylinder(i32 noundef %0, i32 noundef %1, ptr nocaptur
   br i1 %4, label %.preheader37.us, label %.preheader37
 
 .preheader37.us:                                  ; preds = %.preheader37.lr.ph, %._crit_edge.us
-  %.041.us = phi i32 [ %10, %._crit_edge.us ], [ 0, %.preheader37.lr.ph ]
-  %.03040.us = phi i32 [ %11, %._crit_edge.us ], [ 1, %.preheader37.lr.ph ]
+  %.041.us = phi i32 [ %8, %._crit_edge.us ], [ 0, %.preheader37.lr.ph ]
+  %.03040.us = phi i32 [ %9, %._crit_edge.us ], [ 1, %.preheader37.lr.ph ]
+  %invariant.op.us = add nuw nsw i32 %.041.us, 1
   br label %5
 
 5:                                                ; preds = %.preheader37.us, %5
-  %.02938.us = phi i32 [ 1, %.preheader37.us ], [ %8, %5 ]
+  %.02938.us = phi i32 [ 1, %.preheader37.us ], [ %7, %5 ]
   %6 = add nuw nsw i32 %.02938.us, %.041.us
-  %7 = add nuw nsw i32 %6, 1
-  tail call void %2(i32 noundef %6, i32 noundef %7) #13
-  %8 = add nuw nsw i32 %.02938.us, 1
-  %exitcond49.not = icmp eq i32 %8, %1
+  %.reass.us = add nuw i32 %.02938.us, %invariant.op.us
+  tail call void %2(i32 noundef %6, i32 noundef %.reass.us) #13
+  %7 = add nuw nsw i32 %.02938.us, 1
+  %exitcond49.not = icmp eq i32 %7, %1
   br i1 %exitcond49.not, label %._crit_edge.us, label %5
 
 ._crit_edge.us:                                   ; preds = %5
-  %9 = add nuw nsw i32 %.041.us, 1
-  %10 = add nuw nsw i32 %.041.us, %1
-  tail call void %2(i32 noundef %9, i32 noundef %10) #13
-  %11 = add nuw i32 %.03040.us, 1
+  %8 = add nuw nsw i32 %.041.us, %1
+  tail call void %2(i32 noundef %invariant.op.us, i32 noundef %8) #13
+  %9 = add nuw i32 %.03040.us, 1
   %exitcond50.not = icmp eq i32 %.03040.us, %0
   br i1 %exitcond50.not, label %.preheader36, label %.preheader37.us
 
 .preheader37:                                     ; preds = %.preheader37.lr.ph, %.preheader37
-  %.041 = phi i32 [ %13, %.preheader37 ], [ 0, %.preheader37.lr.ph ]
-  %.03040 = phi i32 [ %14, %.preheader37 ], [ 1, %.preheader37.lr.ph ]
-  %12 = add nsw i32 %.041, 1
-  %13 = add nsw i32 %.041, %1
-  tail call void %2(i32 noundef %12, i32 noundef %13) #13
-  %14 = add nuw i32 %.03040, 1
+  %.041 = phi i32 [ %11, %.preheader37 ], [ 0, %.preheader37.lr.ph ]
+  %.03040 = phi i32 [ %12, %.preheader37 ], [ 1, %.preheader37.lr.ph ]
+  %10 = add nsw i32 %.041, 1
+  %11 = add nsw i32 %.041, %1
+  tail call void %2(i32 noundef %10, i32 noundef %11) #13
+  %12 = add nuw i32 %.03040, 1
   %exitcond.not = icmp eq i32 %.03040, %0
   br i1 %exitcond.not, label %.preheader36, label %.preheader37
 
 .preheader36:                                     ; preds = %.preheader37, %._crit_edge.us, %3
   %.not3543 = icmp sgt i32 %1, 0
-  %15 = icmp sgt i32 %0, 1
-  %or.cond = and i1 %.not3543, %15
+  %13 = icmp sgt i32 %0, 1
+  %or.cond = and i1 %.not3543, %13
   br i1 %or.cond, label %.preheader.us, label %._crit_edge45
 
 .preheader.us:                                    ; preds = %.preheader36, %._crit_edge.us46
-  %.13144.us = phi i32 [ %23, %._crit_edge.us46 ], [ 1, %.preheader36 ]
-  br label %16
+  %.13144.us = phi i32 [ %21, %._crit_edge.us46 ], [ 1, %.preheader36 ]
+  br label %14
 
-16:                                               ; preds = %.preheader.us, %16
-  %.142.us = phi i32 [ 1, %.preheader.us ], [ %22, %16 ]
-  %17 = add nsw i32 %.142.us, -1
-  %18 = mul nsw i32 %17, %1
-  %19 = add nsw i32 %18, %.13144.us
-  %20 = mul nuw nsw i32 %.142.us, %1
-  %21 = add nuw nsw i32 %20, %.13144.us
-  tail call void %2(i32 noundef %19, i32 noundef %21) #13
-  %22 = add nuw nsw i32 %.142.us, 1
-  %exitcond51.not = icmp eq i32 %22, %0
-  br i1 %exitcond51.not, label %._crit_edge.us46, label %16
+14:                                               ; preds = %.preheader.us, %14
+  %.142.us = phi i32 [ 1, %.preheader.us ], [ %20, %14 ]
+  %15 = add nsw i32 %.142.us, -1
+  %16 = mul nsw i32 %15, %1
+  %17 = add nsw i32 %16, %.13144.us
+  %18 = mul nuw nsw i32 %.142.us, %1
+  %19 = add nuw nsw i32 %18, %.13144.us
+  tail call void %2(i32 noundef %17, i32 noundef %19) #13
+  %20 = add nuw nsw i32 %.142.us, 1
+  %exitcond51.not = icmp eq i32 %20, %0
+  br i1 %exitcond51.not, label %._crit_edge.us46, label %14
 
-._crit_edge.us46:                                 ; preds = %16
-  %23 = add nuw i32 %.13144.us, 1
+._crit_edge.us46:                                 ; preds = %14
+  %21 = add nuw i32 %.13144.us, 1
   %exitcond52.not = icmp eq i32 %.13144.us, %1
   br i1 %exitcond52.not, label %._crit_edge45, label %.preheader.us
 
@@ -431,7 +431,7 @@ define dso_local void @makeCylinder(i32 noundef %0, i32 noundef %1, ptr nocaptur
 ; Function Attrs: nounwind uwtable
 define dso_local void @makeSquareGrid(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
   %6 = icmp sgt i32 %0, 0
-  br i1 %6, label %.preheader.lr.ph, label %._crit_edge132
+  br i1 %6, label %.preheader.lr.ph, label %._crit_edge134
 
 .preheader.lr.ph:                                 ; preds = %5
   %7 = icmp sgt i32 %1, 0
@@ -447,123 +447,125 @@ define dso_local void @makeSquareGrid(i32 noundef %0, i32 noundef %1, i32 nounde
   %16 = mul nsw i32 %15, %1
   %17 = add nsw i32 %16, 1
   %18 = mul i32 %1, %0
-  br i1 %7, label %.preheader.us, label %._crit_edge132
+  br i1 %7, label %.preheader.us, label %._crit_edge134
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
-  %.0131.us = phi i32 [ %22, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %19 = mul nuw nsw i32 %.0131.us, %1
-  %.not120.us = icmp ule i32 %.0131.us, %12
-  %20 = icmp ugt i32 %.0131.us, %14
-  %21 = icmp slt i32 %.0131.us, %15
-  %22 = add nuw nsw i32 %.0131.us, 1
+  %.0133.us = phi i32 [ %22, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
+  %19 = mul nuw nsw i32 %.0133.us, %1
+  %invariant.op.us = add nuw i32 %19, 1
+  %.not120.us = icmp ule i32 %.0133.us, %12
+  %20 = icmp ugt i32 %.0133.us, %14
+  %invariant.op131.us = add nuw i32 %19, 2
+  %21 = icmp slt i32 %.0133.us, %15
+  %22 = add nuw nsw i32 %.0133.us, 1
   %23 = mul nuw nsw i32 %22, %1
   %24 = add nuw i32 %23, 1
-  %25 = icmp ne i32 %.0131.us, 0
-  %26 = icmp eq i32 %.0131.us, %15
-  %27 = icmp eq i32 %.0131.us, 0
+  %25 = icmp ne i32 %.0133.us, 0
+  %26 = icmp eq i32 %.0133.us, %15
+  %27 = icmp eq i32 %.0133.us, 0
   br label %28
 
-28:                                               ; preds = %.preheader.us, %63
-  %.0108130.us = phi i32 [ 0, %.preheader.us ], [ %64, %63 ]
+28:                                               ; preds = %.preheader.us, %61
+  %.0108130.us = phi i32 [ 0, %.preheader.us ], [ %62, %61 ]
   %29 = add nuw nsw i32 %.0108130.us, %19
-  %30 = add nuw nsw i32 %29, 1
-  %31 = icmp slt i32 %.0108130.us, %8
-  br i1 %31, label %32, label %36
+  %.reass.us = add i32 %.0108130.us, %invariant.op.us
+  %30 = icmp slt i32 %.0108130.us, %8
+  br i1 %30, label %31, label %34
 
-32:                                               ; preds = %28
-  %33 = icmp slt i32 %.0108130.us, %9
-  %or.cond122.us.not135.not138 = or i1 %.not, %33
+31:                                               ; preds = %28
+  %32 = icmp slt i32 %.0108130.us, %9
+  %or.cond122.us.not137.not140 = or i1 %.not, %32
   %.not119.us = icmp sge i32 %.0108130.us, %11
-  %or.cond123.us.not139 = or i1 %.not120.us, %.not119.us
-  %or.cond.not136 = select i1 %or.cond122.us.not135.not138, i1 true, i1 %or.cond123.us.not139
-  %brmerge = select i1 %or.cond.not136, i1 true, i1 %20
-  br i1 %brmerge, label %34, label %36
+  %or.cond123.us.not141 = or i1 %.not120.us, %.not119.us
+  %or.cond.not138 = select i1 %or.cond122.us.not137.not140, i1 true, i1 %or.cond123.us.not141
+  %brmerge = select i1 %or.cond.not138, i1 true, i1 %20
+  br i1 %brmerge, label %33, label %34
 
-34:                                               ; preds = %32
-  %35 = add nuw nsw i32 %29, 2
-  tail call void %4(i32 noundef %30, i32 noundef %35) #13
-  br label %36
+33:                                               ; preds = %31
+  %.reass132.us = add i32 %.0108130.us, %invariant.op131.us
+  tail call void %4(i32 noundef %.reass.us, i32 noundef %.reass132.us) #13
+  br label %34
 
-36:                                               ; preds = %32, %34, %28
-  br i1 %21, label %37, label %39
+34:                                               ; preds = %31, %33, %28
+  br i1 %21, label %35, label %37
 
-37:                                               ; preds = %36
-  %38 = add i32 %24, %.0108130.us
-  tail call void %4(i32 noundef %30, i32 noundef %38) #13
-  br label %39
+35:                                               ; preds = %34
+  %36 = add i32 %24, %.0108130.us
+  tail call void %4(i32 noundef %.reass.us, i32 noundef %36) #13
+  br label %37
 
-39:                                               ; preds = %37, %36
-  switch i32 %2, label %63 [
-    i32 1, label %52
-    i32 2, label %40
+37:                                               ; preds = %35, %34
+  switch i32 %2, label %61 [
+    i32 1, label %50
+    i32 2, label %38
   ]
 
-40:                                               ; preds = %39
-  %41 = or i32 %.0108130.us, %.0131.us
-  %or.cond5.us = icmp eq i32 %41, 0
-  br i1 %or.cond5.us, label %50, label %42
+38:                                               ; preds = %37
+  %39 = or i32 %.0108130.us, %.0133.us
+  %or.cond5.us = icmp eq i32 %39, 0
+  br i1 %or.cond5.us, label %48, label %40
+
+40:                                               ; preds = %38
+  %41 = icmp eq i32 %.0108130.us, 0
+  %or.cond7.us = and i1 %26, %41
+  br i1 %or.cond7.us, label %46, label %42
 
 42:                                               ; preds = %40
-  %43 = icmp eq i32 %.0108130.us, 0
-  %or.cond7.us = and i1 %26, %43
-  br i1 %or.cond7.us, label %48, label %44
+  %43 = icmp eq i32 %.0108130.us, %8
+  %44 = and i1 %25, %43
+  %or.cond129.us = and i1 %26, %44
+  %45 = icmp slt i32 %29, %16
+  %or.cond135 = select i1 %or.cond129.us, i1 %45, i1 false
+  br i1 %or.cond135, label %.sink.split, label %61
 
-44:                                               ; preds = %42
-  %45 = icmp eq i32 %.0108130.us, %8
-  %46 = and i1 %25, %45
-  %or.cond129.us = and i1 %26, %46
-  %47 = icmp slt i32 %29, %16
-  %or.cond133 = select i1 %or.cond129.us, i1 %47, i1 false
-  br i1 %or.cond133, label %.sink.split, label %63
+46:                                               ; preds = %40
+  %47 = icmp slt i32 %.reass.us, %18
+  br i1 %47, label %.sink.split, label %61
 
-48:                                               ; preds = %42
-  %49 = icmp slt i32 %30, %18
-  br i1 %49, label %.sink.split, label %63
+48:                                               ; preds = %38
+  %49 = icmp slt i32 %.reass.us, %1
+  br i1 %49, label %.sink.split, label %61
 
-50:                                               ; preds = %40
-  %51 = icmp slt i32 %30, %1
-  br i1 %51, label %.sink.split, label %63
+50:                                               ; preds = %37
+  %51 = or i32 %.0108130.us, %.0133.us
+  %or.cond.us = icmp eq i32 %51, 0
+  br i1 %or.cond.us, label %59, label %52
 
-52:                                               ; preds = %39
-  %53 = or i32 %.0108130.us, %.0131.us
-  %or.cond.us = icmp eq i32 %53, 0
-  br i1 %or.cond.us, label %61, label %54
+52:                                               ; preds = %50
+  %53 = icmp eq i32 %.0108130.us, 0
+  %or.cond3.us = and i1 %26, %53
+  br i1 %or.cond3.us, label %57, label %54
 
 54:                                               ; preds = %52
-  %55 = icmp eq i32 %.0108130.us, 0
-  %or.cond3.us = and i1 %26, %55
-  br i1 %or.cond3.us, label %59, label %56
+  %55 = icmp eq i32 %.0108130.us, %8
+  %or.cond124.us = and i1 %27, %55
+  %56 = icmp slt i32 %29, %16
+  %or.cond = select i1 %or.cond124.us, i1 %56, i1 false
+  br i1 %or.cond, label %.sink.split, label %61
 
-56:                                               ; preds = %54
-  %57 = icmp eq i32 %.0108130.us, %8
-  %or.cond124.us = and i1 %27, %57
-  %58 = icmp slt i32 %29, %16
-  %or.cond = select i1 %or.cond124.us, i1 %58, i1 false
-  br i1 %or.cond, label %.sink.split, label %63
+57:                                               ; preds = %52
+  %58 = icmp slt i32 %.reass.us, %1
+  br i1 %58, label %.sink.split, label %61
 
-59:                                               ; preds = %54
-  %60 = icmp slt i32 %30, %1
-  br i1 %60, label %.sink.split, label %63
+59:                                               ; preds = %50
+  %60 = icmp slt i32 %.reass.us, %18
+  br i1 %60, label %.sink.split, label %61
 
-61:                                               ; preds = %52
-  %62 = icmp slt i32 %30, %18
-  br i1 %62, label %.sink.split, label %63
+.sink.split:                                      ; preds = %59, %57, %54, %48, %46, %42
+  %.sink = phi i32 [ %17, %42 ], [ %18, %46 ], [ %1, %48 ], [ %17, %54 ], [ %1, %57 ], [ %18, %59 ]
+  tail call void %4(i32 noundef %.reass.us, i32 noundef %.sink) #13
+  br label %61
 
-.sink.split:                                      ; preds = %61, %59, %56, %50, %48, %44
-  %.sink = phi i32 [ %17, %44 ], [ %18, %48 ], [ %1, %50 ], [ %17, %56 ], [ %1, %59 ], [ %18, %61 ]
-  tail call void %4(i32 noundef %30, i32 noundef %.sink) #13
-  br label %63
-
-63:                                               ; preds = %.sink.split, %56, %61, %59, %50, %48, %44, %39
-  %64 = add nuw nsw i32 %.0108130.us, 1
-  %exitcond.not = icmp eq i32 %64, %1
+61:                                               ; preds = %.sink.split, %54, %59, %57, %48, %46, %42, %37
+  %62 = add nuw nsw i32 %.0108130.us, 1
+  %exitcond.not = icmp eq i32 %62, %1
   br i1 %exitcond.not, label %._crit_edge.us, label %28
 
-._crit_edge.us:                                   ; preds = %63
-  %exitcond141.not = icmp eq i32 %22, %0
-  br i1 %exitcond141.not, label %._crit_edge132, label %.preheader.us
+._crit_edge.us:                                   ; preds = %61
+  %exitcond143.not = icmp eq i32 %22, %0
+  br i1 %exitcond143.not, label %._crit_edge134, label %.preheader.us
 
-._crit_edge132:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %5
+._crit_edge134:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %5
   ret void
 }
 
@@ -1106,49 +1108,49 @@ define dso_local void @makeTriMesh(i32 noundef %0, ptr nocapture noundef readonl
   %6 = icmp sgt i32 %0, 2
   br i1 %6, label %.preheader34, label %.preheader
 
-.preheader34:                                     ; preds = %5, %16
-  %.038 = phi i32 [ %7, %16 ], [ 2, %5 ]
-  %.03237 = phi i32 [ %17, %16 ], [ 2, %5 ]
+.preheader34:                                     ; preds = %5, %15
+  %.038 = phi i32 [ %7, %15 ], [ 2, %5 ]
+  %.03237 = phi i32 [ %invariant.op, %15 ], [ 2, %5 ]
+  %invariant.op = add nuw nsw i32 %.03237, 1
   %7 = add nuw nsw i32 %.038, %.03237
   br label %9
 
-.preheader:                                       ; preds = %16, %5
-  %.0.lcssa = phi i32 [ 2, %5 ], [ %7, %16 ]
+.preheader:                                       ; preds = %15, %5
+  %.0.lcssa = phi i32 [ 2, %5 ], [ %7, %15 ]
   %8 = icmp sgt i32 %0, 1
   br i1 %8, label %.lr.ph, label %.loopexit
 
 9:                                                ; preds = %.preheader34, %._crit_edge
-  %.136 = phi i32 [ %.038, %.preheader34 ], [ %13, %._crit_edge ]
-  %.03035 = phi i32 [ 1, %.preheader34 ], [ %15, %._crit_edge ]
+  %.136 = phi i32 [ %.038, %.preheader34 ], [ %12, %._crit_edge ]
+  %.03035 = phi i32 [ 1, %.preheader34 ], [ %14, %._crit_edge ]
   %10 = add nsw i32 %.136, %.03237
   tail call void %1(i32 noundef %.136, i32 noundef %10) #13
-  %11 = add nsw i32 %10, 1
-  tail call void %1(i32 noundef %.136, i32 noundef %11) #13
-  %12 = icmp ult i32 %.03035, %.03237
-  %13 = add i32 %.136, 1
-  br i1 %12, label %14, label %._crit_edge
+  %.reass = add i32 %.136, %invariant.op
+  tail call void %1(i32 noundef %.136, i32 noundef %.reass) #13
+  %11 = icmp ult i32 %.03035, %.03237
+  %12 = add i32 %.136, 1
+  br i1 %11, label %13, label %._crit_edge
 
-14:                                               ; preds = %9
-  tail call void %1(i32 noundef %.136, i32 noundef %13) #13
+13:                                               ; preds = %9
+  tail call void %1(i32 noundef %.136, i32 noundef %12) #13
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %9, %14
-  %15 = add nuw nsw i32 %.03035, 1
-  %exitcond.not = icmp eq i32 %13, %7
-  br i1 %exitcond.not, label %16, label %9
+._crit_edge:                                      ; preds = %9, %13
+  %14 = add nuw nsw i32 %.03035, 1
+  %exitcond.not = icmp eq i32 %12, %7
+  br i1 %exitcond.not, label %15, label %9
 
-16:                                               ; preds = %._crit_edge
-  %17 = add nuw nsw i32 %.03237, 1
-  %exitcond41.not = icmp eq i32 %17, %0
+15:                                               ; preds = %._crit_edge
+  %exitcond41.not = icmp eq i32 %invariant.op, %0
   br i1 %exitcond41.not, label %.preheader, label %.preheader34
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.240 = phi i32 [ %18, %.lr.ph ], [ %.0.lcssa, %.preheader ]
-  %.13139 = phi i32 [ %19, %.lr.ph ], [ 1, %.preheader ]
-  %18 = add nsw i32 %.240, 1
-  tail call void %1(i32 noundef %.240, i32 noundef %18) #13
-  %19 = add nuw nsw i32 %.13139, 1
-  %exitcond42.not = icmp eq i32 %19, %0
+  %.240 = phi i32 [ %16, %.lr.ph ], [ %.0.lcssa, %.preheader ]
+  %.13139 = phi i32 [ %17, %.lr.ph ], [ 1, %.preheader ]
+  %16 = add nsw i32 %.240, 1
+  tail call void %1(i32 noundef %.240, i32 noundef %16) #13
+  %17 = add nuw nsw i32 %.13139, 1
+  %exitcond42.not = icmp eq i32 %17, %0
   br i1 %exitcond42.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %4
@@ -1165,61 +1167,61 @@ define dso_local void @makeBall(i32 noundef %0, i32 noundef %1, ptr nocapture no
   br i1 %4, label %.preheader37.us.i, label %.preheader37.i
 
 .preheader37.us.i:                                ; preds = %.preheader37.lr.ph.i, %._crit_edge.us.i
-  %.041.us.i = phi i32 [ %10, %._crit_edge.us.i ], [ 0, %.preheader37.lr.ph.i ]
-  %.03040.us.i = phi i32 [ %11, %._crit_edge.us.i ], [ 1, %.preheader37.lr.ph.i ]
+  %.041.us.i = phi i32 [ %8, %._crit_edge.us.i ], [ 0, %.preheader37.lr.ph.i ]
+  %.03040.us.i = phi i32 [ %9, %._crit_edge.us.i ], [ 1, %.preheader37.lr.ph.i ]
+  %invariant.op.us.i = add nuw nsw i32 %.041.us.i, 1
   br label %5
 
 5:                                                ; preds = %5, %.preheader37.us.i
-  %.02938.us.i = phi i32 [ 1, %.preheader37.us.i ], [ %8, %5 ]
+  %.02938.us.i = phi i32 [ 1, %.preheader37.us.i ], [ %7, %5 ]
   %6 = add nuw nsw i32 %.02938.us.i, %.041.us.i
-  %7 = add nuw nsw i32 %6, 1
-  tail call void %2(i32 noundef %6, i32 noundef %7) #13
-  %8 = add nuw nsw i32 %.02938.us.i, 1
-  %exitcond49.not.i = icmp eq i32 %8, %1
+  %.reass.us.i = add nuw i32 %.02938.us.i, %invariant.op.us.i
+  tail call void %2(i32 noundef %6, i32 noundef %.reass.us.i) #13
+  %7 = add nuw nsw i32 %.02938.us.i, 1
+  %exitcond49.not.i = icmp eq i32 %7, %1
   br i1 %exitcond49.not.i, label %._crit_edge.us.i, label %5
 
 ._crit_edge.us.i:                                 ; preds = %5
-  %9 = add nuw nsw i32 %.041.us.i, 1
-  %10 = add nuw nsw i32 %.041.us.i, %1
-  tail call void %2(i32 noundef %9, i32 noundef %10) #13
-  %11 = add nuw i32 %.03040.us.i, 1
+  %8 = add nuw nsw i32 %.041.us.i, %1
+  tail call void %2(i32 noundef %invariant.op.us.i, i32 noundef %8) #13
+  %9 = add nuw i32 %.03040.us.i, 1
   %exitcond50.not.i = icmp eq i32 %.03040.us.i, %0
   br i1 %exitcond50.not.i, label %.preheader36.i, label %.preheader37.us.i
 
 .preheader37.i:                                   ; preds = %.preheader37.lr.ph.i, %.preheader37.i
-  %.041.i = phi i32 [ %13, %.preheader37.i ], [ 0, %.preheader37.lr.ph.i ]
-  %.03040.i = phi i32 [ %14, %.preheader37.i ], [ 1, %.preheader37.lr.ph.i ]
-  %12 = add nsw i32 %.041.i, 1
-  %13 = add nsw i32 %.041.i, %1
-  tail call void %2(i32 noundef %12, i32 noundef %13) #13
-  %14 = add nuw i32 %.03040.i, 1
+  %.041.i = phi i32 [ %11, %.preheader37.i ], [ 0, %.preheader37.lr.ph.i ]
+  %.03040.i = phi i32 [ %12, %.preheader37.i ], [ 1, %.preheader37.lr.ph.i ]
+  %10 = add nsw i32 %.041.i, 1
+  %11 = add nsw i32 %.041.i, %1
+  tail call void %2(i32 noundef %10, i32 noundef %11) #13
+  %12 = add nuw i32 %.03040.i, 1
   %exitcond.not.i = icmp eq i32 %.03040.i, %0
   br i1 %exitcond.not.i, label %.preheader36.i, label %.preheader37.i
 
 .preheader36.i:                                   ; preds = %.preheader37.i, %._crit_edge.us.i
   %.not3543.i = icmp sgt i32 %1, 0
-  %15 = icmp ne i32 %0, 1
-  %or.cond.i = and i1 %15, %.not3543.i
+  %13 = icmp ne i32 %0, 1
+  %or.cond.i = and i1 %13, %.not3543.i
   br i1 %or.cond.i, label %.preheader.us.i, label %makeCylinder.exit
 
 .preheader.us.i:                                  ; preds = %.preheader36.i, %._crit_edge.us46.i
-  %.13144.us.i = phi i32 [ %23, %._crit_edge.us46.i ], [ 1, %.preheader36.i ]
-  br label %16
+  %.13144.us.i = phi i32 [ %21, %._crit_edge.us46.i ], [ 1, %.preheader36.i ]
+  br label %14
 
-16:                                               ; preds = %16, %.preheader.us.i
-  %.142.us.i = phi i32 [ 1, %.preheader.us.i ], [ %22, %16 ]
-  %17 = add nsw i32 %.142.us.i, -1
-  %18 = mul nsw i32 %17, %1
-  %19 = add nsw i32 %18, %.13144.us.i
-  %20 = mul nuw nsw i32 %.142.us.i, %1
-  %21 = add nuw nsw i32 %20, %.13144.us.i
-  tail call void %2(i32 noundef %19, i32 noundef %21) #13
-  %22 = add nuw nsw i32 %.142.us.i, 1
-  %exitcond51.not.i = icmp eq i32 %22, %0
-  br i1 %exitcond51.not.i, label %._crit_edge.us46.i, label %16
+14:                                               ; preds = %14, %.preheader.us.i
+  %.142.us.i = phi i32 [ 1, %.preheader.us.i ], [ %20, %14 ]
+  %15 = add nsw i32 %.142.us.i, -1
+  %16 = mul nsw i32 %15, %1
+  %17 = add nsw i32 %16, %.13144.us.i
+  %18 = mul nuw nsw i32 %.142.us.i, %1
+  %19 = add nuw nsw i32 %18, %.13144.us.i
+  tail call void %2(i32 noundef %17, i32 noundef %19) #13
+  %20 = add nuw nsw i32 %.142.us.i, 1
+  %exitcond51.not.i = icmp eq i32 %20, %0
+  br i1 %exitcond51.not.i, label %._crit_edge.us46.i, label %14
 
-._crit_edge.us46.i:                               ; preds = %16
-  %23 = add nuw i32 %.13144.us.i, 1
+._crit_edge.us46.i:                               ; preds = %14
+  %21 = add nuw i32 %.13144.us.i, 1
   %exitcond52.not.i = icmp eq i32 %.13144.us.i, %1
   br i1 %exitcond52.not.i, label %makeCylinder.exit, label %.preheader.us.i
 
@@ -1228,25 +1230,25 @@ makeCylinder.exit:                                ; preds = %._crit_edge.us46.i,
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %makeCylinder.exit, %.lr.ph
-  %.024 = phi i32 [ %24, %.lr.ph ], [ 1, %makeCylinder.exit ]
+  %.024 = phi i32 [ %22, %.lr.ph ], [ 1, %makeCylinder.exit ]
   tail call void %2(i32 noundef 0, i32 noundef %.024) #13
-  %24 = add nuw i32 %.024, 1
+  %22 = add nuw i32 %.024, 1
   %exitcond.not = icmp eq i32 %.024, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %makeCylinder.exit
-  %25 = mul nsw i32 %1, %0
-  %26 = add nsw i32 %25, 1
-  %27 = add nsw i32 %0, -1
-  %28 = mul nsw i32 %27, %1
-  %.not19.not25 = icmp slt i32 %28, %25
+  %23 = mul nsw i32 %1, %0
+  %24 = add nsw i32 %23, 1
+  %25 = add nsw i32 %0, -1
+  %26 = mul nsw i32 %25, %1
+  %.not19.not25 = icmp slt i32 %26, %23
   br i1 %.not19.not25, label %.lr.ph28, label %._crit_edge29
 
 .lr.ph28:                                         ; preds = %._crit_edge, %.lr.ph28
-  %.1.in26 = phi i32 [ %.1, %.lr.ph28 ], [ %28, %._crit_edge ]
+  %.1.in26 = phi i32 [ %.1, %.lr.ph28 ], [ %26, %._crit_edge ]
   %.1 = add nsw i32 %.1.in26, 1
-  tail call void %2(i32 noundef %.1, i32 noundef %26) #13
-  %exitcond31.not = icmp eq i32 %.1, %25
+  tail call void %2(i32 noundef %.1, i32 noundef %24) #13
+  %exitcond31.not = icmp eq i32 %.1, %23
   br i1 %exitcond31.not, label %._crit_edge29, label %.lr.ph28
 
 ._crit_edge29:                                    ; preds = %.lr.ph28, %._crit_edge
@@ -1440,6 +1442,7 @@ define dso_local void @makeMobius(i32 noundef %0, i32 noundef %1, ptr nocapture 
   %16 = mul nuw nsw i32 %.05469.us, %1
   %17 = add nuw nsw i32 %.05469.us, 1
   %18 = mul nuw nsw i32 %17, %1
+  %invariant.op.us = add nuw nsw i32 %16, 1
   br label %19
 
 19:                                               ; preds = %.preheader66.us, %19
@@ -1448,8 +1451,8 @@ define dso_local void @makeMobius(i32 noundef %0, i32 noundef %1, ptr nocapture 
   %21 = add nuw nsw i32 %.068.us, %18
   tail call void %2(i32 noundef %20, i32 noundef %21) #13
   %22 = add nuw nsw i32 %.068.us, 1
-  %23 = add nuw nsw i32 %22, %16
-  tail call void %2(i32 noundef %20, i32 noundef %23) #13
+  %.reass.us = add nuw i32 %.068.us, %invariant.op.us
+  tail call void %2(i32 noundef %20, i32 noundef %.reass.us) #13
   %exitcond.not = icmp eq i32 %22, %1
   br i1 %exitcond.not, label %._crit_edge.us, label %19
 
@@ -1458,61 +1461,62 @@ define dso_local void @makeMobius(i32 noundef %0, i32 noundef %1, ptr nocapture 
   br i1 %exitcond75.not, label %.preheader65, label %.preheader66.us
 
 .preheader.i58:                                   ; preds = %11
-  %24 = load ptr, ptr @stderr, align 8
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.3, i32 noundef %1) #14
+  %23 = load ptr, ptr @stderr, align 8
+  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.3, i32 noundef %1) #14
   %.not8.i59 = icmp slt i32 %1, 2
   br i1 %.not8.i59, label %makePath.exit, label %.lr.ph.i60
 
 .lr.ph.i60:                                       ; preds = %.preheader.i58, %.lr.ph.i60
-  %.09.i61 = phi i32 [ %27, %.lr.ph.i60 ], [ 2, %.preheader.i58 ]
-  %26 = add nsw i32 %.09.i61, -1
-  tail call void %2(i32 noundef %26, i32 noundef %.09.i61) #13
-  %27 = add nuw i32 %.09.i61, 1
+  %.09.i61 = phi i32 [ %26, %.lr.ph.i60 ], [ 2, %.preheader.i58 ]
+  %25 = add nsw i32 %.09.i61, -1
+  tail call void %2(i32 noundef %25, i32 noundef %.09.i61) #13
+  %26 = add nuw i32 %.09.i61, 1
   %exitcond.not.i62 = icmp eq i32 %.09.i61, %1
   br i1 %exitcond.not.i62, label %makePath.exit, label %.lr.ph.i60
 
 .preheader65:                                     ; preds = %._crit_edge.us, %.preheader67
-  %28 = icmp sgt i32 %1, 1
-  br i1 %28, label %.lr.ph, label %.preheader
+  %27 = icmp sgt i32 %1, 1
+  br i1 %27, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %.preheader65
-  %29 = mul nsw i32 %13, %1
-  br label %30
+  %28 = mul nsw i32 %13, %1
+  %invariant.op = add i32 %28, 1
+  br label %29
 
-.preheader:                                       ; preds = %30, %.preheader65
+.preheader:                                       ; preds = %29, %.preheader65
   br i1 %14, label %.lr.ph72.preheader, label %._crit_edge
 
 .lr.ph72.preheader:                               ; preds = %.preheader66.lr.ph, %.preheader
   br label %.lr.ph72
 
-30:                                               ; preds = %.lr.ph, %30
-  %.170 = phi i32 [ 1, %.lr.ph ], [ %32, %30 ]
-  %31 = add nsw i32 %.170, %29
-  %32 = add nuw nsw i32 %.170, 1
-  %33 = add nsw i32 %32, %29
-  tail call void %2(i32 noundef %31, i32 noundef %33) #13
-  %exitcond76.not = icmp eq i32 %32, %1
-  br i1 %exitcond76.not, label %.preheader, label %30
+29:                                               ; preds = %.lr.ph, %29
+  %.170 = phi i32 [ 1, %.lr.ph ], [ %31, %29 ]
+  %30 = add nsw i32 %.170, %28
+  %31 = add nuw nsw i32 %.170, 1
+  %.reass = add i32 %.170, %invariant.op
+  tail call void %2(i32 noundef %30, i32 noundef %.reass) #13
+  %exitcond76.not = icmp eq i32 %31, %1
+  br i1 %exitcond76.not, label %.preheader, label %29
 
 .lr.ph72:                                         ; preds = %.lr.ph72.preheader, %.lr.ph72
-  %.271 = phi i32 [ %35, %.lr.ph72 ], [ 1, %.lr.ph72.preheader ]
-  %34 = mul nsw i32 %.271, %1
-  %35 = add nuw nsw i32 %.271, 1
+  %.271 = phi i32 [ %33, %.lr.ph72 ], [ 1, %.lr.ph72.preheader ]
+  %32 = mul nsw i32 %.271, %1
+  %33 = add nuw nsw i32 %.271, 1
+  %34 = mul nsw i32 %33, %1
+  tail call void %2(i32 noundef %32, i32 noundef %34) #13
+  %35 = sub nsw i32 %0, %.271
   %36 = mul nsw i32 %35, %1
-  tail call void %2(i32 noundef %34, i32 noundef %36) #13
-  %37 = sub nsw i32 %0, %.271
-  %38 = mul nsw i32 %37, %1
-  %39 = add nsw i32 %38, 1
-  tail call void %2(i32 noundef %34, i32 noundef %39) #13
-  %exitcond77.not = icmp eq i32 %35, %0
+  %37 = add nsw i32 %36, 1
+  tail call void %2(i32 noundef %32, i32 noundef %37) #13
+  %exitcond77.not = icmp eq i32 %33, %0
   br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph72
 
 ._crit_edge:                                      ; preds = %.lr.ph72, %.preheader
-  %40 = mul nsw i32 %1, %0
+  %38 = mul nsw i32 %1, %0
   br label %makePath.exit.sink.split
 
 makePath.exit.sink.split:                         ; preds = %5, %._crit_edge
-  %.sink = phi i32 [ %40, %._crit_edge ], [ 0, %5 ]
+  %.sink = phi i32 [ %38, %._crit_edge ], [ 0, %5 ]
   tail call void %2(i32 noundef 1, i32 noundef %.sink) #13
   br label %makePath.exit
 

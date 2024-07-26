@@ -18898,7 +18898,11 @@ if.then61:                                        ; preds = %invoke.cont59, %_ZN
   %arrayidx69 = getelementptr inbounds %"struct.duckdb::list_entry_t", ptr %1, i64 %j.0417
   store i64 %offset.0416, ptr %arrayidx69, align 8, !tbaa !71
   %cmp72411.not = icmp eq i64 %32, 0
-  br i1 %cmp72411.not, label %for.cond.cleanup73, label %for.body74
+  br i1 %cmp72411.not, label %for.cond.cleanup73, label %for.body74.preheader
+
+for.body74.preheader:                             ; preds = %if.then61
+  %invariant.op = add i64 %45, -1
+  br label %for.body74
 
 lpad58:                                           ; preds = %if.then.i276
   %46 = landingpad { ptr, i32 }
@@ -18946,12 +18950,12 @@ for.cond.cleanup73:                               ; preds = %for.cond.cleanup73.
   store i64 %sub, ptr %length101, align 8, !tbaa !73
   br label %cleanup107
 
-for.body74:                                       ; preds = %if.then61, %for.inc94
-  %55 = phi ptr [ %87, %for.inc94 ], [ %24, %if.then61 ]
-  %56 = phi ptr [ %88, %for.inc94 ], [ %25, %if.then61 ]
-  %57 = phi ptr [ %89, %for.inc94 ], [ %26, %if.then61 ]
-  %child_idx.0413 = phi i64 [ %inc95, %for.inc94 ], [ 0, %if.then61 ]
-  %offset.1412 = phi i64 [ %inc.i, %for.inc94 ], [ %offset.0416, %if.then61 ]
+for.body74:                                       ; preds = %for.body74.preheader, %for.inc94
+  %55 = phi ptr [ %87, %for.inc94 ], [ %24, %for.body74.preheader ]
+  %56 = phi ptr [ %88, %for.inc94 ], [ %25, %for.body74.preheader ]
+  %57 = phi ptr [ %89, %for.inc94 ], [ %26, %for.body74.preheader ]
+  %child_idx.0413 = phi i64 [ %inc95, %for.inc94 ], [ 0, %for.body74.preheader ]
+  %offset.1412 = phi i64 [ %inc.i, %for.inc94 ], [ %offset.0416, %for.body74.preheader ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp) #20
   %add = add i64 %child_idx.0413, %33
   invoke void @_ZNK6duckdb6Vector8GetValueEm(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::Value") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(104) %call9, i64 noundef %add)
@@ -19038,8 +19042,8 @@ invoke.cont.i:                                    ; preds = %.noexc284
   br i1 %cmp.i, label %if.then.i283, label %if.else.i
 
 if.then.i283:                                     ; preds = %invoke.cont.i
-  %add1.i = add i64 %sub.i, %45
-  %conv.i.i = trunc i64 %add1.i to i32
+  %add1.i.reass = add i64 %call.i, %invariant.op
+  %conv.i.i = trunc i64 %add1.i.reass to i32
   %65 = load ptr, ptr %result_selection_vec, align 8, !tbaa !66
   %arrayidx.i.i = getelementptr inbounds i32, ptr %65, i64 %offset.1412
   store i32 %conv.i.i, ptr %arrayidx.i.i, align 4, !tbaa !67
@@ -19048,10 +19052,10 @@ if.then.i283:                                     ; preds = %invoke.cont.i
   br i1 %tobool.not.i.i, label %for.inc94, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %if.then.i283
-  %div2.i.i.i.i = lshr i64 %add1.i, 6
+  %div2.i.i.i.i = lshr i64 %add1.i.reass, 6
   %arrayidx.i.i.i.i.i = getelementptr inbounds i64, ptr %66, i64 %div2.i.i.i.i
   %67 = load i64, ptr %arrayidx.i.i.i.i.i, align 8, !tbaa !70
-  %rem.i.i.i.i = and i64 %add1.i, 63
+  %rem.i.i.i.i = and i64 %add1.i.reass, 63
   %shl.i.i.i.i = shl nuw i64 1, %rem.i.i.i.i
   %and.i.i.i.i = and i64 %67, %shl.i.i.i.i
   %tobool.i.i.i.not.i = icmp eq i64 %and.i.i.i.i, 0

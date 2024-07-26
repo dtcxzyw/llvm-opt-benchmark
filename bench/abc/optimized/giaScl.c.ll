@@ -725,101 +725,102 @@ define ptr @Gia_ManReduceEquiv(ptr noundef %0, i32 %1) local_unnamed_addr #1 {
   %.val106.val.pre = load i32, ptr %62, align 4
   %.val83.val.pre = load ptr, ptr %61, align 8
   %.val97.val.pre = load ptr, ptr %59, align 8
+  %invariant.op = add i32 %.val99.neg.lcssa, %.val106.val.pre
+  %invariant.op143 = add i32 %.val99.neg.lcssa, %.val94.val
   br label %.lr.ph130.split
 
-.lr.ph130.split:                                  ; preds = %.lr.ph130.split.preheader, %98
-  %.0129 = phi i32 [ %.1, %98 ], [ 0, %.lr.ph130.split.preheader ]
-  %.063128 = phi i32 [ %.164, %98 ], [ 0, %.lr.ph130.split.preheader ]
-  %.2127 = phi i32 [ %99, %98 ], [ 0, %.lr.ph130.split.preheader ]
-  %63 = add i32 %.2127, %.val99.neg.lcssa
-  %64 = add i32 %63, %.val106.val.pre
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds i32, ptr %.val83.val.pre, i64 %65
-  %67 = load i32, ptr %66, align 4
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val82, i64 %68
-  %70 = add i32 %63, %.val94.val
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i32, ptr %.val97.val.pre, i64 %71
-  %73 = load i32, ptr %72, align 4
-  %74 = load i64, ptr %69, align 4
-  %75 = trunc i64 %74 to i32
-  %76 = lshr i32 %75, 29
-  %77 = and i32 %76, 1
-  %78 = and i32 %75, 536870911
-  %79 = icmp eq i32 %67, %78
-  %80 = icmp eq i32 %77, 0
-  %or.cond109 = and i1 %79, %80
-  br i1 %or.cond109, label %81, label %84
+.lr.ph130.split:                                  ; preds = %.lr.ph130.split.preheader, %95
+  %.0129 = phi i32 [ %.1, %95 ], [ 0, %.lr.ph130.split.preheader ]
+  %.063128 = phi i32 [ %.164, %95 ], [ 0, %.lr.ph130.split.preheader ]
+  %.2127 = phi i32 [ %96, %95 ], [ 0, %.lr.ph130.split.preheader ]
+  %.reass = add i32 %.2127, %invariant.op
+  %63 = sext i32 %.reass to i64
+  %64 = getelementptr inbounds i32, ptr %.val83.val.pre, i64 %63
+  %65 = load i32, ptr %64, align 4
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val82, i64 %66
+  %.reass144 = add i32 %.2127, %invariant.op143
+  %68 = sext i32 %.reass144 to i64
+  %69 = getelementptr inbounds i32, ptr %.val97.val.pre, i64 %68
+  %70 = load i32, ptr %69, align 4
+  %71 = load i64, ptr %67, align 4
+  %72 = trunc i64 %71 to i32
+  %73 = lshr i32 %72, 29
+  %74 = and i32 %73, 1
+  %75 = and i32 %72, 536870911
+  %76 = icmp eq i32 %65, %75
+  %77 = icmp eq i32 %74, 0
+  %or.cond109 = and i1 %76, %77
+  br i1 %or.cond109, label %78, label %81
+
+78:                                               ; preds = %.lr.ph130.split
+  %79 = getelementptr inbounds i32, ptr %56, i64 %68
+  store i32 0, ptr %79, align 4
+  %80 = add nsw i32 %.063128, 1
+  br label %95
 
 81:                                               ; preds = %.lr.ph130.split
-  %82 = getelementptr inbounds i32, ptr %56, i64 %71
-  store i32 0, ptr %82, align 4
-  %83 = add nsw i32 %.063128, 1
-  br label %98
+  %82 = and i64 %71, 536870911
+  %83 = sub nsw i64 0, %82
+  %84 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %67, i64 %83, i32 1
+  %85 = load i32, ptr %84, align 4
+  %86 = xor i32 %85, %74
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds i32, ptr %57, i64 %87
+  %89 = load i32, ptr %88, align 4
+  %.not81 = icmp eq i32 %89, -1
+  br i1 %.not81, label %93, label %90
 
-84:                                               ; preds = %.lr.ph130.split
-  %85 = and i64 %74, 536870911
-  %86 = sub nsw i64 0, %85
-  %87 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %69, i64 %86, i32 1
-  %88 = load i32, ptr %87, align 4
-  %89 = xor i32 %88, %77
-  %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds i32, ptr %57, i64 %90
-  %92 = load i32, ptr %91, align 4
-  %.not81 = icmp eq i32 %92, -1
-  br i1 %.not81, label %96, label %93
+90:                                               ; preds = %81
+  %91 = getelementptr inbounds i32, ptr %56, i64 %68
+  store i32 %89, ptr %91, align 4
+  %92 = add nsw i32 %.0129, 1
+  br label %95
 
-93:                                               ; preds = %84
-  %94 = getelementptr inbounds i32, ptr %56, i64 %71
-  store i32 %92, ptr %94, align 4
-  %95 = add nsw i32 %.0129, 1
-  br label %98
+93:                                               ; preds = %81
+  %94 = shl nsw i32 %70, 1
+  store i32 %94, ptr %88, align 4
+  br label %95
 
-96:                                               ; preds = %84
-  %97 = shl nsw i32 %73, 1
-  store i32 %97, ptr %91, align 4
-  br label %98
-
-98:                                               ; preds = %81, %96, %93
-  %.164 = phi i32 [ %83, %81 ], [ %.063128, %93 ], [ %.063128, %96 ]
-  %.1 = phi i32 [ %.0129, %81 ], [ %95, %93 ], [ %.0129, %96 ]
-  %99 = add nuw nsw i32 %.2127, 1
-  %exitcond.not = icmp eq i32 %99, %.val99.lcssa
+95:                                               ; preds = %78, %93, %90
+  %.164 = phi i32 [ %80, %78 ], [ %.063128, %90 ], [ %.063128, %93 ]
+  %.1 = phi i32 [ %.0129, %78 ], [ %92, %90 ], [ %.0129, %93 ]
+  %96 = add nuw nsw i32 %.2127, 1
+  %exitcond.not = icmp eq i32 %96, %.val99.lcssa
   br i1 %exitcond.not, label %.critedge4.loopexit, label %.lr.ph130.split, !llvm.loop !13
 
-.critedge4.loopexit:                              ; preds = %98
-  %100 = icmp ne i32 %.164, 0
-  %101 = icmp ne i32 %.1, 0
-  %102 = select i1 %100, i1 true, i1 %101
+.critedge4.loopexit:                              ; preds = %95
+  %97 = icmp ne i32 %.164, 0
+  %98 = icmp ne i32 %.1, 0
+  %99 = select i1 %97, i1 true, i1 %98
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.lr.ph130, %.critedge4.loopexit, %.critedge2
-  %.063.lcssa = phi i1 [ false, %.critedge2 ], [ %102, %.critedge4.loopexit ], [ false, %.lr.ph130 ]
+  %.063.lcssa = phi i1 [ false, %.critedge2 ], [ %99, %.critedge4.loopexit ], [ false, %.lr.ph130 ]
   %.not79 = icmp eq ptr %57, null
-  br i1 %.not79, label %104, label %103
+  br i1 %.not79, label %101, label %100
 
-103:                                              ; preds = %.critedge4
+100:                                              ; preds = %.critedge4
   tail call void @free(ptr noundef nonnull %57) #8
+  br label %101
+
+101:                                              ; preds = %.critedge4, %100
+  br i1 %.063.lcssa, label %102, label %104
+
+102:                                              ; preds = %101
+  %103 = tail call ptr @Gia_ManDupDfsCiMap(ptr noundef %0, ptr noundef %56, ptr noundef null) #8
   br label %104
 
-104:                                              ; preds = %.critedge4, %103
-  br i1 %.063.lcssa, label %105, label %107
+104:                                              ; preds = %101, %102
+  %.067 = phi ptr [ %103, %102 ], [ %0, %101 ]
+  %.not80 = icmp eq ptr %56, null
+  br i1 %.not80, label %106, label %105
 
 105:                                              ; preds = %104
-  %106 = tail call ptr @Gia_ManDupDfsCiMap(ptr noundef %0, ptr noundef %56, ptr noundef null) #8
-  br label %107
-
-107:                                              ; preds = %104, %105
-  %.067 = phi ptr [ %106, %105 ], [ %0, %104 ]
-  %.not80 = icmp eq ptr %56, null
-  br i1 %.not80, label %109, label %108
-
-108:                                              ; preds = %107
   tail call void @free(ptr noundef nonnull %56) #8
-  br label %109
+  br label %106
 
-109:                                              ; preds = %107, %108
+106:                                              ; preds = %104, %105
   ret ptr %.067
 }
 

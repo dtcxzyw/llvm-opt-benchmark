@@ -123,8 +123,8 @@ for.body.i:                                       ; preds = %if.then13.i, %for.b
   %arrayidx22.i = getelementptr inbounds i8, ptr %data, i64 %idxprom21.i
   tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull %2, ptr noundef nonnull readonly %arrayidx22.i)
   %add23.i = add i32 %i.020.i, 64
-  %add17.i = add i32 %i.020.i, 127
-  %cmp18.i = icmp ult i32 %add17.i, %conv
+  %add17.reass.i = add i32 %i.020.i, 127
+  %cmp18.i = icmp ult i32 %add17.reass.i, %conv
   br i1 %cmp18.i, label %for.body.i, label %if.end24.i, !llvm.loop !4
 
 if.else.i:                                        ; preds = %if.then
@@ -210,8 +210,8 @@ for.body:                                         ; preds = %if.then13, %for.bod
   %arrayidx22 = getelementptr inbounds i8, ptr %pbData, i64 %idxprom21
   tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %this, ptr noundef %arrayidx22)
   %add23 = add i32 %i.020, 64
-  %add17 = add i32 %i.020, 127
-  %cmp18 = icmp ult i32 %add17, %uLen
+  %add17.reass = add i32 %i.020, 127
+  %cmp18 = icmp ult i32 %add17.reass, %uLen
   br i1 %cmp18, label %for.body, label %if.end24, !llvm.loop !4
 
 if.else:                                          ; preds = %entry
@@ -2247,8 +2247,8 @@ for.body.i:                                       ; preds = %if.then13.i, %for.b
   %arrayidx22.i = getelementptr inbounds i8, ptr %call5, i64 %idxprom21.i
   tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %this, ptr noundef nonnull readonly %arrayidx22.i)
   %add23.i = add i32 %i.020.i, 64
-  %add17.i = add i32 %i.020.i, 127
-  %cmp18.i = icmp ult i32 %add17.i, %conv
+  %add17.reass.i = add i32 %i.020.i, 127
+  %cmp18.i = icmp ult i32 %add17.reass.i, %conv
   br i1 %cmp18.i, label %for.body.i, label %if.end24.i, !llvm.loop !4
 
 if.else.i:                                        ; preds = %if.then12

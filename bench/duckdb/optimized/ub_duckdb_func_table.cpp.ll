@@ -66320,11 +66320,14 @@ for.body.preheader:                               ; preds = %if.then
 
 for.body.preheader.new:                           ; preds = %for.body.preheader
   %unroll_iter234 = and i64 %size, -4
+  %invariant.op = shl i64 %call1, 1
+  %invariant.op14 = mul i64 %call1, 3
+  %invariant.op15 = shl i64 %call1, 2
   br label %for.body
 
 for.cond.cleanup.loopexit.unr-lcssa:              ; preds = %for.body, %for.body.preheader
-  %add.lcssa.ph = phi i64 [ undef, %for.body.preheader ], [ %add.3, %for.body ]
-  %cur_offset.0220.unr = phi i64 [ 0, %for.body.preheader ], [ %add.3, %for.body ]
+  %add.lcssa.ph = phi i64 [ undef, %for.body.preheader ], [ %add.3.reass, %for.body ]
+  %cur_offset.0220.unr = phi i64 [ 0, %for.body.preheader ], [ %add.3.reass, %for.body ]
   %i.0219.unr = phi i64 [ 0, %for.body.preheader ], [ %unroll_iter234, %for.body ]
   %lcmp.mod232.not = icmp eq i64 %xtraiter231, 0
   br i1 %lcmp.mod232.not, label %for.cond.cleanup, label %for.body.epil
@@ -66349,7 +66352,7 @@ for.cond.cleanup:                                 ; preds = %for.body.epil, %for
   br label %if.end61
 
 for.body:                                         ; preds = %for.body, %for.body.preheader.new
-  %cur_offset.0220 = phi i64 [ 0, %for.body.preheader.new ], [ %add.3, %for.body ]
+  %cur_offset.0220 = phi i64 [ 0, %for.body.preheader.new ], [ %add.3.reass, %for.body ]
   %i.0219 = phi i64 [ 0, %for.body.preheader.new ], [ %inc.3, %for.body ]
   %arrayidx = getelementptr inbounds %"struct.duckdb::list_entry_t", ptr %4, i64 %i.0219
   store i64 %cur_offset.0220, ptr %arrayidx, align 8, !tbaa !1620
@@ -66361,19 +66364,19 @@ for.body:                                         ; preds = %for.body, %for.body
   store i64 %add, ptr %arrayidx.1, align 8, !tbaa !1620
   %length.1 = getelementptr inbounds i8, ptr %arrayidx.1, i64 8
   store i64 %call1, ptr %length.1, align 8, !tbaa !1622
-  %add.1 = add i64 %add, %call1
+  %add.1.reass = add i64 %cur_offset.0220, %invariant.op
   %inc.1 = or disjoint i64 %i.0219, 2
   %arrayidx.2 = getelementptr inbounds %"struct.duckdb::list_entry_t", ptr %4, i64 %inc.1
-  store i64 %add.1, ptr %arrayidx.2, align 8, !tbaa !1620
+  store i64 %add.1.reass, ptr %arrayidx.2, align 8, !tbaa !1620
   %length.2 = getelementptr inbounds i8, ptr %arrayidx.2, i64 8
   store i64 %call1, ptr %length.2, align 8, !tbaa !1622
-  %add.2 = add i64 %add.1, %call1
+  %add.2.reass = add i64 %cur_offset.0220, %invariant.op14
   %inc.2 = or disjoint i64 %i.0219, 3
   %arrayidx.3 = getelementptr inbounds %"struct.duckdb::list_entry_t", ptr %4, i64 %inc.2
-  store i64 %add.2, ptr %arrayidx.3, align 8, !tbaa !1620
+  store i64 %add.2.reass, ptr %arrayidx.3, align 8, !tbaa !1620
   %length.3 = getelementptr inbounds i8, ptr %arrayidx.3, i64 8
   store i64 %call1, ptr %length.3, align 8, !tbaa !1622
-  %add.3 = add i64 %add.2, %call1
+  %add.3.reass = add i64 %cur_offset.0220, %invariant.op15
   %inc.3 = add nuw i64 %i.0219, 4
   %niter235.ncmp.3 = icmp eq i64 %inc.3, %unroll_iter234
   br i1 %niter235.ncmp.3, label %for.cond.cleanup.loopexit.unr-lcssa, label %for.body, !llvm.loop !1624

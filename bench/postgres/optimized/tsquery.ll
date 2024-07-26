@@ -1591,7 +1591,7 @@ define internal fastcc void @infix(ptr noundef %0, i32 noundef %1, i1 noundef ze
   %121 = load ptr, ptr %0, align 8
   %122 = getelementptr i8, ptr %121, i64 12
   store ptr %122, ptr %0, align 8
-  br label %323
+  br label %321
 
 123:                                              ; preds = %3
   %124 = getelementptr inbounds i8, ptr %5, i64 1
@@ -1708,7 +1708,7 @@ define internal fastcc void @infix(ptr noundef %0, i32 noundef %1, i1 noundef ze
   %182 = getelementptr i8, ptr %181, i64 12
   store ptr %182, ptr %0, align 8
   tail call fastcc void @infix(ptr noundef nonnull %0, i32 noundef 4, i1 noundef zeroext false)
-  br i1 %129, label %.preheader, label %323
+  br i1 %129, label %.preheader, label %321
 
 .preheader:                                       ; preds = %._crit_edge256
   %183 = load ptr, ptr %157, align 8
@@ -1754,7 +1754,7 @@ define internal fastcc void @infix(ptr noundef %0, i32 noundef %1, i1 noundef ze
   %strlen197 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %204)
   %strchr198 = getelementptr inbounds i8, ptr %204, i64 %strlen197
   store ptr %strchr198, ptr %157, align 8
-  br label %323
+  br label %321
 
 205:                                              ; preds = %123
   %206 = add nsw i32 %126, -1
@@ -1862,10 +1862,11 @@ define internal fastcc void @infix(ptr noundef %0, i32 noundef %1, i1 noundef ze
 .lr.ph237.preheader:                              ; preds = %240
   %267 = shl i64 %257, 32
   %268 = ashr exact i64 %267, 32
+  %invariant.op = add nsw i64 %268, 16
   br label %.lr.ph237
 
 .lr.ph237:                                        ; preds = %.lr.ph237.preheader, %.lr.ph237
-  %269 = phi i32 [ %282, %.lr.ph237 ], [ %265, %.lr.ph237.preheader ]
+  %269 = phi i32 [ %280, %.lr.ph237 ], [ %265, %.lr.ph237.preheader ]
   %270 = phi ptr [ %273, %.lr.ph237 ], [ %254, %.lr.ph237.preheader ]
   %271 = shl i32 %269, 1
   store i32 %271, ptr %252, align 8
@@ -1878,111 +1879,110 @@ define internal fastcc void @infix(ptr noundef %0, i32 noundef %1, i1 noundef ze
   %276 = load ptr, ptr %247, align 8
   %277 = ptrtoint ptr %275 to i64
   %278 = ptrtoint ptr %276 to i64
-  %279 = add i64 %277, 16
-  %280 = add i64 %279, %268
-  %281 = sub i64 %280, %278
-  %282 = load i32, ptr %252, align 8
-  %283 = sext i32 %282 to i64
-  %.not183 = icmp slt i64 %281, %283
+  %.reass = add i64 %invariant.op, %277
+  %279 = sub i64 %.reass, %278
+  %280 = load i32, ptr %252, align 8
+  %281 = sext i32 %280 to i64
+  %.not183 = icmp slt i64 %279, %281
   br i1 %.not183, label %._crit_edge238.loopexit, label %.lr.ph237, !llvm.loop !19
 
 ._crit_edge238.loopexit:                          ; preds = %.lr.ph237
-  %284 = getelementptr i8, ptr %273, i64 %268
+  %282 = getelementptr i8, ptr %273, i64 %268
   br label %._crit_edge238
 
 ._crit_edge238:                                   ; preds = %._crit_edge238.loopexit, %240
-  %.lcssa228 = phi ptr [ %253, %240 ], [ %284, %._crit_edge238.loopexit ]
+  %.lcssa228 = phi ptr [ %253, %240 ], [ %282, %._crit_edge238.loopexit ]
   %.lcssa226 = phi ptr [ %259, %240 ], [ %276, %._crit_edge238.loopexit ]
-  switch i8 %125, label %295 [
-    i8 3, label %285
-    i8 2, label %287
-    i8 4, label %289
+  switch i8 %125, label %293 [
+    i8 3, label %283
+    i8 2, label %285
+    i8 4, label %287
   ]
 
+283:                                              ; preds = %._crit_edge238
+  %284 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa228, ptr noundef nonnull @.str.24, ptr noundef %.lcssa226) #12
+  br label %296
+
 285:                                              ; preds = %._crit_edge238
-  %286 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa228, ptr noundef nonnull @.str.24, ptr noundef %.lcssa226) #12
-  br label %298
+  %286 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa228, ptr noundef nonnull @.str.25, ptr noundef %.lcssa226) #12
+  br label %296
 
 287:                                              ; preds = %._crit_edge238
-  %288 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa228, ptr noundef nonnull @.str.25, ptr noundef %.lcssa226) #12
-  br label %298
-
-289:                                              ; preds = %._crit_edge238
   %.not184 = icmp eq i16 %211, 1
-  br i1 %.not184, label %293, label %290
+  br i1 %.not184, label %291, label %288
 
-290:                                              ; preds = %289
-  %291 = sext i16 %211 to i32
-  %292 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa228, ptr noundef nonnull @.str.26, i32 noundef %291, ptr noundef %.lcssa226) #12
-  br label %298
+288:                                              ; preds = %287
+  %289 = sext i16 %211 to i32
+  %290 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa228, ptr noundef nonnull @.str.26, i32 noundef %289, ptr noundef %.lcssa226) #12
+  br label %296
 
-293:                                              ; preds = %289
-  %294 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa228, ptr noundef nonnull @.str.27, ptr noundef %.lcssa226) #12
-  br label %298
+291:                                              ; preds = %287
+  %292 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa228, ptr noundef nonnull @.str.27, ptr noundef %.lcssa226) #12
+  br label %296
 
-295:                                              ; preds = %._crit_edge238
-  %296 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  call void @llvm.assume(i1 %296)
-  %297 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28, i32 noundef %126) #12
+293:                                              ; preds = %._crit_edge238
+  %294 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  call void @llvm.assume(i1 %294)
+  %295 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28, i32 noundef %126) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1135, ptr noundef nonnull @__func__.infix) #12
   unreachable
 
-298:                                              ; preds = %290, %293, %287, %285
-  %299 = load ptr, ptr %250, align 8
-  %strlen185 = call i64 @strlen(ptr nonnull dereferenceable(1) %299)
-  %strchr186 = getelementptr inbounds i8, ptr %299, i64 %strlen185
+296:                                              ; preds = %288, %291, %285, %283
+  %297 = load ptr, ptr %250, align 8
+  %strlen185 = call i64 @strlen(ptr nonnull dereferenceable(1) %297)
+  %strchr186 = getelementptr inbounds i8, ptr %297, i64 %strlen185
   store ptr %strchr186, ptr %250, align 8
-  %300 = load ptr, ptr %247, align 8
-  call void @pfree(ptr noundef %300) #12
-  br i1 %or.cond, label %.preheader215, label %323
+  %298 = load ptr, ptr %247, align 8
+  call void @pfree(ptr noundef %298) #12
+  br i1 %or.cond, label %.preheader215, label %321
 
-.preheader215:                                    ; preds = %298
-  %301 = load ptr, ptr %250, align 8
-  %302 = load ptr, ptr %251, align 8
-  %303 = ptrtoint ptr %301 to i64
-  %304 = ptrtoint ptr %302 to i64
-  %305 = sub i64 %303, %304
-  %306 = add i64 %305, 3
-  %307 = load i32, ptr %252, align 8
-  %308 = sext i32 %307 to i64
-  %.not187244 = icmp slt i64 %306, %308
+.preheader215:                                    ; preds = %296
+  %299 = load ptr, ptr %250, align 8
+  %300 = load ptr, ptr %251, align 8
+  %301 = ptrtoint ptr %299 to i64
+  %302 = ptrtoint ptr %300 to i64
+  %303 = sub i64 %301, %302
+  %304 = add i64 %303, 3
+  %305 = load i32, ptr %252, align 8
+  %306 = sext i32 %305 to i64
+  %.not187244 = icmp slt i64 %304, %306
   br i1 %.not187244, label %._crit_edge246, label %.lr.ph245.preheader
 
 .lr.ph245.preheader:                              ; preds = %.preheader215
-  %309 = shl i64 %305, 32
-  %310 = ashr exact i64 %309, 32
-  %311 = add nsw i64 %310, 3
+  %307 = shl i64 %303, 32
+  %308 = ashr exact i64 %307, 32
+  %309 = add nsw i64 %308, 3
   br label %.lr.ph245
 
 .lr.ph245:                                        ; preds = %.lr.ph245.preheader, %.lr.ph245
-  %312 = phi i32 [ %318, %.lr.ph245 ], [ %307, %.lr.ph245.preheader ]
-  %313 = phi ptr [ %316, %.lr.ph245 ], [ %302, %.lr.ph245.preheader ]
-  %314 = shl i32 %312, 1
-  store i32 %314, ptr %252, align 8
-  %315 = sext i32 %314 to i64
-  %316 = call ptr @repalloc(ptr noundef %313, i64 noundef %315) #12
-  store ptr %316, ptr %251, align 8
-  %317 = getelementptr i8, ptr %316, i64 %310
-  store ptr %317, ptr %250, align 8
-  %318 = load i32, ptr %252, align 8
-  %319 = sext i32 %318 to i64
-  %.not187 = icmp slt i64 %311, %319
+  %310 = phi i32 [ %316, %.lr.ph245 ], [ %305, %.lr.ph245.preheader ]
+  %311 = phi ptr [ %314, %.lr.ph245 ], [ %300, %.lr.ph245.preheader ]
+  %312 = shl i32 %310, 1
+  store i32 %312, ptr %252, align 8
+  %313 = sext i32 %312 to i64
+  %314 = call ptr @repalloc(ptr noundef %311, i64 noundef %313) #12
+  store ptr %314, ptr %251, align 8
+  %315 = getelementptr i8, ptr %314, i64 %308
+  store ptr %315, ptr %250, align 8
+  %316 = load i32, ptr %252, align 8
+  %317 = sext i32 %316 to i64
+  %.not187 = icmp slt i64 %309, %317
   br i1 %.not187, label %._crit_edge246.loopexit, label %.lr.ph245, !llvm.loop !20
 
 ._crit_edge246.loopexit:                          ; preds = %.lr.ph245
-  %320 = getelementptr i8, ptr %316, i64 %310
+  %318 = getelementptr i8, ptr %314, i64 %308
   br label %._crit_edge246
 
 ._crit_edge246:                                   ; preds = %._crit_edge246.loopexit, %.preheader215
-  %.lcssa224 = phi ptr [ %301, %.preheader215 ], [ %320, %._crit_edge246.loopexit ]
-  %321 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa224, ptr noundef nonnull @.str.23) #12
-  %322 = load ptr, ptr %250, align 8
-  %strlen188 = call i64 @strlen(ptr nonnull dereferenceable(1) %322)
-  %strchr189 = getelementptr inbounds i8, ptr %322, i64 %strlen188
+  %.lcssa224 = phi ptr [ %299, %.preheader215 ], [ %318, %._crit_edge246.loopexit ]
+  %319 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa224, ptr noundef nonnull @.str.23) #12
+  %320 = load ptr, ptr %250, align 8
+  %strlen188 = call i64 @strlen(ptr nonnull dereferenceable(1) %320)
+  %strchr189 = getelementptr inbounds i8, ptr %320, i64 %strlen188
   store ptr %strchr189, ptr %250, align 8
-  br label %323
+  br label %321
 
-323:                                              ; preds = %._crit_edge263, %._crit_edge256, %._crit_edge246, %298, %119
+321:                                              ; preds = %._crit_edge263, %._crit_edge256, %._crit_edge246, %296, %119
   ret void
 }
 

@@ -8120,7 +8120,7 @@ while.body412:                                    ; preds = %while.cond410.prehe
   %idxprom.i1387 = sext i32 %pos.11636 to i64
   %arrayidx.i1388 = getelementptr ptr, ptr %267, i64 %idxprom.i1387
   %268 = load ptr, ptr %arrayidx.i1388, align 8
-  %inc4161628 = add i32 %pos.11636, 2
+  %inc4161628.reass = add i32 %pos.11636, 2
   %arrayidx.i13911630 = getelementptr i8, ptr %arrayidx.i1388, i64 8
   %269 = load ptr, ptr %arrayidx.i13911630, align 8
   %cmp418.not1631 = icmp eq ptr %269, null
@@ -8129,7 +8129,7 @@ while.body412:                                    ; preds = %while.cond410.prehe
 while.body419.lr.ph:                              ; preds = %while.body412
   %lastNearbyFace.i = getelementptr inbounds i8, ptr %268, i64 32
   %firstNearbyFace4.i = getelementptr inbounds i8, ptr %268, i64 24
-  %270 = sext i32 %inc4161628 to i64
+  %270 = sext i32 %inc4161628.reass to i64
   br label %while.body419
 
 while.cond415.loopexit:                           ; preds = %_ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit1498, %_ZN20btConvexHullInternal6Vertex18receiveNearbyFacesEPS0_.exit
@@ -8483,7 +8483,7 @@ _ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit
   br label %if.end435
 
 if.end435:                                        ; preds = %while.body412, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit1541, %while.end431
-  %inc416.lcssa1669 = phi i32 [ %312, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit1541 ], [ %312, %while.end431 ], [ %inc4161628, %while.body412 ]
+  %inc416.lcssa1669 = phi i32 [ %312, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit1541 ], [ %312, %while.end431 ], [ %inc4161628.reass, %while.body412 ]
   %cmp411 = icmp slt i32 %inc416.lcssa1669, %266
   br i1 %cmp411, label %while.body412, label %while.cond405.loopexit, !llvm.loop !78
 

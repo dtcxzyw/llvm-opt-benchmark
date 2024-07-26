@@ -1089,7 +1089,7 @@ dissect_om2k_mo.exit:                             ; preds = %4, %22
   br i1 %151, label %.lr.ph41.i.i, label %dissect_om2k_con_list.exit.i
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %.lr.ph41.i.i
-  %.1.lcssa.i.i = phi i32 [ %.135.i.i, %.lr.ph41.i.i ], [ %.1.i.i, %.lr.ph.i.i ]
+  %.1.lcssa.i.i = phi i32 [ %.135.i.i, %.lr.ph41.i.i ], [ %.1.reass.i.i, %.lr.ph.i.i ]
   %152 = icmp slt i32 %.1.lcssa.i.i, %150
   br i1 %152, label %.lr.ph41.i.i, label %dissect_om2k_con_list.exit.i, !llvm.loop !4
 
@@ -1103,7 +1103,7 @@ dissect_om2k_mo.exit:                             ; preds = %4, %22
   br i1 %.not36.i.i, label %.loopexit.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph41.i.i, %.lr.ph.i.i
-  %.139.i.i = phi i32 [ %.1.i.i, %.lr.ph.i.i ], [ %.135.i.i, %.lr.ph41.i.i ]
+  %.139.i.i = phi i32 [ %.1.reass.i.i, %.lr.ph.i.i ], [ %.135.i.i, %.lr.ph41.i.i ]
   %.038.i.i = phi i8 [ %156, %.lr.ph.i.i ], [ %153, %.lr.ph41.i.i ]
   %.1.in37.i.i = phi i32 [ %164, %.lr.ph.i.i ], [ %.03440.i.i, %.lr.ph41.i.i ]
   %156 = add i8 %.038.i.i, -1
@@ -1118,7 +1118,7 @@ dissect_om2k_mo.exit:                             ; preds = %4, %22
   %165 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %163, ptr noundef %0, i32 noundef %161, i32 noundef 1, i32 noundef 0) #5
   %166 = load i32, ptr @hf_om2k_conl_tei, align 4
   %167 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %166, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef 0) #5
-  %.1.i.i = add i32 %.1.in37.i.i, 6
+  %.1.reass.i.i = add i32 %.1.in37.i.i, 6
   %.not.i.i = icmp eq i8 %156, 0
   br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !6
 

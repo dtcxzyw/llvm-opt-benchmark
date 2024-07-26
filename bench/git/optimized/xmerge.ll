@@ -1534,7 +1534,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cmp.i = icmp slt i32 %marker_size, 1
   %spec.store.select.i = select i1 %cmp.i, i32 7, i32 %marker_size
   %conv36.i = zext nneg i32 %spec.store.select.i to i64
-  %add30.i = add nuw nsw i32 %spec.store.select.i, 1
+  %add30.i = add nuw i32 %spec.store.select.i, 1
   %2 = add i32 %style, -1
   %or.cond.i = icmp ult i32 %2, 2
   %3 = getelementptr i8, ptr %xe1, i64 96
@@ -1987,14 +1987,14 @@ if.else122.i:                                     ; preds = %if.end116.i
   br i1 %tobool127.not.i, label %if.end132.i, label %if.then128.i
 
 if.then128.i:                                     ; preds = %if.else122.i
-  %inc129.i = add nsw i32 %add126.i, 1
+  %inc129.i.reass = add i32 %size.addr.6.i, %add30.i
   %idxprom130.i = sext i32 %add126.i to i64
   %arrayidx131.i = getelementptr inbounds i8, ptr %dest, i64 %idxprom130.i
   store i8 13, ptr %arrayidx131.i, align 1
   br label %if.end132.i
 
 if.end132.i:                                      ; preds = %if.then128.i, %if.else122.i
-  %size.addr.7.i = phi i32 [ %inc129.i, %if.then128.i ], [ %add126.i, %if.else122.i ]
+  %size.addr.7.i = phi i32 [ %inc129.i.reass, %if.then128.i ], [ %add126.i, %if.else122.i ]
   %inc133.i = add nsw i32 %size.addr.7.i, 1
   %idxprom134.i = sext i32 %size.addr.7.i to i64
   %arrayidx135.i = getelementptr inbounds i8, ptr %dest, i64 %idxprom134.i

@@ -961,7 +961,7 @@ define internal i32 @dissect_s5066_common(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not100.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %359, %.lr.ph.i
-  %.191.i = phi i32 [ %.1.i, %.lr.ph.i ], [ %.188.i, %359 ]
+  %.191.i = phi i32 [ %.1.reass.i, %.lr.ph.i ], [ %.188.i, %359 ]
   %.1.in90.i = phi i32 [ %366, %.lr.ph.i ], [ %.0.i, %359 ]
   %.08689.i = phi i32 [ %369, %.lr.ph.i ], [ 0, %359 ]
   %364 = load i32, ptr @hf_s5066_21_err_ptr, align 4
@@ -970,13 +970,13 @@ define internal i32 @dissect_s5066_common(ptr noundef %0, ptr noundef %1, ptr no
   %367 = load i32, ptr @hf_s5066_21_err_size, align 4
   %368 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %367, ptr noundef %0, i32 noundef %366, i32 noundef 2, i32 noundef 0) #3
   %369 = add nuw nsw i32 %.08689.i, 1
-  %.1.i = add nuw nsw i32 %.1.in90.i, 6
+  %.1.reass.i = add nuw nsw i32 %.1.in90.i, 6
   %exitcond.not.i = icmp eq i32 %369, %363
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %359
   %.1.in.lcssa.i = phi i32 [ %.0.i, %359 ], [ %366, %.lr.ph.i ]
-  %.1.lcssa.i = phi i32 [ %.188.i, %359 ], [ %.1.i, %.lr.ph.i ]
+  %.1.lcssa.i = phi i32 [ %.188.i, %359 ], [ %.1.reass.i, %.lr.ph.i ]
   %370 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1.lcssa.i) #3
   %371 = load i32, ptr @hf_s5066_21_nrx_blocks, align 4
   %372 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %371, ptr noundef %0, i32 noundef %.1.lcssa.i, i32 noundef 2, i32 noundef 0) #3
@@ -996,8 +996,8 @@ define internal i32 @dissect_s5066_common(ptr noundef %0, ptr noundef %1, ptr no
   %378 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %377, ptr noundef %0, i32 noundef %376, i32 noundef 2, i32 noundef 0) #3
   %379 = add nuw nsw i32 %.18794.i, 1
   %.2.i = add nuw nsw i32 %.296.i, 4
-  %exitcond103.not.i = icmp eq i32 %379, %373
-  br i1 %exitcond103.not.i, label %dissect_s5066_21.exit, label %.lr.ph98.i, !llvm.loop !6
+  %exitcond102.not.i = icmp eq i32 %379, %373
+  br i1 %exitcond102.not.i, label %dissect_s5066_21.exit, label %.lr.ph98.i, !llvm.loop !6
 
 dissect_s5066_21.exit:                            ; preds = %.lr.ph98.i, %358, %._crit_edge.i
   %.3.i = phi i32 [ %.0.i, %358 ], [ %.293.i, %._crit_edge.i ], [ %.2.i, %.lr.ph98.i ]
@@ -1183,7 +1183,7 @@ dissect_s5066_21.exit:                            ; preds = %.lr.ph98.i, %358, %
   br i1 %.not100.i127, label %._crit_edge.i134, label %.lr.ph.i128
 
 .lr.ph.i128:                                      ; preds = %533, %.lr.ph.i128
-  %.191.i129 = phi i32 [ %.1.i132, %.lr.ph.i128 ], [ %.188.i126, %533 ]
+  %.191.i129 = phi i32 [ %.1.reass.i132, %.lr.ph.i128 ], [ %.188.i126, %533 ]
   %.1.in90.i130 = phi i32 [ %540, %.lr.ph.i128 ], [ %.0.i124, %533 ]
   %.08689.i131 = phi i32 [ %543, %.lr.ph.i128 ], [ 0, %533 ]
   %538 = load i32, ptr @hf_s5066_25_err_ptr, align 4
@@ -1192,13 +1192,13 @@ dissect_s5066_21.exit:                            ; preds = %.lr.ph98.i, %358, %
   %541 = load i32, ptr @hf_s5066_25_err_size, align 4
   %542 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %541, ptr noundef %0, i32 noundef %540, i32 noundef 2, i32 noundef 0) #3
   %543 = add nuw nsw i32 %.08689.i131, 1
-  %.1.i132 = add nuw nsw i32 %.1.in90.i130, 6
+  %.1.reass.i132 = add nuw nsw i32 %.1.in90.i130, 6
   %exitcond.not.i133 = icmp eq i32 %543, %537
   br i1 %exitcond.not.i133, label %._crit_edge.i134, label %.lr.ph.i128, !llvm.loop !7
 
 ._crit_edge.i134:                                 ; preds = %.lr.ph.i128, %533
   %.1.in.lcssa.i135 = phi i32 [ %.0.i124, %533 ], [ %540, %.lr.ph.i128 ]
-  %.1.lcssa.i136 = phi i32 [ %.188.i126, %533 ], [ %.1.i132, %.lr.ph.i128 ]
+  %.1.lcssa.i136 = phi i32 [ %.188.i126, %533 ], [ %.1.reass.i132, %.lr.ph.i128 ]
   %544 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1.lcssa.i136) #3
   %545 = load i32, ptr @hf_s5066_25_nrx_blocks, align 4
   %546 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %545, ptr noundef %0, i32 noundef %.1.lcssa.i136, i32 noundef 2, i32 noundef 0) #3
@@ -1218,8 +1218,8 @@ dissect_s5066_21.exit:                            ; preds = %.lr.ph98.i, %358, %
   %552 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %551, ptr noundef %0, i32 noundef %550, i32 noundef 2, i32 noundef 0) #3
   %553 = add nuw nsw i32 %.18794.i142, 1
   %.2.i143 = add nuw nsw i32 %.296.i140, 4
-  %exitcond103.not.i144 = icmp eq i32 %553, %547
-  br i1 %exitcond103.not.i144, label %dissect_s5066_25.exit, label %.lr.ph98.i139, !llvm.loop !8
+  %exitcond102.not.i144 = icmp eq i32 %553, %547
+  br i1 %exitcond102.not.i144, label %dissect_s5066_25.exit, label %.lr.ph98.i139, !llvm.loop !8
 
 dissect_s5066_25.exit:                            ; preds = %.lr.ph98.i139, %532, %._crit_edge.i134
   %.3.i125 = phi i32 [ %.0.i124, %532 ], [ %.293.i137, %._crit_edge.i134 ], [ %.2.i143, %.lr.ph98.i139 ]

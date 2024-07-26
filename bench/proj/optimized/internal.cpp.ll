@@ -282,23 +282,27 @@ define noundef i64 @_ZN5osgeo4proj8internal7ci_findERKNSt7__cxx1112basic_stringI
   %.not11 = icmp ugt i64 %3, %4
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %9
-  %.012 = phi i64 [ %10, %9 ], [ 0, %2 ]
-  %5 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
-  %6 = getelementptr inbounds i8, ptr %5, i64 %.012
-  %7 = tail call i32 @strncasecmp(ptr noundef readonly %6, ptr noundef readonly %1, i64 noundef %3) #16
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %._crit_edge, label %9
+.lr.ph:                                           ; preds = %2
+  %invariant.op = add i64 %3, 1
+  br label %5
 
-9:                                                ; preds = %.lr.ph
-  %10 = add i64 %.012, 1
-  %11 = add i64 %10, %3
+5:                                                ; preds = %.lr.ph, %10
+  %.012 = phi i64 [ 0, %.lr.ph ], [ %11, %10 ]
+  %6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
+  %7 = getelementptr inbounds i8, ptr %6, i64 %.012
+  %8 = tail call i32 @strncasecmp(ptr noundef readonly %7, ptr noundef readonly %1, i64 noundef %3) #16
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %._crit_edge, label %10
+
+10:                                               ; preds = %5
+  %11 = add i64 %.012, 1
+  %.reass = add i64 %.012, %invariant.op
   %12 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
-  %.not = icmp ugt i64 %11, %12
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  %.not = icmp ugt i64 %.reass, %12
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph, %9, %2
-  %.010 = phi i64 [ -1, %2 ], [ -1, %9 ], [ %.012, %.lr.ph ]
+._crit_edge:                                      ; preds = %5, %10, %2
+  %.010 = phi i64 [ -1, %2 ], [ -1, %10 ], [ %.012, %5 ]
   ret i64 %.010
 }
 
@@ -310,24 +314,28 @@ define hidden noundef i64 @_ZN5osgeo4proj8internal7ci_findERKNSt7__cxx1112basic_
   %.not12 = icmp ugt i64 %5, %6
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %12
-  %.013 = phi i64 [ %13, %12 ], [ %2, %3 ]
-  %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
-  %8 = getelementptr inbounds i8, ptr %7, i64 %.013
-  %9 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
-  %10 = tail call i32 @strncasecmp(ptr noundef readonly %8, ptr noundef readonly %9, i64 noundef %4) #16
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %._crit_edge, label %12
+.lr.ph:                                           ; preds = %3
+  %invariant.op = add i64 %4, 1
+  br label %7
 
-12:                                               ; preds = %.lr.ph
-  %13 = add i64 %.013, 1
-  %14 = add i64 %13, %4
+7:                                                ; preds = %.lr.ph, %13
+  %.013 = phi i64 [ %2, %.lr.ph ], [ %14, %13 ]
+  %8 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
+  %9 = getelementptr inbounds i8, ptr %8, i64 %.013
+  %10 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
+  %11 = tail call i32 @strncasecmp(ptr noundef readonly %9, ptr noundef readonly %10, i64 noundef %4) #16
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %._crit_edge, label %13
+
+13:                                               ; preds = %7
+  %14 = add i64 %.013, 1
+  %.reass = add i64 %.013, %invariant.op
   %15 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
-  %.not = icmp ugt i64 %14, %15
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  %.not = icmp ugt i64 %.reass, %15
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %.lr.ph, %12, %3
-  %.011 = phi i64 [ -1, %3 ], [ -1, %12 ], [ %.013, %.lr.ph ]
+._crit_edge:                                      ; preds = %7, %13, %3
+  %.011 = phi i64 [ -1, %3 ], [ -1, %13 ], [ %.013, %7 ]
   ret i64 %.011
 }
 

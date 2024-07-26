@@ -7498,6 +7498,7 @@ _ZN2cv17QRCodeDecoderImpl17correctFormatInfoERt.exit: ; preds = %_ZN2cv17QRCodeD
 .preheader:                                       ; preds = %75
   %73 = getelementptr inbounds i8, ptr %1, i64 8
   %74 = load i32, ptr %73, align 8
+  %invariant.op = add i32 %74, -7
   %invariant.gep52 = getelementptr i8, ptr %69, i64 8
   br label %89
 
@@ -7522,86 +7523,85 @@ _ZN2cv17QRCodeDecoderImpl17correctFormatInfoERt.exit: ; preds = %_ZN2cv17QRCodeD
 
 89:                                               ; preds = %.preheader, %89
   %indvars.iv72 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next73, %89 ]
-  %90 = phi i16 [ %88, %.preheader ], [ %103, %89 ]
-  %91 = trunc i64 %indvars.iv72 to i32
-  %92 = add i32 %91, -7
-  %93 = add i32 %92, %74
-  %94 = sext i32 %93 to i64
-  %95 = mul i64 %.pre, %94
-  %gep53 = getelementptr i8, ptr %invariant.gep52, i64 %95
-  %96 = load i8, ptr %gep53, align 1
-  %97 = and i8 %96, 1
-  %98 = zext nneg i8 %97 to i32
-  %99 = trunc i64 %indvars.iv72 to i32
-  %100 = add i32 %99, 8
-  %101 = shl nuw nsw i32 %98, %100
-  %102 = trunc nuw i32 %101 to i16
-  %103 = or i16 %90, %102
-  store i16 %103, ptr %7, align 2
+  %90 = phi i16 [ %88, %.preheader ], [ %101, %89 ]
+  %91 = trunc nuw nsw i64 %indvars.iv72 to i32
+  %.reass = add i32 %invariant.op, %91
+  %92 = sext i32 %.reass to i64
+  %93 = mul i64 %.pre, %92
+  %gep53 = getelementptr i8, ptr %invariant.gep52, i64 %93
+  %94 = load i8, ptr %gep53, align 1
+  %95 = and i8 %94, 1
+  %96 = zext nneg i8 %95 to i32
+  %97 = trunc i64 %indvars.iv72 to i32
+  %98 = add i32 %97, 8
+  %99 = shl nuw nsw i32 %96, %98
+  %100 = trunc nuw i32 %99 to i16
+  %101 = or i16 %90, %100
+  store i16 %101, ptr %7, align 2
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next73, 7
-  br i1 %exitcond74.not, label %104, label %89, !llvm.loop !98
+  br i1 %exitcond74.not, label %102, label %89, !llvm.loop !98
 
-104:                                              ; preds = %89
+102:                                              ; preds = %89
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  %105 = call noundef i32 @_ZNK2cv7HammingclEPKhS2_i(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull @_ZN2cvL13formatInfoLUTE, ptr noundef nonnull %7, i32 noundef 2)
-  %106 = icmp slt i32 %105, 4
-  br i1 %106, label %.critedge, label %.lr.ph58
+  %103 = call noundef i32 @_ZNK2cv7HammingclEPKhS2_i(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull @_ZN2cvL13formatInfoLUTE, ptr noundef nonnull %7, i32 noundef 2)
+  %104 = icmp slt i32 %103, 4
+  br i1 %104, label %.critedge, label %.lr.ph58
 
-.lr.ph58:                                         ; preds = %104, %107
-  %indvars.iv.i3356 = phi i64 [ %indvars.iv.next.i34, %107 ], [ 0, %104 ]
+.lr.ph58:                                         ; preds = %102, %105
+  %indvars.iv.i3356 = phi i64 [ %indvars.iv.next.i34, %105 ], [ 0, %102 ]
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i3356, 1
   %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, 32
-  br i1 %exitcond.not.i35, label %116, label %107, !llvm.loop !94
+  br i1 %exitcond.not.i35, label %114, label %105, !llvm.loop !94
 
-107:                                              ; preds = %.lr.ph58
-  %108 = getelementptr inbounds [32 x i16], ptr @_ZN2cvL13formatInfoLUTE, i64 0, i64 %indvars.iv.next.i34
-  %109 = call noundef i32 @_ZNK2cv7HammingclEPKhS2_i(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %108, ptr noundef nonnull %7, i32 noundef 2)
-  %110 = icmp slt i32 %109, 4
-  br i1 %110, label %._crit_edge59, label %.lr.ph58, !llvm.loop !94
+105:                                              ; preds = %.lr.ph58
+  %106 = getelementptr inbounds [32 x i16], ptr @_ZN2cvL13formatInfoLUTE, i64 0, i64 %indvars.iv.next.i34
+  %107 = call noundef i32 @_ZNK2cv7HammingclEPKhS2_i(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %106, ptr noundef nonnull %7, i32 noundef 2)
+  %108 = icmp slt i32 %107, 4
+  br i1 %108, label %._crit_edge59, label %.lr.ph58, !llvm.loop !94
 
-._crit_edge59:                                    ; preds = %107
-  %111 = load i16, ptr %108, align 2
-  %112 = xor i16 %111, 21522
+._crit_edge59:                                    ; preds = %105
+  %109 = load i16, ptr %106, align 2
+  %110 = xor i16 %109, 21522
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br label %113
+  br label %111
 
-.critedge:                                        ; preds = %104
+.critedge:                                        ; preds = %102
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br label %113
+  br label %111
 
-113:                                              ; preds = %._crit_edge59, %.critedge
-  %114 = phi i16 [ 0, %.critedge ], [ %112, %._crit_edge59 ]
-  %115 = load i16, ptr %6, align 2
-  %.not = icmp ne i16 %115, %114
+111:                                              ; preds = %._crit_edge59, %.critedge
+  %112 = phi i16 [ 0, %.critedge ], [ %110, %._crit_edge59 ]
+  %113 = load i16, ptr %6, align 2
+  %.not = icmp ne i16 %113, %112
   %or.cond.not = select i1 %66, i1 %.not, i1 false
-  br i1 %or.cond.not, label %125, label %switch.lookup
+  br i1 %or.cond.not, label %123, label %switch.lookup
 
-116:                                              ; preds = %.lr.ph58
+114:                                              ; preds = %.lr.ph58
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br i1 %66, label %._crit_edge75, label %125
+  br i1 %66, label %._crit_edge75, label %123
 
-._crit_edge75:                                    ; preds = %116
+._crit_edge75:                                    ; preds = %114
   %.pre76 = load i16, ptr %6, align 2
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %113, %._crit_edge75
-  %117 = phi i16 [ %.pre76, %._crit_edge75 ], [ %114, %113 ]
-  %118 = lshr i16 %117, 13
-  %119 = and i16 %118, 3
-  %120 = getelementptr inbounds i8, ptr %0, i64 20
-  %121 = zext nneg i16 %119 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN2cv17QRCodeDecoderImpl16decodeFormatInfoERKNS_3MatERi, i64 0, i64 %121
+switch.lookup:                                    ; preds = %111, %._crit_edge75
+  %115 = phi i16 [ %.pre76, %._crit_edge75 ], [ %112, %111 ]
+  %116 = lshr i16 %115, 13
+  %117 = and i16 %116, 3
+  %118 = getelementptr inbounds i8, ptr %0, i64 20
+  %119 = zext nneg i16 %117 to i64
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN2cv17QRCodeDecoderImpl16decodeFormatInfoERKNS_3MatERi, i64 0, i64 %119
   %switch.load = load i32, ptr %switch.gep, align 4
-  store i32 %switch.load, ptr %120, align 4
-  %122 = lshr i16 %117, 10
-  %123 = and i16 %122, 7
-  %124 = zext nneg i16 %123 to i32
-  store i32 %124, ptr %2, align 4
-  br label %125
+  store i32 %switch.load, ptr %118, align 4
+  %120 = lshr i16 %115, 10
+  %121 = and i16 %120, 7
+  %122 = zext nneg i16 %121 to i32
+  store i32 %122, ptr %2, align 4
+  br label %123
 
-125:                                              ; preds = %113, %116, %switch.lookup
-  %.030 = phi i1 [ true, %switch.lookup ], [ false, %116 ], [ false, %113 ]
+123:                                              ; preds = %111, %114, %switch.lookup
+  %.030 = phi i1 [ true, %switch.lookup ], [ false, %114 ], [ false, %111 ]
   ret i1 %.030
 }
 

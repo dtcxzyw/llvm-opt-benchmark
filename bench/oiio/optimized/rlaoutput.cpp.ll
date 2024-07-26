@@ -1401,13 +1401,13 @@ for.body187.lr.ph:                                ; preds = %for.cond185.prehead
   %arraylen13.i.i114 = getelementptr inbounds i8, ptr %add.ptr.i101, i64 4
   %75 = add nuw i32 %remaining.2, 1
   %wide.trip.count440 = zext i32 %75 to i64
+  %invariant.op = add nsw i64 %conv192, %conv195
   br label %for.body187
 
 for.body187:                                      ; preds = %for.body187.lr.ph, %for.inc214
   %indvars.iv437 = phi i64 [ 1, %for.body187.lr.ph ], [ %indvars.iv.next438, %for.inc214 ]
-  %add196 = add i64 %indvars.iv437, %conv192
-  %add197 = add i64 %add196, %conv195
-  %sext = shl i64 %add197, 32
+  %add197.reass = add i64 %indvars.iv437, %invariant.op
+  %sext = shl i64 %add197.reass, 32
   %76 = ashr exact i64 %sext, 29
   %add.ptr.i100 = getelementptr inbounds i8, ptr %.pre445, i64 %76
   %77 = load i8, ptr %add.ptr.i100, align 4

@@ -24923,28 +24923,29 @@ _ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit:   ; preds = %if.then.i.i, %if.el
   %ref.tmp.sroa.8.0.i = phi ptr [ %4, %if.then.i.i ], [ %add.ptr.i.i.i, %if.else.i.i ]
   %ref.tmp.sroa.4.0.i = phi ptr [ %10, %if.then.i.i ], [ %11, %if.else.i.i ]
   %storemerge.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %add.ptr7.i.i, %if.else.i.i ]
-  %cmp.i.not164 = icmp eq ptr %storemerge.i.i, %5
-  br i1 %cmp.i.not164, label %for.end, label %for.body
+  %invariant.op164 = add i64 %add11.i, 16777216
+  %cmp.i.not165 = icmp eq ptr %storemerge.i.i, %5
+  br i1 %cmp.i.not165, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit, %do.end
-  %p.sroa.17.0168 = phi ptr [ %p.sroa.17.1, %do.end ], [ %ref.tmp.sroa.11.0.i, %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit ]
-  %p.sroa.13.0167 = phi ptr [ %p.sroa.13.1, %do.end ], [ %ref.tmp.sroa.8.0.i, %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit ]
-  %p.sroa.8.0166 = phi ptr [ %p.sroa.8.1, %do.end ], [ %ref.tmp.sroa.4.0.i, %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit ]
-  %p.sroa.0.0165 = phi ptr [ %incdec.ptr8.i, %do.end ], [ %storemerge.i.i, %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit ]
-  %cmp.i27 = icmp eq ptr %p.sroa.0.0165, %p.sroa.8.0166
+  %p.sroa.17.0169 = phi ptr [ %p.sroa.17.1, %do.end ], [ %ref.tmp.sroa.11.0.i, %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit ]
+  %p.sroa.13.0168 = phi ptr [ %p.sroa.13.1, %do.end ], [ %ref.tmp.sroa.8.0.i, %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit ]
+  %p.sroa.8.0167 = phi ptr [ %p.sroa.8.1, %do.end ], [ %ref.tmp.sroa.4.0.i, %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit ]
+  %p.sroa.0.0166 = phi ptr [ %incdec.ptr8.i, %do.end ], [ %storemerge.i.i, %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit ]
+  %cmp.i27 = icmp eq ptr %p.sroa.0.0166, %p.sroa.8.0167
   br i1 %cmp.i27, label %if.then.i, label %_ZN5eastl13DequeIteratorIiPiRiLj64EEmmEv.exit
 
 if.then.i:                                        ; preds = %for.body
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.sroa.17.0168, i64 -8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.sroa.17.0169, i64 -8
   %12 = load ptr, ptr %incdec.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 256
   br label %_ZN5eastl13DequeIteratorIiPiRiLj64EEmmEv.exit
 
 _ZN5eastl13DequeIteratorIiPiRiLj64EEmmEv.exit:    ; preds = %for.body, %if.then.i
-  %p.sroa.8.1 = phi ptr [ %12, %if.then.i ], [ %p.sroa.8.0166, %for.body ]
-  %p.sroa.13.1 = phi ptr [ %add.ptr.i, %if.then.i ], [ %p.sroa.13.0167, %for.body ]
-  %p.sroa.17.1 = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %p.sroa.17.0168, %for.body ]
-  %13 = phi ptr [ %add.ptr.i, %if.then.i ], [ %p.sroa.0.0165, %for.body ]
+  %p.sroa.8.1 = phi ptr [ %12, %if.then.i ], [ %p.sroa.8.0167, %for.body ]
+  %p.sroa.13.1 = phi ptr [ %add.ptr.i, %if.then.i ], [ %p.sroa.13.0168, %for.body ]
+  %p.sroa.17.1 = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %p.sroa.17.0169, %for.body ]
+  %13 = phi ptr [ %add.ptr.i, %if.then.i ], [ %p.sroa.0.0166, %for.body ]
   %incdec.ptr8.i = getelementptr inbounds i8, ptr %13, i64 -4
   %14 = load i32, ptr %incdec.ptr8.i, align 4
   %sub.ptr.lhs.cast.i.i35 = ptrtoint ptr %incdec.ptr8.i to i64
@@ -24960,8 +24961,8 @@ if.then.i.i57:                                    ; preds = %_ZN5eastl13DequeIte
   br label %do.body.preheader
 
 if.else.i.i41:                                    ; preds = %_ZN5eastl13DequeIteratorIiPiRiLj64EEmmEv.exit
-  %add3.i.i42 = add nsw i64 %add.i.i39, 16777216
-  %div.i.i43 = sdiv i64 %add3.i.i42, 64
+  %add3.i.i42.reass = add i64 %sub.ptr.div.i.i38, %invariant.op164
+  %div.i.i43 = sdiv i64 %add3.i.i42.reass, 64
   %sub.i.i44 = add nsw i64 %div.i.i43, -262144
   %add.ptr4.i.i45 = getelementptr inbounds ptr, ptr %p.sroa.17.1, i64 %sub.i.i44
   %15 = load ptr, ptr %add.ptr4.i.i45, align 8, !noalias !852
@@ -25020,8 +25021,8 @@ if.then.i90:                                      ; preds = %if.then
   br label %do.cond
 
 if.else.i:                                        ; preds = %if.then
-  %add3.i = add nsw i64 %add.i84, 16777216
-  %div.i = sdiv i64 %add3.i, 64
+  %add3.i.reass = add i64 %sub.ptr.div.i, %invariant.op164
+  %div.i = sdiv i64 %add3.i.reass, 64
   %sub.i86 = add nsw i64 %div.i, -262144
   %add.ptr4.i = getelementptr inbounds ptr, ptr %p2.sroa.16.0, i64 %sub.i86
   %20 = load ptr, ptr %add.ptr4.i, align 8
@@ -25077,16 +25078,16 @@ do.end:                                           ; preds = %do.cond
 
 for.end.loopexit:                                 ; preds = %do.end
   %.pre = load ptr, ptr %mpBegin3.i.i, align 8, !noalias !860
-  %.pre170 = load ptr, ptr %mpCurrentArrayPtr1.i, align 8, !noalias !860
-  %.pre171 = ptrtoint ptr %26 to i64
-  %.pre172 = ptrtoint ptr %.pre to i64
-  %.pre173 = sub i64 %.pre171, %.pre172
-  %.pre174 = ashr exact i64 %.pre173, 2
+  %.pre171 = load ptr, ptr %mpCurrentArrayPtr1.i, align 8, !noalias !860
+  %.pre172 = ptrtoint ptr %26 to i64
+  %.pre173 = ptrtoint ptr %.pre to i64
+  %.pre174 = sub i64 %.pre172, %.pre173
+  %.pre175 = ashr exact i64 %.pre174, 2
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit
-  %sub.ptr.div.i.i126.pre-phi = phi i64 [ %.pre174, %for.end.loopexit ], [ %sub.ptr.div.i.i, %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit ]
-  %27 = phi ptr [ %.pre170, %for.end.loopexit ], [ %1, %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit ]
+  %sub.ptr.div.i.i126.pre-phi = phi i64 [ %.pre175, %for.end.loopexit ], [ %sub.ptr.div.i.i, %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit ]
+  %27 = phi ptr [ %.pre171, %for.end.loopexit ], [ %1, %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit ]
   %28 = phi ptr [ %.pre, %for.end.loopexit ], [ %10, %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit ]
   %.lcssa = phi ptr [ %26, %for.end.loopexit ], [ %5, %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !860)

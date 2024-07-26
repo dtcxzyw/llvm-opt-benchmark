@@ -1568,14 +1568,14 @@ define internal fastcc ptr @sdissect(ptr noundef %0, ptr noundef %1, ptr noundef
   %72 = icmp eq i64 %71, 2281701376
   %73 = add i64 %67, %.0137164
   %spec.select153 = select i1 %72, i64 %73, i64 %68
-  %.0139 = add nsw i64 %.0137164, 2
-  %74 = tail call fastcc ptr @sslow(ptr noundef nonnull %0, ptr noundef %.0142169, ptr noundef %54, i64 noundef %.0139, i64 noundef %spec.select153)
+  %.0139.reass = add i64 %.0137164, 2
+  %74 = tail call fastcc ptr @sslow(ptr noundef nonnull %0, ptr noundef %.0142169, ptr noundef %54, i64 noundef %.0139.reass, i64 noundef %spec.select153)
   %75 = icmp eq ptr %74, %54
   br i1 %75, label %._crit_edge, label %.lr.ph165
 
 ._crit_edge:                                      ; preds = %.lr.ph165, %58
   %.0137.lcssa = phi i64 [ %61, %58 ], [ %spec.select153, %.lr.ph165 ]
-  %.0139.lcssa = phi i64 [ %.0139163, %58 ], [ %.0139, %.lr.ph165 ]
+  %.0139.lcssa = phi i64 [ %.0139163, %58 ], [ %.0139.reass, %.lr.ph165 ]
   %76 = tail call fastcc ptr @sdissect(ptr noundef nonnull %0, ptr noundef %.0142169, ptr noundef %54, i64 noundef %.0139.lcssa, i64 noundef %.0137.lcssa)
   br label %93
 
@@ -2786,14 +2786,14 @@ define internal fastcc ptr @ldissect(ptr noundef %0, ptr noundef %1, ptr noundef
   %78 = icmp eq i64 %77, 2281701376
   %79 = add i64 %73, %.0137164
   %spec.select153 = select i1 %78, i64 %79, i64 %74
-  %.0139 = add nsw i64 %.0137164, 2
-  %80 = tail call fastcc ptr @lslow(ptr noundef nonnull %0, ptr noundef %.0142169, ptr noundef %54, i64 noundef %.0139, i64 noundef %spec.select153)
+  %.0139.reass = add i64 %.0137164, 2
+  %80 = tail call fastcc ptr @lslow(ptr noundef nonnull %0, ptr noundef %.0142169, ptr noundef %54, i64 noundef %.0139.reass, i64 noundef %spec.select153)
   %81 = icmp eq ptr %80, %54
   br i1 %81, label %._crit_edge, label %.lr.ph165
 
 ._crit_edge:                                      ; preds = %.lr.ph165, %58
   %.0137.lcssa = phi i64 [ %65, %58 ], [ %spec.select153, %.lr.ph165 ]
-  %.0139.lcssa = phi i64 [ %.0139163, %58 ], [ %.0139, %.lr.ph165 ]
+  %.0139.lcssa = phi i64 [ %.0139163, %58 ], [ %.0139.reass, %.lr.ph165 ]
   %82 = tail call fastcc ptr @ldissect(ptr noundef nonnull %0, ptr noundef %.0142169, ptr noundef %54, i64 noundef %.0139.lcssa, i64 noundef %.0137.lcssa)
   br label %99
 

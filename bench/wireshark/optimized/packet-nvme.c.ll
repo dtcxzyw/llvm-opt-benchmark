@@ -5025,20 +5025,20 @@ get_logpage_name.exit:                            ; preds = %5, %14, %16, %18
     i8 112, label %22
     i8 1, label %91
     i8 2, label %186
-    i8 3, label %439
-    i8 4, label %497
-    i8 5, label %506
-    i8 6, label %529
-    i8 7, label %624
-    i8 8, label %624
-    i8 9, label %712
-    i8 10, label %881
-    i8 11, label %982
-    i8 12, label %1009
-    i8 14, label %1157
-    i8 15, label %1278
-    i8 -128, label %1309
-    i8 -127, label %1355
+    i8 3, label %437
+    i8 4, label %495
+    i8 5, label %504
+    i8 6, label %527
+    i8 7, label %622
+    i8 8, label %622
+    i8 9, label %710
+    i8 10, label %879
+    i8 11, label %980
+    i8 12, label %1007
+    i8 14, label %1155
+    i8 15, label %1276
+    i8 -128, label %1307
+    i8 -127, label %1353
   ]
 
 22:                                               ; preds = %get_logpage_name.exit
@@ -5727,1948 +5727,1948 @@ add_group_mask_entry.exit237.i:                   ; preds = %.lr.ph.i233.i, %227
   %391 = tail call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %390, ptr noundef %0, i32 noundef %381, i32 noundef %spec.select.i.i, i32 noundef 0) #10
   %392 = load i32, ptr @ett_data, align 4
   %393 = tail call ptr @proto_item_add_subtree(ptr noundef %391, i32 noundef %392) #10
-  %394 = add nuw nsw i64 %.val, 2
-  %395 = zext i32 %4 to i64
-  br label %396
+  %394 = zext i32 %4 to i64
+  %narrow.i.i = add nuw nsw i64 %.val, 202
+  br label %395
 
-396:                                              ; preds = %._crit_edge.i.i, %385
+395:                                              ; preds = %._crit_edge.i.i, %385
   %indvars.iv.i245.i = phi i64 [ 0, %385 ], [ %.pre.i.i, %._crit_edge.i.i ]
-  %397 = shl nuw nsw i64 %indvars.iv.i245.i, 1
-  %398 = add nuw nsw i64 %397, 200
-  %.not.i.i = icmp ult i64 %398, %.val
-  %399 = add nuw nsw i64 %394, %398
-  %.not36.i.i = icmp ugt i64 %399, %395
+  %396 = shl nuw nsw i64 %indvars.iv.i245.i, 1
+  %397 = add nuw nsw i64 %396, 200
+  %.not.i.i = icmp ult i64 %397, %.val
+  %.reass.i.i = add nuw i64 %narrow.i.i, %396
+  %.not36.i.i = icmp ugt i64 %.reass.i.i, %394
   %or.cond39.i.i = select i1 %.not.i.i, i1 true, i1 %.not36.i.i
   %.pre.i.i = add nuw nsw i64 %indvars.iv.i245.i, 1
-  br i1 %or.cond39.i.i, label %._crit_edge.i.i, label %400
+  br i1 %or.cond39.i.i, label %._crit_edge.i.i, label %398
 
-400:                                              ; preds = %396
-  %401 = getelementptr [9 x i32], ptr @hf_nvme_get_logpage_smart_ts, i64 0, i64 %.pre.i.i
-  %402 = load i32, ptr %401, align 4
-  %403 = trunc i64 %398 to i32
-  %404 = sub i32 %403, %188
-  %405 = tail call ptr @proto_tree_add_item(ptr noundef %393, i32 noundef %402, ptr noundef %0, i32 noundef %404, i32 noundef 2, i32 noundef -2147483648) #10
+398:                                              ; preds = %395
+  %399 = getelementptr [9 x i32], ptr @hf_nvme_get_logpage_smart_ts, i64 0, i64 %.pre.i.i
+  %400 = load i32, ptr %399, align 4
+  %401 = trunc i64 %397 to i32
+  %402 = sub i32 %401, %188
+  %403 = tail call ptr @proto_tree_add_item(ptr noundef %393, i32 noundef %400, ptr noundef %0, i32 noundef %402, i32 noundef 2, i32 noundef -2147483648) #10
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %400, %396
+._crit_edge.i.i:                                  ; preds = %398, %395
   %exitcond.not.i246.i = icmp eq i64 %.pre.i.i, 8
-  br i1 %exitcond.not.i246.i, label %decode_smart_resp_temps.exit.i, label %396, !llvm.loop !11
+  br i1 %exitcond.not.i246.i, label %decode_smart_resp_temps.exit.i, label %395, !llvm.loop !11
 
 decode_smart_resp_temps.exit.i:                   ; preds = %._crit_edge.i.i, %379
-  %406 = icmp ugt i32 %188, 216
-  %407 = sub nuw nsw i32 220, %188
-  %.not207.i = icmp ugt i32 %407, %4
-  %or.cond229.i = select i1 %406, i1 true, i1 %.not207.i
-  br i1 %or.cond229.i, label %412, label %408
+  %404 = icmp ugt i32 %188, 216
+  %405 = sub nuw nsw i32 220, %188
+  %.not207.i = icmp ugt i32 %405, %4
+  %or.cond229.i = select i1 %404, i1 true, i1 %.not207.i
+  br i1 %or.cond229.i, label %410, label %406
 
-408:                                              ; preds = %decode_smart_resp_temps.exit.i
-  %409 = load i32, ptr @hf_nvme_get_logpage_smart_tmt1c, align 4
-  %410 = sub nuw nsw i32 216, %188
-  %411 = tail call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %409, ptr noundef %0, i32 noundef %410, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %412
+406:                                              ; preds = %decode_smart_resp_temps.exit.i
+  %407 = load i32, ptr @hf_nvme_get_logpage_smart_tmt1c, align 4
+  %408 = sub nuw nsw i32 216, %188
+  %409 = tail call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %407, ptr noundef %0, i32 noundef %408, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %410
 
-412:                                              ; preds = %408, %decode_smart_resp_temps.exit.i
-  %413 = icmp ugt i32 %188, 220
-  %414 = sub nuw nsw i32 224, %188
-  %.not208.i = icmp ugt i32 %414, %4
-  %or.cond230.i = select i1 %413, i1 true, i1 %.not208.i
-  br i1 %or.cond230.i, label %418, label %415
+410:                                              ; preds = %406, %decode_smart_resp_temps.exit.i
+  %411 = icmp ugt i32 %188, 220
+  %412 = sub nuw nsw i32 224, %188
+  %.not208.i = icmp ugt i32 %412, %4
+  %or.cond230.i = select i1 %411, i1 true, i1 %.not208.i
+  br i1 %or.cond230.i, label %416, label %413
 
-415:                                              ; preds = %412
-  %416 = load i32, ptr @hf_nvme_get_logpage_smart_tmt2c, align 4
-  %417 = tail call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %416, ptr noundef %0, i32 noundef %407, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %418
+413:                                              ; preds = %410
+  %414 = load i32, ptr @hf_nvme_get_logpage_smart_tmt2c, align 4
+  %415 = tail call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %414, ptr noundef %0, i32 noundef %405, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %416
 
-418:                                              ; preds = %415, %412
-  %419 = icmp ugt i32 %188, 224
-  %420 = sub nuw nsw i32 228, %188
-  %.not209.i = icmp ugt i32 %420, %4
-  %or.cond231.i = select i1 %419, i1 true, i1 %.not209.i
-  br i1 %or.cond231.i, label %424, label %421
+416:                                              ; preds = %413, %410
+  %417 = icmp ugt i32 %188, 224
+  %418 = sub nuw nsw i32 228, %188
+  %.not209.i = icmp ugt i32 %418, %4
+  %or.cond231.i = select i1 %417, i1 true, i1 %.not209.i
+  br i1 %or.cond231.i, label %422, label %419
 
-421:                                              ; preds = %418
-  %422 = load i32, ptr @hf_nvme_get_logpage_smart_tmt1t, align 4
-  %423 = tail call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %422, ptr noundef %0, i32 noundef %414, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %424
+419:                                              ; preds = %416
+  %420 = load i32, ptr @hf_nvme_get_logpage_smart_tmt1t, align 4
+  %421 = tail call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %420, ptr noundef %0, i32 noundef %412, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %422
 
-424:                                              ; preds = %421, %418
-  %425 = icmp ugt i32 %188, 228
-  %426 = sub nuw nsw i32 232, %188
-  %.not210.i = icmp ugt i32 %426, %4
-  %or.cond232.i = select i1 %425, i1 true, i1 %.not210.i
-  br i1 %or.cond232.i, label %429, label %.thread.i95
+422:                                              ; preds = %419, %416
+  %423 = icmp ugt i32 %188, 228
+  %424 = sub nuw nsw i32 232, %188
+  %.not210.i = icmp ugt i32 %424, %4
+  %or.cond232.i = select i1 %423, i1 true, i1 %.not210.i
+  br i1 %or.cond232.i, label %427, label %.thread.i95
 
-.thread.i95:                                      ; preds = %424
-  %427 = load i32, ptr @hf_nvme_get_logpage_smart_tmt2t, align 4
-  %428 = tail call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %427, ptr noundef %0, i32 noundef %420, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %431
+.thread.i95:                                      ; preds = %422
+  %425 = load i32, ptr @hf_nvme_get_logpage_smart_tmt2t, align 4
+  %426 = tail call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %425, ptr noundef %0, i32 noundef %418, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %429
 
-429:                                              ; preds = %424
-  %430 = icmp ult i32 %188, 512
-  br i1 %430, label %431, label %dissect_nvme_get_logpage_err_inf_resp.exit
+427:                                              ; preds = %422
+  %428 = icmp ult i32 %188, 512
+  br i1 %428, label %429, label %dissect_nvme_get_logpage_err_inf_resp.exit
 
-431:                                              ; preds = %429, %.thread.i95
-  %432 = tail call i32 @llvm.umax.i32(i32 %188, i32 232)
-  %433 = icmp ult i32 %188, 233
-  %434 = sub nuw nsw i32 512, %188
-  %435 = select i1 %433, i32 280, i32 %434
-  %436 = sub i32 %4, %432
-  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %436, i32 %435)
-  %437 = load i32, ptr @hf_nvme_get_logpage_smart_rsvd1, align 4
-  %438 = tail call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %437, ptr noundef %0, i32 noundef %432, i32 noundef %spec.select.i, i32 noundef 0) #10
+429:                                              ; preds = %427, %.thread.i95
+  %430 = tail call i32 @llvm.umax.i32(i32 %188, i32 232)
+  %431 = icmp ult i32 %188, 233
+  %432 = sub nuw nsw i32 512, %188
+  %433 = select i1 %431, i32 280, i32 %432
+  %434 = sub i32 %4, %430
+  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %434, i32 %433)
+  %435 = load i32, ptr @hf_nvme_get_logpage_smart_rsvd1, align 4
+  %436 = tail call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %435, ptr noundef %0, i32 noundef %430, i32 noundef %spec.select.i, i32 noundef 0) #10
   br label %dissect_nvme_get_logpage_err_inf_resp.exit
 
-439:                                              ; preds = %get_logpage_name.exit
-  %440 = getelementptr i8, ptr %2, i64 144
-  %.val75 = load i64, ptr %440, align 8
-  %441 = trunc i64 %.val75 to i32
-  %442 = icmp ugt i64 %.val75, 511
-  br i1 %442, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %443
+437:                                              ; preds = %get_logpage_name.exit
+  %438 = getelementptr i8, ptr %2, i64 144
+  %.val75 = load i64, ptr %438, align 8
+  %439 = trunc i64 %.val75 to i32
+  %440 = icmp ugt i64 %.val75, 511
+  br i1 %440, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %441
 
-443:                                              ; preds = %439
-  %444 = load i32, ptr @ett_data, align 4
-  %445 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %444) #10
-  %446 = icmp eq i32 %441, 0
-  %447 = icmp ugt i32 %4, 1
-  %or.cond.i100 = and i1 %447, %446
-  br i1 %or.cond.i100, label %448, label %add_group_mask_entry.exit.i101
+441:                                              ; preds = %437
+  %442 = load i32, ptr @ett_data, align 4
+  %443 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %442) #10
+  %444 = icmp eq i32 %439, 0
+  %445 = icmp ugt i32 %4, 1
+  %or.cond.i100 = and i1 %445, %444
+  br i1 %or.cond.i100, label %446, label %add_group_mask_entry.exit.i101
 
-448:                                              ; preds = %443
-  %449 = load i32, ptr @hf_nvme_get_logpage_fw_slot_afi, align 16
-  %450 = tail call ptr @proto_tree_add_item(ptr noundef %445, i32 noundef %449, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #10
-  %451 = load i32, ptr @ett_data, align 4
-  %452 = tail call ptr @proto_item_add_subtree(ptr noundef %450, i32 noundef %451) #10
+446:                                              ; preds = %441
+  %447 = load i32, ptr @hf_nvme_get_logpage_fw_slot_afi, align 16
+  %448 = tail call ptr @proto_tree_add_item(ptr noundef %443, i32 noundef %447, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #10
+  %449 = load i32, ptr @ett_data, align 4
+  %450 = tail call ptr @proto_item_add_subtree(ptr noundef %448, i32 noundef %449) #10
   br label %.lr.ph.i.i111
 
-.lr.ph.i.i111:                                    ; preds = %.lr.ph.i.i111, %448
-  %indvars.iv.i.i112 = phi i64 [ 1, %448 ], [ %indvars.iv.next.i.i113, %.lr.ph.i.i111 ]
-  %453 = getelementptr i32, ptr @hf_nvme_get_logpage_fw_slot_afi, i64 %indvars.iv.i.i112
-  %454 = load i32, ptr %453, align 4
-  %455 = tail call ptr @proto_tree_add_item(ptr noundef %452, i32 noundef %454, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #10
+.lr.ph.i.i111:                                    ; preds = %.lr.ph.i.i111, %446
+  %indvars.iv.i.i112 = phi i64 [ 1, %446 ], [ %indvars.iv.next.i.i113, %.lr.ph.i.i111 ]
+  %451 = getelementptr i32, ptr @hf_nvme_get_logpage_fw_slot_afi, i64 %indvars.iv.i.i112
+  %452 = load i32, ptr %451, align 4
+  %453 = tail call ptr @proto_tree_add_item(ptr noundef %450, i32 noundef %452, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #10
   %indvars.iv.next.i.i113 = add nuw nsw i64 %indvars.iv.i.i112, 1
   %exitcond.not.i.i114 = icmp eq i64 %indvars.iv.next.i.i113, 5
   br i1 %exitcond.not.i.i114, label %add_group_mask_entry.exit.i101, label %.lr.ph.i.i111, !llvm.loop !6
 
-add_group_mask_entry.exit.i101:                   ; preds = %.lr.ph.i.i111, %443
-  %456 = icmp ugt i32 %441, 1
-  %457 = sub nuw nsw i32 8, %441
-  %.not.i102 = icmp ugt i32 %457, %4
-  %or.cond34.i = select i1 %456, i1 true, i1 %.not.i102
-  br i1 %or.cond34.i, label %462, label %458
+add_group_mask_entry.exit.i101:                   ; preds = %.lr.ph.i.i111, %441
+  %454 = icmp ugt i32 %439, 1
+  %455 = sub nuw nsw i32 8, %439
+  %.not.i102 = icmp ugt i32 %455, %4
+  %or.cond34.i = select i1 %454, i1 true, i1 %.not.i102
+  br i1 %or.cond34.i, label %460, label %456
 
-458:                                              ; preds = %add_group_mask_entry.exit.i101
-  %459 = load i32, ptr @hf_nvme_get_logpage_fw_slot_rsvd0, align 4
-  %460 = sub nuw nsw i32 1, %441
-  %461 = tail call ptr @proto_tree_add_item(ptr noundef %445, i32 noundef %459, ptr noundef %0, i32 noundef %460, i32 noundef 7, i32 noundef 0) #10
-  br label %462
+456:                                              ; preds = %add_group_mask_entry.exit.i101
+  %457 = load i32, ptr @hf_nvme_get_logpage_fw_slot_rsvd0, align 4
+  %458 = sub nuw nsw i32 1, %439
+  %459 = tail call ptr @proto_tree_add_item(ptr noundef %443, i32 noundef %457, ptr noundef %0, i32 noundef %458, i32 noundef 7, i32 noundef 0) #10
+  br label %460
 
-462:                                              ; preds = %458, %add_group_mask_entry.exit.i101
-  %463 = icmp ult i32 %441, 8
-  %464 = select i1 %463, i32 %457, i32 %441
-  %465 = icmp ugt i32 %441, 56
-  %466 = add nuw nsw i32 %464, 8
-  %467 = icmp ugt i32 %466, %4
-  %or.cond.i.i103 = select i1 %465, i1 true, i1 %467
-  br i1 %or.cond.i.i103, label %decode_fw_slot_frs.exit.i, label %468
+460:                                              ; preds = %456, %add_group_mask_entry.exit.i101
+  %461 = icmp ult i32 %439, 8
+  %462 = select i1 %461, i32 %455, i32 %439
+  %463 = icmp ugt i32 %439, 56
+  %464 = add nuw nsw i32 %462, 8
+  %465 = icmp ugt i32 %464, %4
+  %or.cond.i.i103 = select i1 %463, i1 true, i1 %465
+  br i1 %or.cond.i.i103, label %decode_fw_slot_frs.exit.i, label %466
 
-468:                                              ; preds = %462
-  %469 = sub nuw i32 %4, %464
-  %470 = icmp ult i32 %441, 9
-  %471 = sub nuw nsw i32 64, %441
-  %472 = select i1 %470, i32 56, i32 %471
-  %spec.select.i.i104 = tail call i32 @llvm.umin.i32(i32 %469, i32 %472)
-  %473 = load i32, ptr @hf_nvme_get_logpage_fw_slot_frs, align 16
-  %474 = tail call ptr @proto_tree_add_item(ptr noundef %445, i32 noundef %473, ptr noundef %0, i32 noundef %464, i32 noundef %spec.select.i.i104, i32 noundef 0) #10
-  %475 = load i32, ptr @ett_data, align 4
-  %476 = tail call ptr @proto_item_add_subtree(ptr noundef %474, i32 noundef %475) #10
-  br label %477
+466:                                              ; preds = %460
+  %467 = sub nuw i32 %4, %462
+  %468 = icmp ult i32 %439, 9
+  %469 = sub nuw nsw i32 64, %439
+  %470 = select i1 %468, i32 56, i32 %469
+  %spec.select.i.i104 = tail call i32 @llvm.umin.i32(i32 %467, i32 %470)
+  %471 = load i32, ptr @hf_nvme_get_logpage_fw_slot_frs, align 16
+  %472 = tail call ptr @proto_tree_add_item(ptr noundef %443, i32 noundef %471, ptr noundef %0, i32 noundef %462, i32 noundef %spec.select.i.i104, i32 noundef 0) #10
+  %473 = load i32, ptr @ett_data, align 4
+  %474 = tail call ptr @proto_item_add_subtree(ptr noundef %472, i32 noundef %473) #10
+  br label %475
 
-477:                                              ; preds = %._crit_edge.i.i109, %468
-  %indvars.iv.i35.i = phi i64 [ 0, %468 ], [ %.pre.i.i108, %._crit_edge.i.i109 ]
-  %478 = shl nuw nsw i64 %indvars.iv.i35.i, 3
-  %479 = add nuw nsw i64 %478, 8
-  %.not.i.i105 = icmp ult i64 %479, %.val75
-  %480 = trunc i64 %478 to i32
-  %reass.sub245 = sub i32 %480, %441
-  %481 = add i32 %reass.sub245, 16
-  %.not36.i.i106 = icmp ugt i32 %481, %4
+475:                                              ; preds = %._crit_edge.i.i109, %466
+  %indvars.iv.i35.i = phi i64 [ 0, %466 ], [ %.pre.i.i108, %._crit_edge.i.i109 ]
+  %476 = shl nuw nsw i64 %indvars.iv.i35.i, 3
+  %477 = add nuw nsw i64 %476, 8
+  %.not.i.i105 = icmp ult i64 %477, %.val75
+  %478 = trunc i64 %476 to i32
+  %reass.sub245 = sub i32 %478, %439
+  %479 = add i32 %reass.sub245, 16
+  %.not36.i.i106 = icmp ugt i32 %479, %4
   %or.cond39.i.i107 = or i1 %.not.i.i105, %.not36.i.i106
   %.pre.i.i108 = add nuw nsw i64 %indvars.iv.i35.i, 1
-  br i1 %or.cond39.i.i107, label %._crit_edge.i.i109, label %482
+  br i1 %or.cond39.i.i107, label %._crit_edge.i.i109, label %480
 
-482:                                              ; preds = %477
-  %483 = getelementptr [8 x i32], ptr @hf_nvme_get_logpage_fw_slot_frs, i64 0, i64 %.pre.i.i108
-  %484 = load i32, ptr %483, align 4
-  %485 = trunc i64 %479 to i32
-  %486 = sub i32 %485, %441
-  %487 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %484, ptr noundef %0, i32 noundef %486, i32 noundef 8, i32 noundef -2147483648) #10
+480:                                              ; preds = %475
+  %481 = getelementptr [8 x i32], ptr @hf_nvme_get_logpage_fw_slot_frs, i64 0, i64 %.pre.i.i108
+  %482 = load i32, ptr %481, align 4
+  %483 = trunc i64 %477 to i32
+  %484 = sub i32 %483, %439
+  %485 = tail call ptr @proto_tree_add_item(ptr noundef %474, i32 noundef %482, ptr noundef %0, i32 noundef %484, i32 noundef 8, i32 noundef -2147483648) #10
   br label %._crit_edge.i.i109
 
-._crit_edge.i.i109:                               ; preds = %482, %477
+._crit_edge.i.i109:                               ; preds = %480, %475
   %exitcond.not.i36.i = icmp eq i64 %.pre.i.i108, 7
-  br i1 %exitcond.not.i36.i, label %decode_fw_slot_frs.exit.i, label %477, !llvm.loop !12
+  br i1 %exitcond.not.i36.i, label %decode_fw_slot_frs.exit.i, label %475, !llvm.loop !12
 
-decode_fw_slot_frs.exit.i:                        ; preds = %._crit_edge.i.i109, %462
-  %488 = icmp ult i32 %441, 512
-  br i1 %488, label %489, label %dissect_nvme_get_logpage_err_inf_resp.exit
+decode_fw_slot_frs.exit.i:                        ; preds = %._crit_edge.i.i109, %460
+  %486 = icmp ult i32 %439, 512
+  br i1 %486, label %487, label %dissect_nvme_get_logpage_err_inf_resp.exit
 
-489:                                              ; preds = %decode_fw_slot_frs.exit.i
-  %490 = tail call i32 @llvm.umax.i32(i32 %441, i32 64)
-  %491 = icmp ult i32 %441, 65
-  %492 = sub nuw nsw i32 512, %441
-  %493 = select i1 %491, i32 448, i32 %492
-  %494 = sub i32 %4, %490
-  %spec.select.i110 = tail call i32 @llvm.umin.i32(i32 %494, i32 %493)
-  %495 = load i32, ptr @hf_nvme_get_logpage_fw_slot_rsvd1, align 4
-  %496 = tail call ptr @proto_tree_add_item(ptr noundef %445, i32 noundef %495, ptr noundef %0, i32 noundef %490, i32 noundef %spec.select.i110, i32 noundef 0) #10
+487:                                              ; preds = %decode_fw_slot_frs.exit.i
+  %488 = tail call i32 @llvm.umax.i32(i32 %439, i32 64)
+  %489 = icmp ult i32 %439, 65
+  %490 = sub nuw nsw i32 512, %439
+  %491 = select i1 %489, i32 448, i32 %490
+  %492 = sub i32 %4, %488
+  %spec.select.i110 = tail call i32 @llvm.umin.i32(i32 %492, i32 %491)
+  %493 = load i32, ptr @hf_nvme_get_logpage_fw_slot_rsvd1, align 4
+  %494 = tail call ptr @proto_tree_add_item(ptr noundef %443, i32 noundef %493, ptr noundef %0, i32 noundef %488, i32 noundef %spec.select.i110, i32 noundef 0) #10
   br label %dissect_nvme_get_logpage_err_inf_resp.exit
 
-497:                                              ; preds = %get_logpage_name.exit
-  %498 = load i32, ptr @ett_data, align 4
-  %499 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %498) #10
-  %500 = icmp ugt i32 %4, 3
-  br i1 %500, label %.lr.ph.i115, label %dissect_nvme_get_logpage_err_inf_resp.exit
+495:                                              ; preds = %get_logpage_name.exit
+  %496 = load i32, ptr @ett_data, align 4
+  %497 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %496) #10
+  %498 = icmp ugt i32 %4, 3
+  br i1 %498, label %.lr.ph.i115, label %dissect_nvme_get_logpage_err_inf_resp.exit
 
-.lr.ph.i115:                                      ; preds = %497, %.lr.ph.i115
-  %.08.i = phi i32 [ %504, %.lr.ph.i115 ], [ 0, %497 ]
-  %.067.i = phi i32 [ %503, %.lr.ph.i115 ], [ %4, %497 ]
-  %501 = load i32, ptr @hf_nvme_get_logpage_changed_nslist, align 4
-  %502 = tail call ptr @proto_tree_add_item(ptr noundef %499, i32 noundef %501, ptr noundef %0, i32 noundef %.08.i, i32 noundef 4, i32 noundef -2147483648) #10
-  %503 = add i32 %.067.i, -4
-  %504 = add i32 %.08.i, 4
-  %505 = icmp ugt i32 %503, 3
-  br i1 %505, label %.lr.ph.i115, label %dissect_nvme_get_logpage_err_inf_resp.exit, !llvm.loop !13
+.lr.ph.i115:                                      ; preds = %495, %.lr.ph.i115
+  %.08.i = phi i32 [ %502, %.lr.ph.i115 ], [ 0, %495 ]
+  %.067.i = phi i32 [ %501, %.lr.ph.i115 ], [ %4, %495 ]
+  %499 = load i32, ptr @hf_nvme_get_logpage_changed_nslist, align 4
+  %500 = tail call ptr @proto_tree_add_item(ptr noundef %497, i32 noundef %499, ptr noundef %0, i32 noundef %.08.i, i32 noundef 4, i32 noundef -2147483648) #10
+  %501 = add i32 %.067.i, -4
+  %502 = add i32 %.08.i, 4
+  %503 = icmp ugt i32 %501, 3
+  br i1 %503, label %.lr.ph.i115, label %dissect_nvme_get_logpage_err_inf_resp.exit, !llvm.loop !13
 
-506:                                              ; preds = %get_logpage_name.exit
-  %507 = getelementptr i8, ptr %2, i64 144
-  %.val76 = load i64, ptr %507, align 8
-  %508 = trunc i64 %.val76 to i32
-  %509 = add i32 %508, %3
-  %510 = icmp ugt i64 %.val76, 4095
-  br i1 %510, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %511
+504:                                              ; preds = %get_logpage_name.exit
+  %505 = getelementptr i8, ptr %2, i64 144
+  %.val76 = load i64, ptr %505, align 8
+  %506 = trunc i64 %.val76 to i32
+  %507 = add i32 %506, %3
+  %508 = icmp ugt i64 %.val76, 4095
+  br i1 %508, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %509
 
-511:                                              ; preds = %506
-  %512 = load i32, ptr @ett_data, align 4
-  %513 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %512) #10
-  %514 = icmp ult i32 %509, 1025
-  %515 = icmp ugt i32 %4, 3
-  %or.cond.i116 = and i1 %515, %514
-  br i1 %or.cond.i116, label %516, label %._crit_edge.i
+509:                                              ; preds = %504
+  %510 = load i32, ptr @ett_data, align 4
+  %511 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %510) #10
+  %512 = icmp ult i32 %507, 1025
+  %513 = icmp ugt i32 %4, 3
+  %or.cond.i116 = and i1 %513, %512
+  br i1 %or.cond.i116, label %514, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %511
+._crit_edge.i:                                    ; preds = %509
   %.pre.i = lshr i32 %4, 2
-  br label %521
+  br label %519
 
-516:                                              ; preds = %511
-  %517 = lshr i32 %509, 2
-  %518 = sub nuw nsw i32 1024, %509
-  %519 = lshr i32 %518, 2
-  %520 = lshr i32 %4, 2
-  %spec.select.i119 = tail call i32 @llvm.umin.i32(i32 %519, i32 %520)
-  tail call fastcc void @dissect_nvme_get_logpage_cmd_sup_and_eff_grp(ptr noundef %513, ptr noundef %0, i32 noundef 0, i32 noundef %spec.select.i119, i32 noundef %517, i32 noundef 1)
-  br label %521
+514:                                              ; preds = %509
+  %515 = lshr i32 %507, 2
+  %516 = sub nuw nsw i32 1024, %507
+  %517 = lshr i32 %516, 2
+  %518 = lshr i32 %4, 2
+  %spec.select.i119 = tail call i32 @llvm.umin.i32(i32 %517, i32 %518)
+  tail call fastcc void @dissect_nvme_get_logpage_cmd_sup_and_eff_grp(ptr noundef %511, ptr noundef %0, i32 noundef 0, i32 noundef %spec.select.i119, i32 noundef %515, i32 noundef 1)
+  br label %519
 
-521:                                              ; preds = %516, %._crit_edge.i
-  %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge.i ], [ %520, %516 ]
-  %.1.i117 = phi i32 [ 0, %._crit_edge.i ], [ %spec.select.i119, %516 ]
+519:                                              ; preds = %514, %._crit_edge.i
+  %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge.i ], [ %518, %514 ]
+  %.1.i117 = phi i32 [ 0, %._crit_edge.i ], [ %spec.select.i119, %514 ]
   %.not.i118 = icmp eq i32 %.pre-phi.i, %.1.i117
-  br i1 %.not.i118, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %522
+  br i1 %.not.i118, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %520
 
-522:                                              ; preds = %521
-  %523 = sub nsw i32 %.pre-phi.i, %.1.i117
-  %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 %523, i32 256)
-  %524 = icmp ugt i32 %509, 1028
-  %525 = add i32 %509, -1028
-  %526 = lshr i32 %525, 2
-  %527 = select i1 %524, i32 %526, i32 0
-  %528 = tail call i32 @llvm.usub.sat.i32(i32 1028, i32 %509)
-  tail call fastcc void @dissect_nvme_get_logpage_cmd_sup_and_eff_grp(ptr noundef %513, ptr noundef %0, i32 noundef %528, i32 noundef %spec.store.select.i, i32 noundef %527, i32 noundef 0)
+520:                                              ; preds = %519
+  %521 = sub nsw i32 %.pre-phi.i, %.1.i117
+  %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 %521, i32 256)
+  %522 = icmp ugt i32 %507, 1028
+  %523 = add i32 %507, -1028
+  %524 = lshr i32 %523, 2
+  %525 = select i1 %522, i32 %524, i32 0
+  %526 = tail call i32 @llvm.usub.sat.i32(i32 1028, i32 %507)
+  tail call fastcc void @dissect_nvme_get_logpage_cmd_sup_and_eff_grp(ptr noundef %511, ptr noundef %0, i32 noundef %526, i32 noundef %spec.store.select.i, i32 noundef %525, i32 noundef 0)
   br label %dissect_nvme_get_logpage_err_inf_resp.exit
 
-529:                                              ; preds = %get_logpage_name.exit
-  %530 = getelementptr i8, ptr %2, i64 144
-  %.val77 = load i64, ptr %530, align 8
-  %531 = trunc i64 %.val77 to i32
-  %532 = add i32 %531, %3
-  %533 = icmp ugt i64 %.val77, 536
-  br i1 %533, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %534
+527:                                              ; preds = %get_logpage_name.exit
+  %528 = getelementptr i8, ptr %2, i64 144
+  %.val77 = load i64, ptr %528, align 8
+  %529 = trunc i64 %.val77 to i32
+  %530 = add i32 %529, %3
+  %531 = icmp ugt i64 %.val77, 536
+  br i1 %531, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %532
 
-534:                                              ; preds = %529
-  %535 = load i32, ptr @ett_data, align 4
-  %536 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %535) #10
-  %537 = icmp eq i32 %532, 0
-  %538 = icmp ne i32 %4, 0
-  %or.cond.i120 = and i1 %538, %537
-  br i1 %or.cond.i120, label %539, label %add_group_mask_entry.exit.i121
+532:                                              ; preds = %527
+  %533 = load i32, ptr @ett_data, align 4
+  %534 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %533) #10
+  %535 = icmp eq i32 %530, 0
+  %536 = icmp ne i32 %4, 0
+  %or.cond.i120 = and i1 %536, %535
+  br i1 %or.cond.i120, label %537, label %add_group_mask_entry.exit.i121
 
-539:                                              ; preds = %534
-  %540 = load i32, ptr @hf_nvme_get_logpage_selftest_csto, align 4
-  %541 = tail call ptr @proto_tree_add_item(ptr noundef %536, i32 noundef %540, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #10
-  %542 = load i32, ptr @ett_data, align 4
-  %543 = tail call ptr @proto_item_add_subtree(ptr noundef %541, i32 noundef %542) #10
+537:                                              ; preds = %532
+  %538 = load i32, ptr @hf_nvme_get_logpage_selftest_csto, align 4
+  %539 = tail call ptr @proto_tree_add_item(ptr noundef %534, i32 noundef %538, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #10
+  %540 = load i32, ptr @ett_data, align 4
+  %541 = tail call ptr @proto_item_add_subtree(ptr noundef %539, i32 noundef %540) #10
   br label %.lr.ph.i.i126
 
-.lr.ph.i.i126:                                    ; preds = %.lr.ph.i.i126, %539
-  %indvars.iv.i.i127 = phi i64 [ 1, %539 ], [ %indvars.iv.next.i.i128, %.lr.ph.i.i126 ]
-  %544 = getelementptr i32, ptr @hf_nvme_get_logpage_selftest_csto, i64 %indvars.iv.i.i127
-  %545 = load i32, ptr %544, align 4
-  %546 = tail call ptr @proto_tree_add_item(ptr noundef %543, i32 noundef %545, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #10
+.lr.ph.i.i126:                                    ; preds = %.lr.ph.i.i126, %537
+  %indvars.iv.i.i127 = phi i64 [ 1, %537 ], [ %indvars.iv.next.i.i128, %.lr.ph.i.i126 ]
+  %542 = getelementptr i32, ptr @hf_nvme_get_logpage_selftest_csto, i64 %indvars.iv.i.i127
+  %543 = load i32, ptr %542, align 4
+  %544 = tail call ptr @proto_tree_add_item(ptr noundef %541, i32 noundef %543, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #10
   %indvars.iv.next.i.i128 = add nuw nsw i64 %indvars.iv.i.i127, 1
   %exitcond.not.i.i129 = icmp eq i64 %indvars.iv.next.i.i128, 3
   br i1 %exitcond.not.i.i129, label %add_group_mask_entry.exit.i121, label %.lr.ph.i.i126, !llvm.loop !6
 
-add_group_mask_entry.exit.i121:                   ; preds = %.lr.ph.i.i126, %534
-  %547 = icmp ugt i32 %532, 1
-  %548 = sub nuw nsw i32 2, %532
-  %.not.i122 = icmp ugt i32 %548, %4
-  %or.cond44.i = select i1 %547, i1 true, i1 %.not.i122
-  br i1 %or.cond44.i, label %add_group_mask_entry.exit50.i, label %549
+add_group_mask_entry.exit.i121:                   ; preds = %.lr.ph.i.i126, %532
+  %545 = icmp ugt i32 %530, 1
+  %546 = sub nuw nsw i32 2, %530
+  %.not.i122 = icmp ugt i32 %546, %4
+  %or.cond44.i = select i1 %545, i1 true, i1 %.not.i122
+  br i1 %or.cond44.i, label %add_group_mask_entry.exit50.i, label %547
 
-549:                                              ; preds = %add_group_mask_entry.exit.i121
-  %550 = sub nuw nsw i32 1, %532
-  %551 = load i32, ptr @hf_nvme_get_logpage_selftest_cstc, align 4
-  %552 = tail call ptr @proto_tree_add_item(ptr noundef %536, i32 noundef %551, ptr noundef %0, i32 noundef %550, i32 noundef 1, i32 noundef -2147483648) #10
-  %553 = load i32, ptr @ett_data, align 4
-  %554 = tail call ptr @proto_item_add_subtree(ptr noundef %552, i32 noundef %553) #10
+547:                                              ; preds = %add_group_mask_entry.exit.i121
+  %548 = sub nuw nsw i32 1, %530
+  %549 = load i32, ptr @hf_nvme_get_logpage_selftest_cstc, align 4
+  %550 = tail call ptr @proto_tree_add_item(ptr noundef %534, i32 noundef %549, ptr noundef %0, i32 noundef %548, i32 noundef 1, i32 noundef -2147483648) #10
+  %551 = load i32, ptr @ett_data, align 4
+  %552 = tail call ptr @proto_item_add_subtree(ptr noundef %550, i32 noundef %551) #10
   br label %.lr.ph.i46.i
 
-.lr.ph.i46.i:                                     ; preds = %.lr.ph.i46.i, %549
-  %indvars.iv.i47.i = phi i64 [ 1, %549 ], [ %indvars.iv.next.i48.i, %.lr.ph.i46.i ]
-  %555 = getelementptr i32, ptr @hf_nvme_get_logpage_selftest_cstc, i64 %indvars.iv.i47.i
-  %556 = load i32, ptr %555, align 4
-  %557 = tail call ptr @proto_tree_add_item(ptr noundef %554, i32 noundef %556, ptr noundef %0, i32 noundef %550, i32 noundef 1, i32 noundef -2147483648) #10
+.lr.ph.i46.i:                                     ; preds = %.lr.ph.i46.i, %547
+  %indvars.iv.i47.i = phi i64 [ 1, %547 ], [ %indvars.iv.next.i48.i, %.lr.ph.i46.i ]
+  %553 = getelementptr i32, ptr @hf_nvme_get_logpage_selftest_cstc, i64 %indvars.iv.i47.i
+  %554 = load i32, ptr %553, align 4
+  %555 = tail call ptr @proto_tree_add_item(ptr noundef %552, i32 noundef %554, ptr noundef %0, i32 noundef %548, i32 noundef 1, i32 noundef -2147483648) #10
   %indvars.iv.next.i48.i = add nuw nsw i64 %indvars.iv.i47.i, 1
   %exitcond.not.i49.i = icmp eq i64 %indvars.iv.next.i48.i, 3
   br i1 %exitcond.not.i49.i, label %add_group_mask_entry.exit50.i, label %.lr.ph.i46.i, !llvm.loop !6
 
 add_group_mask_entry.exit50.i:                    ; preds = %.lr.ph.i46.i, %add_group_mask_entry.exit.i121
-  %558 = icmp ugt i32 %532, 2
-  %559 = sub nuw nsw i32 4, %532
-  %.not41.i = icmp ugt i32 %559, %4
-  %or.cond45.i = select i1 %558, i1 true, i1 %.not41.i
-  br i1 %or.cond45.i, label %562, label %.thread.i123
+  %556 = icmp ugt i32 %530, 2
+  %557 = sub nuw nsw i32 4, %530
+  %.not41.i = icmp ugt i32 %557, %4
+  %or.cond45.i = select i1 %556, i1 true, i1 %.not41.i
+  br i1 %or.cond45.i, label %560, label %.thread.i123
 
 .thread.i123:                                     ; preds = %add_group_mask_entry.exit50.i
-  %560 = load i32, ptr @hf_nvme_get_logpage_selftest_rsvd, align 4
-  %561 = tail call ptr @proto_tree_add_item(ptr noundef %536, i32 noundef %560, ptr noundef %0, i32 noundef %548, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %564
+  %558 = load i32, ptr @hf_nvme_get_logpage_selftest_rsvd, align 4
+  %559 = tail call ptr @proto_tree_add_item(ptr noundef %534, i32 noundef %558, ptr noundef %0, i32 noundef %546, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %562
 
-562:                                              ; preds = %add_group_mask_entry.exit50.i
-  %563 = icmp ult i32 %532, 5
-  br i1 %563, label %564, label %565
+560:                                              ; preds = %add_group_mask_entry.exit50.i
+  %561 = icmp ult i32 %530, 5
+  br i1 %561, label %562, label %563
 
-564:                                              ; preds = %562, %.thread.i123
-  %.neg43.i = add nsw i32 %532, -4
-  br label %571
+562:                                              ; preds = %560, %.thread.i123
+  %.neg43.i = add nsw i32 %530, -4
+  br label %569
 
-565:                                              ; preds = %562
-  %566 = add i32 %532, -4
-  %567 = add i32 %532, 23
-  %568 = udiv i32 %567, 28
-  %.neg42.i = mul i32 %568, -28
-  %.neg.i = add i32 %566, %.neg42.i
-  %569 = shl nuw nsw i32 %568, 3
-  %570 = or disjoint i32 %569, 4
-  br label %571
+563:                                              ; preds = %560
+  %564 = add i32 %530, -4
+  %565 = add i32 %530, 23
+  %566 = udiv i32 %565, 28
+  %.neg42.i = mul i32 %566, -28
+  %.neg.i = add i32 %564, %.neg42.i
+  %567 = shl nuw nsw i32 %566, 3
+  %568 = or disjoint i32 %567, 4
+  br label %569
 
-571:                                              ; preds = %565, %564
-  %.037.i = phi i32 [ 4, %564 ], [ %570, %565 ]
-  %.neg43.pn.i = phi i32 [ %.neg43.i, %564 ], [ %.neg.i, %565 ]
-  %.0.i124 = phi i32 [ 0, %564 ], [ %568, %565 ]
+569:                                              ; preds = %563, %562
+  %.037.i = phi i32 [ 4, %562 ], [ %568, %563 ]
+  %.neg43.pn.i = phi i32 [ %.neg43.i, %562 ], [ %.neg.i, %563 ]
+  %.0.i124 = phi i32 [ 0, %562 ], [ %566, %563 ]
   %.036.i = add i32 %.neg43.pn.i, %4
-  %572 = icmp ugt i32 %.036.i, 27
-  br i1 %572, label %.lr.ph.i125, label %dissect_nvme_get_logpage_err_inf_resp.exit
+  %570 = icmp ugt i32 %.036.i, 27
+  br i1 %570, label %.lr.ph.i125, label %dissect_nvme_get_logpage_err_inf_resp.exit
 
-.lr.ph.i125:                                      ; preds = %571, %dissect_nvme_get_logpage_selftest_result.exit.i
-  %.12.i = phi i32 [ %622, %dissect_nvme_get_logpage_selftest_result.exit.i ], [ %.036.i, %571 ]
-  %.1381.i = phi i32 [ %621, %dissect_nvme_get_logpage_selftest_result.exit.i ], [ %.037.i, %571 ]
-  %573 = load i32, ptr @hf_nvme_get_logpage_selftest_res, align 4
-  %574 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %536, i32 noundef %573, ptr noundef %0, i32 noundef %.1381.i, i32 noundef 24, ptr noundef null, ptr noundef nonnull @.str.1789, i32 noundef %.0.i124) #10
-  %575 = load i32, ptr @ett_data, align 4
-  %576 = tail call ptr @proto_item_add_subtree(ptr noundef %574, i32 noundef %575) #10
-  %577 = load i32, ptr @hf_nvme_get_logpage_selftest_res_status, align 4
-  %578 = tail call ptr @proto_tree_add_item(ptr noundef %576, i32 noundef %577, ptr noundef %0, i32 noundef %.1381.i, i32 noundef 1, i32 noundef -2147483648) #10
-  %579 = load i32, ptr @ett_data, align 4
-  %580 = tail call ptr @proto_item_add_subtree(ptr noundef %578, i32 noundef %579) #10
+.lr.ph.i125:                                      ; preds = %569, %dissect_nvme_get_logpage_selftest_result.exit.i
+  %.12.i = phi i32 [ %620, %dissect_nvme_get_logpage_selftest_result.exit.i ], [ %.036.i, %569 ]
+  %.1381.i = phi i32 [ %619, %dissect_nvme_get_logpage_selftest_result.exit.i ], [ %.037.i, %569 ]
+  %571 = load i32, ptr @hf_nvme_get_logpage_selftest_res, align 4
+  %572 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %534, i32 noundef %571, ptr noundef %0, i32 noundef %.1381.i, i32 noundef 24, ptr noundef null, ptr noundef nonnull @.str.1789, i32 noundef %.0.i124) #10
+  %573 = load i32, ptr @ett_data, align 4
+  %574 = tail call ptr @proto_item_add_subtree(ptr noundef %572, i32 noundef %573) #10
+  %575 = load i32, ptr @hf_nvme_get_logpage_selftest_res_status, align 4
+  %576 = tail call ptr @proto_tree_add_item(ptr noundef %574, i32 noundef %575, ptr noundef %0, i32 noundef %.1381.i, i32 noundef 1, i32 noundef -2147483648) #10
+  %577 = load i32, ptr @ett_data, align 4
+  %578 = tail call ptr @proto_item_add_subtree(ptr noundef %576, i32 noundef %577) #10
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i125
   %indvars.iv.i.i.i = phi i64 [ 1, %.lr.ph.i125 ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %581 = getelementptr i32, ptr @hf_nvme_get_logpage_selftest_res_status, i64 %indvars.iv.i.i.i
-  %582 = load i32, ptr %581, align 4
-  %583 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %582, ptr noundef %0, i32 noundef %.1381.i, i32 noundef 1, i32 noundef -2147483648) #10
+  %579 = getelementptr i32, ptr @hf_nvme_get_logpage_selftest_res_status, i64 %indvars.iv.i.i.i
+  %580 = load i32, ptr %579, align 4
+  %581 = tail call ptr @proto_tree_add_item(ptr noundef %578, i32 noundef %580, ptr noundef %0, i32 noundef %.1381.i, i32 noundef 1, i32 noundef -2147483648) #10
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
   br i1 %exitcond.not.i.i.i, label %add_group_mask_entry.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !6
 
 add_group_mask_entry.exit.i.i:                    ; preds = %.lr.ph.i.i.i
-  %584 = load i32, ptr @hf_nvme_get_logpage_selftest_res_sn, align 4
-  %585 = add i32 %.1381.i, 1
-  %586 = tail call ptr @proto_tree_add_item(ptr noundef %576, i32 noundef %584, ptr noundef %0, i32 noundef %585, i32 noundef 1, i32 noundef -2147483648) #10
-  %587 = add i32 %.1381.i, 2
-  %588 = load i32, ptr @hf_nvme_get_logpage_selftest_res_vdi, align 16
-  %589 = tail call ptr @proto_tree_add_item(ptr noundef %576, i32 noundef %588, ptr noundef %0, i32 noundef %587, i32 noundef 1, i32 noundef -2147483648) #10
-  %590 = load i32, ptr @ett_data, align 4
-  %591 = tail call ptr @proto_item_add_subtree(ptr noundef %589, i32 noundef %590) #10
+  %582 = load i32, ptr @hf_nvme_get_logpage_selftest_res_sn, align 4
+  %583 = add i32 %.1381.i, 1
+  %584 = tail call ptr @proto_tree_add_item(ptr noundef %574, i32 noundef %582, ptr noundef %0, i32 noundef %583, i32 noundef 1, i32 noundef -2147483648) #10
+  %585 = add i32 %.1381.i, 2
+  %586 = load i32, ptr @hf_nvme_get_logpage_selftest_res_vdi, align 16
+  %587 = tail call ptr @proto_tree_add_item(ptr noundef %574, i32 noundef %586, ptr noundef %0, i32 noundef %585, i32 noundef 1, i32 noundef -2147483648) #10
+  %588 = load i32, ptr @ett_data, align 4
+  %589 = tail call ptr @proto_item_add_subtree(ptr noundef %587, i32 noundef %588) #10
   br label %.lr.ph.i34.i.i
 
 .lr.ph.i34.i.i:                                   ; preds = %.lr.ph.i34.i.i, %add_group_mask_entry.exit.i.i
   %indvars.iv.i35.i.i = phi i64 [ 1, %add_group_mask_entry.exit.i.i ], [ %indvars.iv.next.i36.i.i, %.lr.ph.i34.i.i ]
-  %592 = getelementptr i32, ptr @hf_nvme_get_logpage_selftest_res_vdi, i64 %indvars.iv.i35.i.i
-  %593 = load i32, ptr %592, align 4
-  %594 = tail call ptr @proto_tree_add_item(ptr noundef %591, i32 noundef %593, ptr noundef %0, i32 noundef %587, i32 noundef 1, i32 noundef -2147483648) #10
+  %590 = getelementptr i32, ptr @hf_nvme_get_logpage_selftest_res_vdi, i64 %indvars.iv.i35.i.i
+  %591 = load i32, ptr %590, align 4
+  %592 = tail call ptr @proto_tree_add_item(ptr noundef %589, i32 noundef %591, ptr noundef %0, i32 noundef %585, i32 noundef 1, i32 noundef -2147483648) #10
   %indvars.iv.next.i36.i.i = add nuw nsw i64 %indvars.iv.i35.i.i, 1
   %exitcond.not.i37.i.i = icmp eq i64 %indvars.iv.next.i36.i.i, 6
   br i1 %exitcond.not.i37.i.i, label %add_group_mask_entry.exit38.i.i, label %.lr.ph.i34.i.i, !llvm.loop !6
 
 add_group_mask_entry.exit38.i.i:                  ; preds = %.lr.ph.i34.i.i
-  %595 = load i32, ptr @hf_nvme_get_logpage_selftest_res_rsvd, align 4
-  %596 = add i32 %.1381.i, 3
-  %597 = tail call ptr @proto_tree_add_item(ptr noundef %576, i32 noundef %595, ptr noundef %0, i32 noundef %596, i32 noundef 1, i32 noundef -2147483648) #10
-  %598 = load i32, ptr @hf_nvme_get_logpage_selftest_res_poh, align 4
-  %599 = add i32 %.1381.i, 4
-  %600 = tail call ptr @proto_tree_add_item(ptr noundef %576, i32 noundef %598, ptr noundef %0, i32 noundef %599, i32 noundef 8, i32 noundef -2147483648) #10
-  %601 = load i32, ptr @hf_nvme_get_logpage_selftest_res_nsid, align 4
-  %602 = add i32 %.1381.i, 12
-  %603 = tail call ptr @proto_tree_add_item(ptr noundef %576, i32 noundef %601, ptr noundef %0, i32 noundef %602, i32 noundef 4, i32 noundef -2147483648) #10
-  %604 = load i32, ptr @hf_nvme_get_logpage_selftest_res_flba, align 4
-  %605 = add i32 %.1381.i, 16
-  %606 = tail call ptr @proto_tree_add_item(ptr noundef %576, i32 noundef %604, ptr noundef %0, i32 noundef %605, i32 noundef 8, i32 noundef -2147483648) #10
-  %607 = add i32 %.1381.i, 24
-  %608 = load i32, ptr @hf_nvme_get_logpage_selftest_res_sct, align 4
-  %609 = tail call ptr @proto_tree_add_item(ptr noundef %576, i32 noundef %608, ptr noundef %0, i32 noundef %607, i32 noundef 1, i32 noundef -2147483648) #10
-  %610 = load i32, ptr @ett_data, align 4
-  %611 = tail call ptr @proto_item_add_subtree(ptr noundef %609, i32 noundef %610) #10
+  %593 = load i32, ptr @hf_nvme_get_logpage_selftest_res_rsvd, align 4
+  %594 = add i32 %.1381.i, 3
+  %595 = tail call ptr @proto_tree_add_item(ptr noundef %574, i32 noundef %593, ptr noundef %0, i32 noundef %594, i32 noundef 1, i32 noundef -2147483648) #10
+  %596 = load i32, ptr @hf_nvme_get_logpage_selftest_res_poh, align 4
+  %597 = add i32 %.1381.i, 4
+  %598 = tail call ptr @proto_tree_add_item(ptr noundef %574, i32 noundef %596, ptr noundef %0, i32 noundef %597, i32 noundef 8, i32 noundef -2147483648) #10
+  %599 = load i32, ptr @hf_nvme_get_logpage_selftest_res_nsid, align 4
+  %600 = add i32 %.1381.i, 12
+  %601 = tail call ptr @proto_tree_add_item(ptr noundef %574, i32 noundef %599, ptr noundef %0, i32 noundef %600, i32 noundef 4, i32 noundef -2147483648) #10
+  %602 = load i32, ptr @hf_nvme_get_logpage_selftest_res_flba, align 4
+  %603 = add i32 %.1381.i, 16
+  %604 = tail call ptr @proto_tree_add_item(ptr noundef %574, i32 noundef %602, ptr noundef %0, i32 noundef %603, i32 noundef 8, i32 noundef -2147483648) #10
+  %605 = add i32 %.1381.i, 24
+  %606 = load i32, ptr @hf_nvme_get_logpage_selftest_res_sct, align 4
+  %607 = tail call ptr @proto_tree_add_item(ptr noundef %574, i32 noundef %606, ptr noundef %0, i32 noundef %605, i32 noundef 1, i32 noundef -2147483648) #10
+  %608 = load i32, ptr @ett_data, align 4
+  %609 = tail call ptr @proto_item_add_subtree(ptr noundef %607, i32 noundef %608) #10
   br label %.lr.ph.i39.i.i
 
 .lr.ph.i39.i.i:                                   ; preds = %.lr.ph.i39.i.i, %add_group_mask_entry.exit38.i.i
   %indvars.iv.i40.i.i = phi i64 [ 1, %add_group_mask_entry.exit38.i.i ], [ %indvars.iv.next.i41.i.i, %.lr.ph.i39.i.i ]
-  %612 = getelementptr i32, ptr @hf_nvme_get_logpage_selftest_res_sct, i64 %indvars.iv.i40.i.i
-  %613 = load i32, ptr %612, align 4
-  %614 = tail call ptr @proto_tree_add_item(ptr noundef %611, i32 noundef %613, ptr noundef %0, i32 noundef %607, i32 noundef 1, i32 noundef -2147483648) #10
+  %610 = getelementptr i32, ptr @hf_nvme_get_logpage_selftest_res_sct, i64 %indvars.iv.i40.i.i
+  %611 = load i32, ptr %610, align 4
+  %612 = tail call ptr @proto_tree_add_item(ptr noundef %609, i32 noundef %611, ptr noundef %0, i32 noundef %605, i32 noundef 1, i32 noundef -2147483648) #10
   %indvars.iv.next.i41.i.i = add nuw nsw i64 %indvars.iv.i40.i.i, 1
   %exitcond.not.i42.i.i = icmp eq i64 %indvars.iv.next.i41.i.i, 3
   br i1 %exitcond.not.i42.i.i, label %dissect_nvme_get_logpage_selftest_result.exit.i, label %.lr.ph.i39.i.i, !llvm.loop !6
 
 dissect_nvme_get_logpage_selftest_result.exit.i:  ; preds = %.lr.ph.i39.i.i
-  %615 = load i32, ptr @hf_nvme_get_logpage_selftest_res_sc, align 4
-  %616 = add i32 %.1381.i, 25
-  %617 = tail call ptr @proto_tree_add_item(ptr noundef %576, i32 noundef %615, ptr noundef %0, i32 noundef %616, i32 noundef 1, i32 noundef -2147483648) #10
-  %618 = load i32, ptr @hf_nvme_get_logpage_selftest_res_vs, align 4
-  %619 = add i32 %.1381.i, 26
-  %620 = tail call ptr @proto_tree_add_item(ptr noundef %576, i32 noundef %618, ptr noundef %0, i32 noundef %619, i32 noundef 2, i32 noundef -2147483648) #10
-  %621 = add i32 %.1381.i, 28
-  %622 = add i32 %.12.i, -28
-  %623 = icmp ugt i32 %622, 27
-  br i1 %623, label %.lr.ph.i125, label %dissect_nvme_get_logpage_err_inf_resp.exit, !llvm.loop !14
+  %613 = load i32, ptr @hf_nvme_get_logpage_selftest_res_sc, align 4
+  %614 = add i32 %.1381.i, 25
+  %615 = tail call ptr @proto_tree_add_item(ptr noundef %574, i32 noundef %613, ptr noundef %0, i32 noundef %614, i32 noundef 1, i32 noundef -2147483648) #10
+  %616 = load i32, ptr @hf_nvme_get_logpage_selftest_res_vs, align 4
+  %617 = add i32 %.1381.i, 26
+  %618 = tail call ptr @proto_tree_add_item(ptr noundef %574, i32 noundef %616, ptr noundef %0, i32 noundef %617, i32 noundef 2, i32 noundef -2147483648) #10
+  %619 = add i32 %.1381.i, 28
+  %620 = add i32 %.12.i, -28
+  %621 = icmp ugt i32 %620, 27
+  br i1 %621, label %.lr.ph.i125, label %dissect_nvme_get_logpage_err_inf_resp.exit, !llvm.loop !14
 
-624:                                              ; preds = %get_logpage_name.exit, %get_logpage_name.exit
-  %625 = getelementptr inbounds i8, ptr %2, i64 144
-  %626 = load i64, ptr %625, align 8
-  %627 = trunc i64 %626 to i32
-  %628 = icmp eq i8 %21, 7
-  %629 = select i1 %628, ptr @.str.1790, ptr @.str.1791
-  %630 = add i32 %627, %3
-  %631 = and i32 %630, 511
-  %632 = sub nuw nsw i32 512, %631
-  %633 = add i32 %632, %630
-  %634 = lshr i32 %633, 9
-  %635 = zext nneg i32 %634 to i64
-  %636 = load i32, ptr @ett_data, align 4
-  %637 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %636) #10
-  %.not.i130 = icmp ult i32 %632, %4
-  br i1 %.not.i130, label %641, label %638
+622:                                              ; preds = %get_logpage_name.exit, %get_logpage_name.exit
+  %623 = getelementptr inbounds i8, ptr %2, i64 144
+  %624 = load i64, ptr %623, align 8
+  %625 = trunc i64 %624 to i32
+  %626 = icmp eq i8 %21, 7
+  %627 = select i1 %626, ptr @.str.1790, ptr @.str.1791
+  %628 = add i32 %625, %3
+  %629 = and i32 %628, 511
+  %630 = sub nuw nsw i32 512, %629
+  %631 = add i32 %630, %628
+  %632 = lshr i32 %631, 9
+  %633 = zext nneg i32 %632 to i64
+  %634 = load i32, ptr @ett_data, align 4
+  %635 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %634) #10
+  %.not.i130 = icmp ult i32 %630, %4
+  br i1 %.not.i130, label %639, label %636
 
-638:                                              ; preds = %624
-  %639 = load i64, ptr %625, align 8
-  %640 = icmp ugt i64 %639, 383
-  br i1 %640, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %641
+636:                                              ; preds = %622
+  %637 = load i64, ptr %623, align 8
+  %638 = icmp ugt i64 %637, 383
+  br i1 %638, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %639
 
-641:                                              ; preds = %638, %624
-  %642 = icmp eq i32 %630, 0
-  %643 = icmp ne i32 %4, 0
-  %or.cond.i131 = and i1 %643, %642
-  br i1 %or.cond.i131, label %644, label %647
+639:                                              ; preds = %636, %622
+  %640 = icmp eq i32 %628, 0
+  %641 = icmp ne i32 %4, 0
+  %or.cond.i131 = and i1 %641, %640
+  br i1 %or.cond.i131, label %642, label %645
 
-644:                                              ; preds = %641
-  %645 = load i32, ptr @hf_nvme_get_logpage_telemetry_li, align 4
-  %646 = tail call ptr @proto_tree_add_item(ptr noundef %637, i32 noundef %645, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #10
-  br label %647
+642:                                              ; preds = %639
+  %643 = load i32, ptr @hf_nvme_get_logpage_telemetry_li, align 4
+  %644 = tail call ptr @proto_tree_add_item(ptr noundef %635, i32 noundef %643, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #10
+  br label %645
 
-647:                                              ; preds = %644, %641
-  %648 = icmp ugt i32 %630, 1
-  %649 = sub nuw nsw i32 5, %630
-  %.not83.i132 = icmp ugt i32 %649, %4
-  %or.cond92.i133 = select i1 %648, i1 true, i1 %.not83.i132
-  br i1 %or.cond92.i133, label %654, label %650
+645:                                              ; preds = %642, %639
+  %646 = icmp ugt i32 %628, 1
+  %647 = sub nuw nsw i32 5, %628
+  %.not83.i132 = icmp ugt i32 %647, %4
+  %or.cond92.i133 = select i1 %646, i1 true, i1 %.not83.i132
+  br i1 %or.cond92.i133, label %652, label %648
 
-650:                                              ; preds = %647
-  %651 = load i32, ptr @hf_nvme_get_logpage_telemetry_rsvd0, align 4
-  %652 = sub nuw nsw i32 1, %630
-  %653 = tail call ptr @proto_tree_add_item(ptr noundef %637, i32 noundef %651, ptr noundef %0, i32 noundef %652, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %654
+648:                                              ; preds = %645
+  %649 = load i32, ptr @hf_nvme_get_logpage_telemetry_rsvd0, align 4
+  %650 = sub nuw nsw i32 1, %628
+  %651 = tail call ptr @proto_tree_add_item(ptr noundef %635, i32 noundef %649, ptr noundef %0, i32 noundef %650, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %652
 
-654:                                              ; preds = %650, %647
-  %655 = icmp ugt i32 %630, 5
-  %656 = sub nuw nsw i32 8, %630
-  %.not84.i134 = icmp ugt i32 %656, %4
-  %or.cond93.i135 = select i1 %655, i1 true, i1 %.not84.i134
-  br i1 %or.cond93.i135, label %660, label %657
+652:                                              ; preds = %648, %645
+  %653 = icmp ugt i32 %628, 5
+  %654 = sub nuw nsw i32 8, %628
+  %.not84.i134 = icmp ugt i32 %654, %4
+  %or.cond93.i135 = select i1 %653, i1 true, i1 %.not84.i134
+  br i1 %or.cond93.i135, label %658, label %655
 
-657:                                              ; preds = %654
-  %658 = load i32, ptr @hf_nvme_get_logpage_telemetry_ieee, align 4
-  %659 = tail call ptr @proto_tree_add_item(ptr noundef %637, i32 noundef %658, ptr noundef %0, i32 noundef %649, i32 noundef 3, i32 noundef -2147483648) #10
-  br label %660
+655:                                              ; preds = %652
+  %656 = load i32, ptr @hf_nvme_get_logpage_telemetry_ieee, align 4
+  %657 = tail call ptr @proto_tree_add_item(ptr noundef %635, i32 noundef %656, ptr noundef %0, i32 noundef %647, i32 noundef 3, i32 noundef -2147483648) #10
+  br label %658
 
-660:                                              ; preds = %657, %654
-  %661 = icmp ugt i32 %630, 8
-  %662 = sub nuw nsw i32 10, %630
-  %.not85.i136 = icmp ugt i32 %662, %4
-  %or.cond94.i137 = select i1 %661, i1 true, i1 %.not85.i136
-  br i1 %or.cond94.i137, label %666, label %663
+658:                                              ; preds = %655, %652
+  %659 = icmp ugt i32 %628, 8
+  %660 = sub nuw nsw i32 10, %628
+  %.not85.i136 = icmp ugt i32 %660, %4
+  %or.cond94.i137 = select i1 %659, i1 true, i1 %.not85.i136
+  br i1 %or.cond94.i137, label %664, label %661
 
-663:                                              ; preds = %660
-  %664 = load i32, ptr @hf_nvme_get_logpage_telemetry_da1lb, align 4
-  %665 = tail call ptr @proto_tree_add_item(ptr noundef %637, i32 noundef %664, ptr noundef %0, i32 noundef %656, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %666
+661:                                              ; preds = %658
+  %662 = load i32, ptr @hf_nvme_get_logpage_telemetry_da1lb, align 4
+  %663 = tail call ptr @proto_tree_add_item(ptr noundef %635, i32 noundef %662, ptr noundef %0, i32 noundef %654, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %664
 
-666:                                              ; preds = %663, %660
-  %667 = icmp ugt i32 %630, 10
-  %668 = sub nuw nsw i32 12, %630
-  %.not86.i138 = icmp ugt i32 %668, %4
-  %or.cond95.i139 = select i1 %667, i1 true, i1 %.not86.i138
-  br i1 %or.cond95.i139, label %672, label %669
+664:                                              ; preds = %661, %658
+  %665 = icmp ugt i32 %628, 10
+  %666 = sub nuw nsw i32 12, %628
+  %.not86.i138 = icmp ugt i32 %666, %4
+  %or.cond95.i139 = select i1 %665, i1 true, i1 %.not86.i138
+  br i1 %or.cond95.i139, label %670, label %667
 
-669:                                              ; preds = %666
-  %670 = load i32, ptr @hf_nvme_get_logpage_telemetry_da2lb, align 4
-  %671 = tail call ptr @proto_tree_add_item(ptr noundef %637, i32 noundef %670, ptr noundef %0, i32 noundef %662, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %672
+667:                                              ; preds = %664
+  %668 = load i32, ptr @hf_nvme_get_logpage_telemetry_da2lb, align 4
+  %669 = tail call ptr @proto_tree_add_item(ptr noundef %635, i32 noundef %668, ptr noundef %0, i32 noundef %660, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %670
 
-672:                                              ; preds = %669, %666
-  %673 = icmp ugt i32 %630, 12
-  %674 = sub nuw nsw i32 14, %630
-  %.not87.i140 = icmp ugt i32 %674, %4
-  %or.cond96.i141 = select i1 %673, i1 true, i1 %.not87.i140
-  br i1 %or.cond96.i141, label %678, label %675
+670:                                              ; preds = %667, %664
+  %671 = icmp ugt i32 %628, 12
+  %672 = sub nuw nsw i32 14, %628
+  %.not87.i140 = icmp ugt i32 %672, %4
+  %or.cond96.i141 = select i1 %671, i1 true, i1 %.not87.i140
+  br i1 %or.cond96.i141, label %676, label %673
 
-675:                                              ; preds = %672
-  %676 = load i32, ptr @hf_nvme_get_logpage_telemetry_da3lb, align 4
-  %677 = tail call ptr @proto_tree_add_item(ptr noundef %637, i32 noundef %676, ptr noundef %0, i32 noundef %668, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %678
+673:                                              ; preds = %670
+  %674 = load i32, ptr @hf_nvme_get_logpage_telemetry_da3lb, align 4
+  %675 = tail call ptr @proto_tree_add_item(ptr noundef %635, i32 noundef %674, ptr noundef %0, i32 noundef %666, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %676
 
-678:                                              ; preds = %675, %672
-  %679 = icmp ugt i32 %630, 14
-  %680 = sub nuw nsw i32 372, %630
-  %.not88.i142 = icmp ugt i32 %680, %4
-  %or.cond97.i143 = select i1 %679, i1 true, i1 %.not88.i142
-  br i1 %or.cond97.i143, label %684, label %681
+676:                                              ; preds = %673, %670
+  %677 = icmp ugt i32 %628, 14
+  %678 = sub nuw nsw i32 372, %628
+  %.not88.i142 = icmp ugt i32 %678, %4
+  %or.cond97.i143 = select i1 %677, i1 true, i1 %.not88.i142
+  br i1 %or.cond97.i143, label %682, label %679
 
-681:                                              ; preds = %678
-  %682 = load i32, ptr @hf_nvme_get_logpage_telemetry_rsvd1, align 4
-  %683 = tail call ptr @proto_tree_add_item(ptr noundef %637, i32 noundef %682, ptr noundef %0, i32 noundef %674, i32 noundef 368, i32 noundef 0) #10
-  br label %684
+679:                                              ; preds = %676
+  %680 = load i32, ptr @hf_nvme_get_logpage_telemetry_rsvd1, align 4
+  %681 = tail call ptr @proto_tree_add_item(ptr noundef %635, i32 noundef %680, ptr noundef %0, i32 noundef %672, i32 noundef 368, i32 noundef 0) #10
+  br label %682
 
-684:                                              ; preds = %681, %678
-  %685 = icmp ugt i32 %630, 382
-  %686 = sub nuw nsw i32 383, %630
-  %.not89.i144 = icmp ugt i32 %686, %4
-  %or.cond98.i145 = select i1 %685, i1 true, i1 %.not89.i144
-  br i1 %or.cond98.i145, label %691, label %687
+682:                                              ; preds = %679, %676
+  %683 = icmp ugt i32 %628, 382
+  %684 = sub nuw nsw i32 383, %628
+  %.not89.i144 = icmp ugt i32 %684, %4
+  %or.cond98.i145 = select i1 %683, i1 true, i1 %.not89.i144
+  br i1 %or.cond98.i145, label %689, label %685
 
-687:                                              ; preds = %684
-  %688 = load i32, ptr @hf_nvme_get_logpage_telemetry_da, align 4
-  %689 = sub nuw nsw i32 382, %630
-  %690 = tail call ptr @proto_tree_add_item(ptr noundef %637, i32 noundef %688, ptr noundef %0, i32 noundef %689, i32 noundef 1, i32 noundef -2147483648) #10
-  br label %691
+685:                                              ; preds = %682
+  %686 = load i32, ptr @hf_nvme_get_logpage_telemetry_da, align 4
+  %687 = sub nuw nsw i32 382, %628
+  %688 = tail call ptr @proto_tree_add_item(ptr noundef %635, i32 noundef %686, ptr noundef %0, i32 noundef %687, i32 noundef 1, i32 noundef -2147483648) #10
+  br label %689
 
-691:                                              ; preds = %687, %684
-  %692 = icmp ugt i32 %630, 383
-  %693 = sub nuw nsw i32 384, %630
-  %.not90.i = icmp ugt i32 %693, %4
-  %or.cond99.i146 = select i1 %692, i1 true, i1 %.not90.i
-  br i1 %or.cond99.i146, label %697, label %694
+689:                                              ; preds = %685, %682
+  %690 = icmp ugt i32 %628, 383
+  %691 = sub nuw nsw i32 384, %628
+  %.not90.i = icmp ugt i32 %691, %4
+  %or.cond99.i146 = select i1 %690, i1 true, i1 %.not90.i
+  br i1 %or.cond99.i146, label %695, label %692
 
-694:                                              ; preds = %691
-  %695 = load i32, ptr @hf_nvme_get_logpage_telemetry_dgn, align 4
-  %696 = tail call ptr @proto_tree_add_item(ptr noundef %637, i32 noundef %695, ptr noundef %0, i32 noundef %686, i32 noundef 1, i32 noundef -2147483648) #10
-  br label %697
+692:                                              ; preds = %689
+  %693 = load i32, ptr @hf_nvme_get_logpage_telemetry_dgn, align 4
+  %694 = tail call ptr @proto_tree_add_item(ptr noundef %635, i32 noundef %693, ptr noundef %0, i32 noundef %684, i32 noundef 1, i32 noundef -2147483648) #10
+  br label %695
 
-697:                                              ; preds = %694, %691
-  %698 = icmp ugt i32 %630, 384
-  %699 = sub nuw nsw i32 512, %630
-  %.not91.i = icmp ugt i32 %699, %4
-  %or.cond100.i147 = select i1 %698, i1 true, i1 %.not91.i
-  br i1 %or.cond100.i147, label %703, label %700
+695:                                              ; preds = %692, %689
+  %696 = icmp ugt i32 %628, 384
+  %697 = sub nuw nsw i32 512, %628
+  %.not91.i = icmp ugt i32 %697, %4
+  %or.cond100.i147 = select i1 %696, i1 true, i1 %.not91.i
+  br i1 %or.cond100.i147, label %701, label %698
 
-700:                                              ; preds = %697
-  %701 = load i32, ptr @hf_nvme_get_logpage_telemetry_ri, align 4
-  %702 = tail call ptr @proto_tree_add_item(ptr noundef %637, i32 noundef %701, ptr noundef %0, i32 noundef %693, i32 noundef 128, i32 noundef 0) #10
-  br label %703
+698:                                              ; preds = %695
+  %699 = load i32, ptr @hf_nvme_get_logpage_telemetry_ri, align 4
+  %700 = tail call ptr @proto_tree_add_item(ptr noundef %635, i32 noundef %699, ptr noundef %0, i32 noundef %691, i32 noundef 128, i32 noundef 0) #10
+  br label %701
 
-703:                                              ; preds = %700, %697
-  %704 = sub i32 %4, %632
-  %705 = icmp ugt i32 %704, 511
-  br i1 %705, label %.lr.ph.i148, label %dissect_nvme_get_logpage_err_inf_resp.exit
+701:                                              ; preds = %698, %695
+  %702 = sub i32 %4, %630
+  %703 = icmp ugt i32 %702, 511
+  br i1 %703, label %.lr.ph.i148, label %dissect_nvme_get_logpage_err_inf_resp.exit
 
-.lr.ph.i148:                                      ; preds = %703, %.lr.ph.i148
-  %.0103.i = phi i32 [ %708, %.lr.ph.i148 ], [ %704, %703 ]
-  %.080102.i = phi i32 [ %710, %.lr.ph.i148 ], [ %632, %703 ]
-  %.081101.i = phi i64 [ %709, %.lr.ph.i148 ], [ %635, %703 ]
-  %706 = load i32, ptr @hf_nvme_get_logpage_telemetry_db, align 4
-  %707 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %637, i32 noundef %706, ptr noundef %0, i32 noundef %.080102.i, i32 noundef 512, ptr noundef null, ptr noundef nonnull @.str.1792, ptr noundef nonnull %629, i64 noundef %.081101.i) #10
-  %708 = add i32 %.0103.i, -512
-  %709 = add nuw nsw i64 %.081101.i, 1
-  %710 = add i32 %.080102.i, 512
-  %711 = icmp ugt i32 %708, 511
-  br i1 %711, label %.lr.ph.i148, label %dissect_nvme_get_logpage_err_inf_resp.exit, !llvm.loop !15
+.lr.ph.i148:                                      ; preds = %701, %.lr.ph.i148
+  %.0103.i = phi i32 [ %706, %.lr.ph.i148 ], [ %702, %701 ]
+  %.080102.i = phi i32 [ %708, %.lr.ph.i148 ], [ %630, %701 ]
+  %.081101.i = phi i64 [ %707, %.lr.ph.i148 ], [ %633, %701 ]
+  %704 = load i32, ptr @hf_nvme_get_logpage_telemetry_db, align 4
+  %705 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %635, i32 noundef %704, ptr noundef %0, i32 noundef %.080102.i, i32 noundef 512, ptr noundef null, ptr noundef nonnull @.str.1792, ptr noundef nonnull %627, i64 noundef %.081101.i) #10
+  %706 = add i32 %.0103.i, -512
+  %707 = add nuw nsw i64 %.081101.i, 1
+  %708 = add i32 %.080102.i, 512
+  %709 = icmp ugt i32 %706, 511
+  br i1 %709, label %.lr.ph.i148, label %dissect_nvme_get_logpage_err_inf_resp.exit, !llvm.loop !15
 
-712:                                              ; preds = %get_logpage_name.exit
-  %713 = getelementptr i8, ptr %2, i64 144
-  %.val78 = load i64, ptr %713, align 8
-  %714 = trunc i64 %.val78 to i32
-  %715 = icmp ugt i64 %.val78, 511
-  br i1 %715, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %716
+710:                                              ; preds = %get_logpage_name.exit
+  %711 = getelementptr i8, ptr %2, i64 144
+  %.val78 = load i64, ptr %711, align 8
+  %712 = trunc i64 %.val78 to i32
+  %713 = icmp ugt i64 %.val78, 511
+  br i1 %713, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %714
 
-716:                                              ; preds = %712
-  %717 = load i32, ptr @ett_data, align 4
-  %718 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %717) #10
-  %719 = icmp eq i32 %714, 0
-  %720 = icmp ne i32 %4, 0
-  %or.cond.i149 = and i1 %720, %719
-  br i1 %or.cond.i149, label %721, label %add_group_mask_entry.exit.i150
+714:                                              ; preds = %710
+  %715 = load i32, ptr @ett_data, align 4
+  %716 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %715) #10
+  %717 = icmp eq i32 %712, 0
+  %718 = icmp ne i32 %4, 0
+  %or.cond.i149 = and i1 %718, %717
+  br i1 %or.cond.i149, label %719, label %add_group_mask_entry.exit.i150
 
-721:                                              ; preds = %716
-  %722 = load i32, ptr @hf_nvme_get_logpage_egroup_cw, align 16
-  %723 = tail call ptr @proto_tree_add_item(ptr noundef %718, i32 noundef %722, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #10
-  %724 = load i32, ptr @ett_data, align 4
-  %725 = tail call ptr @proto_item_add_subtree(ptr noundef %723, i32 noundef %724) #10
+719:                                              ; preds = %714
+  %720 = load i32, ptr @hf_nvme_get_logpage_egroup_cw, align 16
+  %721 = tail call ptr @proto_tree_add_item(ptr noundef %716, i32 noundef %720, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #10
+  %722 = load i32, ptr @ett_data, align 4
+  %723 = tail call ptr @proto_item_add_subtree(ptr noundef %721, i32 noundef %722) #10
   br label %.lr.ph.i.i153
 
-.lr.ph.i.i153:                                    ; preds = %.lr.ph.i.i153, %721
-  %indvars.iv.i.i154 = phi i64 [ 1, %721 ], [ %indvars.iv.next.i.i155, %.lr.ph.i.i153 ]
-  %726 = getelementptr i32, ptr @hf_nvme_get_logpage_egroup_cw, i64 %indvars.iv.i.i154
-  %727 = load i32, ptr %726, align 4
-  %728 = tail call ptr @proto_tree_add_item(ptr noundef %725, i32 noundef %727, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #10
+.lr.ph.i.i153:                                    ; preds = %.lr.ph.i.i153, %719
+  %indvars.iv.i.i154 = phi i64 [ 1, %719 ], [ %indvars.iv.next.i.i155, %.lr.ph.i.i153 ]
+  %724 = getelementptr i32, ptr @hf_nvme_get_logpage_egroup_cw, i64 %indvars.iv.i.i154
+  %725 = load i32, ptr %724, align 4
+  %726 = tail call ptr @proto_tree_add_item(ptr noundef %723, i32 noundef %725, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #10
   %indvars.iv.next.i.i155 = add nuw nsw i64 %indvars.iv.i.i154, 1
   %exitcond.not.i.i156 = icmp eq i64 %indvars.iv.next.i.i155, 6
   br i1 %exitcond.not.i.i156, label %add_group_mask_entry.exit.i150, label %.lr.ph.i.i153, !llvm.loop !6
 
-add_group_mask_entry.exit.i150:                   ; preds = %.lr.ph.i.i153, %716
-  %729 = icmp ugt i32 %714, 1
-  %730 = sub nuw nsw i32 3, %714
-  %.not.i151 = icmp ugt i32 %730, %4
-  %or.cond134.i = select i1 %729, i1 true, i1 %.not.i151
-  br i1 %or.cond134.i, label %735, label %731
+add_group_mask_entry.exit.i150:                   ; preds = %.lr.ph.i.i153, %714
+  %727 = icmp ugt i32 %712, 1
+  %728 = sub nuw nsw i32 3, %712
+  %.not.i151 = icmp ugt i32 %728, %4
+  %or.cond134.i = select i1 %727, i1 true, i1 %.not.i151
+  br i1 %or.cond134.i, label %733, label %729
 
-731:                                              ; preds = %add_group_mask_entry.exit.i150
-  %732 = load i32, ptr @hf_nvme_get_logpage_egroup_rsvd0, align 4
-  %733 = sub nuw nsw i32 1, %714
-  %734 = tail call ptr @proto_tree_add_item(ptr noundef %718, i32 noundef %732, ptr noundef %0, i32 noundef %733, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %735
+729:                                              ; preds = %add_group_mask_entry.exit.i150
+  %730 = load i32, ptr @hf_nvme_get_logpage_egroup_rsvd0, align 4
+  %731 = sub nuw nsw i32 1, %712
+  %732 = tail call ptr @proto_tree_add_item(ptr noundef %716, i32 noundef %730, ptr noundef %0, i32 noundef %731, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %733
 
-735:                                              ; preds = %731, %add_group_mask_entry.exit.i150
-  %736 = icmp ugt i32 %714, 3
-  %737 = sub nuw nsw i32 4, %714
-  %.not121.i = icmp ugt i32 %737, %4
-  %or.cond135.i = select i1 %736, i1 true, i1 %.not121.i
-  br i1 %or.cond135.i, label %741, label %738
+733:                                              ; preds = %729, %add_group_mask_entry.exit.i150
+  %734 = icmp ugt i32 %712, 3
+  %735 = sub nuw nsw i32 4, %712
+  %.not121.i = icmp ugt i32 %735, %4
+  %or.cond135.i = select i1 %734, i1 true, i1 %.not121.i
+  br i1 %or.cond135.i, label %739, label %736
 
-738:                                              ; preds = %735
-  %739 = load i32, ptr @hf_nvme_get_logpage_egroup_as, align 4
-  %740 = tail call ptr @proto_tree_add_item(ptr noundef %718, i32 noundef %739, ptr noundef %0, i32 noundef %730, i32 noundef 1, i32 noundef -2147483648) #10
-  br label %741
+736:                                              ; preds = %733
+  %737 = load i32, ptr @hf_nvme_get_logpage_egroup_as, align 4
+  %738 = tail call ptr @proto_tree_add_item(ptr noundef %716, i32 noundef %737, ptr noundef %0, i32 noundef %728, i32 noundef 1, i32 noundef -2147483648) #10
+  br label %739
 
-741:                                              ; preds = %738, %735
-  %742 = icmp ugt i32 %714, 4
-  %743 = sub nuw nsw i32 5, %714
-  %.not122.i = icmp ugt i32 %743, %4
-  %or.cond136.i = select i1 %742, i1 true, i1 %.not122.i
-  br i1 %or.cond136.i, label %747, label %744
+739:                                              ; preds = %736, %733
+  %740 = icmp ugt i32 %712, 4
+  %741 = sub nuw nsw i32 5, %712
+  %.not122.i = icmp ugt i32 %741, %4
+  %or.cond136.i = select i1 %740, i1 true, i1 %.not122.i
+  br i1 %or.cond136.i, label %745, label %742
 
-744:                                              ; preds = %741
-  %745 = load i32, ptr @hf_nvme_get_logpage_egroup_ast, align 4
-  %746 = tail call ptr @proto_tree_add_item(ptr noundef %718, i32 noundef %745, ptr noundef %0, i32 noundef %737, i32 noundef 1, i32 noundef -2147483648) #10
-  br label %747
+742:                                              ; preds = %739
+  %743 = load i32, ptr @hf_nvme_get_logpage_egroup_ast, align 4
+  %744 = tail call ptr @proto_tree_add_item(ptr noundef %716, i32 noundef %743, ptr noundef %0, i32 noundef %735, i32 noundef 1, i32 noundef -2147483648) #10
+  br label %745
 
-747:                                              ; preds = %744, %741
-  %748 = icmp ugt i32 %714, 5
-  %749 = sub nuw nsw i32 6, %714
-  %.not123.i = icmp ugt i32 %749, %4
-  %or.cond137.i = select i1 %748, i1 true, i1 %.not123.i
-  br i1 %or.cond137.i, label %753, label %750
+745:                                              ; preds = %742, %739
+  %746 = icmp ugt i32 %712, 5
+  %747 = sub nuw nsw i32 6, %712
+  %.not123.i = icmp ugt i32 %747, %4
+  %or.cond137.i = select i1 %746, i1 true, i1 %.not123.i
+  br i1 %or.cond137.i, label %751, label %748
 
-750:                                              ; preds = %747
-  %751 = load i32, ptr @hf_nvme_get_logpage_egroup_pu, align 4
-  %752 = tail call ptr @proto_tree_add_item(ptr noundef %718, i32 noundef %751, ptr noundef %0, i32 noundef %743, i32 noundef 1, i32 noundef -2147483648) #10
-  br label %753
+748:                                              ; preds = %745
+  %749 = load i32, ptr @hf_nvme_get_logpage_egroup_pu, align 4
+  %750 = tail call ptr @proto_tree_add_item(ptr noundef %716, i32 noundef %749, ptr noundef %0, i32 noundef %741, i32 noundef 1, i32 noundef -2147483648) #10
+  br label %751
 
-753:                                              ; preds = %750, %747
-  %754 = icmp ugt i32 %714, 6
-  %755 = sub nuw nsw i32 32, %714
-  %.not124.i = icmp ugt i32 %755, %4
-  %or.cond138.i = select i1 %754, i1 true, i1 %.not124.i
-  br i1 %or.cond138.i, label %759, label %756
+751:                                              ; preds = %748, %745
+  %752 = icmp ugt i32 %712, 6
+  %753 = sub nuw nsw i32 32, %712
+  %.not124.i = icmp ugt i32 %753, %4
+  %or.cond138.i = select i1 %752, i1 true, i1 %.not124.i
+  br i1 %or.cond138.i, label %757, label %754
 
-756:                                              ; preds = %753
-  %757 = load i32, ptr @hf_nvme_get_logpage_egroup_rsvd1, align 4
-  %758 = tail call ptr @proto_tree_add_item(ptr noundef %718, i32 noundef %757, ptr noundef %0, i32 noundef %749, i32 noundef 26, i32 noundef 0) #10
-  br label %759
+754:                                              ; preds = %751
+  %755 = load i32, ptr @hf_nvme_get_logpage_egroup_rsvd1, align 4
+  %756 = tail call ptr @proto_tree_add_item(ptr noundef %716, i32 noundef %755, ptr noundef %0, i32 noundef %747, i32 noundef 26, i32 noundef 0) #10
+  br label %757
 
-759:                                              ; preds = %756, %753
-  %760 = icmp ugt i32 %714, 32
-  %761 = sub nuw nsw i32 48, %714
-  %.not125.i = icmp ugt i32 %761, %4
-  %or.cond139.i = select i1 %760, i1 true, i1 %.not125.i
-  br i1 %or.cond139.i, label %773, label %762
+757:                                              ; preds = %754, %751
+  %758 = icmp ugt i32 %712, 32
+  %759 = sub nuw nsw i32 48, %712
+  %.not125.i = icmp ugt i32 %759, %4
+  %or.cond139.i = select i1 %758, i1 true, i1 %.not125.i
+  br i1 %or.cond139.i, label %771, label %760
 
-762:                                              ; preds = %759
-  %763 = load i32, ptr @hf_nvme_get_logpage_egroup_ee, align 4
-  %764 = tail call ptr @proto_tree_add_item(ptr noundef %718, i32 noundef %763, ptr noundef %0, i32 noundef %755, i32 noundef 16, i32 noundef 0) #10
-  %765 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %755, i32 noundef 0) #10
-  %766 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %755, i32 noundef 8) #10
-  %767 = uitofp i64 %766 to double
-  %768 = fmul double %767, 0x43E0000000000000
-  %769 = fmul double %768, 2.000000e+00
-  %770 = uitofp i64 %765 to double
-  %771 = fadd double %769, %770
-  %772 = fcmp ogt double %771, 0x4197D783FC000000
-  %.str.1785..str.1786.i.i152 = select i1 %772, ptr @.str.1785, ptr @.str.1786
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %764, ptr noundef nonnull %.str.1785..str.1786.i.i152, double noundef %771) #10
-  br label %773
+760:                                              ; preds = %757
+  %761 = load i32, ptr @hf_nvme_get_logpage_egroup_ee, align 4
+  %762 = tail call ptr @proto_tree_add_item(ptr noundef %716, i32 noundef %761, ptr noundef %0, i32 noundef %753, i32 noundef 16, i32 noundef 0) #10
+  %763 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %753, i32 noundef 0) #10
+  %764 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %753, i32 noundef 8) #10
+  %765 = uitofp i64 %764 to double
+  %766 = fmul double %765, 0x43E0000000000000
+  %767 = fmul double %766, 2.000000e+00
+  %768 = uitofp i64 %763 to double
+  %769 = fadd double %767, %768
+  %770 = fcmp ogt double %769, 0x4197D783FC000000
+  %.str.1785..str.1786.i.i152 = select i1 %770, ptr @.str.1785, ptr @.str.1786
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %762, ptr noundef nonnull %.str.1785..str.1786.i.i152, double noundef %769) #10
+  br label %771
 
-773:                                              ; preds = %762, %759
-  %774 = icmp ugt i32 %714, 48
-  %775 = sub nuw nsw i32 64, %714
-  %.not126.i = icmp ugt i32 %775, %4
-  %or.cond140.i = select i1 %774, i1 true, i1 %.not126.i
-  br i1 %or.cond140.i, label %787, label %776
+771:                                              ; preds = %760, %757
+  %772 = icmp ugt i32 %712, 48
+  %773 = sub nuw nsw i32 64, %712
+  %.not126.i = icmp ugt i32 %773, %4
+  %or.cond140.i = select i1 %772, i1 true, i1 %.not126.i
+  br i1 %or.cond140.i, label %785, label %774
 
-776:                                              ; preds = %773
-  %777 = load i32, ptr @hf_nvme_get_logpage_egroup_dur, align 4
-  %778 = tail call ptr @proto_tree_add_item(ptr noundef %718, i32 noundef %777, ptr noundef %0, i32 noundef %761, i32 noundef 16, i32 noundef 0) #10
-  %779 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %761, i32 noundef 0) #10
-  %780 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %761, i32 noundef 8) #10
-  %781 = uitofp i64 %780 to double
-  %782 = fmul double %781, 0x43E0000000000000
-  %783 = fmul double %782, 2.000000e+00
-  %784 = uitofp i64 %779 to double
-  %785 = fadd double %783, %784
-  %786 = fcmp ogt double %785, 0x4197D783FC000000
-  %.str.1785..str.1786.i148.i = select i1 %786, ptr @.str.1785, ptr @.str.1786
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %778, ptr noundef nonnull %.str.1785..str.1786.i148.i, double noundef %785) #10
-  br label %787
+774:                                              ; preds = %771
+  %775 = load i32, ptr @hf_nvme_get_logpage_egroup_dur, align 4
+  %776 = tail call ptr @proto_tree_add_item(ptr noundef %716, i32 noundef %775, ptr noundef %0, i32 noundef %759, i32 noundef 16, i32 noundef 0) #10
+  %777 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %759, i32 noundef 0) #10
+  %778 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %759, i32 noundef 8) #10
+  %779 = uitofp i64 %778 to double
+  %780 = fmul double %779, 0x43E0000000000000
+  %781 = fmul double %780, 2.000000e+00
+  %782 = uitofp i64 %777 to double
+  %783 = fadd double %781, %782
+  %784 = fcmp ogt double %783, 0x4197D783FC000000
+  %.str.1785..str.1786.i148.i = select i1 %784, ptr @.str.1785, ptr @.str.1786
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %776, ptr noundef nonnull %.str.1785..str.1786.i148.i, double noundef %783) #10
+  br label %785
 
-787:                                              ; preds = %776, %773
-  %788 = icmp ugt i32 %714, 64
-  %789 = sub nuw nsw i32 80, %714
-  %.not127.i = icmp ugt i32 %789, %4
-  %or.cond141.i = select i1 %788, i1 true, i1 %.not127.i
-  br i1 %or.cond141.i, label %801, label %790
+785:                                              ; preds = %774, %771
+  %786 = icmp ugt i32 %712, 64
+  %787 = sub nuw nsw i32 80, %712
+  %.not127.i = icmp ugt i32 %787, %4
+  %or.cond141.i = select i1 %786, i1 true, i1 %.not127.i
+  br i1 %or.cond141.i, label %799, label %788
 
-790:                                              ; preds = %787
-  %791 = load i32, ptr @hf_nvme_get_logpage_egroup_duw, align 4
-  %792 = tail call ptr @proto_tree_add_item(ptr noundef %718, i32 noundef %791, ptr noundef %0, i32 noundef %775, i32 noundef 16, i32 noundef 0) #10
-  %793 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %775, i32 noundef 0) #10
-  %794 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %775, i32 noundef 8) #10
-  %795 = uitofp i64 %794 to double
-  %796 = fmul double %795, 0x43E0000000000000
-  %797 = fmul double %796, 2.000000e+00
-  %798 = uitofp i64 %793 to double
-  %799 = fadd double %797, %798
-  %800 = fcmp ogt double %799, 0x4197D783FC000000
-  %.str.1785..str.1786.i149.i = select i1 %800, ptr @.str.1785, ptr @.str.1786
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %792, ptr noundef nonnull %.str.1785..str.1786.i149.i, double noundef %799) #10
-  br label %801
+788:                                              ; preds = %785
+  %789 = load i32, ptr @hf_nvme_get_logpage_egroup_duw, align 4
+  %790 = tail call ptr @proto_tree_add_item(ptr noundef %716, i32 noundef %789, ptr noundef %0, i32 noundef %773, i32 noundef 16, i32 noundef 0) #10
+  %791 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %773, i32 noundef 0) #10
+  %792 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %773, i32 noundef 8) #10
+  %793 = uitofp i64 %792 to double
+  %794 = fmul double %793, 0x43E0000000000000
+  %795 = fmul double %794, 2.000000e+00
+  %796 = uitofp i64 %791 to double
+  %797 = fadd double %795, %796
+  %798 = fcmp ogt double %797, 0x4197D783FC000000
+  %.str.1785..str.1786.i149.i = select i1 %798, ptr @.str.1785, ptr @.str.1786
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %790, ptr noundef nonnull %.str.1785..str.1786.i149.i, double noundef %797) #10
+  br label %799
 
-801:                                              ; preds = %790, %787
-  %802 = icmp ugt i32 %714, 80
-  %803 = sub nuw nsw i32 96, %714
-  %.not128.i = icmp ugt i32 %803, %4
-  %or.cond142.i = select i1 %802, i1 true, i1 %.not128.i
-  br i1 %or.cond142.i, label %815, label %804
+799:                                              ; preds = %788, %785
+  %800 = icmp ugt i32 %712, 80
+  %801 = sub nuw nsw i32 96, %712
+  %.not128.i = icmp ugt i32 %801, %4
+  %or.cond142.i = select i1 %800, i1 true, i1 %.not128.i
+  br i1 %or.cond142.i, label %813, label %802
 
-804:                                              ; preds = %801
-  %805 = load i32, ptr @hf_nvme_get_logpage_egroup_muw, align 4
-  %806 = tail call ptr @proto_tree_add_item(ptr noundef %718, i32 noundef %805, ptr noundef %0, i32 noundef %789, i32 noundef 16, i32 noundef 0) #10
-  %807 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %789, i32 noundef 0) #10
-  %808 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %789, i32 noundef 8) #10
-  %809 = uitofp i64 %808 to double
-  %810 = fmul double %809, 0x43E0000000000000
-  %811 = fmul double %810, 2.000000e+00
-  %812 = uitofp i64 %807 to double
-  %813 = fadd double %811, %812
-  %814 = fcmp ogt double %813, 0x4197D783FC000000
-  %.str.1785..str.1786.i150.i = select i1 %814, ptr @.str.1785, ptr @.str.1786
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %806, ptr noundef nonnull %.str.1785..str.1786.i150.i, double noundef %813) #10
-  br label %815
+802:                                              ; preds = %799
+  %803 = load i32, ptr @hf_nvme_get_logpage_egroup_muw, align 4
+  %804 = tail call ptr @proto_tree_add_item(ptr noundef %716, i32 noundef %803, ptr noundef %0, i32 noundef %787, i32 noundef 16, i32 noundef 0) #10
+  %805 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %787, i32 noundef 0) #10
+  %806 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %787, i32 noundef 8) #10
+  %807 = uitofp i64 %806 to double
+  %808 = fmul double %807, 0x43E0000000000000
+  %809 = fmul double %808, 2.000000e+00
+  %810 = uitofp i64 %805 to double
+  %811 = fadd double %809, %810
+  %812 = fcmp ogt double %811, 0x4197D783FC000000
+  %.str.1785..str.1786.i150.i = select i1 %812, ptr @.str.1785, ptr @.str.1786
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %804, ptr noundef nonnull %.str.1785..str.1786.i150.i, double noundef %811) #10
+  br label %813
 
-815:                                              ; preds = %804, %801
-  %816 = icmp ugt i32 %714, 96
-  %817 = sub nuw nsw i32 112, %714
-  %.not129.i = icmp ugt i32 %817, %4
-  %or.cond143.i = select i1 %816, i1 true, i1 %.not129.i
-  br i1 %or.cond143.i, label %829, label %818
+813:                                              ; preds = %802, %799
+  %814 = icmp ugt i32 %712, 96
+  %815 = sub nuw nsw i32 112, %712
+  %.not129.i = icmp ugt i32 %815, %4
+  %or.cond143.i = select i1 %814, i1 true, i1 %.not129.i
+  br i1 %or.cond143.i, label %827, label %816
 
-818:                                              ; preds = %815
-  %819 = load i32, ptr @hf_nvme_get_logpage_egroup_hrc, align 4
-  %820 = tail call ptr @proto_tree_add_item(ptr noundef %718, i32 noundef %819, ptr noundef %0, i32 noundef %803, i32 noundef 16, i32 noundef 0) #10
-  %821 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %803, i32 noundef 0) #10
-  %822 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %803, i32 noundef 8) #10
-  %823 = uitofp i64 %822 to double
-  %824 = fmul double %823, 0x43E0000000000000
-  %825 = fmul double %824, 2.000000e+00
-  %826 = uitofp i64 %821 to double
-  %827 = fadd double %825, %826
-  %828 = fcmp ogt double %827, 0x4197D783FC000000
-  %.str.1785..str.1786.i151.i = select i1 %828, ptr @.str.1785, ptr @.str.1786
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %820, ptr noundef nonnull %.str.1785..str.1786.i151.i, double noundef %827) #10
-  br label %829
+816:                                              ; preds = %813
+  %817 = load i32, ptr @hf_nvme_get_logpage_egroup_hrc, align 4
+  %818 = tail call ptr @proto_tree_add_item(ptr noundef %716, i32 noundef %817, ptr noundef %0, i32 noundef %801, i32 noundef 16, i32 noundef 0) #10
+  %819 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %801, i32 noundef 0) #10
+  %820 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %801, i32 noundef 8) #10
+  %821 = uitofp i64 %820 to double
+  %822 = fmul double %821, 0x43E0000000000000
+  %823 = fmul double %822, 2.000000e+00
+  %824 = uitofp i64 %819 to double
+  %825 = fadd double %823, %824
+  %826 = fcmp ogt double %825, 0x4197D783FC000000
+  %.str.1785..str.1786.i151.i = select i1 %826, ptr @.str.1785, ptr @.str.1786
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %818, ptr noundef nonnull %.str.1785..str.1786.i151.i, double noundef %825) #10
+  br label %827
 
-829:                                              ; preds = %818, %815
-  %830 = icmp ugt i32 %714, 112
-  %831 = sub nuw nsw i32 128, %714
-  %.not130.i = icmp ugt i32 %831, %4
-  %or.cond144.i = select i1 %830, i1 true, i1 %.not130.i
-  br i1 %or.cond144.i, label %843, label %832
+827:                                              ; preds = %816, %813
+  %828 = icmp ugt i32 %712, 112
+  %829 = sub nuw nsw i32 128, %712
+  %.not130.i = icmp ugt i32 %829, %4
+  %or.cond144.i = select i1 %828, i1 true, i1 %.not130.i
+  br i1 %or.cond144.i, label %841, label %830
 
-832:                                              ; preds = %829
-  %833 = load i32, ptr @hf_nvme_get_logpage_egroup_hwc, align 4
-  %834 = tail call ptr @proto_tree_add_item(ptr noundef %718, i32 noundef %833, ptr noundef %0, i32 noundef %817, i32 noundef 16, i32 noundef 0) #10
-  %835 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %817, i32 noundef 0) #10
-  %836 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %817, i32 noundef 8) #10
-  %837 = uitofp i64 %836 to double
-  %838 = fmul double %837, 0x43E0000000000000
-  %839 = fmul double %838, 2.000000e+00
-  %840 = uitofp i64 %835 to double
-  %841 = fadd double %839, %840
-  %842 = fcmp ogt double %841, 0x4197D783FC000000
-  %.str.1785..str.1786.i152.i = select i1 %842, ptr @.str.1785, ptr @.str.1786
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %834, ptr noundef nonnull %.str.1785..str.1786.i152.i, double noundef %841) #10
-  br label %843
+830:                                              ; preds = %827
+  %831 = load i32, ptr @hf_nvme_get_logpage_egroup_hwc, align 4
+  %832 = tail call ptr @proto_tree_add_item(ptr noundef %716, i32 noundef %831, ptr noundef %0, i32 noundef %815, i32 noundef 16, i32 noundef 0) #10
+  %833 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %815, i32 noundef 0) #10
+  %834 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %815, i32 noundef 8) #10
+  %835 = uitofp i64 %834 to double
+  %836 = fmul double %835, 0x43E0000000000000
+  %837 = fmul double %836, 2.000000e+00
+  %838 = uitofp i64 %833 to double
+  %839 = fadd double %837, %838
+  %840 = fcmp ogt double %839, 0x4197D783FC000000
+  %.str.1785..str.1786.i152.i = select i1 %840, ptr @.str.1785, ptr @.str.1786
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %832, ptr noundef nonnull %.str.1785..str.1786.i152.i, double noundef %839) #10
+  br label %841
 
-843:                                              ; preds = %832, %829
-  %844 = icmp ugt i32 %714, 128
-  %845 = sub nuw nsw i32 144, %714
-  %.not131.i = icmp ugt i32 %845, %4
-  %or.cond145.i = select i1 %844, i1 true, i1 %.not131.i
-  br i1 %or.cond145.i, label %857, label %846
+841:                                              ; preds = %830, %827
+  %842 = icmp ugt i32 %712, 128
+  %843 = sub nuw nsw i32 144, %712
+  %.not131.i = icmp ugt i32 %843, %4
+  %or.cond145.i = select i1 %842, i1 true, i1 %.not131.i
+  br i1 %or.cond145.i, label %855, label %844
 
-846:                                              ; preds = %843
-  %847 = load i32, ptr @hf_nvme_get_logpage_egroup_mdie, align 4
-  %848 = tail call ptr @proto_tree_add_item(ptr noundef %718, i32 noundef %847, ptr noundef %0, i32 noundef %831, i32 noundef 16, i32 noundef 0) #10
-  %849 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %831, i32 noundef 0) #10
-  %850 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %831, i32 noundef 8) #10
-  %851 = uitofp i64 %850 to double
-  %852 = fmul double %851, 0x43E0000000000000
-  %853 = fmul double %852, 2.000000e+00
-  %854 = uitofp i64 %849 to double
-  %855 = fadd double %853, %854
-  %856 = fcmp ogt double %855, 0x4197D783FC000000
-  %.str.1785..str.1786.i153.i = select i1 %856, ptr @.str.1785, ptr @.str.1786
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %848, ptr noundef nonnull %.str.1785..str.1786.i153.i, double noundef %855) #10
-  br label %857
+844:                                              ; preds = %841
+  %845 = load i32, ptr @hf_nvme_get_logpage_egroup_mdie, align 4
+  %846 = tail call ptr @proto_tree_add_item(ptr noundef %716, i32 noundef %845, ptr noundef %0, i32 noundef %829, i32 noundef 16, i32 noundef 0) #10
+  %847 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %829, i32 noundef 0) #10
+  %848 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %829, i32 noundef 8) #10
+  %849 = uitofp i64 %848 to double
+  %850 = fmul double %849, 0x43E0000000000000
+  %851 = fmul double %850, 2.000000e+00
+  %852 = uitofp i64 %847 to double
+  %853 = fadd double %851, %852
+  %854 = fcmp ogt double %853, 0x4197D783FC000000
+  %.str.1785..str.1786.i153.i = select i1 %854, ptr @.str.1785, ptr @.str.1786
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %846, ptr noundef nonnull %.str.1785..str.1786.i153.i, double noundef %853) #10
+  br label %855
 
-857:                                              ; preds = %846, %843
-  %858 = icmp ugt i32 %714, 144
-  %859 = sub nsw i32 160, %714
-  %.not132.i = icmp ugt i32 %859, %4
-  %or.cond146.i = select i1 %858, i1 true, i1 %.not132.i
-  br i1 %or.cond146.i, label %871, label %860
+855:                                              ; preds = %844, %841
+  %856 = icmp ugt i32 %712, 144
+  %857 = sub nsw i32 160, %712
+  %.not132.i = icmp ugt i32 %857, %4
+  %or.cond146.i = select i1 %856, i1 true, i1 %.not132.i
+  br i1 %or.cond146.i, label %869, label %858
 
-860:                                              ; preds = %857
-  %861 = load i32, ptr @hf_nvme_get_logpage_egroup_ele, align 4
-  %862 = tail call ptr @proto_tree_add_item(ptr noundef %718, i32 noundef %861, ptr noundef %0, i32 noundef %845, i32 noundef 16, i32 noundef 0) #10
-  %863 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %845, i32 noundef 0) #10
-  %864 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %845, i32 noundef 8) #10
-  %865 = uitofp i64 %864 to double
-  %866 = fmul double %865, 0x43E0000000000000
-  %867 = fmul double %866, 2.000000e+00
-  %868 = uitofp i64 %863 to double
-  %869 = fadd double %867, %868
-  %870 = fcmp ogt double %869, 0x4197D783FC000000
-  %.str.1785..str.1786.i154.i = select i1 %870, ptr @.str.1785, ptr @.str.1786
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %862, ptr noundef nonnull %.str.1785..str.1786.i154.i, double noundef %869) #10
-  br label %871
+858:                                              ; preds = %855
+  %859 = load i32, ptr @hf_nvme_get_logpage_egroup_ele, align 4
+  %860 = tail call ptr @proto_tree_add_item(ptr noundef %716, i32 noundef %859, ptr noundef %0, i32 noundef %843, i32 noundef 16, i32 noundef 0) #10
+  %861 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %843, i32 noundef 0) #10
+  %862 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %843, i32 noundef 8) #10
+  %863 = uitofp i64 %862 to double
+  %864 = fmul double %863, 0x43E0000000000000
+  %865 = fmul double %864, 2.000000e+00
+  %866 = uitofp i64 %861 to double
+  %867 = fadd double %865, %866
+  %868 = fcmp ogt double %867, 0x4197D783FC000000
+  %.str.1785..str.1786.i154.i = select i1 %868, ptr @.str.1785, ptr @.str.1786
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %860, ptr noundef nonnull %.str.1785..str.1786.i154.i, double noundef %867) #10
+  br label %869
 
-871:                                              ; preds = %860, %857
-  %872 = icmp ugt i32 %714, 508
-  %873 = sub nuw nsw i32 512, %714
-  %.not133.i = icmp ugt i32 %873, %4
-  %or.cond147.i = select i1 %872, i1 true, i1 %.not133.i
-  br i1 %or.cond147.i, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %874
+869:                                              ; preds = %858, %855
+  %870 = icmp ugt i32 %712, 508
+  %871 = sub nuw nsw i32 512, %712
+  %.not133.i = icmp ugt i32 %871, %4
+  %or.cond147.i = select i1 %870, i1 true, i1 %.not133.i
+  br i1 %or.cond147.i, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %872
 
-874:                                              ; preds = %871
-  %875 = icmp ult i32 %714, 161
-  %876 = add nsw i32 %714, -160
-  %877 = select i1 %875, i32 %859, i32 %876
-  %878 = load i32, ptr @hf_nvme_get_logpage_egroup_rsvd2, align 4
-  %879 = sub i32 %4, %877
-  %880 = tail call ptr @proto_tree_add_item(ptr noundef %718, i32 noundef %878, ptr noundef %0, i32 noundef %877, i32 noundef %879, i32 noundef 0) #10
+872:                                              ; preds = %869
+  %873 = icmp ult i32 %712, 161
+  %874 = add nsw i32 %712, -160
+  %875 = select i1 %873, i32 %857, i32 %874
+  %876 = load i32, ptr @hf_nvme_get_logpage_egroup_rsvd2, align 4
+  %877 = sub i32 %4, %875
+  %878 = tail call ptr @proto_tree_add_item(ptr noundef %716, i32 noundef %876, ptr noundef %0, i32 noundef %875, i32 noundef %877, i32 noundef 0) #10
   br label %dissect_nvme_get_logpage_err_inf_resp.exit
 
-881:                                              ; preds = %get_logpage_name.exit
-  %882 = getelementptr i8, ptr %2, i64 144
-  %.val79 = load i64, ptr %882, align 8
-  %883 = trunc i64 %.val79 to i32
-  %884 = icmp ugt i64 %.val79, 508
-  br i1 %884, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %885
+879:                                              ; preds = %get_logpage_name.exit
+  %880 = getelementptr i8, ptr %2, i64 144
+  %.val79 = load i64, ptr %880, align 8
+  %881 = trunc i64 %.val79 to i32
+  %882 = icmp ugt i64 %.val79, 508
+  br i1 %882, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %883
 
-885:                                              ; preds = %881
-  %886 = load i32, ptr @ett_data, align 4
-  %887 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %886) #10
-  %888 = icmp eq i32 %883, 0
-  %889 = icmp ne i32 %4, 0
-  %or.cond.i157 = and i1 %889, %888
-  br i1 %or.cond.i157, label %890, label %add_group_mask_entry.exit.i158
+883:                                              ; preds = %879
+  %884 = load i32, ptr @ett_data, align 4
+  %885 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %884) #10
+  %886 = icmp eq i32 %881, 0
+  %887 = icmp ne i32 %4, 0
+  %or.cond.i157 = and i1 %887, %886
+  br i1 %or.cond.i157, label %888, label %add_group_mask_entry.exit.i158
 
-890:                                              ; preds = %885
-  %891 = load i32, ptr @hf_nvme_get_logpage_pred_lat_status, align 4
-  %892 = tail call ptr @proto_tree_add_item(ptr noundef %887, i32 noundef %891, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #10
-  %893 = load i32, ptr @ett_data, align 4
-  %894 = tail call ptr @proto_item_add_subtree(ptr noundef %892, i32 noundef %893) #10
+888:                                              ; preds = %883
+  %889 = load i32, ptr @hf_nvme_get_logpage_pred_lat_status, align 4
+  %890 = tail call ptr @proto_tree_add_item(ptr noundef %885, i32 noundef %889, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #10
+  %891 = load i32, ptr @ett_data, align 4
+  %892 = tail call ptr @proto_item_add_subtree(ptr noundef %890, i32 noundef %891) #10
   br label %.lr.ph.i.i163
 
-.lr.ph.i.i163:                                    ; preds = %.lr.ph.i.i163, %890
-  %indvars.iv.i.i164 = phi i64 [ 1, %890 ], [ %indvars.iv.next.i.i165, %.lr.ph.i.i163 ]
-  %895 = getelementptr i32, ptr @hf_nvme_get_logpage_pred_lat_status, i64 %indvars.iv.i.i164
-  %896 = load i32, ptr %895, align 4
-  %897 = tail call ptr @proto_tree_add_item(ptr noundef %894, i32 noundef %896, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #10
+.lr.ph.i.i163:                                    ; preds = %.lr.ph.i.i163, %888
+  %indvars.iv.i.i164 = phi i64 [ 1, %888 ], [ %indvars.iv.next.i.i165, %.lr.ph.i.i163 ]
+  %893 = getelementptr i32, ptr @hf_nvme_get_logpage_pred_lat_status, i64 %indvars.iv.i.i164
+  %894 = load i32, ptr %893, align 4
+  %895 = tail call ptr @proto_tree_add_item(ptr noundef %892, i32 noundef %894, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #10
   %indvars.iv.next.i.i165 = add nuw nsw i64 %indvars.iv.i.i164, 1
   %exitcond.not.i.i166 = icmp eq i64 %indvars.iv.next.i.i165, 3
   br i1 %exitcond.not.i.i166, label %add_group_mask_entry.exit.i158, label %.lr.ph.i.i163, !llvm.loop !6
 
-add_group_mask_entry.exit.i158:                   ; preds = %.lr.ph.i.i163, %885
-  %898 = icmp ugt i32 %883, 1
-  %899 = sub nuw nsw i32 2, %883
-  %.not.i159 = icmp ugt i32 %899, %4
-  %or.cond101.i160 = select i1 %898, i1 true, i1 %.not.i159
-  br i1 %or.cond101.i160, label %904, label %900
+add_group_mask_entry.exit.i158:                   ; preds = %.lr.ph.i.i163, %883
+  %896 = icmp ugt i32 %881, 1
+  %897 = sub nuw nsw i32 2, %881
+  %.not.i159 = icmp ugt i32 %897, %4
+  %or.cond101.i160 = select i1 %896, i1 true, i1 %.not.i159
+  br i1 %or.cond101.i160, label %902, label %898
 
-900:                                              ; preds = %add_group_mask_entry.exit.i158
-  %901 = load i32, ptr @hf_nvme_get_logpage_pred_lat_rsvd0, align 4
-  %902 = sub nuw nsw i32 1, %883
-  %903 = tail call ptr @proto_tree_add_item(ptr noundef %887, i32 noundef %901, ptr noundef %0, i32 noundef %902, i32 noundef 1, i32 noundef -2147483648) #10
-  br label %904
+898:                                              ; preds = %add_group_mask_entry.exit.i158
+  %899 = load i32, ptr @hf_nvme_get_logpage_pred_lat_rsvd0, align 4
+  %900 = sub nuw nsw i32 1, %881
+  %901 = tail call ptr @proto_tree_add_item(ptr noundef %885, i32 noundef %899, ptr noundef %0, i32 noundef %900, i32 noundef 1, i32 noundef -2147483648) #10
+  br label %902
 
-904:                                              ; preds = %900, %add_group_mask_entry.exit.i158
-  %905 = icmp ugt i32 %883, 2
-  %906 = sub nuw nsw i32 4, %883
-  %.not90.i161 = icmp ugt i32 %906, %4
-  %or.cond102.i = select i1 %905, i1 true, i1 %.not90.i161
-  br i1 %or.cond102.i, label %add_group_mask_entry.exit117.i, label %907
+902:                                              ; preds = %898, %add_group_mask_entry.exit.i158
+  %903 = icmp ugt i32 %881, 2
+  %904 = sub nuw nsw i32 4, %881
+  %.not90.i161 = icmp ugt i32 %904, %4
+  %or.cond102.i = select i1 %903, i1 true, i1 %.not90.i161
+  br i1 %or.cond102.i, label %add_group_mask_entry.exit117.i, label %905
 
-907:                                              ; preds = %904
-  %908 = load i32, ptr @hf_nvme_get_logpage_pred_lat_etype, align 16
-  %909 = tail call ptr @proto_tree_add_item(ptr noundef %887, i32 noundef %908, ptr noundef %0, i32 noundef %899, i32 noundef 2, i32 noundef -2147483648) #10
-  %910 = load i32, ptr @ett_data, align 4
-  %911 = tail call ptr @proto_item_add_subtree(ptr noundef %909, i32 noundef %910) #10
+905:                                              ; preds = %902
+  %906 = load i32, ptr @hf_nvme_get_logpage_pred_lat_etype, align 16
+  %907 = tail call ptr @proto_tree_add_item(ptr noundef %885, i32 noundef %906, ptr noundef %0, i32 noundef %897, i32 noundef 2, i32 noundef -2147483648) #10
+  %908 = load i32, ptr @ett_data, align 4
+  %909 = tail call ptr @proto_item_add_subtree(ptr noundef %907, i32 noundef %908) #10
   br label %.lr.ph.i113.i
 
-.lr.ph.i113.i:                                    ; preds = %.lr.ph.i113.i, %907
-  %indvars.iv.i114.i = phi i64 [ 1, %907 ], [ %indvars.iv.next.i115.i, %.lr.ph.i113.i ]
-  %912 = getelementptr i32, ptr @hf_nvme_get_logpage_pred_lat_etype, i64 %indvars.iv.i114.i
-  %913 = load i32, ptr %912, align 4
-  %914 = tail call ptr @proto_tree_add_item(ptr noundef %911, i32 noundef %913, ptr noundef %0, i32 noundef %899, i32 noundef 2, i32 noundef -2147483648) #10
+.lr.ph.i113.i:                                    ; preds = %.lr.ph.i113.i, %905
+  %indvars.iv.i114.i = phi i64 [ 1, %905 ], [ %indvars.iv.next.i115.i, %.lr.ph.i113.i ]
+  %910 = getelementptr i32, ptr @hf_nvme_get_logpage_pred_lat_etype, i64 %indvars.iv.i114.i
+  %911 = load i32, ptr %910, align 4
+  %912 = tail call ptr @proto_tree_add_item(ptr noundef %909, i32 noundef %911, ptr noundef %0, i32 noundef %897, i32 noundef 2, i32 noundef -2147483648) #10
   %indvars.iv.next.i115.i = add nuw nsw i64 %indvars.iv.i114.i, 1
   %exitcond.not.i116.i = icmp eq i64 %indvars.iv.next.i115.i, 7
   br i1 %exitcond.not.i116.i, label %add_group_mask_entry.exit117.i, label %.lr.ph.i113.i, !llvm.loop !6
 
-add_group_mask_entry.exit117.i:                   ; preds = %.lr.ph.i113.i, %904
-  %915 = icmp ugt i32 %883, 4
-  %916 = sub nuw nsw i32 32, %883
-  %.not91.i162 = icmp ugt i32 %916, %4
-  %or.cond103.i = select i1 %915, i1 true, i1 %.not91.i162
-  br i1 %or.cond103.i, label %920, label %917
+add_group_mask_entry.exit117.i:                   ; preds = %.lr.ph.i113.i, %902
+  %913 = icmp ugt i32 %881, 4
+  %914 = sub nuw nsw i32 32, %881
+  %.not91.i162 = icmp ugt i32 %914, %4
+  %or.cond103.i = select i1 %913, i1 true, i1 %.not91.i162
+  br i1 %or.cond103.i, label %918, label %915
 
-917:                                              ; preds = %add_group_mask_entry.exit117.i
-  %918 = load i32, ptr @hf_nvme_get_logpage_pred_lat_rsvd1, align 4
-  %919 = tail call ptr @proto_tree_add_item(ptr noundef %887, i32 noundef %918, ptr noundef %0, i32 noundef %906, i32 noundef 28, i32 noundef 0) #10
-  br label %920
+915:                                              ; preds = %add_group_mask_entry.exit117.i
+  %916 = load i32, ptr @hf_nvme_get_logpage_pred_lat_rsvd1, align 4
+  %917 = tail call ptr @proto_tree_add_item(ptr noundef %885, i32 noundef %916, ptr noundef %0, i32 noundef %904, i32 noundef 28, i32 noundef 0) #10
+  br label %918
 
-920:                                              ; preds = %917, %add_group_mask_entry.exit117.i
-  %921 = icmp ugt i32 %883, 32
-  %922 = sub nuw nsw i32 40, %883
-  %.not92.i = icmp ugt i32 %922, %4
-  %or.cond104.i = select i1 %921, i1 true, i1 %.not92.i
-  br i1 %or.cond104.i, label %926, label %923
+918:                                              ; preds = %915, %add_group_mask_entry.exit117.i
+  %919 = icmp ugt i32 %881, 32
+  %920 = sub nuw nsw i32 40, %881
+  %.not92.i = icmp ugt i32 %920, %4
+  %or.cond104.i = select i1 %919, i1 true, i1 %.not92.i
+  br i1 %or.cond104.i, label %924, label %921
 
-923:                                              ; preds = %920
-  %924 = load i32, ptr @hf_nvme_get_logpage_pred_lat_dtwin_rt, align 4
-  %925 = tail call ptr @proto_tree_add_item(ptr noundef %887, i32 noundef %924, ptr noundef %0, i32 noundef %916, i32 noundef 8, i32 noundef -2147483648) #10
-  br label %926
+921:                                              ; preds = %918
+  %922 = load i32, ptr @hf_nvme_get_logpage_pred_lat_dtwin_rt, align 4
+  %923 = tail call ptr @proto_tree_add_item(ptr noundef %885, i32 noundef %922, ptr noundef %0, i32 noundef %914, i32 noundef 8, i32 noundef -2147483648) #10
+  br label %924
 
-926:                                              ; preds = %923, %920
-  %927 = icmp ugt i32 %883, 40
-  %928 = sub nuw nsw i32 48, %883
-  %.not93.i = icmp ugt i32 %928, %4
-  %or.cond105.i = select i1 %927, i1 true, i1 %.not93.i
-  br i1 %or.cond105.i, label %932, label %929
+924:                                              ; preds = %921, %918
+  %925 = icmp ugt i32 %881, 40
+  %926 = sub nuw nsw i32 48, %881
+  %.not93.i = icmp ugt i32 %926, %4
+  %or.cond105.i = select i1 %925, i1 true, i1 %.not93.i
+  br i1 %or.cond105.i, label %930, label %927
 
-929:                                              ; preds = %926
-  %930 = load i32, ptr @hf_nvme_get_logpage_pred_lat_dtwin_wt, align 4
-  %931 = tail call ptr @proto_tree_add_item(ptr noundef %887, i32 noundef %930, ptr noundef %0, i32 noundef %922, i32 noundef 8, i32 noundef -2147483648) #10
-  br label %932
+927:                                              ; preds = %924
+  %928 = load i32, ptr @hf_nvme_get_logpage_pred_lat_dtwin_wt, align 4
+  %929 = tail call ptr @proto_tree_add_item(ptr noundef %885, i32 noundef %928, ptr noundef %0, i32 noundef %920, i32 noundef 8, i32 noundef -2147483648) #10
+  br label %930
 
-932:                                              ; preds = %929, %926
-  %933 = icmp ugt i32 %883, 48
-  %934 = sub nuw nsw i32 56, %883
-  %.not94.i = icmp ugt i32 %934, %4
-  %or.cond106.i = select i1 %933, i1 true, i1 %.not94.i
-  br i1 %or.cond106.i, label %938, label %935
+930:                                              ; preds = %927, %924
+  %931 = icmp ugt i32 %881, 48
+  %932 = sub nuw nsw i32 56, %881
+  %.not94.i = icmp ugt i32 %932, %4
+  %or.cond106.i = select i1 %931, i1 true, i1 %.not94.i
+  br i1 %or.cond106.i, label %936, label %933
 
-935:                                              ; preds = %932
-  %936 = load i32, ptr @hf_nvme_get_logpage_pred_lat_dtwin_tm, align 4
-  %937 = tail call ptr @proto_tree_add_item(ptr noundef %887, i32 noundef %936, ptr noundef %0, i32 noundef %928, i32 noundef 8, i32 noundef -2147483648) #10
-  br label %938
+933:                                              ; preds = %930
+  %934 = load i32, ptr @hf_nvme_get_logpage_pred_lat_dtwin_tm, align 4
+  %935 = tail call ptr @proto_tree_add_item(ptr noundef %885, i32 noundef %934, ptr noundef %0, i32 noundef %926, i32 noundef 8, i32 noundef -2147483648) #10
+  br label %936
 
-938:                                              ; preds = %935, %932
-  %939 = icmp ugt i32 %883, 56
-  %940 = sub nuw nsw i32 64, %883
-  %.not95.i = icmp ugt i32 %940, %4
-  %or.cond107.i = select i1 %939, i1 true, i1 %.not95.i
-  br i1 %or.cond107.i, label %944, label %941
+936:                                              ; preds = %933, %930
+  %937 = icmp ugt i32 %881, 56
+  %938 = sub nuw nsw i32 64, %881
+  %.not95.i = icmp ugt i32 %938, %4
+  %or.cond107.i = select i1 %937, i1 true, i1 %.not95.i
+  br i1 %or.cond107.i, label %942, label %939
 
-941:                                              ; preds = %938
-  %942 = load i32, ptr @hf_nvme_get_logpage_pred_lat_ndwin_tmh, align 4
-  %943 = tail call ptr @proto_tree_add_item(ptr noundef %887, i32 noundef %942, ptr noundef %0, i32 noundef %934, i32 noundef 8, i32 noundef -2147483648) #10
-  br label %944
+939:                                              ; preds = %936
+  %940 = load i32, ptr @hf_nvme_get_logpage_pred_lat_ndwin_tmh, align 4
+  %941 = tail call ptr @proto_tree_add_item(ptr noundef %885, i32 noundef %940, ptr noundef %0, i32 noundef %932, i32 noundef 8, i32 noundef -2147483648) #10
+  br label %942
 
-944:                                              ; preds = %941, %938
-  %945 = icmp ugt i32 %883, 64
-  %946 = sub nuw nsw i32 72, %883
-  %.not96.i = icmp ugt i32 %946, %4
-  %or.cond108.i = select i1 %945, i1 true, i1 %.not96.i
-  br i1 %or.cond108.i, label %950, label %947
+942:                                              ; preds = %939, %936
+  %943 = icmp ugt i32 %881, 64
+  %944 = sub nuw nsw i32 72, %881
+  %.not96.i = icmp ugt i32 %944, %4
+  %or.cond108.i = select i1 %943, i1 true, i1 %.not96.i
+  br i1 %or.cond108.i, label %948, label %945
 
-947:                                              ; preds = %944
-  %948 = load i32, ptr @hf_nvme_get_logpage_pred_lat_ndwin_tml, align 4
-  %949 = tail call ptr @proto_tree_add_item(ptr noundef %887, i32 noundef %948, ptr noundef %0, i32 noundef %940, i32 noundef 8, i32 noundef -2147483648) #10
-  br label %950
+945:                                              ; preds = %942
+  %946 = load i32, ptr @hf_nvme_get_logpage_pred_lat_ndwin_tml, align 4
+  %947 = tail call ptr @proto_tree_add_item(ptr noundef %885, i32 noundef %946, ptr noundef %0, i32 noundef %938, i32 noundef 8, i32 noundef -2147483648) #10
+  br label %948
 
-950:                                              ; preds = %947, %944
-  %951 = icmp ugt i32 %883, 72
-  %952 = sub nuw nsw i32 128, %883
-  %.not97.i = icmp ugt i32 %952, %4
-  %or.cond109.i = select i1 %951, i1 true, i1 %.not97.i
-  br i1 %or.cond109.i, label %956, label %953
+948:                                              ; preds = %945, %942
+  %949 = icmp ugt i32 %881, 72
+  %950 = sub nuw nsw i32 128, %881
+  %.not97.i = icmp ugt i32 %950, %4
+  %or.cond109.i = select i1 %949, i1 true, i1 %.not97.i
+  br i1 %or.cond109.i, label %954, label %951
 
-953:                                              ; preds = %950
-  %954 = load i32, ptr @hf_nvme_get_logpage_pred_lat_rsvd2, align 4
-  %955 = tail call ptr @proto_tree_add_item(ptr noundef %887, i32 noundef %954, ptr noundef %0, i32 noundef %946, i32 noundef 56, i32 noundef 0) #10
-  br label %956
+951:                                              ; preds = %948
+  %952 = load i32, ptr @hf_nvme_get_logpage_pred_lat_rsvd2, align 4
+  %953 = tail call ptr @proto_tree_add_item(ptr noundef %885, i32 noundef %952, ptr noundef %0, i32 noundef %944, i32 noundef 56, i32 noundef 0) #10
+  br label %954
 
-956:                                              ; preds = %953, %950
-  %957 = icmp ugt i32 %883, 128
-  %958 = sub nuw nsw i32 136, %883
-  %.not98.i = icmp ugt i32 %958, %4
-  %or.cond110.i = select i1 %957, i1 true, i1 %.not98.i
-  br i1 %or.cond110.i, label %962, label %959
+954:                                              ; preds = %951, %948
+  %955 = icmp ugt i32 %881, 128
+  %956 = sub nuw nsw i32 136, %881
+  %.not98.i = icmp ugt i32 %956, %4
+  %or.cond110.i = select i1 %955, i1 true, i1 %.not98.i
+  br i1 %or.cond110.i, label %960, label %957
 
-959:                                              ; preds = %956
-  %960 = load i32, ptr @hf_nvme_get_logpage_pred_lat_dtwin_re, align 4
-  %961 = tail call ptr @proto_tree_add_item(ptr noundef %887, i32 noundef %960, ptr noundef %0, i32 noundef %952, i32 noundef 8, i32 noundef -2147483648) #10
-  br label %962
+957:                                              ; preds = %954
+  %958 = load i32, ptr @hf_nvme_get_logpage_pred_lat_dtwin_re, align 4
+  %959 = tail call ptr @proto_tree_add_item(ptr noundef %885, i32 noundef %958, ptr noundef %0, i32 noundef %950, i32 noundef 8, i32 noundef -2147483648) #10
+  br label %960
 
-962:                                              ; preds = %959, %956
-  %963 = icmp ugt i32 %883, 136
-  %964 = sub nuw nsw i32 144, %883
-  %.not99.i = icmp ugt i32 %964, %4
-  %or.cond111.i = select i1 %963, i1 true, i1 %.not99.i
-  br i1 %or.cond111.i, label %968, label %965
+960:                                              ; preds = %957, %954
+  %961 = icmp ugt i32 %881, 136
+  %962 = sub nuw nsw i32 144, %881
+  %.not99.i = icmp ugt i32 %962, %4
+  %or.cond111.i = select i1 %961, i1 true, i1 %.not99.i
+  br i1 %or.cond111.i, label %966, label %963
 
-965:                                              ; preds = %962
-  %966 = load i32, ptr @hf_nvme_get_logpage_pred_lat_dtwin_we, align 4
-  %967 = tail call ptr @proto_tree_add_item(ptr noundef %887, i32 noundef %966, ptr noundef %0, i32 noundef %958, i32 noundef 8, i32 noundef -2147483648) #10
-  br label %968
+963:                                              ; preds = %960
+  %964 = load i32, ptr @hf_nvme_get_logpage_pred_lat_dtwin_we, align 4
+  %965 = tail call ptr @proto_tree_add_item(ptr noundef %885, i32 noundef %964, ptr noundef %0, i32 noundef %956, i32 noundef 8, i32 noundef -2147483648) #10
+  br label %966
 
-968:                                              ; preds = %965, %962
-  %969 = icmp ugt i32 %883, 144
-  %970 = sub nsw i32 152, %883
-  %.not100.i = icmp ugt i32 %970, %4
-  %or.cond112.i = select i1 %969, i1 true, i1 %.not100.i
-  br i1 %or.cond112.i, label %974, label %971
+966:                                              ; preds = %963, %960
+  %967 = icmp ugt i32 %881, 144
+  %968 = sub nsw i32 152, %881
+  %.not100.i = icmp ugt i32 %968, %4
+  %or.cond112.i = select i1 %967, i1 true, i1 %.not100.i
+  br i1 %or.cond112.i, label %972, label %969
 
-971:                                              ; preds = %968
-  %972 = load i32, ptr @hf_nvme_get_logpage_pred_lat_dtwin_te, align 4
-  %973 = tail call ptr @proto_tree_add_item(ptr noundef %887, i32 noundef %972, ptr noundef %0, i32 noundef %964, i32 noundef 8, i32 noundef -2147483648) #10
-  br label %974
+969:                                              ; preds = %966
+  %970 = load i32, ptr @hf_nvme_get_logpage_pred_lat_dtwin_te, align 4
+  %971 = tail call ptr @proto_tree_add_item(ptr noundef %885, i32 noundef %970, ptr noundef %0, i32 noundef %962, i32 noundef 8, i32 noundef -2147483648) #10
+  br label %972
 
-974:                                              ; preds = %971, %968
-  %975 = icmp ult i32 %883, 153
-  %976 = select i1 %975, i32 %970, i32 0
-  %977 = icmp ugt i32 %976, %4
-  br i1 %977, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %978
+972:                                              ; preds = %969, %966
+  %973 = icmp ult i32 %881, 153
+  %974 = select i1 %973, i32 %968, i32 0
+  %975 = icmp ugt i32 %974, %4
+  br i1 %975, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %976
 
-978:                                              ; preds = %974
-  %979 = load i32, ptr @hf_nvme_get_logpage_pred_lat_rsvd3, align 4
-  %980 = sub nuw i32 %4, %976
-  %981 = tail call ptr @proto_tree_add_item(ptr noundef %887, i32 noundef %979, ptr noundef %0, i32 noundef %976, i32 noundef %980, i32 noundef 0) #10
+976:                                              ; preds = %972
+  %977 = load i32, ptr @hf_nvme_get_logpage_pred_lat_rsvd3, align 4
+  %978 = sub nuw i32 %4, %974
+  %979 = tail call ptr @proto_tree_add_item(ptr noundef %885, i32 noundef %977, ptr noundef %0, i32 noundef %974, i32 noundef %978, i32 noundef 0) #10
   br label %dissect_nvme_get_logpage_err_inf_resp.exit
 
-982:                                              ; preds = %get_logpage_name.exit
-  %983 = getelementptr i8, ptr %2, i64 144
-  %.val80 = load i64, ptr %983, align 8
-  %984 = zext i32 %3 to i64
-  %985 = add i64 %.val80, %984
-  %986 = icmp ult i64 %985, 8
-  %987 = trunc i64 %.val80 to i32
-  %988 = and i32 %987, 7
-  %989 = sub nuw nsw i32 8, %988
-  %.0.i167 = select i1 %986, i32 %989, i32 0
-  %990 = add nuw nsw i32 %.0.i167, 2
-  %991 = icmp ugt i32 %990, %4
-  %992 = icmp ne i64 %985, 0
-  %or.cond.i168 = and i1 %992, %991
-  br i1 %or.cond.i168, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %993
+980:                                              ; preds = %get_logpage_name.exit
+  %981 = getelementptr i8, ptr %2, i64 144
+  %.val80 = load i64, ptr %981, align 8
+  %982 = zext i32 %3 to i64
+  %983 = add i64 %.val80, %982
+  %984 = icmp ult i64 %983, 8
+  %985 = trunc i64 %.val80 to i32
+  %986 = and i32 %985, 7
+  %987 = sub nuw nsw i32 8, %986
+  %.0.i167 = select i1 %984, i32 %987, i32 0
+  %988 = add nuw nsw i32 %.0.i167, 2
+  %989 = icmp ugt i32 %988, %4
+  %990 = icmp ne i64 %983, 0
+  %or.cond.i168 = and i1 %990, %989
+  br i1 %or.cond.i168, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %991
 
-993:                                              ; preds = %982
-  %994 = load i32, ptr @ett_data, align 4
-  %995 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %994) #10
-  %996 = icmp eq i64 %985, 0
-  %997 = icmp ugt i32 %4, 7
-  %or.cond3.i169 = and i1 %997, %996
-  br i1 %or.cond3.i169, label %998, label %1001
+991:                                              ; preds = %980
+  %992 = load i32, ptr @ett_data, align 4
+  %993 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %992) #10
+  %994 = icmp eq i64 %983, 0
+  %995 = icmp ugt i32 %4, 7
+  %or.cond3.i169 = and i1 %995, %994
+  br i1 %or.cond3.i169, label %996, label %999
 
-998:                                              ; preds = %993
-  %999 = load i32, ptr @hf_nvme_get_logpage_pred_lat_aggreg_ne, align 4
-  %1000 = tail call ptr @proto_tree_add_item(ptr noundef %995, i32 noundef %999, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483648) #10
-  br label %1001
+996:                                              ; preds = %991
+  %997 = load i32, ptr @hf_nvme_get_logpage_pred_lat_aggreg_ne, align 4
+  %998 = tail call ptr @proto_tree_add_item(ptr noundef %993, i32 noundef %997, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483648) #10
+  br label %999
 
-1001:                                             ; preds = %998, %993
-  %1002 = sub i32 %4, %.0.i167
-  %1003 = icmp ugt i32 %1002, 1
-  br i1 %1003, label %.lr.ph.i170, label %dissect_nvme_get_logpage_err_inf_resp.exit
+999:                                              ; preds = %996, %991
+  %1000 = sub i32 %4, %.0.i167
+  %1001 = icmp ugt i32 %1000, 1
+  br i1 %1001, label %.lr.ph.i170, label %dissect_nvme_get_logpage_err_inf_resp.exit
 
-.lr.ph.i170:                                      ; preds = %1001, %.lr.ph.i170
-  %.12.i171 = phi i32 [ %1006, %.lr.ph.i170 ], [ %.0.i167, %1001 ]
-  %.0241.i = phi i32 [ %1007, %.lr.ph.i170 ], [ %1002, %1001 ]
-  %1004 = load i32, ptr @hf_nvme_get_logpage_pred_lat_aggreg_nset, align 4
-  %1005 = tail call ptr @proto_tree_add_item(ptr noundef %995, i32 noundef %1004, ptr noundef %0, i32 noundef %.12.i171, i32 noundef 2, i32 noundef -2147483648) #10
-  %1006 = add i32 %.12.i171, 2
-  %1007 = add i32 %.0241.i, -2
-  %1008 = icmp ugt i32 %1007, 1
-  br i1 %1008, label %.lr.ph.i170, label %dissect_nvme_get_logpage_err_inf_resp.exit, !llvm.loop !16
+.lr.ph.i170:                                      ; preds = %999, %.lr.ph.i170
+  %.12.i171 = phi i32 [ %1004, %.lr.ph.i170 ], [ %.0.i167, %999 ]
+  %.0241.i = phi i32 [ %1005, %.lr.ph.i170 ], [ %1000, %999 ]
+  %1002 = load i32, ptr @hf_nvme_get_logpage_pred_lat_aggreg_nset, align 4
+  %1003 = tail call ptr @proto_tree_add_item(ptr noundef %993, i32 noundef %1002, ptr noundef %0, i32 noundef %.12.i171, i32 noundef 2, i32 noundef -2147483648) #10
+  %1004 = add i32 %.12.i171, 2
+  %1005 = add i32 %.0241.i, -2
+  %1006 = icmp ugt i32 %1005, 1
+  br i1 %1006, label %.lr.ph.i170, label %dissect_nvme_get_logpage_err_inf_resp.exit, !llvm.loop !16
 
-1009:                                             ; preds = %get_logpage_name.exit
-  %1010 = getelementptr inbounds i8, ptr %2, i64 120
-  %1011 = getelementptr inbounds i8, ptr %2, i64 144
-  %1012 = load i64, ptr %1011, align 8
-  %1013 = load i32, ptr @ett_data, align 4
-  %1014 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %1013) #10
-  %1015 = load i64, ptr %1011, align 8
-  %1016 = icmp ugt i64 %1015, 15
-  %1017 = icmp ne i32 %3, 0
-  %or.cond.i172 = or i1 %1017, %1016
-  br i1 %or.cond.i172, label %1039, label %1018
+1007:                                             ; preds = %get_logpage_name.exit
+  %1008 = getelementptr inbounds i8, ptr %2, i64 120
+  %1009 = getelementptr inbounds i8, ptr %2, i64 144
+  %1010 = load i64, ptr %1009, align 8
+  %1011 = load i32, ptr @ett_data, align 4
+  %1012 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %1011) #10
+  %1013 = load i64, ptr %1009, align 8
+  %1014 = icmp ugt i64 %1013, 15
+  %1015 = icmp ne i32 %3, 0
+  %or.cond.i172 = or i1 %1015, %1014
+  br i1 %or.cond.i172, label %1037, label %1016
 
-1018:                                             ; preds = %1009
-  %1019 = trunc i64 %1012 to i32
+1016:                                             ; preds = %1007
+  %1017 = trunc i64 %1010 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 1, ptr %7, align 4
-  %1020 = icmp eq i32 %1019, 0
-  %1021 = icmp ugt i32 %4, 7
-  %or.cond.i.i173 = and i1 %1021, %1020
-  br i1 %or.cond.i.i173, label %1022, label %1025
+  %1018 = icmp eq i32 %1017, 0
+  %1019 = icmp ugt i32 %4, 7
+  %or.cond.i.i173 = and i1 %1019, %1018
+  br i1 %or.cond.i.i173, label %1020, label %1023
 
-1022:                                             ; preds = %1018
-  %1023 = load i32, ptr @hf_nvme_get_logpage_ana_chcnt, align 4
-  %1024 = tail call ptr @proto_tree_add_item(ptr noundef %1014, i32 noundef %1023, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483648) #10
-  br label %1025
+1020:                                             ; preds = %1016
+  %1021 = load i32, ptr @hf_nvme_get_logpage_ana_chcnt, align 4
+  %1022 = tail call ptr @proto_tree_add_item(ptr noundef %1012, i32 noundef %1021, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483648) #10
+  br label %1023
 
-1025:                                             ; preds = %1022, %1018
-  %1026 = icmp ugt i32 %1019, 8
-  %1027 = sub nuw nsw i32 10, %1019
-  %.not.i.i174 = icmp ugt i32 %1027, %4
-  %or.cond18.i.i = select i1 %1026, i1 true, i1 %.not.i.i174
-  br i1 %or.cond18.i.i, label %1032, label %1028
+1023:                                             ; preds = %1020, %1016
+  %1024 = icmp ugt i32 %1017, 8
+  %1025 = sub nuw nsw i32 10, %1017
+  %.not.i.i174 = icmp ugt i32 %1025, %4
+  %or.cond18.i.i = select i1 %1024, i1 true, i1 %.not.i.i174
+  br i1 %or.cond18.i.i, label %1030, label %1026
 
-1028:                                             ; preds = %1025
-  %1029 = load i32, ptr @hf_nvme_get_logpage_ana_ngd, align 4
-  %1030 = sub nuw nsw i32 8, %1019
-  %1031 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1014, i32 noundef %1029, ptr noundef %0, i32 noundef %1030, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %7) #10
-  br label %1032
+1026:                                             ; preds = %1023
+  %1027 = load i32, ptr @hf_nvme_get_logpage_ana_ngd, align 4
+  %1028 = sub nuw nsw i32 8, %1017
+  %1029 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1012, i32 noundef %1027, ptr noundef %0, i32 noundef %1028, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %7) #10
+  br label %1030
 
-1032:                                             ; preds = %1028, %1025
-  %1033 = icmp ugt i32 %1019, 10
-  %1034 = sub i32 16, %1019
-  %.not17.i.i = icmp ugt i32 %1034, %4
-  %or.cond19.i.i = or i1 %1033, %.not17.i.i
-  br i1 %or.cond19.i.i, label %dissect_nvme_get_logpage_ana_resp_header.exit.i, label %1035
+1030:                                             ; preds = %1026, %1023
+  %1031 = icmp ugt i32 %1017, 10
+  %1032 = sub i32 16, %1017
+  %.not17.i.i = icmp ugt i32 %1032, %4
+  %or.cond19.i.i = or i1 %1031, %.not17.i.i
+  br i1 %or.cond19.i.i, label %dissect_nvme_get_logpage_ana_resp_header.exit.i, label %1033
 
-1035:                                             ; preds = %1032
-  %1036 = load i32, ptr @hf_nvme_get_logpage_ana_rsvd, align 4
-  %1037 = call ptr @proto_tree_add_item(ptr noundef %1014, i32 noundef %1036, ptr noundef %0, i32 noundef %1027, i32 noundef 6, i32 noundef -2147483648) #10
+1033:                                             ; preds = %1030
+  %1034 = load i32, ptr @hf_nvme_get_logpage_ana_rsvd, align 4
+  %1035 = call ptr @proto_tree_add_item(ptr noundef %1012, i32 noundef %1034, ptr noundef %0, i32 noundef %1025, i32 noundef 6, i32 noundef -2147483648) #10
   br label %dissect_nvme_get_logpage_ana_resp_header.exit.i
 
-dissect_nvme_get_logpage_ana_resp_header.exit.i:  ; preds = %1035, %1032
-  %1038 = load i32, ptr %7, align 4
+dissect_nvme_get_logpage_ana_resp_header.exit.i:  ; preds = %1033, %1030
+  %1036 = load i32, ptr %7, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  store i32 %1038, ptr %1010, align 8
-  br label %1042
+  store i32 %1036, ptr %1008, align 8
+  br label %1040
 
-1039:                                             ; preds = %1009
-  br i1 %1017, label %1040, label %1042
+1037:                                             ; preds = %1007
+  br i1 %1015, label %1038, label %1040
 
-1040:                                             ; preds = %1039
-  %1041 = load i32, ptr %1010, align 8
-  br label %1042
+1038:                                             ; preds = %1037
+  %1039 = load i32, ptr %1008, align 8
+  br label %1040
 
-1042:                                             ; preds = %1040, %1039, %dissect_nvme_get_logpage_ana_resp_header.exit.i
-  %.028.i = phi i32 [ 0, %1040 ], [ 0, %1039 ], [ %1034, %dissect_nvme_get_logpage_ana_resp_header.exit.i ]
-  %.027.i = phi i32 [ %1041, %1040 ], [ 1, %1039 ], [ %1038, %dissect_nvme_get_logpage_ana_resp_header.exit.i ]
-  %1043 = sub i32 %4, %.028.i
-  %1044 = icmp ugt i32 %1043, 3
-  %1045 = icmp ne i32 %.027.i, 0
-  %1046 = select i1 %1044, i1 %1045, i1 false
-  br i1 %1046, label %.lr.ph.i176, label %dissect_nvme_get_logpage_err_inf_resp.exit
+1040:                                             ; preds = %1038, %1037, %dissect_nvme_get_logpage_ana_resp_header.exit.i
+  %.028.i = phi i32 [ 0, %1038 ], [ 0, %1037 ], [ %1032, %dissect_nvme_get_logpage_ana_resp_header.exit.i ]
+  %.027.i = phi i32 [ %1039, %1038 ], [ 1, %1037 ], [ %1036, %dissect_nvme_get_logpage_ana_resp_header.exit.i ]
+  %1041 = sub i32 %4, %.028.i
+  %1042 = icmp ugt i32 %1041, 3
+  %1043 = icmp ne i32 %.027.i, 0
+  %1044 = select i1 %1042, i1 %1043, i1 false
+  br i1 %1044, label %.lr.ph.i176, label %dissect_nvme_get_logpage_err_inf_resp.exit
 
-.lr.ph.i176:                                      ; preds = %1042
-  %1047 = getelementptr inbounds i8, ptr %2, i64 128
-  %1048 = getelementptr inbounds i8, ptr %2, i64 132
-  %1049 = getelementptr inbounds i8, ptr %2, i64 124
-  %.pre.i177 = load i32, ptr %1047, align 8
-  br label %1050
+.lr.ph.i176:                                      ; preds = %1040
+  %1045 = getelementptr inbounds i8, ptr %2, i64 128
+  %1046 = getelementptr inbounds i8, ptr %2, i64 132
+  %1047 = getelementptr inbounds i8, ptr %2, i64 124
+  %.pre.i177 = load i32, ptr %1045, align 8
+  br label %1048
 
-1050:                                             ; preds = %dissect_nvme_get_logpage_ana_resp_grp.exit.i, %.lr.ph.i176
-  %1051 = phi i32 [ %.pre.i177, %.lr.ph.i176 ], [ %1150, %dissect_nvme_get_logpage_ana_resp_grp.exit.i ]
-  %.036.i178 = phi i32 [ %1043, %.lr.ph.i176 ], [ %1152, %dissect_nvme_get_logpage_ana_resp_grp.exit.i ]
-  %.135.i = phi i32 [ %.027.i, %.lr.ph.i176 ], [ %1153, %dissect_nvme_get_logpage_ana_resp_grp.exit.i ]
-  %.12933.i = phi i32 [ %.028.i, %.lr.ph.i176 ], [ %1151, %dissect_nvme_get_logpage_ana_resp_grp.exit.i ]
+1048:                                             ; preds = %dissect_nvme_get_logpage_ana_resp_grp.exit.i, %.lr.ph.i176
+  %1049 = phi i32 [ %.pre.i177, %.lr.ph.i176 ], [ %1148, %dissect_nvme_get_logpage_ana_resp_grp.exit.i ]
+  %.036.i178 = phi i32 [ %1041, %.lr.ph.i176 ], [ %1150, %dissect_nvme_get_logpage_ana_resp_grp.exit.i ]
+  %.135.i = phi i32 [ %.027.i, %.lr.ph.i176 ], [ %1151, %dissect_nvme_get_logpage_ana_resp_grp.exit.i ]
+  %.12933.i = phi i32 [ %.028.i, %.lr.ph.i176 ], [ %1149, %dissect_nvme_get_logpage_ana_resp_grp.exit.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %1052 = icmp ult i32 %1051, 5
-  br i1 %1052, label %1053, label %1059
+  %1050 = icmp ult i32 %1049, 5
+  br i1 %1050, label %1051, label %1057
 
-1053:                                             ; preds = %1050
-  %1054 = add i32 %.12933.i, 4
-  %1055 = sub i32 %1054, %1051
-  %1056 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %1055, i32 noundef -2147483648) #10
-  %1057 = shl i32 %1056, 2
-  %1058 = add i32 %1057, 32
-  store i32 %1056, ptr %1048, align 4
-  br label %1065
+1051:                                             ; preds = %1048
+  %1052 = add i32 %.12933.i, 4
+  %1053 = sub i32 %1052, %1049
+  %1054 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %1053, i32 noundef -2147483648) #10
+  %1055 = shl i32 %1054, 2
+  %1056 = add i32 %1055, 32
+  store i32 %1054, ptr %1046, align 4
+  br label %1063
 
-1059:                                             ; preds = %1050
-  %1060 = load i32, ptr %1048, align 4
-  %1061 = icmp ugt i32 %1051, 32
-  %1062 = shl i32 %1060, 2
-  %reass.sub = sub i32 %1062, %1051
-  %1063 = add i32 %reass.sub, 32
-  %1064 = select i1 %1061, i32 %1062, i32 %1063
-  br label %1065
+1057:                                             ; preds = %1048
+  %1058 = load i32, ptr %1046, align 4
+  %1059 = icmp ugt i32 %1049, 32
+  %1060 = shl i32 %1058, 2
+  %reass.sub = sub i32 %1060, %1049
+  %1061 = add i32 %reass.sub, 32
+  %1062 = select i1 %1059, i32 %1060, i32 %1061
+  br label %1063
 
-1065:                                             ; preds = %1059, %1053
-  %.0102.i.i = phi i32 [ %1058, %1053 ], [ %1064, %1059 ]
-  %.0101.i.i = phi i32 [ %1056, %1053 ], [ %1060, %1059 ]
+1063:                                             ; preds = %1057, %1051
+  %.0102.i.i = phi i32 [ %1056, %1051 ], [ %1062, %1057 ]
+  %.0101.i.i = phi i32 [ %1054, %1051 ], [ %1058, %1057 ]
   %spec.select.i.i180 = call i32 @llvm.umin.i32(i32 %.0102.i.i, i32 %.036.i178)
-  %1066 = load i32, ptr @hf_nvme_get_logpage_ana_grp, align 4
-  %1067 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %1014, i32 noundef %1066, ptr noundef %0, i32 noundef %.12933.i, i32 noundef %spec.select.i.i180, ptr noundef null, ptr noundef nonnull @.str.1459) #10
-  %1068 = load i32, ptr @ett_data, align 4
-  %1069 = call ptr @proto_item_add_subtree(ptr noundef %1067, i32 noundef %1068) #10
-  %.not.i30.i = icmp eq i32 %1051, 0
-  br i1 %.not.i30.i, label %.thread.i.i, label %1074
+  %1064 = load i32, ptr @hf_nvme_get_logpage_ana_grp, align 4
+  %1065 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %1012, i32 noundef %1064, ptr noundef %0, i32 noundef %.12933.i, i32 noundef %spec.select.i.i180, ptr noundef null, ptr noundef nonnull @.str.1459) #10
+  %1066 = load i32, ptr @ett_data, align 4
+  %1067 = call ptr @proto_item_add_subtree(ptr noundef %1065, i32 noundef %1066) #10
+  %.not.i30.i = icmp eq i32 %1049, 0
+  br i1 %.not.i30.i, label %.thread.i.i, label %1072
 
-.thread.i.i:                                      ; preds = %1065
-  %1070 = load i32, ptr @hf_nvme_get_logpage_ana_grp_id, align 4
-  %1071 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1069, i32 noundef %1070, ptr noundef %0, i32 noundef %.12933.i, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6) #10
-  %1072 = load i32, ptr %6, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1067, ptr noundef nonnull @.str.1794, i32 noundef %1072) #10
-  %1073 = load i32, ptr %6, align 4
-  store i32 %1073, ptr %1049, align 4
-  br label %1076
+.thread.i.i:                                      ; preds = %1063
+  %1068 = load i32, ptr @hf_nvme_get_logpage_ana_grp_id, align 4
+  %1069 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1067, i32 noundef %1068, ptr noundef %0, i32 noundef %.12933.i, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6) #10
+  %1070 = load i32, ptr %6, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1065, ptr noundef nonnull @.str.1794, i32 noundef %1070) #10
+  %1071 = load i32, ptr %6, align 4
+  store i32 %1071, ptr %1047, align 4
+  br label %1074
 
-1074:                                             ; preds = %1065
-  %1075 = load i32, ptr %1049, align 4
-  store i32 %1075, ptr %6, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1067, ptr noundef nonnull @.str.1793, i32 noundef %1075) #10
-  br i1 %1052, label %1076, label %1087
+1072:                                             ; preds = %1063
+  %1073 = load i32, ptr %1047, align 4
+  store i32 %1073, ptr %6, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1065, ptr noundef nonnull @.str.1793, i32 noundef %1073) #10
+  br i1 %1050, label %1074, label %1085
 
-1076:                                             ; preds = %1074, %.thread.i.i
-  %.0104116.i.i = phi i32 [ 4, %.thread.i.i ], [ 0, %1074 ]
-  %1077 = sub nuw i32 %.036.i178, %.0104116.i.i
-  %1078 = icmp ult i32 %1077, 4
-  br i1 %1078, label %1079, label %.thread117.i.i
+1074:                                             ; preds = %1072, %.thread.i.i
+  %.0104116.i.i = phi i32 [ 4, %.thread.i.i ], [ 0, %1072 ]
+  %1075 = sub nuw i32 %.036.i178, %.0104116.i.i
+  %1076 = icmp ult i32 %1075, 4
+  br i1 %1076, label %1077, label %.thread117.i.i
 
-1079:                                             ; preds = %1076
-  %1080 = load i32, ptr %1047, align 8
-  %1081 = add i32 %1080, %.0104116.i.i
-  store i32 %1081, ptr %1047, align 8
+1077:                                             ; preds = %1074
+  %1078 = load i32, ptr %1045, align 8
+  %1079 = add i32 %1078, %.0104116.i.i
+  store i32 %1079, ptr %1045, align 8
   br label %dissect_nvme_get_logpage_ana_resp_grp.exit.i
 
-.thread117.i.i:                                   ; preds = %1076
-  %1082 = load i32, ptr @hf_nvme_get_logpage_ana_grp_nns, align 4
-  %1083 = add i32 %.12933.i, 4
-  %1084 = sub i32 %1083, %1051
-  %1085 = call ptr @proto_tree_add_item(ptr noundef %1069, i32 noundef %1082, ptr noundef %0, i32 noundef %1084, i32 noundef 4, i32 noundef -2147483648) #10
-  %1086 = add nuw nsw i32 %.0104116.i.i, 4
-  br label %1089
+.thread117.i.i:                                   ; preds = %1074
+  %1080 = load i32, ptr @hf_nvme_get_logpage_ana_grp_nns, align 4
+  %1081 = add i32 %.12933.i, 4
+  %1082 = sub i32 %1081, %1049
+  %1083 = call ptr @proto_tree_add_item(ptr noundef %1067, i32 noundef %1080, ptr noundef %0, i32 noundef %1082, i32 noundef 4, i32 noundef -2147483648) #10
+  %1084 = add nuw nsw i32 %.0104116.i.i, 4
+  br label %1087
 
-1087:                                             ; preds = %1074
-  %1088 = icmp ult i32 %1051, 9
-  br i1 %1088, label %1089, label %1099
+1085:                                             ; preds = %1072
+  %1086 = icmp ult i32 %1049, 9
+  br i1 %1086, label %1087, label %1097
 
-1089:                                             ; preds = %1087, %.thread117.i.i
-  %.1105119.i.i = phi i32 [ %1086, %.thread117.i.i ], [ 0, %1087 ]
-  %1090 = sub i32 %.036.i178, %.1105119.i.i
-  %1091 = icmp ult i32 %1090, 8
-  br i1 %1091, label %1092, label %.thread120.i.i
+1087:                                             ; preds = %1085, %.thread117.i.i
+  %.1105119.i.i = phi i32 [ %1084, %.thread117.i.i ], [ 0, %1085 ]
+  %1088 = sub i32 %.036.i178, %.1105119.i.i
+  %1089 = icmp ult i32 %1088, 8
+  br i1 %1089, label %1090, label %.thread120.i.i
 
-1092:                                             ; preds = %1089
-  %1093 = load i32, ptr %1047, align 8
-  %1094 = add i32 %1093, %.1105119.i.i
-  store i32 %1094, ptr %1047, align 8
+1090:                                             ; preds = %1087
+  %1091 = load i32, ptr %1045, align 8
+  %1092 = add i32 %1091, %.1105119.i.i
+  store i32 %1092, ptr %1045, align 8
   br label %dissect_nvme_get_logpage_ana_resp_grp.exit.i
 
-.thread120.i.i:                                   ; preds = %1089
-  %1095 = load i32, ptr @hf_nvme_get_logpage_ana_grp_chcnt, align 4
-  %reass.sub242 = sub i32 %.12933.i, %1051
-  %1096 = add i32 %reass.sub242, 8
-  %1097 = call ptr @proto_tree_add_item(ptr noundef %1069, i32 noundef %1095, ptr noundef %0, i32 noundef %1096, i32 noundef 8, i32 noundef -2147483648) #10
-  %1098 = add nuw nsw i32 %.1105119.i.i, 8
-  br label %1101
+.thread120.i.i:                                   ; preds = %1087
+  %1093 = load i32, ptr @hf_nvme_get_logpage_ana_grp_chcnt, align 4
+  %reass.sub242 = sub i32 %.12933.i, %1049
+  %1094 = add i32 %reass.sub242, 8
+  %1095 = call ptr @proto_tree_add_item(ptr noundef %1067, i32 noundef %1093, ptr noundef %0, i32 noundef %1094, i32 noundef 8, i32 noundef -2147483648) #10
+  %1096 = add nuw nsw i32 %.1105119.i.i, 8
+  br label %1099
 
-1099:                                             ; preds = %1087
-  %1100 = icmp ult i32 %1051, 17
-  br i1 %1100, label %1101, label %1116
+1097:                                             ; preds = %1085
+  %1098 = icmp ult i32 %1049, 17
+  br i1 %1098, label %1099, label %1114
 
-1101:                                             ; preds = %1099, %.thread120.i.i
-  %.2122.i.i = phi i32 [ %1098, %.thread120.i.i ], [ 0, %1099 ]
-  %1102 = icmp eq i32 %.2122.i.i, %.036.i178
-  br i1 %1102, label %1103, label %1106
+1099:                                             ; preds = %1097, %.thread120.i.i
+  %.2122.i.i = phi i32 [ %1096, %.thread120.i.i ], [ 0, %1097 ]
+  %1100 = icmp eq i32 %.2122.i.i, %.036.i178
+  br i1 %1100, label %1101, label %1104
 
-1103:                                             ; preds = %1101
-  %1104 = load i32, ptr %1047, align 8
-  %1105 = add i32 %1104, %.036.i178
-  store i32 %1105, ptr %1047, align 8
+1101:                                             ; preds = %1099
+  %1102 = load i32, ptr %1045, align 8
+  %1103 = add i32 %1102, %.036.i178
+  store i32 %1103, ptr %1045, align 8
   br label %dissect_nvme_get_logpage_ana_resp_grp.exit.i
 
-1106:                                             ; preds = %1101
-  %reass.sub243 = sub i32 %.12933.i, %1051
-  %1107 = add i32 %reass.sub243, 16
-  %1108 = load i32, ptr @hf_nvme_get_logpage_ana_grp_anas, align 4
-  %1109 = call ptr @proto_tree_add_item(ptr noundef %1069, i32 noundef %1108, ptr noundef %0, i32 noundef %1107, i32 noundef 1, i32 noundef -2147483648) #10
-  %1110 = load i32, ptr @ett_data, align 4
-  %1111 = call ptr @proto_item_add_subtree(ptr noundef %1109, i32 noundef %1110) #10
+1104:                                             ; preds = %1099
+  %reass.sub243 = sub i32 %.12933.i, %1049
+  %1105 = add i32 %reass.sub243, 16
+  %1106 = load i32, ptr @hf_nvme_get_logpage_ana_grp_anas, align 4
+  %1107 = call ptr @proto_tree_add_item(ptr noundef %1067, i32 noundef %1106, ptr noundef %0, i32 noundef %1105, i32 noundef 1, i32 noundef -2147483648) #10
+  %1108 = load i32, ptr @ett_data, align 4
+  %1109 = call ptr @proto_item_add_subtree(ptr noundef %1107, i32 noundef %1108) #10
   br label %.lr.ph.i.i.i183
 
-.lr.ph.i.i.i183:                                  ; preds = %.lr.ph.i.i.i183, %1106
-  %indvars.iv.i.i.i184 = phi i64 [ 1, %1106 ], [ %indvars.iv.next.i.i.i185, %.lr.ph.i.i.i183 ]
-  %1112 = getelementptr i32, ptr @hf_nvme_get_logpage_ana_grp_anas, i64 %indvars.iv.i.i.i184
-  %1113 = load i32, ptr %1112, align 4
-  %1114 = call ptr @proto_tree_add_item(ptr noundef %1111, i32 noundef %1113, ptr noundef %0, i32 noundef %1107, i32 noundef 1, i32 noundef -2147483648) #10
+.lr.ph.i.i.i183:                                  ; preds = %.lr.ph.i.i.i183, %1104
+  %indvars.iv.i.i.i184 = phi i64 [ 1, %1104 ], [ %indvars.iv.next.i.i.i185, %.lr.ph.i.i.i183 ]
+  %1110 = getelementptr i32, ptr @hf_nvme_get_logpage_ana_grp_anas, i64 %indvars.iv.i.i.i184
+  %1111 = load i32, ptr %1110, align 4
+  %1112 = call ptr @proto_tree_add_item(ptr noundef %1109, i32 noundef %1111, ptr noundef %0, i32 noundef %1105, i32 noundef 1, i32 noundef -2147483648) #10
   %indvars.iv.next.i.i.i185 = add nuw nsw i64 %indvars.iv.i.i.i184, 1
   %exitcond.not.i.i.i186 = icmp eq i64 %indvars.iv.next.i.i.i185, 3
   br i1 %exitcond.not.i.i.i186, label %add_group_mask_entry.exit.i.i187, label %.lr.ph.i.i.i183, !llvm.loop !6
 
 add_group_mask_entry.exit.i.i187:                 ; preds = %.lr.ph.i.i.i183
-  %1115 = add nuw nsw i32 %.2122.i.i, 1
-  br label %1116
+  %1113 = add nuw nsw i32 %.2122.i.i, 1
+  br label %1114
 
-1116:                                             ; preds = %add_group_mask_entry.exit.i.i187, %1099
-  %.3.i.i = phi i32 [ %1115, %add_group_mask_entry.exit.i.i187 ], [ 0, %1099 ]
-  %1117 = icmp ult i32 %1051, 18
-  br i1 %1117, label %1118, label %1129
+1114:                                             ; preds = %add_group_mask_entry.exit.i.i187, %1097
+  %.3.i.i = phi i32 [ %1113, %add_group_mask_entry.exit.i.i187 ], [ 0, %1097 ]
+  %1115 = icmp ult i32 %1049, 18
+  br i1 %1115, label %1116, label %1127
 
-1118:                                             ; preds = %1116
-  %1119 = sub i32 %.036.i178, %.3.i.i
-  %1120 = icmp ult i32 %1119, 15
-  br i1 %1120, label %1121, label %1124
+1116:                                             ; preds = %1114
+  %1117 = sub i32 %.036.i178, %.3.i.i
+  %1118 = icmp ult i32 %1117, 15
+  br i1 %1118, label %1119, label %1122
 
-1121:                                             ; preds = %1118
-  %1122 = load i32, ptr %1047, align 8
-  %1123 = add i32 %1122, %.3.i.i
-  store i32 %1123, ptr %1047, align 8
+1119:                                             ; preds = %1116
+  %1120 = load i32, ptr %1045, align 8
+  %1121 = add i32 %1120, %.3.i.i
+  store i32 %1121, ptr %1045, align 8
   br label %dissect_nvme_get_logpage_ana_resp_grp.exit.i
 
-1124:                                             ; preds = %1118
-  %1125 = load i32, ptr @hf_nvme_get_logpage_ana_grp_rsvd, align 4
-  %reass.sub244 = sub i32 %.12933.i, %1051
-  %1126 = add i32 %reass.sub244, 17
-  %1127 = call ptr @proto_tree_add_item(ptr noundef %1069, i32 noundef %1125, ptr noundef %0, i32 noundef %1126, i32 noundef 15, i32 noundef 0) #10
-  %1128 = add nuw nsw i32 %.3.i.i, 15
-  br label %1129
+1122:                                             ; preds = %1116
+  %1123 = load i32, ptr @hf_nvme_get_logpage_ana_grp_rsvd, align 4
+  %reass.sub244 = sub i32 %.12933.i, %1049
+  %1124 = add i32 %reass.sub244, 17
+  %1125 = call ptr @proto_tree_add_item(ptr noundef %1067, i32 noundef %1123, ptr noundef %0, i32 noundef %1124, i32 noundef 15, i32 noundef 0) #10
+  %1126 = add nuw nsw i32 %.3.i.i, 15
+  br label %1127
 
-1129:                                             ; preds = %1124, %1116
-  %.4.i.i = phi i32 [ %1128, %1124 ], [ %.3.i.i, %1116 ]
-  %1130 = sub i32 %.036.i178, %.4.i.i
-  %1131 = icmp ugt i32 %1130, 3
-  %1132 = icmp ne i32 %.0101.i.i, 0
-  %1133 = select i1 %1131, i1 %1132, i1 false
-  br i1 %1133, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i181
+1127:                                             ; preds = %1122, %1114
+  %.4.i.i = phi i32 [ %1126, %1122 ], [ %.3.i.i, %1114 ]
+  %1128 = sub i32 %.036.i178, %.4.i.i
+  %1129 = icmp ugt i32 %1128, 3
+  %1130 = icmp ne i32 %.0101.i.i, 0
+  %1131 = select i1 %1129, i1 %1130, i1 false
+  br i1 %1131, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i181
 
-.lr.ph.preheader.i.i:                             ; preds = %1129
-  %1134 = add i32 %.4.i.i, %.12933.i
+.lr.ph.preheader.i.i:                             ; preds = %1127
+  %1132 = add i32 %.4.i.i, %.12933.i
   br label %.lr.ph.i.i182
 
 .lr.ph.i.i182:                                    ; preds = %.lr.ph.i.i182, %.lr.ph.preheader.i.i
-  %.1125.i.i = phi i32 [ %1139, %.lr.ph.i.i182 ], [ %.0101.i.i, %.lr.ph.preheader.i.i ]
-  %.5124.i.i = phi i32 [ %1138, %.lr.ph.i.i182 ], [ %.4.i.i, %.lr.ph.preheader.i.i ]
-  %.0106123.i.i = phi i32 [ %1137, %.lr.ph.i.i182 ], [ %1134, %.lr.ph.preheader.i.i ]
-  %1135 = load i32, ptr @hf_nvme_get_logpage_ana_grp_nsid, align 4
-  %1136 = call ptr @proto_tree_add_item(ptr noundef %1069, i32 noundef %1135, ptr noundef %0, i32 noundef %.0106123.i.i, i32 noundef 4, i32 noundef -2147483648) #10
-  %1137 = add i32 %.0106123.i.i, 4
-  %1138 = add i32 %.5124.i.i, 4
-  %1139 = add i32 %.1125.i.i, -1
-  %1140 = sub i32 %.036.i178, %1138
-  %1141 = icmp ugt i32 %1140, 3
-  %1142 = icmp ne i32 %1139, 0
-  %1143 = select i1 %1141, i1 %1142, i1 false
-  br i1 %1143, label %.lr.ph.i.i182, label %._crit_edge.i.i181, !llvm.loop !17
+  %.1125.i.i = phi i32 [ %1137, %.lr.ph.i.i182 ], [ %.0101.i.i, %.lr.ph.preheader.i.i ]
+  %.5124.i.i = phi i32 [ %1136, %.lr.ph.i.i182 ], [ %.4.i.i, %.lr.ph.preheader.i.i ]
+  %.0106123.i.i = phi i32 [ %1135, %.lr.ph.i.i182 ], [ %1132, %.lr.ph.preheader.i.i ]
+  %1133 = load i32, ptr @hf_nvme_get_logpage_ana_grp_nsid, align 4
+  %1134 = call ptr @proto_tree_add_item(ptr noundef %1067, i32 noundef %1133, ptr noundef %0, i32 noundef %.0106123.i.i, i32 noundef 4, i32 noundef -2147483648) #10
+  %1135 = add i32 %.0106123.i.i, 4
+  %1136 = add i32 %.5124.i.i, 4
+  %1137 = add i32 %.1125.i.i, -1
+  %1138 = sub i32 %.036.i178, %1136
+  %1139 = icmp ugt i32 %1138, 3
+  %1140 = icmp ne i32 %1137, 0
+  %1141 = select i1 %1139, i1 %1140, i1 false
+  br i1 %1141, label %.lr.ph.i.i182, label %._crit_edge.i.i181, !llvm.loop !17
 
-._crit_edge.i.i181:                               ; preds = %.lr.ph.i.i182, %1129
-  %.5.lcssa.i.i = phi i32 [ %.4.i.i, %1129 ], [ %1138, %.lr.ph.i.i182 ]
-  %.1.lcssa.i.i = phi i32 [ %.0101.i.i, %1129 ], [ %1139, %.lr.ph.i.i182 ]
-  %.lcssa.i.i = phi i1 [ %1132, %1129 ], [ %1142, %.lr.ph.i.i182 ]
-  br i1 %.lcssa.i.i, label %1144, label %1147
+._crit_edge.i.i181:                               ; preds = %.lr.ph.i.i182, %1127
+  %.5.lcssa.i.i = phi i32 [ %.4.i.i, %1127 ], [ %1136, %.lr.ph.i.i182 ]
+  %.1.lcssa.i.i = phi i32 [ %.0101.i.i, %1127 ], [ %1137, %.lr.ph.i.i182 ]
+  %.lcssa.i.i = phi i1 [ %1130, %1127 ], [ %1140, %.lr.ph.i.i182 ]
+  br i1 %.lcssa.i.i, label %1142, label %1145
 
-1144:                                             ; preds = %._crit_edge.i.i181
-  %1145 = load i32, ptr %1047, align 8
-  %1146 = add i32 %1145, %.5.lcssa.i.i
-  store i32 %1146, ptr %1047, align 8
-  store i32 %.1.lcssa.i.i, ptr %1048, align 4
+1142:                                             ; preds = %._crit_edge.i.i181
+  %1143 = load i32, ptr %1045, align 8
+  %1144 = add i32 %1143, %.5.lcssa.i.i
+  store i32 %1144, ptr %1045, align 8
+  store i32 %.1.lcssa.i.i, ptr %1046, align 4
   br label %dissect_nvme_get_logpage_ana_resp_grp.exit.i
 
-1147:                                             ; preds = %._crit_edge.i.i181
-  store i32 0, ptr %1047, align 8
-  store i32 0, ptr %1048, align 4
-  store i32 0, ptr %1049, align 4
-  %1148 = load i32, ptr %1010, align 8
-  %1149 = add i32 %1148, -1
-  store i32 %1149, ptr %1010, align 8
+1145:                                             ; preds = %._crit_edge.i.i181
+  store i32 0, ptr %1045, align 8
+  store i32 0, ptr %1046, align 4
+  store i32 0, ptr %1047, align 4
+  %1146 = load i32, ptr %1008, align 8
+  %1147 = add i32 %1146, -1
+  store i32 %1147, ptr %1008, align 8
   br label %dissect_nvme_get_logpage_ana_resp_grp.exit.i
 
-dissect_nvme_get_logpage_ana_resp_grp.exit.i:     ; preds = %1147, %1144, %1121, %1103, %1092, %1079
-  %1150 = phi i32 [ %1081, %1079 ], [ %1094, %1092 ], [ %1105, %1103 ], [ %1123, %1121 ], [ 0, %1147 ], [ %1146, %1144 ]
-  %.0.i.i = phi i32 [ %.0104116.i.i, %1079 ], [ %.1105119.i.i, %1092 ], [ %.036.i178, %1103 ], [ %.3.i.i, %1121 ], [ %.5.lcssa.i.i, %1147 ], [ %.5.lcssa.i.i, %1144 ]
+dissect_nvme_get_logpage_ana_resp_grp.exit.i:     ; preds = %1145, %1142, %1119, %1101, %1090, %1077
+  %1148 = phi i32 [ %1079, %1077 ], [ %1092, %1090 ], [ %1103, %1101 ], [ %1121, %1119 ], [ 0, %1145 ], [ %1144, %1142 ]
+  %.0.i.i = phi i32 [ %.0104116.i.i, %1077 ], [ %.1105119.i.i, %1090 ], [ %.036.i178, %1101 ], [ %.3.i.i, %1119 ], [ %.5.lcssa.i.i, %1145 ], [ %.5.lcssa.i.i, %1142 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %1151 = add i32 %.0.i.i, %.12933.i
-  %1152 = sub i32 %.036.i178, %.0.i.i
-  %1153 = add i32 %.135.i, -1
-  %1154 = icmp ugt i32 %1152, 3
-  %1155 = icmp ne i32 %1153, 0
-  %1156 = select i1 %1154, i1 %1155, i1 false
-  br i1 %1156, label %1050, label %dissect_nvme_get_logpage_err_inf_resp.exit, !llvm.loop !18
+  %1149 = add i32 %.0.i.i, %.12933.i
+  %1150 = sub i32 %.036.i178, %.0.i.i
+  %1151 = add i32 %.135.i, -1
+  %1152 = icmp ugt i32 %1150, 3
+  %1153 = icmp ne i32 %1151, 0
+  %1154 = select i1 %1152, i1 %1153, i1 false
+  br i1 %1154, label %1048, label %dissect_nvme_get_logpage_err_inf_resp.exit, !llvm.loop !18
 
-1157:                                             ; preds = %get_logpage_name.exit
-  %1158 = getelementptr i8, ptr %2, i64 144
-  %.val81 = load i64, ptr %1158, align 8
-  %1159 = trunc i64 %.val81 to i32
-  %1160 = add i32 %1159, %3
-  %1161 = icmp ult i32 %1160, 16
-  br i1 %1161, label %1162, label %1201
+1155:                                             ; preds = %get_logpage_name.exit
+  %1156 = getelementptr i8, ptr %2, i64 144
+  %.val81 = load i64, ptr %1156, align 8
+  %1157 = trunc i64 %.val81 to i32
+  %1158 = add i32 %1157, %3
+  %1159 = icmp ult i32 %1158, 16
+  br i1 %1159, label %1160, label %1199
 
-1162:                                             ; preds = %1157
-  %1163 = load i32, ptr @ett_data, align 4
-  %1164 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %1163) #10
-  %1165 = icmp eq i32 %1160, 0
-  %1166 = icmp ugt i32 %4, 3
-  %or.cond.i.i194 = and i1 %1166, %1165
-  br i1 %or.cond.i.i194, label %1167, label %1170
+1160:                                             ; preds = %1155
+  %1161 = load i32, ptr @ett_data, align 4
+  %1162 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %1161) #10
+  %1163 = icmp eq i32 %1158, 0
+  %1164 = icmp ugt i32 %4, 3
+  %or.cond.i.i194 = and i1 %1164, %1163
+  br i1 %or.cond.i.i194, label %1165, label %1168
 
-1167:                                             ; preds = %1162
-  %1168 = load i32, ptr @hf_nvme_get_logpage_lba_status_lslplen, align 4
-  %1169 = tail call ptr @proto_tree_add_item(ptr noundef %1164, i32 noundef %1168, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %1170
+1165:                                             ; preds = %1160
+  %1166 = load i32, ptr @hf_nvme_get_logpage_lba_status_lslplen, align 4
+  %1167 = tail call ptr @proto_tree_add_item(ptr noundef %1162, i32 noundef %1166, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %1168
 
-1170:                                             ; preds = %1167, %1162
-  %1171 = icmp ugt i32 %1160, 4
-  %1172 = sub nuw nsw i32 8, %1160
-  %.not.i.i195 = icmp ugt i32 %1172, %4
-  %or.cond42.i.i = select i1 %1171, i1 true, i1 %.not.i.i195
-  br i1 %or.cond42.i.i, label %1177, label %1173
+1168:                                             ; preds = %1165, %1160
+  %1169 = icmp ugt i32 %1158, 4
+  %1170 = sub nuw nsw i32 8, %1158
+  %.not.i.i195 = icmp ugt i32 %1170, %4
+  %or.cond42.i.i = select i1 %1169, i1 true, i1 %.not.i.i195
+  br i1 %or.cond42.i.i, label %1175, label %1171
 
-1173:                                             ; preds = %1170
-  %1174 = load i32, ptr @hf_nvme_get_logpage_lba_status_nlslne, align 4
-  %1175 = sub nuw nsw i32 4, %1160
-  %1176 = tail call ptr @proto_tree_add_item(ptr noundef %1164, i32 noundef %1174, ptr noundef %0, i32 noundef %1175, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %1177
+1171:                                             ; preds = %1168
+  %1172 = load i32, ptr @hf_nvme_get_logpage_lba_status_nlslne, align 4
+  %1173 = sub nuw nsw i32 4, %1158
+  %1174 = tail call ptr @proto_tree_add_item(ptr noundef %1162, i32 noundef %1172, ptr noundef %0, i32 noundef %1173, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %1175
 
-1177:                                             ; preds = %1173, %1170
-  %1178 = icmp ugt i32 %1160, 8
-  %1179 = sub nuw nsw i32 12, %1160
-  %.not38.i.i = icmp ugt i32 %1179, %4
-  %or.cond43.i.i = select i1 %1178, i1 true, i1 %.not38.i.i
-  br i1 %or.cond43.i.i, label %1183, label %1180
+1175:                                             ; preds = %1171, %1168
+  %1176 = icmp ugt i32 %1158, 8
+  %1177 = sub nuw nsw i32 12, %1158
+  %.not38.i.i = icmp ugt i32 %1177, %4
+  %or.cond43.i.i = select i1 %1176, i1 true, i1 %.not38.i.i
+  br i1 %or.cond43.i.i, label %1181, label %1178
 
-1180:                                             ; preds = %1177
-  %1181 = load i32, ptr @hf_nvme_get_logpage_lba_status_estulb, align 4
-  %1182 = tail call ptr @proto_tree_add_item(ptr noundef %1164, i32 noundef %1181, ptr noundef %0, i32 noundef %1172, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %1183
+1178:                                             ; preds = %1175
+  %1179 = load i32, ptr @hf_nvme_get_logpage_lba_status_estulb, align 4
+  %1180 = tail call ptr @proto_tree_add_item(ptr noundef %1162, i32 noundef %1179, ptr noundef %0, i32 noundef %1170, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %1181
 
-1183:                                             ; preds = %1180, %1177
-  %1184 = icmp ugt i32 %1160, 12
-  %1185 = sub nuw nsw i32 14, %1160
-  %.not39.i.i = icmp ugt i32 %1185, %4
-  %or.cond44.i.i = select i1 %1184, i1 true, i1 %.not39.i.i
-  br i1 %or.cond44.i.i, label %1189, label %1186
+1181:                                             ; preds = %1178, %1175
+  %1182 = icmp ugt i32 %1158, 12
+  %1183 = sub nuw nsw i32 14, %1158
+  %.not39.i.i = icmp ugt i32 %1183, %4
+  %or.cond44.i.i = select i1 %1182, i1 true, i1 %.not39.i.i
+  br i1 %or.cond44.i.i, label %1187, label %1184
 
-1186:                                             ; preds = %1183
-  %1187 = load i32, ptr @hf_nvme_get_logpage_lba_status_rsvd, align 4
-  %1188 = tail call ptr @proto_tree_add_item(ptr noundef %1164, i32 noundef %1187, ptr noundef %0, i32 noundef %1179, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %1189
+1184:                                             ; preds = %1181
+  %1185 = load i32, ptr @hf_nvme_get_logpage_lba_status_rsvd, align 4
+  %1186 = tail call ptr @proto_tree_add_item(ptr noundef %1162, i32 noundef %1185, ptr noundef %0, i32 noundef %1177, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %1187
 
-1189:                                             ; preds = %1186, %1183
-  %1190 = icmp eq i32 %1160, 15
-  %1191 = sub nuw nsw i32 16, %1160
-  %.not40.i.i = icmp ugt i32 %1191, %4
-  %or.cond45.i.i = select i1 %1190, i1 true, i1 %.not40.i.i
-  br i1 %or.cond45.i.i, label %1195, label %1192
+1187:                                             ; preds = %1184, %1181
+  %1188 = icmp eq i32 %1158, 15
+  %1189 = sub nuw nsw i32 16, %1158
+  %.not40.i.i = icmp ugt i32 %1189, %4
+  %or.cond45.i.i = select i1 %1188, i1 true, i1 %.not40.i.i
+  br i1 %or.cond45.i.i, label %1193, label %1190
 
-1192:                                             ; preds = %1189
-  %1193 = load i32, ptr @hf_nvme_get_logpage_lba_status_lsgc, align 4
-  %1194 = tail call ptr @proto_tree_add_item(ptr noundef %1164, i32 noundef %1193, ptr noundef %0, i32 noundef %1185, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %1195
+1190:                                             ; preds = %1187
+  %1191 = load i32, ptr @hf_nvme_get_logpage_lba_status_lsgc, align 4
+  %1192 = tail call ptr @proto_tree_add_item(ptr noundef %1162, i32 noundef %1191, ptr noundef %0, i32 noundef %1183, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %1193
 
-1195:                                             ; preds = %1192, %1189
-  %1196 = sub nuw nsw i32 20, %1160
-  %.not41.i.i = icmp ugt i32 %1196, %4
-  br i1 %.not41.i.i, label %dissect_nvme_get_logpage_lba_status_resp_header.exit.i, label %1197
+1193:                                             ; preds = %1190, %1187
+  %1194 = sub nuw nsw i32 20, %1158
+  %.not41.i.i = icmp ugt i32 %1194, %4
+  br i1 %.not41.i.i, label %dissect_nvme_get_logpage_lba_status_resp_header.exit.i, label %1195
 
-1197:                                             ; preds = %1195
-  %1198 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel, align 4
-  %1199 = sub i32 %4, %1191
-  %1200 = tail call ptr @proto_tree_add_item(ptr noundef %1164, i32 noundef %1198, ptr noundef %0, i32 noundef %1191, i32 noundef %1199, i32 noundef 0) #10
+1195:                                             ; preds = %1193
+  %1196 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel, align 4
+  %1197 = sub i32 %4, %1189
+  %1198 = tail call ptr @proto_tree_add_item(ptr noundef %1162, i32 noundef %1196, ptr noundef %0, i32 noundef %1189, i32 noundef %1197, i32 noundef 0) #10
   br label %dissect_nvme_get_logpage_lba_status_resp_header.exit.i
 
-1201:                                             ; preds = %1157
-  %1202 = and i32 %1160, 15
-  %.not.i188 = icmp eq i32 %1202, 0
-  %1203 = sub nuw nsw i32 16, %1202
-  %spec.select.i189 = select i1 %.not.i188, i32 0, i32 %1203
+1199:                                             ; preds = %1155
+  %1200 = and i32 %1158, 15
+  %.not.i188 = icmp eq i32 %1200, 0
+  %1201 = sub nuw nsw i32 16, %1200
+  %spec.select.i189 = select i1 %.not.i188, i32 0, i32 %1201
   br label %dissect_nvme_get_logpage_lba_status_resp_header.exit.i
 
-dissect_nvme_get_logpage_lba_status_resp_header.exit.i: ; preds = %1201, %1197, %1195
-  %.031.i = phi ptr [ null, %1201 ], [ %1164, %1195 ], [ %1164, %1197 ]
-  %.0.i190 = phi i32 [ %spec.select.i189, %1201 ], [ %1191, %1195 ], [ %1191, %1197 ]
-  %1204 = add nuw nsw i32 %.0.i190, 8
-  %1205 = icmp ugt i32 %1204, %4
-  br i1 %1205, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %1206
+dissect_nvme_get_logpage_lba_status_resp_header.exit.i: ; preds = %1199, %1195, %1193
+  %.031.i = phi ptr [ null, %1199 ], [ %1162, %1193 ], [ %1162, %1195 ]
+  %.0.i190 = phi i32 [ %spec.select.i189, %1199 ], [ %1189, %1193 ], [ %1189, %1195 ]
+  %1202 = add nuw nsw i32 %.0.i190, 8
+  %1203 = icmp ugt i32 %1202, %4
+  br i1 %1203, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %1204
 
-1206:                                             ; preds = %dissect_nvme_get_logpage_lba_status_resp_header.exit.i
-  %1207 = icmp ugt i32 %1160, 15
-  br i1 %1207, label %1208, label %1211
+1204:                                             ; preds = %dissect_nvme_get_logpage_lba_status_resp_header.exit.i
+  %1205 = icmp ugt i32 %1158, 15
+  br i1 %1205, label %1206, label %1209
 
-1208:                                             ; preds = %1206
-  %1209 = load i32, ptr @ett_data, align 4
-  %1210 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %1209) #10
-  br label %1211
+1206:                                             ; preds = %1204
+  %1207 = load i32, ptr @ett_data, align 4
+  %1208 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %1207) #10
+  br label %1209
 
-1211:                                             ; preds = %1208, %1206
-  %.132.i = phi ptr [ %1210, %1208 ], [ %.031.i, %1206 ]
-  %1212 = sub i32 %4, %.0.i190
-  %1213 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel, align 4
-  %1214 = tail call ptr @proto_tree_add_item(ptr noundef %.132.i, i32 noundef %1213, ptr noundef %0, i32 noundef %.0.i190, i32 noundef %1212, i32 noundef 0) #10
-  %1215 = load i32, ptr @ett_data, align 4
-  %1216 = tail call ptr @proto_item_add_subtree(ptr noundef %1214, i32 noundef %1215) #10
-  %1217 = icmp ugt i32 %1212, 7
-  br i1 %1217, label %.lr.ph.i191, label %dissect_nvme_get_logpage_err_inf_resp.exit
+1209:                                             ; preds = %1206, %1204
+  %.132.i = phi ptr [ %1208, %1206 ], [ %.031.i, %1204 ]
+  %1210 = sub i32 %4, %.0.i190
+  %1211 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel, align 4
+  %1212 = tail call ptr @proto_tree_add_item(ptr noundef %.132.i, i32 noundef %1211, ptr noundef %0, i32 noundef %.0.i190, i32 noundef %1210, i32 noundef 0) #10
+  %1213 = load i32, ptr @ett_data, align 4
+  %1214 = tail call ptr @proto_item_add_subtree(ptr noundef %1212, i32 noundef %1213) #10
+  %1215 = icmp ugt i32 %1210, 7
+  br i1 %1215, label %.lr.ph.i191, label %dissect_nvme_get_logpage_err_inf_resp.exit
 
-.lr.ph.i191:                                      ; preds = %1211, %dissect_nvme_get_logpage_lba_status_lba_range.exit.i
-  %.16.i = phi i32 [ %1275, %dissect_nvme_get_logpage_lba_status_lba_range.exit.i ], [ %.0.i190, %1211 ]
-  %.0335.i = phi i32 [ %1276, %dissect_nvme_get_logpage_lba_status_lba_range.exit.i ], [ %1212, %1211 ]
-  %1218 = icmp ugt i32 %.0335.i, 15
-  br i1 %1218, label %1219, label %1224
+.lr.ph.i191:                                      ; preds = %1209, %dissect_nvme_get_logpage_lba_status_lba_range.exit.i
+  %.16.i = phi i32 [ %1273, %dissect_nvme_get_logpage_lba_status_lba_range.exit.i ], [ %.0.i190, %1209 ]
+  %.0335.i = phi i32 [ %1274, %dissect_nvme_get_logpage_lba_status_lba_range.exit.i ], [ %1210, %1209 ]
+  %1216 = icmp ugt i32 %.0335.i, 15
+  br i1 %1216, label %1217, label %1222
 
-1219:                                             ; preds = %.lr.ph.i191
-  %1220 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #10
-  %1221 = zext i8 %1220 to i32
-  %1222 = shl nuw nsw i32 %1221, 4
-  %1223 = add nuw nsw i32 %1222, 16
-  %spec.select.i.i193 = tail call i32 @llvm.umin.i32(i32 %1223, i32 %.0335.i)
-  br label %1224
+1217:                                             ; preds = %.lr.ph.i191
+  %1218 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #10
+  %1219 = zext i8 %1218 to i32
+  %1220 = shl nuw nsw i32 %1219, 4
+  %1221 = add nuw nsw i32 %1220, 16
+  %spec.select.i.i193 = tail call i32 @llvm.umin.i32(i32 %1221, i32 %.0335.i)
+  br label %1222
 
-1224:                                             ; preds = %1219, %.lr.ph.i191
-  %.160.i.i = phi i32 [ %.0335.i, %.lr.ph.i191 ], [ %spec.select.i.i193, %1219 ]
-  %1225 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne, align 4
-  %1226 = tail call ptr @proto_tree_add_item(ptr noundef %1216, i32 noundef %1225, ptr noundef %0, i32 noundef %.16.i, i32 noundef %.160.i.i, i32 noundef 0) #10
-  %1227 = load i32, ptr @ett_data, align 4
-  %1228 = tail call ptr @proto_item_add_subtree(ptr noundef %1226, i32 noundef %1227) #10
-  %1229 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_neid, align 4
-  %1230 = tail call ptr @proto_tree_add_item(ptr noundef %1228, i32 noundef %1229, ptr noundef %0, i32 noundef %.16.i, i32 noundef 4, i32 noundef -2147483648) #10
-  %1231 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_nlrd, align 4
-  %1232 = add i32 %.16.i, 4
-  %1233 = tail call ptr @proto_tree_add_item(ptr noundef %1228, i32 noundef %1231, ptr noundef %0, i32 noundef %1232, i32 noundef 4, i32 noundef -2147483648) #10
+1222:                                             ; preds = %1217, %.lr.ph.i191
+  %.160.i.i = phi i32 [ %.0335.i, %.lr.ph.i191 ], [ %spec.select.i.i193, %1217 ]
+  %1223 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne, align 4
+  %1224 = tail call ptr @proto_tree_add_item(ptr noundef %1214, i32 noundef %1223, ptr noundef %0, i32 noundef %.16.i, i32 noundef %.160.i.i, i32 noundef 0) #10
+  %1225 = load i32, ptr @ett_data, align 4
+  %1226 = tail call ptr @proto_item_add_subtree(ptr noundef %1224, i32 noundef %1225) #10
+  %1227 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_neid, align 4
+  %1228 = tail call ptr @proto_tree_add_item(ptr noundef %1226, i32 noundef %1227, ptr noundef %0, i32 noundef %.16.i, i32 noundef 4, i32 noundef -2147483648) #10
+  %1229 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_nlrd, align 4
+  %1230 = add i32 %.16.i, 4
+  %1231 = tail call ptr @proto_tree_add_item(ptr noundef %1226, i32 noundef %1229, ptr noundef %0, i32 noundef %1230, i32 noundef 4, i32 noundef -2147483648) #10
   %.not1.i = icmp eq i32 %.0335.i, 8
-  br i1 %.not1.i, label %dissect_nvme_get_logpage_lba_status_lba_range.exit.i, label %1234
+  br i1 %.not1.i, label %dissect_nvme_get_logpage_lba_status_lba_range.exit.i, label %1232
 
-1234:                                             ; preds = %1224
-  %1235 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_ratype, align 4
-  %1236 = add i32 %.16.i, 8
-  %1237 = tail call ptr @proto_tree_add_item(ptr noundef %1228, i32 noundef %1235, ptr noundef %0, i32 noundef %1236, i32 noundef 1, i32 noundef -2147483648) #10
-  br i1 %1218, label %1238, label %dissect_nvme_get_logpage_lba_status_lba_range.exit.i
+1232:                                             ; preds = %1222
+  %1233 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_ratype, align 4
+  %1234 = add i32 %.16.i, 8
+  %1235 = tail call ptr @proto_tree_add_item(ptr noundef %1226, i32 noundef %1233, ptr noundef %0, i32 noundef %1234, i32 noundef 1, i32 noundef -2147483648) #10
+  br i1 %1216, label %1236, label %dissect_nvme_get_logpage_lba_status_lba_range.exit.i
 
-1238:                                             ; preds = %1234
-  %1239 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_rsvd, align 4
-  %1240 = add i32 %.16.i, 9
-  %1241 = tail call ptr @proto_tree_add_item(ptr noundef %1228, i32 noundef %1239, ptr noundef %0, i32 noundef %1240, i32 noundef 7, i32 noundef 0) #10
-  %1242 = icmp eq i32 %.0335.i, 16
-  br i1 %1242, label %dissect_nvme_get_logpage_lba_status_lba_range.exit.i, label %1243
+1236:                                             ; preds = %1232
+  %1237 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_rsvd, align 4
+  %1238 = add i32 %.16.i, 9
+  %1239 = tail call ptr @proto_tree_add_item(ptr noundef %1226, i32 noundef %1237, ptr noundef %0, i32 noundef %1238, i32 noundef 7, i32 noundef 0) #10
+  %1240 = icmp eq i32 %.0335.i, 16
+  br i1 %1240, label %dissect_nvme_get_logpage_lba_status_lba_range.exit.i, label %1241
 
-1243:                                             ; preds = %1238
-  %1244 = add i32 %.0335.i, -16
-  %1245 = icmp ugt i32 %1244, 7
-  br i1 %1245, label %.lr.ph.preheader.i.i192, label %dissect_nvme_get_logpage_lba_status_lba_range.exit.i
+1241:                                             ; preds = %1236
+  %1242 = add i32 %.0335.i, -16
+  %1243 = icmp ugt i32 %1242, 7
+  br i1 %1243, label %.lr.ph.preheader.i.i192, label %dissect_nvme_get_logpage_lba_status_lba_range.exit.i
 
-.lr.ph.preheader.i.i192:                          ; preds = %1243
-  %1246 = icmp ugt i32 %1244, 11
-  br i1 %1246, label %.lr.ph.preheader.i.split.us.i, label %.lr.ph.preheader.i.split.i
+.lr.ph.preheader.i.i192:                          ; preds = %1241
+  %1244 = icmp ugt i32 %1242, 11
+  br i1 %1244, label %.lr.ph.preheader.i.split.us.i, label %.lr.ph.preheader.i.split.i
 
 .lr.ph.preheader.i.split.us.i:                    ; preds = %.lr.ph.preheader.i.i192
-  %1247 = icmp ugt i32 %1244, 15
-  br i1 %1247, label %.lr.ph.i.us.us.i, label %.lr.ph.preheader.i.split.us.split.i
+  %1245 = icmp ugt i32 %1242, 15
+  br i1 %1245, label %.lr.ph.i.us.us.i, label %.lr.ph.preheader.i.split.us.split.i
 
 .lr.ph.i.us.us.i:                                 ; preds = %.lr.ph.preheader.i.split.us.i, %.lr.ph.i.us.us.i
   %.06173.in.i.us.us.i = phi i32 [ %.06173.i.us.us.i, %.lr.ph.i.us.us.i ], [ %.16.i, %.lr.ph.preheader.i.split.us.i ]
-  %.06671.i.us.us.i = phi ptr [ %1251, %.lr.ph.i.us.us.i ], [ %1228, %.lr.ph.preheader.i.split.us.i ]
+  %.06671.i.us.us.i = phi ptr [ %1249, %.lr.ph.i.us.us.i ], [ %1226, %.lr.ph.preheader.i.split.us.i ]
   %.06173.i.us.us.i = add i32 %.06173.in.i.us.us.i, 16
-  %1248 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_rd, align 4
-  %1249 = tail call ptr @proto_tree_add_item(ptr noundef %.06671.i.us.us.i, i32 noundef %1248, ptr noundef %0, i32 noundef %.06173.i.us.us.i, i32 noundef 16, i32 noundef 0) #10
-  %1250 = load i32, ptr @ett_data, align 4
-  %1251 = tail call ptr @proto_item_add_subtree(ptr noundef %1249, i32 noundef %1250) #10
-  %1252 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_rd_rslba, align 4
-  %1253 = tail call ptr @proto_tree_add_item(ptr noundef %1251, i32 noundef %1252, ptr noundef %0, i32 noundef %.06173.i.us.us.i, i32 noundef 8, i32 noundef -2147483648) #10
-  %1254 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_rd_rnlb, align 4
-  %1255 = add i32 %.06173.in.i.us.us.i, 24
-  %1256 = tail call ptr @proto_tree_add_item(ptr noundef %1251, i32 noundef %1254, ptr noundef %0, i32 noundef %1255, i32 noundef 4, i32 noundef -2147483648) #10
-  %1257 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_rd_rsvd, align 4
-  %1258 = add i32 %.06173.in.i.us.us.i, 28
-  %1259 = tail call ptr @proto_tree_add_item(ptr noundef %1251, i32 noundef %1257, ptr noundef %0, i32 noundef %1258, i32 noundef 4, i32 noundef -2147483648) #10
+  %1246 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_rd, align 4
+  %1247 = tail call ptr @proto_tree_add_item(ptr noundef %.06671.i.us.us.i, i32 noundef %1246, ptr noundef %0, i32 noundef %.06173.i.us.us.i, i32 noundef 16, i32 noundef 0) #10
+  %1248 = load i32, ptr @ett_data, align 4
+  %1249 = tail call ptr @proto_item_add_subtree(ptr noundef %1247, i32 noundef %1248) #10
+  %1250 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_rd_rslba, align 4
+  %1251 = tail call ptr @proto_tree_add_item(ptr noundef %1249, i32 noundef %1250, ptr noundef %0, i32 noundef %.06173.i.us.us.i, i32 noundef 8, i32 noundef -2147483648) #10
+  %1252 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_rd_rnlb, align 4
+  %1253 = add i32 %.06173.in.i.us.us.i, 24
+  %1254 = tail call ptr @proto_tree_add_item(ptr noundef %1249, i32 noundef %1252, ptr noundef %0, i32 noundef %1253, i32 noundef 4, i32 noundef -2147483648) #10
+  %1255 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_rd_rsvd, align 4
+  %1256 = add i32 %.06173.in.i.us.us.i, 28
+  %1257 = tail call ptr @proto_tree_add_item(ptr noundef %1249, i32 noundef %1255, ptr noundef %0, i32 noundef %1256, i32 noundef 4, i32 noundef -2147483648) #10
   br label %.lr.ph.i.us.us.i, !llvm.loop !19
 
 .lr.ph.preheader.i.split.us.split.i:              ; preds = %.lr.ph.preheader.i.split.us.i
   %.06173.i.us.i = add i32 %.16.i, 16
-  %1260 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_rd, align 4
-  %1261 = tail call ptr @proto_tree_add_item(ptr noundef %1228, i32 noundef %1260, ptr noundef %0, i32 noundef %.06173.i.us.i, i32 noundef %1244, i32 noundef 0) #10
-  %1262 = load i32, ptr @ett_data, align 4
-  %1263 = tail call ptr @proto_item_add_subtree(ptr noundef %1261, i32 noundef %1262) #10
-  %1264 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_rd_rslba, align 4
-  %1265 = tail call ptr @proto_tree_add_item(ptr noundef %1263, i32 noundef %1264, ptr noundef %0, i32 noundef %.06173.i.us.i, i32 noundef 8, i32 noundef -2147483648) #10
-  %1266 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_rd_rnlb, align 4
-  %1267 = add i32 %.16.i, 24
-  %1268 = tail call ptr @proto_tree_add_item(ptr noundef %1263, i32 noundef %1266, ptr noundef %0, i32 noundef %1267, i32 noundef 4, i32 noundef -2147483648) #10
+  %1258 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_rd, align 4
+  %1259 = tail call ptr @proto_tree_add_item(ptr noundef %1226, i32 noundef %1258, ptr noundef %0, i32 noundef %.06173.i.us.i, i32 noundef %1242, i32 noundef 0) #10
+  %1260 = load i32, ptr @ett_data, align 4
+  %1261 = tail call ptr @proto_item_add_subtree(ptr noundef %1259, i32 noundef %1260) #10
+  %1262 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_rd_rslba, align 4
+  %1263 = tail call ptr @proto_tree_add_item(ptr noundef %1261, i32 noundef %1262, ptr noundef %0, i32 noundef %.06173.i.us.i, i32 noundef 8, i32 noundef -2147483648) #10
+  %1264 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_rd_rnlb, align 4
+  %1265 = add i32 %.16.i, 24
+  %1266 = tail call ptr @proto_tree_add_item(ptr noundef %1261, i32 noundef %1264, ptr noundef %0, i32 noundef %1265, i32 noundef 4, i32 noundef -2147483648) #10
   br label %dissect_nvme_get_logpage_lba_status_lba_range.exit.i
 
 .lr.ph.preheader.i.split.i:                       ; preds = %.lr.ph.preheader.i.i192
   %.06173.i.i = add i32 %.16.i, 16
-  %1269 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_rd, align 4
-  %1270 = tail call ptr @proto_tree_add_item(ptr noundef %1228, i32 noundef %1269, ptr noundef %0, i32 noundef %.06173.i.i, i32 noundef %1244, i32 noundef 0) #10
-  %1271 = load i32, ptr @ett_data, align 4
-  %1272 = tail call ptr @proto_item_add_subtree(ptr noundef %1270, i32 noundef %1271) #10
-  %1273 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_rd_rslba, align 4
-  %1274 = tail call ptr @proto_tree_add_item(ptr noundef %1272, i32 noundef %1273, ptr noundef %0, i32 noundef %.06173.i.i, i32 noundef 8, i32 noundef -2147483648) #10
+  %1267 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_rd, align 4
+  %1268 = tail call ptr @proto_tree_add_item(ptr noundef %1226, i32 noundef %1267, ptr noundef %0, i32 noundef %.06173.i.i, i32 noundef %1242, i32 noundef 0) #10
+  %1269 = load i32, ptr @ett_data, align 4
+  %1270 = tail call ptr @proto_item_add_subtree(ptr noundef %1268, i32 noundef %1269) #10
+  %1271 = load i32, ptr @hf_nvme_get_logpage_lba_status_nel_ne_rd_rslba, align 4
+  %1272 = tail call ptr @proto_tree_add_item(ptr noundef %1270, i32 noundef %1271, ptr noundef %0, i32 noundef %.06173.i.i, i32 noundef 8, i32 noundef -2147483648) #10
   br label %dissect_nvme_get_logpage_lba_status_lba_range.exit.i
 
-dissect_nvme_get_logpage_lba_status_lba_range.exit.i: ; preds = %.lr.ph.preheader.i.split.i, %.lr.ph.preheader.i.split.us.split.i, %1243, %1238, %1234, %1224
-  %.065.i.i = phi i32 [ 16, %1238 ], [ %.0335.i, %1234 ], [ 8, %1224 ], [ 16, %1243 ], [ %.0335.i, %.lr.ph.preheader.i.split.us.split.i ], [ %.0335.i, %.lr.ph.preheader.i.split.i ]
-  %1275 = add i32 %.065.i.i, %.16.i
-  %1276 = sub nsw i32 %.0335.i, %.065.i.i
-  %1277 = icmp ugt i32 %1276, 7
-  br i1 %1277, label %.lr.ph.i191, label %dissect_nvme_get_logpage_err_inf_resp.exit, !llvm.loop !20
+dissect_nvme_get_logpage_lba_status_lba_range.exit.i: ; preds = %.lr.ph.preheader.i.split.i, %.lr.ph.preheader.i.split.us.split.i, %1241, %1236, %1232, %1222
+  %.065.i.i = phi i32 [ 16, %1236 ], [ %.0335.i, %1232 ], [ 8, %1222 ], [ 16, %1241 ], [ %.0335.i, %.lr.ph.preheader.i.split.us.split.i ], [ %.0335.i, %.lr.ph.preheader.i.split.i ]
+  %1273 = add i32 %.065.i.i, %.16.i
+  %1274 = sub nsw i32 %.0335.i, %.065.i.i
+  %1275 = icmp ugt i32 %1274, 7
+  br i1 %1275, label %.lr.ph.i191, label %dissect_nvme_get_logpage_err_inf_resp.exit, !llvm.loop !20
 
-1278:                                             ; preds = %get_logpage_name.exit
+1276:                                             ; preds = %get_logpage_name.exit
   %.not.i196 = icmp eq i32 %3, 0
-  br i1 %.not.i196, label %1279, label %1291
+  br i1 %.not.i196, label %1277, label %1289
 
-1279:                                             ; preds = %1278
-  %1280 = getelementptr inbounds i8, ptr %2, i64 144
-  %1281 = load i64, ptr %1280, align 8
-  %1282 = icmp ult i64 %1281, 8
-  br i1 %1282, label %1283, label %1289
+1277:                                             ; preds = %1276
+  %1278 = getelementptr inbounds i8, ptr %2, i64 144
+  %1279 = load i64, ptr %1278, align 8
+  %1280 = icmp ult i64 %1279, 8
+  br i1 %1280, label %1281, label %1287
 
-1283:                                             ; preds = %1279
-  %1284 = trunc nuw nsw i64 %1281 to i32
-  %1285 = sub nuw nsw i32 8, %1284
-  %1286 = icmp ugt i32 %1285, %4
-  br i1 %1286, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %1287
+1281:                                             ; preds = %1277
+  %1282 = trunc nuw nsw i64 %1279 to i32
+  %1283 = sub nuw nsw i32 8, %1282
+  %1284 = icmp ugt i32 %1283, %4
+  br i1 %1284, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %1285
 
-1287:                                             ; preds = %1283
-  %.not25.i = icmp ne i64 %1281, 0
-  %1288 = icmp eq i32 %1285, %4
-  %or.cond.i199 = and i1 %.not25.i, %1288
-  br i1 %or.cond.i199, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %1291
+1285:                                             ; preds = %1281
+  %.not25.i = icmp ne i64 %1279, 0
+  %1286 = icmp eq i32 %1283, %4
+  %or.cond.i199 = and i1 %.not25.i, %1286
+  br i1 %or.cond.i199, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %1289
 
-1289:                                             ; preds = %1279
-  %1290 = icmp ult i32 %4, 2
-  br i1 %1290, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %1291
+1287:                                             ; preds = %1277
+  %1288 = icmp ult i32 %4, 2
+  br i1 %1288, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %1289
 
-1291:                                             ; preds = %1289, %1287, %1278
-  %.0.i197 = phi i32 [ 0, %1278 ], [ %1285, %1287 ], [ 0, %1289 ]
-  %1292 = sub i32 %4, %.0.i197
-  %1293 = load i32, ptr @ett_data, align 4
-  %1294 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %1293) #10
-  %1295 = getelementptr inbounds i8, ptr %2, i64 144
-  %1296 = load i64, ptr %1295, align 8
-  %1297 = zext i32 %3 to i64
-  %1298 = sub nsw i64 0, %1297
-  %.not26.i = icmp eq i64 %1296, %1298
-  br i1 %.not26.i, label %1299, label %1302
+1289:                                             ; preds = %1287, %1285, %1276
+  %.0.i197 = phi i32 [ 0, %1276 ], [ %1283, %1285 ], [ 0, %1287 ]
+  %1290 = sub i32 %4, %.0.i197
+  %1291 = load i32, ptr @ett_data, align 4
+  %1292 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %1291) #10
+  %1293 = getelementptr inbounds i8, ptr %2, i64 144
+  %1294 = load i64, ptr %1293, align 8
+  %1295 = zext i32 %3 to i64
+  %1296 = sub nsw i64 0, %1295
+  %.not26.i = icmp eq i64 %1294, %1296
+  br i1 %.not26.i, label %1297, label %1300
 
-1299:                                             ; preds = %1291
-  %1300 = load i32, ptr @hf_nvme_get_logpage_egroup_aggreg_ne, align 4
-  %1301 = tail call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1300, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483648) #10
-  br label %1302
+1297:                                             ; preds = %1289
+  %1298 = load i32, ptr @hf_nvme_get_logpage_egroup_aggreg_ne, align 4
+  %1299 = tail call ptr @proto_tree_add_item(ptr noundef %1292, i32 noundef %1298, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483648) #10
+  br label %1300
 
-1302:                                             ; preds = %1299, %1291
-  %1303 = icmp ugt i32 %1292, 1
-  br i1 %1303, label %.lr.ph.i198, label %dissect_nvme_get_logpage_err_inf_resp.exit
+1300:                                             ; preds = %1297, %1289
+  %1301 = icmp ugt i32 %1290, 1
+  br i1 %1301, label %.lr.ph.i198, label %dissect_nvme_get_logpage_err_inf_resp.exit
 
-.lr.ph.i198:                                      ; preds = %1302, %.lr.ph.i198
-  %.128.i = phi i32 [ %1307, %.lr.ph.i198 ], [ %.0.i197, %1302 ]
-  %.02127.i = phi i32 [ %1306, %.lr.ph.i198 ], [ %1292, %1302 ]
-  %1304 = load i32, ptr @hf_nvme_get_logpage_egroup_aggreg_eg, align 4
-  %1305 = tail call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1304, ptr noundef %0, i32 noundef %.128.i, i32 noundef 2, i32 noundef -2147483648) #10
-  %1306 = add i32 %.02127.i, -2
-  %1307 = add i32 %.128.i, 2
-  %1308 = icmp ugt i32 %1306, 1
-  br i1 %1308, label %.lr.ph.i198, label %dissect_nvme_get_logpage_err_inf_resp.exit, !llvm.loop !21
+.lr.ph.i198:                                      ; preds = %1300, %.lr.ph.i198
+  %.128.i = phi i32 [ %1305, %.lr.ph.i198 ], [ %.0.i197, %1300 ]
+  %.02127.i = phi i32 [ %1304, %.lr.ph.i198 ], [ %1290, %1300 ]
+  %1302 = load i32, ptr @hf_nvme_get_logpage_egroup_aggreg_eg, align 4
+  %1303 = tail call ptr @proto_tree_add_item(ptr noundef %1292, i32 noundef %1302, ptr noundef %0, i32 noundef %.128.i, i32 noundef 2, i32 noundef -2147483648) #10
+  %1304 = add i32 %.02127.i, -2
+  %1305 = add i32 %.128.i, 2
+  %1306 = icmp ugt i32 %1304, 1
+  br i1 %1306, label %.lr.ph.i198, label %dissect_nvme_get_logpage_err_inf_resp.exit, !llvm.loop !21
 
-1309:                                             ; preds = %get_logpage_name.exit
-  %1310 = getelementptr i8, ptr %2, i64 144
-  %.val82 = load i64, ptr %1310, align 8
-  %1311 = trunc i64 %.val82 to i32
-  %1312 = icmp ugt i64 %.val82, 60
-  br i1 %1312, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %1313
+1307:                                             ; preds = %get_logpage_name.exit
+  %1308 = getelementptr i8, ptr %2, i64 144
+  %.val82 = load i64, ptr %1308, align 8
+  %1309 = trunc i64 %.val82 to i32
+  %1310 = icmp ugt i64 %.val82, 60
+  br i1 %1310, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %1311
 
-1313:                                             ; preds = %1309
-  %1314 = load i32, ptr @ett_data, align 4
-  %1315 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %1314) #10
-  %1316 = icmp eq i32 %1311, 0
-  %1317 = icmp ugt i32 %4, 7
-  %or.cond.i200 = and i1 %1317, %1316
-  br i1 %or.cond.i200, label %1318, label %1321
+1311:                                             ; preds = %1307
+  %1312 = load i32, ptr @ett_data, align 4
+  %1313 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %1312) #10
+  %1314 = icmp eq i32 %1309, 0
+  %1315 = icmp ugt i32 %4, 7
+  %or.cond.i200 = and i1 %1315, %1314
+  br i1 %or.cond.i200, label %1316, label %1319
 
-1318:                                             ; preds = %1313
-  %1319 = load i32, ptr @hf_nvme_get_logpage_reserv_notif_lpc, align 4
-  %1320 = tail call ptr @proto_tree_add_item(ptr noundef %1315, i32 noundef %1319, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483648) #10
-  br label %1321
+1316:                                             ; preds = %1311
+  %1317 = load i32, ptr @hf_nvme_get_logpage_reserv_notif_lpc, align 4
+  %1318 = tail call ptr @proto_tree_add_item(ptr noundef %1313, i32 noundef %1317, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483648) #10
+  br label %1319
 
-1321:                                             ; preds = %1318, %1313
-  %1322 = icmp ugt i32 %1311, 8
-  %1323 = sub nuw nsw i32 9, %1311
-  %.not.i201 = icmp ugt i32 %1323, %4
-  %or.cond55.i = select i1 %1322, i1 true, i1 %.not.i201
-  br i1 %or.cond55.i, label %1328, label %1324
+1319:                                             ; preds = %1316, %1311
+  %1320 = icmp ugt i32 %1309, 8
+  %1321 = sub nuw nsw i32 9, %1309
+  %.not.i201 = icmp ugt i32 %1321, %4
+  %or.cond55.i = select i1 %1320, i1 true, i1 %.not.i201
+  br i1 %or.cond55.i, label %1326, label %1322
 
-1324:                                             ; preds = %1321
-  %1325 = load i32, ptr @hf_nvme_get_logpage_reserv_notif_lpt, align 4
-  %1326 = sub nuw nsw i32 8, %1311
-  %1327 = tail call ptr @proto_tree_add_item(ptr noundef %1315, i32 noundef %1325, ptr noundef %0, i32 noundef %1326, i32 noundef 1, i32 noundef -2147483648) #10
-  br label %1328
+1322:                                             ; preds = %1319
+  %1323 = load i32, ptr @hf_nvme_get_logpage_reserv_notif_lpt, align 4
+  %1324 = sub nuw nsw i32 8, %1309
+  %1325 = tail call ptr @proto_tree_add_item(ptr noundef %1313, i32 noundef %1323, ptr noundef %0, i32 noundef %1324, i32 noundef 1, i32 noundef -2147483648) #10
+  br label %1326
 
-1328:                                             ; preds = %1324, %1321
-  %1329 = icmp ugt i32 %1311, 9
-  %1330 = sub nuw nsw i32 10, %1311
-  %.not51.i = icmp ugt i32 %1330, %4
-  %or.cond56.i = select i1 %1329, i1 true, i1 %.not51.i
-  br i1 %or.cond56.i, label %1334, label %1331
+1326:                                             ; preds = %1322, %1319
+  %1327 = icmp ugt i32 %1309, 9
+  %1328 = sub nuw nsw i32 10, %1309
+  %.not51.i = icmp ugt i32 %1328, %4
+  %or.cond56.i = select i1 %1327, i1 true, i1 %.not51.i
+  br i1 %or.cond56.i, label %1332, label %1329
 
-1331:                                             ; preds = %1328
-  %1332 = load i32, ptr @hf_nvme_get_logpage_reserv_notif_nalp, align 4
-  %1333 = tail call ptr @proto_tree_add_item(ptr noundef %1315, i32 noundef %1332, ptr noundef %0, i32 noundef %1323, i32 noundef 1, i32 noundef -2147483648) #10
-  br label %1334
+1329:                                             ; preds = %1326
+  %1330 = load i32, ptr @hf_nvme_get_logpage_reserv_notif_nalp, align 4
+  %1331 = tail call ptr @proto_tree_add_item(ptr noundef %1313, i32 noundef %1330, ptr noundef %0, i32 noundef %1321, i32 noundef 1, i32 noundef -2147483648) #10
+  br label %1332
 
-1334:                                             ; preds = %1331, %1328
-  %1335 = icmp ugt i32 %1311, 10
-  %1336 = sub nuw nsw i32 12, %1311
-  %.not52.i = icmp ugt i32 %1336, %4
-  %or.cond57.i = select i1 %1335, i1 true, i1 %.not52.i
-  br i1 %or.cond57.i, label %1340, label %1337
+1332:                                             ; preds = %1329, %1326
+  %1333 = icmp ugt i32 %1309, 10
+  %1334 = sub nuw nsw i32 12, %1309
+  %.not52.i = icmp ugt i32 %1334, %4
+  %or.cond57.i = select i1 %1333, i1 true, i1 %.not52.i
+  br i1 %or.cond57.i, label %1338, label %1335
 
-1337:                                             ; preds = %1334
-  %1338 = load i32, ptr @hf_nvme_get_logpage_reserv_notif_rsvd0, align 4
-  %1339 = tail call ptr @proto_tree_add_item(ptr noundef %1315, i32 noundef %1338, ptr noundef %0, i32 noundef %1330, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %1340
+1335:                                             ; preds = %1332
+  %1336 = load i32, ptr @hf_nvme_get_logpage_reserv_notif_rsvd0, align 4
+  %1337 = tail call ptr @proto_tree_add_item(ptr noundef %1313, i32 noundef %1336, ptr noundef %0, i32 noundef %1328, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %1338
 
-1340:                                             ; preds = %1337, %1334
-  %1341 = icmp ugt i32 %1311, 12
-  %1342 = sub nuw nsw i32 16, %1311
-  %.not53.i = icmp ugt i32 %1342, %4
-  %or.cond58.i = select i1 %1341, i1 true, i1 %.not53.i
-  br i1 %or.cond58.i, label %1345, label %.thread.i202
+1338:                                             ; preds = %1335, %1332
+  %1339 = icmp ugt i32 %1309, 12
+  %1340 = sub nuw nsw i32 16, %1309
+  %.not53.i = icmp ugt i32 %1340, %4
+  %or.cond58.i = select i1 %1339, i1 true, i1 %.not53.i
+  br i1 %or.cond58.i, label %1343, label %.thread.i202
 
-.thread.i202:                                     ; preds = %1340
-  %1343 = load i32, ptr @hf_nvme_get_logpage_reserv_notif_nsid, align 4
-  %1344 = tail call ptr @proto_tree_add_item(ptr noundef %1315, i32 noundef %1343, ptr noundef %0, i32 noundef %1336, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %1347
+.thread.i202:                                     ; preds = %1338
+  %1341 = load i32, ptr @hf_nvme_get_logpage_reserv_notif_nsid, align 4
+  %1342 = tail call ptr @proto_tree_add_item(ptr noundef %1313, i32 noundef %1341, ptr noundef %0, i32 noundef %1334, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %1345
 
-1345:                                             ; preds = %1340
-  %1346 = icmp ult i32 %1311, 16
-  br i1 %1346, label %1347, label %1350
+1343:                                             ; preds = %1338
+  %1344 = icmp ult i32 %1309, 16
+  br i1 %1344, label %1345, label %1348
 
-1347:                                             ; preds = %1345, %.thread.i202
-  %.not54.i = icmp ult i32 %1342, %4
-  br i1 %.not54.i, label %1348, label %dissect_nvme_get_logpage_err_inf_resp.exit
+1345:                                             ; preds = %1343, %.thread.i202
+  %.not54.i = icmp ult i32 %1340, %4
+  br i1 %.not54.i, label %1346, label %dissect_nvme_get_logpage_err_inf_resp.exit
 
-1348:                                             ; preds = %1347
-  %1349 = sub nuw i32 %4, %1342
-  %spec.store.select.i203 = tail call i32 @llvm.umin.i32(i32 %1349, i32 48)
-  br label %1352
+1346:                                             ; preds = %1345
+  %1347 = sub nuw i32 %4, %1340
+  %spec.store.select.i203 = tail call i32 @llvm.umin.i32(i32 %1347, i32 48)
+  br label %1350
 
-1350:                                             ; preds = %1345
-  %1351 = sub nuw nsw i32 64, %1311
-  %spec.select.i205 = tail call i32 @llvm.umin.i32(i32 %1351, i32 %4)
-  br label %1352
+1348:                                             ; preds = %1343
+  %1349 = sub nuw nsw i32 64, %1309
+  %spec.select.i205 = tail call i32 @llvm.umin.i32(i32 %1349, i32 %4)
+  br label %1350
 
-1352:                                             ; preds = %1350, %1348
-  %.045.i = phi i32 [ %spec.store.select.i203, %1348 ], [ %spec.select.i205, %1350 ]
-  %.0.i204 = phi i32 [ %1342, %1348 ], [ 0, %1350 ]
-  %1353 = load i32, ptr @hf_nvme_get_logpage_reserv_notif_rsvd1, align 4
-  %1354 = tail call ptr @proto_tree_add_item(ptr noundef %1315, i32 noundef %1353, ptr noundef %0, i32 noundef %.0.i204, i32 noundef %.045.i, i32 noundef 0) #10
+1350:                                             ; preds = %1348, %1346
+  %.045.i = phi i32 [ %spec.store.select.i203, %1346 ], [ %spec.select.i205, %1348 ]
+  %.0.i204 = phi i32 [ %1340, %1346 ], [ 0, %1348 ]
+  %1351 = load i32, ptr @hf_nvme_get_logpage_reserv_notif_rsvd1, align 4
+  %1352 = tail call ptr @proto_tree_add_item(ptr noundef %1313, i32 noundef %1351, ptr noundef %0, i32 noundef %.0.i204, i32 noundef %.045.i, i32 noundef 0) #10
   br label %dissect_nvme_get_logpage_err_inf_resp.exit
 
-1355:                                             ; preds = %get_logpage_name.exit
-  %1356 = getelementptr i8, ptr %2, i64 144
-  %.val83 = load i64, ptr %1356, align 8
-  %1357 = trunc i64 %.val83 to i32
-  %1358 = icmp ugt i64 %.val83, 508
-  br i1 %1358, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %1359
+1353:                                             ; preds = %get_logpage_name.exit
+  %1354 = getelementptr i8, ptr %2, i64 144
+  %.val83 = load i64, ptr %1354, align 8
+  %1355 = trunc i64 %.val83 to i32
+  %1356 = icmp ugt i64 %.val83, 508
+  br i1 %1356, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %1357
 
-1359:                                             ; preds = %1355
-  %1360 = load i32, ptr @ett_data, align 4
-  %1361 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %1360) #10
-  %1362 = icmp eq i32 %1357, 0
-  %1363 = icmp ugt i32 %4, 1
-  %or.cond.i206 = and i1 %1363, %1362
-  br i1 %or.cond.i206, label %1364, label %1367
+1357:                                             ; preds = %1353
+  %1358 = load i32, ptr @ett_data, align 4
+  %1359 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %1358) #10
+  %1360 = icmp eq i32 %1355, 0
+  %1361 = icmp ugt i32 %4, 1
+  %or.cond.i206 = and i1 %1361, %1360
+  br i1 %or.cond.i206, label %1362, label %1365
 
-1364:                                             ; preds = %1359
-  %1365 = load i32, ptr @hf_nvme_get_logpage_sanitize_sprog, align 4
-  %1366 = tail call ptr @proto_tree_add_item(ptr noundef %1361, i32 noundef %1365, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %1367
+1362:                                             ; preds = %1357
+  %1363 = load i32, ptr @hf_nvme_get_logpage_sanitize_sprog, align 4
+  %1364 = tail call ptr @proto_tree_add_item(ptr noundef %1359, i32 noundef %1363, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %1365
 
-1367:                                             ; preds = %1364, %1359
-  %1368 = icmp ugt i32 %1357, 2
-  %1369 = sub nuw nsw i32 4, %1357
-  %.not.i207 = icmp ugt i32 %1369, %4
-  %or.cond87.i208 = select i1 %1368, i1 true, i1 %.not.i207
-  br i1 %or.cond87.i208, label %add_group_mask_entry.exit.i213, label %1370
+1365:                                             ; preds = %1362, %1357
+  %1366 = icmp ugt i32 %1355, 2
+  %1367 = sub nuw nsw i32 4, %1355
+  %.not.i207 = icmp ugt i32 %1367, %4
+  %or.cond87.i208 = select i1 %1366, i1 true, i1 %.not.i207
+  br i1 %or.cond87.i208, label %add_group_mask_entry.exit.i213, label %1368
 
-1370:                                             ; preds = %1367
-  %1371 = sub nuw nsw i32 2, %1357
-  %1372 = load i32, ptr @hf_nvme_get_logpage_sanitize_sstat, align 16
-  %1373 = tail call ptr @proto_tree_add_item(ptr noundef %1361, i32 noundef %1372, ptr noundef %0, i32 noundef %1371, i32 noundef 2, i32 noundef -2147483648) #10
-  %1374 = load i32, ptr @ett_data, align 4
-  %1375 = tail call ptr @proto_item_add_subtree(ptr noundef %1373, i32 noundef %1374) #10
+1368:                                             ; preds = %1365
+  %1369 = sub nuw nsw i32 2, %1355
+  %1370 = load i32, ptr @hf_nvme_get_logpage_sanitize_sstat, align 16
+  %1371 = tail call ptr @proto_tree_add_item(ptr noundef %1359, i32 noundef %1370, ptr noundef %0, i32 noundef %1369, i32 noundef 2, i32 noundef -2147483648) #10
+  %1372 = load i32, ptr @ett_data, align 4
+  %1373 = tail call ptr @proto_item_add_subtree(ptr noundef %1371, i32 noundef %1372) #10
   br label %.lr.ph.i.i209
 
-.lr.ph.i.i209:                                    ; preds = %.lr.ph.i.i209, %1370
-  %indvars.iv.i.i210 = phi i64 [ 1, %1370 ], [ %indvars.iv.next.i.i211, %.lr.ph.i.i209 ]
-  %1376 = getelementptr i32, ptr @hf_nvme_get_logpage_sanitize_sstat, i64 %indvars.iv.i.i210
-  %1377 = load i32, ptr %1376, align 4
-  %1378 = tail call ptr @proto_tree_add_item(ptr noundef %1375, i32 noundef %1377, ptr noundef %0, i32 noundef %1371, i32 noundef 2, i32 noundef -2147483648) #10
+.lr.ph.i.i209:                                    ; preds = %.lr.ph.i.i209, %1368
+  %indvars.iv.i.i210 = phi i64 [ 1, %1368 ], [ %indvars.iv.next.i.i211, %.lr.ph.i.i209 ]
+  %1374 = getelementptr i32, ptr @hf_nvme_get_logpage_sanitize_sstat, i64 %indvars.iv.i.i210
+  %1375 = load i32, ptr %1374, align 4
+  %1376 = tail call ptr @proto_tree_add_item(ptr noundef %1373, i32 noundef %1375, ptr noundef %0, i32 noundef %1369, i32 noundef 2, i32 noundef -2147483648) #10
   %indvars.iv.next.i.i211 = add nuw nsw i64 %indvars.iv.i.i210, 1
   %exitcond.not.i.i212 = icmp eq i64 %indvars.iv.next.i.i211, 5
   br i1 %exitcond.not.i.i212, label %add_group_mask_entry.exit.i213, label %.lr.ph.i.i209, !llvm.loop !6
 
-add_group_mask_entry.exit.i213:                   ; preds = %.lr.ph.i.i209, %1367
-  %1379 = icmp ugt i32 %1357, 4
-  %1380 = sub nuw nsw i32 8, %1357
-  %.not79.i214 = icmp ugt i32 %1380, %4
-  %or.cond88.i = select i1 %1379, i1 true, i1 %.not79.i214
-  br i1 %or.cond88.i, label %1384, label %1381
+add_group_mask_entry.exit.i213:                   ; preds = %.lr.ph.i.i209, %1365
+  %1377 = icmp ugt i32 %1355, 4
+  %1378 = sub nuw nsw i32 8, %1355
+  %.not79.i214 = icmp ugt i32 %1378, %4
+  %or.cond88.i = select i1 %1377, i1 true, i1 %.not79.i214
+  br i1 %or.cond88.i, label %1382, label %1379
 
-1381:                                             ; preds = %add_group_mask_entry.exit.i213
-  %1382 = load i32, ptr @hf_nvme_get_logpage_sanitize_scdw10, align 4
-  %1383 = tail call ptr @proto_tree_add_item(ptr noundef %1361, i32 noundef %1382, ptr noundef %0, i32 noundef %1369, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %1384
+1379:                                             ; preds = %add_group_mask_entry.exit.i213
+  %1380 = load i32, ptr @hf_nvme_get_logpage_sanitize_scdw10, align 4
+  %1381 = tail call ptr @proto_tree_add_item(ptr noundef %1359, i32 noundef %1380, ptr noundef %0, i32 noundef %1367, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %1382
 
-1384:                                             ; preds = %1381, %add_group_mask_entry.exit.i213
-  %1385 = icmp ugt i32 %1357, 8
-  %1386 = sub nuw nsw i32 12, %1357
-  %.not80.i215 = icmp ugt i32 %1386, %4
-  %or.cond89.i216 = select i1 %1385, i1 true, i1 %.not80.i215
-  br i1 %or.cond89.i216, label %1390, label %1387
+1382:                                             ; preds = %1379, %add_group_mask_entry.exit.i213
+  %1383 = icmp ugt i32 %1355, 8
+  %1384 = sub nuw nsw i32 12, %1355
+  %.not80.i215 = icmp ugt i32 %1384, %4
+  %or.cond89.i216 = select i1 %1383, i1 true, i1 %.not80.i215
+  br i1 %or.cond89.i216, label %1388, label %1385
 
-1387:                                             ; preds = %1384
-  %1388 = load i32, ptr @hf_nvme_get_logpage_sanitize_eto, align 4
-  %1389 = tail call ptr @proto_tree_add_item(ptr noundef %1361, i32 noundef %1388, ptr noundef %0, i32 noundef %1380, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %1390
+1385:                                             ; preds = %1382
+  %1386 = load i32, ptr @hf_nvme_get_logpage_sanitize_eto, align 4
+  %1387 = tail call ptr @proto_tree_add_item(ptr noundef %1359, i32 noundef %1386, ptr noundef %0, i32 noundef %1378, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %1388
 
-1390:                                             ; preds = %1387, %1384
-  %1391 = icmp ugt i32 %1357, 12
-  %1392 = sub nuw nsw i32 16, %1357
-  %.not81.i217 = icmp ugt i32 %1392, %4
-  %or.cond90.i218 = select i1 %1391, i1 true, i1 %.not81.i217
-  br i1 %or.cond90.i218, label %1396, label %1393
+1388:                                             ; preds = %1385, %1382
+  %1389 = icmp ugt i32 %1355, 12
+  %1390 = sub nuw nsw i32 16, %1355
+  %.not81.i217 = icmp ugt i32 %1390, %4
+  %or.cond90.i218 = select i1 %1389, i1 true, i1 %.not81.i217
+  br i1 %or.cond90.i218, label %1394, label %1391
 
-1393:                                             ; preds = %1390
-  %1394 = load i32, ptr @hf_nvme_get_logpage_sanitize_etbe, align 4
-  %1395 = tail call ptr @proto_tree_add_item(ptr noundef %1361, i32 noundef %1394, ptr noundef %0, i32 noundef %1386, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %1396
+1391:                                             ; preds = %1388
+  %1392 = load i32, ptr @hf_nvme_get_logpage_sanitize_etbe, align 4
+  %1393 = tail call ptr @proto_tree_add_item(ptr noundef %1359, i32 noundef %1392, ptr noundef %0, i32 noundef %1384, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %1394
 
-1396:                                             ; preds = %1393, %1390
-  %1397 = icmp ugt i32 %1357, 16
-  %1398 = sub nuw nsw i32 20, %1357
-  %.not82.i219 = icmp ugt i32 %1398, %4
-  %or.cond91.i220 = select i1 %1397, i1 true, i1 %.not82.i219
-  br i1 %or.cond91.i220, label %1402, label %1399
+1394:                                             ; preds = %1391, %1388
+  %1395 = icmp ugt i32 %1355, 16
+  %1396 = sub nuw nsw i32 20, %1355
+  %.not82.i219 = icmp ugt i32 %1396, %4
+  %or.cond91.i220 = select i1 %1395, i1 true, i1 %.not82.i219
+  br i1 %or.cond91.i220, label %1400, label %1397
 
-1399:                                             ; preds = %1396
-  %1400 = load i32, ptr @hf_nvme_get_logpage_sanitize_etce, align 4
-  %1401 = tail call ptr @proto_tree_add_item(ptr noundef %1361, i32 noundef %1400, ptr noundef %0, i32 noundef %1392, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %1402
+1397:                                             ; preds = %1394
+  %1398 = load i32, ptr @hf_nvme_get_logpage_sanitize_etce, align 4
+  %1399 = tail call ptr @proto_tree_add_item(ptr noundef %1359, i32 noundef %1398, ptr noundef %0, i32 noundef %1390, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %1400
 
-1402:                                             ; preds = %1399, %1396
-  %1403 = icmp ugt i32 %1357, 20
-  %1404 = sub nuw nsw i32 24, %1357
-  %.not83.i221 = icmp ugt i32 %1404, %4
-  %or.cond92.i222 = select i1 %1403, i1 true, i1 %.not83.i221
-  br i1 %or.cond92.i222, label %1408, label %1405
+1400:                                             ; preds = %1397, %1394
+  %1401 = icmp ugt i32 %1355, 20
+  %1402 = sub nuw nsw i32 24, %1355
+  %.not83.i221 = icmp ugt i32 %1402, %4
+  %or.cond92.i222 = select i1 %1401, i1 true, i1 %.not83.i221
+  br i1 %or.cond92.i222, label %1406, label %1403
 
-1405:                                             ; preds = %1402
-  %1406 = load i32, ptr @hf_nvme_get_logpage_sanitize_etond, align 4
-  %1407 = tail call ptr @proto_tree_add_item(ptr noundef %1361, i32 noundef %1406, ptr noundef %0, i32 noundef %1398, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %1408
+1403:                                             ; preds = %1400
+  %1404 = load i32, ptr @hf_nvme_get_logpage_sanitize_etond, align 4
+  %1405 = tail call ptr @proto_tree_add_item(ptr noundef %1359, i32 noundef %1404, ptr noundef %0, i32 noundef %1396, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %1406
 
-1408:                                             ; preds = %1405, %1402
-  %1409 = icmp ugt i32 %1357, 24
-  %1410 = sub nuw nsw i32 28, %1357
-  %.not84.i223 = icmp ugt i32 %1410, %4
-  %or.cond93.i224 = select i1 %1409, i1 true, i1 %.not84.i223
-  br i1 %or.cond93.i224, label %1414, label %1411
+1406:                                             ; preds = %1403, %1400
+  %1407 = icmp ugt i32 %1355, 24
+  %1408 = sub nuw nsw i32 28, %1355
+  %.not84.i223 = icmp ugt i32 %1408, %4
+  %or.cond93.i224 = select i1 %1407, i1 true, i1 %.not84.i223
+  br i1 %or.cond93.i224, label %1412, label %1409
 
-1411:                                             ; preds = %1408
-  %1412 = load i32, ptr @hf_nvme_get_logpage_sanitize_etbend, align 4
-  %1413 = tail call ptr @proto_tree_add_item(ptr noundef %1361, i32 noundef %1412, ptr noundef %0, i32 noundef %1404, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %1414
+1409:                                             ; preds = %1406
+  %1410 = load i32, ptr @hf_nvme_get_logpage_sanitize_etbend, align 4
+  %1411 = tail call ptr @proto_tree_add_item(ptr noundef %1359, i32 noundef %1410, ptr noundef %0, i32 noundef %1402, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %1412
 
-1414:                                             ; preds = %1411, %1408
-  %1415 = icmp ugt i32 %1357, 28
-  %1416 = sub nuw nsw i32 32, %1357
-  %.not85.i225 = icmp ugt i32 %1416, %4
-  %or.cond94.i226 = select i1 %1415, i1 true, i1 %.not85.i225
-  br i1 %or.cond94.i226, label %1419, label %.thread.i227
+1412:                                             ; preds = %1409, %1406
+  %1413 = icmp ugt i32 %1355, 28
+  %1414 = sub nuw nsw i32 32, %1355
+  %.not85.i225 = icmp ugt i32 %1414, %4
+  %or.cond94.i226 = select i1 %1413, i1 true, i1 %.not85.i225
+  br i1 %or.cond94.i226, label %1417, label %.thread.i227
 
-.thread.i227:                                     ; preds = %1414
-  %1417 = load i32, ptr @hf_nvme_get_logpage_sanitize_etcend, align 4
-  %1418 = tail call ptr @proto_tree_add_item(ptr noundef %1361, i32 noundef %1417, ptr noundef %0, i32 noundef %1410, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %1421
+.thread.i227:                                     ; preds = %1412
+  %1415 = load i32, ptr @hf_nvme_get_logpage_sanitize_etcend, align 4
+  %1416 = tail call ptr @proto_tree_add_item(ptr noundef %1359, i32 noundef %1415, ptr noundef %0, i32 noundef %1408, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %1419
 
-1419:                                             ; preds = %1414
-  %1420 = icmp ult i32 %1357, 32
-  br i1 %1420, label %1421, label %1425
+1417:                                             ; preds = %1412
+  %1418 = icmp ult i32 %1355, 32
+  br i1 %1418, label %1419, label %1423
 
-1421:                                             ; preds = %1419, %.thread.i227
-  br i1 %.not85.i225, label %1422, label %dissect_nvme_get_logpage_err_inf_resp.exit
+1419:                                             ; preds = %1417, %.thread.i227
+  br i1 %.not85.i225, label %1420, label %dissect_nvme_get_logpage_err_inf_resp.exit
 
-1422:                                             ; preds = %1421
-  %1423 = sub nsw i32 %4, %1416
-  %1424 = or disjoint i32 %1357, 480
-  %spec.select.i228 = tail call i32 @llvm.umin.i32(i32 %1423, i32 %1424)
-  br label %1427
+1420:                                             ; preds = %1419
+  %1421 = sub nsw i32 %4, %1414
+  %1422 = or disjoint i32 %1355, 480
+  %spec.select.i228 = tail call i32 @llvm.umin.i32(i32 %1421, i32 %1422)
+  br label %1425
 
-1425:                                             ; preds = %1419
-  %1426 = sub nuw nsw i32 512, %1357
-  %spec.select95.i = tail call i32 @llvm.umin.i32(i32 %1426, i32 %4)
-  br label %1427
+1423:                                             ; preds = %1417
+  %1424 = sub nuw nsw i32 512, %1355
+  %spec.select95.i = tail call i32 @llvm.umin.i32(i32 %1424, i32 %4)
+  br label %1425
 
-1427:                                             ; preds = %1425, %1422
-  %.071.i = phi i32 [ %spec.select.i228, %1422 ], [ %spec.select95.i, %1425 ]
-  %.0.i229 = phi i32 [ %1416, %1422 ], [ 0, %1425 ]
-  %1428 = load i32, ptr @hf_nvme_get_logpage_sanitize_rsvd, align 4
-  %1429 = tail call ptr @proto_tree_add_item(ptr noundef %1361, i32 noundef %1428, ptr noundef %0, i32 noundef %.0.i229, i32 noundef %.071.i, i32 noundef 0) #10
+1425:                                             ; preds = %1423, %1420
+  %.071.i = phi i32 [ %spec.select.i228, %1420 ], [ %spec.select95.i, %1423 ]
+  %.0.i229 = phi i32 [ %1414, %1420 ], [ 0, %1423 ]
+  %1426 = load i32, ptr @hf_nvme_get_logpage_sanitize_rsvd, align 4
+  %1427 = tail call ptr @proto_tree_add_item(ptr noundef %1359, i32 noundef %1426, ptr noundef %0, i32 noundef %.0.i229, i32 noundef %.071.i, i32 noundef 0) #10
   br label %dissect_nvme_get_logpage_err_inf_resp.exit
 
-dissect_nvme_get_logpage_err_inf_resp.exit:       ; preds = %.lr.ph.i198, %dissect_nvme_get_logpage_lba_status_lba_range.exit.i, %dissect_nvme_get_logpage_ana_resp_grp.exit.i, %.lr.ph.i170, %.lr.ph.i148, %dissect_nvme_get_logpage_selftest_result.exit.i, %.lr.ph.i115, %1427, %1421, %1355, %1352, %1347, %1309, %1302, %1289, %1287, %1283, %1211, %dissect_nvme_get_logpage_lba_status_resp_header.exit.i, %1042, %1001, %982, %978, %974, %881, %874, %871, %712, %703, %638, %571, %529, %522, %521, %506, %497, %489, %decode_fw_slot_frs.exit.i, %439, %431, %429, %186, %183, %180, %91, %get_logpage_name.exit, %dissect_nvme_get_logpage_ify_resp.exit
+dissect_nvme_get_logpage_err_inf_resp.exit:       ; preds = %.lr.ph.i198, %dissect_nvme_get_logpage_lba_status_lba_range.exit.i, %dissect_nvme_get_logpage_ana_resp_grp.exit.i, %.lr.ph.i170, %.lr.ph.i148, %dissect_nvme_get_logpage_selftest_result.exit.i, %.lr.ph.i115, %1425, %1419, %1353, %1350, %1345, %1307, %1300, %1287, %1285, %1281, %1209, %dissect_nvme_get_logpage_lba_status_resp_header.exit.i, %1040, %999, %980, %976, %972, %879, %872, %869, %710, %701, %636, %569, %527, %520, %519, %504, %495, %487, %decode_fw_slot_frs.exit.i, %437, %429, %427, %186, %183, %180, %91, %get_logpage_name.exit, %dissect_nvme_get_logpage_ify_resp.exit
   ret void
 }
 

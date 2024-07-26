@@ -51,7 +51,7 @@ define noundef range(i32 0, 2) i32 @LAPACKE_ztr_nancheck(i32 noundef %0, i8 noun
   %34 = sext i32 %5 to i64
   %35 = zext nneg i32 %28 to i64
   %36 = sub nsw i64 %33, %32
-  br label %71
+  br label %69
 
 37:                                               ; preds = %24
   %38 = icmp slt i32 %25, %3
@@ -59,89 +59,90 @@ define noundef range(i32 0, 2) i32 @LAPACKE_ztr_nancheck(i32 noundef %0, i8 noun
 
 39:                                               ; preds = %37
   %40 = zext i1 %20 to i64
-  %41 = sext i1 %20 to i64
-  %42 = sext i32 %5 to i64
-  %43 = zext nneg i32 %3 to i64
-  br label %46
+  %41 = sext i32 %5 to i64
+  %42 = zext nneg i32 %3 to i64
+  %not. = xor i1 %20, true
+  %invariant.op = zext i1 %not. to i64
+  br label %45
 
-.loopexit8:                                       ; preds = %59, %46
-  %44 = add nuw i32 %48, 1
-  %45 = icmp eq i64 %49, %43
-  br i1 %45, label %.loopexit, label %46, !llvm.loop !3
+.loopexit8:                                       ; preds = %57, %45
+  %43 = add nuw i32 %47, 1
+  %44 = icmp eq i64 %48, %42
+  br i1 %44, label %.loopexit, label %45, !llvm.loop !3
 
-46:                                               ; preds = %.loopexit8, %39
-  %47 = phi i64 [ %40, %39 ], [ %49, %.loopexit8 ]
-  %48 = phi i32 [ 1, %39 ], [ %44, %.loopexit8 ]
-  %49 = add nuw nsw i64 %47, 1
-  %50 = add i64 %49, %41
-  %51 = trunc i64 %50 to i32
-  %52 = tail call i32 @llvm.smin.i32(i32 %51, i32 %5)
-  %53 = icmp sgt i32 %52, 0
-  br i1 %53, label %54, label %.loopexit8
+45:                                               ; preds = %.loopexit8, %39
+  %46 = phi i64 [ %40, %39 ], [ %48, %.loopexit8 ]
+  %47 = phi i32 [ 1, %39 ], [ %43, %.loopexit8 ]
+  %48 = add nuw nsw i64 %46, 1
+  %.reass = add nuw i64 %46, %invariant.op
+  %49 = trunc i64 %.reass to i32
+  %50 = tail call i32 @llvm.smin.i32(i32 %49, i32 %5)
+  %51 = icmp sgt i32 %50, 0
+  br i1 %51, label %52, label %.loopexit8
 
-54:                                               ; preds = %46
-  %55 = tail call i32 @llvm.smin.i32(i32 %5, i32 %48)
-  %56 = mul nsw i64 %47, %42
-  %57 = zext i32 %55 to i64
-  %58 = getelementptr { double, double }, ptr %4, i64 %56
-  br label %62
+52:                                               ; preds = %45
+  %53 = tail call i32 @llvm.smin.i32(i32 %5, i32 %47)
+  %54 = mul nsw i64 %46, %41
+  %55 = zext i32 %53 to i64
+  %56 = getelementptr { double, double }, ptr %4, i64 %54
+  br label %60
 
-59:                                               ; preds = %67
-  %60 = add nuw nsw i64 %63, 1
-  %61 = icmp eq i64 %60, %57
-  br i1 %61, label %.loopexit8, label %62, !llvm.loop !6
+57:                                               ; preds = %65
+  %58 = add nuw nsw i64 %61, 1
+  %59 = icmp eq i64 %58, %55
+  br i1 %59, label %.loopexit8, label %60, !llvm.loop !6
 
-62:                                               ; preds = %59, %54
-  %63 = phi i64 [ 0, %54 ], [ %60, %59 ]
-  %64 = getelementptr { double, double }, ptr %58, i64 %63
-  %65 = load double, ptr %64, align 8, !tbaa !7
-  %66 = fcmp uno double %65, 0.000000e+00
-  br i1 %66, label %.loopexit, label %67
+60:                                               ; preds = %57, %52
+  %61 = phi i64 [ 0, %52 ], [ %58, %57 ]
+  %62 = getelementptr { double, double }, ptr %56, i64 %61
+  %63 = load double, ptr %62, align 8, !tbaa !7
+  %64 = fcmp uno double %63, 0.000000e+00
+  br i1 %64, label %.loopexit, label %65
 
-67:                                               ; preds = %62
-  %68 = getelementptr inbounds i8, ptr %64, i64 8
-  %69 = load double, ptr %68, align 8, !tbaa !7
-  %70 = fcmp uno double %69, 0.000000e+00
-  br i1 %70, label %.loopexit, label %59
+65:                                               ; preds = %60
+  %66 = getelementptr inbounds i8, ptr %62, i64 8
+  %67 = load double, ptr %66, align 8, !tbaa !7
+  %68 = fcmp uno double %67, 0.000000e+00
+  br i1 %68, label %.loopexit, label %57
 
-71:                                               ; preds = %.loopexit11, %30
-  %72 = phi i64 [ 0, %30 ], [ %90, %.loopexit11 ]
-  %73 = phi i64 [ %32, %30 ], [ %91, %.loopexit11 ]
-  %74 = icmp slt i64 %72, %36
-  br i1 %74, label %75, label %.loopexit11
+69:                                               ; preds = %.loopexit11, %30
+  %70 = phi i64 [ 0, %30 ], [ %88, %.loopexit11 ]
+  %71 = phi i64 [ %32, %30 ], [ %89, %.loopexit11 ]
+  %72 = icmp slt i64 %70, %36
+  br i1 %72, label %73, label %.loopexit11
 
-75:                                               ; preds = %71
-  %76 = mul nsw i64 %72, %34
-  %77 = getelementptr { double, double }, ptr %4, i64 %76
-  br label %81
+73:                                               ; preds = %69
+  %74 = mul nsw i64 %70, %34
+  %75 = getelementptr { double, double }, ptr %4, i64 %74
+  br label %79
 
-78:                                               ; preds = %86
-  %79 = add nuw nsw i64 %82, 1
-  %80 = icmp slt i64 %79, %33
-  br i1 %80, label %81, label %.loopexit11, !llvm.loop !11
+76:                                               ; preds = %84
+  %77 = add nuw nsw i64 %80, 1
+  %78 = icmp slt i64 %77, %33
+  br i1 %78, label %79, label %.loopexit11, !llvm.loop !11
 
-81:                                               ; preds = %78, %75
-  %82 = phi i64 [ %73, %75 ], [ %79, %78 ]
-  %83 = getelementptr { double, double }, ptr %77, i64 %82
-  %84 = load double, ptr %83, align 8, !tbaa !7
-  %85 = fcmp uno double %84, 0.000000e+00
-  br i1 %85, label %.loopexit, label %86
+79:                                               ; preds = %76, %73
+  %80 = phi i64 [ %71, %73 ], [ %77, %76 ]
+  %81 = getelementptr { double, double }, ptr %75, i64 %80
+  %82 = load double, ptr %81, align 8, !tbaa !7
+  %83 = fcmp uno double %82, 0.000000e+00
+  br i1 %83, label %.loopexit, label %84
 
-86:                                               ; preds = %81
-  %87 = getelementptr inbounds i8, ptr %83, i64 8
-  %88 = load double, ptr %87, align 8, !tbaa !7
-  %89 = fcmp uno double %88, 0.000000e+00
-  br i1 %89, label %.loopexit, label %78
+84:                                               ; preds = %79
+  %85 = getelementptr inbounds i8, ptr %81, i64 8
+  %86 = load double, ptr %85, align 8, !tbaa !7
+  %87 = fcmp uno double %86, 0.000000e+00
+  br i1 %87, label %.loopexit, label %76
 
-.loopexit11:                                      ; preds = %78, %71
-  %90 = add nuw nsw i64 %72, 1
-  %91 = add nuw nsw i64 %73, 1
-  %92 = icmp eq i64 %90, %35
-  br i1 %92, label %.loopexit, label %71, !llvm.loop !12
+.loopexit11:                                      ; preds = %76, %69
+  %88 = add nuw nsw i64 %70, 1
+  %89 = add nuw nsw i64 %71, 1
+  %90 = icmp eq i64 %88, %35
+  br i1 %90, label %.loopexit, label %69, !llvm.loop !12
 
-.loopexit:                                        ; preds = %.loopexit11, %86, %81, %.loopexit8, %67, %62, %37, %27, %21, %16, %8, %6
-  %93 = phi i32 [ 0, %6 ], [ 0, %8 ], [ 0, %21 ], [ 0, %16 ], [ 0, %37 ], [ 0, %27 ], [ 1, %62 ], [ 1, %67 ], [ 0, %.loopexit8 ], [ 1, %81 ], [ 1, %86 ], [ 0, %.loopexit11 ]
-  ret i32 %93
+.loopexit:                                        ; preds = %.loopexit11, %84, %79, %.loopexit8, %65, %60, %37, %27, %21, %16, %8, %6
+  %91 = phi i32 [ 0, %6 ], [ 0, %8 ], [ 0, %21 ], [ 0, %16 ], [ 0, %37 ], [ 0, %27 ], [ 1, %60 ], [ 1, %65 ], [ 0, %.loopexit8 ], [ 1, %79 ], [ 1, %84 ], [ 0, %.loopexit11 ]
+  ret i32 %91
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)

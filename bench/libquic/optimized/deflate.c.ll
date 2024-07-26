@@ -5049,6 +5049,7 @@ if.end:                                           ; preds = %if.then
 if.end2:                                          ; preds = %if.end, %entry
   %input_length.0 = phi i32 [ %2, %if.end ], [ undef, %entry ]
   %lookahead3 = getelementptr inbounds i8, ptr %s, i64 1292
+  %invariant.op = add i32 %input_length.0, -1
   %cmp8 = icmp eq i32 %flush, 0
   %strstart = getelementptr inbounds i8, ptr %s, i64 1284
   %window.i.i = getelementptr inbounds i8, ptr %s, i64 176
@@ -5260,15 +5261,15 @@ lor.lhs.false36.i:                                ; preds = %for.body23.i
   br i1 %cmp38.not.not.i, label %if.end66.sink.split, label %for.cond20.i
 
 for.end44.i:                                      ; preds = %for.cond20.i
-  %add46.i = add i32 %36, %input_length.0
-  %sub47.i = add i32 %add46.i, -1
-  %idxprom48.i = zext i32 %sub47.i to i64
+  %sub47.i.reass = add i32 %36, %invariant.op
+  %idxprom48.i = zext i32 %sub47.i.reass to i64
   %arrayidx49.i = getelementptr inbounds i8, ptr %32, i64 %idxprom48.i
   %45 = load i8, ptr %arrayidx49.i, align 1
   %cmp51.not.i = icmp eq i8 %45, 59
   br i1 %cmp51.not.i, label %if.end59.i, label %land.lhs.true53.i
 
 land.lhs.true53.i:                                ; preds = %for.end44.i
+  %add46.i = add i32 %36, %input_length.0
   %shr.i43.i = lshr i32 %add46.i, 3
   %and.i44.i = and i32 %add46.i, 7
   %idxprom.i45.i = zext nneg i32 %shr.i43.i to i64

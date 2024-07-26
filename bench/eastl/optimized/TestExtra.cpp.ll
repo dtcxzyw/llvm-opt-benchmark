@@ -4268,10 +4268,14 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit: ; preds = %if.then.i.i
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.rhs.cast8.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 6
-  br i1 %cmp97.i.i, label %land.rhs.i.i, label %for.end.i.i
+  br i1 %cmp97.i.i, label %land.rhs.i.preheader.i, label %for.end.i.i
 
-land.rhs.i.i:                                     ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit, %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i
-  %position.addr.098.i.i = phi i64 [ %parentPosition.099.i.i, %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i ], [ %sub, %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit ]
+land.rhs.i.preheader.i:                           ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit
+  %invariant.op.i = add nsw i64 %sub.ptr.div.i.i.i.i, 16777216
+  br label %land.rhs.i.i
+
+land.rhs.i.i:                                     ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i, %land.rhs.i.preheader.i
+  %position.addr.098.i.i = phi i64 [ %parentPosition.099.i.i, %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i ], [ %sub, %land.rhs.i.preheader.i ]
   %parentPosition.099.in.i.i = add nsw i64 %position.addr.098.i.i, -1
   %parentPosition.099.i.i = lshr i64 %parentPosition.099.in.i.i, 1
   %add.i.i.i.i = add nsw i64 %parentPosition.099.i.i, %sub.ptr.div.i.i.i.i
@@ -4285,8 +4289,8 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit.i.i: ; preds = %land.rh
   br i1 %cmp.i.i8.i.i, label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit36.i.i, label %for.end.i.i
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit.thread.i.i: ; preds = %land.rhs.i.i
-  %add3.i.i.i.i = add nsw i64 %add.i.i.i.i, 16777216
-  %div.i.i.i.i = sdiv i64 %add3.i.i.i.i, 4
+  %add3.i.i.i.reass.i = add nsw i64 %parentPosition.099.i.i, %invariant.op.i
+  %div.i.i.i.i = sdiv i64 %add3.i.i.i.reass.i, 4
   %sub.i.i.i.i = add nsw i64 %div.i.i.i.i, -4194304
   %add.ptr4.i.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %sub.i.i.i.i
   %9 = load ptr, ptr %add.ptr4.i.i.i.i, align 8, !noalias !86
@@ -4308,8 +4312,8 @@ if.then.i.i61.i.i:                                ; preds = %_ZNK5eastl13DequeIt
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i
 
 if.else.i.i45.i.i:                                ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit36.i.i
-  %add3.i.i46.i.i = add nsw i64 %add.i.i43.i.i, 16777216
-  %div.i.i47.i.i = sdiv i64 %add3.i.i46.i.i, 4
+  %add3.i.i46.i.reass.i = add i64 %position.addr.098.i.i, %invariant.op.i
+  %div.i.i47.i.i = sdiv i64 %add3.i.i46.i.reass.i, 4
   %sub.i.i48.i.i = add nsw i64 %div.i.i47.i.i, -4194304
   %add.ptr4.i.i49.i.i = getelementptr inbounds ptr, ptr %6, i64 %sub.i.i48.i.i
   %12 = load ptr, ptr %add.ptr4.i.i49.i.i, align 8, !noalias !87
@@ -4665,10 +4669,14 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit: ; preds = %if.then.i.i
   %tempBottom.sroa.0.0.copyload = load i32, ptr %storemerge.i.i23, align 64
   %sub = add i64 %heapSize, -1
   %cmp97.i.i = icmp sgt i64 %sub, 0
-  br i1 %cmp97.i.i, label %land.rhs.i.i, label %for.end.i.i
+  br i1 %cmp97.i.i, label %land.rhs.i.preheader.i, label %for.end.i.i
 
-land.rhs.i.i:                                     ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit, %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i
-  %position.addr.098.i.i = phi i64 [ %parentPosition.099.i.i, %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i ], [ %sub, %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit ]
+land.rhs.i.preheader.i:                           ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit
+  %invariant.op.i = add nsw i64 %sub.ptr.div.i.i, 16777216
+  br label %land.rhs.i.i
+
+land.rhs.i.i:                                     ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i, %land.rhs.i.preheader.i
+  %position.addr.098.i.i = phi i64 [ %parentPosition.099.i.i, %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i ], [ %sub, %land.rhs.i.preheader.i ]
   %parentPosition.099.in.i.i = add nsw i64 %position.addr.098.i.i, -1
   %parentPosition.099.i.i = lshr i64 %parentPosition.099.in.i.i, 1
   %add.i.i.i.i = add nsw i64 %parentPosition.099.i.i, %sub.ptr.div.i.i
@@ -4682,8 +4690,8 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit.i.i: ; preds = %land.rh
   br i1 %cmp.i.i8.i.i, label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit36.i.i, label %for.end.i.i
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit.thread.i.i: ; preds = %land.rhs.i.i
-  %add3.i.i.i.i = add nsw i64 %add.i.i.i.i, 16777216
-  %div.i.i.i.i = sdiv i64 %add3.i.i.i.i, 4
+  %add3.i.i.i.reass.i = add nsw i64 %parentPosition.099.i.i, %invariant.op.i
+  %div.i.i.i.i = sdiv i64 %add3.i.i.i.reass.i, 4
   %sub.i.i.i.i = add nsw i64 %div.i.i.i.i, -4194304
   %add.ptr4.i.i.i.i = getelementptr inbounds ptr, ptr %4, i64 %sub.i.i.i.i
   %8 = load ptr, ptr %add.ptr4.i.i.i.i, align 8, !noalias !86
@@ -4705,8 +4713,8 @@ if.then.i.i61.i.i:                                ; preds = %_ZNK5eastl13DequeIt
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i
 
 if.else.i.i45.i.i:                                ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit36.i.i
-  %add3.i.i46.i.i = add nsw i64 %add.i.i43.i.i, 16777216
-  %div.i.i47.i.i = sdiv i64 %add3.i.i46.i.i, 4
+  %add3.i.i46.i.reass.i = add i64 %position.addr.098.i.i, %invariant.op.i
+  %div.i.i47.i.i = sdiv i64 %add3.i.i46.i.reass.i, 4
   %sub.i.i48.i.i = add nsw i64 %div.i.i47.i.i, -4194304
   %add.ptr4.i.i49.i.i = getelementptr inbounds ptr, ptr %4, i64 %sub.i.i48.i.i
   %11 = load ptr, ptr %add.ptr4.i.i49.i.i, align 8, !noalias !115
@@ -18115,10 +18123,14 @@ if.end20:                                         ; preds = %_ZNK5eastl13DequeIt
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 6
-  br i1 %cmp97.i.i, label %land.rhs.i.i, label %for.end.i.i
+  br i1 %cmp97.i.i, label %land.rhs.i.preheader.i, label %for.end.i.i
 
-land.rhs.i.i:                                     ; preds = %if.end20, %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i
-  %position.addr.098.i.i = phi i64 [ %parentPosition.099.i.i, %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i ], [ %position.addr.1, %if.end20 ]
+land.rhs.i.preheader.i:                           ; preds = %if.end20
+  %invariant.op.i = add nsw i64 %sub.ptr.div.i.i.i.i, 16777216
+  br label %land.rhs.i.i
+
+land.rhs.i.i:                                     ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i, %land.rhs.i.preheader.i
+  %position.addr.098.i.i = phi i64 [ %parentPosition.099.i.i, %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i ], [ %position.addr.1, %land.rhs.i.preheader.i ]
   %parentPosition.099.in.i.i = add nsw i64 %position.addr.098.i.i, -1
   %parentPosition.099.i.i = ashr i64 %parentPosition.099.in.i.i, 1
   %add.i.i.i.i = add nsw i64 %parentPosition.099.i.i, %sub.ptr.div.i.i.i.i
@@ -18133,8 +18145,8 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit.i.i: ; preds = %land.rh
   br i1 %cmp.i.i8.i.i, label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit36.i.i, label %for.end.i.i
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit.thread.i.i: ; preds = %land.rhs.i.i
-  %add3.i.i.i.i = add nsw i64 %add.i.i.i.i, 16777216
-  %div.i.i.i.i = sdiv i64 %add3.i.i.i.i, 4
+  %add3.i.i.i.reass.i = add nsw i64 %parentPosition.099.i.i, %invariant.op.i
+  %div.i.i.i.i = sdiv i64 %add3.i.i.i.reass.i, 4
   %sub.i.i.i.i = add nsw i64 %div.i.i.i.i, -4194304
   %add.ptr4.i.i.i.i = getelementptr inbounds ptr, ptr %18, i64 %sub.i.i.i.i
   %21 = load ptr, ptr %add.ptr4.i.i.i.i, align 8, !noalias !86
@@ -18157,8 +18169,8 @@ if.then.i.i61.i.i:                                ; preds = %_ZNK5eastl13DequeIt
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i
 
 if.else.i.i45.i.i:                                ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit36.i.i
-  %add3.i.i46.i.i = add nsw i64 %add.i.i43.i.i, 16777216
-  %div.i.i47.i.i = sdiv i64 %add3.i.i46.i.i, 4
+  %add3.i.i46.i.reass.i = add i64 %position.addr.098.i.i, %invariant.op.i
+  %div.i.i47.i.i = sdiv i64 %add3.i.i46.i.reass.i, 4
   %sub.i.i48.i.i = add nsw i64 %div.i.i47.i.i, -4194304
   %add.ptr4.i.i49.i.i = getelementptr inbounds ptr, ptr %18, i64 %sub.i.i48.i.i
   %25 = load ptr, ptr %add.ptr4.i.i49.i.i, align 8, !noalias !237
@@ -19458,10 +19470,14 @@ if.end20:                                         ; preds = %_ZNK5eastl13DequeIt
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 6
-  br i1 %cmp97.i.i, label %land.rhs.i.i, label %for.end.i.i
+  br i1 %cmp97.i.i, label %land.rhs.i.preheader.i, label %for.end.i.i
 
-land.rhs.i.i:                                     ; preds = %if.end20, %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i
-  %position.addr.098.i.i = phi i64 [ %parentPosition.099.i.i, %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i ], [ %position.addr.1, %if.end20 ]
+land.rhs.i.preheader.i:                           ; preds = %if.end20
+  %invariant.op.i = add nsw i64 %sub.ptr.div.i.i.i.i, 16777216
+  br label %land.rhs.i.i
+
+land.rhs.i.i:                                     ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i, %land.rhs.i.preheader.i
+  %position.addr.098.i.i = phi i64 [ %parentPosition.099.i.i, %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i ], [ %position.addr.1, %land.rhs.i.preheader.i ]
   %parentPosition.099.in.i.i = add nsw i64 %position.addr.098.i.i, -1
   %parentPosition.099.i.i = ashr i64 %parentPosition.099.in.i.i, 1
   %add.i.i.i.i = add nsw i64 %parentPosition.099.i.i, %sub.ptr.div.i.i.i.i
@@ -19476,8 +19492,8 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit.i.i: ; preds = %land.rh
   br i1 %cmp.i.i8.i.i, label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit36.i.i, label %for.end.i.i
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit.thread.i.i: ; preds = %land.rhs.i.i
-  %add3.i.i.i.i = add nsw i64 %add.i.i.i.i, 16777216
-  %div.i.i.i.i = sdiv i64 %add3.i.i.i.i, 4
+  %add3.i.i.i.reass.i = add nsw i64 %parentPosition.099.i.i, %invariant.op.i
+  %div.i.i.i.i = sdiv i64 %add3.i.i.i.reass.i, 4
   %sub.i.i.i.i = add nsw i64 %div.i.i.i.i, -4194304
   %add.ptr4.i.i.i.i = getelementptr inbounds ptr, ptr %18, i64 %sub.i.i.i.i
   %21 = load ptr, ptr %add.ptr4.i.i.i.i, align 8, !noalias !86
@@ -19500,8 +19516,8 @@ if.then.i.i61.i.i:                                ; preds = %_ZNK5eastl13DequeIt
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i
 
 if.else.i.i45.i.i:                                ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit36.i.i
-  %add3.i.i46.i.i = add nsw i64 %add.i.i43.i.i, 16777216
-  %div.i.i47.i.i = sdiv i64 %add3.i.i46.i.i, 4
+  %add3.i.i46.i.reass.i = add i64 %position.addr.098.i.i, %invariant.op.i
+  %div.i.i47.i.i = sdiv i64 %add3.i.i46.i.reass.i, 4
   %sub.i.i48.i.i = add nsw i64 %div.i.i47.i.i, -4194304
   %add.ptr4.i.i49.i.i = getelementptr inbounds ptr, ptr %18, i64 %sub.i.i48.i.i
   %25 = load ptr, ptr %add.ptr4.i.i49.i.i, align 8, !noalias !388

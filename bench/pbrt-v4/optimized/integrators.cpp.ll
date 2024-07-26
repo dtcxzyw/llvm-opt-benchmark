@@ -34946,12 +34946,12 @@ entry:
   %12 = load i8, ptr %regularize, align 4
   %tobool18 = trunc i8 %12 to i1
   %call19 = call noundef i32 @_ZN4pbrt20GenerateLightSubpathERKNS_10IntegratorERNS_18SampledWavelengthsENS_7SamplerENS_6CameraERNS_13ScratchBufferEifNS_12LightSamplerEPNS_6VertexEb(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(32) %lambda, ptr noundef nonnull %agg.tmp10, ptr noundef nonnull %agg.tmp11, ptr noundef nonnull align 64 dereferenceable(40) %scratchBuffer, i32 noundef %add14, float noundef %10, ptr noundef nonnull %agg.tmp16, ptr noundef %call9, i1 noundef zeroext %tobool18)
-  %cmp.not139 = icmp slt i32 %call5, 1
+  %cmp.not141 = icmp slt i32 %call5, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval, i8 0, i64 16, i1 false)
-  br i1 %cmp.not139, label %for.end139, label %for.cond20.preheader.lr.ph
+  br i1 %cmp.not141, label %for.end139, label %for.cond20.preheader.lr.ph
 
 for.cond20.preheader.lr.ph:                       ; preds = %entry
-  %cmp21.not129 = icmp slt i32 %call19, 0
+  %cmp21.not131 = icmp slt i32 %call19, 0
   %set.i = getelementptr inbounds i8, ptr %pFilmNew, i64 8
   %13 = getelementptr inbounds i8, ptr %Lpath, i64 8
   %visualizeStrategies = getelementptr inbounds i8, ptr %this, i64 96
@@ -34971,26 +34971,28 @@ for.cond20.preheader.lr.ph:                       ; preds = %entry
   %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZNK4pbrt14BDPTIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE7numTrue)
   %weightFilms99 = getelementptr inbounds i8, ptr %this, i64 104
   %pRaster = getelementptr inbounds i8, ptr %cs, i64 32
-  br i1 %cmp21.not129, label %for.end139, label %for.cond20.preheader
+  br i1 %cmp21.not131, label %for.end139, label %for.cond20.preheader
 
 for.cond20.preheader:                             ; preds = %for.cond20.preheader.lr.ph, %for.cond20.for.inc137_crit_edge
-  %t.0143 = phi i32 [ %inc138, %for.cond20.for.inc137_crit_edge ], [ 1, %for.cond20.preheader.lr.ph ]
-  %cmp25 = icmp eq i32 %t.0143, 1
+  %t.0145 = phi i32 [ %inc138, %for.cond20.for.inc137_crit_edge ], [ 1, %for.cond20.preheader.lr.ph ]
+  %invariant.op = add nsw i32 %t.0145, -2
+  %invariant.op129 = add nuw i32 %t.0145, 3
+  %cmp25 = icmp eq i32 %t.0145, 1
   br label %for.body22
 
 for.body22:                                       ; preds = %for.cond20.preheader, %for.inc
-  %s.0133 = phi i32 [ 0, %for.cond20.preheader ], [ %inc136, %for.inc ]
-  %add23 = add nuw nsw i32 %s.0133, %t.0143
-  %cmp24 = icmp eq i32 %s.0133, 1
+  %s.0135 = phi i32 [ 0, %for.cond20.preheader ], [ %inc136, %for.inc ]
+  %add23 = add nuw nsw i32 %s.0135, %t.0145
+  %cmp24 = icmp eq i32 %s.0135, 1
   %or.cond = and i1 %cmp25, %cmp24
   %cmp26 = icmp ult i32 %add23, 2
   %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp26
   br i1 %or.cond1, label %for.inc, label %lor.lhs.false27
 
 lor.lhs.false27:                                  ; preds = %for.body22
-  %sub = add nsw i32 %add23, -2
+  %sub.reass = add i32 %s.0135, %invariant.op
   %16 = load i32, ptr %maxDepth, align 8
-  %cmp29 = icmp sgt i32 %sub, %16
+  %cmp29 = icmp sgt i32 %sub.reass, %16
   br i1 %cmp29, label %for.inc, label %invoke.cont36
 
 invoke.cont36:                                    ; preds = %lor.lhs.false27
@@ -35002,7 +35004,7 @@ invoke.cont36:                                    ; preds = %lor.lhs.false27
   store i64 %18, ptr %agg.tmp32, align 8
   %19 = load i64, ptr %sampler, align 8
   store i64 %19, ptr %agg.tmp35, align 8
-  %call38 = call { <2 x float>, <2 x float> } @_ZN4pbrt11ConnectBDPTERKNS_10IntegratorERNS_18SampledWavelengthsEPNS_6VertexES6_iiNS_12LightSamplerENS_6CameraENS_7SamplerEPN4pstd8optionalINS_6Point2IfEEEEPf(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(32) %lambda, ptr noundef %call9, ptr noundef nonnull %call, i32 noundef %s.0133, i32 noundef %t.0143, ptr noundef nonnull %agg.tmp30, ptr noundef nonnull %agg.tmp32, ptr noundef nonnull %agg.tmp35, ptr noundef nonnull %pFilmNew, ptr noundef nonnull %misWeight)
+  %call38 = call { <2 x float>, <2 x float> } @_ZN4pbrt11ConnectBDPTERKNS_10IntegratorERNS_18SampledWavelengthsEPNS_6VertexES6_iiNS_12LightSamplerENS_6CameraENS_7SamplerEPN4pstd8optionalINS_6Point2IfEEEEPf(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(32) %lambda, ptr noundef %call9, ptr noundef nonnull %call, i32 noundef %s.0135, i32 noundef %t.0145, ptr noundef nonnull %agg.tmp30, ptr noundef nonnull %agg.tmp32, ptr noundef nonnull %agg.tmp35, ptr noundef nonnull %pFilmNew, ptr noundef nonnull %misWeight)
   %20 = extractvalue { <2 x float>, <2 x float> } %call38, 0
   store <2 x float> %20, ptr %Lpath, align 8
   %21 = extractvalue { <2 x float>, <2 x float> } %call38, 1
@@ -35067,11 +35069,11 @@ cond.end:                                         ; preds = %if.then49, %invoke.
   %ref.tmp.sroa.4.2 = phi <2 x float> [ %retval.sroa.2.0.copyload.i, %invoke.cont52 ], [ zeroinitializer, %if.then49 ]
   %ref.tmp.sroa.0.2 = phi <2 x float> [ %retval.sroa.0.0.copyload.i, %invoke.cont52 ], [ zeroinitializer, %if.then49 ]
   %.pre = load i8, ptr %visualizeWeights, align 1
-  %.pre151 = trunc i8 %.pre to i1
+  %.pre153 = trunc i8 %.pre to i1
   br label %if.end56
 
 if.end56:                                         ; preds = %lor.lhs.false44, %cond.end
-  %tobool58.pre-phi = phi i1 [ true, %lor.lhs.false44 ], [ %.pre151, %cond.end ]
+  %tobool58.pre-phi = phi i1 [ true, %lor.lhs.false44 ], [ %.pre153, %cond.end ]
   %value.sroa.5.2 = phi <2 x float> [ zeroinitializer, %lor.lhs.false44 ], [ %ref.tmp.sroa.4.2, %cond.end ]
   %value.sroa.0.2 = phi <2 x float> [ zeroinitializer, %lor.lhs.false44 ], [ %ref.tmp.sroa.0.2, %cond.end ]
   %spec.select = select i1 %tobool58.pre-phi, <2 x float> %21, <2 x float> %value.sroa.5.2
@@ -35081,10 +35083,10 @@ if.end56:                                         ; preds = %lor.lhs.false44, %c
   br i1 %tobool.i, label %invoke.cont69, label %invoke.cont82
 
 invoke.cont69:                                    ; preds = %if.end56
-  %add1.i = add nuw nsw i32 %add23, 3
-  %mul.i = mul nsw i32 %sub, %add1.i
+  %add1.i.reass = add nuw i32 %s.0135, %invariant.op129
+  %mul.i = mul nsw i32 %sub.reass, %add1.i.reass
   %div.i = sdiv i32 %mul.i, 2
-  %add2.i = add nsw i32 %div.i, %s.0133
+  %add2.i = add nsw i32 %div.i, %s.0135
   %conv66 = sext i32 %add2.i to i64
   %29 = load ptr, ptr %weightFilms99, align 8
   %add.ptr.i = getelementptr inbounds %"class.pbrt::Film", ptr %29, i64 %conv66
@@ -35155,20 +35157,20 @@ do.end:                                           ; preds = %init.end
   br label %if.end110
 
 invoke.cont105:                                   ; preds = %init.end
-  %add1.i50 = add nuw nsw i32 %add23, 3
-  %mul.i51 = mul nsw i32 %sub, %add1.i50
+  %add1.i50.reass = add nuw i32 %s.0135, %invariant.op129
+  %mul.i51 = mul nsw i32 %sub.reass, %add1.i50.reass
   %div.i52 = sdiv i32 %mul.i51, 2
-  %add2.i53 = add nsw i32 %div.i52, %s.0133
+  %add2.i53 = add nsw i32 %div.i52, %s.0135
   %conv102 = sext i32 %add2.i53 to i64
   %43 = load ptr, ptr %weightFilms99, align 8
   %add.ptr.i54 = getelementptr inbounds %"class.pbrt::Film", ptr %43, i64 %conv102
   %agg.tmp104.sroa.0.0.copyload = load <2 x float>, ptr %pRaster, align 8
   call void @_ZN4pbrt4Film8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i54, <2 x float> %agg.tmp104.sroa.0.0.copyload, <2 x float> %spec.select100, <2 x float> %spec.select, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
-  %.pre148 = load i8, ptr %set.i44, align 8
+  %.pre150 = load i8, ptr %set.i44, align 8
   br label %if.end110
 
 if.end110:                                        ; preds = %invoke.cont105, %do.end
-  %44 = phi i8 [ %.pre148, %invoke.cont105 ], [ %40, %do.end ]
+  %44 = phi i8 [ %.pre150, %invoke.cont105 ], [ %40, %do.end ]
   %tobool.i.i60 = trunc i8 %44 to i1
   br i1 %tobool.i.i60, label %_ZN4pstd8optionalIN4pbrt14CameraWiSampleEE5valueEv.exit.i.i, label %if.end112
 
@@ -35245,24 +35247,24 @@ if.end134:                                        ; preds = %for.body.i65, %for.
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end134, %lor.lhs.false27, %for.body22
-  %inc136 = add nuw i32 %s.0133, 1
-  %exitcond.not = icmp eq i32 %s.0133, %call19
+  %inc136 = add nuw i32 %s.0135, 1
+  %exitcond.not = icmp eq i32 %s.0135, %call19
   br i1 %exitcond.not, label %for.cond20.for.inc137_crit_edge, label %for.body22, !llvm.loop !477
 
 for.cond20.for.inc137_crit_edge:                  ; preds = %for.inc
-  %inc138 = add nuw i32 %t.0143, 1
-  %exitcond145.not = icmp eq i32 %t.0143, %call5
-  br i1 %exitcond145.not, label %for.end139.loopexit144, label %for.cond20.preheader, !llvm.loop !478
+  %inc138 = add nuw i32 %t.0145, 1
+  %exitcond147.not = icmp eq i32 %t.0145, %call5
+  br i1 %exitcond147.not, label %for.end139.loopexit146, label %for.cond20.preheader, !llvm.loop !478
 
-for.end139.loopexit144:                           ; preds = %for.cond20.for.inc137_crit_edge
+for.end139.loopexit146:                           ; preds = %for.cond20.for.inc137_crit_edge
   %.fca.0.load.pre = load <2 x float>, ptr %retval, align 8
   %.fca.1.gep.phi.trans.insert = getelementptr inbounds i8, ptr %retval, i64 8
   %.fca.1.load.pre = load <2 x float>, ptr %.fca.1.gep.phi.trans.insert, align 8
   br label %for.end139
 
-for.end139:                                       ; preds = %for.cond20.preheader.lr.ph, %for.end139.loopexit144, %entry
-  %.fca.1.load = phi <2 x float> [ %.fca.1.load.pre, %for.end139.loopexit144 ], [ zeroinitializer, %entry ], [ zeroinitializer, %for.cond20.preheader.lr.ph ]
-  %.fca.0.load = phi <2 x float> [ %.fca.0.load.pre, %for.end139.loopexit144 ], [ zeroinitializer, %entry ], [ zeroinitializer, %for.cond20.preheader.lr.ph ]
+for.end139:                                       ; preds = %for.cond20.preheader.lr.ph, %for.end139.loopexit146, %entry
+  %.fca.1.load = phi <2 x float> [ %.fca.1.load.pre, %for.end139.loopexit146 ], [ zeroinitializer, %entry ], [ zeroinitializer, %for.cond20.preheader.lr.ph ]
+  %.fca.0.load = phi <2 x float> [ %.fca.0.load.pre, %for.end139.loopexit146 ], [ zeroinitializer, %entry ], [ zeroinitializer, %for.cond20.preheader.lr.ph ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.fca.1.load, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert

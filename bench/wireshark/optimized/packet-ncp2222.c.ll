@@ -18297,8 +18297,8 @@ check_offset_addition.exit1756:                   ; preds = %125
   %149 = load i32, ptr %87, align 8
   %150 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %148, ptr noundef %1, i32 noundef %147, i32 noundef %149, i32 noundef -2147483648) #13
   %151 = add nuw nsw i32 %.016742209, 1
-  %exitcond2427.not = icmp eq i32 %.016742209, %145
-  br i1 %exitcond2427.not, label %._crit_edge2211, label %.lr.ph2210, !llvm.loop !29
+  %exitcond2426.not = icmp eq i32 %.016742209, %145
+  br i1 %exitcond2426.not, label %._crit_edge2211, label %.lr.ph2210, !llvm.loop !29
 
 ._crit_edge2211:                                  ; preds = %.lr.ph2210, %check_offset_addition.exit1756
   %.41696.in.lcssa = phi i32 [ %142, %check_offset_addition.exit1756 ], [ %147, %.lr.ph2210 ]
@@ -18387,8 +18387,8 @@ check_offset_addition.exit1758:                   ; preds = %154
   %209 = srem i32 %201, 2
   %210 = add i32 %208, %209
   %211 = add nuw nsw i32 %.116752197, 1
-  %exitcond2426.not = icmp eq i32 %.116752197, %174
-  br i1 %exitcond2426.not, label %._crit_edge2199, label %.lr.ph2198, !llvm.loop !31
+  %exitcond2425.not = icmp eq i32 %.116752197, %174
+  br i1 %exitcond2425.not, label %._crit_edge2199, label %.lr.ph2198, !llvm.loop !31
 
 ._crit_edge2199:                                  ; preds = %.lr.ph2198, %204, %check_offset_addition.exit1758
   %.71699 = phi i32 [ %178, %check_offset_addition.exit1758 ], [ %210, %204 ], [ %200, %.lr.ph2198 ]
@@ -18429,7 +18429,7 @@ check_offset_addition.exit1761:                   ; preds = %214
   br i1 %.not17452184, label %._crit_edge2189, label %.lr.ph2188
 
 .lr.ph2188:                                       ; preds = %check_offset_addition.exit1761, %.lr.ph2188
-  %.917012187 = phi i32 [ %.91701, %.lr.ph2188 ], [ %.917012183, %check_offset_addition.exit1761 ]
+  %.917012187 = phi i32 [ %.91701.reass, %.lr.ph2188 ], [ %.917012183, %check_offset_addition.exit1761 ]
   %.216762186 = phi i32 [ %256, %.lr.ph2188 ], [ 1, %check_offset_addition.exit1761 ]
   %.91701.in2185 = phi i32 [ %253, %.lr.ph2188 ], [ %227, %check_offset_addition.exit1761 ]
   %232 = call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %.917012187) #13
@@ -18460,12 +18460,12 @@ check_offset_addition.exit1761:                   ; preds = %214
   %254 = load i32, ptr @hf_nds_value_len, align 4
   %255 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %254, ptr noundef %1, i32 noundef %253, i32 noundef 4, i32 noundef -2147483648) #13
   %256 = add nuw nsw i32 %.216762186, 1
-  %.91701 = add i32 %235, 16
-  %exitcond2425.not = icmp eq i32 %.216762186, %230
-  br i1 %exitcond2425.not, label %._crit_edge2189, label %.lr.ph2188, !llvm.loop !33
+  %.91701.reass = add i32 %235, 16
+  %exitcond2424.not = icmp eq i32 %.216762186, %230
+  br i1 %exitcond2424.not, label %._crit_edge2189, label %.lr.ph2188, !llvm.loop !33
 
 ._crit_edge2189:                                  ; preds = %.lr.ph2188, %check_offset_addition.exit1761
-  %.91701.lcssa = phi i32 [ %.917012183, %check_offset_addition.exit1761 ], [ %.91701, %.lr.ph2188 ]
+  %.91701.lcssa = phi i32 [ %.917012183, %check_offset_addition.exit1761 ], [ %.91701.reass, %.lr.ph2188 ]
   %257 = add i32 %.52193, 1
   %258 = load i32, ptr %79, align 4
   %.not1744 = icmp ugt i32 %257, %258
@@ -18718,8 +18718,8 @@ check_offset_addition.exit1769:                   ; preds = %355
 390:                                              ; preds = %383
   %391 = shl i32 %.016722156, 1
   %392 = add nuw nsw i32 %.316772155, 1
-  %exitcond2424.not = icmp eq i32 %392, 9
-  br i1 %exitcond2424.not, label %393, label %312, !llvm.loop !39
+  %exitcond2423.not = icmp eq i32 %392, 9
+  br i1 %exitcond2423.not, label %393, label %312, !llvm.loop !39
 
 393:                                              ; preds = %383, %390
   %394 = call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %387) #13
@@ -19048,8 +19048,8 @@ check_offset_addition.exit1776:                   ; preds = %553
   %593 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %589, i32 noundef %592, ptr noundef %1, i32 noundef %.232113, i32 noundef 4, ptr noundef %591, ptr noundef nonnull @.str.7316, ptr noundef %591) #13
   %594 = add nuw i32 %.132112, 1
   %.23 = add i32 %.232113, 4
-  %exitcond2422.not = icmp eq i32 %594, %585
-  br i1 %exitcond2422.not, label %._crit_edge2116, label %.lr.ph2115, !llvm.loop !45
+  %exitcond2421.not = icmp eq i32 %594, %585
+  br i1 %exitcond2421.not, label %._crit_edge2116, label %.lr.ph2115, !llvm.loop !45
 
 ._crit_edge2116:                                  ; preds = %.lr.ph2115, %565
   %.23.in.lcssa = phi i32 [ %582, %565 ], [ %.232113, %.lr.ph2115 ]
@@ -19075,8 +19075,8 @@ check_offset_addition.exit1776:                   ; preds = %553
   %604 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %599, i32 noundef %603, ptr noundef %1, i32 noundef %.242119, i32 noundef 4, ptr noundef %602, ptr noundef nonnull @.str.7316, ptr noundef %602) #13
   %605 = add i32 %.242119, 4
   %606 = add nuw i32 %.142120, 1
-  %exitcond2423.not = icmp eq i32 %606, %595
-  br i1 %exitcond2423.not, label %._crit_edge2123, label %.lr.ph2122, !llvm.loop !46
+  %exitcond2422.not = icmp eq i32 %606, %595
+  br i1 %exitcond2422.not, label %._crit_edge2123, label %.lr.ph2122, !llvm.loop !46
 
 ._crit_edge2123:                                  ; preds = %.lr.ph2122, %._crit_edge2116
   store ptr @.str.7318, ptr %8, align 8
@@ -19430,8 +19430,8 @@ check_offset_addition.exit1783:                   ; preds = %789
 
 807:                                              ; preds = %802, %628
   %.29 = phi i32 [ %806, %802 ], [ %.272104, %628 ]
-  %exitcond2420 = icmp eq i32 %.616802105, 31
-  br i1 %exitcond2420, label %813, label %808
+  %exitcond2419 = icmp eq i32 %.616802105, 31
+  br i1 %exitcond2419, label %813, label %808
 
 808:                                              ; preds = %807
   %809 = shl i32 %.116732106, 1
@@ -19444,8 +19444,8 @@ check_offset_addition.exit1783:                   ; preds = %789
   %814 = call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %.29) #13
   %815 = icmp slt i32 %814, 4
   %816 = add nuw i32 %.152108, 1
-  %exitcond2421.not = icmp eq i32 %816, %616
-  %or.cond = select i1 %815, i1 true, i1 %exitcond2421.not
+  %exitcond2420.not = icmp eq i32 %816, %616
+  %or.cond = select i1 %815, i1 true, i1 %exitcond2420.not
   br i1 %or.cond, label %.loopexit, label %622, !llvm.loop !48
 
 817:                                              ; preds = %33
@@ -20512,8 +20512,8 @@ check_offset_addition.exit1826:                   ; preds = %check_offset_additi
   %1459 = icmp slt i32 %1458, 4
   %1460 = add i32 %.221992, 1
   %.not1725 = icmp ugt i32 %1460, %1439
-  %or.cond2590 = or i1 %1459, %.not1725
-  br i1 %or.cond2590, label %._crit_edge, label %.lr.ph, !llvm.loop !66
+  %or.cond2588 = or i1 %1459, %.not1725
+  br i1 %or.cond2588, label %._crit_edge, label %.lr.ph, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1420
   %.55 = phi i32 [ %1444, %1420 ], [ %1457, %.lr.ph ]

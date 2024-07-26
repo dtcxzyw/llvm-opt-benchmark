@@ -720,7 +720,7 @@ define ptr @run_command_poll_child(i32 noundef %0, i32 noundef %1, i1 noundef ze
   br i1 %.not55.us, label %.outer.us, label %60
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
-  %.043.ph68 = phi i32 [ %143, %.outer ], [ 0, %.lr.ph.lr.ph ]
+  %.043.ph68 = phi i32 [ %141, %.outer ], [ 0, %.lr.ph.lr.ph ]
   %.044.ph67 = phi i32 [ %.1, %.outer ], [ 1024, %.lr.ph.lr.ph ]
   %92 = zext nneg i32 %.043.ph68 to i64
   %93 = sub nsw i32 %.044.ph67, %.043.ph68
@@ -748,143 +748,143 @@ define ptr @run_command_poll_child(i32 noundef %0, i32 noundef %1, i1 noundef ze
   %102 = load i64, ptr %11, align 8
   %103 = sub nsw i64 %102, %20
   %104 = load i64, ptr %21, align 8
-  %105 = add i64 %104, 500
-  %106 = sub i64 %105, %23
-  %107 = sdiv i64 %106, 1000
+  %reass.sub = sub i64 %104, %23
+  %.reass = add i64 %reass.sub, 500
+  %105 = sdiv i64 %.reass, 1000
   %sext.i = mul i64 %103, 4294967296000
-  %108 = lshr exact i64 %sext.i, 32
-  %109 = add nsw i64 %107, %108
-  %110 = trunc i64 %109 to i32
+  %106 = lshr exact i64 %sext.i, 32
+  %107 = add nsw i64 %105, %106
+  %108 = trunc i64 %107 to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  %111 = sub nsw i32 %1, %110
-  %112 = icmp slt i32 %111, 1
-  br i1 %112, label %113, label %116
+  %109 = sub nsw i32 %1, %108
+  %110 = icmp slt i32 %109, 1
+  br i1 %110, label %111, label %114
 
-113:                                              ; preds = %100
-  %114 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef nonnull @__func__.run_command_poll_child, ptr noundef %5, i32 noundef %1) #11
+111:                                              ; preds = %100
+  %112 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef nonnull @__func__.run_command_poll_child, ptr noundef %5, i32 noundef %1) #11
   %.not54 = icmp eq ptr %8, null
-  br i1 %.not54, label %.loopexit, label %115
+  br i1 %.not54, label %.loopexit, label %113
 
-115:                                              ; preds = %113
+113:                                              ; preds = %111
   store i8 1, ptr %8, align 1
   br label %.loopexit
 
-116:                                              ; preds = %100
-  %117 = call i32 @llvm.umin.i32(i32 %111, i32 500)
-  %118 = call i32 @poll(ptr noundef nonnull %12, i64 noundef 1, i32 noundef %117) #11
-  %119 = icmp eq i32 %118, 0
-  br i1 %119, label %.backedge, label %120
+114:                                              ; preds = %100
+  %115 = call i32 @llvm.umin.i32(i32 %109, i32 500)
+  %116 = call i32 @poll(ptr noundef nonnull %12, i64 noundef 1, i32 noundef %115) #11
+  %117 = icmp eq i32 %116, 0
+  br i1 %117, label %.backedge, label %118
 
-120:                                              ; preds = %116
-  %121 = icmp slt i32 %118, 0
-  br i1 %121, label %122, label %126
+118:                                              ; preds = %114
+  %119 = icmp slt i32 %116, 0
+  br i1 %119, label %120, label %124
 
-122:                                              ; preds = %120
-  %123 = tail call ptr @__errno_location() #13
-  %124 = load i32, ptr %123, align 4
-  switch i32 %124, label %.split65.us [
+120:                                              ; preds = %118
+  %121 = tail call ptr @__errno_location() #13
+  %122 = load i32, ptr %121, align 4
+  switch i32 %122, label %.split65.us [
     i32 11, label %.backedge
     i32 4, label %.backedge
   ]
 
-.backedge:                                        ; preds = %122, %122, %116, %138
+.backedge:                                        ; preds = %120, %120, %114, %136
   %.b53 = load i1, ptr @command_shutdown, align 4
   br i1 %.b53, label %.outer._crit_edge, label %97
 
-.split65.us:                                      ; preds = %122, %87, %52
-  %125 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.20, ptr noundef nonnull @__func__.run_command_poll_child, ptr noundef %5) #11
+.split65.us:                                      ; preds = %120, %87, %52
+  %123 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.20, ptr noundef nonnull @__func__.run_command_poll_child, ptr noundef %5) #11
   br label %.loopexit
 
-126:                                              ; preds = %120
-  %127 = load i16, ptr %18, align 2
-  %128 = and i16 %127, 1
-  %129 = icmp eq i16 %128, 0
-  br i1 %129, label %.loopexit, label %130
+124:                                              ; preds = %118
+  %125 = load i16, ptr %18, align 2
+  %126 = and i16 %125, 1
+  %127 = icmp eq i16 %126, 0
+  br i1 %127, label %.loopexit, label %128
 
-130:                                              ; preds = %126
-  %131 = load ptr, ptr %14, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 %92
-  %133 = call i64 @read(i32 noundef %3, ptr noundef %132, i64 noundef %94) #11
-  %134 = trunc i64 %133 to i32
-  %135 = icmp eq i32 %134, 0
-  br i1 %135, label %.loopexit, label %136
+128:                                              ; preds = %124
+  %129 = load ptr, ptr %14, align 8
+  %130 = getelementptr inbounds i8, ptr %129, i64 %92
+  %131 = call i64 @read(i32 noundef %3, ptr noundef %130, i64 noundef %94) #11
+  %132 = trunc i64 %131 to i32
+  %133 = icmp eq i32 %132, 0
+  br i1 %133, label %.loopexit, label %134
 
-136:                                              ; preds = %130
-  %137 = icmp slt i32 %134, 0
-  br i1 %137, label %138, label %.split
+134:                                              ; preds = %128
+  %135 = icmp slt i32 %132, 0
+  br i1 %135, label %136, label %.split
 
-138:                                              ; preds = %136
-  %139 = tail call ptr @__errno_location() #13
-  %140 = load i32, ptr %139, align 4
-  %141 = icmp eq i32 %140, 11
-  br i1 %141, label %.backedge, label %.split63.us
+136:                                              ; preds = %134
+  %137 = tail call ptr @__errno_location() #13
+  %138 = load i32, ptr %137, align 4
+  %139 = icmp eq i32 %138, 11
+  br i1 %139, label %.backedge, label %.split63.us
 
-.split63.us:                                      ; preds = %138, %83, %48
-  %142 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21, ptr noundef nonnull @__func__.run_command_poll_child, ptr noundef %4) #11
+.split63.us:                                      ; preds = %136, %83, %48
+  %140 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21, ptr noundef nonnull @__func__.run_command_poll_child, ptr noundef %4) #11
   br label %.loopexit
 
-.split:                                           ; preds = %136
-  %143 = add nuw nsw i32 %.043.ph68, %134
-  %144 = add nuw nsw i32 %143, 1024
-  %.not55 = icmp slt i32 %144, %.044.ph67
-  br i1 %.not55, label %.outer, label %145
+.split:                                           ; preds = %134
+  %141 = add nuw nsw i32 %.043.ph68, %132
+  %142 = add nuw nsw i32 %141, 1024
+  %.not55 = icmp slt i32 %142, %.044.ph67
+  br i1 %.not55, label %.outer, label %143
 
-145:                                              ; preds = %.split
-  %146 = shl nsw i32 %.044.ph67, 1
-  %147 = sext i32 %146 to i64
-  %148 = call ptr @slurm_xrecalloc(ptr noundef nonnull %14, i64 noundef 1, i64 noundef %147, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 359, ptr noundef nonnull @__func__.run_command_poll_child) #11
-  store ptr %148, ptr %14, align 8
+143:                                              ; preds = %.split
+  %144 = shl nsw i32 %.044.ph67, 1
+  %145 = sext i32 %144 to i64
+  %146 = call ptr @slurm_xrecalloc(ptr noundef nonnull %14, i64 noundef 1, i64 noundef %145, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 359, ptr noundef nonnull @__func__.run_command_poll_child) #11
+  store ptr %146, ptr %14, align 8
   br label %.outer
 
-.outer:                                           ; preds = %145, %.split
-  %.1 = phi i32 [ %146, %145 ], [ %.044.ph67, %.split ]
+.outer:                                           ; preds = %143, %.split
+  %.1 = phi i32 [ %144, %143 ], [ %.044.ph67, %.split ]
   %.b5360 = load i1, ptr @command_shutdown, align 4
   br i1 %.b5360, label %.outer._crit_edge, label %.lr.ph
 
-.loopexit:                                        ; preds = %98, %126, %130, %75, %71, %64, %36, %40, %113, %115, %.split63.us, %.split65.us, %.outer._crit_edge
-  %.045 = phi i1 [ true, %.outer._crit_edge ], [ true, %.split65.us ], [ false, %.split63.us ], [ true, %115 ], [ true, %113 ], [ false, %40 ], [ false, %36 ], [ %65, %64 ], [ %65, %71 ], [ %65, %75 ], [ false, %130 ], [ false, %126 ], [ true, %98 ]
+.loopexit:                                        ; preds = %98, %124, %128, %75, %71, %64, %36, %40, %111, %113, %.split63.us, %.split65.us, %.outer._crit_edge
+  %.045 = phi i1 [ true, %.outer._crit_edge ], [ true, %.split65.us ], [ false, %.split63.us ], [ true, %113 ], [ true, %111 ], [ false, %40 ], [ false, %36 ], [ %65, %64 ], [ %65, %71 ], [ %65, %75 ], [ false, %128 ], [ false, %124 ], [ true, %98 ]
   %.b = load i1, ptr @command_shutdown, align 4
   %brmerge.demorgan = and i1 %.b, %2
-  br i1 %brmerge.demorgan, label %149, label %150
+  br i1 %brmerge.demorgan, label %147, label %148
 
-149:                                              ; preds = %.loopexit
+147:                                              ; preds = %.loopexit
   store i32 0, ptr %7, align 4
-  br label %172
+  br label %170
 
-150:                                              ; preds = %.loopexit
-  br i1 %.045, label %151, label %156
+148:                                              ; preds = %.loopexit
+  br i1 %.045, label %149, label %154
 
-151:                                              ; preds = %150
-  %152 = call i32 @killpg(i32 noundef %0, i32 noundef 15) #11
-  %153 = call i32 @usleep(i32 noundef 10000) #11
-  %154 = call i32 @killpg(i32 noundef %0, i32 noundef 9) #11
-  %155 = call i32 @waitpid(i32 noundef %0, ptr noundef %7, i32 noundef 0) #11
-  br label %172
+149:                                              ; preds = %148
+  %150 = call i32 @killpg(i32 noundef %0, i32 noundef 15) #11
+  %151 = call i32 @usleep(i32 noundef 10000) #11
+  %152 = call i32 @killpg(i32 noundef %0, i32 noundef 9) #11
+  %153 = call i32 @waitpid(i32 noundef %0, ptr noundef %7, i32 noundef 0) #11
+  br label %170
 
-156:                                              ; preds = %150
+154:                                              ; preds = %148
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  %157 = call i32 @gettimeofday(ptr noundef nonnull %10, ptr noundef null) #11
-  %158 = load i64, ptr %10, align 8
-  %159 = load i64, ptr %13, align 8
-  %160 = sub nsw i64 %158, %159
-  %161 = getelementptr inbounds i8, ptr %10, i64 8
+  %155 = call i32 @gettimeofday(ptr noundef nonnull %10, ptr noundef null) #11
+  %156 = load i64, ptr %10, align 8
+  %157 = load i64, ptr %13, align 8
+  %158 = sub nsw i64 %156, %157
+  %159 = getelementptr inbounds i8, ptr %10, i64 8
+  %160 = load i64, ptr %159, align 8
+  %161 = getelementptr inbounds i8, ptr %13, i64 8
   %162 = load i64, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %13, i64 8
-  %164 = load i64, ptr %163, align 8
-  %165 = add i64 %162, 500
-  %166 = sub i64 %165, %164
-  %167 = sdiv i64 %166, 1000
-  %sext.i57 = mul i64 %160, 4294967296000
-  %168 = lshr exact i64 %sext.i57, 32
-  %169 = add nsw i64 %167, %168
-  %170 = trunc i64 %169 to i32
+  %163 = add i64 %160, 500
+  %164 = sub i64 %163, %162
+  %165 = sdiv i64 %164, 1000
+  %sext.i57 = mul i64 %158, 4294967296000
+  %166 = lshr exact i64 %sext.i57, 32
+  %167 = add nsw i64 %165, %166
+  %168 = trunc i64 %167 to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %171 = call i32 @run_command_waitpid_timeout(ptr noundef %5, i32 noundef %0, ptr noundef %7, i32 noundef %1, i32 noundef %170, i64 noundef %6, ptr noundef %8)
-  br label %172
+  %169 = call i32 @run_command_waitpid_timeout(ptr noundef %5, i32 noundef %0, ptr noundef %7, i32 noundef %1, i32 noundef %168, i64 noundef %6, ptr noundef %8)
+  br label %170
 
-172:                                              ; preds = %151, %156, %149
-  %173 = load ptr, ptr %14, align 8
-  ret ptr %173
+170:                                              ; preds = %149, %154, %147
+  %171 = load ptr, ptr %14, align 8
+  ret ptr %171
 }
 
 declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

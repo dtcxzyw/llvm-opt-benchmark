@@ -1439,6 +1439,7 @@ define hidden void @FourByteAbgrSrcOverMaskFill(ptr noundef %0, ptr noundef %1, 
   %38 = sext i32 %37 to i64
   %39 = xor i32 %18, 255
   %40 = zext nneg i32 %39 to i64
+  %invariant.op = add nsw i32 %18, -1
   br label %138
 
 41:                                               ; preds = %35
@@ -1601,14 +1602,14 @@ define hidden void @FourByteAbgrSrcOverMaskFill(ptr noundef %0, ptr noundef %1, 
   %137 = icmp sgt i32 %.0135, 1
   br i1 %137, label %51, label %.loopexit, !llvm.loop !46
 
-138:                                              ; preds = %.preheader, %193
-  %.2150 = phi ptr [ %195, %193 ], [ %0, %.preheader ]
-  %.1136 = phi i32 [ %196, %193 ], [ %5, %.preheader ]
+138:                                              ; preds = %.preheader, %192
+  %.2150 = phi ptr [ %194, %192 ], [ %0, %.preheader ]
+  %.1136 = phi i32 [ %195, %192 ], [ %5, %.preheader ]
   br label %139
 
-139:                                              ; preds = %183, %138
-  %.3 = phi ptr [ %.2150, %138 ], [ %190, %183 ]
-  %.0131 = phi i32 [ %4, %138 ], [ %191, %183 ]
+139:                                              ; preds = %182, %138
+  %.3 = phi ptr [ %.2150, %138 ], [ %189, %182 ]
+  %.0131 = phi i32 [ %4, %138 ], [ %190, %182 ]
   %140 = load i8, ptr %.3, align 1
   %141 = zext i8 %140 to i64
   %142 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %40, i64 %141
@@ -1637,53 +1638,53 @@ define hidden void @FourByteAbgrSrcOverMaskFill(ptr noundef %0, ptr noundef %1, 
   %165 = load i8, ptr %164, align 1
   %166 = zext i8 %165 to i32
   %167 = add nuw nsw i32 %.0151, %166
-  %168 = add nsw i32 %145, -1
-  %or.cond3 = icmp ult i32 %168, 254
-  br i1 %or.cond3, label %169, label %183
+  %.reass = add nsw i32 %invariant.op, %144
+  %or.cond3 = icmp ult i32 %.reass, 254
+  br i1 %or.cond3, label %168, label %182
 
-169:                                              ; preds = %139
-  %170 = zext nneg i32 %145 to i64
-  %171 = zext nneg i32 %157 to i64
-  %172 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %170, i64 %171
-  %173 = load i8, ptr %172, align 1
-  %174 = zext i8 %173 to i32
-  %175 = zext nneg i32 %162 to i64
-  %176 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %170, i64 %175
-  %177 = load i8, ptr %176, align 1
-  %178 = zext i8 %177 to i32
-  %179 = zext nneg i32 %167 to i64
-  %180 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %170, i64 %179
-  %181 = load i8, ptr %180, align 1
-  %182 = zext i8 %181 to i32
-  br label %183
+168:                                              ; preds = %139
+  %169 = zext nneg i32 %145 to i64
+  %170 = zext nneg i32 %157 to i64
+  %171 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %169, i64 %170
+  %172 = load i8, ptr %171, align 1
+  %173 = zext i8 %172 to i32
+  %174 = zext nneg i32 %162 to i64
+  %175 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %169, i64 %174
+  %176 = load i8, ptr %175, align 1
+  %177 = zext i8 %176 to i32
+  %178 = zext nneg i32 %167 to i64
+  %179 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %169, i64 %178
+  %180 = load i8, ptr %179, align 1
+  %181 = zext i8 %180 to i32
+  br label %182
 
-183:                                              ; preds = %139, %169
-  %.0130 = phi i32 [ %174, %169 ], [ %157, %139 ]
-  %.0129 = phi i32 [ %178, %169 ], [ %162, %139 ]
-  %.0128 = phi i32 [ %182, %169 ], [ %167, %139 ]
-  %184 = trunc i32 %145 to i8
-  store i8 %184, ptr %.3, align 1
-  %185 = trunc i32 %.0128 to i8
-  store i8 %185, ptr %146, align 1
-  %186 = trunc i32 %.0129 to i8
-  store i8 %186, ptr %148, align 1
-  %187 = trunc i32 %.0130 to i8
-  store i8 %187, ptr %150, align 1
-  %188 = ptrtoint ptr %.3 to i64
-  %189 = add nsw i64 %188, 4
-  %190 = inttoptr i64 %189 to ptr
-  %191 = add nsw i32 %.0131, -1
-  %192 = icmp sgt i32 %.0131, 1
-  br i1 %192, label %139, label %193, !llvm.loop !47
+182:                                              ; preds = %139, %168
+  %.0130 = phi i32 [ %173, %168 ], [ %157, %139 ]
+  %.0129 = phi i32 [ %177, %168 ], [ %162, %139 ]
+  %.0128 = phi i32 [ %181, %168 ], [ %167, %139 ]
+  %183 = trunc i32 %145 to i8
+  store i8 %183, ptr %.3, align 1
+  %184 = trunc i32 %.0128 to i8
+  store i8 %184, ptr %146, align 1
+  %185 = trunc i32 %.0129 to i8
+  store i8 %185, ptr %148, align 1
+  %186 = trunc i32 %.0130 to i8
+  store i8 %186, ptr %150, align 1
+  %187 = ptrtoint ptr %.3 to i64
+  %188 = add nsw i64 %187, 4
+  %189 = inttoptr i64 %188 to ptr
+  %190 = add nsw i32 %.0131, -1
+  %191 = icmp sgt i32 %.0131, 1
+  br i1 %191, label %139, label %192, !llvm.loop !47
 
-193:                                              ; preds = %183
-  %194 = add nsw i64 %189, %38
-  %195 = inttoptr i64 %194 to ptr
-  %196 = add nsw i32 %.1136, -1
-  %197 = icmp sgt i32 %.1136, 1
-  br i1 %197, label %138, label %.loopexit, !llvm.loop !48
+192:                                              ; preds = %182
+  %193 = add nsw i64 %188, %38
+  %194 = inttoptr i64 %193 to ptr
+  %195 = add nsw i32 %.1136, -1
+  %196 = icmp sgt i32 %.1136, 1
+  br i1 %196, label %138, label %.loopexit, !llvm.loop !48
 
-.loopexit:                                        ; preds = %130, %193, %19
+.loopexit:                                        ; preds = %130, %192, %19
   ret void
 }
 

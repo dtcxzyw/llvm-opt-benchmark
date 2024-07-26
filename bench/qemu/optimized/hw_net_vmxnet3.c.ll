@@ -1709,9 +1709,16 @@ do.end62.i.i:                                     ; preds = %vmxnet3_verify_intx
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %res.i155.i.i)
   %max_tx_frags.i.i = getelementptr inbounds i8, ptr %opaque, i64 14180
   store i32 0, ptr %max_tx_frags.i.i, align 4
+  %invariant.op.i.i = add i64 %45, 72
+  %invariant.op256.i.i = add i64 %45, 16
+  %invariant.op257.i.i = add i64 %45, 56
+  %invariant.op258.i.i = add i64 %45, 32
+  %invariant.op259.i.i = add i64 %45, 64
+  %invariant.op260.i.i = add i64 %45, 88
+  %invariant.op261.i.i = add i64 %45, 4
   %46 = load i8, ptr %txq_num.i14.i, align 8
-  %cmp76257.not.i.i = icmp eq i8 %46, 0
-  br i1 %cmp76257.not.i.i, label %do.end131.i.i, label %for.body.lr.ph.i16.i
+  %cmp76263.not.i.i = icmp eq i8 %46, 0
+  br i1 %cmp76263.not.i.i, label %do.end131.i.i, label %for.body.lr.ph.i16.i
 
 for.body.lr.ph.i16.i:                             ; preds = %do.end62.i.i
   %txq_descr.i17.i = getelementptr inbounds i8, ptr %opaque, i64 12992
@@ -1721,12 +1728,11 @@ for.body.lr.ph.i16.i:                             ; preds = %do.end62.i.i
 for.body.i18.i:                                   ; preds = %vmxnet3_ring_init.exit.i.i, %for.body.lr.ph.i16.i
   %indvars.iv.i19.i = phi i64 [ 0, %for.body.lr.ph.i16.i ], [ %indvars.iv.next.i23.i, %vmxnet3_ring_init.exit.i.i ]
   %mul.i.i = shl nuw nsw i64 %indvars.iv.i19.i, 8
-  %add79.i.i = add i64 %mul.i.i, %45
-  %add80.i.i = add i64 %add79.i.i, 72
+  %add80.reass.i.i = add i64 %mul.i.i, %invariant.op.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %res.i158.i.i)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i160.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %add80.i.i, i32 1, ptr noundef nonnull %res.i158.i.i, i64 noundef 1, i1 noundef zeroext false) #15
+  %call.i.i.i.i.i160.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %add80.reass.i.i, i32 1, ptr noundef nonnull %res.i158.i.i, i64 noundef 1, i1 noundef zeroext false) #15
   %47 = load i8, ptr %res.i158.i.i, align 1
   %conv.i161.i.i = zext i8 %47 to i32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %res.i158.i.i)
@@ -1756,18 +1762,18 @@ if.else90.i.i:                                    ; preds = %vmxnet3_verify_intx
   unreachable
 
 do.end93.i.i:                                     ; preds = %vmxnet3_verify_intx.exit174.i.i, %lor.lhs.false.i164.i.i, %for.body.i18.i
-  %add94.i.i = add i64 %add79.i.i, 16
+  %add94.reass.i.i = add i64 %mul.i.i, %invariant.op256.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i175.i.i)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i177.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %add94.i.i, i32 1, ptr noundef nonnull %res.i175.i.i, i64 noundef 8, i1 noundef zeroext false) #15
+  %call.i.i.i.i.i177.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %add94.reass.i.i, i32 1, ptr noundef nonnull %res.i175.i.i, i64 noundef 8, i1 noundef zeroext false) #15
   %50 = load i64, ptr %res.i175.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %res.i175.i.i)
-  %add96.i.i = add i64 %add79.i.i, 56
+  %add96.reass.i.i = add i64 %mul.i.i, %invariant.op257.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %res.i178.i.i)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i180.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %add96.i.i, i32 1, ptr noundef nonnull %res.i178.i.i, i64 noundef 4, i1 noundef zeroext false) #15
+  %call.i.i.i.i.i180.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %add96.reass.i.i, i32 1, ptr noundef nonnull %res.i178.i.i, i64 noundef 4, i1 noundef zeroext false) #15
   %51 = load i32, ptr %res.i178.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %res.i178.i.i)
   %spec.store.select.i.i = call i32 @llvm.umin.i32(i32 %51, i32 4096)
@@ -1783,18 +1789,18 @@ do.end93.i.i:                                     ; preds = %vmxnet3_verify_intx
   %52 = load i32, ptr %max_tx_frags.i.i, align 4
   %add108.i.i = add i32 %52, %spec.store.select.i.i
   store i32 %add108.i.i, ptr %max_tx_frags.i.i, align 4
-  %add109.i.i = add i64 %add79.i.i, 32
+  %add109.reass.i.i = add i64 %mul.i.i, %invariant.op258.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i181.i.i)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i183.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %add109.i.i, i32 1, ptr noundef nonnull %res.i181.i.i, i64 noundef 8, i1 noundef zeroext false) #15
+  %call.i.i.i.i.i183.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %add109.reass.i.i, i32 1, ptr noundef nonnull %res.i181.i.i, i64 noundef 8, i1 noundef zeroext false) #15
   %53 = load i64, ptr %res.i181.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %res.i181.i.i)
-  %add111.i.i = add i64 %add79.i.i, 64
+  %add111.reass.i.i = add i64 %mul.i.i, %invariant.op259.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %res.i184.i.i)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i186.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %add111.i.i, i32 1, ptr noundef nonnull %res.i184.i.i, i64 noundef 4, i1 noundef zeroext false) #15
+  %call.i.i.i.i.i186.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %add111.reass.i.i, i32 1, ptr noundef nonnull %res.i184.i.i, i64 noundef 4, i1 noundef zeroext false) #15
   %54 = load i32, ptr %res.i184.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %res.i184.i.i)
   %spec.store.select3.i.i = call i32 @llvm.umin.i32(i32 %54, i32 4096)
@@ -1830,17 +1836,17 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 
 vmxnet3_ring_init.exit.i.i:                       ; preds = %for.body.i.i.i.i, %do.end93.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i.i.i)
-  %add122.i.i = add i64 %add79.i.i, 88
+  %add122.reass.i.i = add i64 %mul.i.i, %invariant.op260.i.i
   %tx_stats_pa.i21.i = getelementptr inbounds i8, ptr %arrayidx.i20.i, i64 56
-  store i64 %add122.i.i, ptr %tx_stats_pa.i21.i, align 8
+  store i64 %add122.reass.i.i, ptr %tx_stats_pa.i21.i, align 8
   %txq_stats.i22.i = getelementptr inbounds i8, ptr %arrayidx.i20.i, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %txq_stats.i22.i, i8 0, i64 80, i1 false)
-  %add129.i.i = add i64 %add79.i.i, 4
+  %add129.reass.i.i = add i64 %invariant.op261.i.i, %mul.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i.i.i)
   store i32 1, ptr %value.addr.i.i.i, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i195.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %add129.i.i, i32 1, ptr noundef nonnull %value.addr.i.i.i, i64 noundef 4, i1 noundef zeroext true) #15
+  %call.i.i.i.i.i195.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %add129.reass.i.i, i32 1, ptr noundef nonnull %value.addr.i.i.i, i64 noundef 4, i1 noundef zeroext true) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i.i.i)
   %indvars.iv.next.i23.i = add nuw nsw i64 %indvars.iv.i19.i, 1
   %55 = load i8, ptr %txq_num.i14.i, align 8
@@ -1859,8 +1865,8 @@ do.end131.i.i:                                    ; preds = %do.end131.loopexit.
   %rx_pkt.i.i = getelementptr inbounds i8, ptr %opaque, i64 14216
   call void @net_rx_pkt_init(ptr noundef nonnull %rx_pkt.i.i) #15
   %58 = load i8, ptr %rxq_num.i15.i, align 4
-  %cmp136261.not.i.i = icmp eq i8 %58, 0
-  br i1 %cmp136261.not.i.i, label %for.end210.i.i, label %for.body138.lr.ph.i.i
+  %cmp136267.not.i.i = icmp eq i8 %58, 0
+  br i1 %cmp136267.not.i.i, label %for.end210.i.i, label %for.body138.lr.ph.i.i
 
 for.body138.lr.ph.i.i:                            ; preds = %do.end131.i.i
   %rxq_descr.i24.i = getelementptr inbounds i8, ptr %opaque, i64 11648
@@ -1868,21 +1874,20 @@ for.body138.lr.ph.i.i:                            ; preds = %do.end131.i.i
   br label %for.body138.i.i
 
 for.body138.i.i:                                  ; preds = %vmxnet3_ring_init.exit246.i.i, %for.body138.lr.ph.i.i
-  %indvars.iv270.i.i = phi i64 [ 0, %for.body138.lr.ph.i.i ], [ %indvars.iv.next271.i.i, %vmxnet3_ring_init.exit246.i.i ]
+  %indvars.iv276.i.i = phi i64 [ 0, %for.body138.lr.ph.i.i ], [ %indvars.iv.next277.i.i, %vmxnet3_ring_init.exit246.i.i ]
   %59 = load i8, ptr %txq_num.i14.i, align 8
   %conv140.i.i = zext i8 %59 to i64
-  %60 = add nuw nsw i64 %indvars.iv270.i.i, %conv140.i.i
+  %60 = add nuw nsw i64 %indvars.iv276.i.i, %conv140.i.i
   %61 = shl nuw nsw i64 %60, 8
-  %add145.i.i = add i64 %61, %45
-  %add146.i.i = add i64 %add145.i.i, 72
+  %add146.reass.i.i = add i64 %61, %invariant.op.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %res.i196.i.i)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i198.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %add146.i.i, i32 1, ptr noundef nonnull %res.i196.i.i, i64 noundef 1, i1 noundef zeroext false) #15
+  %call.i.i.i.i.i198.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %add146.reass.i.i, i32 1, ptr noundef nonnull %res.i196.i.i, i64 noundef 1, i1 noundef zeroext false) #15
   %62 = load i8, ptr %res.i196.i.i, align 1
   %conv.i199.i.i = zext i8 %62 to i32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %res.i196.i.i)
-  %arrayidx150.i.i = getelementptr [8 x %struct.Vmxnet3RxqDescr], ptr %rxq_descr.i24.i, i64 0, i64 %indvars.iv270.i.i
+  %arrayidx150.i.i = getelementptr [8 x %struct.Vmxnet3RxqDescr], ptr %rxq_descr.i24.i, i64 0, i64 %indvars.iv276.i.i
   %intr_idx151.i.i = getelementptr inbounds i8, ptr %arrayidx150.i.i, i64 72
   store i8 %62, ptr %intr_idx151.i.i, align 8
   %63 = load i8, ptr %msix_used.i.i.i, align 16
@@ -1904,8 +1909,8 @@ lor.rhs.i205.i.i:                                 ; preds = %lor.lhs.false.i202.
   br i1 %cmp.i211.i.i, label %for.cond163.preheader.i.i, label %if.else159.i.i
 
 for.cond163.preheader.i.i:                        ; preds = %lor.rhs.i205.i.i, %lor.lhs.false.i202.i.i, %for.body138.i.i
-  %65 = add i64 %add145.i.i, 16
-  %66 = add i64 %add145.i.i, 56
+  %.reass.i.i = add i64 %61, %invariant.op256.i.i
+  %.reass285.i.i = add i64 %61, %invariant.op257.i.i
   br label %for.body166.i.i
 
 if.else159.i.i:                                   ; preds = %lor.rhs.i205.i.i
@@ -1914,26 +1919,26 @@ if.else159.i.i:                                   ; preds = %lor.rhs.i205.i.i
 
 for.body166.i.i:                                  ; preds = %for.body166.i.i, %for.cond163.preheader.i.i
   %cmp164.i.i = phi i1 [ true, %for.cond163.preheader.i.i ], [ false, %for.body166.i.i ]
-  %indvars.iv267.i.i = phi i64 [ 0, %for.cond163.preheader.i.i ], [ 1, %for.body166.i.i ]
-  %67 = shl nuw nsw i64 %indvars.iv267.i.i, 3
-  %add168.i.i = add i64 %65, %67
+  %indvars.iv273.i.i = phi i64 [ 0, %for.cond163.preheader.i.i ], [ 1, %for.body166.i.i ]
+  %65 = shl nuw nsw i64 %indvars.iv273.i.i, 3
+  %add168.i.i = add i64 %.reass.i.i, %65
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i213.i.i)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i215.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %add168.i.i, i32 1, ptr noundef nonnull %res.i213.i.i, i64 noundef 8, i1 noundef zeroext false) #15
-  %68 = load i64, ptr %res.i213.i.i, align 8
+  %66 = load i64, ptr %res.i213.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %res.i213.i.i)
-  %69 = shl nuw nsw i64 %indvars.iv267.i.i, 2
-  %add171.i.i = add i64 %66, %69
+  %67 = shl nuw nsw i64 %indvars.iv273.i.i, 2
+  %add171.i.i = add i64 %.reass285.i.i, %67
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %res.i216.i.i)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i218.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %add171.i.i, i32 1, ptr noundef nonnull %res.i216.i.i, i64 noundef 4, i1 noundef zeroext false) #15
-  %70 = load i32, ptr %res.i216.i.i, align 4
+  %68 = load i32, ptr %res.i216.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %res.i216.i.i)
-  %spec.store.select1.i.i = call i32 @llvm.umin.i32(i32 %70, i32 4096)
-  %arrayidx181.i.i = getelementptr [2 x %struct.Vmxnet3Ring], ptr %arrayidx150.i.i, i64 0, i64 %indvars.iv267.i.i
-  store i64 %68, ptr %arrayidx181.i.i, align 8
+  %spec.store.select1.i.i = call i32 @llvm.umin.i32(i32 %68, i32 4096)
+  %arrayidx181.i.i = getelementptr [2 x %struct.Vmxnet3Ring], ptr %arrayidx150.i.i, i64 0, i64 %indvars.iv273.i.i
+  store i64 %66, ptr %arrayidx181.i.i, align 8
   %size2.i220.i.i = getelementptr inbounds i8, ptr %arrayidx181.i.i, i64 8
   store i32 %spec.store.select1.i.i, ptr %size2.i220.i.i, align 8
   %cell_size3.i221.i.i = getelementptr inbounds i8, ptr %arrayidx181.i.i, i64 12
@@ -1945,23 +1950,23 @@ for.body166.i.i:                                  ; preds = %for.body166.i.i, %f
   br i1 %cmp164.i.i, label %for.body166.i.i, label %for.end186.i.i, !llvm.loop !16
 
 for.end186.i.i:                                   ; preds = %for.body166.i.i
-  %add187.i.i = add i64 %add145.i.i, 32
+  %add187.reass.i.i = add i64 %61, %invariant.op258.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i224.i.i)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i226.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %add187.i.i, i32 1, ptr noundef nonnull %res.i224.i.i, i64 noundef 8, i1 noundef zeroext false) #15
-  %71 = load i64, ptr %res.i224.i.i, align 8
+  %call.i.i.i.i.i226.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %add187.reass.i.i, i32 1, ptr noundef nonnull %res.i224.i.i, i64 noundef 8, i1 noundef zeroext false) #15
+  %69 = load i64, ptr %res.i224.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %res.i224.i.i)
-  %add189.i.i = add i64 %add145.i.i, 64
+  %add189.reass.i.i = add i64 %61, %invariant.op259.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %res.i227.i.i)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i229.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %add189.i.i, i32 1, ptr noundef nonnull %res.i227.i.i, i64 noundef 4, i1 noundef zeroext false) #15
-  %72 = load i32, ptr %res.i227.i.i, align 4
+  %call.i.i.i.i.i229.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %add189.reass.i.i, i32 1, ptr noundef nonnull %res.i227.i.i, i64 noundef 4, i1 noundef zeroext false) #15
+  %70 = load i32, ptr %res.i227.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %res.i227.i.i)
-  %spec.store.select2.i.i = call i32 @llvm.umin.i32(i32 %72, i32 8192)
+  %spec.store.select2.i.i = call i32 @llvm.umin.i32(i32 %70, i32 8192)
   %comp_ring198.i.i = getelementptr inbounds i8, ptr %arrayidx150.i.i, i64 48
-  store i64 %71, ptr %comp_ring198.i.i, align 8
+  store i64 %69, ptr %comp_ring198.i.i, align 8
   %size2.i231.i.i = getelementptr inbounds i8, ptr %arrayidx150.i.i, i64 56
   store i32 %spec.store.select2.i.i, ptr %size2.i231.i.i, align 8
   %cell_size3.i232.i.i = getelementptr inbounds i8, ptr %arrayidx150.i.i, i64 60
@@ -1972,7 +1977,7 @@ for.end186.i.i:                                   ; preds = %for.body166.i.i
   store i32 0, ptr %next.i234.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i230.i.i)
   store i8 0, ptr %val.addr.i.i230.i.i, align 1
-  %cmp3.i.i236.not.i.i = icmp eq i32 %72, 0
+  %cmp3.i.i236.not.i.i = icmp eq i32 %70, 0
   br i1 %cmp3.i.i236.not.i.i, label %vmxnet3_ring_init.exit246.i.i, label %for.body.lr.ph.i.i237.i.i
 
 for.body.lr.ph.i.i237.i.i:                        ; preds = %for.end186.i.i
@@ -1982,7 +1987,7 @@ for.body.lr.ph.i.i237.i.i:                        ; preds = %for.end186.i.i
 
 for.body.i.i240.i.i:                              ; preds = %for.body.i.i240.i.i, %for.body.lr.ph.i.i237.i.i
   %indvars.iv.i.i241.i.i = phi i64 [ 0, %for.body.lr.ph.i.i237.i.i ], [ %indvars.iv.next.i.i244.i.i, %for.body.i.i240.i.i ]
-  %add.i.i242.i.i = add i64 %indvars.iv.i.i241.i.i, %71
+  %add.i.i242.i.i = add i64 %indvars.iv.i.i241.i.i, %69
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i.i243.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %add.i.i242.i.i, i32 1, ptr noundef nonnull %val.addr.i.i230.i.i, i64 noundef 1, i1 noundef zeroext true) #15
@@ -1992,35 +1997,35 @@ for.body.i.i240.i.i:                              ; preds = %for.body.i.i240.i.i
 
 vmxnet3_ring_init.exit246.i.i:                    ; preds = %for.body.i.i240.i.i, %for.end186.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i230.i.i)
-  %add201.i.i = add i64 %add145.i.i, 88
+  %add201.reass.i.i = add i64 %61, %invariant.op260.i.i
   %rx_stats_pa.i25.i = getelementptr inbounds i8, ptr %arrayidx150.i.i, i64 80
-  store i64 %add201.i.i, ptr %rx_stats_pa.i25.i, align 8
+  store i64 %add201.reass.i.i, ptr %rx_stats_pa.i25.i, align 8
   %rxq_stats.i26.i = getelementptr inbounds i8, ptr %arrayidx150.i.i, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %rxq_stats.i26.i, i8 0, i64 80, i1 false)
-  %indvars.iv.next271.i.i = add nuw nsw i64 %indvars.iv270.i.i, 1
-  %73 = load i8, ptr %rxq_num.i15.i, align 4
-  %74 = zext i8 %73 to i64
-  %cmp136.i.i = icmp ult i64 %indvars.iv.next271.i.i, %74
+  %indvars.iv.next277.i.i = add nuw nsw i64 %indvars.iv276.i.i, 1
+  %71 = load i8, ptr %rxq_num.i15.i, align 4
+  %72 = zext i8 %71 to i64
+  %cmp136.i.i = icmp ult i64 %indvars.iv.next277.i.i, %72
   br i1 %cmp136.i.i, label %for.body138.i.i, label %for.end210.i.i, !llvm.loop !17
 
 for.end210.i.i:                                   ; preds = %vmxnet3_ring_init.exit246.i.i, %do.end131.i.i
-  %.lcssa.i.i = phi i8 [ 0, %do.end131.i.i ], [ %73, %vmxnet3_ring_init.exit246.i.i ]
-  %75 = load i8, ptr %msix_used.i.i.i, align 16
-  %tobool.i248.i.i = trunc i8 %75 to i1
-  %76 = load i8, ptr %event_int_idx.i.i, align 2
-  %conv.i249.i.i = zext i8 %76 to i32
+  %.lcssa.i.i = phi i8 [ 0, %do.end131.i.i ], [ %71, %vmxnet3_ring_init.exit246.i.i ]
+  %73 = load i8, ptr %msix_used.i.i.i, align 16
+  %tobool.i248.i.i = trunc i8 %73 to i1
+  %74 = load i8, ptr %event_int_idx.i.i, align 2
+  %conv.i249.i.i = zext i8 %74 to i32
   %cond.i.i.i.i = select i1 %tobool.i248.i.i, i32 25, i32 1
   %cmp.not.i.i.i.i = icmp ugt i32 %cond.i.i.i.i, %conv.i249.i.i
   br i1 %cmp.not.i.i.i.i, label %for.cond.preheader.i.i.i, label %if.then.i.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %for.end210.i.i
-  %77 = load i8, ptr %txq_num.i14.i, align 8
-  %cmp21.not.i.i.i = icmp eq i8 %77, 0
+  %75 = load i8, ptr %txq_num.i14.i, align 8
+  %cmp21.not.i.i.i = icmp eq i8 %75, 0
   br i1 %cmp21.not.i.i.i, label %for.cond8.preheader.i.i.i, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.cond.preheader.i.i.i
   %txq_descr.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 12992
-  %wide.trip.count.i.i.i = zext i8 %77 to i64
+  %wide.trip.count.i.i.i = zext i8 %75 to i64
   br label %for.body.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.end210.i.i
@@ -2044,8 +2049,8 @@ for.body12.lr.ph.i.i.i:                           ; preds = %for.cond8.preheader
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %for.body.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %for.cond.i.i.i ]
   %intr_idx.i.i.i = getelementptr [8 x %struct.Vmxnet3TxqDescr], ptr %txq_descr.i.i.i, i64 0, i64 %indvars.iv.i.i.i, i32 2
-  %78 = load i8, ptr %intr_idx.i.i.i, align 16
-  %conv3.i.i.i = zext i8 %78 to i32
+  %76 = load i8, ptr %intr_idx.i.i.i, align 16
+  %conv3.i.i.i = zext i8 %76 to i32
   %cmp.not.i14.i.i.i = icmp ugt i32 %cond.i.i.i.i, %conv3.i.i.i
   br i1 %cmp.not.i14.i.i.i, label %for.cond.i.i.i, label %if.then.i15.i.i.i
 
@@ -2061,8 +2066,8 @@ for.cond8.i.i.i:                                  ; preds = %for.body12.i.i.i
 for.body12.i.i.i:                                 ; preds = %for.cond8.i.i.i, %for.body12.lr.ph.i.i.i
   %indvars.iv28.i.i.i = phi i64 [ 0, %for.body12.lr.ph.i.i.i ], [ %indvars.iv.next29.i.i.i, %for.cond8.i.i.i ]
   %intr_idx16.i.i.i = getelementptr [8 x %struct.Vmxnet3RxqDescr], ptr %rxq_descr.i.i.i, i64 0, i64 %indvars.iv28.i.i.i, i32 2
-  %79 = load i8, ptr %intr_idx16.i.i.i, align 8
-  %conv17.i.i.i = zext i8 %79 to i32
+  %77 = load i8, ptr %intr_idx16.i.i.i, align 8
+  %conv17.i.i.i = zext i8 %77 to i32
   %cmp.not.i18.i.i.i = icmp ugt i32 %cond.i.i.i.i, %conv17.i.i.i
   br i1 %cmp.not.i18.i.i.i, label %for.cond8.i.i.i, label %if.then.i19.i.i.i
 
@@ -2082,24 +2087,24 @@ vmxnet3_validate_interrupts.exit.i.i:             ; preds = %for.cond8.i.i.i, %f
 do.end12.i:                                       ; preds = %do.end14
   %call.i.i28.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #15
   %drv_shmem.i29.i = getelementptr inbounds i8, ptr %opaque, i64 14152
-  %80 = load i64, ptr %drv_shmem.i29.i, align 8
-  %add.i30.i = add i64 %80, 120
+  %78 = load i64, ptr %drv_shmem.i29.i, align 8
+  %add.i30.i = add i64 %78, 120
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %res.i.i27.i)
   %bus_master_as.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i28.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i.i31.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i, i64 noundef %add.i30.i, i32 1, ptr noundef nonnull %res.i.i27.i, i64 noundef 4, i1 noundef zeroext false) #15
-  %81 = load i32, ptr %res.i.i27.i, align 4
+  %79 = load i32, ptr %res.i.i27.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %res.i.i27.i)
   %rx_mode.i.i = getelementptr inbounds i8, ptr %opaque, i64 14840
-  store i32 %81, ptr %rx_mode.i.i, align 8
+  store i32 %79, ptr %rx_mode.i.i, align 8
   br label %sw.epilog
 
 do.end15.i:                                       ; preds = %do.end14
   %call.i.i32.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #15
   %drv_shmem.i33.i = getelementptr inbounds i8, ptr %opaque, i64 14152
-  %82 = load i64, ptr %drv_shmem.i33.i, align 8
-  %add.i34.i = add i64 %82, 136
+  %80 = load i64, ptr %drv_shmem.i33.i, align 8
+  %add.i34.i = add i64 %80, 136
   %vlan_table.i.i = getelementptr inbounds i8, ptr %opaque, i64 14328
   %bus_master_as.i.i.i.i.i35.i = getelementptr inbounds i8, ptr %call.i.i32.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
@@ -2118,23 +2123,23 @@ do.end21.i:                                       ; preds = %do.end14
 do.end24.i:                                       ; preds = %do.end14
   %call.i.i38.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #15
   %drv_shmem.i39.i = getelementptr inbounds i8, ptr %opaque, i64 14152
-  %83 = load i64, ptr %drv_shmem.i39.i, align 8
-  %add.i40.i = add i64 %83, 668
+  %81 = load i64, ptr %drv_shmem.i39.i, align 8
+  %add.i40.i = add i64 %81, 668
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %res.i.i37.i)
   %bus_master_as.i.i.i.i.i41.i = getelementptr inbounds i8, ptr %call.i.i38.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i.i42.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i41.i, i64 noundef %add.i40.i, i32 1, ptr noundef nonnull %res.i.i37.i, i64 noundef 4, i1 noundef zeroext false) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %res.i.i37.i)
-  %84 = load i64, ptr %drv_shmem.i39.i, align 8
-  %add3.i.i = add i64 %84, 664
+  %82 = load i64, ptr %drv_shmem.i39.i, align 8
+  %add3.i.i = add i64 %82, 664
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %res.i6.i.i)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i8.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i41.i, i64 noundef %add3.i.i, i32 1, ptr noundef nonnull %res.i6.i.i, i64 noundef 4, i1 noundef zeroext false) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %res.i6.i.i)
-  %85 = load i64, ptr %drv_shmem.i39.i, align 8
-  %add6.i.i = add i64 %85, 672
+  %83 = load i64, ptr %drv_shmem.i39.i, align 8
+  %add6.i.i = add i64 %83, 672
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i9.i.i)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
@@ -2144,17 +2149,17 @@ do.end24.i:                                       ; preds = %do.end14
 
 do.end30.i:                                       ; preds = %do.end14
   %device_active.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 14228
-  %86 = load i32, ptr %device_active.i.i.i, align 4
-  %tobool.not.i.i.i = icmp eq i32 %86, 0
+  %84 = load i32, ptr %device_active.i.i.i, align 4
+  %tobool.not.i.i.i = icmp eq i32 %84, 0
   br i1 %tobool.not.i.i.i, label %vmxnet3_deactivate_device.exit.i.i, label %do.end.i.i.i
 
 do.end.i.i.i:                                     ; preds = %do.end30.i
   %tx_pkt.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 14192
-  %87 = load ptr, ptr %tx_pkt.i.i.i, align 16
-  tail call void @net_tx_pkt_uninit(ptr noundef %87) #15
+  %85 = load ptr, ptr %tx_pkt.i.i.i, align 16
+  tail call void @net_tx_pkt_uninit(ptr noundef %85) #15
   %rx_pkt.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 14216
-  %88 = load ptr, ptr %rx_pkt.i.i.i, align 8
-  tail call void @net_rx_pkt_uninit(ptr noundef %88) #15
+  %86 = load ptr, ptr %rx_pkt.i.i.i, align 8
+  tail call void @net_rx_pkt_uninit(ptr noundef %86) #15
   store i32 0, ptr %device_active.i.i.i, align 4
   br label %vmxnet3_deactivate_device.exit.i.i
 
@@ -2185,17 +2190,17 @@ vmxnet3_reset.exit.i:                             ; preds = %for.body.i.i43.i
 
 do.end33.i:                                       ; preds = %do.end14
   %device_active.i48.i = getelementptr inbounds i8, ptr %opaque, i64 14228
-  %89 = load i32, ptr %device_active.i48.i, align 4
-  %tobool.not.i49.i = icmp eq i32 %89, 0
+  %87 = load i32, ptr %device_active.i48.i, align 4
+  %tobool.not.i49.i = icmp eq i32 %87, 0
   br i1 %tobool.not.i49.i, label %sw.epilog, label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %do.end33.i
   %tx_pkt.i50.i = getelementptr inbounds i8, ptr %opaque, i64 14192
-  %90 = load ptr, ptr %tx_pkt.i50.i, align 16
-  tail call void @net_tx_pkt_uninit(ptr noundef %90) #15
+  %88 = load ptr, ptr %tx_pkt.i50.i, align 16
+  tail call void @net_tx_pkt_uninit(ptr noundef %88) #15
   %rx_pkt.i51.i = getelementptr inbounds i8, ptr %opaque, i64 14216
-  %91 = load ptr, ptr %rx_pkt.i51.i, align 8
-  tail call void @net_rx_pkt_uninit(ptr noundef %91) #15
+  %89 = load ptr, ptr %rx_pkt.i51.i, align 8
+  tail call void @net_rx_pkt_uninit(ptr noundef %89) #15
   store i32 0, ptr %device_active.i48.i, align 4
   br label %sw.epilog
 
@@ -2207,19 +2212,19 @@ do.end17:                                         ; preds = %entry
 
 do.end20:                                         ; preds = %entry
   %temp_mac22 = getelementptr inbounds i8, ptr %opaque, i64 14316
-  %92 = load i32, ptr %temp_mac22, align 4
-  %conv.i16 = trunc i32 %92 to i8
+  %90 = load i32, ptr %temp_mac22, align 4
+  %conv.i16 = trunc i32 %90 to i8
   %conf.i = getelementptr inbounds i8, ptr %opaque, i64 2616
   store i8 %conv.i16, ptr %conf.i, align 8
-  %shr1.i = lshr i32 %92, 8
+  %shr1.i = lshr i32 %90, 8
   %conv3.i = trunc i32 %shr1.i to i8
   %arrayidx7.i = getelementptr i8, ptr %opaque, i64 2617
   store i8 %conv3.i, ptr %arrayidx7.i, align 1
-  %shr8.i = lshr i32 %92, 16
+  %shr8.i = lshr i32 %90, 16
   %conv10.i = trunc i32 %shr8.i to i8
   %arrayidx14.i = getelementptr i8, ptr %opaque, i64 2618
   store i8 %conv10.i, ptr %arrayidx14.i, align 2
-  %shr15.i = lshr i32 %92, 24
+  %shr15.i = lshr i32 %90, 24
   %conv17.i = trunc nuw i32 %shr15.i to i8
   %arrayidx21.i = getelementptr i8, ptr %opaque, i64 2619
   store i8 %conv17.i, ptr %arrayidx21.i, align 1
@@ -2231,14 +2236,14 @@ do.end20:                                         ; preds = %entry
   %arrayidx35.i = getelementptr i8, ptr %opaque, i64 2621
   store i8 %conv31.i, ptr %arrayidx35.i, align 1
   %nic.i = getelementptr inbounds i8, ptr %opaque, i64 2608
-  %93 = load ptr, ptr %nic.i, align 16
-  %call.i = tail call ptr @qemu_get_queue(ptr noundef %93) #15
+  %91 = load ptr, ptr %nic.i, align 16
+  %call.i = tail call ptr @qemu_get_queue(ptr noundef %91) #15
   tail call void @qemu_format_nic_info_str(ptr noundef %call.i, ptr noundef nonnull %conf.i) #15
   br label %sw.epilog
 
 do.body26:                                        ; preds = %entry
-  %94 = load i32, ptr @qemu_loglevel, align 4
-  %and.i = and i32 %94, 2048
+  %92 = load i32, ptr @qemu_loglevel, align 4
+  %and.i = and i32 %92, 2048
   %cmp.i.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i.not, label %sw.epilog, label %if.then29
 
@@ -2250,19 +2255,19 @@ do.end34:                                         ; preds = %entry
   %conv35 = trunc i64 %val to i32
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #15
   %drv_shmem.i = getelementptr inbounds i8, ptr %opaque, i64 14152
-  %95 = load i64, ptr %drv_shmem.i, align 8
-  %add.i = add i64 %95, 696
+  %93 = load i64, ptr %drv_shmem.i, align 8
+  %add.i = add i64 %93, 696
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %res.i.i)
   %bus_master_as.i.i.i.i.i17 = getelementptr inbounds i8, ptr %call.i.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i.i18 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i17, i64 noundef %add.i, i32 1, ptr noundef nonnull %res.i.i, i64 noundef 4, i1 noundef zeroext false) #15
-  %96 = load i32, ptr %res.i.i, align 4
+  %94 = load i32, ptr %res.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %res.i.i)
   %not.i = xor i32 %conv35, -1
-  %and.i19 = and i32 %96, %not.i
-  %97 = load i64, ptr %drv_shmem.i, align 8
-  %add3.i = add i64 %97, 696
+  %and.i19 = and i32 %94, %not.i
+  %95 = load i64, ptr %drv_shmem.i, align 8
+  %add3.i = add i64 %95, 696
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i.i)
   store i32 %and.i19, ptr %value.addr.i.i, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9

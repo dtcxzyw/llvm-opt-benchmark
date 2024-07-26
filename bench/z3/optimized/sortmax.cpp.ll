@@ -3768,8 +3768,8 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
 
 for.cond28.preheader:                             ; preds = %for.cond28.preheader.lr.ph, %for.inc45
   %i24.0385 = phi i32 [ %inc46, %for.inc45 ], [ 1, %for.cond28.preheader.lr.ph ]
-  %sub = add i32 %i24.0385, -1
-  %idxprom32 = zext i32 %sub to i64
+  %invariant.op = add i32 %i24.0385, -1
+  %idxprom32 = zext i32 %invariant.op to i64
   %arrayidx33 = getelementptr inbounds ptr, ptr %as, i64 %idxprom32
   br label %land.rhs
 
@@ -3985,9 +3985,9 @@ _ZN3opt7sortmax5trailEP4expr.exit.i.i79:          ; preds = %if.then.i.i.i.i.i85
 _ZN8psort_nwIN3opt7sortmaxEE6mk_notEP4expr.exit102: ; preds = %_ZN8psort_nwIN3opt7sortmaxEE6mk_notEP4expr.exit, %if.end.i59, %if.then.i.i100, %_ZN3opt7sortmax5trailEP4expr.exit.i.i79
   %56 = phi ptr [ %39, %if.end.i59 ], [ %39, %if.then.i.i100 ], [ %.pre413, %_ZN3opt7sortmax5trailEP4expr.exit.i.i79 ], [ %39, %_ZN8psort_nwIN3opt7sortmaxEE6mk_notEP4expr.exit ]
   %retval.0.i84 = phi ptr [ %37, %if.end.i59 ], [ %47, %if.then.i.i100 ], [ %call.i.i.i67, %_ZN3opt7sortmax5trailEP4expr.exit.i.i79 ], [ %36, %_ZN8psort_nwIN3opt7sortmaxEE6mk_notEP4expr.exit ]
-  %sub40 = add i32 %add, -1
+  %sub40.reass = add i32 %j.0383, %invariant.op
   %57 = load ptr, ptr %out, align 8
-  %idxprom.i103 = zext i32 %sub40 to i64
+  %idxprom.i103 = zext i32 %sub40.reass to i64
   %arrayidx.i104 = getelementptr inbounds ptr, ptr %57, i64 %idxprom.i103
   %58 = load ptr, ptr %arrayidx.i104, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %lits.i105)

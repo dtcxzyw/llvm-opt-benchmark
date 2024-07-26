@@ -77,13 +77,13 @@ define hidden void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u2
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %6)
   %20 = load i64, ptr %7, align 8, !range !8, !noundef !4
   %.not10 = icmp eq i64 %20, -9223372036854775807
-  br i1 %.not10, label %"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit", label %77
+  br i1 %.not10, label %"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit", label %76
 
 21:                                               ; preds = %23
   %22 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$uu_pr..FileLine$GT$$GT$17h69647556b133fe67E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7) #11
-          to label %89 unwind label %87
+          to label %88 unwind label %86
 
 23:                                               ; preds = %"_ZN9itertools11kmerge_impl17HeadTail$LT$I$GT$4next17hf03a948d1cf893e4E.exit.thread", %"_ZN9itertools11kmerge_impl17HeadTail$LT$I$GT$4next17hf03a948d1cf893e4E.exit"
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6)
@@ -98,8 +98,8 @@ define hidden void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u2
   invoke void @"_ZN4core3ptr388drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$alloc..vec..Vec$LT$uu_pr..FileLine$GT$$RP$$GT$$C$uu_pr..mpr..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$alloc..vec..into_iter..IntoIter$LT$uu_pr..FileLine$GT$$GT$$GT$17h2ee44786bceae7f2E.llvm.12123109310310187846"(ptr noalias noundef nonnull align 8 dereferenceable(88) %26)
           to label %19 unwind label %21
 
-"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0653749e2f0b6b41E.exit.i.i", %78, %.thread, %19
-  %27 = phi i64 [ %24, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0653749e2f0b6b41E.exit.i.i" ], [ %24, %78 ], [ %10, %.thread ], [ %24, %19 ]
+"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0653749e2f0b6b41E.exit.i.i", %77, %.thread, %19
+  %27 = phi i64 [ %24, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0653749e2f0b6b41E.exit.i.i" ], [ %24, %77 ], [ %10, %.thread ], [ %24, %19 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   %28 = icmp ugt i64 %27, 2
   br i1 %28, label %.lr.ph.i, label %._crit_edge.i
@@ -107,7 +107,7 @@ define hidden void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u2
 ._crit_edge.i:                                    ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h2d1da1a5ab428cd0E.exit53.i", %"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit"
   %.031.lcssa.i = phi i64 [ 1, %"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit" ], [ %74, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h2d1da1a5ab428cd0E.exit53.i" ]
   %.0.lcssa.i = phi i64 [ 0, %"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit" ], [ %57, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h2d1da1a5ab428cd0E.exit53.i" ]
-  %.lcssa.i = phi i64 [ 2, %"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit" ], [ %75, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h2d1da1a5ab428cd0E.exit53.i" ]
+  %.lcssa.i = phi i64 [ 2, %"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit" ], [ %.reass.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h2d1da1a5ab428cd0E.exit53.i" ]
   %29 = icmp eq i64 %.lcssa.i, %27
   br i1 %29, label %30, label %_ZN9itertools11kmerge_impl9sift_down17h0a6e11010284ff73E.exit
 
@@ -145,7 +145,7 @@ define hidden void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u2
   br label %_ZN9itertools11kmerge_impl9sift_down17h0a6e11010284ff73E.exit
 
 .lr.ph.i:                                         ; preds = %"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h2d1da1a5ab428cd0E.exit53.i"
-  %44 = phi i64 [ %75, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h2d1da1a5ab428cd0E.exit53.i" ], [ 2, %"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit" ]
+  %44 = phi i64 [ %.reass.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h2d1da1a5ab428cd0E.exit53.i" ], [ 2, %"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit" ]
   %.070.i = phi i64 [ %57, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h2d1da1a5ab428cd0E.exit53.i" ], [ 0, %"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit" ]
   %.03169.i = phi i64 [ %74, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h2d1da1a5ab428cd0E.exit53.i" ], [ 1, %"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit" ]
   %45 = icmp ult i64 %.03169.i, %27
@@ -196,7 +196,7 @@ define hidden void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u2
   %71 = phi i64 [ %.031.lcssa.i, %30 ], [ %.0.lcssa.i, %32 ], [ %.03169.i, %.lr.ph.i ], [ %57, %46 ], [ %.070.i, %59 ]
   %72 = phi ptr [ @anon.559764f2e33620411e92921fcd62b3a8.14, %30 ], [ @anon.559764f2e33620411e92921fcd62b3a8.15, %32 ], [ @anon.559764f2e33620411e92921fcd62b3a8.18, %.lr.ph.i ], [ @anon.559764f2e33620411e92921fcd62b3a8.19, %46 ], [ @anon.559764f2e33620411e92921fcd62b3a8.20, %59 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %71, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %72) #12
-          to label %.cont unwind label %85
+          to label %.cont unwind label %84
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -209,63 +209,63 @@ define hidden void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u2
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.0.i52.i)
   %73 = shl i64 %57, 1
   %74 = or disjoint i64 %73, 1
-  %75 = add i64 %73, 2
-  %76 = icmp ult i64 %75, %27
-  br i1 %76, label %.lr.ph.i, label %._crit_edge.i
+  %.reass.i = add i64 %73, 2
+  %75 = icmp ult i64 %.reass.i, %27
+  br i1 %75, label %.lr.ph.i, label %._crit_edge.i
 
-77:                                               ; preds = %19
+76:                                               ; preds = %19
   call void @llvm.experimental.noalias.scope.decl(metadata !41)
   call void @llvm.experimental.noalias.scope.decl(metadata !44)
   %.not.i.i = icmp eq i64 %20, -9223372036854775808
-  br i1 %.not.i.i, label %79, label %78
+  br i1 %.not.i.i, label %78, label %77
 
-78:                                               ; preds = %77
+77:                                               ; preds = %76
   invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb2f3ede438815009E.llvm.12123109310310187846"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
-          to label %"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit" unwind label %85
+          to label %"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit" unwind label %84
 
-79:                                               ; preds = %77
-  %80 = getelementptr inbounds i8, ptr %7, i64 8
+78:                                               ; preds = %76
+  %79 = getelementptr inbounds i8, ptr %7, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
   call void @llvm.experimental.noalias.scope.decl(metadata !50)
   call void @llvm.experimental.noalias.scope.decl(metadata !53)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !56
-  %81 = load ptr, ptr %80, align 8, !alias.scope !56, !nonnull !4, !noundef !4
-  invoke void @_ZN3std2io5error14repr_bitpacked11decode_repr17h687dbc876abfbef9E.llvm.12123109310310187846(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %3, ptr noundef nonnull %81)
-          to label %.noexc19 unwind label %85
+  %80 = load ptr, ptr %79, align 8, !alias.scope !56, !nonnull !4, !noundef !4
+  invoke void @_ZN3std2io5error14repr_bitpacked11decode_repr17h687dbc876abfbef9E.llvm.12123109310310187846(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %3, ptr noundef nonnull %80)
+          to label %.noexc19 unwind label %84
 
-.noexc19:                                         ; preds = %79
-  %82 = load i8, ptr %3, align 8, !range !57, !alias.scope !58, !noalias !56, !noundef !4
-  %switch.not.i.i.i.i.i.i = icmp eq i8 %82, 3
-  br i1 %switch.not.i.i.i.i.i.i, label %83, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0653749e2f0b6b41E.exit.i.i"
+.noexc19:                                         ; preds = %78
+  %81 = load i8, ptr %3, align 8, !range !57, !alias.scope !58, !noalias !56, !noundef !4
+  %switch.not.i.i.i.i.i.i = icmp eq i8 %81, 3
+  br i1 %switch.not.i.i.i.i.i.i, label %82, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0653749e2f0b6b41E.exit.i.i"
 
-83:                                               ; preds = %.noexc19
-  %84 = getelementptr inbounds i8, ptr %3, i64 8
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h9d142fac5f535f21E.llvm.12123109310310187846"(ptr noalias noundef nonnull align 8 dereferenceable(8) %84)
-          to label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0653749e2f0b6b41E.exit.i.i" unwind label %85
+82:                                               ; preds = %.noexc19
+  %83 = getelementptr inbounds i8, ptr %3, i64 8
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h9d142fac5f535f21E.llvm.12123109310310187846"(ptr noalias noundef nonnull align 8 dereferenceable(8) %83)
+          to label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0653749e2f0b6b41E.exit.i.i" unwind label %84
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0653749e2f0b6b41E.exit.i.i": ; preds = %83, %.noexc19
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0653749e2f0b6b41E.exit.i.i": ; preds = %82, %.noexc19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !56
   br label %"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit"
 
-85:                                               ; preds = %.invoke, %83, %79, %78
-  %86 = landingpad { ptr, i32 }
+84:                                               ; preds = %.invoke, %82, %78, %77
+  %85 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %8) #11
-          to label %89 unwind label %87
+          to label %88 unwind label %86
 
 _ZN9itertools11kmerge_impl9sift_down17h0a6e11010284ff73E.exit: ; preds = %61, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h2d1da1a5ab428cd0E.exit.i", %34, %._crit_edge.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %13
 
-87:                                               ; preds = %85, %21
-  %88 = landingpad { ptr, i32 }
+86:                                               ; preds = %84, %21
+  %87 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
   unreachable
 
-89:                                               ; preds = %85, %21
-  %.pn = phi { ptr, i32 } [ %86, %85 ], [ %22, %21 ]
+88:                                               ; preds = %84, %21
+  %.pn = phi { ptr, i32 } [ %85, %84 ], [ %22, %21 ]
   resume { ptr, i32 } %.pn
 }
 

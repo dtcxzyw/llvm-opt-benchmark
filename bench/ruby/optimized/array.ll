@@ -19221,15 +19221,15 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %65, %.thread37
   %86 = load i64, ptr %85, align 8
   %87 = add i64 %86, 1
   store i64 %87, ptr %85, align 8
-  %88 = add i64 %87, %.0.i
-  %89 = add i64 %.2.i, %.0.i28
-  %90 = icmp eq i64 %88, %89
-  br i1 %90, label %.preheader.i, label %.loopexit.i, !llvm.loop !101
+  %.reass.i = add i64 %86, %58
+  %88 = add i64 %.2.i, %.0.i28
+  %89 = icmp eq i64 %.reass.i, %88
+  br i1 %89, label %.preheader.i, label %.loopexit.i, !llvm.loop !101
 
 combinate0.exit:                                  ; preds = %.preheader.i
   call void @rb_free_tmp_buffer(ptr noundef nonnull %4) #21
-  %91 = load i64, ptr @rb_cArray, align 8
-  store i64 %91, ptr %70, align 8
+  %90 = load i64, ptr @rb_cArray, align 8
+  store i64 %90, ptr %70, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %rb_array_len.exit31.thread, %rb_array_len.exit31, %rb_array_len.exit, %combinate0.exit, %30, %11

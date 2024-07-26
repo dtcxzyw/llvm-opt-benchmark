@@ -2392,29 +2392,26 @@ while.body.preheader.i.i:                         ; preds = %if.end5
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %mul.i.i.i.i
   %5 = load i64, ptr %length_.i.i, align 8
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %call3.i6.i = tail call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i.i, i32 noundef 62, i64 noundef %5) #30
-  %cmp.not.i7.i = icmp eq ptr %call3.i6.i, null
-  br i1 %cmp.not.i7.i, label %_ZNK8proxygen11HTTPHeaders16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit, label %if.end.i.i.preheader
-
-if.end.i.i.preheader:                             ; preds = %while.body.preheader.i.i
-  %sub.ptr.sub.neg.i.i = add i64 %5, %sub.ptr.rhs.cast.i.i
-  br label %if.end.i.i
+  %invariant.op.i = add i64 %5, %sub.ptr.rhs.cast.i.i
+  %call3.i5.i = tail call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i.i, i32 noundef 62, i64 noundef %5) #30
+  %cmp.not.i6.i = icmp eq ptr %call3.i5.i, null
+  br i1 %cmp.not.i6.i, label %_ZNK8proxygen11HTTPHeaders16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit, label %if.end.i.i
 
 while.cond.i.i:                                   ; preds = %if.end.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call3.i9.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call3.i8.i, i64 1
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %incdec.ptr.i.i to i64
-  %sub.i.i = sub i64 %sub.ptr.sub.neg.i.i, %sub.ptr.lhs.cast.i.i
-  %call3.i.i = tail call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr.i.i, i32 noundef 62, i64 noundef %sub.i.i) #30
+  %sub.i.reass.i = sub i64 %invariant.op.i, %sub.ptr.lhs.cast.i.i
+  %call3.i.i = tail call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr.i.i, i32 noundef 62, i64 noundef %sub.i.reass.i) #30
   %cmp.not.i.i = icmp eq ptr %call3.i.i, null
   br i1 %cmp.not.i.i, label %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %if.end.i.i.preheader, %while.cond.i.i
-  %call3.i9.i = phi ptr [ %call3.i.i, %while.cond.i.i ], [ %call3.i6.i, %if.end.i.i.preheader ]
-  %res.08.i = phi i1 [ false, %while.cond.i.i ], [ true, %if.end.i.i.preheader ]
-  br i1 %res.08.i, label %while.cond.i.i, label %_ZNK8proxygen11HTTPHeaders16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit
+if.end.i.i:                                       ; preds = %while.body.preheader.i.i, %while.cond.i.i
+  %call3.i8.i = phi ptr [ %call3.i.i, %while.cond.i.i ], [ %call3.i5.i, %while.body.preheader.i.i ]
+  %res.07.i = phi i1 [ false, %while.cond.i.i ], [ true, %while.body.preheader.i.i ]
+  br i1 %res.07.i, label %while.cond.i.i, label %_ZNK8proxygen11HTTPHeaders16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit
 
 _ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i: ; preds = %while.cond.i.i
-  %sub.ptr.lhs.cast5.i.le.i = ptrtoint ptr %call3.i9.i to i64
+  %sub.ptr.lhs.cast5.i.le.i = ptrtoint ptr %call3.i8.i to i64
   %sub.ptr.sub7.i.le.i = sub i64 %sub.ptr.lhs.cast5.i.le.i, %sub.ptr.rhs.cast.i.i
   %arrayidx.i.le.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %3, i64 %sub.ptr.sub7.i.le.i
   br label %_ZNK8proxygen11HTTPHeaders16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit
@@ -2856,38 +2853,35 @@ while.body.preheader.i.i63:                       ; preds = %if.then181
   %add.ptr.i.i.i.i67 = getelementptr inbounds i8, ptr %60, i64 %mul.i.i.i.i66
   %62 = load i64, ptr %length_.i.i64, align 8
   %sub.ptr.rhs.cast.i.i68 = ptrtoint ptr %add.ptr.i.i.i.i67 to i64
-  %call3.i6.i69 = call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i.i67, i32 noundef 63, i64 noundef %62) #30
-  %cmp.not.i7.i70 = icmp eq ptr %call3.i6.i69, null
-  br i1 %cmp.not.i7.i70, label %invoke.cont188, label %if.end.i.i71.preheader
+  %invariant.op.i69 = add i64 %62, %sub.ptr.rhs.cast.i.i68
+  %call3.i5.i70 = call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i.i67, i32 noundef 63, i64 noundef %62) #30
+  %cmp.not.i6.i71 = icmp eq ptr %call3.i5.i70, null
+  br i1 %cmp.not.i6.i71, label %invoke.cont188, label %if.end.i.i72
 
-if.end.i.i71.preheader:                           ; preds = %while.body.preheader.i.i63
-  %sub.ptr.sub.neg.i.i80 = add i64 %62, %sub.ptr.rhs.cast.i.i68
-  br label %if.end.i.i71
-
-while.cond.i.i77:                                 ; preds = %if.end.i.i71
-  %incdec.ptr.i.i78 = getelementptr inbounds i8, ptr %call3.i9.i72, i64 1
-  %sub.ptr.lhs.cast.i.i79 = ptrtoint ptr %incdec.ptr.i.i78 to i64
-  %sub.i.i81 = sub i64 %sub.ptr.sub.neg.i.i80, %sub.ptr.lhs.cast.i.i79
-  %call3.i.i82 = call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr.i.i78, i32 noundef 63, i64 noundef %sub.i.i81) #30
+while.cond.i.i78:                                 ; preds = %if.end.i.i72
+  %incdec.ptr.i.i79 = getelementptr inbounds i8, ptr %call3.i8.i73, i64 1
+  %sub.ptr.lhs.cast.i.i80 = ptrtoint ptr %incdec.ptr.i.i79 to i64
+  %sub.i.reass.i81 = sub i64 %invariant.op.i69, %sub.ptr.lhs.cast.i.i80
+  %call3.i.i82 = call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr.i.i79, i32 noundef 63, i64 noundef %sub.i.reass.i81) #30
   %cmp.not.i.i83 = icmp eq ptr %call3.i.i82, null
-  br i1 %cmp.not.i.i83, label %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i84, label %if.end.i.i71
+  br i1 %cmp.not.i.i83, label %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i84, label %if.end.i.i72
 
-if.end.i.i71:                                     ; preds = %if.end.i.i71.preheader, %while.cond.i.i77
-  %call3.i9.i72 = phi ptr [ %call3.i.i82, %while.cond.i.i77 ], [ %call3.i6.i69, %if.end.i.i71.preheader ]
-  %res.08.i73 = phi i1 [ false, %while.cond.i.i77 ], [ true, %if.end.i.i71.preheader ]
-  br i1 %res.08.i73, label %while.cond.i.i77, label %invoke.cont188
+if.end.i.i72:                                     ; preds = %while.body.preheader.i.i63, %while.cond.i.i78
+  %call3.i8.i73 = phi ptr [ %call3.i.i82, %while.cond.i.i78 ], [ %call3.i5.i70, %while.body.preheader.i.i63 ]
+  %res.07.i74 = phi i1 [ false, %while.cond.i.i78 ], [ true, %while.body.preheader.i.i63 ]
+  br i1 %res.07.i74, label %while.cond.i.i78, label %invoke.cont188
 
-_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i84: ; preds = %while.cond.i.i77
-  %sub.ptr.lhs.cast5.i.le.i85 = ptrtoint ptr %call3.i9.i72 to i64
+_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i84: ; preds = %while.cond.i.i78
+  %sub.ptr.lhs.cast5.i.le.i85 = ptrtoint ptr %call3.i8.i73 to i64
   %sub.ptr.sub7.i.le.i86 = sub i64 %sub.ptr.lhs.cast5.i.le.i85, %sub.ptr.rhs.cast.i.i68
   %arrayidx.i.le.i87 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %60, i64 %sub.ptr.sub7.i.le.i86
   br label %invoke.cont188
 
-invoke.cont188:                                   ; preds = %if.end.i.i71, %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i84, %while.body.preheader.i.i63, %if.then181
-  %res.1.i74 = phi ptr [ null, %if.then181 ], [ null, %while.body.preheader.i.i63 ], [ %arrayidx.i.le.i87, %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i84 ], [ null, %if.end.i.i71 ]
-  %cmp.i75 = icmp eq ptr %res.1.i74, null
-  %_ZN8proxygen12empty_stringB5cxx11E..i76 = select i1 %cmp.i75, ptr @_ZN8proxygen12empty_stringB5cxx11E, ptr %res.1.i74
-  %call190 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i76) #25
+invoke.cont188:                                   ; preds = %if.end.i.i72, %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i84, %while.body.preheader.i.i63, %if.then181
+  %res.1.i75 = phi ptr [ null, %if.then181 ], [ null, %while.body.preheader.i.i63 ], [ %arrayidx.i.le.i87, %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i84 ], [ null, %if.end.i.i72 ]
+  %cmp.i76 = icmp eq ptr %res.1.i75, null
+  %_ZN8proxygen12empty_stringB5cxx11E..i77 = select i1 %cmp.i76, ptr @_ZN8proxygen12empty_stringB5cxx11E, ptr %res.1.i75
+  %call190 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i77) #25
   br i1 %call190, label %if.then192, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont188
@@ -2923,7 +2917,7 @@ lpad195:                                          ; preds = %invoke.cont196, %in
   br label %if.then.i328
 
 if.end201:                                        ; preds = %lor.lhs.false
-  invoke void @_ZN8proxygen23checkForProtocolUpgradeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_b(ptr nonnull sret(%"class.folly::Optional.98") align 8 %result, ptr noundef nonnull align 8 dereferenceable(32) %upgradeHeader_, ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i76, i1 noundef zeroext false)
+  invoke void @_ZN8proxygen23checkForProtocolUpgradeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_b(ptr nonnull sret(%"class.folly::Optional.98") align 8 %result, ptr noundef nonnull align 8 dereferenceable(32) %upgradeHeader_, ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i77, i1 noundef zeroext false)
           to label %invoke.cont203 unwind label %lpad184
 
 invoke.cont203:                                   ; preds = %if.end201
@@ -3012,7 +3006,7 @@ invoke.cont272:                                   ; preds = %invoke.cont269
           to label %invoke.cont274 unwind label %lpad266
 
 invoke.cont274:                                   ; preds = %invoke.cont272
-  %call277 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call275, ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i76)
+  %call277 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call275, ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i77)
           to label %invoke.cont276 unwind label %lpad266
 
 invoke.cont276:                                   ; preds = %invoke.cont274
@@ -3102,39 +3096,36 @@ while.body.preheader.i.i128:                      ; preds = %if.then330
   %add.ptr.i.i.i.i132 = getelementptr inbounds i8, ptr %81, i64 %mul.i.i.i.i131
   %83 = load i64, ptr %length_.i.i129, align 8
   %sub.ptr.rhs.cast.i.i133 = ptrtoint ptr %add.ptr.i.i.i.i132 to i64
-  %call3.i6.i134 = call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i.i132, i32 noundef 63, i64 noundef %83) #30
-  %cmp.not.i7.i135 = icmp eq ptr %call3.i6.i134, null
-  br i1 %cmp.not.i7.i135, label %invoke.cont336, label %if.end.i.i136.preheader
+  %invariant.op.i134 = add i64 %83, %sub.ptr.rhs.cast.i.i133
+  %call3.i5.i135 = call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i.i132, i32 noundef 63, i64 noundef %83) #30
+  %cmp.not.i6.i136 = icmp eq ptr %call3.i5.i135, null
+  br i1 %cmp.not.i6.i136, label %invoke.cont336, label %if.end.i.i137
 
-if.end.i.i136.preheader:                          ; preds = %while.body.preheader.i.i128
-  %sub.ptr.sub.neg.i.i145 = add i64 %83, %sub.ptr.rhs.cast.i.i133
-  br label %if.end.i.i136
-
-while.cond.i.i142:                                ; preds = %if.end.i.i136
-  %incdec.ptr.i.i143 = getelementptr inbounds i8, ptr %call3.i9.i137, i64 1
-  %sub.ptr.lhs.cast.i.i144 = ptrtoint ptr %incdec.ptr.i.i143 to i64
-  %sub.i.i146 = sub i64 %sub.ptr.sub.neg.i.i145, %sub.ptr.lhs.cast.i.i144
-  %call3.i.i147 = call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr.i.i143, i32 noundef 63, i64 noundef %sub.i.i146) #30
+while.cond.i.i143:                                ; preds = %if.end.i.i137
+  %incdec.ptr.i.i144 = getelementptr inbounds i8, ptr %call3.i8.i138, i64 1
+  %sub.ptr.lhs.cast.i.i145 = ptrtoint ptr %incdec.ptr.i.i144 to i64
+  %sub.i.reass.i146 = sub i64 %invariant.op.i134, %sub.ptr.lhs.cast.i.i145
+  %call3.i.i147 = call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr.i.i144, i32 noundef 63, i64 noundef %sub.i.reass.i146) #30
   %cmp.not.i.i148 = icmp eq ptr %call3.i.i147, null
-  br i1 %cmp.not.i.i148, label %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i149, label %if.end.i.i136
+  br i1 %cmp.not.i.i148, label %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i149, label %if.end.i.i137
 
-if.end.i.i136:                                    ; preds = %if.end.i.i136.preheader, %while.cond.i.i142
-  %call3.i9.i137 = phi ptr [ %call3.i.i147, %while.cond.i.i142 ], [ %call3.i6.i134, %if.end.i.i136.preheader ]
-  %res.08.i138 = phi i1 [ false, %while.cond.i.i142 ], [ true, %if.end.i.i136.preheader ]
-  br i1 %res.08.i138, label %while.cond.i.i142, label %invoke.cont336
+if.end.i.i137:                                    ; preds = %while.body.preheader.i.i128, %while.cond.i.i143
+  %call3.i8.i138 = phi ptr [ %call3.i.i147, %while.cond.i.i143 ], [ %call3.i5.i135, %while.body.preheader.i.i128 ]
+  %res.07.i139 = phi i1 [ false, %while.cond.i.i143 ], [ true, %while.body.preheader.i.i128 ]
+  br i1 %res.07.i139, label %while.cond.i.i143, label %invoke.cont336
 
-_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i149: ; preds = %while.cond.i.i142
-  %sub.ptr.lhs.cast5.i.le.i150 = ptrtoint ptr %call3.i9.i137 to i64
+_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i149: ; preds = %while.cond.i.i143
+  %sub.ptr.lhs.cast5.i.le.i150 = ptrtoint ptr %call3.i8.i138 to i64
   %sub.ptr.sub7.i.le.i151 = sub i64 %sub.ptr.lhs.cast5.i.le.i150, %sub.ptr.rhs.cast.i.i133
   %arrayidx.i.le.i152 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %81, i64 %sub.ptr.sub7.i.le.i151
   br label %invoke.cont336
 
-invoke.cont336:                                   ; preds = %if.end.i.i136, %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i149, %while.body.preheader.i.i128, %if.then330
-  %res.1.i139 = phi ptr [ null, %if.then330 ], [ null, %while.body.preheader.i.i128 ], [ %arrayidx.i.le.i152, %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i149 ], [ null, %if.end.i.i136 ]
-  %cmp.i140 = icmp eq ptr %res.1.i139, null
-  %_ZN8proxygen12empty_stringB5cxx11E..i141 = select i1 %cmp.i140, ptr @_ZN8proxygen12empty_stringB5cxx11E, ptr %res.1.i139
+invoke.cont336:                                   ; preds = %if.end.i.i137, %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i149, %while.body.preheader.i.i128, %if.then330
+  %res.1.i140 = phi ptr [ null, %if.then330 ], [ null, %while.body.preheader.i.i128 ], [ %arrayidx.i.le.i152, %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i149 ], [ null, %if.end.i.i137 ]
+  %cmp.i141 = icmp eq ptr %res.1.i140, null
+  %_ZN8proxygen12empty_stringB5cxx11E..i142 = select i1 %cmp.i141, ptr @_ZN8proxygen12empty_stringB5cxx11E, ptr %res.1.i140
   %upgradeHeader_338 = getelementptr inbounds i8, ptr %this, i64 304
-  %call340 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %upgradeHeader_338, ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i141)
+  %call340 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %upgradeHeader_338, ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i142)
           to label %invoke.cont339 unwind label %lpad184
 
 invoke.cont339:                                   ; preds = %invoke.cont336
@@ -3230,39 +3221,36 @@ while.body.preheader.i.i184:                      ; preds = %if.end377
   %add.ptr.i.i.i.i188 = getelementptr inbounds i8, ptr %93, i64 %mul.i.i.i.i187
   %95 = load i64, ptr %length_.i.i185, align 8
   %sub.ptr.rhs.cast.i.i189 = ptrtoint ptr %add.ptr.i.i.i.i188 to i64
-  %call3.i6.i190 = call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i.i188, i32 noundef 63, i64 noundef %95) #30
-  %cmp.not.i7.i191 = icmp eq ptr %call3.i6.i190, null
-  br i1 %cmp.not.i7.i191, label %invoke.cont388, label %if.end.i.i192.preheader
+  %invariant.op.i190 = add i64 %95, %sub.ptr.rhs.cast.i.i189
+  %call3.i5.i191 = call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i.i188, i32 noundef 63, i64 noundef %95) #30
+  %cmp.not.i6.i192 = icmp eq ptr %call3.i5.i191, null
+  br i1 %cmp.not.i6.i192, label %invoke.cont388, label %if.end.i.i193
 
-if.end.i.i192.preheader:                          ; preds = %while.body.preheader.i.i184
-  %sub.ptr.sub.neg.i.i201 = add i64 %95, %sub.ptr.rhs.cast.i.i189
-  br label %if.end.i.i192
-
-while.cond.i.i198:                                ; preds = %if.end.i.i192
-  %incdec.ptr.i.i199 = getelementptr inbounds i8, ptr %call3.i9.i193, i64 1
-  %sub.ptr.lhs.cast.i.i200 = ptrtoint ptr %incdec.ptr.i.i199 to i64
-  %sub.i.i202 = sub i64 %sub.ptr.sub.neg.i.i201, %sub.ptr.lhs.cast.i.i200
-  %call3.i.i203 = call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr.i.i199, i32 noundef 63, i64 noundef %sub.i.i202) #30
+while.cond.i.i199:                                ; preds = %if.end.i.i193
+  %incdec.ptr.i.i200 = getelementptr inbounds i8, ptr %call3.i8.i194, i64 1
+  %sub.ptr.lhs.cast.i.i201 = ptrtoint ptr %incdec.ptr.i.i200 to i64
+  %sub.i.reass.i202 = sub i64 %invariant.op.i190, %sub.ptr.lhs.cast.i.i201
+  %call3.i.i203 = call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr.i.i200, i32 noundef 63, i64 noundef %sub.i.reass.i202) #30
   %cmp.not.i.i204 = icmp eq ptr %call3.i.i203, null
-  br i1 %cmp.not.i.i204, label %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i205, label %if.end.i.i192
+  br i1 %cmp.not.i.i204, label %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i205, label %if.end.i.i193
 
-if.end.i.i192:                                    ; preds = %if.end.i.i192.preheader, %while.cond.i.i198
-  %call3.i9.i193 = phi ptr [ %call3.i.i203, %while.cond.i.i198 ], [ %call3.i6.i190, %if.end.i.i192.preheader ]
-  %res.08.i194 = phi i1 [ false, %while.cond.i.i198 ], [ true, %if.end.i.i192.preheader ]
-  br i1 %res.08.i194, label %while.cond.i.i198, label %invoke.cont388
+if.end.i.i193:                                    ; preds = %while.body.preheader.i.i184, %while.cond.i.i199
+  %call3.i8.i194 = phi ptr [ %call3.i.i203, %while.cond.i.i199 ], [ %call3.i5.i191, %while.body.preheader.i.i184 ]
+  %res.07.i195 = phi i1 [ false, %while.cond.i.i199 ], [ true, %while.body.preheader.i.i184 ]
+  br i1 %res.07.i195, label %while.cond.i.i199, label %invoke.cont388
 
-_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i205: ; preds = %while.cond.i.i198
-  %sub.ptr.lhs.cast5.i.le.i206 = ptrtoint ptr %call3.i9.i193 to i64
+_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i205: ; preds = %while.cond.i.i199
+  %sub.ptr.lhs.cast5.i.le.i206 = ptrtoint ptr %call3.i8.i194 to i64
   %sub.ptr.sub7.i.le.i207 = sub i64 %sub.ptr.lhs.cast5.i.le.i206, %sub.ptr.rhs.cast.i.i189
   %arrayidx.i.le.i208 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %93, i64 %sub.ptr.sub7.i.le.i207
   br label %invoke.cont388
 
-invoke.cont388:                                   ; preds = %if.end.i.i192, %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i205, %while.body.preheader.i.i184, %if.end377
-  %res.1.i195 = phi ptr [ null, %if.end377 ], [ null, %while.body.preheader.i.i184 ], [ %arrayidx.i.le.i208, %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i205 ], [ null, %if.end.i.i192 ]
-  %cmp.i196 = icmp eq ptr %res.1.i195, null
-  %_ZN8proxygen12empty_stringB5cxx11E..i197 = select i1 %cmp.i196, ptr @_ZN8proxygen12empty_stringB5cxx11E, ptr %res.1.i195
-  %call.i210 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i197) #25
-  %call3.i212 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i197) #25
+invoke.cont388:                                   ; preds = %if.end.i.i193, %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i205, %while.body.preheader.i.i184, %if.end377
+  %res.1.i196 = phi ptr [ null, %if.end377 ], [ null, %while.body.preheader.i.i184 ], [ %arrayidx.i.le.i208, %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i205 ], [ null, %if.end.i.i193 ]
+  %cmp.i197 = icmp eq ptr %res.1.i196, null
+  %_ZN8proxygen12empty_stringB5cxx11E..i198 = select i1 %cmp.i197, ptr @_ZN8proxygen12empty_stringB5cxx11E, ptr %res.1.i196
+  %call.i210 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i198) #25
+  %call3.i212 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i198) #25
   %cmp.i214 = icmp eq i64 %call3.i212, 9
   br i1 %cmp.i214, label %for.body.i.i215, label %if.end454
 
@@ -3313,47 +3301,44 @@ while.body.preheader.i.i230:                      ; preds = %if.then401
   %add.ptr.i.i.i.i234 = getelementptr inbounds i8, ptr %102, i64 %mul.i.i.i.i233
   %104 = load i64, ptr %length_.i.i231, align 8
   %sub.ptr.rhs.cast.i.i235 = ptrtoint ptr %add.ptr.i.i.i.i234 to i64
-  %call3.i6.i236 = call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i.i234, i32 noundef 55, i64 noundef %104) #30
-  %cmp.not.i7.i237 = icmp eq ptr %call3.i6.i236, null
-  br i1 %cmp.not.i7.i237, label %invoke.cont403, label %if.end.i.i238.preheader
+  %invariant.op.i236 = add i64 %104, %sub.ptr.rhs.cast.i.i235
+  %call3.i5.i237 = call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i.i234, i32 noundef 55, i64 noundef %104) #30
+  %cmp.not.i6.i238 = icmp eq ptr %call3.i5.i237, null
+  br i1 %cmp.not.i6.i238, label %invoke.cont403, label %if.end.i.i239
 
-if.end.i.i238.preheader:                          ; preds = %while.body.preheader.i.i230
-  %sub.ptr.sub.neg.i.i247 = add i64 %104, %sub.ptr.rhs.cast.i.i235
-  br label %if.end.i.i238
-
-while.cond.i.i244:                                ; preds = %if.end.i.i238
-  %incdec.ptr.i.i245 = getelementptr inbounds i8, ptr %call3.i9.i239, i64 1
-  %sub.ptr.lhs.cast.i.i246 = ptrtoint ptr %incdec.ptr.i.i245 to i64
-  %sub.i.i248 = sub i64 %sub.ptr.sub.neg.i.i247, %sub.ptr.lhs.cast.i.i246
-  %call3.i.i249 = call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr.i.i245, i32 noundef 55, i64 noundef %sub.i.i248) #30
+while.cond.i.i245:                                ; preds = %if.end.i.i239
+  %incdec.ptr.i.i246 = getelementptr inbounds i8, ptr %call3.i8.i240, i64 1
+  %sub.ptr.lhs.cast.i.i247 = ptrtoint ptr %incdec.ptr.i.i246 to i64
+  %sub.i.reass.i248 = sub i64 %invariant.op.i236, %sub.ptr.lhs.cast.i.i247
+  %call3.i.i249 = call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr.i.i246, i32 noundef 55, i64 noundef %sub.i.reass.i248) #30
   %cmp.not.i.i250 = icmp eq ptr %call3.i.i249, null
-  br i1 %cmp.not.i.i250, label %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i251, label %if.end.i.i238
+  br i1 %cmp.not.i.i250, label %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i251, label %if.end.i.i239
 
-if.end.i.i238:                                    ; preds = %if.end.i.i238.preheader, %while.cond.i.i244
-  %call3.i9.i239 = phi ptr [ %call3.i.i249, %while.cond.i.i244 ], [ %call3.i6.i236, %if.end.i.i238.preheader ]
-  %res.08.i240 = phi i1 [ false, %while.cond.i.i244 ], [ true, %if.end.i.i238.preheader ]
-  br i1 %res.08.i240, label %while.cond.i.i244, label %invoke.cont403
+if.end.i.i239:                                    ; preds = %while.body.preheader.i.i230, %while.cond.i.i245
+  %call3.i8.i240 = phi ptr [ %call3.i.i249, %while.cond.i.i245 ], [ %call3.i5.i237, %while.body.preheader.i.i230 ]
+  %res.07.i241 = phi i1 [ false, %while.cond.i.i245 ], [ true, %while.body.preheader.i.i230 ]
+  br i1 %res.07.i241, label %while.cond.i.i245, label %invoke.cont403
 
-_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i251: ; preds = %while.cond.i.i244
-  %sub.ptr.lhs.cast5.i.le.i252 = ptrtoint ptr %call3.i9.i239 to i64
+_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i251: ; preds = %while.cond.i.i245
+  %sub.ptr.lhs.cast5.i.le.i252 = ptrtoint ptr %call3.i8.i240 to i64
   %sub.ptr.sub7.i.le.i253 = sub i64 %sub.ptr.lhs.cast5.i.le.i252, %sub.ptr.rhs.cast.i.i235
   %arrayidx.i.le.i254 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %102, i64 %sub.ptr.sub7.i.le.i253
   br label %invoke.cont403
 
-invoke.cont403:                                   ; preds = %if.end.i.i238, %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i251, %while.body.preheader.i.i230, %if.then401
-  %res.1.i241 = phi ptr [ null, %if.then401 ], [ null, %while.body.preheader.i.i230 ], [ %arrayidx.i.le.i254, %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i251 ], [ null, %if.end.i.i238 ]
-  %cmp.i242 = icmp eq ptr %res.1.i241, null
-  %_ZN8proxygen12empty_stringB5cxx11E..i243 = select i1 %cmp.i242, ptr @_ZN8proxygen12empty_stringB5cxx11E, ptr %res.1.i241
+invoke.cont403:                                   ; preds = %if.end.i.i239, %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i251, %while.body.preheader.i.i230, %if.then401
+  %res.1.i242 = phi ptr [ null, %if.then401 ], [ null, %while.body.preheader.i.i230 ], [ %arrayidx.i.le.i254, %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i251 ], [ null, %if.end.i.i239 ]
+  %cmp.i243 = icmp eq ptr %res.1.i242, null
+  %_ZN8proxygen12empty_stringB5cxx11E..i244 = select i1 %cmp.i243, ptr @_ZN8proxygen12empty_stringB5cxx11E, ptr %res.1.i242
   %websockAcceptKey_ = getelementptr inbounds i8, ptr %this, i64 8
-  %call.i.i256 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i243) #25
+  %call.i.i256 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i244) #25
   %call1.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %websockAcceptKey_) #25
   %cmp.i.i257 = icmp eq i64 %call.i.i256, %call1.i.i
   br i1 %cmp.i.i257, label %land.rhs.i.i, label %if.then406
 
 land.rhs.i.i:                                     ; preds = %invoke.cont403
-  %call2.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i243) #25
+  %call2.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i244) #25
   %call3.i.i258 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %websockAcceptKey_) #25
-  %call4.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i243) #25
+  %call4.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i244) #25
   %cmp.i.i.i259 = icmp eq i64 %call4.i.i, 0
   br i1 %cmp.i.i.i259, label %if.end454, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
 
@@ -3379,7 +3364,7 @@ invoke.cont412:                                   ; preds = %invoke.cont410
           to label %invoke.cont414 unwind label %lpad409
 
 invoke.cont414:                                   ; preds = %invoke.cont412
-  %call417 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call415, ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i243)
+  %call417 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call415, ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i244)
           to label %invoke.cont416 unwind label %lpad409
 
 invoke.cont416:                                   ; preds = %invoke.cont414
@@ -3448,38 +3433,35 @@ while.body.preheader.i.i263:                      ; preds = %if.end442
   %add.ptr.i.i.i.i267 = getelementptr inbounds i8, ptr %107, i64 %mul.i.i.i.i266
   %109 = load i64, ptr %length_.i.i264, align 8
   %sub.ptr.rhs.cast.i.i268 = ptrtoint ptr %add.ptr.i.i.i.i267 to i64
-  %call3.i6.i269 = call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i.i267, i32 noundef 56, i64 noundef %109) #30
-  %cmp.not.i7.i270 = icmp eq ptr %call3.i6.i269, null
-  br i1 %cmp.not.i7.i270, label %invoke.cont444, label %if.end.i.i271.preheader
+  %invariant.op.i269 = add i64 %109, %sub.ptr.rhs.cast.i.i268
+  %call3.i5.i270 = call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i.i267, i32 noundef 56, i64 noundef %109) #30
+  %cmp.not.i6.i271 = icmp eq ptr %call3.i5.i270, null
+  br i1 %cmp.not.i6.i271, label %invoke.cont444, label %if.end.i.i272
 
-if.end.i.i271.preheader:                          ; preds = %while.body.preheader.i.i263
-  %sub.ptr.sub.neg.i.i280 = add i64 %109, %sub.ptr.rhs.cast.i.i268
-  br label %if.end.i.i271
-
-while.cond.i.i277:                                ; preds = %if.end.i.i271
-  %incdec.ptr.i.i278 = getelementptr inbounds i8, ptr %call3.i9.i272, i64 1
-  %sub.ptr.lhs.cast.i.i279 = ptrtoint ptr %incdec.ptr.i.i278 to i64
-  %sub.i.i281 = sub i64 %sub.ptr.sub.neg.i.i280, %sub.ptr.lhs.cast.i.i279
-  %call3.i.i282 = call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr.i.i278, i32 noundef 56, i64 noundef %sub.i.i281) #30
+while.cond.i.i278:                                ; preds = %if.end.i.i272
+  %incdec.ptr.i.i279 = getelementptr inbounds i8, ptr %call3.i8.i273, i64 1
+  %sub.ptr.lhs.cast.i.i280 = ptrtoint ptr %incdec.ptr.i.i279 to i64
+  %sub.i.reass.i281 = sub i64 %invariant.op.i269, %sub.ptr.lhs.cast.i.i280
+  %call3.i.i282 = call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr.i.i279, i32 noundef 56, i64 noundef %sub.i.reass.i281) #30
   %cmp.not.i.i283 = icmp eq ptr %call3.i.i282, null
-  br i1 %cmp.not.i.i283, label %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i284, label %if.end.i.i271
+  br i1 %cmp.not.i.i283, label %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i284, label %if.end.i.i272
 
-if.end.i.i271:                                    ; preds = %if.end.i.i271.preheader, %while.cond.i.i277
-  %call3.i9.i272 = phi ptr [ %call3.i.i282, %while.cond.i.i277 ], [ %call3.i6.i269, %if.end.i.i271.preheader ]
-  %res.08.i273 = phi i1 [ false, %while.cond.i.i277 ], [ true, %if.end.i.i271.preheader ]
-  br i1 %res.08.i273, label %while.cond.i.i277, label %invoke.cont444
+if.end.i.i272:                                    ; preds = %while.body.preheader.i.i263, %while.cond.i.i278
+  %call3.i8.i273 = phi ptr [ %call3.i.i282, %while.cond.i.i278 ], [ %call3.i5.i270, %while.body.preheader.i.i263 ]
+  %res.07.i274 = phi i1 [ false, %while.cond.i.i278 ], [ true, %while.body.preheader.i.i263 ]
+  br i1 %res.07.i274, label %while.cond.i.i278, label %invoke.cont444
 
-_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i284: ; preds = %while.cond.i.i277
-  %sub.ptr.lhs.cast5.i.le.i285 = ptrtoint ptr %call3.i9.i272 to i64
+_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i284: ; preds = %while.cond.i.i278
+  %sub.ptr.lhs.cast5.i.le.i285 = ptrtoint ptr %call3.i8.i273 to i64
   %sub.ptr.sub7.i.le.i286 = sub i64 %sub.ptr.lhs.cast5.i.le.i285, %sub.ptr.rhs.cast.i.i268
   %arrayidx.i.le.i287 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %107, i64 %sub.ptr.sub7.i.le.i286
   br label %invoke.cont444
 
-invoke.cont444:                                   ; preds = %if.end.i.i271, %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i284, %while.body.preheader.i.i263, %if.end442
-  %res.1.i274 = phi ptr [ null, %if.end442 ], [ null, %while.body.preheader.i.i263 ], [ %arrayidx.i.le.i287, %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i284 ], [ null, %if.end.i.i271 ]
-  %cmp.i275 = icmp eq ptr %res.1.i274, null
-  %_ZN8proxygen12empty_stringB5cxx11E..i276 = select i1 %cmp.i275, ptr @_ZN8proxygen12empty_stringB5cxx11E, ptr %res.1.i274
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i276)
+invoke.cont444:                                   ; preds = %if.end.i.i272, %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i284, %while.body.preheader.i.i263, %if.end442
+  %res.1.i275 = phi ptr [ null, %if.end442 ], [ null, %while.body.preheader.i.i263 ], [ %arrayidx.i.le.i287, %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i284 ], [ null, %if.end.i.i272 ]
+  %cmp.i276 = icmp eq ptr %res.1.i275, null
+  %_ZN8proxygen12empty_stringB5cxx11E..i277 = select i1 %cmp.i276, ptr @_ZN8proxygen12empty_stringB5cxx11E, ptr %res.1.i275
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i277)
           to label %invoke.cont446 unwind label %lpad184
 
 invoke.cont446:                                   ; preds = %invoke.cont444
@@ -3612,38 +3594,35 @@ while.body.preheader.i.i295:                      ; preds = %if.then528
   %add.ptr.i.i.i.i299 = getelementptr inbounds i8, ptr %127, i64 %mul.i.i.i.i298
   %129 = load i64, ptr %length_.i.i296, align 8
   %sub.ptr.rhs.cast.i.i300 = ptrtoint ptr %add.ptr.i.i.i.i299 to i64
-  %call3.i6.i301 = call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i.i299, i32 noundef 64, i64 noundef %129) #30
-  %cmp.not.i7.i302 = icmp eq ptr %call3.i6.i301, null
-  br i1 %cmp.not.i7.i302, label %invoke.cont534, label %if.end.i.i303.preheader
+  %invariant.op.i301 = add i64 %129, %sub.ptr.rhs.cast.i.i300
+  %call3.i5.i302 = call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i.i299, i32 noundef 64, i64 noundef %129) #30
+  %cmp.not.i6.i303 = icmp eq ptr %call3.i5.i302, null
+  br i1 %cmp.not.i6.i303, label %invoke.cont534, label %if.end.i.i304
 
-if.end.i.i303.preheader:                          ; preds = %while.body.preheader.i.i295
-  %sub.ptr.sub.neg.i.i312 = add i64 %129, %sub.ptr.rhs.cast.i.i300
-  br label %if.end.i.i303
-
-while.cond.i.i309:                                ; preds = %if.end.i.i303
-  %incdec.ptr.i.i310 = getelementptr inbounds i8, ptr %call3.i9.i304, i64 1
-  %sub.ptr.lhs.cast.i.i311 = ptrtoint ptr %incdec.ptr.i.i310 to i64
-  %sub.i.i313 = sub i64 %sub.ptr.sub.neg.i.i312, %sub.ptr.lhs.cast.i.i311
-  %call3.i.i314 = call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr.i.i310, i32 noundef 64, i64 noundef %sub.i.i313) #30
+while.cond.i.i310:                                ; preds = %if.end.i.i304
+  %incdec.ptr.i.i311 = getelementptr inbounds i8, ptr %call3.i8.i305, i64 1
+  %sub.ptr.lhs.cast.i.i312 = ptrtoint ptr %incdec.ptr.i.i311 to i64
+  %sub.i.reass.i313 = sub i64 %invariant.op.i301, %sub.ptr.lhs.cast.i.i312
+  %call3.i.i314 = call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr.i.i311, i32 noundef 64, i64 noundef %sub.i.reass.i313) #30
   %cmp.not.i.i315 = icmp eq ptr %call3.i.i314, null
-  br i1 %cmp.not.i.i315, label %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i316, label %if.end.i.i303
+  br i1 %cmp.not.i.i315, label %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i316, label %if.end.i.i304
 
-if.end.i.i303:                                    ; preds = %if.end.i.i303.preheader, %while.cond.i.i309
-  %call3.i9.i304 = phi ptr [ %call3.i.i314, %while.cond.i.i309 ], [ %call3.i6.i301, %if.end.i.i303.preheader ]
-  %res.08.i305 = phi i1 [ false, %while.cond.i.i309 ], [ true, %if.end.i.i303.preheader ]
-  br i1 %res.08.i305, label %while.cond.i.i309, label %invoke.cont534
+if.end.i.i304:                                    ; preds = %while.body.preheader.i.i295, %while.cond.i.i310
+  %call3.i8.i305 = phi ptr [ %call3.i.i314, %while.cond.i.i310 ], [ %call3.i5.i302, %while.body.preheader.i.i295 ]
+  %res.07.i306 = phi i1 [ false, %while.cond.i.i310 ], [ true, %while.body.preheader.i.i295 ]
+  br i1 %res.07.i306, label %while.cond.i.i310, label %invoke.cont534
 
-_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i316: ; preds = %while.cond.i.i309
-  %sub.ptr.lhs.cast5.i.le.i317 = ptrtoint ptr %call3.i9.i304 to i64
+_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i316: ; preds = %while.cond.i.i310
+  %sub.ptr.lhs.cast5.i.le.i317 = ptrtoint ptr %call3.i8.i305 to i64
   %sub.ptr.sub7.i.le.i318 = sub i64 %sub.ptr.lhs.cast5.i.le.i317, %sub.ptr.rhs.cast.i.i300
   %arrayidx.i.le.i319 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %127, i64 %sub.ptr.sub7.i.le.i318
   br label %invoke.cont534
 
-invoke.cont534:                                   ; preds = %if.end.i.i303, %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i316, %while.body.preheader.i.i295, %if.then528
-  %res.1.i306 = phi ptr [ null, %if.then528 ], [ null, %while.body.preheader.i.i295 ], [ %arrayidx.i.le.i319, %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i316 ], [ null, %if.end.i.i303 ]
-  %cmp.i307 = icmp eq ptr %res.1.i306, null
-  %_ZN8proxygen12empty_stringB5cxx11E..i308 = select i1 %cmp.i307, ptr @_ZN8proxygen12empty_stringB5cxx11E, ptr %res.1.i306
-  %call538 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %userAgent_, ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i308)
+invoke.cont534:                                   ; preds = %if.end.i.i304, %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i316, %while.body.preheader.i.i295, %if.then528
+  %res.1.i307 = phi ptr [ null, %if.then528 ], [ null, %while.body.preheader.i.i295 ], [ %arrayidx.i.le.i319, %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i316 ], [ null, %if.end.i.i304 ]
+  %cmp.i308 = icmp eq ptr %res.1.i307, null
+  %_ZN8proxygen12empty_stringB5cxx11E..i309 = select i1 %cmp.i308, ptr @_ZN8proxygen12empty_stringB5cxx11E, ptr %res.1.i307
+  %call538 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %userAgent_, ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i309)
           to label %if.end539 unwind label %lpad184
 
 if.end539:                                        ; preds = %invoke.cont534, %if.end513
@@ -5267,29 +5246,26 @@ while.body.preheader.i.i:                         ; preds = %if.then265
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %54, i64 %mul.i.i.i.i
   %56 = load i64, ptr %length_.i.i, align 8
   %sub.ptr.rhs.cast.i.i184 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %call3.i6.i = call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i.i, i32 noundef 38, i64 noundef %56) #30
-  %cmp.not.i7.i = icmp eq ptr %call3.i6.i, null
-  br i1 %cmp.not.i7.i, label %_ZNK8proxygen11HTTPHeaders16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit, label %if.end.i.i.preheader
-
-if.end.i.i.preheader:                             ; preds = %while.body.preheader.i.i
-  %sub.ptr.sub.neg.i.i = add i64 %56, %sub.ptr.rhs.cast.i.i184
-  br label %if.end.i.i
+  %invariant.op.i = add i64 %56, %sub.ptr.rhs.cast.i.i184
+  %call3.i5.i = call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i.i, i32 noundef 38, i64 noundef %56) #30
+  %cmp.not.i6.i = icmp eq ptr %call3.i5.i, null
+  br i1 %cmp.not.i6.i, label %_ZNK8proxygen11HTTPHeaders16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit, label %if.end.i.i
 
 while.cond.i.i:                                   ; preds = %if.end.i.i
-  %incdec.ptr.i.i186 = getelementptr inbounds i8, ptr %call3.i9.i, i64 1
+  %incdec.ptr.i.i186 = getelementptr inbounds i8, ptr %call3.i8.i, i64 1
   %sub.ptr.lhs.cast.i.i187 = ptrtoint ptr %incdec.ptr.i.i186 to i64
-  %sub.i.i = sub i64 %sub.ptr.sub.neg.i.i, %sub.ptr.lhs.cast.i.i187
-  %call3.i.i = call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr.i.i186, i32 noundef 38, i64 noundef %sub.i.i) #30
+  %sub.i.reass.i = sub i64 %invariant.op.i, %sub.ptr.lhs.cast.i.i187
+  %call3.i.i = call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr.i.i186, i32 noundef 38, i64 noundef %sub.i.reass.i) #30
   %cmp.not.i.i188 = icmp eq ptr %call3.i.i, null
   br i1 %cmp.not.i.i188, label %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %if.end.i.i.preheader, %while.cond.i.i
-  %call3.i9.i = phi ptr [ %call3.i.i, %while.cond.i.i ], [ %call3.i6.i, %if.end.i.i.preheader ]
-  %res.08.i = phi i1 [ false, %while.cond.i.i ], [ true, %if.end.i.i.preheader ]
-  br i1 %res.08.i, label %while.cond.i.i, label %_ZNK8proxygen11HTTPHeaders16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit
+if.end.i.i:                                       ; preds = %while.body.preheader.i.i, %while.cond.i.i
+  %call3.i8.i = phi ptr [ %call3.i.i, %while.cond.i.i ], [ %call3.i5.i, %while.body.preheader.i.i ]
+  %res.07.i = phi i1 [ false, %while.cond.i.i ], [ true, %while.body.preheader.i.i ]
+  br i1 %res.07.i, label %while.cond.i.i, label %_ZNK8proxygen11HTTPHeaders16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit
 
 _ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i: ; preds = %while.cond.i.i
-  %sub.ptr.lhs.cast5.i.le.i = ptrtoint ptr %call3.i9.i to i64
+  %sub.ptr.lhs.cast5.i.le.i = ptrtoint ptr %call3.i8.i to i64
   %sub.ptr.sub7.i.le.i = sub i64 %sub.ptr.lhs.cast5.i.le.i, %sub.ptr.rhs.cast.i.i184
   %arrayidx.i.le.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %54, i64 %sub.ptr.sub7.i.le.i
   br label %_ZNK8proxygen11HTTPHeaders16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit

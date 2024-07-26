@@ -328,12 +328,12 @@ define internal void @write_ext_msg(ptr nocapture readnone %0, ptr noundef %1, i
   %6 = load i32, ptr @oops_in_progress, align 4
   %7 = icmp ne i32 %6, 0
   %8 = select i1 %5, i1 true, i1 %7
-  br i1 %8, label %9, label %94
+  br i1 %8, label %9, label %93
 
 9:                                                ; preds = %3
   %10 = load volatile ptr, ptr @target_list, align 8
   %11 = icmp eq ptr %10, @target_list
-  br i1 %11, label %94, label %12
+  br i1 %11, label %93, label %12
 
 12:                                               ; preds = %9
   %13 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @target_list_lock) #11
@@ -344,11 +344,12 @@ define internal void @write_ext_msg(ptr nocapture readnone %0, ptr noundef %1, i
 16:                                               ; preds = %12
   %17 = sext i32 %2 to i64
   %18 = ptrtoint ptr %1 to i64
+  %invariant.op = add i32 %2, 1
   %19 = icmp slt i32 %2, 1001
   br label %20
 
 20:                                               ; preds = %.loopexit, %16
-  %21 = phi ptr [ %14, %16 ], [ %92, %.loopexit ]
+  %21 = phi ptr [ %14, %16 ], [ %91, %.loopexit ]
   %22 = getelementptr inbounds i8, ptr %21, i64 17
   %23 = load i8, ptr %22, align 1, !range !8, !noundef !9
   %24 = icmp eq i8 %23, 0
@@ -376,74 +377,74 @@ define internal void @write_ext_msg(ptr nocapture readnone %0, ptr noundef %1, i
   br i1 %39, label %40, label %.thread
 
 40:                                               ; preds = %36
-  br i1 %19, label %48, label %51
+  br i1 %19, label %47, label %50
 
 .thread:                                          ; preds = %36
   %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) getelementptr inbounds (i8, ptr @init_uts_ns, i64 130)) #11
   %42 = trunc i64 %41 to i32
   %43 = add i32 %42, 1
-  %44 = add i32 %43, %2
-  %45 = icmp slt i32 %44, 1001
-  br i1 %45, label %46, label %51
+  %.reass = add i32 %invariant.op, %42
+  %44 = icmp slt i32 %.reass, 1001
+  br i1 %44, label %45, label %50
 
-46:                                               ; preds = %.thread
-  %47 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull @send_ext_msg_udp.buf, i64 noundef 1000, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @init_uts_ns, i64 130), ptr noundef %1) #11
-  br label %48
+45:                                               ; preds = %.thread
+  %46 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull @send_ext_msg_udp.buf, i64 noundef 1000, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @init_uts_ns, i64 130), ptr noundef %1) #11
+  br label %47
 
-48:                                               ; preds = %40, %46
-  %49 = phi ptr [ @send_ext_msg_udp.buf, %46 ], [ %1, %40 ]
-  %50 = phi i32 [ %44, %46 ], [ %2, %40 ]
-  tail call void @netpoll_send_udp(ptr noundef %30, ptr noundef %49, i32 noundef %50) #11
+47:                                               ; preds = %40, %45
+  %48 = phi ptr [ @send_ext_msg_udp.buf, %45 ], [ %1, %40 ]
+  %49 = phi i32 [ %.reass, %45 ], [ %2, %40 ]
+  tail call void @netpoll_send_udp(ptr noundef %30, ptr noundef %48, i32 noundef %49) #11
   br label %.loopexit
 
-51:                                               ; preds = %.thread, %40
-  %52 = phi i32 [ %43, %.thread ], [ 0, %40 ]
-  %53 = phi ptr [ getelementptr inbounds (i8, ptr @init_uts_ns, i64 130), %.thread ], [ null, %40 ]
-  %54 = tail call ptr @memchr(ptr noundef %1, i32 noundef 59, i64 noundef %17) #11
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %56, label %57, !prof !12
+50:                                               ; preds = %.thread, %40
+  %51 = phi i32 [ %43, %.thread ], [ 0, %40 ]
+  %52 = phi ptr [ getelementptr inbounds (i8, ptr @init_uts_ns, i64 130), %.thread ], [ null, %40 ]
+  %53 = tail call ptr @memchr(ptr noundef %1, i32 noundef 59, i64 noundef %17) #11
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %55, label %56, !prof !12
 
-56:                                               ; preds = %51
+55:                                               ; preds = %50
   tail call void asm sideeffect "523: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 523b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 523) #11, !srcloc !13
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 847, i32 2307, i64 12) #11, !srcloc !14
   tail call void asm sideeffect "524: nop\0A\09.pushsection .discard.instr_end\0A\09.long 524b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 524) #11, !srcloc !15
   br label %.loopexit
 
-57:                                               ; preds = %51
-  %58 = ptrtoint ptr %54 to i64
-  %59 = sub i64 %58, %18
-  %60 = trunc i64 %59 to i32
-  %61 = xor i32 %60, -1
-  %62 = add i32 %61, %2
-  %63 = getelementptr i8, ptr %54, i64 1
-  br i1 %39, label %66, label %64
+56:                                               ; preds = %50
+  %57 = ptrtoint ptr %53 to i64
+  %58 = sub i64 %57, %18
+  %59 = trunc i64 %58 to i32
+  %60 = xor i32 %59, -1
+  %61 = add i32 %60, %2
+  %62 = getelementptr i8, ptr %53, i64 1
+  br i1 %39, label %65, label %63
 
-64:                                               ; preds = %57
-  %65 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull @send_ext_msg_udp.buf, i64 noundef 1000, ptr noundef nonnull @.str.2, ptr noundef %53) #11
-  br label %66
+63:                                               ; preds = %56
+  %64 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull @send_ext_msg_udp.buf, i64 noundef 1000, ptr noundef nonnull @.str.2, ptr noundef %52) #11
+  br label %65
 
-66:                                               ; preds = %64, %57
-  %67 = sext i32 %52 to i64
-  %68 = getelementptr i8, ptr @send_ext_msg_udp.buf, i64 %67
-  %69 = shl i64 %59, 32
-  %70 = ashr exact i64 %69, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %68, ptr align 1 %1, i64 %70, i1 false)
-  %71 = add i32 %52, %60
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr i8, ptr @send_ext_msg_udp.buf, i64 %72
-  %74 = sub nsw i64 1000, %72
-  %75 = icmp sgt i32 %62, 0
-  br i1 %75, label %.lr.ph, label %.loopexit
+65:                                               ; preds = %63, %56
+  %66 = sext i32 %51 to i64
+  %67 = getelementptr i8, ptr @send_ext_msg_udp.buf, i64 %66
+  %68 = shl i64 %58, 32
+  %69 = ashr exact i64 %68, 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %67, ptr align 1 %1, i64 %69, i1 false)
+  %70 = add i32 %51, %59
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr i8, ptr @send_ext_msg_udp.buf, i64 %71
+  %73 = sub nsw i64 1000, %71
+  %74 = icmp sgt i32 %61, 0
+  br i1 %74, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %66, %83
-  %76 = phi i32 [ %90, %83 ], [ 0, %66 ]
-  %77 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %73, i64 noundef %74, ptr noundef nonnull @.str.3, i32 noundef %76, i32 noundef %62) #11
-  %78 = add i32 %77, %71
-  %79 = sub i32 %62, %76
-  %80 = sub i32 1000, %78
-  %81 = tail call i32 @llvm.smin.i32(i32 %79, i32 %80)
-  %82 = icmp sgt i32 %81, 0
-  br i1 %82, label %83, label %.thread8, !prof !16
+.lr.ph:                                           ; preds = %65, %82
+  %75 = phi i32 [ %89, %82 ], [ 0, %65 ]
+  %76 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %72, i64 noundef %73, ptr noundef nonnull @.str.3, i32 noundef %75, i32 noundef %61) #11
+  %77 = add i32 %76, %70
+  %78 = sub i32 %61, %75
+  %79 = sub i32 1000, %77
+  %80 = tail call i32 @llvm.smin.i32(i32 %78, i32 %79)
+  %81 = icmp sgt i32 %80, 0
+  br i1 %81, label %82, label %.thread8, !prof !16
 
 .thread8:                                         ; preds = %.lr.ph
   tail call void asm sideeffect "527: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 527b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 527) #11, !srcloc !17
@@ -451,29 +452,29 @@ define internal void @write_ext_msg(ptr nocapture readnone %0, ptr noundef %1, i
   tail call void asm sideeffect "528: nop\0A\09.pushsection .discard.instr_end\0A\09.long 528b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 528) #11, !srcloc !19
   br label %.loopexit
 
-83:                                               ; preds = %.lr.ph
-  %84 = sext i32 %78 to i64
-  %85 = getelementptr i8, ptr @send_ext_msg_udp.buf, i64 %84
-  %86 = sext i32 %76 to i64
-  %87 = getelementptr i8, ptr %63, i64 %86
-  %88 = zext nneg i32 %81 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %85, ptr align 1 %87, i64 %88, i1 false)
-  %89 = add i32 %81, %78
-  tail call void @netpoll_send_udp(ptr noundef %30, ptr noundef nonnull @send_ext_msg_udp.buf, i32 noundef %89) #11
-  %90 = add i32 %81, %76
-  %91 = icmp slt i32 %90, %62
-  br i1 %91, label %.lr.ph, label %.loopexit, !llvm.loop !20
+82:                                               ; preds = %.lr.ph
+  %83 = sext i32 %77 to i64
+  %84 = getelementptr i8, ptr @send_ext_msg_udp.buf, i64 %83
+  %85 = sext i32 %75 to i64
+  %86 = getelementptr i8, ptr %62, i64 %85
+  %87 = zext nneg i32 %80 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %84, ptr align 1 %86, i64 %87, i1 false)
+  %88 = add i32 %80, %77
+  tail call void @netpoll_send_udp(ptr noundef %30, ptr noundef nonnull @send_ext_msg_udp.buf, i32 noundef %88) #11
+  %89 = add i32 %80, %75
+  %90 = icmp slt i32 %89, %61
+  br i1 %90, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
-.loopexit:                                        ; preds = %83, %66, %.thread8, %56, %48, %29, %25, %20
-  %92 = load ptr, ptr %21, align 8
-  %93 = icmp eq ptr %92, @target_list
-  br i1 %93, label %.loopexit9, label %20, !llvm.loop !21
+.loopexit:                                        ; preds = %82, %65, %.thread8, %55, %47, %29, %25, %20
+  %91 = load ptr, ptr %21, align 8
+  %92 = icmp eq ptr %91, @target_list
+  br i1 %92, label %.loopexit9, label %20, !llvm.loop !21
 
 .loopexit9:                                       ; preds = %.loopexit, %12
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @target_list_lock, i64 noundef %13) #11
-  br label %94
+  br label %93
 
-94:                                               ; preds = %.loopexit9, %9, %3
+93:                                               ; preds = %.loopexit9, %9, %3
   ret void
 }
 

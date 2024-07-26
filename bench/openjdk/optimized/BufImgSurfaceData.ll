@@ -217,12 +217,12 @@ define internal range(i32 -1, 1) i32 @BufImg_Lock(ptr noundef %0, ptr noundef %1
 
 12:                                               ; preds = %8
   tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef nonnull @.str.13) #6
-  br label %168
+  br label %169
 
 13:                                               ; preds = %8, %4
   %14 = and i32 %3, 24
   %or.cond = icmp eq i32 %14, 0
-  br i1 %or.cond, label %164, label %15
+  br i1 %or.cond, label %165, label %15
 
 15:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -297,28 +297,24 @@ define internal range(i32 -1, 1) i32 @BufImg_Lock(ptr noundef %0, ptr noundef %1
   tail call void @free(ptr noundef nonnull %35) #6
   br label %BufImg_SetupICM.exit.thread
 
-.preheader43.i.i:                                 ; preds = %51, %.split49.us.i.i
-  %62 = phi i1 [ false, %.split49.us.i.i ], [ true, %51 ]
-  %indvars.iv78.i.i = phi i64 [ 31, %.split49.us.i.i ], [ 0, %51 ]
-  br i1 %62, label %.preheader.us.i.i, label %.preheader.preheader.i.i
-
-.preheader.preheader.i.i:                         ; preds = %.preheader43.i.i
-  %invariant.gep102.i.i = getelementptr inbounds i8, ptr %54, i64 %indvars.iv78.i.i
-  br label %.preheader.i.i
+.preheader43.i.i:                                 ; preds = %51, %.split50.us.i.i
+  %62 = phi i1 [ false, %.split50.us.i.i ], [ true, %51 ]
+  %indvars.iv83.i.i = phi i64 [ 31, %.split50.us.i.i ], [ 0, %51 ]
+  br i1 %62, label %.preheader.us.i.i, label %.preheader.i.i
 
 .preheader.us.i.i:                                ; preds = %.preheader43.i.i, %.split.us.us.i.i
   %63 = phi i1 [ false, %.split.us.us.i.i ], [ true, %.preheader43.i.i ]
-  %indvars.iv75.i.i = phi i64 [ 992, %.split.us.us.i.i ], [ 0, %.preheader43.i.i ]
+  %indvars.iv80.i.i = phi i64 [ 992, %.split.us.us.i.i ], [ 0, %.preheader43.i.i ]
   br i1 %63, label %.preheader.split.us.us.split.us.i.i, label %.preheader.split.us.us.split.preheader.i.i
 
 .preheader.split.us.us.split.preheader.i.i:       ; preds = %.preheader.us.i.i
-  %invariant.gep.i.i = getelementptr inbounds i8, ptr %54, i64 %indvars.iv75.i.i
+  %invariant.gep106.i.i = getelementptr inbounds i8, ptr %54, i64 %indvars.iv80.i.i
   br label %.preheader.split.us.us.split.i.i
 
 .preheader.split.us.us.split.us.i.i:              ; preds = %.preheader.us.i.i, %79
   %64 = phi i1 [ false, %79 ], [ true, %.preheader.us.i.i ]
-  %indvars.iv72.i.i = phi i64 [ 31744, %79 ], [ 0, %.preheader.us.i.i ]
-  %65 = getelementptr inbounds i8, ptr %54, i64 %indvars.iv72.i.i
+  %indvars.iv77.i.i = phi i64 [ 31744, %79 ], [ 0, %.preheader.us.i.i ]
+  %65 = getelementptr inbounds i8, ptr %54, i64 %indvars.iv77.i.i
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i64
   %68 = getelementptr inbounds i32, ptr %48, i64 %67
@@ -345,9 +341,9 @@ define internal range(i32 -1, 1) i32 @BufImg_Lock(ptr noundef %0, ptr noundef %1
 
 .preheader.split.us.us.split.i.i:                 ; preds = %95, %.preheader.split.us.us.split.preheader.i.i
   %81 = phi i1 [ true, %.preheader.split.us.us.split.preheader.i.i ], [ false, %95 ]
-  %indvars.iv69.i.i = phi i64 [ 0, %.preheader.split.us.us.split.preheader.i.i ], [ 31744, %95 ]
-  %gep104.i.i = getelementptr inbounds i8, ptr %invariant.gep.i.i, i64 %indvars.iv69.i.i
-  %82 = load i8, ptr %gep104.i.i, align 1
+  %indvars.iv73.i.i = phi i64 [ 0, %.preheader.split.us.us.split.preheader.i.i ], [ 31744, %95 ]
+  %gep107.i.i = getelementptr inbounds i8, ptr %invariant.gep106.i.i, i64 %indvars.iv73.i.i
+  %82 = load i8, ptr %gep107.i.i, align 1
   %83 = zext i8 %82 to i64
   %84 = getelementptr inbounds i32, ptr %48, i64 %83
   %85 = load i32, ptr %84, align 4
@@ -357,8 +353,8 @@ define internal range(i32 -1, 1) i32 @BufImg_Lock(ptr noundef %0, ptr noundef %1
   %89 = icmp ugt i32 %88, 5
   %90 = and i32 %85, 65024
   %91 = icmp ult i32 %90, 64000
-  %or.cond52.i.i = or i1 %89, %91
-  br i1 %or.cond52.i.i, label %calculatePrimaryColorsApproximation.exit.i, label %92
+  %or.cond53.i.i = or i1 %89, %91
+  br i1 %or.cond53.i.i, label %calculatePrimaryColorsApproximation.exit.i, label %92
 
 92:                                               ; preds = %.preheader.split.us.us.split.i.i
   br i1 %81, label %95, label %93
@@ -372,164 +368,162 @@ define internal range(i32 -1, 1) i32 @BufImg_Lock(ptr noundef %0, ptr noundef %1
   br i1 %96, label %calculatePrimaryColorsApproximation.exit.i, label %.preheader.split.us.us.split.i.i, !llvm.loop !6
 
 .split.us.us.i.i:                                 ; preds = %93, %77
-  br i1 %63, label %.preheader.us.i.i, label %.split49.us.i.i, !llvm.loop !8
+  br i1 %63, label %.preheader.us.i.i, label %.split50.us.i.i, !llvm.loop !8
 
-.preheader.i.i:                                   ; preds = %.split.i.i, %.preheader.preheader.i.i
-  %97 = phi i1 [ true, %.preheader.preheader.i.i ], [ false, %.split.i.i ]
-  %indvars.iv66.i.i = phi i64 [ 0, %.preheader.preheader.i.i ], [ 992, %.split.i.i ]
-  br i1 %97, label %.preheader.split.split.us.i.i, label %.preheader.split.split.preheader.i.i
+.preheader.i.i:                                   ; preds = %.preheader43.i.i, %.split.i.i
+  %97 = phi i1 [ false, %.split.i.i ], [ true, %.preheader43.i.i ]
+  %indvars.iv69.i.i = phi i64 [ 992, %.split.i.i ], [ 0, %.preheader43.i.i ]
+  %98 = or disjoint i64 %indvars.iv69.i.i, %indvars.iv83.i.i
+  %invariant.gep104.i.i = getelementptr inbounds i8, ptr %54, i64 %98
+  br i1 %97, label %.preheader.split.split.us.i.i, label %.preheader.split.split.i.i
 
-.preheader.split.split.preheader.i.i:             ; preds = %.preheader.i.i
-  %gep103.i.i = getelementptr inbounds i8, ptr %invariant.gep102.i.i, i64 %indvars.iv66.i.i
-  br label %.preheader.split.split.i.i
+.preheader.split.split.us.i.i:                    ; preds = %.preheader.i.i, %113
+  %99 = phi i1 [ false, %113 ], [ true, %.preheader.i.i ]
+  %indvars.iv65.i.i = phi i64 [ 31744, %113 ], [ 0, %.preheader.i.i ]
+  %gep105.i.i = getelementptr inbounds i8, ptr %invariant.gep104.i.i, i64 %indvars.iv65.i.i
+  %100 = load i8, ptr %gep105.i.i, align 1
+  %101 = zext i8 %100 to i64
+  %102 = getelementptr inbounds i32, ptr %48, i64 %101
+  %103 = load i32, ptr %102, align 4
+  %104 = lshr i32 %103, 16
+  %105 = and i32 %104, 255
+  %106 = and i32 %103, 254
+  %107 = icmp ult i32 %106, 250
+  %108 = and i32 %103, 65024
+  %109 = icmp ugt i32 %108, 1280
+  %or.cond54.i.i = or i1 %107, %109
+  br i1 %or.cond54.i.i, label %calculatePrimaryColorsApproximation.exit.i, label %110
 
-.preheader.split.split.us.i.i:                    ; preds = %.preheader.i.i, %112
-  %98 = phi i1 [ false, %112 ], [ true, %.preheader.i.i ]
-  %indvars.iv63.i.i = phi i64 [ 31744, %112 ], [ 0, %.preheader.i.i ]
-  %gep.i.i = getelementptr inbounds i8, ptr %invariant.gep102.i.i, i64 %indvars.iv63.i.i
-  %99 = load i8, ptr %gep.i.i, align 1
-  %100 = zext i8 %99 to i64
-  %101 = getelementptr inbounds i32, ptr %48, i64 %100
-  %102 = load i32, ptr %101, align 4
-  %103 = lshr i32 %102, 16
-  %104 = and i32 %103, 255
-  %105 = and i32 %102, 254
-  %106 = icmp ult i32 %105, 250
-  %107 = and i32 %102, 65024
-  %108 = icmp ugt i32 %107, 1280
-  %or.cond53.i.i = or i1 %106, %108
-  br i1 %or.cond53.i.i, label %calculatePrimaryColorsApproximation.exit.i, label %109
+110:                                              ; preds = %.preheader.split.split.us.i.i
+  br i1 %99, label %113, label %111
 
-109:                                              ; preds = %.preheader.split.split.us.i.i
-  br i1 %98, label %112, label %110
+111:                                              ; preds = %110
+  %112 = icmp ult i32 %105, 250
+  br i1 %112, label %calculatePrimaryColorsApproximation.exit.i, label %.split.i.i
 
-110:                                              ; preds = %109
-  %111 = icmp ult i32 %104, 250
-  br i1 %111, label %calculatePrimaryColorsApproximation.exit.i, label %.split.i.i
+113:                                              ; preds = %110
+  %114 = icmp ugt i32 %105, 5
+  br i1 %114, label %calculatePrimaryColorsApproximation.exit.i, label %.preheader.split.split.us.i.i, !llvm.loop !6
 
-112:                                              ; preds = %109
-  %113 = icmp ugt i32 %104, 5
-  br i1 %113, label %calculatePrimaryColorsApproximation.exit.i, label %.preheader.split.split.us.i.i, !llvm.loop !6
+.preheader.split.split.i.i:                       ; preds = %.preheader.i.i, %127
+  %115 = phi i1 [ false, %127 ], [ true, %.preheader.i.i ]
+  %indvars.iv.i.i = phi i64 [ 31744, %127 ], [ 0, %.preheader.i.i ]
+  %gep.i.i = getelementptr inbounds i8, ptr %invariant.gep104.i.i, i64 %indvars.iv.i.i
+  %116 = load i8, ptr %gep.i.i, align 1
+  %117 = zext i8 %116 to i64
+  %118 = getelementptr inbounds i32, ptr %48, i64 %117
+  %119 = load i32, ptr %118, align 4
+  %120 = lshr i32 %119, 16
+  %121 = and i32 %120, 255
+  %122 = and i32 %119, 254
+  %123 = icmp ult i32 %122, 250
+  %124 = and i32 %119, 65024
+  %125 = icmp ult i32 %124, 64000
+  %or.cond55.i.i = or i1 %123, %125
+  br i1 %or.cond55.i.i, label %calculatePrimaryColorsApproximation.exit.i, label %126
 
-.preheader.split.split.i.i:                       ; preds = %126, %.preheader.split.split.preheader.i.i
-  %114 = phi i1 [ true, %.preheader.split.split.preheader.i.i ], [ false, %126 ]
-  %indvars.iv.i.i = phi i64 [ 0, %.preheader.split.split.preheader.i.i ], [ 31744, %126 ]
-  %gep100.i.i = getelementptr inbounds i8, ptr %gep103.i.i, i64 %indvars.iv.i.i
-  %115 = load i8, ptr %gep100.i.i, align 1
-  %116 = zext i8 %115 to i64
-  %117 = getelementptr inbounds i32, ptr %48, i64 %116
-  %118 = load i32, ptr %117, align 4
-  %119 = lshr i32 %118, 16
-  %120 = and i32 %119, 255
-  %121 = and i32 %118, 254
-  %122 = icmp ult i32 %121, 250
-  %123 = and i32 %118, 65024
-  %124 = icmp ult i32 %123, 64000
-  %or.cond54.i.i = or i1 %122, %124
-  br i1 %or.cond54.i.i, label %calculatePrimaryColorsApproximation.exit.i, label %125
+126:                                              ; preds = %.preheader.split.split.i.i
+  br i1 %115, label %127, label %129
 
-125:                                              ; preds = %.preheader.split.split.i.i
-  br i1 %114, label %126, label %128
+127:                                              ; preds = %126
+  %128 = icmp ugt i32 %121, 5
+  br i1 %128, label %calculatePrimaryColorsApproximation.exit.i, label %.preheader.split.split.i.i, !llvm.loop !6
 
-126:                                              ; preds = %125
-  %127 = icmp ugt i32 %120, 5
-  br i1 %127, label %calculatePrimaryColorsApproximation.exit.i, label %.preheader.split.split.i.i, !llvm.loop !6
+129:                                              ; preds = %126
+  %130 = icmp ult i32 %121, 250
+  br i1 %130, label %calculatePrimaryColorsApproximation.exit.i, label %.split.i.i
 
-128:                                              ; preds = %125
-  %129 = icmp ult i32 %120, 250
-  br i1 %129, label %calculatePrimaryColorsApproximation.exit.i, label %.split.i.i
+.split.i.i:                                       ; preds = %129, %111
+  br i1 %97, label %.preheader.i.i, label %.split50.us.i.i, !llvm.loop !8
 
-.split.i.i:                                       ; preds = %128, %110
-  br i1 %97, label %.preheader.i.i, label %.split49.us.i.i, !llvm.loop !8
-
-.split49.us.i.i:                                  ; preds = %.split.i.i, %.split.us.us.i.i
+.split50.us.i.i:                                  ; preds = %.split.i.i, %.split.us.us.i.i
   br i1 %62, label %.preheader43.i.i, label %calculatePrimaryColorsApproximation.exit.i, !llvm.loop !9
 
-calculatePrimaryColorsApproximation.exit.i:       ; preds = %.split49.us.i.i, %128, %110, %93, %77, %126, %.preheader.split.split.i.i, %112, %.preheader.split.split.us.i.i, %95, %.preheader.split.us.us.split.i.i, %79, %.preheader.split.us.us.split.us.i.i
-  %.0.i.i = phi i32 [ 0, %.preheader.split.us.us.split.us.i.i ], [ 0, %79 ], [ 0, %.preheader.split.us.us.split.i.i ], [ 0, %95 ], [ 0, %.preheader.split.split.us.i.i ], [ 0, %112 ], [ 0, %.preheader.split.split.i.i ], [ 0, %126 ], [ 0, %77 ], [ 0, %93 ], [ 0, %110 ], [ 0, %128 ], [ 1, %.split49.us.i.i ]
-  %130 = getelementptr inbounds i8, ptr %35, i64 84
-  store i32 %.0.i.i, ptr %130, align 4
-  %131 = icmp eq i8 %42, 1
-  br i1 %131, label %132, label %134
+calculatePrimaryColorsApproximation.exit.i:       ; preds = %.split50.us.i.i, %129, %111, %93, %77, %127, %.preheader.split.split.i.i, %113, %.preheader.split.split.us.i.i, %95, %.preheader.split.us.us.split.i.i, %79, %.preheader.split.us.us.split.us.i.i
+  %.0.i.i = phi i32 [ 0, %.preheader.split.us.us.split.us.i.i ], [ 0, %79 ], [ 0, %.preheader.split.us.us.split.i.i ], [ 0, %95 ], [ 0, %.preheader.split.split.us.i.i ], [ 0, %113 ], [ 0, %.preheader.split.split.i.i ], [ 0, %127 ], [ 0, %77 ], [ 0, %93 ], [ 0, %111 ], [ 0, %129 ], [ 1, %.split50.us.i.i ]
+  %131 = getelementptr inbounds i8, ptr %35, i64 84
+  store i32 %.0.i.i, ptr %131, align 4
+  %132 = icmp eq i8 %42, 1
+  br i1 %132, label %133, label %135
 
-132:                                              ; preds = %calculatePrimaryColorsApproximation.exit.i
-  %133 = load i32, ptr %52, align 8
-  tail call void @initInverseGrayLut(ptr noundef nonnull %48, i32 noundef %133, ptr noundef nonnull %35) #6
-  br label %134
+133:                                              ; preds = %calculatePrimaryColorsApproximation.exit.i
+  %134 = load i32, ptr %52, align 8
+  tail call void @initInverseGrayLut(ptr noundef nonnull %48, i32 noundef %134, ptr noundef nonnull %35) #6
+  br label %135
 
-134:                                              ; preds = %132, %calculatePrimaryColorsApproximation.exit.i
-  %135 = load ptr, ptr %0, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 1784
-  %137 = load ptr, ptr %136, align 8
-  %138 = load ptr, ptr %46, align 8
-  tail call void %137(ptr noundef nonnull %0, ptr noundef %138, ptr noundef nonnull %48, i32 noundef 2) #6
+135:                                              ; preds = %133, %calculatePrimaryColorsApproximation.exit.i
+  %136 = load ptr, ptr %0, align 8
+  %137 = getelementptr inbounds i8, ptr %136, i64 1784
+  %138 = load ptr, ptr %137, align 8
+  %139 = load ptr, ptr %46, align 8
+  tail call void %138(ptr noundef nonnull %0, ptr noundef %139, ptr noundef nonnull %48, i32 noundef 2) #6
   tail call void @initDitherTables(ptr noundef nonnull %35) #6
-  br i1 %25, label %139, label %BufImg_SetupICM.exit.thread25
+  br i1 %25, label %140, label %BufImg_SetupICM.exit.thread25
 
-139:                                              ; preds = %134
-  %140 = ptrtoint ptr %35 to i64
-  store i64 %140, ptr %5, align 8
-  %141 = load ptr, ptr %0, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 240
-  %143 = load ptr, ptr %142, align 8
-  %144 = load ptr, ptr @clsICMCD, align 8
-  %145 = load ptr, ptr @initICMCDmID, align 8
-  %146 = call ptr %143(ptr noundef nonnull %0, ptr noundef %144, ptr noundef %145, ptr noundef nonnull %5) #6
-  %147 = load ptr, ptr %0, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 1824
-  %149 = load ptr, ptr %148, align 8
-  %150 = call zeroext i8 %149(ptr noundef nonnull %0) #6
-  %.not61.i = icmp eq i8 %150, 0
-  br i1 %.not61.i, label %152, label %151
+140:                                              ; preds = %135
+  %141 = ptrtoint ptr %35 to i64
+  store i64 %141, ptr %5, align 8
+  %142 = load ptr, ptr %0, align 8
+  %143 = getelementptr inbounds i8, ptr %142, i64 240
+  %144 = load ptr, ptr %143, align 8
+  %145 = load ptr, ptr @clsICMCD, align 8
+  %146 = load ptr, ptr @initICMCDmID, align 8
+  %147 = call ptr %144(ptr noundef nonnull %0, ptr noundef %145, ptr noundef %146, ptr noundef nonnull %5) #6
+  %148 = load ptr, ptr %0, align 8
+  %149 = getelementptr inbounds i8, ptr %148, i64 1824
+  %150 = load ptr, ptr %149, align 8
+  %151 = call zeroext i8 %150(ptr noundef nonnull %0) #6
+  %.not61.i = icmp eq i8 %151, 0
+  br i1 %.not61.i, label %153, label %152
 
-151:                                              ; preds = %139
+152:                                              ; preds = %140
   call void @free(ptr noundef nonnull %35) #6
   br label %BufImg_SetupICM.exit.thread
 
-152:                                              ; preds = %139
-  %153 = load ptr, ptr %0, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 832
-  %155 = load ptr, ptr %154, align 8
-  %156 = load ptr, ptr %16, align 8
-  %157 = load ptr, ptr @colorDataID, align 8
-  call void %155(ptr noundef nonnull %0, ptr noundef %156, ptr noundef %157, ptr noundef %146) #6
-  %158 = load i64, ptr %5, align 8
-  call void @Disposer_AddRecord(ptr noundef nonnull %0, ptr noundef %146, ptr noundef nonnull @BufImg_Dispose_ICMColorData, i64 noundef %158) #6
+153:                                              ; preds = %140
+  %154 = load ptr, ptr %0, align 8
+  %155 = getelementptr inbounds i8, ptr %154, i64 832
+  %156 = load ptr, ptr %155, align 8
+  %157 = load ptr, ptr %16, align 8
+  %158 = load ptr, ptr @colorDataID, align 8
+  call void %156(ptr noundef nonnull %0, ptr noundef %157, ptr noundef %158, ptr noundef %147) #6
+  %159 = load i64, ptr %5, align 8
+  call void @Disposer_AddRecord(ptr noundef nonnull %0, ptr noundef %147, ptr noundef nonnull @BufImg_Dispose_ICMColorData, i64 noundef %159) #6
   br label %BufImg_SetupICM.exit.thread25
 
-BufImg_SetupICM.exit.thread:                      ; preds = %50, %57, %151, %15, %26, %.thread.i
+BufImg_SetupICM.exit.thread:                      ; preds = %50, %57, %152, %15, %26, %.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %159 = getelementptr inbounds i8, ptr %2, i64 120
-  store ptr null, ptr %159, align 8
-  %160 = load ptr, ptr %0, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 136
-  %162 = load ptr, ptr %161, align 8
-  call void %162(ptr noundef nonnull %0) #6
+  %160 = getelementptr inbounds i8, ptr %2, i64 120
+  store ptr null, ptr %160, align 8
+  %161 = load ptr, ptr %0, align 8
+  %162 = getelementptr inbounds i8, ptr %161, i64 136
+  %163 = load ptr, ptr %162, align 8
+  call void %163(ptr noundef nonnull %0) #6
   call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #6
-  br label %168
+  br label %169
 
-BufImg_SetupICM.exit.thread25:                    ; preds = %134, %152
+BufImg_SetupICM.exit.thread25:                    ; preds = %135, %153
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %164
+  br label %165
 
 BufImg_SetupICM.exit:                             ; preds = %29
-  %163 = inttoptr i64 %34 to ptr
+  %164 = inttoptr i64 %34 to ptr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %164
+  br label %165
 
-164:                                              ; preds = %13, %BufImg_SetupICM.exit, %BufImg_SetupICM.exit.thread25
-  %.sink = phi ptr [ %163, %BufImg_SetupICM.exit ], [ %35, %BufImg_SetupICM.exit.thread25 ], [ null, %13 ]
-  %165 = getelementptr inbounds i8, ptr %2, i64 120
-  store ptr %.sink, ptr %165, align 8
+165:                                              ; preds = %13, %BufImg_SetupICM.exit, %BufImg_SetupICM.exit.thread25
+  %.sink = phi ptr [ %164, %BufImg_SetupICM.exit ], [ %35, %BufImg_SetupICM.exit.thread25 ], [ null, %13 ]
+  %166 = getelementptr inbounds i8, ptr %2, i64 120
+  store ptr %.sink, ptr %166, align 8
   store i32 %3, ptr %6, align 8
-  %166 = getelementptr inbounds i8, ptr %2, i64 104
-  %167 = getelementptr inbounds i8, ptr %1, i64 100
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %166, i8 0, i64 16, i1 false)
-  call void @SurfaceData_IntersectBounds(ptr noundef nonnull %2, ptr noundef nonnull %167) #6
-  br label %168
+  %167 = getelementptr inbounds i8, ptr %2, i64 104
+  %168 = getelementptr inbounds i8, ptr %1, i64 100
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %167, i8 0, i64 16, i1 false)
+  call void @SurfaceData_IntersectBounds(ptr noundef nonnull %2, ptr noundef nonnull %168) #6
+  br label %169
 
-168:                                              ; preds = %164, %BufImg_SetupICM.exit.thread, %12
-  %.0 = phi i32 [ -1, %12 ], [ -1, %BufImg_SetupICM.exit.thread ], [ 0, %164 ]
+169:                                              ; preds = %165, %BufImg_SetupICM.exit.thread, %12
+  %.0 = phi i32 [ -1, %12 ], [ -1, %BufImg_SetupICM.exit.thread ], [ 0, %165 ]
   ret i32 %.0
 }
 

@@ -62,6 +62,7 @@ if.end6:                                          ; preds = %for.body
 
 for.cond13.preheader:                             ; preds = %if.end6
   %mul = mul nuw nsw i64 %i.027, 1000
+  %invariant.op = or disjoint i64 %mul, 5
   br label %for.body15
 
 for.cond13:                                       ; preds = %for.body15
@@ -78,9 +79,9 @@ for.body15:                                       ; preds = %for.cond13.preheade
   %add = add nuw nsw i64 %mul17, %mul
   %start = getelementptr inbounds i8, ptr %arrayidx16, i64 8
   store i64 %add, ptr %start, align 8
-  %add21 = add nuw nsw i64 %add, 5
+  %add21.reass = add nuw nsw i64 %mul17, %invariant.op
   %end = getelementptr inbounds i8, ptr %arrayidx16, i64 16
-  store i64 %add21, ptr %end, align 16
+  store i64 %add21.reass, ptr %end, align 16
   %call24 = call i32 @ossl_quic_txpim_pkt_append_chunk(ptr noundef %call2, ptr noundef nonnull %arrayidx16) #3
   %cmp25 = icmp ne i32 %call24, 0
   %conv = zext i1 %cmp25 to i32

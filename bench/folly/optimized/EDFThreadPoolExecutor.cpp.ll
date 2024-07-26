@@ -3501,6 +3501,7 @@ if.end28.i:                                       ; preds = %lor.lhs.false.i.i
 
 if.end40.i:                                       ; preds = %if.end28.i
   %globalNext.i80.i = getelementptr inbounds i8, ptr %arrayidx.i66.i, i64 20
+  %invariant.op = or disjoint i64 %idxprom.i.i.i, 1099511627776
   br label %while.body.i82.i
 
 while.body.i82.i:                                 ; preds = %while.body.i82.i, %if.end40.i
@@ -3508,9 +3509,8 @@ while.body.i82.i:                                 ; preds = %while.body.i82.i, %
   %gh.sroa.0.0.extract.trunc.i83.i = trunc i64 %24 to i32
   store atomic i32 %gh.sroa.0.0.extract.trunc.i83.i, ptr %globalNext.i80.i monotonic, align 4
   %25 = and i64 %24, -4294967296
-  %retval.sroa.2.0.insert.shift.i.i84.i = add i64 %25, 1099511627776
-  %retval.sroa.0.0.insert.insert.i.i85.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i84.i, %idxprom.i.i.i
-  %26 = cmpxchg ptr %globalHead_.i.i, i64 %24, i64 %retval.sroa.0.0.insert.insert.i.i85.i seq_cst seq_cst, align 8
+  %retval.sroa.0.0.insert.insert.i.i85.i.reass = add i64 %25, %invariant.op
+  %26 = cmpxchg ptr %globalHead_.i.i, i64 %24, i64 %retval.sroa.0.0.insert.insert.i.i85.i.reass seq_cst seq_cst, align 8
   %27 = extractvalue { i64, i1 } %26, 1
   br i1 %27, label %while.body.i.backedge, label %while.body.i82.i
 
@@ -3883,6 +3883,7 @@ _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS
   %arrayidx.i.i.i = getelementptr inbounds %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %8, i64 %retval.0.i
   %9 = load atomic i64, ptr %arrayidx.i.i acquire, align 8
   %localNext.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
+  %invariant.op = or disjoint i64 %retval.0.i, 1103806595072
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %if.end17.i.i, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE9localHeadEv.exit.i
@@ -3903,6 +3904,7 @@ if.then6.i.i:                                     ; preds = %while.cond.i.i
 if.then9.i.i:                                     ; preds = %if.then6.i.i
   %globalHead_.i.i.i = getelementptr inbounds i8, ptr %cond.i.i7, i64 4352
   %globalNext.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 20
+  %invariant.op2 = or disjoint i64 %retval.0.i, 1099511627776
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %if.then9.i.i
@@ -3910,17 +3912,15 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %gh.sroa.0.0.extract.trunc.i.i.i = trunc i64 %14 to i32
   store atomic i32 %gh.sroa.0.0.extract.trunc.i.i.i, ptr %globalNext.i.i.i monotonic, align 4
   %15 = and i64 %14, -4294967296
-  %retval.sroa.2.0.insert.shift.i.i.i.i = add i64 %15, 1099511627776
-  %retval.sroa.0.0.insert.insert.i.i.i.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i.i, %retval.0.i
-  %16 = cmpxchg ptr %globalHead_.i.i.i, i64 %14, i64 %retval.sroa.0.0.insert.insert.i.i.i.i seq_cst seq_cst, align 8
+  %retval.sroa.0.0.insert.insert.i.i.i.i.reass = add i64 %15, %invariant.op2
+  %16 = cmpxchg ptr %globalHead_.i.i.i, i64 %14, i64 %retval.sroa.0.0.insert.insert.i.i.i.i.reass seq_cst seq_cst, align 8
   %17 = extractvalue { i64, i1 } %16, 1
   br i1 %17, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE12recycleIndexEj.exit, label %while.body.i.i.i
 
 if.else.i.i:                                      ; preds = %while.cond.i.i
   %18 = and i64 %h.sroa.0.0.in.i.i, -4294967296
-  %retval.sroa.2.0.insert.shift.i31.i.i = add i64 %18, 1103806595072
-  %retval.sroa.0.0.insert.insert.i33.i.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i31.i.i, %retval.0.i
-  %19 = cmpxchg ptr %arrayidx.i.i, i64 %h.sroa.0.0.in.i.i, i64 %retval.sroa.0.0.insert.insert.i33.i.i seq_cst seq_cst, align 8
+  %retval.sroa.0.0.insert.insert.i33.i.i.reass = add i64 %18, %invariant.op
+  %19 = cmpxchg ptr %arrayidx.i.i, i64 %h.sroa.0.0.in.i.i, i64 %retval.sroa.0.0.insert.insert.i33.i.i.reass seq_cst seq_cst, align 8
   %20 = extractvalue { i64, i1 } %19, 1
   br i1 %20, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE12recycleIndexEj.exit, label %if.end17.i.i
 

@@ -21329,8 +21329,8 @@ while.cond100.preheader.i:                        ; preds = %for.cond.i
 while.body103.lr.ph.i:                            ; preds = %while.cond100.preheader.i
   %must_advance123.i = getelementptr inbounds i8, ptr %state, i64 148
   %idx.neg143.i = sub nsw i64 1, %conv24.i
-  %reass.sub.i = sub nsw i64 %conv26.i, %conv24.i
-  %sub147.neg.i = add nsw i64 %reass.sub.i, 1
+  %reass.sub259 = sub nsw i64 %conv26.i, %conv24.i
+  %sub147.neg.reass.i = add nsw i64 %reass.sub259, 1
   %and151.i = and i32 %.fr.i, 2
   %tobool152.not.i = icmp eq i32 %and151.i, 0
   %add.ptr156.idx.i = shl nuw nsw i64 %conv26.i, 3
@@ -21386,7 +21386,7 @@ if.then135.us.us.i:                               ; preds = %if.then131.us.us.i
 if.end141.us.us.i:                                ; preds = %if.then131.us.us.i
   %add.ptr144.us.us.i = getelementptr i8, ptr %ptr.4.us.us.i, i64 %idx.neg143.i
   store ptr %add.ptr144.us.us.i, ptr %start.i117, align 8
-  %add.ptr149.us.us.i = getelementptr i8, ptr %ptr.4.us.us.i, i64 %sub147.neg.i
+  %add.ptr149.us.us.i = getelementptr i8, ptr %ptr.4.us.us.i, i64 %sub147.neg.reass.i
   store ptr %add.ptr149.us.us.i, ptr %state, align 8
   %call157.us.us.i = tail call fastcc i64 @sre_ucs1_match(ptr noundef nonnull %state, ptr noundef %add.ptr156.i, i32 noundef 0)
   %cmp158.not.us.us.i = icmp eq i64 %call157.us.us.i, 0
@@ -21474,7 +21474,7 @@ if.then135.i:                                     ; preds = %if.then131.i
 if.end141.i:                                      ; preds = %if.then131.i
   %add.ptr144.i = getelementptr i8, ptr %ptr.4.i, i64 %idx.neg143.i
   store ptr %add.ptr144.i, ptr %start.i117, align 8
-  %add.ptr149.i = getelementptr i8, ptr %ptr.4.i, i64 %sub147.neg.i
+  %add.ptr149.i = getelementptr i8, ptr %ptr.4.i, i64 %sub147.neg.reass.i
   store ptr %add.ptr149.i, ptr %state, align 8
   br label %return
 
@@ -21746,8 +21746,8 @@ while.cond101.preheader.i:                        ; preds = %for.cond.i85
 while.body104.lr.ph.i:                            ; preds = %while.cond101.preheader.i
   %must_advance124.i = getelementptr inbounds i8, ptr %state, i64 148
   %idx.neg144.i = sub nsw i64 1, %conv24.i38
-  %reass.sub.i88 = sub nsw i64 %conv26.i40, %conv24.i38
-  %sub148.neg.i = add nsw i64 %reass.sub.i88, 1
+  %reass.sub = sub nsw i64 %conv26.i40, %conv24.i38
+  %sub148.neg.reass.i = add nsw i64 %reass.sub, 1
   %and152.i = and i32 %.fr.i18, 2
   %tobool153.not.i = icmp eq i32 %and152.i, 0
   %add.ptr157.idx.i = shl nuw nsw i64 %conv26.i40, 3
@@ -21803,7 +21803,7 @@ if.then136.us.us.i:                               ; preds = %if.then132.us.us.i
 if.end142.us.us.i:                                ; preds = %if.then132.us.us.i
   %add.ptr145.us.us.i = getelementptr i16, ptr %ptr.4.us.us.i98, i64 %idx.neg144.i
   store ptr %add.ptr145.us.us.i, ptr %start.i117, align 8
-  %add.ptr150.us.us.i = getelementptr i16, ptr %ptr.4.us.us.i98, i64 %sub148.neg.i
+  %add.ptr150.us.us.i = getelementptr i16, ptr %ptr.4.us.us.i98, i64 %sub148.neg.reass.i
   store ptr %add.ptr150.us.us.i, ptr %state, align 8
   %call158.us.us.i = tail call fastcc i64 @sre_ucs2_match(ptr noundef nonnull %state, ptr noundef %add.ptr157.i, i32 noundef 0)
   %cmp159.not.us.us.i = icmp eq i64 %call158.us.us.i, 0
@@ -21891,7 +21891,7 @@ if.then136.i:                                     ; preds = %if.then132.i
 if.end142.i:                                      ; preds = %if.then132.i
   %add.ptr145.i = getelementptr i16, ptr %ptr.4.i91, i64 %idx.neg144.i
   store ptr %add.ptr145.i, ptr %start.i117, align 8
-  %add.ptr150.i = getelementptr i16, ptr %ptr.4.i91, i64 %sub148.neg.i
+  %add.ptr150.i = getelementptr i16, ptr %ptr.4.i91, i64 %sub148.neg.reass.i
   store ptr %add.ptr150.i, ptr %state, align 8
   br label %return
 
@@ -22151,8 +22151,8 @@ if.then72.i:                                      ; preds = %if.end39.i147
 while.body85.lr.ph.i:                             ; preds = %if.then72.i
   %must_advance102.i = getelementptr inbounds i8, ptr %state, i64 148
   %idx.neg118.i = sub nsw i64 1, %conv24.i149
-  %reass.sub.i170 = sub nsw i64 %conv26.i151, %conv24.i149
-  %sub122.neg.i = add nsw i64 %reass.sub.i170, 1
+  %reass.sub260 = sub nsw i64 %conv26.i151, %conv24.i149
+  %sub122.neg.reass.i = add nsw i64 %reass.sub260, 1
   %add.ptr131.idx.i = shl nuw nsw i64 %conv26.i151, 3
   %add.ptr131.i = getelementptr i8, ptr %add.ptr38.i158, i64 %add.ptr131.idx.i
   %lastindex143.i = getelementptr inbounds i8, ptr %state, i64 160
@@ -22204,7 +22204,7 @@ if.then110.us.us.i:                               ; preds = %if.then107.us.us.i
 if.end116.us.us.i:                                ; preds = %if.then107.us.us.i
   %add.ptr119.us.us.i = getelementptr i32, ptr %ptr.4.us.us.i178, i64 %idx.neg118.i
   store ptr %add.ptr119.us.us.i, ptr %start.i117, align 8
-  %add.ptr124.us.us.i = getelementptr i32, ptr %ptr.4.us.us.i178, i64 %sub122.neg.i
+  %add.ptr124.us.us.i = getelementptr i32, ptr %ptr.4.us.us.i178, i64 %sub122.neg.reass.i
   store ptr %add.ptr124.us.us.i, ptr %state, align 8
   %call132.us.us.i = tail call fastcc i64 @sre_ucs4_match(ptr noundef nonnull %state, ptr noundef %add.ptr131.i, i32 noundef 0)
   %cmp133.not.us.us.i184 = icmp eq i64 %call132.us.us.i, 0
@@ -22283,7 +22283,7 @@ if.then110.i:                                     ; preds = %if.then107.i
 if.end116.i:                                      ; preds = %if.then107.i
   %add.ptr119.i = getelementptr i32, ptr %ptr.4.i172, i64 %idx.neg118.i
   store ptr %add.ptr119.i, ptr %start.i117, align 8
-  %add.ptr124.i = getelementptr i32, ptr %ptr.4.i172, i64 %sub122.neg.i
+  %add.ptr124.i = getelementptr i32, ptr %ptr.4.i172, i64 %sub122.neg.reass.i
   store ptr %add.ptr124.i, ptr %state, align 8
   br label %return
 

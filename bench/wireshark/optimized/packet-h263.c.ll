@@ -349,20 +349,20 @@ define hidden noundef range(i32 0, 536870912) i32 @dissect_h263_picture_layer(pt
   br i1 %122, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.thread, %.lr.ph
-  %.6155 = phi i32 [ %.6, %.lr.ph ], [ %.6153, %.thread ]
+  %.6155 = phi i32 [ %.6.reass, %.lr.ph ], [ %.6153, %.thread ]
   %.6.in154 = phi i32 [ %125, %.lr.ph ], [ %118, %.thread ]
   %123 = load i32, ptr @hf_h263_psupp, align 4
   %124 = call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %123, ptr noundef %0, i32 noundef %.6155, i32 noundef 8, i32 noundef 0) #2
   %125 = add i32 %.6.in154, 9
   %126 = load i32, ptr @hf_h263_pei, align 4
   %127 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %2, i32 noundef %126, ptr noundef %0, i32 noundef %125, i32 noundef 1, ptr noundef nonnull %14, i32 noundef 0) #2
-  %.6 = add i32 %.6.in154, 10
+  %.6.reass = add i32 %.6.in154, 10
   %128 = load i64, ptr %14, align 8
   %129 = icmp eq i64 %128, 1
   br i1 %129, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %.thread, %85, %97
-  %.0150.in = phi i32 [ %100, %97 ], [ %94, %85 ], [ %.6153, %.thread ], [ %.6, %.lr.ph ]
+  %.0150.in = phi i32 [ %100, %97 ], [ %94, %85 ], [ %.6153, %.thread ], [ %.6.reass, %.lr.ph ]
   %.0150 = lshr i32 %.0150.in, 3
   ret i32 %.0150
 }

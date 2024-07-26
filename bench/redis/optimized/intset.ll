@@ -46,6 +46,7 @@ if.then2:                                         ; preds = %if.end
   %4 = load i32, ptr %length1.i, align 4
   %cmp.i = icmp slt i64 %value, 0
   %value.lobit.i = lshr i64 %value, 63
+  %cond.i = trunc nuw nsw i64 %value.lobit.i to i32
   store i32 %conv, ptr %is, align 4
   %add.i = add i32 %4, 1
   %conv.i.i = zext i32 %add.i to i64
@@ -54,6 +55,7 @@ if.then2:                                         ; preds = %if.end
   %mul.i.i = shl nuw nsw i64 %conv.i.i, %6
   %add.i.i = add nuw nsw i64 %mul.i.i, 8
   %call.i.i = tail call ptr @zrealloc(ptr noundef nonnull %is, i64 noundef %add.i.i) #13
+  %invariant.op.i = add nsw i32 %cond.i, -1
   %tobool.not48.i = icmp eq i32 %4, 0
   br i1 %tobool.not48.i, label %while.end.i, label %while.body.lr.ph.i
 
@@ -66,7 +68,8 @@ while.body.lr.ph.i:                               ; preds = %if.then2
 while.body.us51.i:                                ; preds = %while.body.lr.ph.i, %_intsetSet.exit.us69.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_intsetSet.exit.us69.i ], [ %7, %while.body.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %8 = add nsw i64 %indvars.iv.next.i, %value.lobit.i
+  %8 = trunc nsw i64 %indvars.iv.i to i32
+  %add7.reass.us54.i = add i32 %invariant.op.i, %8
   %add.ptr9.i.us.i = getelementptr inbounds i32, ptr %contents12.i.i, i64 %indvars.iv.next.i
   %v32.0.copyload.i.us.i = load i32, ptr %add.ptr9.i.us.i, align 4
   %9 = load i32, ptr %call.i.i, align 4
@@ -76,19 +79,22 @@ while.body.us51.i:                                ; preds = %while.body.lr.ph.i,
   ]
 
 if.then6.i.us58.i:                                ; preds = %while.body.us51.i
-  %arrayidx11.i.us61.i = getelementptr inbounds i32, ptr %contents12.i.i, i64 %8
+  %idxprom10.i.us60.i = sext i32 %add7.reass.us54.i to i64
+  %arrayidx11.i.us61.i = getelementptr inbounds i32, ptr %contents12.i.i, i64 %idxprom10.i.us60.i
   store i32 %v32.0.copyload.i.us.i, ptr %arrayidx11.i.us61.i, align 4
   br label %_intsetSet.exit.us69.i
 
 if.then.i20.us62.i:                               ; preds = %while.body.us51.i
   %conv10.i.us.i = sext i32 %v32.0.copyload.i.us.i to i64
-  %arrayidx.i.us64.i = getelementptr inbounds i64, ptr %contents12.i.i, i64 %8
+  %idxprom.i.us63.i = sext i32 %add7.reass.us54.i to i64
+  %arrayidx.i.us64.i = getelementptr inbounds i64, ptr %contents12.i.i, i64 %idxprom.i.us63.i
   store i64 %conv10.i.us.i, ptr %arrayidx.i.us64.i, align 4
   br label %_intsetSet.exit.us69.i
 
 if.else12.i.us65.i:                               ; preds = %while.body.us51.i
   %conv13.i.us66.i = trunc i32 %v32.0.copyload.i.us.i to i16
-  %arrayidx17.i.us68.i = getelementptr inbounds i16, ptr %contents12.i.i, i64 %8
+  %idxprom16.i.us67.i = sext i32 %add7.reass.us54.i to i64
+  %arrayidx17.i.us68.i = getelementptr inbounds i16, ptr %contents12.i.i, i64 %idxprom16.i.us67.i
   store i16 %conv13.i.us66.i, ptr %arrayidx17.i.us68.i, align 2
   br label %_intsetSet.exit.us69.i
 
@@ -97,10 +103,11 @@ _intsetSet.exit.us69.i:                           ; preds = %if.else12.i.us65.i,
   br i1 %tobool.not.us70.i, label %while.end.i, label %while.body.us51.i, !llvm.loop !5
 
 while.body.i:                                     ; preds = %while.body.lr.ph.i, %_intsetSet.exit.i
-  %indvars.iv79.i = phi i64 [ %indvars.iv.next80.i, %_intsetSet.exit.i ], [ %7, %while.body.lr.ph.i ]
-  %indvars.iv.next80.i = add nsw i64 %indvars.iv79.i, -1
-  %10 = add nsw i64 %indvars.iv.next80.i, %value.lobit.i
-  %add.ptr15.i.i = getelementptr inbounds i16, ptr %contents12.i.i, i64 %indvars.iv.next80.i
+  %indvars.iv77.i = phi i64 [ %indvars.iv.next78.i, %_intsetSet.exit.i ], [ %7, %while.body.lr.ph.i ]
+  %indvars.iv.next78.i = add nsw i64 %indvars.iv77.i, -1
+  %10 = trunc nsw i64 %indvars.iv77.i to i32
+  %add7.reass.i = add i32 %invariant.op.i, %10
+  %add.ptr15.i.i = getelementptr inbounds i16, ptr %contents12.i.i, i64 %indvars.iv.next78.i
   %v16.0.copyload.i.i = load i16, ptr %add.ptr15.i.i, align 2
   %11 = load i32, ptr %call.i.i, align 4
   switch i32 %11, label %if.else12.i.i [
@@ -110,23 +117,26 @@ while.body.i:                                     ; preds = %while.body.lr.ph.i,
 
 if.then.i20.i:                                    ; preds = %while.body.i
   %conv16.i.i = sext i16 %v16.0.copyload.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %contents12.i.i, i64 %10
+  %idxprom.i.i = sext i32 %add7.reass.i to i64
+  %arrayidx.i.i = getelementptr inbounds i64, ptr %contents12.i.i, i64 %idxprom.i.i
   store i64 %conv16.i.i, ptr %arrayidx.i.i, align 4
   br label %_intsetSet.exit.i
 
 if.then6.i.i:                                     ; preds = %while.body.i
   %conv7.i.i = sext i16 %v16.0.copyload.i.i to i32
-  %arrayidx11.i.i = getelementptr inbounds i32, ptr %contents12.i.i, i64 %10
+  %idxprom10.i.i = sext i32 %add7.reass.i to i64
+  %arrayidx11.i.i = getelementptr inbounds i32, ptr %contents12.i.i, i64 %idxprom10.i.i
   store i32 %conv7.i.i, ptr %arrayidx11.i.i, align 4
   br label %_intsetSet.exit.i
 
 if.else12.i.i:                                    ; preds = %while.body.i
-  %arrayidx17.i.i = getelementptr inbounds i16, ptr %contents12.i.i, i64 %10
+  %idxprom16.i.i = sext i32 %add7.reass.i to i64
+  %arrayidx17.i.i = getelementptr inbounds i16, ptr %contents12.i.i, i64 %idxprom16.i.i
   store i16 %v16.0.copyload.i.i, ptr %arrayidx17.i.i, align 2
   br label %_intsetSet.exit.i
 
 _intsetSet.exit.i:                                ; preds = %if.else12.i.i, %if.then6.i.i, %if.then.i20.i
-  %tobool.not.i = icmp eq i64 %indvars.iv.next80.i, 0
+  %tobool.not.i = icmp eq i64 %indvars.iv.next78.i, 0
   br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !5
 
 while.end.i:                                      ; preds = %_intsetSet.exit.i, %_intsetSet.exit.us69.i, %if.then2

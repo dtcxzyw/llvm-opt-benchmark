@@ -34,7 +34,7 @@ define void @ADIOI_Get_eof_offset(ptr noundef %0, ptr nocapture noundef writeonl
   %21 = getelementptr inbounds i8, ptr %0, i64 104
   %22 = load i64, ptr %21, align 8
   %23 = sub nsw i64 %14, %22
-  br label %57
+  br label %55
 
 24:                                               ; preds = %2
   %25 = load ptr, ptr %15, align 8
@@ -65,6 +65,7 @@ define void @ADIOI_Get_eof_offset(ptr noundef %0, ptr nocapture noundef writeonl
   %.05371.us = phi i64 [ -1, %.split.us ], [ %41, %.lr.ph.us.loopexit ]
   %41 = add nsw i64 %.05371.us, 1
   %42 = mul nsw i64 %36, %41
+  %invariant.op.us = add i64 %32, %42
   br label %44
 
 43:                                               ; preds = %44
@@ -80,27 +81,26 @@ define void @ADIOI_Get_eof_offset(ptr noundef %0, ptr nocapture noundef writeonl
   %47 = add nsw i64 %46, %.169.us
   %48 = getelementptr inbounds i64, ptr %40, i64 %indvars.iv
   %49 = load i64, ptr %48, align 8
-  %50 = add nsw i64 %49, %32
-  %51 = add nsw i64 %50, %42
-  %52 = add nsw i64 %51, %46
-  %.not61.us = icmp slt i64 %52, %14
+  %.reass.us = add i64 %49, %invariant.op.us
+  %50 = add nsw i64 %.reass.us, %46
+  %.not61.us = icmp slt i64 %50, %14
   br i1 %.not61.us, label %43, label %.split73.us
 
 .loopexit:                                        ; preds = %24, %.loopexit
   br label %.loopexit
 
 .split73.us:                                      ; preds = %44
-  %.not62.us = icmp slt i64 %51, %14
+  %.not62.us = icmp slt i64 %.reass.us, %14
   %.neg.us = add i64 %47, %14
-  %53 = sub i64 %.neg.us, %52
-  %.2.us = select i1 %.not62.us, i64 %53, i64 %.169.us
-  %54 = load i64, ptr %3, align 8
-  %55 = mul nsw i64 %54, %41
-  %56 = add nsw i64 %55, %.2.us
-  br label %57
+  %51 = sub i64 %.neg.us, %50
+  %.2.us = select i1 %.not62.us, i64 %51, i64 %.169.us
+  %52 = load i64, ptr %3, align 8
+  %53 = mul nsw i64 %52, %41
+  %54 = add nsw i64 %53, %.2.us
+  br label %55
 
-57:                                               ; preds = %.split73.us, %20
-  %.pn63 = phi i64 [ %56, %.split73.us ], [ %23, %20 ]
+55:                                               ; preds = %.split73.us, %20
+  %.pn63 = phi i64 [ %54, %.split73.us ], [ %23, %20 ]
   %.pn.in = add i64 %18, -1
   %.pn = add i64 %.pn.in, %.pn63
   %storemerge = sdiv i64 %.pn, %18

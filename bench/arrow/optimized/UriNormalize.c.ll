@@ -3142,7 +3142,7 @@ for.body36.preheader:                             ; preds = %for.cond33.preheade
   br label %for.body36
 
 for.body:                                         ; preds = %entry, %for.inc
-  %add32 = phi i32 [ %add, %for.inc ], [ 2, %entry ]
+  %add32 = phi i32 [ %add.reass, %for.inc ], [ 2, %entry ]
   %write.031 = phi ptr [ %write.2, %for.inc ], [ %outFirst, %entry ]
   %i.030 = phi i32 [ %inc, %for.inc ], [ 0, %entry ]
   %idxprom = sext i32 %i.030 to i64
@@ -3192,8 +3192,8 @@ for.inc:                                          ; preds = %if.then19, %if.else
   %i.1 = phi i32 [ %i.030, %if.then ], [ %add32, %if.else23 ], [ %add32, %if.then19 ]
   %write.2 = phi ptr [ %incdec.ptr, %if.then ], [ %add.ptr, %if.else23 ], [ %arrayidx27, %if.then19 ]
   %inc = add nsw i32 %i.1, 1
-  %add = add nsw i32 %i.1, 3
-  %cmp = icmp slt i32 %add, %conv
+  %add.reass = add i32 %i.1, 3
+  %cmp = icmp slt i32 %add.reass, %conv
   br i1 %cmp, label %for.body, label %for.cond33.preheader, !llvm.loop !26
 
 for.body36:                                       ; preds = %for.body36.preheader, %for.body36
@@ -3490,7 +3490,7 @@ for.body34.preheader:                             ; preds = %for.cond31.preheade
   br label %for.body34
 
 for.body:                                         ; preds = %entry, %for.inc
-  %add32 = phi i32 [ %add, %for.inc ], [ 2, %entry ]
+  %add32 = phi i32 [ %add.reass, %for.inc ], [ 2, %entry ]
   %write.031 = phi ptr [ %incdec.ptr20, %for.inc ], [ %outFirst, %entry ]
   %i.030 = phi i32 [ %inc, %for.inc ], [ 0, %entry ]
   %idxprom = sext i32 %i.030 to i64
@@ -3538,8 +3538,8 @@ for.inc:                                          ; preds = %if.then18, %if.else
   %i.1 = phi i32 [ %add32, %if.then18 ], [ %add32, %if.else21 ], [ %i.030, %if.then ]
   %incdec.ptr20 = getelementptr inbounds i8, ptr %write.031, i64 %.sink
   %inc = add nsw i32 %i.1, 1
-  %add = add nsw i32 %i.1, 3
-  %cmp = icmp slt i32 %add, %conv
+  %add.reass = add i32 %i.1, 3
+  %cmp = icmp slt i32 %add.reass, %conv
   br i1 %cmp, label %for.body, label %for.cond31.preheader, !llvm.loop !29
 
 for.body34:                                       ; preds = %for.body34.preheader, %for.body34

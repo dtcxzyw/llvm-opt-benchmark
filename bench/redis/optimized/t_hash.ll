@@ -3161,16 +3161,16 @@ while.body.us41:                                  ; preds = %while.body.lr.ph.sp
   br i1 %cmp18.not.us46, label %while.end, label %while.body.us41, !llvm.loop !12
 
 while.body:                                       ; preds = %while.body.lr.ph.split, %while.body
-  %count.040 = phi i32 [ %inc27, %while.body ], [ 0, %while.body.lr.ph.split ]
+  %count.040 = phi i32 [ %inc27.reass, %while.body ], [ 0, %while.body.lr.ph.split ]
   tail call fastcc void @addHashIteratorCursorToReply(ptr noundef %c, ptr noundef nonnull %call.i28, i32 noundef 1)
   tail call fastcc void @addHashIteratorCursorToReply(ptr noundef %c, ptr noundef nonnull %call.i28, i32 noundef 2)
-  %inc27 = add nuw nsw i32 %count.040, 2
+  %inc27.reass = add i32 %count.040, 2
   %call17 = tail call i32 @hashTypeNext(ptr noundef nonnull %call.i28)
   %cmp18.not = icmp eq i32 %call17, -1
   br i1 %cmp18.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %while.body, %while.body.us41, %while.body.us, %while.body.us.us, %hashTypeInitIterator.exit
-  %count.0.lcssa = phi i32 [ 0, %hashTypeInitIterator.exit ], [ 0, %while.body.us.us ], [ %inc27.us, %while.body.us ], [ %inc.us, %while.body.us41 ], [ %inc27, %while.body ]
+  %count.0.lcssa = phi i32 [ 0, %hashTypeInitIterator.exit ], [ 0, %while.body.us.us ], [ %inc27.us, %while.body.us ], [ %inc.us, %while.body.us41 ], [ %inc27.reass, %while.body ]
   %9 = load i32, ptr %encoding.i, align 8
   %cmp.i = icmp eq i32 %9, 2
   br i1 %cmp.i, label %if.then.i36, label %hashTypeReleaseIterator.exit

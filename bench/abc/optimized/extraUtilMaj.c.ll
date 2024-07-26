@@ -1014,12 +1014,12 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i39, %Gem_Gr
   %36 = phi i32 [ %34, %31 ], [ -1, %30 ]
   %37 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %indvars.iv.next113
   %38 = load i32, ptr %37, align 4
-  %.fr139 = freeze i32 %38
-  %39 = icmp sgt i32 %.fr139, %36
+  %.fr141 = freeze i32 %38
+  %39 = icmp sgt i32 %.fr141, %36
   br i1 %39, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %35
-  %40 = sext i32 %.fr139 to i64
+  %40 = sext i32 %.fr141 to i64
   %41 = sext i32 %36 to i64
   br label %.lr.ph
 
@@ -1289,13 +1289,13 @@ Abc_TtSwapAdjacent.exit59:                        ; preds = %._crit_edge.us.i51,
   br i1 %21, label %Abc_TtSwapAdjacent.exit75, label %.preheader.us.preheader.i61
 
 .preheader.lr.ph.i60:                             ; preds = %.thread87.thread124, %178
-  %.pn.in = phi i32 [ %indvars111, %178 ], [ %175, %.thread87.thread124 ]
-  %.pn = add i32 %.pn.in, -4
-  %179 = shl nuw i32 1, %.pn
-  %.not140 = icmp eq i32 %.pn, 31
-  %180 = shl i32 4, %.pn
+  %.reass139.pn.in = phi i32 [ %indvars111, %178 ], [ %175, %.thread87.thread124 ]
+  %.reass139.pn = add i32 %.reass139.pn.in, -4
+  %179 = shl nuw i32 1, %.reass139.pn
+  %.not142 = icmp eq i32 %.reass139.pn, 31
+  %180 = shl i32 4, %.reass139.pn
   %181 = sext i32 %180 to i64
-  br i1 %.not140, label %Abc_TtSwapAdjacent.exit75, label %.preheader.us.preheader.i61
+  br i1 %.not142, label %Abc_TtSwapAdjacent.exit75, label %.preheader.us.preheader.i61
 
 .preheader.us.preheader.i61:                      ; preds = %.thread87.thread124, %.thread123, %.preheader.lr.ph.i60
   %182 = phi i64 [ %181, %.preheader.lr.ph.i60 ], [ 4, %.thread123 ], [ 4, %.thread87.thread124 ]

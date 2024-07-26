@@ -921,6 +921,7 @@ cond.end.i:                                       ; preds = %for.end.i491
   %conv116.i = trunc i64 %shr.i493 to i32
   %conv117.i = trunc i64 %shr112.i to i32
   call void %extract.0.i(ptr noundef nonnull %add.ptr.i489, ptr noundef nonnull %add.ptr21.i, i32 noundef %conv116.i, i32 noundef %conv117.i) #5, !callees !10
+  %invariant.op.i = or disjoint i32 %exp_digits.0.i, 2
   %cmp120184.i = icmp sgt i32 %sub96.i, 4
   br i1 %cmp120184.i, label %for.body122.i, label %if.end44
 
@@ -946,9 +947,7 @@ if.end145.i:                                      ; preds = %for.body122.i
   br label %if.end168.i
 
 if.then163.i:                                     ; preds = %for.body122.i
-  %add130.i = add nuw nsw i32 %div123168.i, 1
-  %idxprom134.i = zext nneg i32 %add130.i to i64
-  %arrayidx135.i = getelementptr inbounds i64, ptr %add.ptr26.i, i64 %idxprom134.i
+  %arrayidx135.i = getelementptr inbounds i8, ptr %arrayidx129.i, i64 8
   %63 = load i64, ptr %arrayidx135.i, align 8
   %sub142.i = sub nuw nsw i32 64, %rem124.i
   %sh_prom143.i = zext nneg i32 %sub142.i to i64
@@ -959,8 +958,8 @@ if.then163.i:                                     ; preds = %for.body122.i
   %arrayidx151172.i = getelementptr inbounds i64, ptr %add.ptr26.i, i64 %idxprom150171.i
   %64 = load i64, ptr %arrayidx151172.i, align 8
   %shr159173.i = lshr i64 %64, %sh_prom136.i
-  %add155.i = add nuw nsw i32 %add130.i, %add8.i
-  %idxprom156.i = zext nneg i32 %add155.i to i64
+  %add155.reass.i = add nuw nsw i32 %invariant.op.i, %div123168.i
+  %idxprom156.i = zext nneg i32 %add155.reass.i to i64
   %arrayidx157.i = getelementptr inbounds i64, ptr %add.ptr26.i, i64 %idxprom156.i
   %65 = load i64, ptr %arrayidx157.i, align 8
   %shl166.i = shl i64 %65, %sh_prom143.i

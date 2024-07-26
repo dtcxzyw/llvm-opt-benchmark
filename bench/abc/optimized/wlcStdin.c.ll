@@ -287,7 +287,7 @@ define void @Wlc_NtkReport(ptr nocapture noundef readonly %0, ptr nocapture noun
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @Abc_NamStrFind(ptr noundef %6, ptr noundef %2) #15
   %8 = icmp slt i32 %7, 1
-  br i1 %8, label %12, label %.preheader
+  br i1 %8, label %14, label %.preheader
 
 .preheader:                                       ; preds = %4
   %9 = getelementptr i8, ptr %0, i64 716
@@ -298,72 +298,81 @@ define void @Wlc_NtkReport(ptr nocapture noundef readonly %0, ptr nocapture noun
 .lr.ph:                                           ; preds = %.preheader
   %11 = getelementptr i8, ptr %0, i64 720
   %.val33 = load ptr, ptr %11, align 8
-  br label %14
+  %12 = load i32, ptr %.val33, align 4
+  %13 = icmp eq i32 %12, %7
+  br i1 %13, label %.critedge.sink.split, label %.lr.ph70
 
-12:                                               ; preds = %4
-  %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %2)
-  br label %44
+14:                                               ; preds = %4
+  %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %2)
+  br label %45
 
-14:                                               ; preds = %.lr.ph, %18
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %15 = getelementptr inbounds i32, ptr %.val33, i64 %indvars.iv
-  %16 = load i32, ptr %15, align 4
-  %17 = icmp eq i32 %16, %7
-  br i1 %17, label %.critedge.sink.split, label %18
+16:                                               ; preds = %.lr.ph70
+  %17 = getelementptr inbounds i32, ptr %.val33, i64 %indvars.iv.next
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %18, %7
+  br i1 %19, label %.critedge.sink.split.loopexit, label %.lr.ph70, !llvm.loop !10
 
-18:                                               ; preds = %14
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %19 = trunc i64 %indvars.iv to i32
-  %20 = add i32 %19, 5
-  %21 = icmp slt i32 %20, %.val31
-  br i1 %21, label %14, label %.critedge.sink.split, !llvm.loop !10
+.lr.ph70:                                         ; preds = %.lr.ph, %16
+  %20 = phi i32 [ %22, %16 ], [ 2, %.lr.ph ]
+  %indvars.iv69 = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.lr.ph ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv69, 3
+  %21 = trunc i64 %indvars.iv69 to i32
+  %22 = add i32 %21, 5
+  %23 = icmp slt i32 %22, %.val31
+  br i1 %23, label %16, label %.critedge.sink.split.loopexit, !llvm.loop !10
 
-.critedge.sink.split:                             ; preds = %14, %18
-  %indvars.iv.lcssa66.sink71 = phi i64 [ %indvars.iv.next, %18 ], [ %indvars.iv, %14 ]
-  %22 = add nuw nsw i64 %indvars.iv, 2
-  %23 = trunc nuw i64 %indvars.iv.lcssa66.sink71 to i32
-  %24 = and i64 %indvars.iv, 4294967295
-  %25 = getelementptr inbounds i32, ptr %.val33, i64 %24
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
-  %27 = load i32, ptr %26, align 4
-  %28 = and i64 %22, 4294967295
-  %29 = getelementptr inbounds i32, ptr %.val33, i64 %28
-  %30 = load i32, ptr %29, align 4
+.critedge.sink.split.loopexit:                    ; preds = %16, %.lr.ph70
+  %indvars.iv.lcssa.ph = phi i64 [ %indvars.iv69, %.lr.ph70 ], [ %indvars.iv.next, %16 ]
+  %.lcssa.ph = phi i32 [ %20, %.lr.ph70 ], [ %22, %16 ]
+  %24 = trunc nuw i64 %indvars.iv.next to i32
+  %25 = and i64 %indvars.iv.lcssa.ph, 4294967295
+  %26 = zext nneg i32 %.lcssa.ph to i64
+  br label %.critedge.sink.split
+
+.critedge.sink.split:                             ; preds = %.critedge.sink.split.loopexit, %.lr.ph
+  %indvars.iv.lcssa = phi i64 [ 0, %.lr.ph ], [ %25, %.critedge.sink.split.loopexit ]
+  %.lcssa = phi i64 [ 2, %.lr.ph ], [ %26, %.critedge.sink.split.loopexit ]
+  %indvars.iv.lcssa.sink68 = phi i32 [ 0, %.lr.ph ], [ %24, %.critedge.sink.split.loopexit ]
+  %27 = getelementptr inbounds i32, ptr %.val33, i64 %indvars.iv.lcssa
+  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %29 = load i32, ptr %28, align 4
+  %30 = getelementptr inbounds i32, ptr %.val33, i64 %.lcssa
+  %31 = load i32, ptr %30, align 4
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %.preheader
-  %.028.lcssa = phi i32 [ 0, %.preheader ], [ %23, %.critedge.sink.split ]
-  %.127 = phi i32 [ -1, %.preheader ], [ %27, %.critedge.sink.split ]
-  %.1 = phi i32 [ -1, %.preheader ], [ %30, %.critedge.sink.split ]
-  %31 = icmp eq i32 %.028.lcssa, %.val31
-  br i1 %31, label %32, label %34
+  %.028.lcssa = phi i32 [ 0, %.preheader ], [ %indvars.iv.lcssa.sink68, %.critedge.sink.split ]
+  %.127 = phi i32 [ -1, %.preheader ], [ %29, %.critedge.sink.split ]
+  %.1 = phi i32 [ -1, %.preheader ], [ %31, %.critedge.sink.split ]
+  %32 = icmp eq i32 %.028.lcssa, %.val31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %.critedge
-  %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %2)
-  br label %44
+33:                                               ; preds = %.critedge
+  %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %2)
+  br label %45
 
-34:                                               ; preds = %.critedge
-  %35 = getelementptr inbounds i8, ptr %1, i64 20
-  %36 = tail call ptr @Wlc_ConvertToRadix(ptr noundef nonnull %35, i32 noundef %.127, i32 noundef %.1, i32 noundef %3)
-  %37 = icmp eq i32 %3, 16
-  %38 = icmp eq i32 %3, 2
-  %39 = select i1 %38, ptr @.str.4, ptr @.str.5
-  %40 = select i1 %37, ptr @.str.3, ptr %39
-  %41 = getelementptr i8, ptr %36, i64 8
-  %.val = load ptr, ptr %41, align 8
-  %42 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %2, ptr noundef nonnull %40, ptr noundef %.val)
+35:                                               ; preds = %.critedge
+  %36 = getelementptr inbounds i8, ptr %1, i64 20
+  %37 = tail call ptr @Wlc_ConvertToRadix(ptr noundef nonnull %36, i32 noundef %.127, i32 noundef %.1, i32 noundef %3)
+  %38 = icmp eq i32 %3, 16
+  %39 = icmp eq i32 %3, 2
+  %40 = select i1 %39, ptr @.str.4, ptr @.str.5
+  %41 = select i1 %38, ptr @.str.3, ptr %40
+  %42 = getelementptr i8, ptr %37, i64 8
+  %.val = load ptr, ptr %42, align 8
+  %43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %2, ptr noundef nonnull %41, ptr noundef %.val)
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %Vec_StrFree.exit, label %43
+  br i1 %.not.i, label %Vec_StrFree.exit, label %44
 
-43:                                               ; preds = %34
+44:                                               ; preds = %35
   tail call void @free(ptr noundef nonnull %.val) #15
   br label %Vec_StrFree.exit
 
-Vec_StrFree.exit:                                 ; preds = %34, %43
-  tail call void @free(ptr noundef nonnull %36) #15
-  br label %44
+Vec_StrFree.exit:                                 ; preds = %35, %44
+  tail call void @free(ptr noundef nonnull %37) #15
+  br label %45
 
-44:                                               ; preds = %Vec_StrFree.exit, %32, %12
+45:                                               ; preds = %Vec_StrFree.exit, %33, %14
   ret void
 }
 

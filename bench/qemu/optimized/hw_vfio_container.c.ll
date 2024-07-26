@@ -378,6 +378,7 @@ for.body77.lr.ph.i.i:                             ; preds = %if.else.i.i
   %add.i.i.i = or i64 %conv.i.i, 4095
   %arrayidx21.i.i.i = getelementptr inbounds i8, ptr %blocks.i.i.i, i64 16
   %arrayidx51.i.i.i = getelementptr inbounds i8, ptr %blocks.i.i.i, i64 8
+  %invariant.op17.i = add i64 %7, %add.i.i.i
   br i1 %tobool68.not.i.i, label %for.body77.us.i.i, label %for.body77.i.i
 
 for.body77.us.i.i:                                ; preds = %for.body77.lr.ph.i.i, %for.inc114.us.i.i
@@ -419,8 +420,8 @@ do.body98.us.us.i.i:                              ; preds = %cpu_physical_memory
   %mul106.us.us.i.i = mul i64 %add104.us.us.i.i, %div145.mask.i.i
   %add107.us.us.i.i = add i64 %mul106.us.us.i.i, %7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %blocks.i.i.i)
-  %sub.i.us.us.i.i = add i64 %add107.us.us.i.i, %add.i.i.i
-  %shr.i.us.us.i.i = lshr i64 %sub.i.us.us.i.i, 12
+  %sub.i.us.us.i.reass.i = add i64 %mul106.us.us.i.i, %invariant.op17.i
+  %shr.i.us.us.i.i = lshr i64 %sub.i.us.us.i.reass.i, 12
   %shr2.i.us.us.i.i = lshr i64 %add107.us.us.i.i, 12
   %call.i.i.i.us.us.i.i = call ptr @get_ptr_rcu_reader() #15
   %depth.i.i.i.us.us.i.i = getelementptr inbounds i8, ptr %call.i.i.i.us.us.i.i, i64 12
@@ -566,8 +567,8 @@ do.body98.i.i:                                    ; preds = %cpu_physical_memory
   %mul106.i.i = mul i64 %add104.i.i, %div145.mask.i.i
   %add107.i.i = add i64 %mul106.i.i, %7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %blocks.i.i.i)
-  %sub.i.i.i = add i64 %add107.i.i, %add.i.i.i
-  %shr.i.i.i = lshr i64 %sub.i.i.i, 12
+  %sub.i.i.reass.i = add i64 %mul106.i.i, %invariant.op17.i
+  %shr.i.i.i = lshr i64 %sub.i.i.reass.i, 12
   %shr2.i.i.i = lshr i64 %add107.i.i, 12
   %call.i.i.i.i.i = call ptr @get_ptr_rcu_reader() #15
   %depth.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 12

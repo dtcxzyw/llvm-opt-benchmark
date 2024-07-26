@@ -2149,6 +2149,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit:          ; preds = %14, %35
   %41 = shl nuw i32 1, %40
   %42 = add nsw i32 %41, -1
   %43 = sext i32 %42 to i64
+  %invariant.op = add i64 %43, %3
   %44 = sub i32 0, %41
   %45 = sext i32 %44 to i64
   %46 = add i64 %11, 63
@@ -2245,60 +2246,60 @@ _ZN6XUtils11object_sizeEm.exit:                   ; preds = %73, %76, %83, %103
   %109 = load ptr, ptr %1, align 8
   %110 = load ptr, ptr %109, align 8
   tail call void %110(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %52) #8
-  %111 = add i64 %51, %43
-  %112 = add i64 %111, %108
-  %113 = and i64 %112, %45
-  %114 = sub i64 %113, %3
-  %115 = lshr i64 %114, %4
-  %116 = shl i64 %115, 1
-  %.not = icmp ult i64 %116, %11
-  br i1 %.not, label %117, label %_ZN6XUtils11object_sizeEm.exit._crit_edge
+  %.reass = add i64 %50, %invariant.op
+  %111 = add i64 %.reass, %108
+  %112 = and i64 %111, %45
+  %113 = sub i64 %112, %3
+  %114 = lshr i64 %113, %4
+  %115 = shl i64 %114, 1
+  %.not = icmp ult i64 %115, %11
+  br i1 %.not, label %116, label %_ZN6XUtils11object_sizeEm.exit._crit_edge
 
-117:                                              ; preds = %_ZN6XUtils11object_sizeEm.exit
-  %118 = lshr i64 %116, 6
-  %119 = load ptr, ptr %12, align 8
-  %120 = getelementptr inbounds i64, ptr %119, i64 %118
-  %121 = load i64, ptr %120, align 8
-  %122 = and i64 %116, 62
-  %123 = lshr i64 %121, %122
-  %124 = and i64 %123, 1
-  %.not.i.i26 = icmp eq i64 %124, 0
-  br i1 %.not.i.i26, label %125, label %_ZNK6BitMap18find_first_set_bitEmm.exit31
+116:                                              ; preds = %_ZN6XUtils11object_sizeEm.exit
+  %117 = lshr i64 %115, 6
+  %118 = load ptr, ptr %12, align 8
+  %119 = getelementptr inbounds i64, ptr %118, i64 %117
+  %120 = load i64, ptr %119, align 8
+  %121 = and i64 %115, 62
+  %122 = lshr i64 %120, %121
+  %123 = and i64 %122, 1
+  %.not.i.i26 = icmp eq i64 %123, 0
+  br i1 %.not.i.i26, label %124, label %_ZNK6BitMap18find_first_set_bitEmm.exit31
 
-125:                                              ; preds = %117
-  %126 = icmp eq i64 %123, 0
-  br i1 %126, label %.preheader, label %134
+124:                                              ; preds = %116
+  %125 = icmp eq i64 %122, 0
+  br i1 %125, label %.preheader, label %133
 
-.preheader:                                       ; preds = %125, %129
-  %.025.i.i29 = phi i64 [ %127, %129 ], [ %118, %125 ]
-  %127 = add nuw nsw i64 %.025.i.i29, 1
-  %128 = icmp ult i64 %127, %47
-  br i1 %128, label %129, label %_ZN6XUtils11object_sizeEm.exit._crit_edge
+.preheader:                                       ; preds = %124, %128
+  %.025.i.i29 = phi i64 [ %126, %128 ], [ %117, %124 ]
+  %126 = add nuw nsw i64 %.025.i.i29, 1
+  %127 = icmp ult i64 %126, %47
+  br i1 %127, label %128, label %_ZN6XUtils11object_sizeEm.exit._crit_edge
 
-129:                                              ; preds = %.preheader
-  %130 = getelementptr inbounds i64, ptr %119, i64 %127
-  %131 = load i64, ptr %130, align 8
-  %.not36.i.i30 = icmp eq i64 %131, 0
-  br i1 %.not36.i.i30, label %.preheader, label %132, !llvm.loop !21
+128:                                              ; preds = %.preheader
+  %129 = getelementptr inbounds i64, ptr %118, i64 %126
+  %130 = load i64, ptr %129, align 8
+  %.not36.i.i30 = icmp eq i64 %130, 0
+  br i1 %.not36.i.i30, label %.preheader, label %131, !llvm.loop !21
 
-132:                                              ; preds = %129
-  %133 = shl i64 %127, 6
-  br label %134
+131:                                              ; preds = %128
+  %132 = shl i64 %126, 6
+  br label %133
 
-134:                                              ; preds = %132, %125
-  %.1.ph.i.i27 = phi i64 [ %123, %125 ], [ %131, %132 ]
-  %.026.ph.i.i28 = phi i64 [ %116, %125 ], [ %133, %132 ]
-  %135 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i27, i1 true)
-  %136 = add i64 %.026.ph.i.i28, %135
-  %137 = icmp ult i64 %136, %11
-  br i1 %137, label %_ZNK6BitMap18find_first_set_bitEmm.exit31, label %_ZN6XUtils11object_sizeEm.exit._crit_edge
+133:                                              ; preds = %131, %124
+  %.1.ph.i.i27 = phi i64 [ %122, %124 ], [ %130, %131 ]
+  %.026.ph.i.i28 = phi i64 [ %115, %124 ], [ %132, %131 ]
+  %134 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i27, i1 true)
+  %135 = add i64 %.026.ph.i.i28, %134
+  %136 = icmp ult i64 %135, %11
+  br i1 %136, label %_ZNK6BitMap18find_first_set_bitEmm.exit31, label %_ZN6XUtils11object_sizeEm.exit._crit_edge
 
-_ZNK6BitMap18find_first_set_bitEmm.exit31:        ; preds = %117, %134
-  %.0.i.i25 = phi i64 [ %116, %117 ], [ %136, %134 ]
-  %138 = icmp ult i64 %.0.i.i25, %11
-  br i1 %138, label %48, label %_ZN6XUtils11object_sizeEm.exit._crit_edge, !llvm.loop !22
+_ZNK6BitMap18find_first_set_bitEmm.exit31:        ; preds = %116, %133
+  %.0.i.i25 = phi i64 [ %115, %116 ], [ %135, %133 ]
+  %137 = icmp ult i64 %.0.i.i25, %11
+  br i1 %137, label %48, label %_ZN6XUtils11object_sizeEm.exit._crit_edge, !llvm.loop !22
 
-_ZN6XUtils11object_sizeEm.exit._crit_edge:        ; preds = %27, %134, %_ZNK6BitMap18find_first_set_bitEmm.exit31, %_ZN6XUtils11object_sizeEm.exit, %.preheader, %35, %5, %_ZNK6BitMap18find_first_set_bitEmm.exit
+_ZN6XUtils11object_sizeEm.exit._crit_edge:        ; preds = %27, %133, %_ZNK6BitMap18find_first_set_bitEmm.exit31, %_ZN6XUtils11object_sizeEm.exit, %.preheader, %35, %5, %_ZNK6BitMap18find_first_set_bitEmm.exit
   ret void
 }
 

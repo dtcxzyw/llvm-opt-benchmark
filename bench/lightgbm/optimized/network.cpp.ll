@@ -3740,8 +3740,8 @@ define void @_ZN8LightGBM7Network14AllgatherBruckEPcPKiS3_S1_i(ptr nocapture nou
 
 23:                                               ; preds = %.lr.ph72, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next, %._crit_edge ]
-  %.04370 = phi i32 [ %15, %.lr.ph72 ], [ %55, %._crit_edge ]
-  %.04469 = phi i32 [ 1, %.lr.ph72 ], [ %56, %._crit_edge ]
+  %.04370 = phi i32 [ %15, %.lr.ph72 ], [ %53, %._crit_edge ]
+  %.04469 = phi i32 [ 1, %.lr.ph72 ], [ %54, %._crit_edge ]
   %24 = trunc nuw nsw i64 %indvars.iv to i32
   %25 = shl nuw i32 1, %24
   %26 = load i32, ptr %19, align 4
@@ -3761,11 +3761,12 @@ define void @_ZN8LightGBM7Network14AllgatherBruckEPcPKiS3_S1_i(ptr nocapture nou
 .lr.ph:                                           ; preds = %23
   %35 = load i32, ptr %6, align 4
   %36 = load i32, ptr %19, align 4
+  %invariant.op = add i32 %.04469, %35
   br label %37
 
 37:                                               ; preds = %.lr.ph, %37
-  %.066 = phi i32 [ 0, %.lr.ph ], [ %51, %37 ]
-  %.04165 = phi i32 [ 0, %.lr.ph ], [ %50, %37 ]
+  %.066 = phi i32 [ 0, %.lr.ph ], [ %49, %37 ]
+  %.04165 = phi i32 [ 0, %.lr.ph ], [ %48, %37 ]
   %.04264 = phi i32 [ 0, %.lr.ph ], [ %43, %37 ]
   %38 = add nsw i32 %35, %.066
   %39 = srem i32 %38, %36
@@ -3773,79 +3774,78 @@ define void @_ZN8LightGBM7Network14AllgatherBruckEPcPKiS3_S1_i(ptr nocapture nou
   %41 = getelementptr inbounds i32, ptr %2, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = add nsw i32 %42, %.04264
-  %44 = add i32 %.066, %.04469
-  %45 = add i32 %44, %35
-  %46 = srem i32 %45, %36
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i32, ptr %2, i64 %47
-  %49 = load i32, ptr %48, align 4
-  %50 = add nsw i32 %49, %.04165
-  %51 = add nuw nsw i32 %.066, 1
-  %exitcond.not = icmp eq i32 %51, %.sroa.speculated
+  %.reass = add i32 %.066, %invariant.op
+  %44 = srem i32 %.reass, %36
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds i32, ptr %2, i64 %45
+  %47 = load i32, ptr %46, align 4
+  %48 = add nsw i32 %47, %.04165
+  %49 = add nuw nsw i32 %.066, 1
+  %exitcond.not = icmp eq i32 %49, %.sroa.speculated
   br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %37, %23
   %.042.lcssa = phi i32 [ 0, %23 ], [ %43, %37 ]
-  %.041.lcssa = phi i32 [ 0, %23 ], [ %50, %37 ]
+  %.041.lcssa = phi i32 [ 0, %23 ], [ %48, %37 ]
   tail call void @_ZTHN8LightGBM7Network8linkers_E()
-  %52 = load ptr, ptr %22, align 8
-  %53 = sext i32 %.04370 to i64
-  %54 = getelementptr inbounds i8, ptr %3, i64 %53
-  tail call void @_ZN8LightGBM7Linkers8SendRecvEiPciiS1_i(ptr noundef nonnull align 8 dereferenceable(304) %52, i32 noundef %30, ptr noundef %3, i32 noundef %.042.lcssa, i32 noundef %33, ptr noundef %54, i32 noundef %.041.lcssa)
-  %55 = add nsw i32 %.041.lcssa, %.04370
-  %56 = add nsw i32 %.sroa.speculated, %.04469
+  %50 = load ptr, ptr %22, align 8
+  %51 = sext i32 %.04370 to i64
+  %52 = getelementptr inbounds i8, ptr %3, i64 %51
+  tail call void @_ZN8LightGBM7Linkers8SendRecvEiPciiS1_i(ptr noundef nonnull align 8 dereferenceable(304) %50, i32 noundef %30, ptr noundef %3, i32 noundef %.042.lcssa, i32 noundef %33, ptr noundef %52, i32 noundef %.041.lcssa)
+  %53 = add nsw i32 %.041.lcssa, %.04370
+  %54 = add nsw i32 %.sroa.speculated, %.04469
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   tail call void @_ZTHN8LightGBM7Network10bruck_map_E()
-  %57 = load i32, ptr %16, align 8
-  %58 = sext i32 %57 to i64
-  %59 = icmp slt i64 %indvars.iv.next, %58
-  br i1 %59, label %23, label %._crit_edge73, !llvm.loop !21
+  %55 = load i32, ptr %16, align 8
+  %56 = sext i32 %55 to i64
+  %57 = icmp slt i64 %indvars.iv.next, %56
+  br i1 %57, label %23, label %._crit_edge73, !llvm.loop !21
 
 ._crit_edge73:                                    ; preds = %._crit_edge, %5
-  %60 = sext i32 %4 to i64
-  %61 = getelementptr inbounds i8, ptr %3, i64 %60
-  %62 = icmp ne i32 %4, 0
-  %.012.i.i = getelementptr inbounds i8, ptr %61, i64 -1
-  %63 = icmp ugt ptr %.012.i.i, %3
-  %or.cond.i.i = select i1 %62, i1 %63, i1 false
+  %58 = sext i32 %4 to i64
+  %59 = getelementptr inbounds i8, ptr %3, i64 %58
+  %60 = icmp ne i32 %4, 0
+  %.012.i.i = getelementptr inbounds i8, ptr %59, i64 -1
+  %61 = icmp ugt ptr %.012.i.i, %3
+  %or.cond.i.i = select i1 %60, i1 %61, i1 false
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIPcEvT_S1_.exit
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge73, %.lr.ph.i.i
   %.014.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.012.i.i, %._crit_edge73 ]
-  %.0913.i.i = phi ptr [ %66, %.lr.ph.i.i ], [ %3, %._crit_edge73 ]
-  %64 = load i8, ptr %.0913.i.i, align 1
-  %65 = load i8, ptr %.014.i.i, align 1
-  store i8 %65, ptr %.0913.i.i, align 1
-  store i8 %64, ptr %.014.i.i, align 1
-  %66 = getelementptr inbounds i8, ptr %.0913.i.i, i64 1
+  %.0913.i.i = phi ptr [ %64, %.lr.ph.i.i ], [ %3, %._crit_edge73 ]
+  %62 = load i8, ptr %.0913.i.i, align 1
+  %63 = load i8, ptr %.014.i.i, align 1
+  store i8 %63, ptr %.0913.i.i, align 1
+  store i8 %62, ptr %.014.i.i, align 1
+  %64 = getelementptr inbounds i8, ptr %.0913.i.i, i64 1
   %.0.i.i = getelementptr inbounds i8, ptr %.014.i.i, i64 -1
-  %67 = icmp ult ptr %66, %.0.i.i
-  br i1 %67, label %.lr.ph.i.i, label %_ZSt7reverseIPcEvT_S1_.exit, !llvm.loop !22
+  %65 = icmp ult ptr %64, %.0.i.i
+  br i1 %65, label %.lr.ph.i.i, label %_ZSt7reverseIPcEvT_S1_.exit, !llvm.loop !22
 
 _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %._crit_edge73
-  %68 = load i32, ptr %6, align 4
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds i32, ptr %1, i64 %69
-  %71 = load i32, ptr %70, align 4
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i8, ptr %3, i64 %72
-  %74 = icmp ne i32 %71, 0
-  %.012.i.i47 = getelementptr inbounds i8, ptr %73, i64 -1
-  %75 = icmp ugt ptr %.012.i.i47, %3
-  %or.cond.i.i48 = select i1 %74, i1 %75, i1 false
+  %66 = load i32, ptr %6, align 4
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds i32, ptr %1, i64 %67
+  %69 = load i32, ptr %68, align 4
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds i8, ptr %3, i64 %70
+  %72 = icmp ne i32 %69, 0
+  %.012.i.i47 = getelementptr inbounds i8, ptr %71, i64 -1
+  %73 = icmp ugt ptr %.012.i.i47, %3
+  %or.cond.i.i48 = select i1 %72, i1 %73, i1 false
   br i1 %or.cond.i.i48, label %.lr.ph.i.i49, label %_ZSt7reverseIPcEvT_S1_.exit53
 
 .lr.ph.i.i49:                                     ; preds = %_ZSt7reverseIPcEvT_S1_.exit, %.lr.ph.i.i49
   %.014.i.i50 = phi ptr [ %.0.i.i52, %.lr.ph.i.i49 ], [ %.012.i.i47, %_ZSt7reverseIPcEvT_S1_.exit ]
-  %.0913.i.i51 = phi ptr [ %78, %.lr.ph.i.i49 ], [ %3, %_ZSt7reverseIPcEvT_S1_.exit ]
-  %76 = load i8, ptr %.0913.i.i51, align 1
-  %77 = load i8, ptr %.014.i.i50, align 1
-  store i8 %77, ptr %.0913.i.i51, align 1
-  store i8 %76, ptr %.014.i.i50, align 1
-  %78 = getelementptr inbounds i8, ptr %.0913.i.i51, i64 1
+  %.0913.i.i51 = phi ptr [ %76, %.lr.ph.i.i49 ], [ %3, %_ZSt7reverseIPcEvT_S1_.exit ]
+  %74 = load i8, ptr %.0913.i.i51, align 1
+  %75 = load i8, ptr %.014.i.i50, align 1
+  store i8 %75, ptr %.0913.i.i51, align 1
+  store i8 %74, ptr %.014.i.i50, align 1
+  %76 = getelementptr inbounds i8, ptr %.0913.i.i51, i64 1
   %.0.i.i52 = getelementptr inbounds i8, ptr %.014.i.i50, i64 -1
-  %79 = icmp ult ptr %78, %.0.i.i52
-  br i1 %79, label %.lr.ph.i.i49, label %_ZSt7reverseIPcEvT_S1_.exit53.loopexit, !llvm.loop !22
+  %77 = icmp ult ptr %76, %.0.i.i52
+  br i1 %77, label %.lr.ph.i.i49, label %_ZSt7reverseIPcEvT_S1_.exit53.loopexit, !llvm.loop !22
 
 _ZSt7reverseIPcEvT_S1_.exit53.loopexit:           ; preds = %.lr.ph.i.i49
   %.pre = load i32, ptr %6, align 4
@@ -3856,25 +3856,25 @@ _ZSt7reverseIPcEvT_S1_.exit53.loopexit:           ; preds = %.lr.ph.i.i49
   br label %_ZSt7reverseIPcEvT_S1_.exit53
 
 _ZSt7reverseIPcEvT_S1_.exit53:                    ; preds = %_ZSt7reverseIPcEvT_S1_.exit53.loopexit, %_ZSt7reverseIPcEvT_S1_.exit
-  %.pre-phi79 = phi i64 [ %.pre78, %_ZSt7reverseIPcEvT_S1_.exit53.loopexit ], [ %72, %_ZSt7reverseIPcEvT_S1_.exit ]
-  %80 = phi i32 [ %.pre77, %_ZSt7reverseIPcEvT_S1_.exit53.loopexit ], [ %71, %_ZSt7reverseIPcEvT_S1_.exit ]
-  %81 = getelementptr inbounds i8, ptr %3, i64 %.pre-phi79
-  %82 = icmp ne i32 %80, %4
-  %83 = icmp ugt ptr %.012.i.i, %81
-  %or.cond.i.i55 = select i1 %82, i1 %83, i1 false
+  %.pre-phi79 = phi i64 [ %.pre78, %_ZSt7reverseIPcEvT_S1_.exit53.loopexit ], [ %70, %_ZSt7reverseIPcEvT_S1_.exit ]
+  %78 = phi i32 [ %.pre77, %_ZSt7reverseIPcEvT_S1_.exit53.loopexit ], [ %69, %_ZSt7reverseIPcEvT_S1_.exit ]
+  %79 = getelementptr inbounds i8, ptr %3, i64 %.pre-phi79
+  %80 = icmp ne i32 %78, %4
+  %81 = icmp ugt ptr %.012.i.i, %79
+  %or.cond.i.i55 = select i1 %80, i1 %81, i1 false
   br i1 %or.cond.i.i55, label %.lr.ph.i.i56, label %_ZSt7reverseIPcEvT_S1_.exit60
 
 .lr.ph.i.i56:                                     ; preds = %_ZSt7reverseIPcEvT_S1_.exit53, %.lr.ph.i.i56
   %.014.i.i57 = phi ptr [ %.0.i.i59, %.lr.ph.i.i56 ], [ %.012.i.i, %_ZSt7reverseIPcEvT_S1_.exit53 ]
-  %.0913.i.i58 = phi ptr [ %86, %.lr.ph.i.i56 ], [ %81, %_ZSt7reverseIPcEvT_S1_.exit53 ]
-  %84 = load i8, ptr %.0913.i.i58, align 1
-  %85 = load i8, ptr %.014.i.i57, align 1
-  store i8 %85, ptr %.0913.i.i58, align 1
-  store i8 %84, ptr %.014.i.i57, align 1
-  %86 = getelementptr inbounds i8, ptr %.0913.i.i58, i64 1
+  %.0913.i.i58 = phi ptr [ %84, %.lr.ph.i.i56 ], [ %79, %_ZSt7reverseIPcEvT_S1_.exit53 ]
+  %82 = load i8, ptr %.0913.i.i58, align 1
+  %83 = load i8, ptr %.014.i.i57, align 1
+  store i8 %83, ptr %.0913.i.i58, align 1
+  store i8 %82, ptr %.014.i.i57, align 1
+  %84 = getelementptr inbounds i8, ptr %.0913.i.i58, i64 1
   %.0.i.i59 = getelementptr inbounds i8, ptr %.014.i.i57, i64 -1
-  %87 = icmp ult ptr %86, %.0.i.i59
-  br i1 %87, label %.lr.ph.i.i56, label %_ZSt7reverseIPcEvT_S1_.exit60, !llvm.loop !22
+  %85 = icmp ult ptr %84, %.0.i.i59
+  br i1 %85, label %.lr.ph.i.i56, label %_ZSt7reverseIPcEvT_S1_.exit60, !llvm.loop !22
 
 _ZSt7reverseIPcEvT_S1_.exit60:                    ; preds = %.lr.ph.i.i56, %_ZSt7reverseIPcEvT_S1_.exit53
   ret void

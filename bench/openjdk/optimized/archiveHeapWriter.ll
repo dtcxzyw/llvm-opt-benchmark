@@ -2225,137 +2225,137 @@ _ZN17ArchiveHeapWriter19ensure_buffer_spaceEm.exit: ; preds = %25
   %narrow.i.i.i.i.i = add nuw nsw i32 %43, 7
   %44 = and i32 %narrow.i.i.i.i.i, 24
   %45 = select i1 %34, i32 %43, i32 %44
+  %narrow.i = add nuw nsw i32 %45, 7
+  %invariant.op.i = zext nneg i32 %narrow.i to i64
   %46 = load i32, ptr @MinObjAlignment, align 4
   %47 = add nsw i32 %46, -1
   %48 = sext i32 %47 to i64
   %49 = sub i32 0, %46
   %50 = sext i32 %49 to i64
-  %narrow21 = add nuw nsw i32 %45, 7
-  %51 = zext nneg i32 %narrow21 to i64
-  br label %52
+  br label %51
 
-52:                                               ; preds = %61, %.lr.ph.i
-  %.011.i = phi i32 [ %37, %.lr.ph.i ], [ %62, %61 ]
-  %53 = zext nneg i32 %.011.i to i64
-  %54 = mul nsw i64 %53, %40
-  %55 = add nsw i64 %54, %51
-  %56 = lshr i64 %55, 3
-  %57 = add nsw i64 %56, %48
-  %58 = and i64 %57, %50
-  %59 = shl i64 %58, 3
-  %60 = icmp eq i64 %59, %26
-  br i1 %60, label %_ZN17ArchiveHeapWriter19filler_array_lengthEm.exit, label %61
+51:                                               ; preds = %59, %.lr.ph.i
+  %.011.i = phi i32 [ %37, %.lr.ph.i ], [ %60, %59 ]
+  %52 = zext nneg i32 %.011.i to i64
+  %53 = mul nsw i64 %52, %40
+  %.reass.i = add nsw i64 %53, %invariant.op.i
+  %54 = lshr i64 %.reass.i, 3
+  %55 = add nsw i64 %54, %48
+  %56 = and i64 %55, %50
+  %57 = shl i64 %56, 3
+  %58 = icmp eq i64 %57, %26
+  br i1 %58, label %_ZN17ArchiveHeapWriter19filler_array_lengthEm.exit, label %59
 
-61:                                               ; preds = %52
-  %62 = add nsw i32 %.011.i, -1
-  %63 = icmp sgt i32 %.011.i, 0
-  br i1 %63, label %52, label %._crit_edge.i, !llvm.loop !23
+59:                                               ; preds = %51
+  %60 = add nsw i32 %.011.i, -1
+  %61 = icmp sgt i32 %.011.i, 0
+  br i1 %61, label %51, label %._crit_edge.i, !llvm.loop !23
 
-._crit_edge.i:                                    ; preds = %61, %_ZN17ArchiveHeapWriter19ensure_buffer_spaceEm.exit
-  %64 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %64, align 1
+._crit_edge.i:                                    ; preds = %59, %_ZN17ArchiveHeapWriter19ensure_buffer_spaceEm.exit
+  %62 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %62, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 321) #19
   unreachable
 
-_ZN17ArchiveHeapWriter19filler_array_lengthEm.exit: ; preds = %52
-  %65 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not17 = icmp eq ptr %65, null
-  br i1 %.not17, label %68, label %66
+_ZN17ArchiveHeapWriter19filler_array_lengthEm.exit: ; preds = %51
+  %63 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not17 = icmp eq ptr %63, null
+  br i1 %.not17, label %66, label %64
 
-66:                                               ; preds = %_ZN17ArchiveHeapWriter19filler_array_lengthEm.exit
-  %67 = load i64, ptr @_ZN17ArchiveHeapWriter12_buffer_usedE, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.16, i32 noundef %.011.i, i64 noundef %26, i64 noundef %67)
-  br label %68
+64:                                               ; preds = %_ZN17ArchiveHeapWriter19filler_array_lengthEm.exit
+  %65 = load i64, ptr @_ZN17ArchiveHeapWriter12_buffer_usedE, align 8
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.16, i32 noundef %.011.i, i64 noundef %26, i64 noundef %65)
+  br label %66
 
-68:                                               ; preds = %_ZN17ArchiveHeapWriter19filler_array_lengthEm.exit, %66
-  %69 = load ptr, ptr @_ZN8Universe17_objectArrayKlassE, align 8
-  %70 = load i64, ptr @_ZN17ArchiveHeapWriter12_buffer_usedE, align 8
-  %71 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
-  %73 = load ptr, ptr %72, align 8
-  %sext.i.i = shl i64 %70, 32
-  %74 = ashr exact i64 %sext.i.i, 32
-  %75 = getelementptr inbounds i8, ptr %73, i64 %74
-  call void @llvm.memset.p0.i64(ptr align 8 %75, i8 0, i64 %26, i1 false)
-  store i64 1, ptr %75, align 8
-  %76 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
-  %77 = call noundef i32 @_ZN14ArchiveBuilder26get_requested_narrow_klassEP5Klass(ptr noundef nonnull align 8 dereferenceable(1080) %76, ptr noundef %69) #18
-  call void @_ZN7oopDesc16set_narrow_klassEj(ptr noundef nonnull align 8 dereferenceable(16) %75, i32 noundef %77) #18
-  %78 = load i8, ptr @UseCompressedClassPointers, align 1
-  %79 = trunc i8 %78 to i1
-  %80 = select i1 %79, i64 12, i64 16
-  %81 = getelementptr inbounds i8, ptr %75, i64 %80
-  store i32 %.011.i, ptr %81, align 4
+66:                                               ; preds = %_ZN17ArchiveHeapWriter19filler_array_lengthEm.exit, %64
+  %67 = load ptr, ptr @_ZN8Universe17_objectArrayKlassE, align 8
+  %68 = load i64, ptr @_ZN17ArchiveHeapWriter12_buffer_usedE, align 8
+  %69 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 8
+  %71 = load ptr, ptr %70, align 8
+  %sext.i.i = shl i64 %68, 32
+  %72 = ashr exact i64 %sext.i.i, 32
+  %73 = getelementptr inbounds i8, ptr %71, i64 %72
+  call void @llvm.memset.p0.i64(ptr align 8 %73, i8 0, i64 %26, i1 false)
+  store i64 1, ptr %73, align 8
+  %74 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
+  %75 = call noundef i32 @_ZN14ArchiveBuilder26get_requested_narrow_klassEP5Klass(ptr noundef nonnull align 8 dereferenceable(1080) %74, ptr noundef %67) #18
+  call void @_ZN7oopDesc16set_narrow_klassEj(ptr noundef nonnull align 8 dereferenceable(16) %73, i32 noundef %75) #18
+  %76 = load i8, ptr @UseCompressedClassPointers, align 1
+  %77 = trunc i8 %76 to i1
+  %78 = select i1 %77, i64 12, i64 16
+  %79 = getelementptr inbounds i8, ptr %73, i64 %78
+  store i32 %.011.i, ptr %79, align 4
   store i64 %24, ptr @_ZN17ArchiveHeapWriter12_buffer_usedE, align 8
-  %82 = load ptr, ptr @_ZL8_fillers, align 8
-  %83 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 8
-  %85 = load ptr, ptr %84, align 8
-  %86 = ptrtoint ptr %75 to i64
-  %87 = ptrtoint ptr %85 to i64
-  %88 = sub i64 %86, %87
-  %89 = trunc i64 %88 to i32
-  %90 = lshr i32 %89, 3
-  %91 = xor i32 %90, %89
-  %92 = urem i32 %91, 127
-  %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds ptr, ptr %82, i64 %93
-  %95 = load ptr, ptr %94, align 8
-  %.not11.i.i = icmp eq ptr %95, null
+  %80 = load ptr, ptr @_ZL8_fillers, align 8
+  %81 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 8
+  %83 = load ptr, ptr %82, align 8
+  %84 = ptrtoint ptr %73 to i64
+  %85 = ptrtoint ptr %83 to i64
+  %86 = sub i64 %84, %85
+  %87 = trunc i64 %86 to i32
+  %88 = lshr i32 %87, 3
+  %89 = xor i32 %88, %87
+  %90 = urem i32 %89, 127
+  %91 = zext nneg i32 %90 to i64
+  %92 = getelementptr inbounds ptr, ptr %80, i64 %91
+  %93 = load ptr, ptr %92, align 8
+  %.not11.i.i = icmp eq ptr %93, null
   br i1 %.not11.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE11lookup_nodeEjRKm.exit.thread.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %68, %102
-  %.pr.i = phi ptr [ %104, %102 ], [ %95, %68 ]
-  %96 = load i32, ptr %.pr.i, align 8
-  %97 = icmp eq i32 %96, %91
-  br i1 %97, label %98, label %102
+.lr.ph.i.i:                                       ; preds = %66, %100
+  %.pr.i = phi ptr [ %102, %100 ], [ %93, %66 ]
+  %94 = load i32, ptr %.pr.i, align 8
+  %95 = icmp eq i32 %94, %89
+  br i1 %95, label %96, label %100
 
-98:                                               ; preds = %.lr.ph.i.i
-  %99 = getelementptr inbounds i8, ptr %.pr.i, i64 8
-  %100 = load i64, ptr %99, align 8
-  %101 = icmp eq i64 %88, %100
-  br i1 %101, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE11lookup_nodeEjRKm.exit.i, label %102
+96:                                               ; preds = %.lr.ph.i.i
+  %97 = getelementptr inbounds i8, ptr %.pr.i, i64 8
+  %98 = load i64, ptr %97, align 8
+  %99 = icmp eq i64 %86, %98
+  br i1 %99, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE11lookup_nodeEjRKm.exit.i, label %100
 
-102:                                              ; preds = %98, %.lr.ph.i.i
-  %103 = getelementptr inbounds i8, ptr %.pr.i, i64 24
-  %104 = load ptr, ptr %103, align 8
-  %.not.i.i = icmp eq ptr %104, null
+100:                                              ; preds = %96, %.lr.ph.i.i
+  %101 = getelementptr inbounds i8, ptr %.pr.i, i64 24
+  %102 = load ptr, ptr %101, align 8
+  %.not.i.i = icmp eq ptr %102, null
   br i1 %.not.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE11lookup_nodeEjRKm.exit.thread.i.loopexit, label %.lr.ph.i.i, !llvm.loop !24
 
-_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE11lookup_nodeEjRKm.exit.i: ; preds = %98
-  %105 = getelementptr inbounds i8, ptr %.pr.i, i64 16
-  store i64 %26, ptr %105, align 8
+_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE11lookup_nodeEjRKm.exit.i: ; preds = %96
+  %103 = getelementptr inbounds i8, ptr %.pr.i, i64 16
+  store i64 %26, ptr %103, align 8
   br label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE3putERKmSC_.exit
 
-_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE11lookup_nodeEjRKm.exit.thread.i.loopexit: ; preds = %102
-  %106 = getelementptr inbounds i8, ptr %.pr.i, i64 24
+_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE11lookup_nodeEjRKm.exit.thread.i.loopexit: ; preds = %100
+  %104 = getelementptr inbounds i8, ptr %.pr.i, i64 24
   br label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE11lookup_nodeEjRKm.exit.thread.i
 
-_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE11lookup_nodeEjRKm.exit.thread.i: ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE11lookup_nodeEjRKm.exit.thread.i.loopexit, %68
-  %.0.lcssa.i15.i = phi ptr [ %94, %68 ], [ %106, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE11lookup_nodeEjRKm.exit.thread.i.loopexit ]
-  %107 = call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 32, i8 noundef zeroext 13) #18
-  %108 = icmp eq ptr %107, null
-  br i1 %108, label %113, label %109
+_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE11lookup_nodeEjRKm.exit.thread.i: ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE11lookup_nodeEjRKm.exit.thread.i.loopexit, %66
+  %.0.lcssa.i15.i = phi ptr [ %92, %66 ], [ %104, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE11lookup_nodeEjRKm.exit.thread.i.loopexit ]
+  %105 = call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 32, i8 noundef zeroext 13) #18
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %111, label %107
 
-109:                                              ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE11lookup_nodeEjRKm.exit.thread.i
-  store i32 %91, ptr %107, align 8
-  %110 = getelementptr inbounds i8, ptr %107, i64 8
-  store i64 %88, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %107, i64 16
-  store i64 %26, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %107, i64 24
-  store ptr null, ptr %112, align 8
-  br label %113
+107:                                              ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE11lookup_nodeEjRKm.exit.thread.i
+  store i32 %89, ptr %105, align 8
+  %108 = getelementptr inbounds i8, ptr %105, i64 8
+  store i64 %86, ptr %108, align 8
+  %109 = getelementptr inbounds i8, ptr %105, i64 16
+  store i64 %26, ptr %109, align 8
+  %110 = getelementptr inbounds i8, ptr %105, i64 24
+  store ptr null, ptr %110, align 8
+  br label %111
 
-113:                                              ; preds = %109, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE11lookup_nodeEjRKm.exit.thread.i
-  store ptr %107, ptr %.0.lcssa.i15.i, align 8
-  %114 = getelementptr inbounds i8, ptr %82, i64 1016
-  %115 = load i32, ptr %114, align 8
-  %116 = add nsw i32 %115, 1
-  store i32 %116, ptr %114, align 8
+111:                                              ; preds = %107, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE11lookup_nodeEjRKm.exit.thread.i
+  store ptr %105, ptr %.0.lcssa.i15.i, align 8
+  %112 = getelementptr inbounds i8, ptr %80, i64 1016
+  %113 = load i32, ptr %112, align 8
+  %114 = add nsw i32 %113, 1
+  store i32 %114, ptr %112, align 8
   br label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE3putERKmSC_.exit
 
-_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE3putERKmSC_.exit: ; preds = %113, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE11lookup_nodeEjRKm.exit.i, %1
+_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE3putERKmSC_.exit: ; preds = %111, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE11lookup_nodeEjRKm.exit.i, %1
   ret void
 }
 
@@ -2827,38 +2827,38 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZN17ArchiveHeapWriter19fil
   %narrow.i.i.i.i = add nuw nsw i32 %12, 7
   %13 = and i32 %narrow.i.i.i.i, 24
   %14 = select i1 %3, i32 %12, i32 %13
-  %15 = zext nneg i32 %14 to i64
-  %16 = load i32, ptr @MinObjAlignment, align 4
-  %17 = add nsw i32 %16, -1
-  %18 = sext i32 %17 to i64
-  %19 = sub i32 0, %16
-  %20 = sext i32 %19 to i64
-  br label %21
+  %narrow = add nuw nsw i32 %14, 7
+  %invariant.op = zext nneg i32 %narrow to i64
+  %15 = load i32, ptr @MinObjAlignment, align 4
+  %16 = add nsw i32 %15, -1
+  %17 = sext i32 %16 to i64
+  %18 = sub i32 0, %15
+  %19 = sext i32 %18 to i64
+  br label %20
 
-21:                                               ; preds = %.lr.ph, %32
-  %.011 = phi i32 [ %6, %.lr.ph ], [ %33, %32 ]
-  %22 = zext nneg i32 %.011 to i64
-  %23 = mul nsw i64 %9, %22
-  %24 = add nsw i64 %23, 7
-  %25 = add nsw i64 %24, %15
-  %26 = lshr i64 %25, 3
-  %27 = add nsw i64 %26, %18
-  %28 = and i64 %27, %20
-  %29 = shl i64 %28, 3
-  %30 = icmp eq i64 %29, %0
-  br i1 %30, label %31, label %32
+20:                                               ; preds = %.lr.ph, %29
+  %.011 = phi i32 [ %6, %.lr.ph ], [ %30, %29 ]
+  %21 = zext nneg i32 %.011 to i64
+  %22 = mul nsw i64 %9, %21
+  %.reass = add nsw i64 %22, %invariant.op
+  %23 = lshr i64 %.reass, 3
+  %24 = add nsw i64 %23, %17
+  %25 = and i64 %24, %19
+  %26 = shl i64 %25, 3
+  %27 = icmp eq i64 %26, %0
+  br i1 %27, label %28, label %29
 
-31:                                               ; preds = %21
+28:                                               ; preds = %20
   ret i32 %.011
 
-32:                                               ; preds = %21
-  %33 = add nsw i32 %.011, -1
-  %34 = icmp sgt i32 %.011, 0
-  br i1 %34, label %21, label %._crit_edge, !llvm.loop !23
+29:                                               ; preds = %20
+  %30 = add nsw i32 %.011, -1
+  %31 = icmp sgt i32 %.011, 0
+  br i1 %31, label %20, label %._crit_edge, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %32, %1
-  %35 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %35, align 1
+._crit_edge:                                      ; preds = %29, %1
+  %32 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %32, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 321) #19
   unreachable
 }

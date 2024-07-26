@@ -782,9 +782,9 @@ if.else:                                          ; preds = %entry
   %42 = load i64, ptr %cols.i7, align 8
   %add78.i = add i64 %41, %call.i5
   %cmp.not79.i = icmp ult i64 %add78.i, %42
-  br i1 %cmp.not79.i, label %while.cond5.preheader.i, label %while.body.preheader.i
+  br i1 %cmp.not79.i, label %while.cond5.preheader.i, label %while.body.lr.ph.i
 
-while.body.preheader.i:                           ; preds = %if.else
+while.body.lr.ph.i:                               ; preds = %if.else
   %43 = add i64 %add78.i, -1
   %44 = add i64 %42, -1
   %umin.i = tail call i64 @llvm.umin.i64(i64 %43, i64 %44)
@@ -794,13 +794,13 @@ while.body.preheader.i:                           ; preds = %if.else
   %47 = add i64 %46, %umin.i
   br label %while.cond5.preheader.i
 
-while.cond5.preheader.i:                          ; preds = %while.body.preheader.i, %if.else
-  %buf.0.lcssa.i = phi ptr [ %39, %if.else ], [ %scevgep.i, %while.body.preheader.i ]
-  %len.0.lcssa.i = phi i64 [ %40, %if.else ], [ %47, %while.body.preheader.i ]
-  %add.lcssa.i = phi i64 [ %add78.i, %if.else ], [ %umin.i, %while.body.preheader.i ]
+while.cond5.preheader.i:                          ; preds = %while.body.lr.ph.i, %if.else
+  %buf.0.lcssa.i = phi ptr [ %39, %if.else ], [ %scevgep.i, %while.body.lr.ph.i ]
+  %len.0.lcssa.i = phi i64 [ %40, %if.else ], [ %47, %while.body.lr.ph.i ]
+  %add.lcssa.i = phi i64 [ %add78.i, %if.else ], [ %umin.i, %while.body.lr.ph.i ]
   %48 = add i64 %len.0.lcssa.i, %call.i5
-  %umin95.i = tail call i64 @llvm.umin.i64(i64 %42, i64 %48)
-  %49 = sub i64 %umin95.i, %call.i5
+  %umin94.i = tail call i64 @llvm.umin.i64(i64 %42, i64 %48)
+  %49 = sub i64 %umin94.i, %call.i5
   store ptr null, ptr %ab.i3, align 8
   %len.i.i8 = getelementptr inbounds i8, ptr %ab.i3, i64 8
   store i32 0, ptr %len.i.i8, align 8

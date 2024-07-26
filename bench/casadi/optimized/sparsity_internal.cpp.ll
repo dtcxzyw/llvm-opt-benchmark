@@ -22466,17 +22466,20 @@ _ZNSt6vectorIxSaIxEEC2ERKS1_.exit:                ; preds = %..critedge_crit_edg
 .lr.ph184:                                        ; preds = %_ZNSt6vectorIxSaIxEEC2ERKS1_.exit
   br i1 %4, label %.lr.ph184.split.us, label %thread-pre-split
 
-.lr.ph184.split.us:                               ; preds = %.lr.ph184, %.lr.ph184.split.us
-  %.sroa.0147.0183.us = phi ptr [ %174, %.lr.ph184.split.us ], [ %166, %.lr.ph184 ]
-  %171 = load i64, ptr %.sroa.0147.0183.us, align 8
-  %172 = add nsw i64 %171, -1
-  %.inv = icmp sgt i64 %171, 0
-  %173 = select i1 %.inv, i64 0, i64 %2
-  %spec.select = add nsw i64 %172, %173
-  store i64 %spec.select, ptr %.sroa.0147.0183.us, align 8
+.lr.ph184.split.us:                               ; preds = %.lr.ph184
+  %invariant.op = add i64 %2, -1
+  br label %171
+
+171:                                              ; preds = %171, %.lr.ph184.split.us
+  %.sroa.0147.0183.us = phi ptr [ %166, %.lr.ph184.split.us ], [ %174, %171 ]
+  %172 = load i64, ptr %.sroa.0147.0183.us, align 8
+  %173 = icmp slt i64 %172, 1
+  %spec.select = select i1 %173, i64 %invariant.op, i64 -1
+  %storemerge = add i64 %172, %spec.select
+  store i64 %storemerge, ptr %.sroa.0147.0183.us, align 8
   %174 = getelementptr inbounds i8, ptr %.sroa.0147.0183.us, i64 8
   %.not166.us = icmp eq ptr %174, %170
-  br i1 %.not166.us, label %._crit_edge185, label %.lr.ph184.split.us, !llvm.loop !328
+  br i1 %.not166.us, label %._crit_edge185, label %171, !llvm.loop !328
 
 thread-pre-split:                                 ; preds = %.lr.ph184, %178
   %.sroa.0147.0183 = phi ptr [ %179, %178 ], [ %166, %.lr.ph184 ]
@@ -22494,8 +22497,8 @@ thread-pre-split:                                 ; preds = %.lr.ph184, %178
   %.not166 = icmp eq ptr %179, %170
   br i1 %.not166, label %._crit_edge185, label %thread-pre-split, !llvm.loop !328
 
-._crit_edge185:                                   ; preds = %178, %.lr.ph184.split.us, %_ZNSt6vectorIxSaIxEEC2ERKS1_.exit.thread, %_ZNSt6vectorIxSaIxEEC2ERKS1_.exit
-  %180 = phi ptr [ null, %_ZNSt6vectorIxSaIxEEC2ERKS1_.exit.thread ], [ %166, %_ZNSt6vectorIxSaIxEEC2ERKS1_.exit ], [ %166, %.lr.ph184.split.us ], [ %166, %178 ]
+._crit_edge185:                                   ; preds = %178, %171, %_ZNSt6vectorIxSaIxEEC2ERKS1_.exit.thread, %_ZNSt6vectorIxSaIxEEC2ERKS1_.exit
+  %180 = phi ptr [ null, %_ZNSt6vectorIxSaIxEEC2ERKS1_.exit.thread ], [ %166, %_ZNSt6vectorIxSaIxEEC2ERKS1_.exit ], [ %166, %171 ], [ %166, %178 ]
   invoke void @_ZNK6casadi16SparsityInternal15_enlargeColumnsExRKSt6vectorIxSaIxEEb(ptr dead_on_unwind writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %28, i1 noundef zeroext false)
           to label %181 unwind label %183
 
@@ -23266,17 +23269,20 @@ _ZNSt6vectorIxSaIxEEC2ERKS1_.exit:                ; preds = %..critedge_crit_edg
 .lr.ph189:                                        ; preds = %_ZNSt6vectorIxSaIxEEC2ERKS1_.exit
   br i1 %4, label %.lr.ph189.split.us, label %thread-pre-split
 
-.lr.ph189.split.us:                               ; preds = %.lr.ph189, %.lr.ph189.split.us
-  %.sroa.0155.0188.us = phi ptr [ %183, %.lr.ph189.split.us ], [ %175, %.lr.ph189 ]
-  %180 = load i64, ptr %.sroa.0155.0188.us, align 8
-  %181 = add nsw i64 %180, -1
-  %.inv = icmp sgt i64 %180, 0
-  %182 = select i1 %.inv, i64 0, i64 %2
-  %spec.select = add nsw i64 %181, %182
-  store i64 %spec.select, ptr %.sroa.0155.0188.us, align 8
+.lr.ph189.split.us:                               ; preds = %.lr.ph189
+  %invariant.op = add i64 %2, -1
+  br label %180
+
+180:                                              ; preds = %180, %.lr.ph189.split.us
+  %.sroa.0155.0188.us = phi ptr [ %175, %.lr.ph189.split.us ], [ %183, %180 ]
+  %181 = load i64, ptr %.sroa.0155.0188.us, align 8
+  %182 = icmp slt i64 %181, 1
+  %spec.select = select i1 %182, i64 %invariant.op, i64 -1
+  %storemerge = add i64 %181, %spec.select
+  store i64 %storemerge, ptr %.sroa.0155.0188.us, align 8
   %183 = getelementptr inbounds i8, ptr %.sroa.0155.0188.us, i64 8
   %.not179.us = icmp eq ptr %183, %179
-  br i1 %.not179.us, label %._crit_edge190, label %.lr.ph189.split.us, !llvm.loop !341
+  br i1 %.not179.us, label %._crit_edge190, label %180, !llvm.loop !341
 
 thread-pre-split:                                 ; preds = %.lr.ph189, %187
   %.sroa.0155.0188 = phi ptr [ %188, %187 ], [ %175, %.lr.ph189 ]
@@ -23294,8 +23300,8 @@ thread-pre-split:                                 ; preds = %.lr.ph189, %187
   %.not179 = icmp eq ptr %188, %179
   br i1 %.not179, label %._crit_edge190, label %thread-pre-split, !llvm.loop !341
 
-._crit_edge190:                                   ; preds = %187, %.lr.ph189.split.us, %_ZNSt6vectorIxSaIxEEC2ERKS1_.exit.thread, %_ZNSt6vectorIxSaIxEEC2ERKS1_.exit
-  %189 = phi ptr [ null, %_ZNSt6vectorIxSaIxEEC2ERKS1_.exit.thread ], [ %175, %_ZNSt6vectorIxSaIxEEC2ERKS1_.exit ], [ %175, %.lr.ph189.split.us ], [ %175, %187 ]
+._crit_edge190:                                   ; preds = %187, %180, %_ZNSt6vectorIxSaIxEEC2ERKS1_.exit.thread, %_ZNSt6vectorIxSaIxEEC2ERKS1_.exit
+  %189 = phi ptr [ null, %_ZNSt6vectorIxSaIxEEC2ERKS1_.exit.thread ], [ %175, %_ZNSt6vectorIxSaIxEEC2ERKS1_.exit ], [ %175, %180 ], [ %175, %187 ]
   invoke void @_ZNK6casadi16SparsityInternal12_enlargeRowsExRKSt6vectorIxSaIxEEb(ptr dead_on_unwind writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %28, i1 noundef zeroext false)
           to label %190 unwind label %192
 

@@ -191,12 +191,12 @@ if.end86:                                         ; preds = %if.end78
   %arrayidx89 = getelementptr inbounds i32, ptr %add.ptr, i64 %idxprom88
   %15 = load i32, ptr %arrayidx89, align 4
   %exitcond.not = icmp eq i32 %inc82, %umax
-  br i1 %exitcond.not, label %if.end91.thread236, label %for.body69, !llvm.loop !7
+  br i1 %exitcond.not, label %if.end91.thread235, label %for.body69, !llvm.loop !7
 
-if.end91.thread236:                               ; preds = %if.end86
-  %sub94240 = sub i32 %inc79, %umax
-  %shl95241 = shl i32 %sub94240, 8
-  %add242 = or disjoint i32 %shl95241, %umax
+if.end91.thread235:                               ; preds = %if.end86
+  %sub94239 = sub i32 %inc79, %umax
+  %shl95240 = shl i32 %sub94239, 8
+  %add241 = or disjoint i32 %shl95240, %umax
   br label %if.end91.thread
 
 if.end91:                                         ; preds = %if.then72
@@ -204,12 +204,12 @@ if.end91:                                         ; preds = %if.then72
   %sub94 = sub i32 %chainPos.1179, %count.1180
   %shl95 = shl i32 %sub94, 8
   %add = add i32 %shl95, %count.1180
-  %spec.select250 = select i1 %tobool92.not, i32 0, i32 %add
+  %spec.select249 = select i1 %tobool92.not, i32 0, i32 %add
   br label %if.end91.thread
 
-if.end91.thread:                                  ; preds = %if.end91, %for.end62, %for.body43, %if.end91.thread236, %if.end91.thread158
-  %chainPos.2156 = phi i32 [ %inc79, %if.end91.thread158 ], [ %chainPos.0188, %for.end62 ], [ %inc79, %if.end91.thread236 ], [ %chainPos.0188, %for.body43 ], [ %chainPos.1179, %if.end91 ]
-  %16 = phi i32 [ %add164, %if.end91.thread158 ], [ 0, %for.end62 ], [ %add242, %if.end91.thread236 ], [ 0, %for.body43 ], [ %spec.select250, %if.end91 ]
+if.end91.thread:                                  ; preds = %if.end91, %for.end62, %for.body43, %if.end91.thread235, %if.end91.thread158
+  %chainPos.2156 = phi i32 [ %inc79, %if.end91.thread158 ], [ %chainPos.0188, %for.end62 ], [ %inc79, %if.end91.thread235 ], [ %chainPos.0188, %for.body43 ], [ %chainPos.1179, %if.end91 ]
+  %16 = phi i32 [ %add164, %if.end91.thread158 ], [ 0, %for.end62 ], [ %add241, %if.end91.thread235 ], [ 0, %for.body43 ], [ %spec.select249, %if.end91 ]
   store i32 %16, ptr %arrayidx45, align 4
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %exitcond203.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count
@@ -255,12 +255,11 @@ for.body132.lr.ph:                                ; preds = %for.end127
   %sub.i.i130 = sub i32 34, %6
   %26 = zext i32 %25 to i64
   %27 = and i64 %sub.ptr.sub, 4294967295
-  %invariant.gep = getelementptr i8, ptr %1, i64 -4
   br label %for.body132
 
 for.body132:                                      ; preds = %for.body132.lr.ph, %for.end154
-  %indvars.iv219 = phi i64 [ %26, %for.body132.lr.ph ], [ %indvars.iv.next220, %for.end154 ]
-  %add.ptr135 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv219
+  %indvars.iv218 = phi i64 [ %26, %for.body132.lr.ph ], [ %indvars.iv.next219, %for.end154 ]
+  %add.ptr135 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv218
   %28 = load i32, ptr %minMatch137, align 8
   switch i32 %28, label %sw.bb.i [
     i32 8, label %sw.bb7.i
@@ -302,27 +301,32 @@ sw.bb7.i:                                         ; preds = %for.body132
 
 ZSTD_hashPtr.exit:                                ; preds = %sw.bb7.i, %sw.bb5.i, %sw.bb3.i, %sw.bb1.i, %sw.bb.i
   %retval.i.0 = phi i64 [ %conv.i132, %sw.bb.i ], [ %shr.i.i144, %sw.bb5.i ], [ %shr.i.i140, %sw.bb3.i ], [ %shr.i.i136, %sw.bb1.i ], [ %shr.i.i148, %sw.bb7.i ]
-  %shl140 = shl i64 %retval.i.0, 2
-  %29 = and i64 %shl140, 4294967292
+  %conv139 = trunc i64 %retval.i.0 to i32
+  %shl140 = shl i32 %conv139, 2
+  %invariant.op = add i32 %shl140, -1
+  %29 = zext i32 %shl140 to i64
+  %invariant.gep = getelementptr i32, ptr %1, i64 %29
   br label %for.body144
 
 for.body144:                                      ; preds = %ZSTD_hashPtr.exit, %for.body144
   %indvars.iv214 = phi i64 [ 2, %ZSTD_hashPtr.exit ], [ %indvars.iv.next215, %for.body144 ]
-  %30 = add nuw nsw i64 %indvars.iv214, %29
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %30
-  %31 = load i32, ptr %gep, align 4
-  %arrayidx151 = getelementptr inbounds i32, ptr %1, i64 %30
-  store i32 %31, ptr %arrayidx151, align 4
+  %30 = trunc nuw nsw i64 %indvars.iv214 to i32
+  %sub146.reass = add i32 %invariant.op, %30
+  %idxprom147 = zext i32 %sub146.reass to i64
+  %arrayidx148 = getelementptr inbounds i32, ptr %1, i64 %idxprom147
+  %31 = load i32, ptr %arrayidx148, align 4
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv214
+  store i32 %31, ptr %gep, align 4
   %indvars.iv.next215 = add nsw i64 %indvars.iv214, -1
   %tobool143.not = icmp eq i64 %indvars.iv.next215, 0
   br i1 %tobool143.not, label %for.end154, label %for.body144, !llvm.loop !10
 
 for.end154:                                       ; preds = %for.body144
   %arrayidx156 = getelementptr inbounds i32, ptr %1, i64 %29
-  %32 = trunc nuw i64 %indvars.iv219 to i32
+  %32 = trunc nuw i64 %indvars.iv218 to i32
   store i32 %32, ptr %arrayidx156, align 4
-  %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
-  %cmp130 = icmp ult i64 %indvars.iv.next220, %27
+  %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
+  %cmp130 = icmp ult i64 %indvars.iv.next219, %27
   br i1 %cmp130, label %for.body132, label %for.end159, !llvm.loop !11
 
 for.end159:                                       ; preds = %for.end154, %for.end127
@@ -40410,10 +40414,9 @@ if.then110.i:                                     ; preds = %if.end100.i, %if.th
   br i1 %and143.i214259, label %for.body145.i.lr.ph, label %ZSTD_HcFindBestMatch.exit
 
 for.body145.i.lr.ph:                              ; preds = %if.then110.i
+  %invariant.op = add i32 %conv.i, %conv124.i
   %add.ptr155.i = getelementptr inbounds i8, ptr %ip, i64 4
-  %reass.sub = sub i32 %conv.i, %3
-  %add163.i.neg = add i32 %reass.sub, 3
-  %sub164.i = add i32 %add163.i.neg, %conv124.i
+  %32 = add i32 %invariant.op, 3
   br label %for.body145.i
 
 for.body145.i:                                    ; preds = %for.body145.i.lr.ph, %if.end176.i
@@ -40435,7 +40438,8 @@ if.end159.i:                                      ; preds = %for.body145.i
   br i1 %cmp160.i, label %if.then162.i, label %if.end172.i
 
 if.then162.i:                                     ; preds = %if.end159.i
-  %add165.i = sub i32 %sub164.i, %matchIndex.i.1262
+  %33 = add i32 %3, %matchIndex.i.1262
+  %add165.i = sub i32 %32, %33
   %conv166.i = zext i32 %add165.i to i64
   store i64 %conv166.i, ptr %offsetPtr, align 8
   %add.ptr167.i = getelementptr inbounds i8, ptr %ip, i64 %add158.i
@@ -40838,10 +40842,9 @@ if.then110.i:                                     ; preds = %if.end100.i, %if.th
   br i1 %and143.i214258, label %for.body145.i.lr.ph, label %ZSTD_HcFindBestMatch.exit
 
 for.body145.i.lr.ph:                              ; preds = %if.then110.i
+  %invariant.op = add i32 %conv.i, %conv124.i
   %add.ptr155.i = getelementptr inbounds i8, ptr %ip, i64 4
-  %reass.sub = sub i32 %conv.i, %3
-  %add163.i.neg = add i32 %reass.sub, 3
-  %sub164.i = add i32 %add163.i.neg, %conv124.i
+  %32 = add i32 %invariant.op, 3
   br label %for.body145.i
 
 for.body145.i:                                    ; preds = %for.body145.i.lr.ph, %if.end176.i
@@ -40863,7 +40866,8 @@ if.end159.i:                                      ; preds = %for.body145.i
   br i1 %cmp160.i, label %if.then162.i, label %if.end172.i
 
 if.then162.i:                                     ; preds = %if.end159.i
-  %add165.i = sub i32 %sub164.i, %matchIndex.i.1261
+  %33 = add i32 %3, %matchIndex.i.1261
+  %add165.i = sub i32 %32, %33
   %conv166.i = zext i32 %add165.i to i64
   store i64 %conv166.i, ptr %offsetPtr, align 8
   %add.ptr167.i = getelementptr inbounds i8, ptr %ip, i64 %add158.i
@@ -41266,10 +41270,9 @@ if.then110.i:                                     ; preds = %if.end100.i, %if.th
   br i1 %and143.i214258, label %for.body145.i.lr.ph, label %ZSTD_HcFindBestMatch.exit
 
 for.body145.i.lr.ph:                              ; preds = %if.then110.i
+  %invariant.op = add i32 %conv.i, %conv124.i
   %add.ptr155.i = getelementptr inbounds i8, ptr %ip, i64 4
-  %reass.sub = sub i32 %conv.i, %3
-  %add163.i.neg = add i32 %reass.sub, 3
-  %sub164.i = add i32 %add163.i.neg, %conv124.i
+  %32 = add i32 %invariant.op, 3
   br label %for.body145.i
 
 for.body145.i:                                    ; preds = %for.body145.i.lr.ph, %if.end176.i
@@ -41291,7 +41294,8 @@ if.end159.i:                                      ; preds = %for.body145.i
   br i1 %cmp160.i, label %if.then162.i, label %if.end172.i
 
 if.then162.i:                                     ; preds = %if.end159.i
-  %add165.i = sub i32 %sub164.i, %matchIndex.i.1261
+  %33 = add i32 %3, %matchIndex.i.1261
+  %add165.i = sub i32 %32, %33
   %conv166.i = zext i32 %add165.i to i64
   store i64 %conv166.i, ptr %offsetPtr, align 8
   %add.ptr167.i = getelementptr inbounds i8, ptr %ip, i64 %add158.i
@@ -41894,18 +41898,17 @@ for.end238.i:                                     ; preds = %for.inc235.i, %if.e
   br i1 %cmp240.i586.not, label %ZSTD_RowFindBestMatch.exit, label %for.body242.i.lr.ph
 
 for.body242.i.lr.ph:                              ; preds = %for.end238.i
+  %invariant.op = add i32 %conv.i, %conv194.i.neg.neg591
   %add.ptr254.i = getelementptr inbounds i8, ptr %ip, i64 4
-  %reass.sub = sub i32 %conv.i, %4
-  %add262.i.neg = add i32 %reass.sub, 3
-  %sub263.i = add i32 %add262.i.neg, %conv194.i.neg.neg591
+  %84 = add i32 %invariant.op, 3
   br label %for.body242.i
 
 for.body242.i:                                    ; preds = %for.body242.i.lr.ph, %if.end271.i
   %currMatch202.i.0588 = phi i64 [ 0, %for.body242.i.lr.ph ], [ %inc273.i, %if.end271.i ]
   %ml.i.3587 = phi i64 [ %ml.i.2, %for.body242.i.lr.ph ], [ %ml.i.4, %if.end271.i ]
   %arrayidx244.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0588
-  %84 = load i32, ptr %arrayidx244.i, align 4
-  %idx.ext247.i = zext i32 %84 to i64
+  %85 = load i32, ptr %arrayidx244.i, align 4
+  %idx.ext247.i = zext i32 %85 to i64
   %add.ptr248.i = getelementptr inbounds i8, ptr %74, i64 %idx.ext247.i
   %add.ptr248.i.val = load i32, ptr %add.ptr248.i, align 1
   %ip.val = load i32, ptr %ip, align 1
@@ -41920,7 +41923,8 @@ if.end258.i:                                      ; preds = %for.body242.i
   br i1 %cmp259.i, label %if.then261.i, label %if.end271.i
 
 if.then261.i:                                     ; preds = %if.end258.i
-  %add264.i = sub i32 %sub263.i, %84
+  %86 = add i32 %4, %85
+  %add264.i = sub i32 %84, %86
   %conv265.i = zext i32 %add264.i to i64
   store i64 %conv265.i, ptr %offsetPtr, align 8
   %add.ptr266.i = getelementptr inbounds i8, ptr %ip, i64 %add257.i
@@ -42542,18 +42546,17 @@ for.end238.i:                                     ; preds = %for.inc235.i, %if.e
   br i1 %cmp240.i589.not, label %ZSTD_RowFindBestMatch.exit, label %for.body242.i.lr.ph
 
 for.body242.i.lr.ph:                              ; preds = %for.end238.i
+  %invariant.op = add i32 %conv.i, %conv194.i.neg.neg594
   %add.ptr254.i = getelementptr inbounds i8, ptr %ip, i64 4
-  %reass.sub = sub i32 %conv.i, %4
-  %add262.i.neg = add i32 %reass.sub, 3
-  %sub263.i = add i32 %add262.i.neg, %conv194.i.neg.neg594
+  %91 = add i32 %invariant.op, 3
   br label %for.body242.i
 
 for.body242.i:                                    ; preds = %for.body242.i.lr.ph, %if.end271.i
   %currMatch202.i.0591 = phi i64 [ 0, %for.body242.i.lr.ph ], [ %inc273.i, %if.end271.i ]
   %ml.i.3590 = phi i64 [ %ml.i.2, %for.body242.i.lr.ph ], [ %ml.i.4, %if.end271.i ]
   %arrayidx244.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0591
-  %91 = load i32, ptr %arrayidx244.i, align 4
-  %idx.ext247.i = zext i32 %91 to i64
+  %92 = load i32, ptr %arrayidx244.i, align 4
+  %idx.ext247.i = zext i32 %92 to i64
   %add.ptr248.i = getelementptr inbounds i8, ptr %77, i64 %idx.ext247.i
   %add.ptr248.i.val = load i32, ptr %add.ptr248.i, align 1
   %ip.val = load i32, ptr %ip, align 1
@@ -42568,7 +42571,8 @@ if.end258.i:                                      ; preds = %for.body242.i
   br i1 %cmp259.i, label %if.then261.i, label %if.end271.i
 
 if.then261.i:                                     ; preds = %if.end258.i
-  %add264.i = sub i32 %sub263.i, %91
+  %93 = add i32 %4, %92
+  %add264.i = sub i32 %91, %93
   %conv265.i = zext i32 %add264.i to i64
   store i64 %conv265.i, ptr %offsetPtr, align 8
   %add.ptr266.i = getelementptr inbounds i8, ptr %ip, i64 %add257.i
@@ -43244,18 +43248,17 @@ for.end238.i:                                     ; preds = %for.inc235.i, %if.e
   br i1 %cmp240.i589.not, label %ZSTD_RowFindBestMatch.exit, label %for.body242.i.lr.ph
 
 for.body242.i.lr.ph:                              ; preds = %for.end238.i
+  %invariant.op = add i32 %conv.i, %conv194.i.neg.neg594
   %add.ptr254.i = getelementptr inbounds i8, ptr %ip, i64 4
-  %reass.sub = sub i32 %conv.i, %4
-  %add262.i.neg = add i32 %reass.sub, 3
-  %sub263.i = add i32 %add262.i.neg, %conv194.i.neg.neg594
+  %93 = add i32 %invariant.op, 3
   br label %for.body242.i
 
 for.body242.i:                                    ; preds = %for.body242.i.lr.ph, %if.end271.i
   %currMatch202.i.0591 = phi i64 [ 0, %for.body242.i.lr.ph ], [ %inc273.i, %if.end271.i ]
   %ml.i.3590 = phi i64 [ %ml.i.2, %for.body242.i.lr.ph ], [ %ml.i.4, %if.end271.i ]
   %arrayidx244.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0591
-  %93 = load i32, ptr %arrayidx244.i, align 4
-  %idx.ext247.i = zext i32 %93 to i64
+  %94 = load i32, ptr %arrayidx244.i, align 4
+  %idx.ext247.i = zext i32 %94 to i64
   %add.ptr248.i = getelementptr inbounds i8, ptr %78, i64 %idx.ext247.i
   %add.ptr248.i.val = load i32, ptr %add.ptr248.i, align 1
   %ip.val = load i32, ptr %ip, align 1
@@ -43270,7 +43273,8 @@ if.end258.i:                                      ; preds = %for.body242.i
   br i1 %cmp259.i, label %if.then261.i, label %if.end271.i
 
 if.then261.i:                                     ; preds = %if.end258.i
-  %add264.i = sub i32 %sub263.i, %93
+  %95 = add i32 %4, %94
+  %add264.i = sub i32 %93, %95
   %conv265.i = zext i32 %add264.i to i64
   store i64 %conv265.i, ptr %offsetPtr, align 8
   %add.ptr266.i = getelementptr inbounds i8, ptr %ip, i64 %add257.i
@@ -43864,18 +43868,17 @@ for.end238.i:                                     ; preds = %for.inc235.i, %if.e
   br i1 %cmp240.i585.not, label %ZSTD_RowFindBestMatch.exit, label %for.body242.i.lr.ph
 
 for.body242.i.lr.ph:                              ; preds = %for.end238.i
+  %invariant.op = add i32 %conv.i, %conv194.i.neg.neg590
   %add.ptr254.i = getelementptr inbounds i8, ptr %ip, i64 4
-  %reass.sub = sub i32 %conv.i, %4
-  %add262.i.neg = add i32 %reass.sub, 3
-  %sub263.i = add i32 %add262.i.neg, %conv194.i.neg.neg590
+  %79 = add i32 %invariant.op, 3
   br label %for.body242.i
 
 for.body242.i:                                    ; preds = %for.body242.i.lr.ph, %if.end271.i
   %currMatch202.i.0587 = phi i64 [ 0, %for.body242.i.lr.ph ], [ %inc273.i, %if.end271.i ]
   %ml.i.3586 = phi i64 [ %ml.i.2, %for.body242.i.lr.ph ], [ %ml.i.4, %if.end271.i ]
   %arrayidx244.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0587
-  %79 = load i32, ptr %arrayidx244.i, align 4
-  %idx.ext247.i = zext i32 %79 to i64
+  %80 = load i32, ptr %arrayidx244.i, align 4
+  %idx.ext247.i = zext i32 %80 to i64
   %add.ptr248.i = getelementptr inbounds i8, ptr %69, i64 %idx.ext247.i
   %add.ptr248.i.val = load i32, ptr %add.ptr248.i, align 1
   %ip.val = load i32, ptr %ip, align 1
@@ -43890,7 +43893,8 @@ if.end258.i:                                      ; preds = %for.body242.i
   br i1 %cmp259.i, label %if.then261.i, label %if.end271.i
 
 if.then261.i:                                     ; preds = %if.end258.i
-  %add264.i = sub i32 %sub263.i, %79
+  %81 = add i32 %4, %80
+  %add264.i = sub i32 %79, %81
   %conv265.i = zext i32 %add264.i to i64
   store i64 %conv265.i, ptr %offsetPtr, align 8
   %add.ptr266.i = getelementptr inbounds i8, ptr %ip, i64 %add257.i
@@ -44513,18 +44517,17 @@ for.end238.i:                                     ; preds = %for.inc235.i, %if.e
   br i1 %cmp240.i588.not, label %ZSTD_RowFindBestMatch.exit, label %for.body242.i.lr.ph
 
 for.body242.i.lr.ph:                              ; preds = %for.end238.i
+  %invariant.op = add i32 %conv.i, %conv194.i.neg.neg593
   %add.ptr254.i = getelementptr inbounds i8, ptr %ip, i64 4
-  %reass.sub = sub i32 %conv.i, %4
-  %add262.i.neg = add i32 %reass.sub, 3
-  %sub263.i = add i32 %add262.i.neg, %conv194.i.neg.neg593
+  %86 = add i32 %invariant.op, 3
   br label %for.body242.i
 
 for.body242.i:                                    ; preds = %for.body242.i.lr.ph, %if.end271.i
   %currMatch202.i.0590 = phi i64 [ 0, %for.body242.i.lr.ph ], [ %inc273.i, %if.end271.i ]
   %ml.i.3589 = phi i64 [ %ml.i.2, %for.body242.i.lr.ph ], [ %ml.i.4, %if.end271.i ]
   %arrayidx244.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0590
-  %86 = load i32, ptr %arrayidx244.i, align 4
-  %idx.ext247.i = zext i32 %86 to i64
+  %87 = load i32, ptr %arrayidx244.i, align 4
+  %idx.ext247.i = zext i32 %87 to i64
   %add.ptr248.i = getelementptr inbounds i8, ptr %72, i64 %idx.ext247.i
   %add.ptr248.i.val = load i32, ptr %add.ptr248.i, align 1
   %ip.val = load i32, ptr %ip, align 1
@@ -44539,7 +44542,8 @@ if.end258.i:                                      ; preds = %for.body242.i
   br i1 %cmp259.i, label %if.then261.i, label %if.end271.i
 
 if.then261.i:                                     ; preds = %if.end258.i
-  %add264.i = sub i32 %sub263.i, %86
+  %88 = add i32 %4, %87
+  %add264.i = sub i32 %86, %88
   %conv265.i = zext i32 %add264.i to i64
   store i64 %conv265.i, ptr %offsetPtr, align 8
   %add.ptr266.i = getelementptr inbounds i8, ptr %ip, i64 %add257.i
@@ -45216,18 +45220,17 @@ for.end238.i:                                     ; preds = %for.inc235.i, %if.e
   br i1 %cmp240.i588.not, label %ZSTD_RowFindBestMatch.exit, label %for.body242.i.lr.ph
 
 for.body242.i.lr.ph:                              ; preds = %for.end238.i
+  %invariant.op = add i32 %conv.i, %conv194.i.neg.neg593
   %add.ptr254.i = getelementptr inbounds i8, ptr %ip, i64 4
-  %reass.sub = sub i32 %conv.i, %4
-  %add262.i.neg = add i32 %reass.sub, 3
-  %sub263.i = add i32 %add262.i.neg, %conv194.i.neg.neg593
+  %88 = add i32 %invariant.op, 3
   br label %for.body242.i
 
 for.body242.i:                                    ; preds = %for.body242.i.lr.ph, %if.end271.i
   %currMatch202.i.0590 = phi i64 [ 0, %for.body242.i.lr.ph ], [ %inc273.i, %if.end271.i ]
   %ml.i.3589 = phi i64 [ %ml.i.2, %for.body242.i.lr.ph ], [ %ml.i.4, %if.end271.i ]
   %arrayidx244.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0590
-  %88 = load i32, ptr %arrayidx244.i, align 4
-  %idx.ext247.i = zext i32 %88 to i64
+  %89 = load i32, ptr %arrayidx244.i, align 4
+  %idx.ext247.i = zext i32 %89 to i64
   %add.ptr248.i = getelementptr inbounds i8, ptr %73, i64 %idx.ext247.i
   %add.ptr248.i.val = load i32, ptr %add.ptr248.i, align 1
   %ip.val = load i32, ptr %ip, align 1
@@ -45242,7 +45245,8 @@ if.end258.i:                                      ; preds = %for.body242.i
   br i1 %cmp259.i, label %if.then261.i, label %if.end271.i
 
 if.then261.i:                                     ; preds = %if.end258.i
-  %add264.i = sub i32 %sub263.i, %88
+  %90 = add i32 %4, %89
+  %add264.i = sub i32 %88, %90
   %conv265.i = zext i32 %add264.i to i64
   store i64 %conv265.i, ptr %offsetPtr, align 8
   %add.ptr266.i = getelementptr inbounds i8, ptr %ip, i64 %add257.i
@@ -45836,18 +45840,17 @@ for.end238.i:                                     ; preds = %for.inc235.i, %if.e
   br i1 %cmp240.i585.not, label %ZSTD_RowFindBestMatch.exit, label %for.body242.i.lr.ph
 
 for.body242.i.lr.ph:                              ; preds = %for.end238.i
+  %invariant.op = add i32 %conv.i, %conv194.i.neg.neg590
   %add.ptr254.i = getelementptr inbounds i8, ptr %ip, i64 4
-  %reass.sub = sub i32 %conv.i, %4
-  %add262.i.neg = add i32 %reass.sub, 3
-  %sub263.i = add i32 %add262.i.neg, %conv194.i.neg.neg590
+  %79 = add i32 %invariant.op, 3
   br label %for.body242.i
 
 for.body242.i:                                    ; preds = %for.body242.i.lr.ph, %if.end271.i
   %currMatch202.i.0587 = phi i64 [ 0, %for.body242.i.lr.ph ], [ %inc273.i, %if.end271.i ]
   %ml.i.3586 = phi i64 [ %ml.i.2, %for.body242.i.lr.ph ], [ %ml.i.4, %if.end271.i ]
   %arrayidx244.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0587
-  %79 = load i32, ptr %arrayidx244.i, align 4
-  %idx.ext247.i = zext i32 %79 to i64
+  %80 = load i32, ptr %arrayidx244.i, align 4
+  %idx.ext247.i = zext i32 %80 to i64
   %add.ptr248.i = getelementptr inbounds i8, ptr %69, i64 %idx.ext247.i
   %add.ptr248.i.val = load i32, ptr %add.ptr248.i, align 1
   %ip.val = load i32, ptr %ip, align 1
@@ -45862,7 +45865,8 @@ if.end258.i:                                      ; preds = %for.body242.i
   br i1 %cmp259.i, label %if.then261.i, label %if.end271.i
 
 if.then261.i:                                     ; preds = %if.end258.i
-  %add264.i = sub i32 %sub263.i, %79
+  %81 = add i32 %4, %80
+  %add264.i = sub i32 %79, %81
   %conv265.i = zext i32 %add264.i to i64
   store i64 %conv265.i, ptr %offsetPtr, align 8
   %add.ptr266.i = getelementptr inbounds i8, ptr %ip, i64 %add257.i
@@ -46485,18 +46489,17 @@ for.end238.i:                                     ; preds = %for.inc235.i, %if.e
   br i1 %cmp240.i588.not, label %ZSTD_RowFindBestMatch.exit, label %for.body242.i.lr.ph
 
 for.body242.i.lr.ph:                              ; preds = %for.end238.i
+  %invariant.op = add i32 %conv.i, %conv194.i.neg.neg593
   %add.ptr254.i = getelementptr inbounds i8, ptr %ip, i64 4
-  %reass.sub = sub i32 %conv.i, %4
-  %add262.i.neg = add i32 %reass.sub, 3
-  %sub263.i = add i32 %add262.i.neg, %conv194.i.neg.neg593
+  %86 = add i32 %invariant.op, 3
   br label %for.body242.i
 
 for.body242.i:                                    ; preds = %for.body242.i.lr.ph, %if.end271.i
   %currMatch202.i.0590 = phi i64 [ 0, %for.body242.i.lr.ph ], [ %inc273.i, %if.end271.i ]
   %ml.i.3589 = phi i64 [ %ml.i.2, %for.body242.i.lr.ph ], [ %ml.i.4, %if.end271.i ]
   %arrayidx244.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0590
-  %86 = load i32, ptr %arrayidx244.i, align 4
-  %idx.ext247.i = zext i32 %86 to i64
+  %87 = load i32, ptr %arrayidx244.i, align 4
+  %idx.ext247.i = zext i32 %87 to i64
   %add.ptr248.i = getelementptr inbounds i8, ptr %72, i64 %idx.ext247.i
   %add.ptr248.i.val = load i32, ptr %add.ptr248.i, align 1
   %ip.val = load i32, ptr %ip, align 1
@@ -46511,7 +46514,8 @@ if.end258.i:                                      ; preds = %for.body242.i
   br i1 %cmp259.i, label %if.then261.i, label %if.end271.i
 
 if.then261.i:                                     ; preds = %if.end258.i
-  %add264.i = sub i32 %sub263.i, %86
+  %88 = add i32 %4, %87
+  %add264.i = sub i32 %86, %88
   %conv265.i = zext i32 %add264.i to i64
   store i64 %conv265.i, ptr %offsetPtr, align 8
   %add.ptr266.i = getelementptr inbounds i8, ptr %ip, i64 %add257.i
@@ -47188,18 +47192,17 @@ for.end238.i:                                     ; preds = %for.inc235.i, %if.e
   br i1 %cmp240.i588.not, label %ZSTD_RowFindBestMatch.exit, label %for.body242.i.lr.ph
 
 for.body242.i.lr.ph:                              ; preds = %for.end238.i
+  %invariant.op = add i32 %conv.i, %conv194.i.neg.neg593
   %add.ptr254.i = getelementptr inbounds i8, ptr %ip, i64 4
-  %reass.sub = sub i32 %conv.i, %4
-  %add262.i.neg = add i32 %reass.sub, 3
-  %sub263.i = add i32 %add262.i.neg, %conv194.i.neg.neg593
+  %88 = add i32 %invariant.op, 3
   br label %for.body242.i
 
 for.body242.i:                                    ; preds = %for.body242.i.lr.ph, %if.end271.i
   %currMatch202.i.0590 = phi i64 [ 0, %for.body242.i.lr.ph ], [ %inc273.i, %if.end271.i ]
   %ml.i.3589 = phi i64 [ %ml.i.2, %for.body242.i.lr.ph ], [ %ml.i.4, %if.end271.i ]
   %arrayidx244.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0590
-  %88 = load i32, ptr %arrayidx244.i, align 4
-  %idx.ext247.i = zext i32 %88 to i64
+  %89 = load i32, ptr %arrayidx244.i, align 4
+  %idx.ext247.i = zext i32 %89 to i64
   %add.ptr248.i = getelementptr inbounds i8, ptr %73, i64 %idx.ext247.i
   %add.ptr248.i.val = load i32, ptr %add.ptr248.i, align 1
   %ip.val = load i32, ptr %ip, align 1
@@ -47214,7 +47217,8 @@ if.end258.i:                                      ; preds = %for.body242.i
   br i1 %cmp259.i, label %if.then261.i, label %if.end271.i
 
 if.then261.i:                                     ; preds = %if.end258.i
-  %add264.i = sub i32 %sub263.i, %88
+  %90 = add i32 %4, %89
+  %add264.i = sub i32 %88, %90
   %conv265.i = zext i32 %add264.i to i64
   store i64 %conv265.i, ptr %offsetPtr, align 8
   %add.ptr266.i = getelementptr inbounds i8, ptr %ip, i64 %add257.i

@@ -59648,6 +59648,7 @@ for.body.lr.ph.i191:                              ; preds = %invoke.cont8.i
   %BoundMask.sroa.10.0.agg.tmp11.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp11.i, i64 8
   %BoundMask.sroa.13.0.agg.tmp11.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp11.i, i64 16
   %BoundMask.sroa.17.0.agg.tmp11.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp11.i, i64 24
+  %invariant.op21 = add nsw i64 %Bound.0.i, 2
   br label %for.body.i197
 
 lpad.i:                                           ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i293, %if.then.i.i310.invoke
@@ -59669,16 +59670,15 @@ for.body.i197:                                    ; preds = %for.inc.i, %for.bod
   store i64 %BoundMask.sroa.13.0102.i, ptr %BoundMask.sroa.13.0.agg.tmp11.sroa_idx.i, align 8, !tbaa !68, !noalias !1449
   store i64 %BoundMask.sroa.17.0103.i, ptr %BoundMask.sroa.17.0.agg.tmp11.sroa_idx.i, align 8, !tbaa !68, !noalias !1449
   tail call fastcc void @_ZN19duckdb_jaro_winkler6detailL28flag_similar_characters_stepIcEEvRKNS_6common23BlockPatternMatchVectorET_RNS0_21FlaggedCharsMultiwordElNS0_15SearchBoundMaskE(ptr noundef nonnull align 8 dereferenceable(56) %PM, i8 noundef signext %43, ptr %41, ptr %39, i64 noundef %j.0105.i, ptr noundef nonnull byval(%"struct.duckdb_jaro_winkler::detail::SearchBoundMask") align 8 %agg.tmp11.i)
-  %add14.i = add nsw i64 %j.0105.i, %Bound.0.i
-  %add15.i = add nsw i64 %add14.i, 1
-  %cmp16.i = icmp slt i64 %add15.i, %sub.ptr.sub.i.i.i116.pre-phi
+  %add15.i.reass = add i64 %j.0105.i, %add.i192
+  %cmp16.i = icmp slt i64 %add15.i.reass, %sub.ptr.sub.i.i.i116.pre-phi
   br i1 %cmp16.i, label %if.then.i201, label %if.end28.i
 
 if.then.i201:                                     ; preds = %for.body.i197
   %shl18.i = shl i64 %BoundMask.sroa.13.0102.i, 1
   %or.i202 = or disjoint i64 %shl18.i, 1
-  %add21.i = add nsw i64 %add14.i, 2
-  %cmp22.i = icmp slt i64 %add21.i, %sub.ptr.sub.i.i.i116.pre-phi
+  %add21.i.reass = add i64 %j.0105.i, %invariant.op21
+  %cmp22.i = icmp slt i64 %add21.i.reass, %sub.ptr.sub.i.i.i116.pre-phi
   %cmp24.i = icmp eq i64 %shl18.i, -2
   %or.cond.i203 = select i1 %cmp22.i, i1 %cmp24.i, i1 false
   %spec.select.i = select i1 %or.cond.i203, i64 0, i64 %or.i202
@@ -59730,9 +59730,9 @@ for.body21.i.preheader:                           ; preds = %for.cond18.preheade
   %45 = lshr i64 %44, 3
   %46 = add nuw nsw i64 %45, 1
   %min.iters.check = icmp ult i64 %44, 24
-  br i1 %min.iters.check, label %for.body21.i.preheader44, label %vector.ph
+  br i1 %min.iters.check, label %for.body21.i.preheader45, label %vector.ph
 
-for.body21.i.preheader44:                         ; preds = %middle.block, %for.body21.i.preheader
+for.body21.i.preheader45:                         ; preds = %middle.block, %for.body21.i.preheader
   %CommonChars.152.i.ph = phi i64 [ %54, %middle.block ], [ 0, %for.body21.i.preheader ]
   %__begin312.sroa.0.051.i.ph = phi ptr [ %ind.end, %middle.block ], [ %39, %for.body21.i.preheader ]
   br label %for.body21.i
@@ -59764,7 +59764,7 @@ middle.block:                                     ; preds = %vector.body
   %bin.rdx = add <2 x i64> %52, %51
   %54 = tail call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx)
   %cmp.n = icmp eq i64 %46, %n.vec
-  br i1 %cmp.n, label %_ZN19duckdb_jaro_winkler6detailL18count_common_charsERKNS0_21FlaggedCharsMultiwordE.exit, label %for.body21.i.preheader44
+  br i1 %cmp.n, label %_ZN19duckdb_jaro_winkler6detailL18count_common_charsERKNS0_21FlaggedCharsMultiwordE.exit, label %for.body21.i.preheader45
 
 for.cond.preheader.i:                             ; preds = %_ZN19duckdb_jaro_winkler6detailL29flag_similar_characters_blockIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EENS0_21FlaggedCharsMultiwordERKNS_6common23BlockPatternMatchVectorET_SI_T0_SJ_l.exit
   %cmp.i.not53.i = icmp eq ptr %41, %.pre
@@ -59775,7 +59775,7 @@ for.body.i211.preheader:                          ; preds = %for.cond.preheader.
   %56 = lshr i64 %55, 3
   %57 = add nuw nsw i64 %56, 1
   %min.iters.check358 = icmp ult i64 %55, 24
-  br i1 %min.iters.check358, label %for.body.i211.preheader41, label %vector.ph359
+  br i1 %min.iters.check358, label %for.body.i211.preheader42, label %vector.ph359
 
 vector.ph359:                                     ; preds = %for.body.i211.preheader
   %n.vec361 = and i64 %57, 4611686018427387900
@@ -59804,16 +59804,16 @@ middle.block356:                                  ; preds = %vector.body365
   %bin.rdx375 = add <2 x i64> %63, %62
   %65 = tail call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx375)
   %cmp.n364 = icmp eq i64 %57, %n.vec361
-  br i1 %cmp.n364, label %_ZN19duckdb_jaro_winkler6detailL18count_common_charsERKNS0_21FlaggedCharsMultiwordE.exit, label %for.body.i211.preheader41
+  br i1 %cmp.n364, label %_ZN19duckdb_jaro_winkler6detailL18count_common_charsERKNS0_21FlaggedCharsMultiwordE.exit, label %for.body.i211.preheader42
 
-for.body.i211.preheader41:                        ; preds = %middle.block356, %for.body.i211.preheader
+for.body.i211.preheader42:                        ; preds = %middle.block356, %for.body.i211.preheader
   %CommonChars.055.i.ph = phi i64 [ %65, %middle.block356 ], [ 0, %for.body.i211.preheader ]
   %__begin3.sroa.0.054.i.ph = phi ptr [ %ind.end362, %middle.block356 ], [ %41, %for.body.i211.preheader ]
   br label %for.body.i211
 
-for.body.i211:                                    ; preds = %for.body.i211.preheader41, %for.body.i211
-  %CommonChars.055.i = phi i64 [ %add.i212, %for.body.i211 ], [ %CommonChars.055.i.ph, %for.body.i211.preheader41 ]
-  %__begin3.sroa.0.054.i = phi ptr [ %incdec.ptr.i.i, %for.body.i211 ], [ %__begin3.sroa.0.054.i.ph, %for.body.i211.preheader41 ]
+for.body.i211:                                    ; preds = %for.body.i211.preheader42, %for.body.i211
+  %CommonChars.055.i = phi i64 [ %add.i212, %for.body.i211 ], [ %CommonChars.055.i.ph, %for.body.i211.preheader42 ]
+  %__begin3.sroa.0.054.i = phi ptr [ %incdec.ptr.i.i, %for.body.i211 ], [ %__begin3.sroa.0.054.i.ph, %for.body.i211.preheader42 ]
   %66 = load i64, ptr %__begin3.sroa.0.054.i, align 8, !tbaa !68
   %67 = tail call noundef i64 @llvm.ctpop.i64(i64 %66), !range !1381
   %add.i212 = add nuw nsw i64 %67, %CommonChars.055.i
@@ -59821,9 +59821,9 @@ for.body.i211:                                    ; preds = %for.body.i211.prehe
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %.pre
   br i1 %cmp.i.not.i, label %_ZN19duckdb_jaro_winkler6detailL18count_common_charsERKNS0_21FlaggedCharsMultiwordE.exit, label %for.body.i211, !llvm.loop !1455
 
-for.body21.i:                                     ; preds = %for.body21.i.preheader44, %for.body21.i
-  %CommonChars.152.i = phi i64 [ %add25.i, %for.body21.i ], [ %CommonChars.152.i.ph, %for.body21.i.preheader44 ]
-  %__begin312.sroa.0.051.i = phi ptr [ %incdec.ptr.i44.i, %for.body21.i ], [ %__begin312.sroa.0.051.i.ph, %for.body21.i.preheader44 ]
+for.body21.i:                                     ; preds = %for.body21.i.preheader45, %for.body21.i
+  %CommonChars.152.i = phi i64 [ %add25.i, %for.body21.i ], [ %CommonChars.152.i.ph, %for.body21.i.preheader45 ]
+  %__begin312.sroa.0.051.i = phi ptr [ %incdec.ptr.i44.i, %for.body21.i ], [ %__begin312.sroa.0.051.i.ph, %for.body21.i.preheader45 ]
   %68 = load i64, ptr %__begin312.sroa.0.051.i, align 8, !tbaa !68
   %69 = tail call noundef i64 @llvm.ctpop.i64(i64 %68), !range !1381
   %add25.i = add nuw nsw i64 %69, %CommonChars.152.i
@@ -61156,6 +61156,7 @@ for.body.lr.ph.i216:                              ; preds = %invoke.cont4.i
   %BoundMask.sroa.10.0.agg.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %BoundMask.sroa.13.0.agg.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   %BoundMask.sroa.17.0.agg.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
+  %invariant.op30 = add nsw i64 %Bound.0.i, 2
   br label %for.body.i222
 
 lpad.i215:                                        ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i362, %if.then.i.i379.invoke
@@ -61180,16 +61181,15 @@ for.body.i222:                                    ; preds = %for.inc.i224, %for.
   store i64 %BoundMask.sroa.13.0100.i, ptr %BoundMask.sroa.13.0.agg.tmp.sroa_idx.i, align 8, !tbaa !68, !noalias !1472
   store i64 %BoundMask.sroa.17.0101.i, ptr %BoundMask.sroa.17.0.agg.tmp.sroa_idx.i, align 8, !tbaa !68, !noalias !1472
   call fastcc void @_ZN19duckdb_jaro_winkler6detailL28flag_similar_characters_stepIcEEvRKNS_6common23BlockPatternMatchVectorET_RNS0_21FlaggedCharsMultiwordElNS0_15SearchBoundMaskE(ptr noundef nonnull align 8 dereferenceable(56) %PM29, i8 noundef signext %44, ptr %.pre430, ptr %41, i64 noundef %j.0103.i, ptr noundef nonnull byval(%"struct.duckdb_jaro_winkler::detail::SearchBoundMask") align 8 %agg.tmp.i)
-  %add9.i = add nsw i64 %j.0103.i, %Bound.0.i
-  %add10.i = add nsw i64 %add9.i, 1
-  %cmp11.i = icmp slt i64 %add10.i, %sub.ptr.sub.i.i108
+  %add10.i.reass = add i64 %j.0103.i, %add.i217
+  %cmp11.i = icmp slt i64 %add10.i.reass, %sub.ptr.sub.i.i108
   br i1 %cmp11.i, label %if.then.i226, label %if.end23.i
 
 if.then.i226:                                     ; preds = %for.body.i222
   %shl13.i = shl i64 %BoundMask.sroa.13.0100.i, 1
   %or.i227 = or disjoint i64 %shl13.i, 1
-  %add16.i = add nsw i64 %add9.i, 2
-  %cmp17.i = icmp slt i64 %add16.i, %sub.ptr.sub.i.i108
+  %add16.i.reass = add i64 %j.0103.i, %invariant.op30
+  %cmp17.i = icmp slt i64 %add16.i.reass, %sub.ptr.sub.i.i108
   %cmp19.i = icmp eq i64 %shl13.i, -2
   %or.cond.i228 = select i1 %cmp17.i, i1 %cmp19.i, i1 false
   %spec.select.i = select i1 %or.cond.i228, i64 0, i64 %or.i227
@@ -61241,9 +61241,9 @@ for.body21.i.preheader:                           ; preds = %for.cond18.preheade
   %46 = lshr i64 %45, 3
   %47 = add nuw nsw i64 %46, 1
   %min.iters.check = icmp ult i64 %45, 24
-  br i1 %min.iters.check, label %for.body21.i.preheader53, label %vector.ph
+  br i1 %min.iters.check, label %for.body21.i.preheader54, label %vector.ph
 
-for.body21.i.preheader53:                         ; preds = %middle.block, %for.body21.i.preheader
+for.body21.i.preheader54:                         ; preds = %middle.block, %for.body21.i.preheader
   %CommonChars.152.i.ph = phi i64 [ %55, %middle.block ], [ 0, %for.body21.i.preheader ]
   %__begin312.sroa.0.051.i.ph = phi ptr [ %ind.end, %middle.block ], [ %41, %for.body21.i.preheader ]
   br label %for.body21.i
@@ -61275,7 +61275,7 @@ middle.block:                                     ; preds = %vector.body
   %bin.rdx = add <2 x i64> %53, %52
   %55 = call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx)
   %cmp.n = icmp eq i64 %47, %n.vec
-  br i1 %cmp.n, label %_ZN19duckdb_jaro_winkler6detailL18count_common_charsERKNS0_21FlaggedCharsMultiwordE.exit, label %for.body21.i.preheader53
+  br i1 %cmp.n, label %_ZN19duckdb_jaro_winkler6detailL18count_common_charsERKNS0_21FlaggedCharsMultiwordE.exit, label %for.body21.i.preheader54
 
 for.cond.preheader.i:                             ; preds = %invoke.cont
   %cmp.i.not53.i = icmp eq ptr %.pre430, %.pre
@@ -61286,7 +61286,7 @@ for.body.i236.preheader:                          ; preds = %for.cond.preheader.
   %57 = lshr i64 %56, 3
   %58 = add nuw nsw i64 %57, 1
   %min.iters.check444 = icmp ult i64 %56, 24
-  br i1 %min.iters.check444, label %for.body.i236.preheader50, label %vector.ph445
+  br i1 %min.iters.check444, label %for.body.i236.preheader51, label %vector.ph445
 
 vector.ph445:                                     ; preds = %for.body.i236.preheader
   %n.vec447 = and i64 %58, 4611686018427387900
@@ -61315,16 +61315,16 @@ middle.block442:                                  ; preds = %vector.body451
   %bin.rdx461 = add <2 x i64> %64, %63
   %66 = call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx461)
   %cmp.n450 = icmp eq i64 %58, %n.vec447
-  br i1 %cmp.n450, label %_ZN19duckdb_jaro_winkler6detailL18count_common_charsERKNS0_21FlaggedCharsMultiwordE.exit, label %for.body.i236.preheader50
+  br i1 %cmp.n450, label %_ZN19duckdb_jaro_winkler6detailL18count_common_charsERKNS0_21FlaggedCharsMultiwordE.exit, label %for.body.i236.preheader51
 
-for.body.i236.preheader50:                        ; preds = %middle.block442, %for.body.i236.preheader
+for.body.i236.preheader51:                        ; preds = %middle.block442, %for.body.i236.preheader
   %CommonChars.055.i.ph = phi i64 [ %66, %middle.block442 ], [ 0, %for.body.i236.preheader ]
   %__begin3.sroa.0.054.i.ph = phi ptr [ %ind.end448, %middle.block442 ], [ %.pre430, %for.body.i236.preheader ]
   br label %for.body.i236
 
-for.body.i236:                                    ; preds = %for.body.i236.preheader50, %for.body.i236
-  %CommonChars.055.i = phi i64 [ %add.i237, %for.body.i236 ], [ %CommonChars.055.i.ph, %for.body.i236.preheader50 ]
-  %__begin3.sroa.0.054.i = phi ptr [ %incdec.ptr.i.i, %for.body.i236 ], [ %__begin3.sroa.0.054.i.ph, %for.body.i236.preheader50 ]
+for.body.i236:                                    ; preds = %for.body.i236.preheader51, %for.body.i236
+  %CommonChars.055.i = phi i64 [ %add.i237, %for.body.i236 ], [ %CommonChars.055.i.ph, %for.body.i236.preheader51 ]
+  %__begin3.sroa.0.054.i = phi ptr [ %incdec.ptr.i.i, %for.body.i236 ], [ %__begin3.sroa.0.054.i.ph, %for.body.i236.preheader51 ]
   %67 = load i64, ptr %__begin3.sroa.0.054.i, align 8, !tbaa !68
   %68 = call noundef i64 @llvm.ctpop.i64(i64 %67), !range !1381
   %add.i237 = add nuw nsw i64 %68, %CommonChars.055.i
@@ -61332,9 +61332,9 @@ for.body.i236:                                    ; preds = %for.body.i236.prehe
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %.pre
   br i1 %cmp.i.not.i, label %_ZN19duckdb_jaro_winkler6detailL18count_common_charsERKNS0_21FlaggedCharsMultiwordE.exit, label %for.body.i236, !llvm.loop !1478
 
-for.body21.i:                                     ; preds = %for.body21.i.preheader53, %for.body21.i
-  %CommonChars.152.i = phi i64 [ %add25.i, %for.body21.i ], [ %CommonChars.152.i.ph, %for.body21.i.preheader53 ]
-  %__begin312.sroa.0.051.i = phi ptr [ %incdec.ptr.i44.i, %for.body21.i ], [ %__begin312.sroa.0.051.i.ph, %for.body21.i.preheader53 ]
+for.body21.i:                                     ; preds = %for.body21.i.preheader54, %for.body21.i
+  %CommonChars.152.i = phi i64 [ %add25.i, %for.body21.i ], [ %CommonChars.152.i.ph, %for.body21.i.preheader54 ]
+  %__begin312.sroa.0.051.i = phi ptr [ %incdec.ptr.i44.i, %for.body21.i ], [ %__begin312.sroa.0.051.i.ph, %for.body21.i.preheader54 ]
   %69 = load i64, ptr %__begin312.sroa.0.051.i, align 8, !tbaa !68
   %70 = call noundef i64 @llvm.ctpop.i64(i64 %69), !range !1381
   %add25.i = add nuw nsw i64 %70, %CommonChars.152.i

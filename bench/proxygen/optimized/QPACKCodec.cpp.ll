@@ -1204,29 +1204,26 @@ while.body.preheader.i.i:                         ; preds = %if.end103
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %66, i64 %mul.i.i.i.i
   %68 = load i64, ptr %length_.i.i, align 8
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %call3.i6.i = call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i.i, i32 noundef 38, i64 noundef %68) #27
-  %cmp.not.i7.i = icmp eq ptr %call3.i6.i, null
-  br i1 %cmp.not.i7.i, label %invoke.cont107, label %if.end.i.i.preheader
-
-if.end.i.i.preheader:                             ; preds = %while.body.preheader.i.i
-  %sub.ptr.sub.neg.i.i = add i64 %68, %sub.ptr.rhs.cast.i.i
-  br label %if.end.i.i
+  %invariant.op.i = add i64 %68, %sub.ptr.rhs.cast.i.i
+  %call3.i5.i = call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i.i, i32 noundef 38, i64 noundef %68) #27
+  %cmp.not.i6.i = icmp eq ptr %call3.i5.i, null
+  br i1 %cmp.not.i6.i, label %invoke.cont107, label %if.end.i.i
 
 while.cond.i.i:                                   ; preds = %if.end.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call3.i9.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call3.i8.i, i64 1
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %incdec.ptr.i.i to i64
-  %sub.i.i = sub i64 %sub.ptr.sub.neg.i.i, %sub.ptr.lhs.cast.i.i
-  %call3.i.i = call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr.i.i, i32 noundef 38, i64 noundef %sub.i.i) #27
+  %sub.i.reass.i = sub i64 %invariant.op.i, %sub.ptr.lhs.cast.i.i
+  %call3.i.i = call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr.i.i, i32 noundef 38, i64 noundef %sub.i.reass.i) #27
   %cmp.not.i.i = icmp eq ptr %call3.i.i, null
   br i1 %cmp.not.i.i, label %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %if.end.i.i.preheader, %while.cond.i.i
-  %call3.i9.i = phi ptr [ %call3.i.i, %while.cond.i.i ], [ %call3.i6.i, %if.end.i.i.preheader ]
-  %res.08.i = phi i1 [ false, %while.cond.i.i ], [ true, %if.end.i.i.preheader ]
-  br i1 %res.08.i, label %while.cond.i.i, label %invoke.cont107
+if.end.i.i:                                       ; preds = %while.body.preheader.i.i, %while.cond.i.i
+  %call3.i8.i = phi ptr [ %call3.i.i, %while.cond.i.i ], [ %call3.i5.i, %while.body.preheader.i.i ]
+  %res.07.i = phi i1 [ false, %while.cond.i.i ], [ true, %while.body.preheader.i.i ]
+  br i1 %res.07.i, label %while.cond.i.i, label %invoke.cont107
 
 _ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit.i: ; preds = %while.cond.i.i
-  %sub.ptr.lhs.cast5.i.le.i = ptrtoint ptr %call3.i9.i to i64
+  %sub.ptr.lhs.cast5.i.le.i = ptrtoint ptr %call3.i8.i to i64
   %sub.ptr.sub7.i.le.i = sub i64 %sub.ptr.lhs.cast5.i.le.i, %sub.ptr.rhs.cast.i.i
   %arrayidx.i.le.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %66, i64 %sub.ptr.sub7.i.le.i
   br label %invoke.cont107

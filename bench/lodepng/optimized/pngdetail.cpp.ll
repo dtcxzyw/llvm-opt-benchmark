@@ -7170,32 +7170,36 @@ if.then321:                                       ; preds = %if.end318
           to label %for.cond325.preheader unwind label %lpad192.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 for.cond325.preheader:                            ; preds = %if.then321
+  %invariant.op = add nuw nsw i64 %or14.i473, 4
   %cmp326736 = icmp ugt i32 %or14.i492, 8
-  br i1 %cmp326736, label %for.body327, label %if.end338
+  br i1 %cmp326736, label %for.body327.preheader, label %if.end338
 
-for.body327:                                      ; preds = %for.cond325.preheader, %for.inc335
-  %j324.0737 = phi i64 [ %add336, %for.inc335 ], [ 8, %for.cond325.preheader ]
-  %add328 = add nuw nsw i64 %j324.0737, %or14.i473
-  %add.i.i637 = add nuw nsw i64 %add328, 4
-  %cmp.i.i638 = icmp ugt i64 %add.i.i637, %size
+for.body327.preheader:                            ; preds = %for.cond325.preheader
+  %invariant.gep749 = getelementptr inbounds i8, ptr %icc, i64 %or14.i473
+  br label %for.body327
+
+for.body327:                                      ; preds = %for.body327.preheader, %for.inc335
+  %j324.0737 = phi i64 [ %add336, %for.inc335 ], [ 8, %for.body327.preheader ]
+  %add.i.i637.reass = add nuw i64 %j324.0737, %invariant.op
+  %cmp.i.i638 = icmp ugt i64 %add.i.i637.reass, %size
   br i1 %cmp.i.i638, label %invoke.cont329, label %if.end.i.i639
 
 if.end.i.i639:                                    ; preds = %for.body327
-  %arrayidx.i.i640 = getelementptr inbounds i8, ptr %icc, i64 %add328
-  %155 = load i8, ptr %arrayidx.i.i640, align 1
+  %gep750 = getelementptr inbounds i8, ptr %invariant.gep749, i64 %j324.0737
+  %155 = load i8, ptr %gep750, align 1
   %conv.i.i641 = zext i8 %155 to i32
   %shl.i.i642 = shl nuw i32 %conv.i.i641, 24
-  %arrayidx2.i.i643 = getelementptr i8, ptr %arrayidx.i.i640, i64 1
+  %arrayidx2.i.i643 = getelementptr i8, ptr %gep750, i64 1
   %156 = load i8, ptr %arrayidx2.i.i643, align 1
   %conv3.i.i644 = zext i8 %156 to i32
   %shl4.i.i645 = shl nuw nsw i32 %conv3.i.i644, 16
   %or.i.i646 = or disjoint i32 %shl4.i.i645, %shl.i.i642
-  %arrayidx6.i.i647 = getelementptr i8, ptr %arrayidx.i.i640, i64 2
+  %arrayidx6.i.i647 = getelementptr i8, ptr %gep750, i64 2
   %157 = load i8, ptr %arrayidx6.i.i647, align 1
   %conv7.i.i648 = zext i8 %157 to i32
   %shl8.i.i649 = shl nuw nsw i32 %conv7.i.i648, 8
   %or9.i.i650 = or disjoint i32 %or.i.i646, %shl8.i.i649
-  %arrayidx11.i.i651 = getelementptr i8, ptr %arrayidx.i.i640, i64 3
+  %arrayidx11.i.i651 = getelementptr i8, ptr %gep750, i64 3
   %158 = load i8, ptr %arrayidx11.i.i651, align 1
   %conv12.i.i652 = zext i8 %158 to i32
   %or14.i.i653 = or disjoint i32 %or9.i.i650, %conv12.i.i652

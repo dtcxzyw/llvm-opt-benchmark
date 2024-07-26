@@ -123084,14 +123084,17 @@ if.then7.i:                                       ; preds = %land.lhs.true5.i
   %shr.i10.i.i = lshr exact i64 %1, 1
   %shr.i11.i.i = lshr exact i64 %0, 1
   %sub.i.i = sub nsw i64 %shr.i11.i.i, %shr.i10.i.i
-  %_ZN4absl13test_internal19BaseCountedInstance10num_moves_E.promoted.i.i.i = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance10num_moves_E, align 4
   %cmp31.not.i.i.i = icmp ult i64 %1, 2
-  br i1 %cmp31.not.i.i.i, label %_ZN4absl23inlined_vector_internal7StorageIN12_GLOBAL__N_120NonSwappableInstanceELm2ESaIS3_EE5SwapNENS5_26ElementwiseConstructPolicyEPS5_m.exit.i.i, label %_ZN12_GLOBAL__N_120NonSwappableInstanceD2Ev.exit.i.i.i
+  br i1 %cmp31.not.i.i.i, label %_ZN4absl23inlined_vector_internal7StorageIN12_GLOBAL__N_120NonSwappableInstanceELm2ESaIS3_EE5SwapNENS5_26ElementwiseConstructPolicyEPS5_m.exit.i.i, label %_ZN12_GLOBAL__N_120NonSwappableInstanceD2Ev.exit.lr.ph.i.i.i
 
-_ZN12_GLOBAL__N_120NonSwappableInstanceD2Ev.exit.i.i.i: ; preds = %if.then7.i, %_ZN12_GLOBAL__N_120NonSwappableInstanceD2Ev.exit.i.i.i
-  %this.pn35.i.i.i = phi ptr [ %a.0.i.i.i, %_ZN12_GLOBAL__N_120NonSwappableInstanceD2Ev.exit.i.i.i ], [ %this, %if.then7.i ]
-  %other.pn34.i.i.i = phi ptr [ %b.0.i.i.i, %_ZN12_GLOBAL__N_120NonSwappableInstanceD2Ev.exit.i.i.i ], [ %other, %if.then7.i ]
-  %i.033.i.i.i = phi i64 [ %inc.i.i.i, %_ZN12_GLOBAL__N_120NonSwappableInstanceD2Ev.exit.i.i.i ], [ 0, %if.then7.i ]
+_ZN12_GLOBAL__N_120NonSwappableInstanceD2Ev.exit.lr.ph.i.i.i: ; preds = %if.then7.i
+  %_ZN4absl13test_internal19BaseCountedInstance10num_moves_E.promoted.i.i.i = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance10num_moves_E, align 4
+  br label %_ZN12_GLOBAL__N_120NonSwappableInstanceD2Ev.exit.i.i.i
+
+_ZN12_GLOBAL__N_120NonSwappableInstanceD2Ev.exit.i.i.i: ; preds = %_ZN12_GLOBAL__N_120NonSwappableInstanceD2Ev.exit.i.i.i, %_ZN12_GLOBAL__N_120NonSwappableInstanceD2Ev.exit.lr.ph.i.i.i
+  %this.pn35.i.i.i = phi ptr [ %this, %_ZN12_GLOBAL__N_120NonSwappableInstanceD2Ev.exit.lr.ph.i.i.i ], [ %a.0.i.i.i, %_ZN12_GLOBAL__N_120NonSwappableInstanceD2Ev.exit.i.i.i ]
+  %other.pn34.i.i.i = phi ptr [ %other, %_ZN12_GLOBAL__N_120NonSwappableInstanceD2Ev.exit.lr.ph.i.i.i ], [ %b.0.i.i.i, %_ZN12_GLOBAL__N_120NonSwappableInstanceD2Ev.exit.i.i.i ]
+  %i.033.i.i.i = phi i64 [ 0, %_ZN12_GLOBAL__N_120NonSwappableInstanceD2Ev.exit.lr.ph.i.i.i ], [ %inc.i.i.i, %_ZN12_GLOBAL__N_120NonSwappableInstanceD2Ev.exit.i.i.i ]
   %a.0.i.i.i = getelementptr inbounds i8, ptr %this.pn35.i.i.i, i64 8
   %b.0.i.i.i = getelementptr inbounds i8, ptr %other.pn34.i.i.i, i64 8
   %2 = load i32, ptr %a.0.i.i.i, align 4

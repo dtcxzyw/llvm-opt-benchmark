@@ -2120,26 +2120,26 @@ while.body.preheader.i:                           ; preds = %entry
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 %mul.i.i.i
   %3 = load i64, ptr %length_.i, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i.i.i to i64
-  %call3.i6 = tail call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i, i32 noundef %conv.i, i64 noundef %3) #19
-  %cmp.not.i7 = icmp eq ptr %call3.i6, null
-  br i1 %cmp.not.i7, label %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit, label %if.end.i
+  %invariant.op = add i64 %3, %sub.ptr.rhs.cast.i
+  %call3.i5 = tail call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i, i32 noundef %conv.i, i64 noundef %3) #19
+  %cmp.not.i6 = icmp eq ptr %call3.i5, null
+  br i1 %cmp.not.i6, label %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit, label %if.end.i
 
 while.cond.i:                                     ; preds = %if.end.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %call3.i9, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %call3.i8, i64 1
   %sub.ptr.lhs.cast.i = ptrtoint ptr %incdec.ptr.i to i64
-  %sub.ptr.sub.neg.i = sub i64 %sub.ptr.rhs.cast.i, %sub.ptr.lhs.cast.i
-  %sub.i = add i64 %sub.ptr.sub.neg.i, %3
-  %call3.i = tail call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr.i, i32 noundef %conv.i, i64 noundef %sub.i) #19
+  %sub.i.reass = sub i64 %invariant.op, %sub.ptr.lhs.cast.i
+  %call3.i = tail call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr.i, i32 noundef %conv.i, i64 noundef %sub.i.reass) #19
   %cmp.not.i = icmp eq ptr %call3.i, null
   br i1 %cmp.not.i, label %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body.preheader.i, %while.cond.i
-  %call3.i9 = phi ptr [ %call3.i, %while.cond.i ], [ %call3.i6, %while.body.preheader.i ]
-  %res.08 = phi i1 [ false, %while.cond.i ], [ true, %while.body.preheader.i ]
-  br i1 %res.08, label %while.cond.i, label %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit
+  %call3.i8 = phi ptr [ %call3.i, %while.cond.i ], [ %call3.i5, %while.body.preheader.i ]
+  %res.07 = phi i1 [ false, %while.cond.i ], [ true, %while.body.preheader.i ]
+  br i1 %res.07, label %while.cond.i, label %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit
 
 _ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit.loopexit.split.loop.exit: ; preds = %while.cond.i
-  %sub.ptr.lhs.cast5.i.le = ptrtoint ptr %call3.i9 to i64
+  %sub.ptr.lhs.cast5.i.le = ptrtoint ptr %call3.i8 to i64
   %sub.ptr.sub7.i.le = sub i64 %sub.ptr.lhs.cast5.i.le, %sub.ptr.rhs.cast.i
   %arrayidx.i.le = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %1, i64 %sub.ptr.sub7.i.le
   br label %_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_EUlSB_E_EEbS3_SC_.exit

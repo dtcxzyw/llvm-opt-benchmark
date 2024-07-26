@@ -414,12 +414,13 @@ define dso_local void @scontrol_print_completing_job(ptr noundef %0, ptr noundef
 .preheader.lr.ph:                                 ; preds = %17
   %21 = getelementptr inbounds i8, ptr %1, i64 8
   %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %invariant.op = add i64 1, %.037
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %23 = phi ptr [ %19, %.preheader.lr.ph ], [ %52, %._crit_edge ]
+  %23 = phi ptr [ %19, %.preheader.lr.ph ], [ %51, %._crit_edge ]
   %indvars.iv58 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next59, %._crit_edge ]
-  %24 = phi i32 [ %20, %.preheader.lr.ph ], [ %54, %._crit_edge ]
+  %24 = phi i32 [ %20, %.preheader.lr.ph ], [ %53, %._crit_edge ]
   %25 = or disjoint i64 %indvars.iv58, 1
   %26 = getelementptr inbounds i32, ptr %23, i64 %25
   %27 = load i32, ptr %26, align 4
@@ -434,106 +435,106 @@ define dso_local void @scontrol_print_completing_job(ptr noundef %0, ptr noundef
   %.not4963 = icmp ugt i32 %30, %31
   br i1 %.not4963, label %.lr.ph65, label %._crit_edge
 
-.lr.ph:                                           ; preds = %47
+.lr.ph:                                           ; preds = %46
   %indvars.iv.next = add nsw i64 %indvars.iv64, 1
-  %32 = add nsw i64 %indvars.iv.next, %.037
-  %33 = load i32, ptr %21, align 8
-  %34 = trunc nsw i64 %32 to i32
-  %.not49 = icmp ugt i32 %33, %34
+  %.reass = add i64 %indvars.iv64, %invariant.op
+  %32 = load i32, ptr %21, align 8
+  %33 = trunc nsw i64 %.reass to i32
+  %.not49 = icmp ugt i32 %32, %33
   br i1 %.not49, label %.lr.ph65, label %._crit_edge, !llvm.loop !9
 
 .lr.ph65:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %35 = phi i64 [ %32, %.lr.ph ], [ %29, %.lr.ph.preheader ]
+  %34 = phi i64 [ %.reass, %.lr.ph ], [ %29, %.lr.ph.preheader ]
   %indvars.iv64 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %28, %.lr.ph.preheader ]
-  %36 = load ptr, ptr %22, align 8
-  %37 = getelementptr inbounds %struct.node_info, ptr %36, i64 %35
-  %38 = getelementptr inbounds i8, ptr %37, i64 224
-  %39 = load i32, ptr %38, align 8
-  %40 = and i32 %39, 1024
-  %.not50 = icmp eq i32 %40, 0
-  br i1 %.not50, label %41, label %.sink.split
+  %35 = load ptr, ptr %22, align 8
+  %36 = getelementptr inbounds %struct.node_info, ptr %35, i64 %34
+  %37 = getelementptr inbounds i8, ptr %36, i64 224
+  %38 = load i32, ptr %37, align 8
+  %39 = and i32 %38, 1024
+  %.not50 = icmp eq i32 %39, 0
+  br i1 %.not50, label %40, label %.sink.split
 
-41:                                               ; preds = %.lr.ph65
-  %42 = and i32 %39, 15
-  %43 = icmp eq i32 %42, 1
-  br i1 %43, label %.sink.split, label %47
+40:                                               ; preds = %.lr.ph65
+  %41 = and i32 %38, 15
+  %42 = icmp eq i32 %41, 1
+  br i1 %42, label %.sink.split, label %46
 
-.sink.split:                                      ; preds = %41, %.lr.ph65
-  %.sink = phi ptr [ %5, %.lr.ph65 ], [ %6, %41 ]
-  %44 = getelementptr inbounds i8, ptr %37, i64 192
-  %45 = load ptr, ptr %44, align 8
-  %46 = tail call i32 @hostlist_push_host(ptr noundef %.sink, ptr noundef %45) #13
-  br label %47
+.sink.split:                                      ; preds = %40, %.lr.ph65
+  %.sink = phi ptr [ %5, %.lr.ph65 ], [ %6, %40 ]
+  %43 = getelementptr inbounds i8, ptr %36, i64 192
+  %44 = load ptr, ptr %43, align 8
+  %45 = tail call i32 @hostlist_push_host(ptr noundef %.sink, ptr noundef %44) #13
+  br label %46
 
-47:                                               ; preds = %.sink.split, %41
-  %48 = load ptr, ptr %18, align 8
-  %49 = getelementptr inbounds i32, ptr %48, i64 %25
-  %50 = load i32, ptr %49, align 4
-  %51 = sext i32 %50 to i64
-  %.not48.not = icmp slt i64 %indvars.iv64, %51
+46:                                               ; preds = %.sink.split, %40
+  %47 = load ptr, ptr %18, align 8
+  %48 = getelementptr inbounds i32, ptr %47, i64 %25
+  %49 = load i32, ptr %48, align 4
+  %50 = sext i32 %49 to i64
+  %.not48.not = icmp slt i64 %indvars.iv64, %50
   br i1 %.not48.not, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %47, %.lr.ph, %.lr.ph.preheader, %.preheader
-  %52 = phi ptr [ %23, %.preheader ], [ %23, %.lr.ph.preheader ], [ %48, %.lr.ph ], [ %48, %47 ]
+._crit_edge:                                      ; preds = %46, %.lr.ph, %.lr.ph.preheader, %.preheader
+  %51 = phi ptr [ %23, %.preheader ], [ %23, %.lr.ph.preheader ], [ %47, %.lr.ph ], [ %47, %46 ]
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 2
-  %53 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv.next59
-  %54 = load i32, ptr %53, align 4
-  %.not = icmp eq i32 %54, -1
+  %52 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv.next59
+  %53 = load i32, ptr %52, align 4
+  %.not = icmp eq i32 %53, -1
   br i1 %.not, label %._crit_edge56, label %.preheader, !llvm.loop !10
 
 ._crit_edge56:                                    ; preds = %._crit_edge, %17
-  %55 = load ptr, ptr @stdout, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 412
-  %57 = load i32, ptr %56, align 4
-  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.7, i32 noundef %57) #13
-  %59 = getelementptr inbounds i8, ptr %0, i64 272
-  call void @slurm_make_time_str(ptr noundef nonnull %59, ptr noundef nonnull %4, i32 noundef 256) #13
-  %60 = load ptr, ptr @stdout, align 8
-  %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.8, ptr noundef nonnull %4) #13
-  %62 = call i64 @time(ptr noundef null) #13
-  %63 = load i64, ptr %59, align 8
-  %64 = sub nsw i64 %62, %63
-  call void @secs2time_str(i64 noundef %64, ptr noundef nonnull %4, i32 noundef 256) #13
-  %65 = load ptr, ptr @stdout, align 8
-  %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.9, ptr noundef nonnull %4) #13
+  %54 = load ptr, ptr @stdout, align 8
+  %55 = getelementptr inbounds i8, ptr %0, i64 412
+  %56 = load i32, ptr %55, align 4
+  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.7, i32 noundef %56) #13
+  %58 = getelementptr inbounds i8, ptr %0, i64 272
+  call void @slurm_make_time_str(ptr noundef nonnull %58, ptr noundef nonnull %4, i32 noundef 256) #13
+  %59 = load ptr, ptr @stdout, align 8
+  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.8, ptr noundef nonnull %4) #13
+  %61 = call i64 @time(ptr noundef null) #13
+  %62 = load i64, ptr %58, align 8
+  %63 = sub nsw i64 %61, %62
+  call void @secs2time_str(i64 noundef %63, ptr noundef nonnull %4, i32 noundef 256) #13
+  %64 = load ptr, ptr @stdout, align 8
+  %65 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull @.str.9, ptr noundef nonnull %4) #13
   call void @hostlist_sort(ptr noundef %5) #13
   call void @hostlist_sort(ptr noundef %6) #13
-  %67 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef %5) #13
-  store ptr %67, ptr %3, align 8
-  %.not44 = icmp eq ptr %67, null
-  br i1 %.not44, label %73, label %68
+  %66 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef %5) #13
+  store ptr %66, ptr %3, align 8
+  %.not44 = icmp eq ptr %66, null
+  br i1 %.not44, label %72, label %67
 
-68:                                               ; preds = %._crit_edge56
-  %69 = load i8, ptr %67, align 1
-  %.not45 = icmp eq i8 %69, 0
-  br i1 %.not45, label %73, label %70
+67:                                               ; preds = %._crit_edge56
+  %68 = load i8, ptr %66, align 1
+  %.not45 = icmp eq i8 %68, 0
+  br i1 %.not45, label %72, label %69
 
-70:                                               ; preds = %68
-  %71 = load ptr, ptr @stdout, align 8
-  %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.10, ptr noundef nonnull %67) #13
-  br label %73
+69:                                               ; preds = %67
+  %70 = load ptr, ptr @stdout, align 8
+  %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str.10, ptr noundef nonnull %66) #13
+  br label %72
 
-73:                                               ; preds = %70, %68, %._crit_edge56
+72:                                               ; preds = %69, %67, %._crit_edge56
   call void @slurm_xfree(ptr noundef nonnull %3) #13
-  %74 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef %6) #13
-  store ptr %74, ptr %3, align 8
-  %.not46 = icmp eq ptr %74, null
-  br i1 %.not46, label %80, label %75
+  %73 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef %6) #13
+  store ptr %73, ptr %3, align 8
+  %.not46 = icmp eq ptr %73, null
+  br i1 %.not46, label %79, label %74
 
-75:                                               ; preds = %73
-  %76 = load i8, ptr %74, align 1
-  %.not47 = icmp eq i8 %76, 0
-  br i1 %.not47, label %80, label %77
+74:                                               ; preds = %72
+  %75 = load i8, ptr %73, align 1
+  %.not47 = icmp eq i8 %75, 0
+  br i1 %.not47, label %79, label %76
 
-77:                                               ; preds = %75
-  %78 = load ptr, ptr @stdout, align 8
-  %79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str.11, ptr noundef nonnull %74) #13
-  br label %80
+76:                                               ; preds = %74
+  %77 = load ptr, ptr @stdout, align 8
+  %78 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %77, ptr noundef nonnull @.str.11, ptr noundef nonnull %73) #13
+  br label %79
 
-80:                                               ; preds = %77, %75, %73
+79:                                               ; preds = %76, %74, %72
   call void @slurm_xfree(ptr noundef nonnull %3) #13
-  %81 = load ptr, ptr @stdout, align 8
-  %fputc = call i32 @fputc(i32 10, ptr %81)
+  %80 = load ptr, ptr @stdout, align 8
+  %fputc = call i32 @fputc(i32 10, ptr %80)
   call void @hostlist_destroy(ptr noundef %5) #13
   call void @hostlist_destroy(ptr noundef %6) #13
   ret void

@@ -95,7 +95,7 @@ define void @PHP_HAVALUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2) #1 
   %19 = sub nuw nsw i32 128, %6
   %20 = zext nneg i32 %19 to i64
   %.not = icmp ugt i64 %20, %2
-  br i1 %.not, label %34, label %21
+  br i1 %.not, label %33, label %21
 
 21:                                               ; preds = %._crit_edge
   %22 = getelementptr inbounds i8, ptr %0, i64 40
@@ -115,22 +115,22 @@ define void @PHP_HAVALUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2) #1 
   %30 = getelementptr inbounds i8, ptr %1, i64 %.033
   tail call void %29(ptr noundef nonnull %0, ptr noundef %30) #6
   %31 = add i64 %.033, 128
-  %32 = add i64 %.033, 255
-  %33 = icmp ult i64 %32, %2
-  br i1 %33, label %.lr.ph, label %.loopexit
+  %.reass = add i64 %.033, 255
+  %32 = icmp ult i64 %.reass, %2
+  br i1 %32, label %.lr.ph, label %.loopexit
 
-34:                                               ; preds = %._crit_edge
-  %35 = zext nneg i32 %6 to i64
+33:                                               ; preds = %._crit_edge
+  %34 = zext nneg i32 %6 to i64
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %21, %34
-  %.030 = phi i64 [ %35, %34 ], [ 0, %21 ], [ 0, %.lr.ph ]
-  %.1 = phi i64 [ 0, %34 ], [ %20, %21 ], [ %31, %.lr.ph ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
-  %37 = getelementptr inbounds [128 x i8], ptr %36, i64 0, i64 %.030
-  %38 = getelementptr inbounds i8, ptr %1, i64 %.1
-  %39 = sub i64 %2, %.1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr align 1 %38, i64 %39, i1 false)
+.loopexit:                                        ; preds = %.lr.ph, %21, %33
+  %.030 = phi i64 [ %34, %33 ], [ 0, %21 ], [ 0, %.lr.ph ]
+  %.1 = phi i64 [ 0, %33 ], [ %20, %21 ], [ %31, %.lr.ph ]
+  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = getelementptr inbounds [128 x i8], ptr %35, i64 0, i64 %.030
+  %37 = getelementptr inbounds i8, ptr %1, i64 %.1
+  %38 = sub i64 %2, %.1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr align 1 %37, i64 %38, i1 false)
   ret void
 }
 
@@ -205,7 +205,7 @@ Encode.exit:                                      ; preds = %.lr.ph.i
   store i32 %48, ptr %43, align 4
   %49 = sub nuw nsw i32 128, %36
   %.not.i = icmp ugt i32 %49, %38
-  br i1 %.not.i, label %64, label %50
+  br i1 %.not.i, label %63, label %50
 
 50:                                               ; preds = %Encode.exit
   %51 = zext nneg i32 %49 to i64
@@ -226,132 +226,132 @@ Encode.exit:                                      ; preds = %.lr.ph.i
   %60 = getelementptr inbounds i8, ptr @PADDING, i64 %.033.i
   tail call void %59(ptr noundef nonnull %1, ptr noundef nonnull %60) #6
   %61 = add nuw nsw i64 %.033.i, 128
-  %62 = add nuw nsw i64 %.033.i, 255
-  %63 = icmp ult i64 %62, %39
-  br i1 %63, label %.lr.ph.i33, label %PHP_HAVALUpdate.exit
+  %.reass.i = add nuw nsw i64 %.033.i, 255
+  %62 = icmp ult i64 %.reass.i, %39
+  br i1 %62, label %.lr.ph.i33, label %PHP_HAVALUpdate.exit
 
-64:                                               ; preds = %Encode.exit
-  %65 = zext nneg i32 %36 to i64
+63:                                               ; preds = %Encode.exit
+  %64 = zext nneg i32 %36 to i64
   br label %PHP_HAVALUpdate.exit
 
-PHP_HAVALUpdate.exit:                             ; preds = %.lr.ph.i33, %50, %64
-  %.030.i = phi i64 [ %65, %64 ], [ 0, %50 ], [ 0, %.lr.ph.i33 ]
-  %.1.i = phi i64 [ 0, %64 ], [ %51, %50 ], [ %61, %.lr.ph.i33 ]
-  %66 = getelementptr inbounds i8, ptr %1, i64 40
-  %67 = getelementptr inbounds [128 x i8], ptr %66, i64 0, i64 %.030.i
-  %68 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
-  %69 = sub i64 %39, %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr nonnull align 1 %68, i64 %69, i1 false)
-  %70 = load i32, ptr %17, align 8
-  %71 = lshr i32 %70, 3
-  %72 = and i32 %71, 127
-  %73 = add i32 %70, 80
-  store i32 %73, ptr %17, align 8
-  %74 = icmp ugt i32 %70, -81
-  %75 = load i32, ptr %43, align 4
-  %76 = zext i1 %74 to i32
-  %77 = add i32 %75, %76
-  store i32 %77, ptr %43, align 4
-  %.not.i34 = icmp ult i32 %72, 118
-  br i1 %.not.i34, label %85, label %78
+PHP_HAVALUpdate.exit:                             ; preds = %.lr.ph.i33, %50, %63
+  %.030.i = phi i64 [ %64, %63 ], [ 0, %50 ], [ 0, %.lr.ph.i33 ]
+  %.1.i = phi i64 [ 0, %63 ], [ %51, %50 ], [ %61, %.lr.ph.i33 ]
+  %65 = getelementptr inbounds i8, ptr %1, i64 40
+  %66 = getelementptr inbounds [128 x i8], ptr %65, i64 0, i64 %.030.i
+  %67 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
+  %68 = sub i64 %39, %.1.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr nonnull align 1 %67, i64 %68, i1 false)
+  %69 = load i32, ptr %17, align 8
+  %70 = lshr i32 %69, 3
+  %71 = and i32 %70, 127
+  %72 = add i32 %69, 80
+  store i32 %72, ptr %17, align 8
+  %73 = icmp ugt i32 %69, -81
+  %74 = load i32, ptr %43, align 4
+  %75 = zext i1 %73 to i32
+  %76 = add i32 %74, %75
+  store i32 %76, ptr %43, align 4
+  %.not.i34 = icmp ult i32 %71, 118
+  br i1 %.not.i34, label %84, label %77
 
-78:                                               ; preds = %PHP_HAVALUpdate.exit
-  %79 = sub nuw nsw i32 128, %72
-  %80 = zext nneg i32 %79 to i64
-  %81 = zext nneg i32 %72 to i64
-  %82 = getelementptr inbounds [128 x i8], ptr %66, i64 0, i64 %81
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %82, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %80, i1 false)
-  %83 = getelementptr inbounds i8, ptr %1, i64 176
-  %84 = load ptr, ptr %83, align 8
-  tail call void %84(ptr noundef nonnull %1, ptr noundef nonnull %66) #6
-  br label %PHP_HAVALUpdate.exit39
+77:                                               ; preds = %PHP_HAVALUpdate.exit
+  %78 = sub nuw nsw i32 128, %71
+  %79 = zext nneg i32 %78 to i64
+  %80 = zext nneg i32 %71 to i64
+  %81 = getelementptr inbounds [128 x i8], ptr %65, i64 0, i64 %80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %81, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %79, i1 false)
+  %82 = getelementptr inbounds i8, ptr %1, i64 176
+  %83 = load ptr, ptr %82, align 8
+  tail call void %83(ptr noundef nonnull %1, ptr noundef nonnull %65) #6
+  br label %PHP_HAVALUpdate.exit40
 
-85:                                               ; preds = %PHP_HAVALUpdate.exit
-  %86 = zext nneg i32 %72 to i64
-  br label %PHP_HAVALUpdate.exit39
+84:                                               ; preds = %PHP_HAVALUpdate.exit
+  %85 = zext nneg i32 %71 to i64
+  br label %PHP_HAVALUpdate.exit40
 
-PHP_HAVALUpdate.exit39:                           ; preds = %85, %78
-  %.030.i35 = phi i64 [ %86, %85 ], [ 0, %78 ]
-  %.1.i36 = phi i64 [ 0, %85 ], [ %80, %78 ]
-  %87 = getelementptr inbounds [128 x i8], ptr %66, i64 0, i64 %.030.i35
-  %88 = getelementptr inbounds i8, ptr %3, i64 %.1.i36
-  %89 = sub nuw nsw i64 10, %.1.i36
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr nonnull align 1 %88, i64 %89, i1 false)
-  %90 = getelementptr inbounds i8, ptr %1, i64 28
-  %91 = load i32, ptr %90, align 4
-  %92 = and i32 %91, -16777216
-  %93 = getelementptr inbounds i8, ptr %1, i64 24
-  %94 = load i32, ptr %93, align 8
-  %95 = and i32 %94, 16711680
-  %96 = or disjoint i32 %95, %92
-  %97 = getelementptr inbounds i8, ptr %1, i64 20
-  %98 = load i32, ptr %97, align 4
-  %99 = and i32 %98, 65280
-  %100 = or disjoint i32 %96, %99
-  %101 = getelementptr inbounds i8, ptr %1, i64 16
-  %102 = load i32, ptr %101, align 8
-  %103 = and i32 %102, 255
-  %104 = or disjoint i32 %100, %103
-  %105 = and i32 %91, 16711680
-  %106 = and i32 %94, 65280
-  %107 = or disjoint i32 %106, %105
-  %108 = and i32 %98, 255
-  %109 = or disjoint i32 %107, %108
-  %110 = tail call i32 @llvm.fshl.i32(i32 %109, i32 %102, i32 8)
-  %111 = and i32 %91, 65280
-  %112 = and i32 %94, 255
-  %113 = or disjoint i32 %112, %111
-  %114 = and i32 %98, -16777216
-  %115 = and i32 %102, 16711680
-  %116 = or disjoint i32 %115, %114
-  %117 = tail call i32 @llvm.fshl.i32(i32 %113, i32 %116, i32 16)
-  %118 = and i32 %94, -16777216
-  %119 = and i32 %98, 16711680
-  %120 = or disjoint i32 %119, %118
-  %121 = and i32 %102, 65280
-  %122 = or disjoint i32 %120, %121
-  %123 = tail call i32 @llvm.fshl.i32(i32 %91, i32 %122, i32 24)
-  %124 = load <4 x i32>, ptr %1, align 8
-  %125 = insertelement <4 x i32> poison, i32 %123, i64 0
-  %126 = insertelement <4 x i32> %125, i32 %117, i64 1
-  %127 = insertelement <4 x i32> %126, i32 %110, i64 2
-  %128 = insertelement <4 x i32> %127, i32 %104, i64 3
-  %129 = add <4 x i32> %128, %124
-  store <4 x i32> %129, ptr %1, align 8
-  br label %.lr.ph.i40
+PHP_HAVALUpdate.exit40:                           ; preds = %84, %77
+  %.030.i35 = phi i64 [ %85, %84 ], [ 0, %77 ]
+  %.1.i36 = phi i64 [ 0, %84 ], [ %79, %77 ]
+  %86 = getelementptr inbounds [128 x i8], ptr %65, i64 0, i64 %.030.i35
+  %87 = getelementptr inbounds i8, ptr %3, i64 %.1.i36
+  %88 = sub nuw nsw i64 10, %.1.i36
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr nonnull align 1 %87, i64 %88, i1 false)
+  %89 = getelementptr inbounds i8, ptr %1, i64 28
+  %90 = load i32, ptr %89, align 4
+  %91 = and i32 %90, -16777216
+  %92 = getelementptr inbounds i8, ptr %1, i64 24
+  %93 = load i32, ptr %92, align 8
+  %94 = and i32 %93, 16711680
+  %95 = or disjoint i32 %94, %91
+  %96 = getelementptr inbounds i8, ptr %1, i64 20
+  %97 = load i32, ptr %96, align 4
+  %98 = and i32 %97, 65280
+  %99 = or disjoint i32 %95, %98
+  %100 = getelementptr inbounds i8, ptr %1, i64 16
+  %101 = load i32, ptr %100, align 8
+  %102 = and i32 %101, 255
+  %103 = or disjoint i32 %99, %102
+  %104 = and i32 %90, 16711680
+  %105 = and i32 %93, 65280
+  %106 = or disjoint i32 %105, %104
+  %107 = and i32 %97, 255
+  %108 = or disjoint i32 %106, %107
+  %109 = tail call i32 @llvm.fshl.i32(i32 %108, i32 %101, i32 8)
+  %110 = and i32 %90, 65280
+  %111 = and i32 %93, 255
+  %112 = or disjoint i32 %111, %110
+  %113 = and i32 %97, -16777216
+  %114 = and i32 %101, 16711680
+  %115 = or disjoint i32 %114, %113
+  %116 = tail call i32 @llvm.fshl.i32(i32 %112, i32 %115, i32 16)
+  %117 = and i32 %93, -16777216
+  %118 = and i32 %97, 16711680
+  %119 = or disjoint i32 %118, %117
+  %120 = and i32 %101, 65280
+  %121 = or disjoint i32 %119, %120
+  %122 = tail call i32 @llvm.fshl.i32(i32 %90, i32 %121, i32 24)
+  %123 = load <4 x i32>, ptr %1, align 8
+  %124 = insertelement <4 x i32> poison, i32 %122, i64 0
+  %125 = insertelement <4 x i32> %124, i32 %116, i64 1
+  %126 = insertelement <4 x i32> %125, i32 %109, i64 2
+  %127 = insertelement <4 x i32> %126, i32 %103, i64 3
+  %128 = add <4 x i32> %127, %123
+  store <4 x i32> %128, ptr %1, align 8
+  br label %.lr.ph.i41
 
-.lr.ph.i40:                                       ; preds = %.lr.ph.i40, %PHP_HAVALUpdate.exit39
-  %indvars.iv22.i41 = phi i64 [ 0, %PHP_HAVALUpdate.exit39 ], [ %indvars.iv.next23.i43, %.lr.ph.i40 ]
-  %indvars.iv.i42 = phi i64 [ 0, %PHP_HAVALUpdate.exit39 ], [ %indvars.iv.next.i44, %.lr.ph.i40 ]
-  %130 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i41
-  %131 = load i32, ptr %130, align 4
-  %132 = trunc i32 %131 to i8
-  %133 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i42
-  store i8 %132, ptr %133, align 1
-  %134 = load i32, ptr %130, align 4
-  %135 = lshr i32 %134, 8
-  %136 = trunc i32 %135 to i8
-  %137 = or disjoint i64 %indvars.iv.i42, 1
-  %138 = getelementptr inbounds i8, ptr %0, i64 %137
-  store i8 %136, ptr %138, align 1
-  %139 = load i32, ptr %130, align 4
-  %140 = lshr i32 %139, 16
-  %141 = trunc i32 %140 to i8
-  %142 = or disjoint i64 %indvars.iv.i42, 2
-  %143 = getelementptr inbounds i8, ptr %0, i64 %142
-  store i8 %141, ptr %143, align 1
-  %144 = load i32, ptr %130, align 4
-  %145 = lshr i32 %144, 24
-  %146 = trunc nuw i32 %145 to i8
-  %147 = or disjoint i64 %indvars.iv.i42, 3
-  %148 = getelementptr inbounds i8, ptr %0, i64 %147
-  store i8 %146, ptr %148, align 1
-  %indvars.iv.next23.i43 = add nuw nsw i64 %indvars.iv22.i41, 1
-  %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i42, 4
-  %exitcond.not.i45 = icmp eq i64 %indvars.iv.next23.i43, 4
-  br i1 %exitcond.not.i45, label %Encode.exit46, label %.lr.ph.i40
+.lr.ph.i41:                                       ; preds = %.lr.ph.i41, %PHP_HAVALUpdate.exit40
+  %indvars.iv22.i42 = phi i64 [ 0, %PHP_HAVALUpdate.exit40 ], [ %indvars.iv.next23.i44, %.lr.ph.i41 ]
+  %indvars.iv.i43 = phi i64 [ 0, %PHP_HAVALUpdate.exit40 ], [ %indvars.iv.next.i45, %.lr.ph.i41 ]
+  %129 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i42
+  %130 = load i32, ptr %129, align 4
+  %131 = trunc i32 %130 to i8
+  %132 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i43
+  store i8 %131, ptr %132, align 1
+  %133 = load i32, ptr %129, align 4
+  %134 = lshr i32 %133, 8
+  %135 = trunc i32 %134 to i8
+  %136 = or disjoint i64 %indvars.iv.i43, 1
+  %137 = getelementptr inbounds i8, ptr %0, i64 %136
+  store i8 %135, ptr %137, align 1
+  %138 = load i32, ptr %129, align 4
+  %139 = lshr i32 %138, 16
+  %140 = trunc i32 %139 to i8
+  %141 = or disjoint i64 %indvars.iv.i43, 2
+  %142 = getelementptr inbounds i8, ptr %0, i64 %141
+  store i8 %140, ptr %142, align 1
+  %143 = load i32, ptr %129, align 4
+  %144 = lshr i32 %143, 24
+  %145 = trunc nuw i32 %144 to i8
+  %146 = or disjoint i64 %indvars.iv.i43, 3
+  %147 = getelementptr inbounds i8, ptr %0, i64 %146
+  store i8 %145, ptr %147, align 1
+  %indvars.iv.next23.i44 = add nuw nsw i64 %indvars.iv22.i42, 1
+  %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i43, 4
+  %exitcond.not.i46 = icmp eq i64 %indvars.iv.next23.i44, 4
+  br i1 %exitcond.not.i46, label %Encode.exit47, label %.lr.ph.i41
 
-Encode.exit46:                                    ; preds = %.lr.ph.i40
+Encode.exit47:                                    ; preds = %.lr.ph.i41
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 184) #6
   ret void
 }
@@ -722,7 +722,7 @@ Encode.exit:                                      ; preds = %.lr.ph.i
   store i32 %48, ptr %43, align 4
   %49 = sub nuw nsw i32 128, %36
   %.not.i = icmp ugt i32 %49, %38
-  br i1 %.not.i, label %64, label %50
+  br i1 %.not.i, label %63, label %50
 
 50:                                               ; preds = %Encode.exit
   %51 = zext nneg i32 %49 to i64
@@ -743,133 +743,133 @@ Encode.exit:                                      ; preds = %.lr.ph.i
   %60 = getelementptr inbounds i8, ptr @PADDING, i64 %.033.i
   tail call void %59(ptr noundef nonnull %1, ptr noundef nonnull %60) #6
   %61 = add nuw nsw i64 %.033.i, 128
-  %62 = add nuw nsw i64 %.033.i, 255
-  %63 = icmp ult i64 %62, %39
-  br i1 %63, label %.lr.ph.i39, label %PHP_HAVALUpdate.exit
+  %.reass.i = add nuw nsw i64 %.033.i, 255
+  %62 = icmp ult i64 %.reass.i, %39
+  br i1 %62, label %.lr.ph.i39, label %PHP_HAVALUpdate.exit
 
-64:                                               ; preds = %Encode.exit
-  %65 = zext nneg i32 %36 to i64
+63:                                               ; preds = %Encode.exit
+  %64 = zext nneg i32 %36 to i64
   br label %PHP_HAVALUpdate.exit
 
-PHP_HAVALUpdate.exit:                             ; preds = %.lr.ph.i39, %50, %64
-  %.030.i = phi i64 [ %65, %64 ], [ 0, %50 ], [ 0, %.lr.ph.i39 ]
-  %.1.i = phi i64 [ 0, %64 ], [ %51, %50 ], [ %61, %.lr.ph.i39 ]
-  %66 = getelementptr inbounds i8, ptr %1, i64 40
-  %67 = getelementptr inbounds [128 x i8], ptr %66, i64 0, i64 %.030.i
-  %68 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
-  %69 = sub i64 %39, %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr nonnull align 1 %68, i64 %69, i1 false)
-  %70 = load i32, ptr %17, align 8
-  %71 = lshr i32 %70, 3
-  %72 = and i32 %71, 127
-  %73 = add i32 %70, 80
-  store i32 %73, ptr %17, align 8
-  %74 = icmp ugt i32 %70, -81
-  %75 = load i32, ptr %43, align 4
-  %76 = zext i1 %74 to i32
-  %77 = add i32 %75, %76
-  store i32 %77, ptr %43, align 4
-  %.not.i40 = icmp ult i32 %72, 118
-  br i1 %.not.i40, label %85, label %78
+PHP_HAVALUpdate.exit:                             ; preds = %.lr.ph.i39, %50, %63
+  %.030.i = phi i64 [ %64, %63 ], [ 0, %50 ], [ 0, %.lr.ph.i39 ]
+  %.1.i = phi i64 [ 0, %63 ], [ %51, %50 ], [ %61, %.lr.ph.i39 ]
+  %65 = getelementptr inbounds i8, ptr %1, i64 40
+  %66 = getelementptr inbounds [128 x i8], ptr %65, i64 0, i64 %.030.i
+  %67 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
+  %68 = sub i64 %39, %.1.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr nonnull align 1 %67, i64 %68, i1 false)
+  %69 = load i32, ptr %17, align 8
+  %70 = lshr i32 %69, 3
+  %71 = and i32 %70, 127
+  %72 = add i32 %69, 80
+  store i32 %72, ptr %17, align 8
+  %73 = icmp ugt i32 %69, -81
+  %74 = load i32, ptr %43, align 4
+  %75 = zext i1 %73 to i32
+  %76 = add i32 %74, %75
+  store i32 %76, ptr %43, align 4
+  %.not.i40 = icmp ult i32 %71, 118
+  br i1 %.not.i40, label %84, label %77
 
-78:                                               ; preds = %PHP_HAVALUpdate.exit
-  %79 = sub nuw nsw i32 128, %72
-  %80 = zext nneg i32 %79 to i64
-  %81 = zext nneg i32 %72 to i64
-  %82 = getelementptr inbounds [128 x i8], ptr %66, i64 0, i64 %81
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %82, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %80, i1 false)
-  %83 = getelementptr inbounds i8, ptr %1, i64 176
-  %84 = load ptr, ptr %83, align 8
-  tail call void %84(ptr noundef nonnull %1, ptr noundef nonnull %66) #6
-  br label %PHP_HAVALUpdate.exit45
+77:                                               ; preds = %PHP_HAVALUpdate.exit
+  %78 = sub nuw nsw i32 128, %71
+  %79 = zext nneg i32 %78 to i64
+  %80 = zext nneg i32 %71 to i64
+  %81 = getelementptr inbounds [128 x i8], ptr %65, i64 0, i64 %80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %81, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %79, i1 false)
+  %82 = getelementptr inbounds i8, ptr %1, i64 176
+  %83 = load ptr, ptr %82, align 8
+  tail call void %83(ptr noundef nonnull %1, ptr noundef nonnull %65) #6
+  br label %PHP_HAVALUpdate.exit46
 
-85:                                               ; preds = %PHP_HAVALUpdate.exit
-  %86 = zext nneg i32 %72 to i64
-  br label %PHP_HAVALUpdate.exit45
+84:                                               ; preds = %PHP_HAVALUpdate.exit
+  %85 = zext nneg i32 %71 to i64
+  br label %PHP_HAVALUpdate.exit46
 
-PHP_HAVALUpdate.exit45:                           ; preds = %85, %78
-  %.030.i41 = phi i64 [ %86, %85 ], [ 0, %78 ]
-  %.1.i42 = phi i64 [ 0, %85 ], [ %80, %78 ]
-  %87 = getelementptr inbounds [128 x i8], ptr %66, i64 0, i64 %.030.i41
-  %88 = getelementptr inbounds i8, ptr %3, i64 %.1.i42
-  %89 = sub nuw nsw i64 10, %.1.i42
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr nonnull align 1 %88, i64 %89, i1 false)
-  %90 = getelementptr inbounds i8, ptr %1, i64 24
-  %91 = getelementptr inbounds i8, ptr %1, i64 20
-  %92 = load i32, ptr %91, align 4
-  %93 = and i32 %92, 520192
-  %94 = getelementptr inbounds i8, ptr %1, i64 16
-  %95 = load i32, ptr %94, align 8
-  %96 = and i32 %92, 4032
-  %97 = and i32 %92, 63
-  %98 = load <2 x i32>, ptr %90, align 8
-  %99 = extractelement <2 x i32> %98, i64 1
-  %100 = and i32 %99, -33554432
-  %101 = extractelement <2 x i32> %98, i64 0
-  %102 = and i32 %101, 33030144
-  %103 = or disjoint i32 %102, %100
-  %104 = or disjoint i32 %103, %93
-  %105 = lshr exact i32 %104, 12
-  %106 = add i32 %105, %95
-  store i32 %106, ptr %94, align 8
-  %107 = and i32 %99, 33030144
-  %108 = and i32 %101, 520192
-  %109 = or disjoint i32 %108, %107
-  %110 = or disjoint i32 %109, %96
-  %111 = lshr exact i32 %110, 6
-  %112 = and i32 %99, 520192
-  %113 = and i32 %101, 4032
-  %114 = or disjoint i32 %112, %113
-  %115 = or disjoint i32 %114, %97
-  %116 = and <2 x i32> %98, <i32 63, i32 63>
-  %117 = shufflevector <2 x i32> %116, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %118 = and <2 x i32> %98, <i32 -33554432, i32 4032>
-  %119 = or disjoint <2 x i32> %117, %118
-  %120 = insertelement <2 x i32> poison, i32 %92, i64 0
-  %121 = shufflevector <2 x i32> %120, <2 x i32> poison, <2 x i32> zeroinitializer
-  %122 = and <2 x i32> %121, <i32 33030144, i32 -33554432>
-  %123 = or disjoint <2 x i32> %119, %122
-  %124 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %123, <2 x i32> %123, <2 x i32> <i32 13, i32 7>)
-  %125 = load <4 x i32>, ptr %1, align 8
-  %126 = shufflevector <2 x i32> %124, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %127 = insertelement <4 x i32> %126, i32 %115, i64 2
-  %128 = insertelement <4 x i32> %127, i32 %111, i64 3
-  %129 = add <4 x i32> %128, %125
-  store <4 x i32> %129, ptr %1, align 8
-  br label %.lr.ph.i46
+PHP_HAVALUpdate.exit46:                           ; preds = %84, %77
+  %.030.i41 = phi i64 [ %85, %84 ], [ 0, %77 ]
+  %.1.i42 = phi i64 [ 0, %84 ], [ %79, %77 ]
+  %86 = getelementptr inbounds [128 x i8], ptr %65, i64 0, i64 %.030.i41
+  %87 = getelementptr inbounds i8, ptr %3, i64 %.1.i42
+  %88 = sub nuw nsw i64 10, %.1.i42
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr nonnull align 1 %87, i64 %88, i1 false)
+  %89 = getelementptr inbounds i8, ptr %1, i64 24
+  %90 = getelementptr inbounds i8, ptr %1, i64 20
+  %91 = load i32, ptr %90, align 4
+  %92 = and i32 %91, 520192
+  %93 = getelementptr inbounds i8, ptr %1, i64 16
+  %94 = load i32, ptr %93, align 8
+  %95 = and i32 %91, 4032
+  %96 = and i32 %91, 63
+  %97 = load <2 x i32>, ptr %89, align 8
+  %98 = extractelement <2 x i32> %97, i64 1
+  %99 = and i32 %98, -33554432
+  %100 = extractelement <2 x i32> %97, i64 0
+  %101 = and i32 %100, 33030144
+  %102 = or disjoint i32 %101, %99
+  %103 = or disjoint i32 %102, %92
+  %104 = lshr exact i32 %103, 12
+  %105 = add i32 %104, %94
+  store i32 %105, ptr %93, align 8
+  %106 = and i32 %98, 33030144
+  %107 = and i32 %100, 520192
+  %108 = or disjoint i32 %107, %106
+  %109 = or disjoint i32 %108, %95
+  %110 = lshr exact i32 %109, 6
+  %111 = and i32 %98, 520192
+  %112 = and i32 %100, 4032
+  %113 = or disjoint i32 %111, %112
+  %114 = or disjoint i32 %113, %96
+  %115 = and <2 x i32> %97, <i32 63, i32 63>
+  %116 = shufflevector <2 x i32> %115, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
+  %117 = and <2 x i32> %97, <i32 -33554432, i32 4032>
+  %118 = or disjoint <2 x i32> %116, %117
+  %119 = insertelement <2 x i32> poison, i32 %91, i64 0
+  %120 = shufflevector <2 x i32> %119, <2 x i32> poison, <2 x i32> zeroinitializer
+  %121 = and <2 x i32> %120, <i32 33030144, i32 -33554432>
+  %122 = or disjoint <2 x i32> %118, %121
+  %123 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %122, <2 x i32> %122, <2 x i32> <i32 13, i32 7>)
+  %124 = load <4 x i32>, ptr %1, align 8
+  %125 = shufflevector <2 x i32> %123, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %126 = insertelement <4 x i32> %125, i32 %114, i64 2
+  %127 = insertelement <4 x i32> %126, i32 %110, i64 3
+  %128 = add <4 x i32> %127, %124
+  store <4 x i32> %128, ptr %1, align 8
+  br label %.lr.ph.i47
 
-.lr.ph.i46:                                       ; preds = %.lr.ph.i46, %PHP_HAVALUpdate.exit45
-  %indvars.iv22.i47 = phi i64 [ 0, %PHP_HAVALUpdate.exit45 ], [ %indvars.iv.next23.i49, %.lr.ph.i46 ]
-  %indvars.iv.i48 = phi i64 [ 0, %PHP_HAVALUpdate.exit45 ], [ %indvars.iv.next.i50, %.lr.ph.i46 ]
-  %130 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i47
-  %131 = load i32, ptr %130, align 4
-  %132 = trunc i32 %131 to i8
-  %133 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i48
-  store i8 %132, ptr %133, align 1
-  %134 = load i32, ptr %130, align 4
-  %135 = lshr i32 %134, 8
-  %136 = trunc i32 %135 to i8
-  %137 = or disjoint i64 %indvars.iv.i48, 1
-  %138 = getelementptr inbounds i8, ptr %0, i64 %137
-  store i8 %136, ptr %138, align 1
-  %139 = load i32, ptr %130, align 4
-  %140 = lshr i32 %139, 16
-  %141 = trunc i32 %140 to i8
-  %142 = or disjoint i64 %indvars.iv.i48, 2
-  %143 = getelementptr inbounds i8, ptr %0, i64 %142
-  store i8 %141, ptr %143, align 1
-  %144 = load i32, ptr %130, align 4
-  %145 = lshr i32 %144, 24
-  %146 = trunc nuw i32 %145 to i8
-  %147 = or disjoint i64 %indvars.iv.i48, 3
-  %148 = getelementptr inbounds i8, ptr %0, i64 %147
-  store i8 %146, ptr %148, align 1
-  %indvars.iv.next23.i49 = add nuw nsw i64 %indvars.iv22.i47, 1
-  %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i48, 4
-  %exitcond.not.i51 = icmp eq i64 %indvars.iv.next23.i49, 5
-  br i1 %exitcond.not.i51, label %Encode.exit52, label %.lr.ph.i46
+.lr.ph.i47:                                       ; preds = %.lr.ph.i47, %PHP_HAVALUpdate.exit46
+  %indvars.iv22.i48 = phi i64 [ 0, %PHP_HAVALUpdate.exit46 ], [ %indvars.iv.next23.i50, %.lr.ph.i47 ]
+  %indvars.iv.i49 = phi i64 [ 0, %PHP_HAVALUpdate.exit46 ], [ %indvars.iv.next.i51, %.lr.ph.i47 ]
+  %129 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i48
+  %130 = load i32, ptr %129, align 4
+  %131 = trunc i32 %130 to i8
+  %132 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i49
+  store i8 %131, ptr %132, align 1
+  %133 = load i32, ptr %129, align 4
+  %134 = lshr i32 %133, 8
+  %135 = trunc i32 %134 to i8
+  %136 = or disjoint i64 %indvars.iv.i49, 1
+  %137 = getelementptr inbounds i8, ptr %0, i64 %136
+  store i8 %135, ptr %137, align 1
+  %138 = load i32, ptr %129, align 4
+  %139 = lshr i32 %138, 16
+  %140 = trunc i32 %139 to i8
+  %141 = or disjoint i64 %indvars.iv.i49, 2
+  %142 = getelementptr inbounds i8, ptr %0, i64 %141
+  store i8 %140, ptr %142, align 1
+  %143 = load i32, ptr %129, align 4
+  %144 = lshr i32 %143, 24
+  %145 = trunc nuw i32 %144 to i8
+  %146 = or disjoint i64 %indvars.iv.i49, 3
+  %147 = getelementptr inbounds i8, ptr %0, i64 %146
+  store i8 %145, ptr %147, align 1
+  %indvars.iv.next23.i50 = add nuw nsw i64 %indvars.iv22.i48, 1
+  %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i49, 4
+  %exitcond.not.i52 = icmp eq i64 %indvars.iv.next23.i50, 5
+  br i1 %exitcond.not.i52, label %Encode.exit53, label %.lr.ph.i47
 
-Encode.exit52:                                    ; preds = %.lr.ph.i46
+Encode.exit53:                                    ; preds = %.lr.ph.i47
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 184) #6
   ret void
 }
@@ -961,7 +961,7 @@ Encode.exit:                                      ; preds = %.lr.ph.i
   store i32 %48, ptr %43, align 4
   %49 = sub nuw nsw i32 128, %36
   %.not.i = icmp ugt i32 %49, %38
-  br i1 %.not.i, label %64, label %50
+  br i1 %.not.i, label %63, label %50
 
 50:                                               ; preds = %Encode.exit
   %51 = zext nneg i32 %49 to i64
@@ -982,133 +982,133 @@ Encode.exit:                                      ; preds = %.lr.ph.i
   %60 = getelementptr inbounds i8, ptr @PADDING, i64 %.033.i
   tail call void %59(ptr noundef nonnull %1, ptr noundef nonnull %60) #6
   %61 = add nuw nsw i64 %.033.i, 128
-  %62 = add nuw nsw i64 %.033.i, 255
-  %63 = icmp ult i64 %62, %39
-  br i1 %63, label %.lr.ph.i33, label %PHP_HAVALUpdate.exit
+  %.reass.i = add nuw nsw i64 %.033.i, 255
+  %62 = icmp ult i64 %.reass.i, %39
+  br i1 %62, label %.lr.ph.i33, label %PHP_HAVALUpdate.exit
 
-64:                                               ; preds = %Encode.exit
-  %65 = zext nneg i32 %36 to i64
+63:                                               ; preds = %Encode.exit
+  %64 = zext nneg i32 %36 to i64
   br label %PHP_HAVALUpdate.exit
 
-PHP_HAVALUpdate.exit:                             ; preds = %.lr.ph.i33, %50, %64
-  %.030.i = phi i64 [ %65, %64 ], [ 0, %50 ], [ 0, %.lr.ph.i33 ]
-  %.1.i = phi i64 [ 0, %64 ], [ %51, %50 ], [ %61, %.lr.ph.i33 ]
-  %66 = getelementptr inbounds i8, ptr %1, i64 40
-  %67 = getelementptr inbounds [128 x i8], ptr %66, i64 0, i64 %.030.i
-  %68 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
-  %69 = sub i64 %39, %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr nonnull align 1 %68, i64 %69, i1 false)
-  %70 = load i32, ptr %17, align 8
-  %71 = lshr i32 %70, 3
-  %72 = and i32 %71, 127
-  %73 = add i32 %70, 80
-  store i32 %73, ptr %17, align 8
-  %74 = icmp ugt i32 %70, -81
-  %75 = load i32, ptr %43, align 4
-  %76 = zext i1 %74 to i32
-  %77 = add i32 %75, %76
-  store i32 %77, ptr %43, align 4
-  %.not.i34 = icmp ult i32 %72, 118
-  br i1 %.not.i34, label %85, label %78
+PHP_HAVALUpdate.exit:                             ; preds = %.lr.ph.i33, %50, %63
+  %.030.i = phi i64 [ %64, %63 ], [ 0, %50 ], [ 0, %.lr.ph.i33 ]
+  %.1.i = phi i64 [ 0, %63 ], [ %51, %50 ], [ %61, %.lr.ph.i33 ]
+  %65 = getelementptr inbounds i8, ptr %1, i64 40
+  %66 = getelementptr inbounds [128 x i8], ptr %65, i64 0, i64 %.030.i
+  %67 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
+  %68 = sub i64 %39, %.1.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr nonnull align 1 %67, i64 %68, i1 false)
+  %69 = load i32, ptr %17, align 8
+  %70 = lshr i32 %69, 3
+  %71 = and i32 %70, 127
+  %72 = add i32 %69, 80
+  store i32 %72, ptr %17, align 8
+  %73 = icmp ugt i32 %69, -81
+  %74 = load i32, ptr %43, align 4
+  %75 = zext i1 %73 to i32
+  %76 = add i32 %74, %75
+  store i32 %76, ptr %43, align 4
+  %.not.i34 = icmp ult i32 %71, 118
+  br i1 %.not.i34, label %84, label %77
 
-78:                                               ; preds = %PHP_HAVALUpdate.exit
-  %79 = sub nuw nsw i32 128, %72
-  %80 = zext nneg i32 %79 to i64
-  %81 = zext nneg i32 %72 to i64
-  %82 = getelementptr inbounds [128 x i8], ptr %66, i64 0, i64 %81
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %82, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %80, i1 false)
-  %83 = getelementptr inbounds i8, ptr %1, i64 176
-  %84 = load ptr, ptr %83, align 8
-  tail call void %84(ptr noundef nonnull %1, ptr noundef nonnull %66) #6
-  br label %PHP_HAVALUpdate.exit39
+77:                                               ; preds = %PHP_HAVALUpdate.exit
+  %78 = sub nuw nsw i32 128, %71
+  %79 = zext nneg i32 %78 to i64
+  %80 = zext nneg i32 %71 to i64
+  %81 = getelementptr inbounds [128 x i8], ptr %65, i64 0, i64 %80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %81, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %79, i1 false)
+  %82 = getelementptr inbounds i8, ptr %1, i64 176
+  %83 = load ptr, ptr %82, align 8
+  tail call void %83(ptr noundef nonnull %1, ptr noundef nonnull %65) #6
+  br label %PHP_HAVALUpdate.exit40
 
-85:                                               ; preds = %PHP_HAVALUpdate.exit
-  %86 = zext nneg i32 %72 to i64
-  br label %PHP_HAVALUpdate.exit39
+84:                                               ; preds = %PHP_HAVALUpdate.exit
+  %85 = zext nneg i32 %71 to i64
+  br label %PHP_HAVALUpdate.exit40
 
-PHP_HAVALUpdate.exit39:                           ; preds = %85, %78
-  %.030.i35 = phi i64 [ %86, %85 ], [ 0, %78 ]
-  %.1.i36 = phi i64 [ 0, %85 ], [ %80, %78 ]
-  %87 = getelementptr inbounds [128 x i8], ptr %66, i64 0, i64 %.030.i35
-  %88 = getelementptr inbounds i8, ptr %3, i64 %.1.i36
-  %89 = sub nuw nsw i64 10, %.1.i36
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr nonnull align 1 %88, i64 %89, i1 false)
-  %90 = getelementptr inbounds i8, ptr %1, i64 28
-  %91 = load i32, ptr %90, align 4
-  %92 = and i32 %91, -67108864
-  %93 = getelementptr inbounds i8, ptr %1, i64 24
-  %94 = load i32, ptr %93, align 8
-  %95 = and i32 %94, 65011712
-  %96 = or disjoint i32 %95, %92
-  %97 = lshr exact i32 %96, 21
-  %98 = getelementptr inbounds i8, ptr %1, i64 20
-  %99 = load i32, ptr %98, align 4
-  %100 = add i32 %97, %99
-  store i32 %100, ptr %98, align 4
-  %101 = and i32 %91, 65011712
-  %102 = and i32 %94, 2031616
-  %103 = or disjoint i32 %102, %101
-  %104 = lshr exact i32 %103, 16
-  %105 = getelementptr inbounds i8, ptr %1, i64 16
-  %106 = load i32, ptr %105, align 8
-  %107 = add i32 %106, %104
-  store i32 %107, ptr %105, align 8
-  %108 = and i32 %91, 2031616
-  %109 = and i32 %94, 64512
-  %110 = or disjoint i32 %109, %108
-  %111 = lshr exact i32 %110, 10
-  %112 = and i32 %91, 64512
-  %113 = and i32 %94, 992
-  %114 = or disjoint i32 %113, %112
-  %115 = lshr exact i32 %114, 5
-  %116 = and i32 %91, 992
-  %117 = and i32 %94, 31
-  %118 = or disjoint i32 %117, %116
-  %119 = and i32 %91, 31
-  %120 = and i32 %94, -67108864
-  %121 = or disjoint i32 %120, %119
-  %122 = tail call i32 @llvm.fshl.i32(i32 %121, i32 %121, i32 6)
-  %123 = load <4 x i32>, ptr %1, align 8
-  %124 = insertelement <4 x i32> poison, i32 %122, i64 0
-  %125 = insertelement <4 x i32> %124, i32 %118, i64 1
-  %126 = insertelement <4 x i32> %125, i32 %115, i64 2
-  %127 = insertelement <4 x i32> %126, i32 %111, i64 3
-  %128 = add <4 x i32> %123, %127
-  store <4 x i32> %128, ptr %1, align 8
-  br label %.lr.ph.i40
+PHP_HAVALUpdate.exit40:                           ; preds = %84, %77
+  %.030.i35 = phi i64 [ %85, %84 ], [ 0, %77 ]
+  %.1.i36 = phi i64 [ 0, %84 ], [ %79, %77 ]
+  %86 = getelementptr inbounds [128 x i8], ptr %65, i64 0, i64 %.030.i35
+  %87 = getelementptr inbounds i8, ptr %3, i64 %.1.i36
+  %88 = sub nuw nsw i64 10, %.1.i36
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr nonnull align 1 %87, i64 %88, i1 false)
+  %89 = getelementptr inbounds i8, ptr %1, i64 28
+  %90 = load i32, ptr %89, align 4
+  %91 = and i32 %90, -67108864
+  %92 = getelementptr inbounds i8, ptr %1, i64 24
+  %93 = load i32, ptr %92, align 8
+  %94 = and i32 %93, 65011712
+  %95 = or disjoint i32 %94, %91
+  %96 = lshr exact i32 %95, 21
+  %97 = getelementptr inbounds i8, ptr %1, i64 20
+  %98 = load i32, ptr %97, align 4
+  %99 = add i32 %96, %98
+  store i32 %99, ptr %97, align 4
+  %100 = and i32 %90, 65011712
+  %101 = and i32 %93, 2031616
+  %102 = or disjoint i32 %101, %100
+  %103 = lshr exact i32 %102, 16
+  %104 = getelementptr inbounds i8, ptr %1, i64 16
+  %105 = load i32, ptr %104, align 8
+  %106 = add i32 %105, %103
+  store i32 %106, ptr %104, align 8
+  %107 = and i32 %90, 2031616
+  %108 = and i32 %93, 64512
+  %109 = or disjoint i32 %108, %107
+  %110 = lshr exact i32 %109, 10
+  %111 = and i32 %90, 64512
+  %112 = and i32 %93, 992
+  %113 = or disjoint i32 %112, %111
+  %114 = lshr exact i32 %113, 5
+  %115 = and i32 %90, 992
+  %116 = and i32 %93, 31
+  %117 = or disjoint i32 %116, %115
+  %118 = and i32 %90, 31
+  %119 = and i32 %93, -67108864
+  %120 = or disjoint i32 %119, %118
+  %121 = tail call i32 @llvm.fshl.i32(i32 %120, i32 %120, i32 6)
+  %122 = load <4 x i32>, ptr %1, align 8
+  %123 = insertelement <4 x i32> poison, i32 %121, i64 0
+  %124 = insertelement <4 x i32> %123, i32 %117, i64 1
+  %125 = insertelement <4 x i32> %124, i32 %114, i64 2
+  %126 = insertelement <4 x i32> %125, i32 %110, i64 3
+  %127 = add <4 x i32> %122, %126
+  store <4 x i32> %127, ptr %1, align 8
+  br label %.lr.ph.i41
 
-.lr.ph.i40:                                       ; preds = %.lr.ph.i40, %PHP_HAVALUpdate.exit39
-  %indvars.iv22.i41 = phi i64 [ 0, %PHP_HAVALUpdate.exit39 ], [ %indvars.iv.next23.i43, %.lr.ph.i40 ]
-  %indvars.iv.i42 = phi i64 [ 0, %PHP_HAVALUpdate.exit39 ], [ %indvars.iv.next.i44, %.lr.ph.i40 ]
-  %129 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i41
-  %130 = load i32, ptr %129, align 4
-  %131 = trunc i32 %130 to i8
-  %132 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i42
-  store i8 %131, ptr %132, align 1
-  %133 = load i32, ptr %129, align 4
-  %134 = lshr i32 %133, 8
-  %135 = trunc i32 %134 to i8
-  %136 = or disjoint i64 %indvars.iv.i42, 1
-  %137 = getelementptr inbounds i8, ptr %0, i64 %136
-  store i8 %135, ptr %137, align 1
-  %138 = load i32, ptr %129, align 4
-  %139 = lshr i32 %138, 16
-  %140 = trunc i32 %139 to i8
-  %141 = or disjoint i64 %indvars.iv.i42, 2
-  %142 = getelementptr inbounds i8, ptr %0, i64 %141
-  store i8 %140, ptr %142, align 1
-  %143 = load i32, ptr %129, align 4
-  %144 = lshr i32 %143, 24
-  %145 = trunc nuw i32 %144 to i8
-  %146 = or disjoint i64 %indvars.iv.i42, 3
-  %147 = getelementptr inbounds i8, ptr %0, i64 %146
-  store i8 %145, ptr %147, align 1
-  %indvars.iv.next23.i43 = add nuw nsw i64 %indvars.iv22.i41, 1
-  %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i42, 4
-  %exitcond.not.i45 = icmp eq i64 %indvars.iv.next23.i43, 6
-  br i1 %exitcond.not.i45, label %Encode.exit46, label %.lr.ph.i40
+.lr.ph.i41:                                       ; preds = %.lr.ph.i41, %PHP_HAVALUpdate.exit40
+  %indvars.iv22.i42 = phi i64 [ 0, %PHP_HAVALUpdate.exit40 ], [ %indvars.iv.next23.i44, %.lr.ph.i41 ]
+  %indvars.iv.i43 = phi i64 [ 0, %PHP_HAVALUpdate.exit40 ], [ %indvars.iv.next.i45, %.lr.ph.i41 ]
+  %128 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i42
+  %129 = load i32, ptr %128, align 4
+  %130 = trunc i32 %129 to i8
+  %131 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i43
+  store i8 %130, ptr %131, align 1
+  %132 = load i32, ptr %128, align 4
+  %133 = lshr i32 %132, 8
+  %134 = trunc i32 %133 to i8
+  %135 = or disjoint i64 %indvars.iv.i43, 1
+  %136 = getelementptr inbounds i8, ptr %0, i64 %135
+  store i8 %134, ptr %136, align 1
+  %137 = load i32, ptr %128, align 4
+  %138 = lshr i32 %137, 16
+  %139 = trunc i32 %138 to i8
+  %140 = or disjoint i64 %indvars.iv.i43, 2
+  %141 = getelementptr inbounds i8, ptr %0, i64 %140
+  store i8 %139, ptr %141, align 1
+  %142 = load i32, ptr %128, align 4
+  %143 = lshr i32 %142, 24
+  %144 = trunc nuw i32 %143 to i8
+  %145 = or disjoint i64 %indvars.iv.i43, 3
+  %146 = getelementptr inbounds i8, ptr %0, i64 %145
+  store i8 %144, ptr %146, align 1
+  %indvars.iv.next23.i44 = add nuw nsw i64 %indvars.iv22.i42, 1
+  %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i43, 4
+  %exitcond.not.i46 = icmp eq i64 %indvars.iv.next23.i44, 6
+  br i1 %exitcond.not.i46, label %Encode.exit47, label %.lr.ph.i41
 
-Encode.exit46:                                    ; preds = %.lr.ph.i40
+Encode.exit47:                                    ; preds = %.lr.ph.i41
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 184) #6
   ret void
 }
@@ -1200,7 +1200,7 @@ Encode.exit:                                      ; preds = %.lr.ph.i
   store i32 %48, ptr %43, align 4
   %49 = sub nuw nsw i32 128, %36
   %.not.i = icmp ugt i32 %49, %38
-  br i1 %.not.i, label %64, label %50
+  br i1 %.not.i, label %63, label %50
 
 50:                                               ; preds = %Encode.exit
   %51 = zext nneg i32 %49 to i64
@@ -1221,113 +1221,113 @@ Encode.exit:                                      ; preds = %.lr.ph.i
   %60 = getelementptr inbounds i8, ptr @PADDING, i64 %.033.i
   tail call void %59(ptr noundef nonnull %1, ptr noundef nonnull %60) #6
   %61 = add nuw nsw i64 %.033.i, 128
-  %62 = add nuw nsw i64 %.033.i, 255
-  %63 = icmp ult i64 %62, %39
-  br i1 %63, label %.lr.ph.i27, label %PHP_HAVALUpdate.exit
+  %.reass.i = add nuw nsw i64 %.033.i, 255
+  %62 = icmp ult i64 %.reass.i, %39
+  br i1 %62, label %.lr.ph.i27, label %PHP_HAVALUpdate.exit
 
-64:                                               ; preds = %Encode.exit
-  %65 = zext nneg i32 %36 to i64
+63:                                               ; preds = %Encode.exit
+  %64 = zext nneg i32 %36 to i64
   br label %PHP_HAVALUpdate.exit
 
-PHP_HAVALUpdate.exit:                             ; preds = %.lr.ph.i27, %50, %64
-  %.030.i = phi i64 [ %65, %64 ], [ 0, %50 ], [ 0, %.lr.ph.i27 ]
-  %.1.i = phi i64 [ 0, %64 ], [ %51, %50 ], [ %61, %.lr.ph.i27 ]
-  %66 = getelementptr inbounds i8, ptr %1, i64 40
-  %67 = getelementptr inbounds [128 x i8], ptr %66, i64 0, i64 %.030.i
-  %68 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
-  %69 = sub i64 %39, %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr nonnull align 1 %68, i64 %69, i1 false)
-  %70 = load i32, ptr %17, align 8
-  %71 = lshr i32 %70, 3
-  %72 = and i32 %71, 127
-  %73 = add i32 %70, 80
-  store i32 %73, ptr %17, align 8
-  %74 = icmp ugt i32 %70, -81
-  %75 = load i32, ptr %43, align 4
-  %76 = zext i1 %74 to i32
-  %77 = add i32 %75, %76
-  store i32 %77, ptr %43, align 4
-  %.not.i28 = icmp ult i32 %72, 118
-  br i1 %.not.i28, label %85, label %78
+PHP_HAVALUpdate.exit:                             ; preds = %.lr.ph.i27, %50, %63
+  %.030.i = phi i64 [ %64, %63 ], [ 0, %50 ], [ 0, %.lr.ph.i27 ]
+  %.1.i = phi i64 [ 0, %63 ], [ %51, %50 ], [ %61, %.lr.ph.i27 ]
+  %65 = getelementptr inbounds i8, ptr %1, i64 40
+  %66 = getelementptr inbounds [128 x i8], ptr %65, i64 0, i64 %.030.i
+  %67 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
+  %68 = sub i64 %39, %.1.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr nonnull align 1 %67, i64 %68, i1 false)
+  %69 = load i32, ptr %17, align 8
+  %70 = lshr i32 %69, 3
+  %71 = and i32 %70, 127
+  %72 = add i32 %69, 80
+  store i32 %72, ptr %17, align 8
+  %73 = icmp ugt i32 %69, -81
+  %74 = load i32, ptr %43, align 4
+  %75 = zext i1 %73 to i32
+  %76 = add i32 %74, %75
+  store i32 %76, ptr %43, align 4
+  %.not.i28 = icmp ult i32 %71, 118
+  br i1 %.not.i28, label %84, label %77
 
-78:                                               ; preds = %PHP_HAVALUpdate.exit
-  %79 = sub nuw nsw i32 128, %72
-  %80 = zext nneg i32 %79 to i64
-  %81 = zext nneg i32 %72 to i64
-  %82 = getelementptr inbounds [128 x i8], ptr %66, i64 0, i64 %81
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %82, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %80, i1 false)
-  %83 = getelementptr inbounds i8, ptr %1, i64 176
-  %84 = load ptr, ptr %83, align 8
-  tail call void %84(ptr noundef nonnull %1, ptr noundef nonnull %66) #6
-  br label %PHP_HAVALUpdate.exit33
+77:                                               ; preds = %PHP_HAVALUpdate.exit
+  %78 = sub nuw nsw i32 128, %71
+  %79 = zext nneg i32 %78 to i64
+  %80 = zext nneg i32 %71 to i64
+  %81 = getelementptr inbounds [128 x i8], ptr %65, i64 0, i64 %80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %81, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %79, i1 false)
+  %82 = getelementptr inbounds i8, ptr %1, i64 176
+  %83 = load ptr, ptr %82, align 8
+  tail call void %83(ptr noundef nonnull %1, ptr noundef nonnull %65) #6
+  br label %PHP_HAVALUpdate.exit34
 
-85:                                               ; preds = %PHP_HAVALUpdate.exit
-  %86 = zext nneg i32 %72 to i64
-  br label %PHP_HAVALUpdate.exit33
+84:                                               ; preds = %PHP_HAVALUpdate.exit
+  %85 = zext nneg i32 %71 to i64
+  br label %PHP_HAVALUpdate.exit34
 
-PHP_HAVALUpdate.exit33:                           ; preds = %85, %78
-  %.030.i29 = phi i64 [ %86, %85 ], [ 0, %78 ]
-  %.1.i30 = phi i64 [ 0, %85 ], [ %80, %78 ]
-  %87 = getelementptr inbounds [128 x i8], ptr %66, i64 0, i64 %.030.i29
-  %88 = getelementptr inbounds i8, ptr %3, i64 %.1.i30
-  %89 = sub nuw nsw i64 10, %.1.i30
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr nonnull align 1 %88, i64 %89, i1 false)
-  %90 = getelementptr inbounds i8, ptr %1, i64 28
-  %91 = load i32, ptr %90, align 4
-  %92 = lshr i32 %91, 4
-  %93 = getelementptr inbounds i8, ptr %1, i64 20
-  %94 = insertelement <2 x i32> poison, i32 %92, i64 0
-  %95 = insertelement <2 x i32> %94, i32 %91, i64 1
-  %96 = and <2 x i32> %95, <i32 31, i32 15>
-  %97 = load <2 x i32>, ptr %93, align 4
-  %98 = add <2 x i32> %97, %96
-  store <2 x i32> %98, ptr %93, align 4
-  %99 = getelementptr inbounds i8, ptr %1, i64 4
-  %100 = insertelement <4 x i32> poison, i32 %91, i64 0
-  %101 = shufflevector <4 x i32> %100, <4 x i32> poison, <4 x i32> zeroinitializer
-  %102 = lshr <4 x i32> %101, <i32 22, i32 18, i32 13, i32 9>
-  %103 = and <4 x i32> %102, <i32 31, i32 15, i32 31, i32 15>
-  %104 = load <4 x i32>, ptr %99, align 4
-  %105 = add <4 x i32> %104, %103
-  store <4 x i32> %105, ptr %99, align 4
-  %106 = lshr i32 %91, 27
-  %107 = load i32, ptr %1, align 8
-  %108 = add i32 %107, %106
-  store i32 %108, ptr %1, align 8
-  br label %.lr.ph.i34
+PHP_HAVALUpdate.exit34:                           ; preds = %84, %77
+  %.030.i29 = phi i64 [ %85, %84 ], [ 0, %77 ]
+  %.1.i30 = phi i64 [ 0, %84 ], [ %79, %77 ]
+  %86 = getelementptr inbounds [128 x i8], ptr %65, i64 0, i64 %.030.i29
+  %87 = getelementptr inbounds i8, ptr %3, i64 %.1.i30
+  %88 = sub nuw nsw i64 10, %.1.i30
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr nonnull align 1 %87, i64 %88, i1 false)
+  %89 = getelementptr inbounds i8, ptr %1, i64 28
+  %90 = load i32, ptr %89, align 4
+  %91 = lshr i32 %90, 4
+  %92 = getelementptr inbounds i8, ptr %1, i64 20
+  %93 = insertelement <2 x i32> poison, i32 %91, i64 0
+  %94 = insertelement <2 x i32> %93, i32 %90, i64 1
+  %95 = and <2 x i32> %94, <i32 31, i32 15>
+  %96 = load <2 x i32>, ptr %92, align 4
+  %97 = add <2 x i32> %96, %95
+  store <2 x i32> %97, ptr %92, align 4
+  %98 = getelementptr inbounds i8, ptr %1, i64 4
+  %99 = insertelement <4 x i32> poison, i32 %90, i64 0
+  %100 = shufflevector <4 x i32> %99, <4 x i32> poison, <4 x i32> zeroinitializer
+  %101 = lshr <4 x i32> %100, <i32 22, i32 18, i32 13, i32 9>
+  %102 = and <4 x i32> %101, <i32 31, i32 15, i32 31, i32 15>
+  %103 = load <4 x i32>, ptr %98, align 4
+  %104 = add <4 x i32> %103, %102
+  store <4 x i32> %104, ptr %98, align 4
+  %105 = lshr i32 %90, 27
+  %106 = load i32, ptr %1, align 8
+  %107 = add i32 %106, %105
+  store i32 %107, ptr %1, align 8
+  br label %.lr.ph.i35
 
-.lr.ph.i34:                                       ; preds = %.lr.ph.i34, %PHP_HAVALUpdate.exit33
-  %indvars.iv22.i35 = phi i64 [ 0, %PHP_HAVALUpdate.exit33 ], [ %indvars.iv.next23.i37, %.lr.ph.i34 ]
-  %indvars.iv.i36 = phi i64 [ 0, %PHP_HAVALUpdate.exit33 ], [ %indvars.iv.next.i38, %.lr.ph.i34 ]
-  %109 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i35
-  %110 = load i32, ptr %109, align 4
-  %111 = trunc i32 %110 to i8
-  %112 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i36
-  store i8 %111, ptr %112, align 1
-  %113 = load i32, ptr %109, align 4
-  %114 = lshr i32 %113, 8
-  %115 = trunc i32 %114 to i8
-  %116 = or disjoint i64 %indvars.iv.i36, 1
-  %117 = getelementptr inbounds i8, ptr %0, i64 %116
-  store i8 %115, ptr %117, align 1
-  %118 = load i32, ptr %109, align 4
-  %119 = lshr i32 %118, 16
-  %120 = trunc i32 %119 to i8
-  %121 = or disjoint i64 %indvars.iv.i36, 2
-  %122 = getelementptr inbounds i8, ptr %0, i64 %121
-  store i8 %120, ptr %122, align 1
-  %123 = load i32, ptr %109, align 4
-  %124 = lshr i32 %123, 24
-  %125 = trunc nuw i32 %124 to i8
-  %126 = or disjoint i64 %indvars.iv.i36, 3
-  %127 = getelementptr inbounds i8, ptr %0, i64 %126
-  store i8 %125, ptr %127, align 1
-  %indvars.iv.next23.i37 = add nuw nsw i64 %indvars.iv22.i35, 1
-  %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i36, 4
-  %exitcond.not.i39 = icmp eq i64 %indvars.iv.next23.i37, 7
-  br i1 %exitcond.not.i39, label %Encode.exit40, label %.lr.ph.i34
+.lr.ph.i35:                                       ; preds = %.lr.ph.i35, %PHP_HAVALUpdate.exit34
+  %indvars.iv22.i36 = phi i64 [ 0, %PHP_HAVALUpdate.exit34 ], [ %indvars.iv.next23.i38, %.lr.ph.i35 ]
+  %indvars.iv.i37 = phi i64 [ 0, %PHP_HAVALUpdate.exit34 ], [ %indvars.iv.next.i39, %.lr.ph.i35 ]
+  %108 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i36
+  %109 = load i32, ptr %108, align 4
+  %110 = trunc i32 %109 to i8
+  %111 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i37
+  store i8 %110, ptr %111, align 1
+  %112 = load i32, ptr %108, align 4
+  %113 = lshr i32 %112, 8
+  %114 = trunc i32 %113 to i8
+  %115 = or disjoint i64 %indvars.iv.i37, 1
+  %116 = getelementptr inbounds i8, ptr %0, i64 %115
+  store i8 %114, ptr %116, align 1
+  %117 = load i32, ptr %108, align 4
+  %118 = lshr i32 %117, 16
+  %119 = trunc i32 %118 to i8
+  %120 = or disjoint i64 %indvars.iv.i37, 2
+  %121 = getelementptr inbounds i8, ptr %0, i64 %120
+  store i8 %119, ptr %121, align 1
+  %122 = load i32, ptr %108, align 4
+  %123 = lshr i32 %122, 24
+  %124 = trunc nuw i32 %123 to i8
+  %125 = or disjoint i64 %indvars.iv.i37, 3
+  %126 = getelementptr inbounds i8, ptr %0, i64 %125
+  store i8 %124, ptr %126, align 1
+  %indvars.iv.next23.i38 = add nuw nsw i64 %indvars.iv22.i36, 1
+  %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i37, 4
+  %exitcond.not.i40 = icmp eq i64 %indvars.iv.next23.i38, 7
+  br i1 %exitcond.not.i40, label %Encode.exit41, label %.lr.ph.i35
 
-Encode.exit40:                                    ; preds = %.lr.ph.i34
+Encode.exit41:                                    ; preds = %.lr.ph.i35
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 184) #6
   ret void
 }
@@ -1419,7 +1419,7 @@ Encode.exit:                                      ; preds = %.lr.ph.i
   store i32 %48, ptr %43, align 4
   %49 = sub nuw nsw i32 128, %36
   %.not.i = icmp ugt i32 %49, %38
-  br i1 %.not.i, label %64, label %50
+  br i1 %.not.i, label %63, label %50
 
 50:                                               ; preds = %Encode.exit
   %51 = zext nneg i32 %49 to i64
@@ -1440,91 +1440,91 @@ Encode.exit:                                      ; preds = %.lr.ph.i
   %60 = getelementptr inbounds i8, ptr @PADDING, i64 %.033.i
   tail call void %59(ptr noundef nonnull %1, ptr noundef nonnull %60) #6
   %61 = add nuw nsw i64 %.033.i, 128
-  %62 = add nuw nsw i64 %.033.i, 255
-  %63 = icmp ult i64 %62, %39
-  br i1 %63, label %.lr.ph.i13, label %PHP_HAVALUpdate.exit
+  %.reass.i = add nuw nsw i64 %.033.i, 255
+  %62 = icmp ult i64 %.reass.i, %39
+  br i1 %62, label %.lr.ph.i13, label %PHP_HAVALUpdate.exit
 
-64:                                               ; preds = %Encode.exit
-  %65 = zext nneg i32 %36 to i64
+63:                                               ; preds = %Encode.exit
+  %64 = zext nneg i32 %36 to i64
   br label %PHP_HAVALUpdate.exit
 
-PHP_HAVALUpdate.exit:                             ; preds = %.lr.ph.i13, %50, %64
-  %.030.i = phi i64 [ %65, %64 ], [ 0, %50 ], [ 0, %.lr.ph.i13 ]
-  %.1.i = phi i64 [ 0, %64 ], [ %51, %50 ], [ %61, %.lr.ph.i13 ]
-  %66 = getelementptr inbounds i8, ptr %1, i64 40
-  %67 = getelementptr inbounds [128 x i8], ptr %66, i64 0, i64 %.030.i
-  %68 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
-  %69 = sub i64 %39, %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr nonnull align 1 %68, i64 %69, i1 false)
-  %70 = load i32, ptr %17, align 8
-  %71 = lshr i32 %70, 3
-  %72 = and i32 %71, 127
-  %73 = add i32 %70, 80
-  store i32 %73, ptr %17, align 8
-  %74 = icmp ugt i32 %70, -81
-  %75 = load i32, ptr %43, align 4
-  %76 = zext i1 %74 to i32
-  %77 = add i32 %75, %76
-  store i32 %77, ptr %43, align 4
-  %.not.i14 = icmp ult i32 %72, 118
-  br i1 %.not.i14, label %85, label %78
+PHP_HAVALUpdate.exit:                             ; preds = %.lr.ph.i13, %50, %63
+  %.030.i = phi i64 [ %64, %63 ], [ 0, %50 ], [ 0, %.lr.ph.i13 ]
+  %.1.i = phi i64 [ 0, %63 ], [ %51, %50 ], [ %61, %.lr.ph.i13 ]
+  %65 = getelementptr inbounds i8, ptr %1, i64 40
+  %66 = getelementptr inbounds [128 x i8], ptr %65, i64 0, i64 %.030.i
+  %67 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
+  %68 = sub i64 %39, %.1.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr nonnull align 1 %67, i64 %68, i1 false)
+  %69 = load i32, ptr %17, align 8
+  %70 = lshr i32 %69, 3
+  %71 = and i32 %70, 127
+  %72 = add i32 %69, 80
+  store i32 %72, ptr %17, align 8
+  %73 = icmp ugt i32 %69, -81
+  %74 = load i32, ptr %43, align 4
+  %75 = zext i1 %73 to i32
+  %76 = add i32 %74, %75
+  store i32 %76, ptr %43, align 4
+  %.not.i14 = icmp ult i32 %71, 118
+  br i1 %.not.i14, label %84, label %77
 
-78:                                               ; preds = %PHP_HAVALUpdate.exit
-  %79 = sub nuw nsw i32 128, %72
-  %80 = zext nneg i32 %79 to i64
-  %81 = zext nneg i32 %72 to i64
-  %82 = getelementptr inbounds [128 x i8], ptr %66, i64 0, i64 %81
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %82, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %80, i1 false)
-  %83 = getelementptr inbounds i8, ptr %1, i64 176
-  %84 = load ptr, ptr %83, align 8
-  tail call void %84(ptr noundef nonnull %1, ptr noundef nonnull %66) #6
-  br label %PHP_HAVALUpdate.exit19
+77:                                               ; preds = %PHP_HAVALUpdate.exit
+  %78 = sub nuw nsw i32 128, %71
+  %79 = zext nneg i32 %78 to i64
+  %80 = zext nneg i32 %71 to i64
+  %81 = getelementptr inbounds [128 x i8], ptr %65, i64 0, i64 %80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %81, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %79, i1 false)
+  %82 = getelementptr inbounds i8, ptr %1, i64 176
+  %83 = load ptr, ptr %82, align 8
+  tail call void %83(ptr noundef nonnull %1, ptr noundef nonnull %65) #6
+  br label %PHP_HAVALUpdate.exit20
 
-85:                                               ; preds = %PHP_HAVALUpdate.exit
-  %86 = zext nneg i32 %72 to i64
-  br label %PHP_HAVALUpdate.exit19
+84:                                               ; preds = %PHP_HAVALUpdate.exit
+  %85 = zext nneg i32 %71 to i64
+  br label %PHP_HAVALUpdate.exit20
 
-PHP_HAVALUpdate.exit19:                           ; preds = %85, %78
-  %.030.i15 = phi i64 [ %86, %85 ], [ 0, %78 ]
-  %.1.i16 = phi i64 [ 0, %85 ], [ %80, %78 ]
-  %87 = getelementptr inbounds [128 x i8], ptr %66, i64 0, i64 %.030.i15
-  %88 = getelementptr inbounds i8, ptr %3, i64 %.1.i16
-  %89 = sub nuw nsw i64 10, %.1.i16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr nonnull align 1 %88, i64 %89, i1 false)
-  br label %.lr.ph.i20
+PHP_HAVALUpdate.exit20:                           ; preds = %84, %77
+  %.030.i15 = phi i64 [ %85, %84 ], [ 0, %77 ]
+  %.1.i16 = phi i64 [ 0, %84 ], [ %79, %77 ]
+  %86 = getelementptr inbounds [128 x i8], ptr %65, i64 0, i64 %.030.i15
+  %87 = getelementptr inbounds i8, ptr %3, i64 %.1.i16
+  %88 = sub nuw nsw i64 10, %.1.i16
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr nonnull align 1 %87, i64 %88, i1 false)
+  br label %.lr.ph.i21
 
-.lr.ph.i20:                                       ; preds = %.lr.ph.i20, %PHP_HAVALUpdate.exit19
-  %indvars.iv22.i21 = phi i64 [ 0, %PHP_HAVALUpdate.exit19 ], [ %indvars.iv.next23.i23, %.lr.ph.i20 ]
-  %indvars.iv.i22 = phi i64 [ 0, %PHP_HAVALUpdate.exit19 ], [ %indvars.iv.next.i24, %.lr.ph.i20 ]
-  %90 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i21
-  %91 = load i32, ptr %90, align 4
-  %92 = trunc i32 %91 to i8
-  %93 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i22
-  store i8 %92, ptr %93, align 1
-  %94 = load i32, ptr %90, align 4
-  %95 = lshr i32 %94, 8
-  %96 = trunc i32 %95 to i8
-  %97 = or disjoint i64 %indvars.iv.i22, 1
-  %98 = getelementptr inbounds i8, ptr %0, i64 %97
-  store i8 %96, ptr %98, align 1
-  %99 = load i32, ptr %90, align 4
-  %100 = lshr i32 %99, 16
-  %101 = trunc i32 %100 to i8
-  %102 = or disjoint i64 %indvars.iv.i22, 2
-  %103 = getelementptr inbounds i8, ptr %0, i64 %102
-  store i8 %101, ptr %103, align 1
-  %104 = load i32, ptr %90, align 4
-  %105 = lshr i32 %104, 24
-  %106 = trunc nuw i32 %105 to i8
-  %107 = or disjoint i64 %indvars.iv.i22, 3
-  %108 = getelementptr inbounds i8, ptr %0, i64 %107
-  store i8 %106, ptr %108, align 1
-  %indvars.iv.next23.i23 = add nuw nsw i64 %indvars.iv22.i21, 1
-  %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i22, 4
-  %exitcond.not.i25 = icmp eq i64 %indvars.iv.next23.i23, 8
-  br i1 %exitcond.not.i25, label %Encode.exit26, label %.lr.ph.i20
+.lr.ph.i21:                                       ; preds = %.lr.ph.i21, %PHP_HAVALUpdate.exit20
+  %indvars.iv22.i22 = phi i64 [ 0, %PHP_HAVALUpdate.exit20 ], [ %indvars.iv.next23.i24, %.lr.ph.i21 ]
+  %indvars.iv.i23 = phi i64 [ 0, %PHP_HAVALUpdate.exit20 ], [ %indvars.iv.next.i25, %.lr.ph.i21 ]
+  %89 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i22
+  %90 = load i32, ptr %89, align 4
+  %91 = trunc i32 %90 to i8
+  %92 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i23
+  store i8 %91, ptr %92, align 1
+  %93 = load i32, ptr %89, align 4
+  %94 = lshr i32 %93, 8
+  %95 = trunc i32 %94 to i8
+  %96 = or disjoint i64 %indvars.iv.i23, 1
+  %97 = getelementptr inbounds i8, ptr %0, i64 %96
+  store i8 %95, ptr %97, align 1
+  %98 = load i32, ptr %89, align 4
+  %99 = lshr i32 %98, 16
+  %100 = trunc i32 %99 to i8
+  %101 = or disjoint i64 %indvars.iv.i23, 2
+  %102 = getelementptr inbounds i8, ptr %0, i64 %101
+  store i8 %100, ptr %102, align 1
+  %103 = load i32, ptr %89, align 4
+  %104 = lshr i32 %103, 24
+  %105 = trunc nuw i32 %104 to i8
+  %106 = or disjoint i64 %indvars.iv.i23, 3
+  %107 = getelementptr inbounds i8, ptr %0, i64 %106
+  store i8 %105, ptr %107, align 1
+  %indvars.iv.next23.i24 = add nuw nsw i64 %indvars.iv22.i22, 1
+  %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i23, 4
+  %exitcond.not.i26 = icmp eq i64 %indvars.iv.next23.i24, 8
+  br i1 %exitcond.not.i26, label %Encode.exit27, label %.lr.ph.i21
 
-Encode.exit26:                                    ; preds = %.lr.ph.i20
+Encode.exit27:                                    ; preds = %.lr.ph.i21
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 184) #6
   ret void
 }

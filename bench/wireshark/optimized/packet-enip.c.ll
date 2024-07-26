@@ -2013,6 +2013,7 @@ define internal noundef i32 @dissect_dlr_ring_protocol_participants_list(ptr nou
   br i1 %.not, label %.preheader, label %9
 
 .preheader:                                       ; preds = %6
+  %invariant.op = add i32 %4, 4
   %8 = icmp sgt i32 %5, 0
   br i1 %8, label %.lr.ph, label %.loopexit
 
@@ -2021,16 +2022,16 @@ define internal noundef i32 @dissect_dlr_ring_protocol_participants_list(ptr nou
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.017 = phi i32 [ %17, %.lr.ph ], [ 0, %.preheader ]
+  %.017 = phi i32 [ %16, %.lr.ph ], [ 0, %.preheader ]
   %11 = load i32, ptr @hf_dlr_rppl_dev_ip_addr, align 4
   %12 = add i32 %.017, %4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %3, i32 noundef %12, i32 noundef 4, i32 noundef -2147483648) #11
   %14 = load i32, ptr @hf_dlr_rppl_dev_physical_address, align 4
-  %15 = add i32 %12, 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %14, ptr noundef %3, i32 noundef %15, i32 noundef 6, i32 noundef 0) #11
-  %17 = add i32 %.017, 10
-  %18 = icmp slt i32 %17, %5
-  br i1 %18, label %.lr.ph, label %.loopexit, !llvm.loop !6
+  %.reass = add i32 %.017, %invariant.op
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %14, ptr noundef %3, i32 noundef %.reass, i32 noundef 6, i32 noundef 0) #11
+  %16 = add i32 %.017, 10
+  %17 = icmp slt i32 %16, %5
+  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %9
   ret i32 %5

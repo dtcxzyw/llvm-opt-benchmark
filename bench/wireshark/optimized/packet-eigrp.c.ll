@@ -1613,7 +1613,7 @@ define internal fastcc void @dissect_eigrp_ipv4_addrs(ptr noundef %0, ptr nounde
 
 14:                                               ; preds = %.lr.ph, %24
   %.not34 = phi i32 [ 61, %.lr.ph ], [ 44, %24 ]
-  %.03033 = phi i32 [ %4, %.lr.ph ], [ %31, %24 ]
+  %.03033 = phi i32 [ %4, %.lr.ph ], [ %30, %24 ]
   %15 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.03033) #6
   %16 = add i32 %.03033, 1
   %17 = zext i8 %15 to i32
@@ -1638,11 +1638,11 @@ define internal fastcc void @dissect_eigrp_ipv4_addrs(ptr noundef %0, ptr nounde
   %28 = load ptr, ptr %13, align 8
   %29 = call ptr @address_to_str(ptr noundef %28, ptr noundef nonnull %7) #6
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %0, ptr noundef nonnull @.str.410, i32 noundef %.not34, ptr noundef %29, i32 noundef %17) #6
-  %30 = add i32 %.03033, 2
-  %31 = add i32 %30, %18
-  %32 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %31) #6
-  %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %14, label %.loopexit, !llvm.loop !10
+  %.reass = add i32 %.03033, 2
+  %30 = add i32 %.reass, %18
+  %31 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %30) #6
+  %32 = icmp sgt i32 %31, 0
+  br i1 %32, label %14, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %24, %5, %22
   ret void
@@ -1739,7 +1739,7 @@ define internal fastcc void @dissect_eigrp_ipv6_addrs(ptr noundef %0, ptr nounde
 
 14:                                               ; preds = %.lr.ph, %24
   %.not40 = phi i32 [ 61, %.lr.ph ], [ 44, %24 ]
-  %.03339 = phi i32 [ %4, %.lr.ph ], [ %34, %24 ]
+  %.03339 = phi i32 [ %4, %.lr.ph ], [ %33, %24 ]
   %15 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.03339) #6
   %16 = add i32 %.03339, 1
   %17 = zext i8 %15 to i32
@@ -1769,11 +1769,11 @@ define internal fastcc void @dissect_eigrp_ipv6_addrs(ptr noundef %0, ptr nounde
   %31 = load ptr, ptr %13, align 8
   %32 = call ptr @address_to_str(ptr noundef %31, ptr noundef nonnull %7) #6
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %0, ptr noundef nonnull @.str.410, i32 noundef %.not40, ptr noundef %32, i32 noundef %17) #6
-  %33 = add i32 %.03339, 2
-  %34 = add i32 %33, %.034
-  %35 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %34) #6
-  %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %14, label %.loopexit, !llvm.loop !11
+  %.reass = add i32 %.03339, 2
+  %33 = add i32 %.reass, %.034
+  %34 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %33) #6
+  %35 = icmp sgt i32 %34, 0
+  br i1 %35, label %14, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %24, %5, %22
   ret void

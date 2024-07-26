@@ -1094,21 +1094,23 @@ ft_conic_is_small_enough.exit._crit_edge:         ; preds = %86, %ft_conic_is_sm
   %141 = getelementptr inbounds i8, ptr %.0109.ptr172.lcssa, i64 8
   %142 = getelementptr inbounds i8, ptr %.0109.ptr172.lcssa, i64 32
   %143 = getelementptr inbounds i8, ptr %.0109.ptr172.lcssa, i64 40
+  %invariant.op = add i64 %.1158, 5898240
   br label %144
 
 144:                                              ; preds = %139, %208
   %145 = phi i1 [ true, %139 ], [ false, %208 ]
-  %indvars.iv = phi i64 [ 5898240, %139 ], [ -5898240, %208 ]
+  %indvars.iv = phi i64 [ 0, %139 ], [ -11796480, %208 ]
   %.0113174 = phi ptr [ %45, %139 ], [ %209, %208 ]
-  %146 = add nsw i64 %123, %indvars.iv
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %5, i64 noundef %126, i64 noundef %146) #11
-  %147 = load <2 x i64>, ptr %140, align 8
-  %148 = load <2 x i64>, ptr %5, align 16
-  %149 = add nsw <2 x i64> %148, %147
-  store <2 x i64> %149, ptr %5, align 16
-  %150 = load i64, ptr %43, align 8
-  %151 = add nsw i64 %indvars.iv, %.1158
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %6, i64 noundef %150, i64 noundef %151) #11
+  %146 = add nuw nsw i64 %indvars.iv, 5898240
+  %147 = add nsw i64 %123, %146
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %5, i64 noundef %126, i64 noundef %147) #11
+  %148 = load <2 x i64>, ptr %140, align 8
+  %149 = load <2 x i64>, ptr %5, align 16
+  %150 = add nsw <2 x i64> %149, %148
+  store <2 x i64> %150, ptr %5, align 16
+  %151 = load i64, ptr %43, align 8
+  %.reass = add i64 %indvars.iv, %invariant.op
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %6, i64 noundef %151, i64 noundef %.reass) #11
   %152 = load i64, ptr %.0109.ptr172.lcssa, align 8
   %153 = load i64, ptr %6, align 16
   %154 = add nsw i64 %153, %152
@@ -1644,27 +1646,29 @@ ft_cubic_is_small_enough.exit._crit_edge:         ; preds = %128, %ft_cubic_is_s
   %206 = getelementptr inbounds i8, ptr %.0128.ptr211.lcssa, i64 8
   %207 = getelementptr inbounds i8, ptr %.0128.ptr211.lcssa, i64 48
   %208 = getelementptr inbounds i8, ptr %.0128.ptr211.lcssa, i64 56
+  %invariant.op = add i64 %.1190, 5898240
   br label %209
 
 209:                                              ; preds = %203, %277
   %210 = phi i1 [ true, %203 ], [ false, %277 ]
-  %indvars.iv = phi i64 [ 5898240, %203 ], [ -5898240, %277 ]
+  %indvars.iv = phi i64 [ 0, %203 ], [ -11796480, %277 ]
   %.0132213 = phi ptr [ %61, %203 ], [ %278, %277 ]
-  %211 = add nsw i64 %181, %indvars.iv
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %6, i64 noundef %187, i64 noundef %211) #11
-  %212 = load <2 x i64>, ptr %204, align 8
-  %213 = load <2 x i64>, ptr %6, align 16
-  %214 = add nsw <2 x i64> %213, %212
-  store <2 x i64> %214, ptr %6, align 16
-  %215 = add nsw i64 %184, %indvars.iv
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %7, i64 noundef %190, i64 noundef %215) #11
-  %216 = load <2 x i64>, ptr %205, align 8
-  %217 = load <2 x i64>, ptr %7, align 16
-  %218 = add nsw <2 x i64> %217, %216
-  store <2 x i64> %218, ptr %7, align 16
-  %219 = load i64, ptr %59, align 8
-  %220 = add nsw i64 %indvars.iv, %.1190
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %8, i64 noundef %219, i64 noundef %220) #11
+  %211 = add nuw nsw i64 %indvars.iv, 5898240
+  %212 = add nsw i64 %181, %211
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %6, i64 noundef %187, i64 noundef %212) #11
+  %213 = load <2 x i64>, ptr %204, align 8
+  %214 = load <2 x i64>, ptr %6, align 16
+  %215 = add nsw <2 x i64> %214, %213
+  store <2 x i64> %215, ptr %6, align 16
+  %216 = add nsw i64 %184, %211
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %7, i64 noundef %190, i64 noundef %216) #11
+  %217 = load <2 x i64>, ptr %205, align 8
+  %218 = load <2 x i64>, ptr %7, align 16
+  %219 = add nsw <2 x i64> %218, %217
+  store <2 x i64> %219, ptr %7, align 16
+  %220 = load i64, ptr %59, align 8
+  %.reass = add i64 %indvars.iv, %invariant.op
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %8, i64 noundef %220, i64 noundef %.reass) #11
   %221 = load i64, ptr %.0128.ptr211.lcssa, align 8
   %222 = load i64, ptr %8, align 16
   %223 = add nsw i64 %222, %221

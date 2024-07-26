@@ -551,13 +551,14 @@ define void @dsytf2_rk_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr n
 362:                                              ; preds = %357
   %363 = add i32 %11, 1
   %364 = sext i32 %11 to i64
+  %invariant.op = add i32 %11, -1
   br label %365
 
-365:                                              ; preds = %700, %362
-  %366 = phi i32 [ %358, %362 ], [ %705, %700 ]
-  %367 = phi i32 [ undef, %362 ], [ %701, %700 ]
-  %368 = phi i32 [ undef, %362 ], [ %703, %700 ]
-  %369 = phi i32 [ 1, %362 ], [ %704, %700 ]
+365:                                              ; preds = %699, %362
+  %366 = phi i32 [ %358, %362 ], [ %704, %699 ]
+  %367 = phi i32 [ undef, %362 ], [ %700, %699 ]
+  %368 = phi i32 [ undef, %362 ], [ %702, %699 ]
+  %369 = phi i32 [ 1, %362 ], [ %703, %699 ]
   %370 = mul nsw i32 %369, %11
   %371 = add nsw i32 %370, %369
   %372 = sext i32 %371 to i64
@@ -772,7 +773,7 @@ define void @dsytf2_rk_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr n
   %520 = add nuw nsw i32 %517, %369
   %521 = add nsw i32 %520, -1
   %522 = icmp eq i32 %515, %521
-  br i1 %522, label %581, label %523
+  br i1 %522, label %580, label %523
 
 523:                                              ; preds = %.thread64
   %524 = load i32, ptr %1, align 4, !tbaa !3
@@ -845,214 +846,214 @@ define void @dsytf2_rk_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr n
 
 571:                                              ; preds = %561, %552
   %572 = icmp ugt i32 %369, 1
-  br i1 %572, label %573, label %581
+  br i1 %572, label %573, label %580
 
 573:                                              ; preds = %571
   %574 = add nsw i32 %369, -1
   store i32 %574, ptr %8, align 4, !tbaa !3
-  %575 = add nsw i32 %521, %11
-  %576 = sext i32 %575 to i64
-  %577 = getelementptr inbounds double, ptr %14, i64 %576
-  %578 = add nsw i32 %515, %11
-  %579 = sext i32 %578 to i64
-  %580 = getelementptr inbounds double, ptr %14, i64 %579
-  call void @dswap_(ptr noundef nonnull %8, ptr noundef %577, ptr noundef nonnull %3, ptr noundef %580, ptr noundef nonnull %3) #5
-  br label %581
+  %.reass = add i32 %520, %invariant.op
+  %575 = sext i32 %.reass to i64
+  %576 = getelementptr inbounds double, ptr %14, i64 %575
+  %577 = add nsw i32 %515, %11
+  %578 = sext i32 %577 to i64
+  %579 = getelementptr inbounds double, ptr %14, i64 %578
+  call void @dswap_(ptr noundef nonnull %8, ptr noundef %576, ptr noundef nonnull %3, ptr noundef %579, ptr noundef nonnull %3) #5
+  br label %580
 
-581:                                              ; preds = %573, %571, %.thread64
-  %582 = load i32, ptr %1, align 4, !tbaa !3
-  br i1 %514, label %583, label %624
+580:                                              ; preds = %573, %571, %.thread64
+  %581 = load i32, ptr %1, align 4, !tbaa !3
+  br i1 %514, label %582, label %623
 
-583:                                              ; preds = %581
-  %584 = icmp slt i32 %369, %582
-  br i1 %584, label %585, label %.thread72
+582:                                              ; preds = %580
+  %583 = icmp slt i32 %369, %581
+  br i1 %583, label %584, label %.thread72
 
-585:                                              ; preds = %583
-  %586 = load double, ptr %373, align 8, !tbaa !7
-  %587 = fcmp oge double %586, 0.000000e+00
-  %588 = fneg double %586
-  %589 = select i1 %587, double %586, double %588
-  %590 = fcmp ult double %589, %37
-  br i1 %590, label %604, label %591
+584:                                              ; preds = %582
+  %585 = load double, ptr %373, align 8, !tbaa !7
+  %586 = fcmp oge double %585, 0.000000e+00
+  %587 = fneg double %585
+  %588 = select i1 %586, double %585, double %587
+  %589 = fcmp ult double %588, %37
+  br i1 %589, label %603, label %590
 
-591:                                              ; preds = %585
-  %592 = fdiv double 1.000000e+00, %586
-  store double %592, ptr %10, align 8, !tbaa !7
-  %593 = sub nsw i32 %582, %369
-  store i32 %593, ptr %8, align 4, !tbaa !3
-  %594 = fneg double %592
-  store double %594, ptr %9, align 8, !tbaa !7
-  %595 = add nuw nsw i32 %369, 1
-  %596 = add nsw i32 %595, %370
-  %597 = sext i32 %596 to i64
-  %598 = getelementptr inbounds double, ptr %14, i64 %597
-  %599 = mul i32 %595, %363
-  %600 = sext i32 %599 to i64
-  %601 = getelementptr inbounds double, ptr %14, i64 %600
-  call void @dsyr_(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %598, ptr noundef nonnull @c__1, ptr noundef %601, ptr noundef nonnull %3) #5
-  %602 = load i32, ptr %1, align 4, !tbaa !3
-  %603 = sub nsw i32 %602, %369
-  store i32 %603, ptr %8, align 4, !tbaa !3
-  call void @dscal_(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef %598, ptr noundef nonnull @c__1) #5
+590:                                              ; preds = %584
+  %591 = fdiv double 1.000000e+00, %585
+  store double %591, ptr %10, align 8, !tbaa !7
+  %592 = sub nsw i32 %581, %369
+  store i32 %592, ptr %8, align 4, !tbaa !3
+  %593 = fneg double %591
+  store double %593, ptr %9, align 8, !tbaa !7
+  %594 = add nuw nsw i32 %369, 1
+  %595 = add nsw i32 %594, %370
+  %596 = sext i32 %595 to i64
+  %597 = getelementptr inbounds double, ptr %14, i64 %596
+  %598 = mul i32 %594, %363
+  %599 = sext i32 %598 to i64
+  %600 = getelementptr inbounds double, ptr %14, i64 %599
+  call void @dsyr_(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %597, ptr noundef nonnull @c__1, ptr noundef %600, ptr noundef nonnull %3) #5
+  %601 = load i32, ptr %1, align 4, !tbaa !3
+  %602 = sub nsw i32 %601, %369
+  store i32 %602, ptr %8, align 4, !tbaa !3
+  call void @dscal_(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef %597, ptr noundef nonnull @c__1) #5
   br label %.thread79
 
-604:                                              ; preds = %585
-  store double %586, ptr %10, align 8, !tbaa !7
-  %605 = add nuw nsw i32 %369, 1
-  %606 = zext nneg i32 %605 to i64
-  %607 = sext i32 %370 to i64
-  %608 = add i32 %582, 1
-  %609 = getelementptr double, ptr %14, i64 %607
-  br label %610
+603:                                              ; preds = %584
+  store double %585, ptr %10, align 8, !tbaa !7
+  %604 = add nuw nsw i32 %369, 1
+  %605 = zext nneg i32 %604 to i64
+  %606 = sext i32 %370 to i64
+  %607 = add i32 %581, 1
+  %608 = getelementptr double, ptr %14, i64 %606
+  br label %609
 
-610:                                              ; preds = %610, %604
-  %611 = phi i64 [ %606, %604 ], [ %615, %610 ]
-  %612 = getelementptr double, ptr %609, i64 %611
-  %613 = load double, ptr %612, align 8, !tbaa !7
-  %614 = fdiv double %613, %586
-  store double %614, ptr %612, align 8, !tbaa !7
-  %615 = add nuw nsw i64 %611, 1
-  %lftr.wideiv107 = trunc i64 %615 to i32
-  %exitcond108 = icmp eq i32 %608, %lftr.wideiv107
-  br i1 %exitcond108, label %616, label %610, !llvm.loop !14
+609:                                              ; preds = %609, %603
+  %610 = phi i64 [ %605, %603 ], [ %614, %609 ]
+  %611 = getelementptr double, ptr %608, i64 %610
+  %612 = load double, ptr %611, align 8, !tbaa !7
+  %613 = fdiv double %612, %585
+  store double %613, ptr %611, align 8, !tbaa !7
+  %614 = add nuw nsw i64 %610, 1
+  %lftr.wideiv107 = trunc i64 %614 to i32
+  %exitcond108 = icmp eq i32 %607, %lftr.wideiv107
+  br i1 %exitcond108, label %615, label %609, !llvm.loop !14
 
-616:                                              ; preds = %610
-  %617 = sub nsw i32 %582, %369
-  store i32 %617, ptr %8, align 4, !tbaa !3
-  store double %588, ptr %9, align 8, !tbaa !7
-  %618 = add nsw i32 %605, %370
-  %619 = sext i32 %618 to i64
-  %620 = getelementptr inbounds double, ptr %14, i64 %619
-  %621 = mul i32 %605, %363
-  %622 = sext i32 %621 to i64
-  %623 = getelementptr inbounds double, ptr %14, i64 %622
-  call void @dsyr_(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %620, ptr noundef nonnull @c__1, ptr noundef %623, ptr noundef nonnull %3) #5
+615:                                              ; preds = %609
+  %616 = sub nsw i32 %581, %369
+  store i32 %616, ptr %8, align 4, !tbaa !3
+  store double %587, ptr %9, align 8, !tbaa !7
+  %617 = add nsw i32 %604, %370
+  %618 = sext i32 %617 to i64
+  %619 = getelementptr inbounds double, ptr %14, i64 %618
+  %620 = mul i32 %604, %363
+  %621 = sext i32 %620 to i64
+  %622 = getelementptr inbounds double, ptr %14, i64 %621
+  call void @dsyr_(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %619, ptr noundef nonnull @c__1, ptr noundef %622, ptr noundef nonnull %3) #5
   br label %.thread79
 
-624:                                              ; preds = %581
-  %625 = add nsw i32 %582, -1
-  %626 = icmp slt i32 %369, %625
-  %627 = add nuw nsw i32 %369, 1
-  %628 = add nsw i32 %627, %370
-  %629 = sext i32 %628 to i64
-  br i1 %626, label %630, label %.loopexit
+623:                                              ; preds = %580
+  %624 = add nsw i32 %581, -1
+  %625 = icmp slt i32 %369, %624
+  %626 = add nuw nsw i32 %369, 1
+  %627 = add nsw i32 %626, %370
+  %628 = sext i32 %627 to i64
+  br i1 %625, label %629, label %.loopexit
 
-630:                                              ; preds = %624
-  %631 = getelementptr inbounds double, ptr %14, i64 %629
-  %632 = load double, ptr %631, align 8, !tbaa !7
-  %633 = mul nsw i32 %627, %11
-  %634 = add nsw i32 %633, %627
-  %635 = sext i32 %634 to i64
-  %636 = getelementptr inbounds double, ptr %14, i64 %635
-  %637 = load double, ptr %636, align 8, !tbaa !7
-  %638 = fdiv double %637, %632
-  store double %638, ptr %10, align 8, !tbaa !7
-  %639 = load double, ptr %373, align 8, !tbaa !7
-  %640 = fdiv double %639, %632
-  %641 = call double @llvm.fmuladd.f64(double %638, double %640, double -1.000000e+00)
-  %642 = fdiv double 1.000000e+00, %641
-  store i32 %582, ptr %8, align 4, !tbaa !3
-  %643 = add nuw nsw i32 %369, 2
-  %644 = zext nneg i32 %643 to i64
-  %645 = sext i32 %370 to i64
-  %646 = sext i32 %633 to i64
-  %647 = sext i32 %582 to i64
-  %648 = add i32 %582, 1
+629:                                              ; preds = %623
+  %630 = getelementptr inbounds double, ptr %14, i64 %628
+  %631 = load double, ptr %630, align 8, !tbaa !7
+  %632 = mul nsw i32 %626, %11
+  %633 = add nsw i32 %632, %626
+  %634 = sext i32 %633 to i64
+  %635 = getelementptr inbounds double, ptr %14, i64 %634
+  %636 = load double, ptr %635, align 8, !tbaa !7
+  %637 = fdiv double %636, %631
+  store double %637, ptr %10, align 8, !tbaa !7
+  %638 = load double, ptr %373, align 8, !tbaa !7
+  %639 = fdiv double %638, %631
+  %640 = call double @llvm.fmuladd.f64(double %637, double %639, double -1.000000e+00)
+  %641 = fdiv double 1.000000e+00, %640
+  store i32 %581, ptr %8, align 4, !tbaa !3
+  %642 = add nuw nsw i32 %369, 2
+  %643 = zext nneg i32 %642 to i64
+  %644 = sext i32 %370 to i64
+  %645 = sext i32 %632 to i64
+  %646 = sext i32 %581 to i64
+  %647 = add i32 %581, 1
+  %648 = getelementptr double, ptr %14, i64 %644
   %649 = getelementptr double, ptr %14, i64 %645
-  %650 = getelementptr double, ptr %14, i64 %646
-  br label %651
+  br label %650
 
-651:                                              ; preds = %681, %630
-  %652 = phi i64 [ %644, %630 ], [ %684, %681 ]
-  %653 = getelementptr double, ptr %649, i64 %652
-  %654 = load double, ptr %653, align 8, !tbaa !7
-  %655 = getelementptr double, ptr %650, i64 %652
-  %656 = load double, ptr %655, align 8, !tbaa !7
-  %657 = fneg double %656
-  %658 = call double @llvm.fmuladd.f64(double %638, double %654, double %657)
-  %659 = fmul double %642, %658
-  %660 = fneg double %654
-  %661 = call double @llvm.fmuladd.f64(double %640, double %656, double %660)
-  %662 = fmul double %642, %661
-  %663 = mul nsw i64 %652, %364
-  %664 = getelementptr double, ptr %14, i64 %663
-  br label %665
+650:                                              ; preds = %680, %629
+  %651 = phi i64 [ %643, %629 ], [ %683, %680 ]
+  %652 = getelementptr double, ptr %648, i64 %651
+  %653 = load double, ptr %652, align 8, !tbaa !7
+  %654 = getelementptr double, ptr %649, i64 %651
+  %655 = load double, ptr %654, align 8, !tbaa !7
+  %656 = fneg double %655
+  %657 = call double @llvm.fmuladd.f64(double %637, double %653, double %656)
+  %658 = fmul double %641, %657
+  %659 = fneg double %653
+  %660 = call double @llvm.fmuladd.f64(double %639, double %655, double %659)
+  %661 = fmul double %641, %660
+  %662 = mul nsw i64 %651, %364
+  %663 = getelementptr double, ptr %14, i64 %662
+  br label %664
 
-665:                                              ; preds = %665, %651
-  %666 = phi i64 [ %652, %651 ], [ %679, %665 ]
-  %667 = getelementptr double, ptr %664, i64 %666
-  %668 = load double, ptr %667, align 8, !tbaa !7
-  %669 = getelementptr double, ptr %649, i64 %666
-  %670 = load double, ptr %669, align 8, !tbaa !7
-  %671 = fneg double %670
-  %672 = fdiv double %671, %632
-  %673 = call double @llvm.fmuladd.f64(double %672, double %659, double %668)
-  %674 = getelementptr double, ptr %650, i64 %666
-  %675 = load double, ptr %674, align 8, !tbaa !7
-  %676 = fneg double %675
-  %677 = fdiv double %676, %632
-  %678 = call double @llvm.fmuladd.f64(double %677, double %662, double %673)
-  store double %678, ptr %667, align 8, !tbaa !7
-  %679 = add nuw nsw i64 %666, 1
-  %680 = icmp slt i64 %666, %647
-  br i1 %680, label %665, label %681, !llvm.loop !15
+664:                                              ; preds = %664, %650
+  %665 = phi i64 [ %651, %650 ], [ %678, %664 ]
+  %666 = getelementptr double, ptr %663, i64 %665
+  %667 = load double, ptr %666, align 8, !tbaa !7
+  %668 = getelementptr double, ptr %648, i64 %665
+  %669 = load double, ptr %668, align 8, !tbaa !7
+  %670 = fneg double %669
+  %671 = fdiv double %670, %631
+  %672 = call double @llvm.fmuladd.f64(double %671, double %658, double %667)
+  %673 = getelementptr double, ptr %649, i64 %665
+  %674 = load double, ptr %673, align 8, !tbaa !7
+  %675 = fneg double %674
+  %676 = fdiv double %675, %631
+  %677 = call double @llvm.fmuladd.f64(double %676, double %661, double %672)
+  store double %677, ptr %666, align 8, !tbaa !7
+  %678 = add nuw nsw i64 %665, 1
+  %679 = icmp slt i64 %665, %646
+  br i1 %679, label %664, label %680, !llvm.loop !15
 
-681:                                              ; preds = %665
-  %682 = fdiv double %659, %632
-  store double %682, ptr %653, align 8, !tbaa !7
-  %683 = fdiv double %662, %632
-  store double %683, ptr %655, align 8, !tbaa !7
-  %684 = add nuw nsw i64 %652, 1
-  %lftr.wideiv = trunc i64 %684 to i32
-  %exitcond = icmp eq i32 %648, %lftr.wideiv
-  br i1 %exitcond, label %.loopexit, label %651, !llvm.loop !16
+680:                                              ; preds = %664
+  %681 = fdiv double %658, %631
+  store double %681, ptr %652, align 8, !tbaa !7
+  %682 = fdiv double %661, %631
+  store double %682, ptr %654, align 8, !tbaa !7
+  %683 = add nuw nsw i64 %651, 1
+  %lftr.wideiv = trunc i64 %683 to i32
+  %exitcond = icmp eq i32 %647, %lftr.wideiv
+  br i1 %exitcond, label %.loopexit, label %650, !llvm.loop !16
 
-.thread79:                                        ; preds = %591, %616, %404
-  %.ph76 = phi i32 [ %368, %404 ], [ %518, %616 ], [ %518, %591 ]
-  %.ph77 = phi i32 [ %395, %404 ], [ %516, %616 ], [ %516, %591 ]
-  %.ph78 = phi i32 [ %369, %404 ], [ %515, %616 ], [ %515, %591 ]
+.thread79:                                        ; preds = %590, %615, %404
+  %.ph76 = phi i32 [ %368, %404 ], [ %518, %615 ], [ %518, %590 ]
+  %.ph77 = phi i32 [ %395, %404 ], [ %516, %615 ], [ %516, %590 ]
+  %.ph78 = phi i32 [ %369, %404 ], [ %515, %615 ], [ %515, %590 ]
   %.pn80 = zext nneg i32 %369 to i64
   %.ph74 = getelementptr inbounds double, ptr %15, i64 %.pn80
   store double 0.000000e+00, ptr %.ph74, align 8, !tbaa !7
   br label %.thread72
 
-.thread72:                                        ; preds = %583, %404, %.thread79
-  %685 = phi i32 [ %.ph78, %.thread79 ], [ %515, %583 ], [ %369, %404 ]
-  %686 = phi i32 [ %.ph77, %.thread79 ], [ %516, %583 ], [ %395, %404 ]
-  %687 = phi i32 [ %.ph76, %.thread79 ], [ %518, %583 ], [ %368, %404 ]
-  %688 = zext nneg i32 %369 to i64
-  %689 = getelementptr inbounds i32, ptr %16, i64 %688
-  store i32 %685, ptr %689, align 4, !tbaa !3
-  br label %700
+.thread72:                                        ; preds = %582, %404, %.thread79
+  %684 = phi i32 [ %.ph78, %.thread79 ], [ %515, %582 ], [ %369, %404 ]
+  %685 = phi i32 [ %.ph77, %.thread79 ], [ %516, %582 ], [ %395, %404 ]
+  %686 = phi i32 [ %.ph76, %.thread79 ], [ %518, %582 ], [ %368, %404 ]
+  %687 = zext nneg i32 %369 to i64
+  %688 = getelementptr inbounds i32, ptr %16, i64 %687
+  store i32 %684, ptr %688, align 4, !tbaa !3
+  br label %699
 
-.loopexit:                                        ; preds = %681, %624
-  %690 = getelementptr inbounds double, ptr %14, i64 %629
-  %691 = load double, ptr %690, align 8, !tbaa !7
-  %692 = zext nneg i32 %369 to i64
-  %693 = getelementptr inbounds double, ptr %15, i64 %692
-  store double %691, ptr %693, align 8, !tbaa !7
-  %694 = zext nneg i32 %627 to i64
-  %695 = getelementptr inbounds double, ptr %15, i64 %694
-  store double 0.000000e+00, ptr %695, align 8, !tbaa !7
-  store double 0.000000e+00, ptr %690, align 8, !tbaa !7
-  %696 = sub nsw i32 0, %519
-  %697 = getelementptr inbounds i32, ptr %16, i64 %692
-  store i32 %696, ptr %697, align 4, !tbaa !3
-  %698 = sub nsw i32 0, %515
-  %699 = getelementptr i8, ptr %697, i64 4
-  store i32 %698, ptr %699, align 4, !tbaa !3
-  br label %700
+.loopexit:                                        ; preds = %680, %623
+  %689 = getelementptr inbounds double, ptr %14, i64 %628
+  %690 = load double, ptr %689, align 8, !tbaa !7
+  %691 = zext nneg i32 %369 to i64
+  %692 = getelementptr inbounds double, ptr %15, i64 %691
+  store double %690, ptr %692, align 8, !tbaa !7
+  %693 = zext nneg i32 %626 to i64
+  %694 = getelementptr inbounds double, ptr %15, i64 %693
+  store double 0.000000e+00, ptr %694, align 8, !tbaa !7
+  store double 0.000000e+00, ptr %689, align 8, !tbaa !7
+  %695 = sub nsw i32 0, %519
+  %696 = getelementptr inbounds i32, ptr %16, i64 %691
+  store i32 %695, ptr %696, align 4, !tbaa !3
+  %697 = sub nsw i32 0, %515
+  %698 = getelementptr i8, ptr %696, i64 4
+  store i32 %697, ptr %698, align 4, !tbaa !3
+  br label %699
 
-700:                                              ; preds = %.loopexit, %.thread72
-  %701 = phi i32 [ %516, %.loopexit ], [ %686, %.thread72 ]
-  %702 = phi i32 [ 2, %.loopexit ], [ 1, %.thread72 ]
-  %703 = phi i32 [ %518, %.loopexit ], [ %687, %.thread72 ]
-  %704 = add nuw nsw i32 %702, %369
-  %705 = load i32, ptr %1, align 4, !tbaa !3
-  %706 = icmp sgt i32 %704, %705
-  br i1 %706, label %.loopexit81, label %365
+699:                                              ; preds = %.loopexit, %.thread72
+  %700 = phi i32 [ %516, %.loopexit ], [ %685, %.thread72 ]
+  %701 = phi i32 [ 2, %.loopexit ], [ 1, %.thread72 ]
+  %702 = phi i32 [ %518, %.loopexit ], [ %686, %.thread72 ]
+  %703 = add nuw nsw i32 %701, %369
+  %704 = load i32, ptr %1, align 4, !tbaa !3
+  %705 = icmp sgt i32 %703, %704
+  br i1 %705, label %.loopexit81, label %365
 
-.loopexit81:                                      ; preds = %351, %700, %357, %38, %32
+.loopexit81:                                      ; preds = %351, %699, %357, %38, %32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5

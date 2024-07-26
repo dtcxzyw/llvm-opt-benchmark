@@ -678,7 +678,7 @@ define hidden void @ir_dump_cfg(ptr nocapture noundef readonly %0, ptr nocapture
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %161, label %5
+  br i1 %.not, label %160, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 92
@@ -692,9 +692,9 @@ define hidden void @ir_dump_cfg(ptr nocapture noundef readonly %0, ptr nocapture
   %10 = getelementptr inbounds i8, ptr %0, i64 312
   br label %11
 
-11:                                               ; preds = %.lr.ph168, %158
-  %.0165 = phi i32 [ 1, %.lr.ph168 ], [ %159, %158 ]
-  %.pn164 = phi ptr [ %4, %.lr.ph168 ], [ %.0121166, %158 ]
+11:                                               ; preds = %.lr.ph168, %157
+  %.0165 = phi i32 [ 1, %.lr.ph168 ], [ %158, %157 ]
+  %.pn164 = phi ptr [ %4, %.lr.ph168 ], [ %.0121166, %157 ]
   %.0121166 = getelementptr inbounds i8, ptr %.pn164, i64 52
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.34, i32 noundef %.0165) #6
   %13 = getelementptr inbounds i8, ptr %.pn164, i64 56
@@ -902,43 +902,43 @@ define hidden void @ir_dump_cfg(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %131, label %._crit_edge156, label %.lr.ph155
 
 .lr.ph155:                                        ; preds = %127, %.lr.ph155
-  %.0117153 = phi i32 [ %137, %.lr.ph155 ], [ 0, %127 ]
+  %.0117153 = phi i32 [ %136, %.lr.ph155 ], [ 0, %127 ]
   %132 = add i32 %.0117153, 1
   %133 = zext i32 %132 to i64
   %134 = getelementptr inbounds i32, ptr %129, i64 %133
   %135 = load i32, ptr %134, align 4
-  %136 = add i32 %.0117153, 2
-  %137 = add i32 %136, %135
-  %138 = zext i32 %137 to i64
-  %139 = getelementptr inbounds i32, ptr %129, i64 %138
-  %140 = load i32, ptr %139, align 4
-  %141 = icmp eq i32 %.0165, %140
-  br i1 %141, label %._crit_edge156, label %.lr.ph155
+  %.reass = add i32 %.0117153, 2
+  %136 = add i32 %.reass, %135
+  %137 = zext i32 %136 to i64
+  %138 = getelementptr inbounds i32, ptr %129, i64 %137
+  %139 = load i32, ptr %138, align 4
+  %140 = icmp eq i32 %.0165, %139
+  br i1 %140, label %._crit_edge156, label %.lr.ph155
 
 ._crit_edge156:                                   ; preds = %.lr.ph155, %127
-  %.0117.lcssa = phi i32 [ 0, %127 ], [ %137, %.lr.ph155 ]
-  %142 = add i32 %.0117.lcssa, 1
-  %143 = zext i32 %142 to i64
-  %144 = getelementptr inbounds i32, ptr %129, i64 %143
-  %145 = load i32, ptr %144, align 4
-  %.not170 = icmp eq i32 %145, 0
+  %.0117.lcssa = phi i32 [ 0, %127 ], [ %136, %.lr.ph155 ]
+  %141 = add i32 %.0117.lcssa, 1
+  %142 = zext i32 %141 to i64
+  %143 = getelementptr inbounds i32, ptr %129, i64 %142
+  %144 = load i32, ptr %143, align 4
+  %.not170 = icmp eq i32 %144, 0
   br i1 %.not170, label %.loopexit, label %.lr.ph161.preheader
 
 .lr.ph161.preheader:                              ; preds = %._crit_edge156
-  %146 = add i32 %.0117.lcssa, 2
+  %145 = add i32 %.0117.lcssa, 2
   br label %.lr.ph161
 
 .lr.ph161:                                        ; preds = %.lr.ph161.preheader, %.lr.ph161
-  %.0116159 = phi i32 [ %152, %.lr.ph161 ], [ 0, %.lr.ph161.preheader ]
-  %.1158 = phi i32 [ %153, %.lr.ph161 ], [ %146, %.lr.ph161.preheader ]
-  %147 = load ptr, ptr %128, align 8
-  %148 = zext i32 %.1158 to i64
-  %149 = getelementptr inbounds i32, ptr %147, i64 %148
-  %150 = load i32, ptr %149, align 4
-  %151 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.50, i32 noundef %150) #6
-  %152 = add nuw i32 %.0116159, 1
-  %153 = add i32 %.1158, 1
-  %exitcond.not = icmp eq i32 %152, %145
+  %.0116159 = phi i32 [ %151, %.lr.ph161 ], [ 0, %.lr.ph161.preheader ]
+  %.1158 = phi i32 [ %152, %.lr.ph161 ], [ %145, %.lr.ph161.preheader ]
+  %146 = load ptr, ptr %128, align 8
+  %147 = zext i32 %.1158 to i64
+  %148 = getelementptr inbounds i32, ptr %146, i64 %147
+  %149 = load i32, ptr %148, align 4
+  %150 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.50, i32 noundef %149) #6
+  %151 = add nuw i32 %.0116159, 1
+  %152 = add i32 %.1158, 1
+  %exitcond.not = icmp eq i32 %151, %144
   br i1 %exitcond.not, label %.loopexit.loopexit, label %.lr.ph161
 
 .loopexit.loopexit:                               ; preds = %.lr.ph161
@@ -946,27 +946,27 @@ define hidden void @ir_dump_cfg(ptr nocapture noundef readonly %0, ptr nocapture
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge156, %124
-  %154 = phi i32 [ %.pre172, %.loopexit.loopexit ], [ %125, %._crit_edge156 ], [ %125, %124 ]
-  %155 = and i32 %154, 32
-  %.not142 = icmp eq i32 %155, 0
-  br i1 %.not142, label %158, label %156
+  %153 = phi i32 [ %.pre172, %.loopexit.loopexit ], [ %125, %._crit_edge156 ], [ %125, %124 ]
+  %154 = and i32 %153, 32
+  %.not142 = icmp eq i32 %154, 0
+  br i1 %.not142, label %157, label %155
 
-156:                                              ; preds = %.loopexit
-  %157 = getelementptr i8, ptr %.pn164, i64 64
-  %.0121.val = load i32, ptr %157, align 4
+155:                                              ; preds = %.loopexit
+  %156 = getelementptr i8, ptr %.pn164, i64 64
+  %.0121.val = load i32, ptr %156, align 4
   tail call fastcc void @ir_dump_dessa_moves(ptr noundef %0, i32 noundef %.0165, i32 %.0121.val, ptr noundef %1)
-  br label %158
+  br label %157
 
-158:                                              ; preds = %.loopexit, %156
-  %159 = add i32 %.0165, 1
-  %.not129 = icmp ugt i32 %159, %7
+157:                                              ; preds = %.loopexit, %155
+  %158 = add i32 %.0165, 1
+  %.not129 = icmp ugt i32 %158, %7
   br i1 %.not129, label %._crit_edge169, label %11
 
-._crit_edge169:                                   ; preds = %158, %5
-  %160 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 2, i64 1, ptr %1)
-  br label %161
+._crit_edge169:                                   ; preds = %157, %5
+  %159 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 2, i64 1, ptr %1)
+  br label %160
 
-161:                                              ; preds = %._crit_edge169, %2
+160:                                              ; preds = %._crit_edge169, %2
   ret void
 }
 

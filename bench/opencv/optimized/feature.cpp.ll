@@ -6182,7 +6182,7 @@ define hidden void @_ZN2cv6detail8tracking15contrib_feature14CvLBPEvaluator16gen
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, 1
   %5 = icmp sgt i32 %3, 0
-  br i1 %5, label %.preheader63.lr.ph, label %._crit_edge73
+  br i1 %5, label %.preheader63.lr.ph, label %._crit_edge77
 
 .preheader63.lr.ph:                               ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 24
@@ -6191,285 +6191,285 @@ define hidden void @_ZN2cv6detail8tracking15contrib_feature14CvLBPEvaluator16gen
   %9 = getelementptr inbounds i8, ptr %0, i64 152
   %10 = load i32, ptr %6, align 8
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %.preheader63, label %._crit_edge73
+  br i1 %11, label %.preheader63, label %._crit_edge77
 
-.preheader63:                                     ; preds = %.preheader63.lr.ph, %._crit_edge71
-  %12 = phi i32 [ %105, %._crit_edge71 ], [ %3, %.preheader63.lr.ph ]
-  %13 = phi i32 [ %106, %._crit_edge71 ], [ %10, %.preheader63.lr.ph ]
-  %14 = phi i32 [ %107, %._crit_edge71 ], [ %10, %.preheader63.lr.ph ]
-  %.01972 = phi i32 [ %108, %._crit_edge71 ], [ 0, %.preheader63.lr.ph ]
+.preheader63:                                     ; preds = %.preheader63.lr.ph, %._crit_edge75
+  %12 = phi i32 [ %101, %._crit_edge75 ], [ %3, %.preheader63.lr.ph ]
+  %13 = phi i32 [ %102, %._crit_edge75 ], [ %10, %.preheader63.lr.ph ]
+  %14 = phi i32 [ %103, %._crit_edge75 ], [ %10, %.preheader63.lr.ph ]
+  %.01976 = phi i32 [ %104, %._crit_edge75 ], [ 0, %.preheader63.lr.ph ]
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.preheader62, label %._crit_edge71
+  br i1 %15, label %.preheader62, label %._crit_edge75
 
 .preheader62:                                     ; preds = %.preheader63, %._crit_edge69
-  %16 = phi i32 [ %99, %._crit_edge69 ], [ %12, %.preheader63 ]
-  %17 = phi i32 [ %100, %._crit_edge69 ], [ %13, %.preheader63 ]
-  %18 = phi i32 [ %101, %._crit_edge69 ], [ %12, %.preheader63 ]
-  %19 = phi i32 [ %100, %._crit_edge69 ], [ %14, %.preheader63 ]
-  %20 = phi i32 [ %102, %._crit_edge69 ], [ %12, %.preheader63 ]
-  %.01870 = phi i32 [ %103, %._crit_edge69 ], [ 0, %.preheader63 ]
+  %16 = phi i32 [ %95, %._crit_edge69 ], [ %12, %.preheader63 ]
+  %17 = phi i32 [ %96, %._crit_edge69 ], [ %13, %.preheader63 ]
+  %18 = phi i32 [ %97, %._crit_edge69 ], [ %12, %.preheader63 ]
+  %19 = phi i32 [ %96, %._crit_edge69 ], [ %14, %.preheader63 ]
+  %20 = phi i32 [ %98, %._crit_edge69 ], [ %12, %.preheader63 ]
+  %.01874 = phi i32 [ %99, %._crit_edge69 ], [ 0, %.preheader63 ]
   %.not66 = icmp slt i32 %20, 3
   br i1 %.not66, label %._crit_edge69, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader62
-  %21 = mul nuw nsw i32 %.01870, %4
-  %22 = add nuw nsw i32 %21, %.01972
+  %21 = mul nuw nsw i32 %.01874, %4
+  %22 = add nuw i32 %21, %.01976
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %23 = phi i32 [ %16, %.preheader.lr.ph ], [ %93, %._crit_edge ]
-  %24 = phi i32 [ %17, %.preheader.lr.ph ], [ %94, %._crit_edge ]
-  %25 = phi i32 [ %18, %.preheader.lr.ph ], [ %95, %._crit_edge ]
-  %26 = phi i32 [ %20, %.preheader.lr.ph ], [ %95, %._crit_edge ]
-  %27 = phi i32 [ %19, %.preheader.lr.ph ], [ %96, %._crit_edge ]
-  %.01767 = phi i32 [ 1, %.preheader.lr.ph ], [ %97, %._crit_edge ]
+  %23 = phi i32 [ %16, %.preheader.lr.ph ], [ %89, %._crit_edge ]
+  %24 = phi i32 [ %17, %.preheader.lr.ph ], [ %90, %._crit_edge ]
+  %25 = phi i32 [ %18, %.preheader.lr.ph ], [ %91, %._crit_edge ]
+  %26 = phi i32 [ %20, %.preheader.lr.ph ], [ %91, %._crit_edge ]
+  %27 = phi i32 [ %19, %.preheader.lr.ph ], [ %92, %._crit_edge ]
+  %.01767 = phi i32 [ 1, %.preheader.lr.ph ], [ %93, %._crit_edge ]
   %.not2064 = icmp slt i32 %27, 3
   br i1 %.not2064, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
+  %invariant.op = add nuw i32 %.01976, %.01767
   %28 = mul nuw nsw i32 %.01767, 3
-  %29 = add nuw nsw i32 %28, %.01972
-  %30 = add nuw nsw i32 %.01767, %.01972
-  %31 = add nuw nsw i32 %30, %21
-  %32 = shl nuw nsw i32 %.01767, 1
-  %33 = add nuw nsw i32 %32, %.01972
-  %34 = add nuw nsw i32 %33, %21
-  %35 = add nuw nsw i32 %33, %.01767
-  %36 = add nuw nsw i32 %35, %21
-  %37 = icmp sgt i32 %29, %26
-  br i1 %37, label %._crit_edge, label %.lr.ph.split
+  %29 = add nuw nsw i32 %28, %.01976
+  %.reass71 = add i32 %.01767, %22
+  %30 = shl nuw nsw i32 %.01767, 1
+  %31 = add nuw nsw i32 %30, %.01976
+  %.reass73 = add i32 %30, %22
+  %.reass = add nuw i32 %30, %invariant.op
+  %32 = add nsw i32 %.reass, %21
+  %33 = icmp sgt i32 %29, %26
+  br i1 %33, label %._crit_edge, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE9push_backEOS5_.exit
-  %38 = phi i32 [ %91, %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE9push_backEOS5_.exit ], [ %27, %.lr.ph ]
-  %.065 = phi i32 [ %90, %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE9push_backEOS5_.exit ], [ 1, %.lr.ph ]
-  %39 = load i32, ptr %2, align 4
-  %.not21 = icmp sgt i32 %29, %39
-  br i1 %.not21, label %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE9push_backEOS5_.exit, label %40
+  %34 = phi i32 [ %87, %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE9push_backEOS5_.exit ], [ %27, %.lr.ph ]
+  %.065 = phi i32 [ %86, %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE9push_backEOS5_.exit ], [ 1, %.lr.ph ]
+  %35 = load i32, ptr %2, align 4
+  %.not21 = icmp sgt i32 %29, %35
+  br i1 %.not21, label %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE9push_backEOS5_.exit, label %36
 
-40:                                               ; preds = %.lr.ph.split
-  %41 = mul nuw nsw i32 %.065, 3
-  %42 = add nuw nsw i32 %41, %.01870
-  %.not22 = icmp sgt i32 %42, %38
-  br i1 %.not22, label %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE9push_backEOS5_.exit, label %43
+36:                                               ; preds = %.lr.ph.split
+  %37 = mul nuw nsw i32 %.065, 3
+  %38 = add nuw nsw i32 %37, %.01874
+  %.not22 = icmp sgt i32 %38, %34
+  br i1 %.not22, label %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE9push_backEOS5_.exit, label %39
 
-43:                                               ; preds = %40
-  %44 = add nuw nsw i32 %.065, %.01870
-  %45 = mul nuw nsw i32 %44, %4
-  %46 = add nuw nsw i32 %45, %.01972
-  %47 = add nuw nsw i32 %45, %30
-  %48 = add nuw nsw i32 %45, %33
-  %49 = add nuw nsw i32 %45, %35
-  %50 = shl nuw nsw i32 %.065, 1
-  %51 = add nuw nsw i32 %50, %.01870
+39:                                               ; preds = %36
+  %40 = add nuw nsw i32 %.065, %.01874
+  %41 = mul nuw nsw i32 %40, %4
+  %42 = add nuw nsw i32 %41, %.01976
+  %43 = add nuw nsw i32 %41, %invariant.op
+  %44 = add nuw nsw i32 %41, %31
+  %45 = add nsw i32 %41, %.reass
+  %46 = shl nuw nsw i32 %.065, 1
+  %47 = add nuw nsw i32 %46, %.01874
+  %48 = mul nuw nsw i32 %47, %4
+  %49 = add nuw nsw i32 %48, %31
+  %50 = add nsw i32 %48, %.reass
+  %51 = add nuw nsw i32 %47, %.065
   %52 = mul nuw nsw i32 %51, %4
-  %53 = add nuw nsw i32 %52, %33
-  %54 = add nuw nsw i32 %52, %35
-  %55 = add nuw nsw i32 %51, %.065
-  %56 = mul nuw nsw i32 %55, %4
-  %57 = add nuw nsw i32 %56, %33
-  %58 = add nuw nsw i32 %56, %35
-  %59 = add nuw nsw i32 %52, %.01972
-  %60 = add nuw nsw i32 %52, %30
-  %61 = add nuw nsw i32 %56, %.01972
-  %62 = add nuw nsw i32 %56, %30
-  %63 = load ptr, ptr %8, align 8
-  %64 = load ptr, ptr %9, align 8
-  %.not.i.i = icmp eq ptr %63, %64
-  br i1 %.not.i.i, label %68, label %65
+  %53 = add nuw nsw i32 %52, %31
+  %54 = add nsw i32 %52, %.reass
+  %55 = add nuw nsw i32 %48, %.01976
+  %56 = add nuw nsw i32 %48, %invariant.op
+  %57 = add nuw nsw i32 %52, %.01976
+  %58 = add nuw nsw i32 %52, %invariant.op
+  %59 = load ptr, ptr %8, align 8
+  %60 = load ptr, ptr %9, align 8
+  %.not.i.i = icmp eq ptr %59, %60
+  br i1 %.not.i.i, label %64, label %61
 
-65:                                               ; preds = %43
-  store i32 %.01972, ptr %63, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 4
-  store i32 %.01870, ptr %.sroa.3.0..sroa_idx, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 8
+61:                                               ; preds = %39
+  store i32 %.01976, ptr %59, align 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 4
+  store i32 %.01874, ptr %.sroa.3.0..sroa_idx, align 4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 8
   store i32 %.01767, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 12
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 12
   store i32 %.065, ptr %.sroa.5.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 16
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 16
   store i32 %22, ptr %.sroa.6.0..sroa_idx, align 4
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 20
-  store i32 %31, ptr %.sroa.7.0..sroa_idx, align 4
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 24
-  store i32 %34, ptr %.sroa.8.0..sroa_idx, align 4
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 28
-  store i32 %36, ptr %.sroa.9.0..sroa_idx, align 4
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 32
-  store i32 %46, ptr %.sroa.10.0..sroa_idx, align 4
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 36
-  store i32 %47, ptr %.sroa.11.0..sroa_idx, align 4
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 40
-  store i32 %48, ptr %.sroa.12.0..sroa_idx, align 4
-  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 44
-  store i32 %49, ptr %.sroa.13.0..sroa_idx, align 4
-  %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 48
-  store i32 %59, ptr %.sroa.14.0..sroa_idx, align 4
-  %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 52
-  store i32 %60, ptr %.sroa.15.0..sroa_idx, align 4
-  %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 56
-  store i32 %53, ptr %.sroa.16.0..sroa_idx, align 4
-  %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 60
-  store i32 %54, ptr %.sroa.17.0..sroa_idx, align 4
-  %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 64
-  store i32 %61, ptr %.sroa.18.0..sroa_idx, align 4
-  %.sroa.19.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 68
-  store i32 %62, ptr %.sroa.19.0..sroa_idx, align 4
-  %.sroa.20.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 72
-  store i32 %57, ptr %.sroa.20.0..sroa_idx, align 4
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 76
-  store i32 %58, ptr %.sroa.21.0..sroa_idx, align 4
-  %66 = load ptr, ptr %8, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 80
-  store ptr %67, ptr %8, align 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 20
+  store i32 %.reass71, ptr %.sroa.7.0..sroa_idx, align 4
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 24
+  store i32 %.reass73, ptr %.sroa.8.0..sroa_idx, align 4
+  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 28
+  store i32 %32, ptr %.sroa.9.0..sroa_idx, align 4
+  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 32
+  store i32 %42, ptr %.sroa.10.0..sroa_idx, align 4
+  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 36
+  store i32 %43, ptr %.sroa.11.0..sroa_idx, align 4
+  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 40
+  store i32 %44, ptr %.sroa.12.0..sroa_idx, align 4
+  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 44
+  store i32 %45, ptr %.sroa.13.0..sroa_idx, align 4
+  %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 48
+  store i32 %55, ptr %.sroa.14.0..sroa_idx, align 4
+  %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 52
+  store i32 %56, ptr %.sroa.15.0..sroa_idx, align 4
+  %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 56
+  store i32 %49, ptr %.sroa.16.0..sroa_idx, align 4
+  %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 60
+  store i32 %50, ptr %.sroa.17.0..sroa_idx, align 4
+  %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 64
+  store i32 %57, ptr %.sroa.18.0..sroa_idx, align 4
+  %.sroa.19.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 68
+  store i32 %58, ptr %.sroa.19.0..sroa_idx, align 4
+  %.sroa.20.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 72
+  store i32 %53, ptr %.sroa.20.0..sroa_idx, align 4
+  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 76
+  store i32 %54, ptr %.sroa.21.0..sroa_idx, align 4
+  %62 = load ptr, ptr %8, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 80
+  store ptr %63, ptr %8, align 8
   br label %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE9push_backEOS5_.exit
 
-68:                                               ; preds = %43
-  %69 = load ptr, ptr %7, align 8
-  %70 = ptrtoint ptr %63 to i64
-  %71 = ptrtoint ptr %69 to i64
-  %72 = sub i64 %70, %71
-  %73 = icmp eq i64 %72, 9223372036854775760
-  br i1 %73, label %74, label %_ZNKSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
+64:                                               ; preds = %39
+  %65 = load ptr, ptr %7, align 8
+  %66 = ptrtoint ptr %59 to i64
+  %67 = ptrtoint ptr %65 to i64
+  %68 = sub i64 %66, %67
+  %69 = icmp eq i64 %68, 9223372036854775760
+  br i1 %69, label %70, label %_ZNKSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
 
-74:                                               ; preds = %68
+70:                                               ; preds = %64
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.32) #27
   unreachable
 
-_ZNKSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %68
-  %75 = sdiv exact i64 %72, 80
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %75, i64 1)
-  %76 = add nsw i64 %.sroa.speculated.i.i.i.i, %75
-  %77 = icmp ult i64 %76, %75
-  %78 = tail call i64 @llvm.umin.i64(i64 %76, i64 115292150460684697)
-  %79 = select i1 %77, i64 115292150460684697, i64 %78
-  %.not.i.i.i.i = icmp eq i64 %79, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE11_M_allocateEm.exit.i.i.i, label %80
+_ZNKSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %64
+  %71 = sdiv exact i64 %68, 80
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %71, i64 1)
+  %72 = add nsw i64 %.sroa.speculated.i.i.i.i, %71
+  %73 = icmp ult i64 %72, %71
+  %74 = tail call i64 @llvm.umin.i64(i64 %72, i64 115292150460684697)
+  %75 = select i1 %73, i64 115292150460684697, i64 %74
+  %.not.i.i.i.i = icmp eq i64 %75, 0
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE11_M_allocateEm.exit.i.i.i, label %76
 
-80:                                               ; preds = %_ZNKSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
-  %81 = mul nuw nsw i64 %79, 80
-  %82 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %81) #28
+76:                                               ; preds = %_ZNKSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
+  %77 = mul nuw nsw i64 %75, 80
+  %78 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %77) #28
   br label %_ZNSt12_Vector_baseIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE11_M_allocateEm.exit.i.i.i
 
-_ZNSt12_Vector_baseIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE11_M_allocateEm.exit.i.i.i: ; preds = %80, %_ZNKSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
-  %83 = phi ptr [ %82, %80 ], [ null, %_ZNKSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %84 = getelementptr inbounds %"class.cv::detail::tracking::contrib_feature::CvLBPEvaluator::Feature", ptr %83, i64 %75
-  store i32 %.01972, ptr %84, align 4
-  %.sroa.3.0..sroa_idx24 = getelementptr inbounds i8, ptr %84, i64 4
-  store i32 %.01870, ptr %.sroa.3.0..sroa_idx24, align 4
-  %.sroa.4.0..sroa_idx26 = getelementptr inbounds i8, ptr %84, i64 8
+_ZNSt12_Vector_baseIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE11_M_allocateEm.exit.i.i.i: ; preds = %76, %_ZNKSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
+  %79 = phi ptr [ %78, %76 ], [ null, %_ZNKSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %80 = getelementptr inbounds %"class.cv::detail::tracking::contrib_feature::CvLBPEvaluator::Feature", ptr %79, i64 %71
+  store i32 %.01976, ptr %80, align 4
+  %.sroa.3.0..sroa_idx24 = getelementptr inbounds i8, ptr %80, i64 4
+  store i32 %.01874, ptr %.sroa.3.0..sroa_idx24, align 4
+  %.sroa.4.0..sroa_idx26 = getelementptr inbounds i8, ptr %80, i64 8
   store i32 %.01767, ptr %.sroa.4.0..sroa_idx26, align 4
-  %.sroa.5.0..sroa_idx28 = getelementptr inbounds i8, ptr %84, i64 12
+  %.sroa.5.0..sroa_idx28 = getelementptr inbounds i8, ptr %80, i64 12
   store i32 %.065, ptr %.sroa.5.0..sroa_idx28, align 4
-  %.sroa.6.0..sroa_idx30 = getelementptr inbounds i8, ptr %84, i64 16
+  %.sroa.6.0..sroa_idx30 = getelementptr inbounds i8, ptr %80, i64 16
   store i32 %22, ptr %.sroa.6.0..sroa_idx30, align 4
-  %.sroa.7.0..sroa_idx32 = getelementptr inbounds i8, ptr %84, i64 20
-  store i32 %31, ptr %.sroa.7.0..sroa_idx32, align 4
-  %.sroa.8.0..sroa_idx34 = getelementptr inbounds i8, ptr %84, i64 24
-  store i32 %34, ptr %.sroa.8.0..sroa_idx34, align 4
-  %.sroa.9.0..sroa_idx36 = getelementptr inbounds i8, ptr %84, i64 28
-  store i32 %36, ptr %.sroa.9.0..sroa_idx36, align 4
-  %.sroa.10.0..sroa_idx38 = getelementptr inbounds i8, ptr %84, i64 32
-  store i32 %46, ptr %.sroa.10.0..sroa_idx38, align 4
-  %.sroa.11.0..sroa_idx40 = getelementptr inbounds i8, ptr %84, i64 36
-  store i32 %47, ptr %.sroa.11.0..sroa_idx40, align 4
-  %.sroa.12.0..sroa_idx42 = getelementptr inbounds i8, ptr %84, i64 40
-  store i32 %48, ptr %.sroa.12.0..sroa_idx42, align 4
-  %.sroa.13.0..sroa_idx44 = getelementptr inbounds i8, ptr %84, i64 44
-  store i32 %49, ptr %.sroa.13.0..sroa_idx44, align 4
-  %.sroa.14.0..sroa_idx46 = getelementptr inbounds i8, ptr %84, i64 48
-  store i32 %59, ptr %.sroa.14.0..sroa_idx46, align 4
-  %.sroa.15.0..sroa_idx48 = getelementptr inbounds i8, ptr %84, i64 52
-  store i32 %60, ptr %.sroa.15.0..sroa_idx48, align 4
-  %.sroa.16.0..sroa_idx50 = getelementptr inbounds i8, ptr %84, i64 56
-  store i32 %53, ptr %.sroa.16.0..sroa_idx50, align 4
-  %.sroa.17.0..sroa_idx52 = getelementptr inbounds i8, ptr %84, i64 60
-  store i32 %54, ptr %.sroa.17.0..sroa_idx52, align 4
-  %.sroa.18.0..sroa_idx54 = getelementptr inbounds i8, ptr %84, i64 64
-  store i32 %61, ptr %.sroa.18.0..sroa_idx54, align 4
-  %.sroa.19.0..sroa_idx56 = getelementptr inbounds i8, ptr %84, i64 68
-  store i32 %62, ptr %.sroa.19.0..sroa_idx56, align 4
-  %.sroa.20.0..sroa_idx58 = getelementptr inbounds i8, ptr %84, i64 72
-  store i32 %57, ptr %.sroa.20.0..sroa_idx58, align 4
-  %.sroa.21.0..sroa_idx60 = getelementptr inbounds i8, ptr %84, i64 76
-  store i32 %58, ptr %.sroa.21.0..sroa_idx60, align 4
-  %.not10.i.i.i.i.i.i.i = icmp eq ptr %69, %63
+  %.sroa.7.0..sroa_idx32 = getelementptr inbounds i8, ptr %80, i64 20
+  store i32 %.reass71, ptr %.sroa.7.0..sroa_idx32, align 4
+  %.sroa.8.0..sroa_idx34 = getelementptr inbounds i8, ptr %80, i64 24
+  store i32 %.reass73, ptr %.sroa.8.0..sroa_idx34, align 4
+  %.sroa.9.0..sroa_idx36 = getelementptr inbounds i8, ptr %80, i64 28
+  store i32 %32, ptr %.sroa.9.0..sroa_idx36, align 4
+  %.sroa.10.0..sroa_idx38 = getelementptr inbounds i8, ptr %80, i64 32
+  store i32 %42, ptr %.sroa.10.0..sroa_idx38, align 4
+  %.sroa.11.0..sroa_idx40 = getelementptr inbounds i8, ptr %80, i64 36
+  store i32 %43, ptr %.sroa.11.0..sroa_idx40, align 4
+  %.sroa.12.0..sroa_idx42 = getelementptr inbounds i8, ptr %80, i64 40
+  store i32 %44, ptr %.sroa.12.0..sroa_idx42, align 4
+  %.sroa.13.0..sroa_idx44 = getelementptr inbounds i8, ptr %80, i64 44
+  store i32 %45, ptr %.sroa.13.0..sroa_idx44, align 4
+  %.sroa.14.0..sroa_idx46 = getelementptr inbounds i8, ptr %80, i64 48
+  store i32 %55, ptr %.sroa.14.0..sroa_idx46, align 4
+  %.sroa.15.0..sroa_idx48 = getelementptr inbounds i8, ptr %80, i64 52
+  store i32 %56, ptr %.sroa.15.0..sroa_idx48, align 4
+  %.sroa.16.0..sroa_idx50 = getelementptr inbounds i8, ptr %80, i64 56
+  store i32 %49, ptr %.sroa.16.0..sroa_idx50, align 4
+  %.sroa.17.0..sroa_idx52 = getelementptr inbounds i8, ptr %80, i64 60
+  store i32 %50, ptr %.sroa.17.0..sroa_idx52, align 4
+  %.sroa.18.0..sroa_idx54 = getelementptr inbounds i8, ptr %80, i64 64
+  store i32 %57, ptr %.sroa.18.0..sroa_idx54, align 4
+  %.sroa.19.0..sroa_idx56 = getelementptr inbounds i8, ptr %80, i64 68
+  store i32 %58, ptr %.sroa.19.0..sroa_idx56, align 4
+  %.sroa.20.0..sroa_idx58 = getelementptr inbounds i8, ptr %80, i64 72
+  store i32 %53, ptr %.sroa.20.0..sroa_idx58, align 4
+  %.sroa.21.0..sroa_idx60 = getelementptr inbounds i8, ptr %80, i64 76
+  store i32 %54, ptr %.sroa.21.0..sroa_idx60, align 4
+  %.not10.i.i.i.i.i.i.i = icmp eq ptr %65, %59
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE11_M_allocateEm.exit.i.i.i, %.lr.ph.i.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i.i = phi ptr [ %86, %.lr.ph.i.i.i.i.i.i.i ], [ %83, %_ZNSt12_Vector_baseIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE11_M_allocateEm.exit.i.i.i ]
-  %.0911.i.i.i.i.i.i.i = phi ptr [ %85, %.lr.ph.i.i.i.i.i.i.i ], [ %69, %_ZNSt12_Vector_baseIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE11_M_allocateEm.exit.i.i.i ]
+  %.012.i.i.i.i.i.i.i = phi ptr [ %82, %.lr.ph.i.i.i.i.i.i.i ], [ %79, %_ZNSt12_Vector_baseIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE11_M_allocateEm.exit.i.i.i ]
+  %.0911.i.i.i.i.i.i.i = phi ptr [ %81, %.lr.ph.i.i.i.i.i.i.i ], [ %65, %_ZNSt12_Vector_baseIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE11_M_allocateEm.exit.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %.012.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(80) %.0911.i.i.i.i.i.i.i, i64 80, i1 false), !alias.scope !55
-  %85 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i.i.i, i64 80
-  %86 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i.i, i64 80
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %85, %63
+  %81 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i.i.i, i64 80
+  %82 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i.i, i64 80
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %81, %59
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !59
 
 _ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE11_M_allocateEm.exit.i.i.i
-  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %83, %_ZNSt12_Vector_baseIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE11_M_allocateEm.exit.i.i.i ], [ %86, %.lr.ph.i.i.i.i.i.i.i ]
-  %87 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 80
-  %.not.i23.i.i.i = icmp eq ptr %69, null
-  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %88
+  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %79, %_ZNSt12_Vector_baseIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE11_M_allocateEm.exit.i.i.i ], [ %82, %.lr.ph.i.i.i.i.i.i.i ]
+  %83 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 80
+  %.not.i23.i.i.i = icmp eq ptr %65, null
+  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %84
 
-88:                                               ; preds = %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %69) #29
+84:                                               ; preds = %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %65) #29
   br label %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %88, %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
-  store ptr %83, ptr %7, align 8
-  store ptr %87, ptr %8, align 8
-  %89 = getelementptr inbounds %"class.cv::detail::tracking::contrib_feature::CvLBPEvaluator::Feature", ptr %83, i64 %79
-  store ptr %89, ptr %9, align 8
+_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %84, %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
+  store ptr %79, ptr %7, align 8
+  store ptr %83, ptr %8, align 8
+  %85 = getelementptr inbounds %"class.cv::detail::tracking::contrib_feature::CvLBPEvaluator::Feature", ptr %79, i64 %75
+  store ptr %85, ptr %9, align 8
   br label %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE9push_backEOS5_.exit
 
-_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, %65, %.lr.ph.split, %40
-  %90 = add nuw nsw i32 %.065, 1
-  %91 = load i32, ptr %6, align 8
-  %92 = sdiv i32 %91, 3
-  %.not20.not = icmp slt i32 %.065, %92
-  br i1 %.not20.not, label %.lr.ph.split, label %._crit_edge.loopexit74, !llvm.loop !60
+_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, %61, %.lr.ph.split, %36
+  %86 = add nuw nsw i32 %.065, 1
+  %87 = load i32, ptr %6, align 8
+  %88 = sdiv i32 %87, 3
+  %.not20.not = icmp slt i32 %.065, %88
+  br i1 %.not20.not, label %.lr.ph.split, label %._crit_edge.loopexit78, !llvm.loop !60
 
-._crit_edge.loopexit74:                           ; preds = %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE9push_backEOS5_.exit
+._crit_edge.loopexit78:                           ; preds = %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE9push_backEOS5_.exit
   %.pre = load i32, ptr %2, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %._crit_edge.loopexit74, %.preheader
-  %93 = phi i32 [ %.pre, %._crit_edge.loopexit74 ], [ %23, %.preheader ], [ %23, %.lr.ph ]
-  %94 = phi i32 [ %91, %._crit_edge.loopexit74 ], [ %24, %.preheader ], [ %24, %.lr.ph ]
-  %95 = phi i32 [ %.pre, %._crit_edge.loopexit74 ], [ %25, %.preheader ], [ %25, %.lr.ph ]
-  %96 = phi i32 [ %91, %._crit_edge.loopexit74 ], [ %27, %.preheader ], [ %27, %.lr.ph ]
-  %97 = add nuw nsw i32 %.01767, 1
-  %98 = sdiv i32 %95, 3
-  %.not.not = icmp slt i32 %.01767, %98
+._crit_edge:                                      ; preds = %.lr.ph, %._crit_edge.loopexit78, %.preheader
+  %89 = phi i32 [ %.pre, %._crit_edge.loopexit78 ], [ %23, %.preheader ], [ %23, %.lr.ph ]
+  %90 = phi i32 [ %87, %._crit_edge.loopexit78 ], [ %24, %.preheader ], [ %24, %.lr.ph ]
+  %91 = phi i32 [ %.pre, %._crit_edge.loopexit78 ], [ %25, %.preheader ], [ %25, %.lr.ph ]
+  %92 = phi i32 [ %87, %._crit_edge.loopexit78 ], [ %27, %.preheader ], [ %27, %.lr.ph ]
+  %93 = add nuw nsw i32 %.01767, 1
+  %94 = sdiv i32 %91, 3
+  %.not.not = icmp slt i32 %.01767, %94
   br i1 %.not.not, label %.preheader, label %._crit_edge69, !llvm.loop !61
 
 ._crit_edge69:                                    ; preds = %._crit_edge, %.preheader62
-  %99 = phi i32 [ %16, %.preheader62 ], [ %93, %._crit_edge ]
-  %100 = phi i32 [ %17, %.preheader62 ], [ %94, %._crit_edge ]
-  %101 = phi i32 [ %18, %.preheader62 ], [ %95, %._crit_edge ]
-  %102 = phi i32 [ %20, %.preheader62 ], [ %95, %._crit_edge ]
-  %103 = add nuw nsw i32 %.01870, 1
-  %104 = icmp slt i32 %103, %100
-  br i1 %104, label %.preheader62, label %._crit_edge71, !llvm.loop !62
+  %95 = phi i32 [ %16, %.preheader62 ], [ %89, %._crit_edge ]
+  %96 = phi i32 [ %17, %.preheader62 ], [ %90, %._crit_edge ]
+  %97 = phi i32 [ %18, %.preheader62 ], [ %91, %._crit_edge ]
+  %98 = phi i32 [ %20, %.preheader62 ], [ %91, %._crit_edge ]
+  %99 = add nuw nsw i32 %.01874, 1
+  %100 = icmp slt i32 %99, %96
+  br i1 %100, label %.preheader62, label %._crit_edge75, !llvm.loop !62
 
-._crit_edge71:                                    ; preds = %._crit_edge69, %.preheader63
-  %105 = phi i32 [ %12, %.preheader63 ], [ %99, %._crit_edge69 ]
-  %106 = phi i32 [ %13, %.preheader63 ], [ %100, %._crit_edge69 ]
-  %107 = phi i32 [ %14, %.preheader63 ], [ %100, %._crit_edge69 ]
-  %108 = add nuw nsw i32 %.01972, 1
-  %109 = icmp slt i32 %108, %105
-  br i1 %109, label %.preheader63, label %._crit_edge73, !llvm.loop !63
+._crit_edge75:                                    ; preds = %._crit_edge69, %.preheader63
+  %101 = phi i32 [ %12, %.preheader63 ], [ %95, %._crit_edge69 ]
+  %102 = phi i32 [ %13, %.preheader63 ], [ %96, %._crit_edge69 ]
+  %103 = phi i32 [ %14, %.preheader63 ], [ %96, %._crit_edge69 ]
+  %104 = add nuw nsw i32 %.01976, 1
+  %105 = icmp slt i32 %104, %101
+  br i1 %105, label %.preheader63, label %._crit_edge77, !llvm.loop !63
 
-._crit_edge73:                                    ; preds = %._crit_edge71, %.preheader63.lr.ph, %1
-  %110 = getelementptr inbounds i8, ptr %0, i64 136
-  %111 = getelementptr inbounds i8, ptr %0, i64 144
-  %112 = load ptr, ptr %111, align 8
-  %113 = load ptr, ptr %110, align 8
-  %114 = ptrtoint ptr %112 to i64
-  %115 = ptrtoint ptr %113 to i64
-  %116 = sub i64 %114, %115
-  %117 = sdiv exact i64 %116, 80
-  %118 = trunc i64 %117 to i32
-  %119 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %118, ptr %119, align 8
+._crit_edge77:                                    ; preds = %._crit_edge75, %.preheader63.lr.ph, %1
+  %106 = getelementptr inbounds i8, ptr %0, i64 136
+  %107 = getelementptr inbounds i8, ptr %0, i64 144
+  %108 = load ptr, ptr %107, align 8
+  %109 = load ptr, ptr %106, align 8
+  %110 = ptrtoint ptr %108 to i64
+  %111 = ptrtoint ptr %109 to i64
+  %112 = sub i64 %110, %111
+  %113 = sdiv exact i64 %112, 80
+  %114 = trunc i64 %113 to i32
+  %115 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %114, ptr %115, align 8
   ret void
 }
 

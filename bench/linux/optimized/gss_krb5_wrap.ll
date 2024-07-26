@@ -155,22 +155,26 @@ define dso_local noundef range(i32 0, 851969) i32 @gss_krb5_unwrap_v2(ptr nounde
   %57 = icmp ugt i32 %56, %54
   br i1 %57, label %.preheader.i, label %.loopexit.i
 
-.preheader.i:                                     ; preds = %.preheader3.i, %.preheader.i
-  %58 = phi i32 [ %67, %.preheader.i ], [ %56, %.preheader3.i ]
-  %59 = phi i32 [ %65, %.preheader.i ], [ 0, %.preheader3.i ]
-  %60 = add i32 %59, %54
-  %61 = sub i32 %58, %60
-  %62 = call i32 @llvm.umin.i32(i32 %61, i32 32)
-  %63 = call i32 @read_bytes_from_xdr_buf(ptr noundef nonnull %9, i32 noundef %60, ptr noundef nonnull %8, i32 noundef %62) #7
-  %64 = call i32 @write_bytes_to_xdr_buf(ptr noundef nonnull %9, i32 noundef %59, ptr noundef nonnull %8, i32 noundef %62) #7
-  %65 = add i32 %59, 32
-  %66 = add i32 %65, %54
-  %67 = load i32, ptr %48, align 8
-  %68 = icmp ult i32 %66, %67
-  br i1 %68, label %.preheader.i, label %.loopexit.i, !llvm.loop !7
+.preheader.i:                                     ; preds = %.preheader3.i
+  %invariant.op.i = add nuw nsw i32 %54, 32
+  br label %58
 
-.loopexit.i:                                      ; preds = %.preheader.i, %.preheader3.i
-  %69 = phi i32 [ %56, %.preheader3.i ], [ %67, %.preheader.i ]
+58:                                               ; preds = %58, %.preheader.i
+  %59 = phi i32 [ %67, %58 ], [ %56, %.preheader.i ]
+  %60 = phi i32 [ %66, %58 ], [ 0, %.preheader.i ]
+  %61 = add i32 %60, %54
+  %62 = sub i32 %59, %61
+  %63 = call i32 @llvm.umin.i32(i32 %62, i32 32)
+  %64 = call i32 @read_bytes_from_xdr_buf(ptr noundef nonnull %9, i32 noundef %61, ptr noundef nonnull %8, i32 noundef %63) #7
+  %65 = call i32 @write_bytes_to_xdr_buf(ptr noundef nonnull %9, i32 noundef %60, ptr noundef nonnull %8, i32 noundef %63) #7
+  %66 = add i32 %60, 32
+  %.reass.i = add i32 %invariant.op.i, %60
+  %67 = load i32, ptr %48, align 8
+  %68 = icmp ult i32 %.reass.i, %67
+  br i1 %68, label %58, label %.loopexit.i, !llvm.loop !7
+
+.loopexit.i:                                      ; preds = %58, %.preheader3.i
+  %69 = phi i32 [ %56, %.preheader3.i ], [ %67, %58 ]
   %70 = sub i32 %69, %54
   %71 = call i32 @write_bytes_to_xdr_buf(ptr noundef nonnull %9, i32 noundef %70, ptr noundef nonnull %7, i32 noundef %54) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #7

@@ -4864,6 +4864,7 @@ invoke.cont33:                                    ; preds = %invoke.cont22, %inv
   %shl.i.i34 = shl nuw i64 1, %conv1.i.i.i.i33
   %add.i.i35 = add nuw i64 %shl.i.i34, %shr.i.i.i32
   %conv.i.i44 = and i64 %12, 63
+  %invariant.op = or disjoint i64 %conv.i.i44, 192
   br label %for.body
 
 for.body:                                         ; preds = %invoke.cont33, %for.inc
@@ -4872,12 +4873,12 @@ for.body:                                         ; preds = %invoke.cont33, %for
   %cmp39 = icmp ult i64 %add38, %add.i.i35
   %14 = load ptr, ptr %array_, align 32
   %shl.i.i36 = shl i64 %i.047, 8
-  %head_next_with_shift = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %14, i64 %i.047, i32 1
   br i1 %cmp39, label %invoke.cont53, label %invoke.cont60
 
 invoke.cont53:                                    ; preds = %for.body
   %or.i.i = or i64 %add, %shl.i.i36
   %or.i = or i64 %or.i.i, 192
+  %head_next_with_shift = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %14, i64 %i.047, i32 1
   store atomic i64 %or.i, ptr %head_next_with_shift monotonic, align 8
   %15 = load ptr, ptr %array_, align 32
   %shl.i.i38 = shl i64 %add38, 8
@@ -4888,9 +4889,9 @@ invoke.cont53:                                    ; preds = %for.body
   br label %for.inc
 
 invoke.cont60:                                    ; preds = %for.body
-  %or.i.i45 = or disjoint i64 %shl.i.i36, %conv.i.i44
-  %or.i46 = or disjoint i64 %or.i.i45, 192
-  store atomic i64 %or.i46, ptr %head_next_with_shift monotonic, align 8
+  %or.i46.reass = or disjoint i64 %shl.i.i36, %invariant.op
+  %head_next_with_shift59 = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %14, i64 %i.047, i32 1
+  store atomic i64 %or.i46.reass, ptr %head_next_with_shift59 monotonic, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont53, %invoke.cont60

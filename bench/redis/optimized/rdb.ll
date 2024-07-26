@@ -4376,8 +4376,8 @@ while.body.us:                                    ; preds = %while.body.lr.ph.sp
 
 if.end24.us:                                      ; preds = %while.body.us
   %conv20.us = zext nneg i32 %call19.us to i64
-  %add18.us = add nsw i64 %nwritten.039.us, 24
-  %add25.us = add nsw i64 %add18.us, %conv20.us
+  %add18.us.reass = add i64 %nwritten.039.us, 24
+  %add25.us = add nsw i64 %add18.us.reass, %conv20.us
   %call4.us = call i32 @raxNext(ptr noundef nonnull %ri) #21
   %tobool.not.us = icmp eq i32 %call4.us, 0
   br i1 %tobool.not.us, label %return.sink.split, label %while.body.us, !llvm.loop !8
@@ -4539,8 +4539,8 @@ if.end17.loopexit:                                ; preds = %if.end12.i.i.i
 
 if.end24:                                         ; preds = %if.end17.loopexit
   %conv20 = zext nneg i32 %call19 to i64
-  %add18 = add nsw i64 %nwritten.039, 24
-  %add25 = add nsw i64 %add18, %conv20
+  %add18.reass = add i64 %nwritten.039, 24
+  %add25 = add nsw i64 %add18.reass, %conv20
   %call4 = call i32 @raxNext(ptr noundef nonnull %ri) #21
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %return.sink.split, label %while.body, !llvm.loop !8

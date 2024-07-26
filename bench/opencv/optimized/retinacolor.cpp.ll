@@ -2661,9 +2661,9 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor28_interpolateBayerRGBchanne
   br label %.preheader65
 
 .preheader65:                                     ; preds = %.preheader65.lr.ph, %._crit_edge
-  %8 = phi i64 [ %4, %.preheader65.lr.ph ], [ %56, %._crit_edge ]
-  %9 = phi i64 [ %.pre, %.preheader65.lr.ph ], [ %57, %._crit_edge ]
-  %.067 = phi i32 [ 0, %.preheader65.lr.ph ], [ %58, %._crit_edge ]
+  %8 = phi i64 [ %4, %.preheader65.lr.ph ], [ %55, %._crit_edge ]
+  %9 = phi i64 [ %.pre, %.preheader65.lr.ph ], [ %56, %._crit_edge ]
+  %.067 = phi i32 [ 0, %.preheader65.lr.ph ], [ %57, %._crit_edge ]
   %10 = trunc i64 %9 to i32
   %11 = add i32 %10, -3
   %12 = icmp ult i32 %11, -2
@@ -2674,7 +2674,7 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor28_interpolateBayerRGBchanne
   br label %18
 
 .preheader64:                                     ; preds = %._crit_edge
-  %14 = add i32 %59, -3
+  %14 = add i32 %58, -3
   %15 = icmp ult i32 %14, -2
   br i1 %15, label %.preheader63.lr.ph, label %._crit_edge76
 
@@ -2685,8 +2685,8 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor28_interpolateBayerRGBchanne
   br label %.preheader63
 
 18:                                               ; preds = %.lr.ph, %18
-  %19 = phi i32 [ %10, %.lr.ph ], [ %53, %18 ]
-  %.05966 = phi i32 [ 1, %.lr.ph ], [ %51, %18 ]
+  %19 = phi i32 [ %10, %.lr.ph ], [ %52, %18 ]
+  %.05966 = phi i32 [ 1, %.lr.ph ], [ %50, %18 ]
   %20 = mul i32 %19, %.067
   %21 = add i32 %20, %.05966
   %22 = load i64, ptr %7, align 8
@@ -2711,177 +2711,177 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor28_interpolateBayerRGBchanne
   %40 = zext i32 %26 to i64
   %41 = getelementptr inbounds float, ptr %1, i64 %40
   %42 = load float, ptr %41, align 4
-  %43 = add i32 %26, 2
-  %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds float, ptr %1, i64 %44
-  %46 = load float, ptr %45, align 4
-  %47 = fadd float %42, %46
-  %48 = fmul float %47, 5.000000e-01
-  %49 = zext i32 %27 to i64
-  %50 = getelementptr inbounds float, ptr %1, i64 %49
-  store float %48, ptr %50, align 4
-  %51 = add i32 %.05966, 2
-  %52 = load i64, ptr %6, align 8
-  %53 = trunc i64 %52 to i32
-  %54 = add i32 %53, -1
-  %55 = icmp ult i32 %51, %54
-  br i1 %55, label %18, label %._crit_edge.loopexit, !llvm.loop !109
+  %.reass = add i32 %26, 2
+  %43 = zext i32 %.reass to i64
+  %44 = getelementptr inbounds float, ptr %1, i64 %43
+  %45 = load float, ptr %44, align 4
+  %46 = fadd float %42, %45
+  %47 = fmul float %46, 5.000000e-01
+  %48 = zext i32 %27 to i64
+  %49 = getelementptr inbounds float, ptr %1, i64 %48
+  store float %47, ptr %49, align 4
+  %50 = add i32 %.05966, 2
+  %51 = load i64, ptr %6, align 8
+  %52 = trunc i64 %51 to i32
+  %53 = add i32 %52, -1
+  %54 = icmp ult i32 %50, %53
+  br i1 %54, label %18, label %._crit_edge.loopexit, !llvm.loop !109
 
 ._crit_edge.loopexit:                             ; preds = %18
   %.pre79 = load i64, ptr %3, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader65
-  %56 = phi i64 [ %.pre79, %._crit_edge.loopexit ], [ %8, %.preheader65 ]
-  %57 = phi i64 [ %52, %._crit_edge.loopexit ], [ %9, %.preheader65 ]
-  %58 = add i32 %.067, 2
-  %59 = trunc i64 %56 to i32
-  %60 = add i32 %59, -1
-  %61 = icmp ult i32 %58, %60
-  br i1 %61, label %.preheader65, label %.preheader64, !llvm.loop !110
+  %55 = phi i64 [ %.pre79, %._crit_edge.loopexit ], [ %8, %.preheader65 ]
+  %56 = phi i64 [ %51, %._crit_edge.loopexit ], [ %9, %.preheader65 ]
+  %57 = add i32 %.067, 2
+  %58 = trunc i64 %55 to i32
+  %59 = add i32 %58, -1
+  %60 = icmp ult i32 %57, %59
+  br i1 %60, label %.preheader65, label %.preheader64, !llvm.loop !110
 
 .preheader63:                                     ; preds = %.preheader63.lr.ph, %._crit_edge70
-  %62 = phi i64 [ %56, %.preheader63.lr.ph ], [ %108, %._crit_edge70 ]
-  %63 = phi i64 [ %.pre80, %.preheader63.lr.ph ], [ %109, %._crit_edge70 ]
-  %.06071 = phi i32 [ 1, %.preheader63.lr.ph ], [ %110, %._crit_edge70 ]
-  %64 = trunc i64 %63 to i32
-  %.not77 = icmp eq i32 %64, 0
+  %61 = phi i64 [ %55, %.preheader63.lr.ph ], [ %107, %._crit_edge70 ]
+  %62 = phi i64 [ %.pre80, %.preheader63.lr.ph ], [ %108, %._crit_edge70 ]
+  %.06071 = phi i32 [ 1, %.preheader63.lr.ph ], [ %109, %._crit_edge70 ]
+  %63 = trunc i64 %62 to i32
+  %.not77 = icmp eq i32 %63, 0
   br i1 %.not77, label %._crit_edge70, label %.lr.ph69
 
 .lr.ph69:                                         ; preds = %.preheader63
-  %65 = add nuw i32 %.06071, 1
-  br label %69
+  %64 = add nuw i32 %.06071, 1
+  br label %68
 
 .preheader62:                                     ; preds = %._crit_edge70
-  %.pre84 = add i32 %111, -3
-  %66 = icmp ult i32 %.pre84, -2
-  br i1 %66, label %.preheader.lr.ph, label %._crit_edge76
+  %.pre84 = add i32 %110, -3
+  %65 = icmp ult i32 %.pre84, -2
+  br i1 %65, label %.preheader.lr.ph, label %._crit_edge76
 
 .preheader.lr.ph:                                 ; preds = %.preheader62
-  %67 = getelementptr inbounds i8, ptr %0, i64 40
-  %68 = getelementptr inbounds i8, ptr %0, i64 56
-  %.pre82 = load i64, ptr %67, align 8
+  %66 = getelementptr inbounds i8, ptr %0, i64 40
+  %67 = getelementptr inbounds i8, ptr %0, i64 56
+  %.pre82 = load i64, ptr %66, align 8
   br label %.preheader
 
-69:                                               ; preds = %.lr.ph69, %69
-  %70 = phi i32 [ %64, %.lr.ph69 ], [ %106, %69 ]
-  %.06168 = phi i32 [ 0, %.lr.ph69 ], [ %76, %69 ]
-  %71 = mul i32 %70, %.06071
-  %72 = add i32 %71, %.06168
-  %73 = load i64, ptr %17, align 8
-  %74 = trunc i64 %73 to i32
-  %75 = mul i32 %70, %65
-  %76 = add nuw i32 %.06168, 1
-  %77 = add i32 %76, %75
-  %78 = add i32 %77, %74
-  %79 = sub i32 %72, %70
-  %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds float, ptr %1, i64 %80
-  %82 = load float, ptr %81, align 4
-  %83 = add i32 %72, %70
-  %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds float, ptr %1, i64 %84
-  %86 = load float, ptr %85, align 4
-  %87 = fadd float %82, %86
-  %88 = fmul float %87, 5.000000e-01
-  %89 = zext i32 %72 to i64
-  %90 = getelementptr inbounds float, ptr %1, i64 %89
-  store float %88, ptr %90, align 4
-  %91 = load i64, ptr %16, align 8
-  %92 = trunc i64 %91 to i32
-  %93 = sub i32 %78, %92
-  %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds float, ptr %1, i64 %94
-  %96 = load float, ptr %95, align 4
-  %97 = add i32 %78, %92
-  %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds float, ptr %1, i64 %98
-  %100 = load float, ptr %99, align 4
-  %101 = fadd float %96, %100
-  %102 = fmul float %101, 5.000000e-01
-  %103 = zext i32 %78 to i64
-  %104 = getelementptr inbounds float, ptr %1, i64 %103
-  store float %102, ptr %104, align 4
-  %105 = load i64, ptr %16, align 8
-  %106 = trunc i64 %105 to i32
-  %107 = icmp ult i32 %76, %106
-  br i1 %107, label %69, label %._crit_edge70.loopexit, !llvm.loop !111
+68:                                               ; preds = %.lr.ph69, %68
+  %69 = phi i32 [ %63, %.lr.ph69 ], [ %105, %68 ]
+  %.06168 = phi i32 [ 0, %.lr.ph69 ], [ %75, %68 ]
+  %70 = mul i32 %69, %.06071
+  %71 = add i32 %70, %.06168
+  %72 = load i64, ptr %17, align 8
+  %73 = trunc i64 %72 to i32
+  %74 = mul i32 %69, %64
+  %75 = add nuw i32 %.06168, 1
+  %76 = add i32 %75, %74
+  %77 = add i32 %76, %73
+  %78 = sub i32 %71, %69
+  %79 = zext i32 %78 to i64
+  %80 = getelementptr inbounds float, ptr %1, i64 %79
+  %81 = load float, ptr %80, align 4
+  %82 = add i32 %71, %69
+  %83 = zext i32 %82 to i64
+  %84 = getelementptr inbounds float, ptr %1, i64 %83
+  %85 = load float, ptr %84, align 4
+  %86 = fadd float %81, %85
+  %87 = fmul float %86, 5.000000e-01
+  %88 = zext i32 %71 to i64
+  %89 = getelementptr inbounds float, ptr %1, i64 %88
+  store float %87, ptr %89, align 4
+  %90 = load i64, ptr %16, align 8
+  %91 = trunc i64 %90 to i32
+  %92 = sub i32 %77, %91
+  %93 = zext i32 %92 to i64
+  %94 = getelementptr inbounds float, ptr %1, i64 %93
+  %95 = load float, ptr %94, align 4
+  %96 = add i32 %77, %91
+  %97 = zext i32 %96 to i64
+  %98 = getelementptr inbounds float, ptr %1, i64 %97
+  %99 = load float, ptr %98, align 4
+  %100 = fadd float %95, %99
+  %101 = fmul float %100, 5.000000e-01
+  %102 = zext i32 %77 to i64
+  %103 = getelementptr inbounds float, ptr %1, i64 %102
+  store float %101, ptr %103, align 4
+  %104 = load i64, ptr %16, align 8
+  %105 = trunc i64 %104 to i32
+  %106 = icmp ult i32 %75, %105
+  br i1 %106, label %68, label %._crit_edge70.loopexit, !llvm.loop !111
 
-._crit_edge70.loopexit:                           ; preds = %69
+._crit_edge70.loopexit:                           ; preds = %68
   %.pre81 = load i64, ptr %3, align 8
   br label %._crit_edge70
 
 ._crit_edge70:                                    ; preds = %._crit_edge70.loopexit, %.preheader63
-  %108 = phi i64 [ %.pre81, %._crit_edge70.loopexit ], [ %62, %.preheader63 ]
-  %109 = phi i64 [ %105, %._crit_edge70.loopexit ], [ %63, %.preheader63 ]
-  %110 = add i32 %.06071, 2
-  %111 = trunc i64 %108 to i32
-  %112 = add i32 %111, -1
-  %113 = icmp ult i32 %110, %112
-  br i1 %113, label %.preheader63, label %.preheader62, !llvm.loop !112
+  %107 = phi i64 [ %.pre81, %._crit_edge70.loopexit ], [ %61, %.preheader63 ]
+  %108 = phi i64 [ %104, %._crit_edge70.loopexit ], [ %62, %.preheader63 ]
+  %109 = add i32 %.06071, 2
+  %110 = trunc i64 %107 to i32
+  %111 = add i32 %110, -1
+  %112 = icmp ult i32 %109, %111
+  br i1 %112, label %.preheader63, label %.preheader62, !llvm.loop !112
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge74
-  %114 = phi i64 [ %108, %.preheader.lr.ph ], [ %152, %._crit_edge74 ]
-  %115 = phi i64 [ %.pre82, %.preheader.lr.ph ], [ %153, %._crit_edge74 ]
-  %.05875 = phi i32 [ 1, %.preheader.lr.ph ], [ %154, %._crit_edge74 ]
-  %116 = trunc i64 %115 to i32
-  %.not78 = icmp eq i32 %116, 0
+  %113 = phi i64 [ %107, %.preheader.lr.ph ], [ %151, %._crit_edge74 ]
+  %114 = phi i64 [ %.pre82, %.preheader.lr.ph ], [ %152, %._crit_edge74 ]
+  %.05875 = phi i32 [ 1, %.preheader.lr.ph ], [ %153, %._crit_edge74 ]
+  %115 = trunc i64 %114 to i32
+  %.not78 = icmp eq i32 %115, 0
   br i1 %.not78, label %._crit_edge74, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %.preheader
-  %117 = and i32 %.05875, 1
-  br label %118
+  %116 = and i32 %.05875, 1
+  br label %117
 
-118:                                              ; preds = %.lr.ph73, %118
-  %119 = phi i32 [ %116, %.lr.ph73 ], [ %150, %118 ]
-  %.05772 = phi i32 [ 0, %.lr.ph73 ], [ %148, %118 ]
-  %120 = load i64, ptr %68, align 8
-  %121 = trunc i64 %120 to i32
-  %122 = mul i32 %119, %.05875
-  %123 = or disjoint i32 %.05772, %117
-  %124 = add i32 %123, %122
-  %125 = add i32 %124, %121
-  %126 = add i32 %125, -1
-  %127 = zext i32 %126 to i64
-  %128 = getelementptr inbounds float, ptr %1, i64 %127
-  %129 = load float, ptr %128, align 4
-  %130 = add i32 %125, 1
-  %131 = zext i32 %130 to i64
-  %132 = getelementptr inbounds float, ptr %1, i64 %131
-  %133 = load float, ptr %132, align 4
-  %134 = fadd float %129, %133
-  %135 = sub i32 %125, %119
-  %136 = zext i32 %135 to i64
-  %137 = getelementptr inbounds float, ptr %1, i64 %136
-  %138 = load float, ptr %137, align 4
-  %139 = fadd float %134, %138
-  %140 = add i32 %125, %119
-  %141 = zext i32 %140 to i64
-  %142 = getelementptr inbounds float, ptr %1, i64 %141
-  %143 = load float, ptr %142, align 4
-  %144 = fadd float %139, %143
-  %145 = fmul float %144, 2.500000e-01
-  %146 = zext i32 %125 to i64
-  %147 = getelementptr inbounds float, ptr %1, i64 %146
-  store float %145, ptr %147, align 4
-  %148 = add i32 %.05772, 2
-  %149 = load i64, ptr %67, align 8
-  %150 = trunc i64 %149 to i32
-  %151 = icmp ult i32 %148, %150
-  br i1 %151, label %118, label %._crit_edge74.loopexit, !llvm.loop !113
+117:                                              ; preds = %.lr.ph73, %117
+  %118 = phi i32 [ %115, %.lr.ph73 ], [ %149, %117 ]
+  %.05772 = phi i32 [ 0, %.lr.ph73 ], [ %147, %117 ]
+  %119 = load i64, ptr %67, align 8
+  %120 = trunc i64 %119 to i32
+  %121 = mul i32 %118, %.05875
+  %122 = or disjoint i32 %.05772, %116
+  %123 = add i32 %122, %121
+  %124 = add i32 %123, %120
+  %125 = add i32 %124, -1
+  %126 = zext i32 %125 to i64
+  %127 = getelementptr inbounds float, ptr %1, i64 %126
+  %128 = load float, ptr %127, align 4
+  %129 = add i32 %124, 1
+  %130 = zext i32 %129 to i64
+  %131 = getelementptr inbounds float, ptr %1, i64 %130
+  %132 = load float, ptr %131, align 4
+  %133 = fadd float %128, %132
+  %134 = sub i32 %124, %118
+  %135 = zext i32 %134 to i64
+  %136 = getelementptr inbounds float, ptr %1, i64 %135
+  %137 = load float, ptr %136, align 4
+  %138 = fadd float %133, %137
+  %139 = add i32 %124, %118
+  %140 = zext i32 %139 to i64
+  %141 = getelementptr inbounds float, ptr %1, i64 %140
+  %142 = load float, ptr %141, align 4
+  %143 = fadd float %138, %142
+  %144 = fmul float %143, 2.500000e-01
+  %145 = zext i32 %124 to i64
+  %146 = getelementptr inbounds float, ptr %1, i64 %145
+  store float %144, ptr %146, align 4
+  %147 = add i32 %.05772, 2
+  %148 = load i64, ptr %66, align 8
+  %149 = trunc i64 %148 to i32
+  %150 = icmp ult i32 %147, %149
+  br i1 %150, label %117, label %._crit_edge74.loopexit, !llvm.loop !113
 
-._crit_edge74.loopexit:                           ; preds = %118
+._crit_edge74.loopexit:                           ; preds = %117
   %.pre83 = load i64, ptr %3, align 8
   br label %._crit_edge74
 
 ._crit_edge74:                                    ; preds = %._crit_edge74.loopexit, %.preheader
-  %152 = phi i64 [ %.pre83, %._crit_edge74.loopexit ], [ %114, %.preheader ]
-  %153 = phi i64 [ %149, %._crit_edge74.loopexit ], [ %115, %.preheader ]
-  %154 = add nuw i32 %.05875, 1
-  %155 = trunc i64 %152 to i32
-  %156 = add i32 %155, -1
-  %157 = icmp ult i32 %154, %156
-  br i1 %157, label %.preheader, label %._crit_edge76, !llvm.loop !114
+  %151 = phi i64 [ %.pre83, %._crit_edge74.loopexit ], [ %113, %.preheader ]
+  %152 = phi i64 [ %148, %._crit_edge74.loopexit ], [ %114, %.preheader ]
+  %153 = add nuw i32 %.05875, 1
+  %154 = trunc i64 %151 to i32
+  %155 = add i32 %154, -1
+  %156 = icmp ult i32 %153, %155
+  br i1 %156, label %.preheader, label %._crit_edge76, !llvm.loop !114
 
 ._crit_edge76:                                    ; preds = %._crit_edge74, %2, %.preheader64, %.preheader62
   ret void

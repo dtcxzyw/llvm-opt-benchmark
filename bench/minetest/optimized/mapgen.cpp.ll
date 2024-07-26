@@ -5831,6 +5831,7 @@ for.body57.lr.ph:                                 ; preds = %for.body20
   %frombool36 = zext i1 %cmp35 to i8
   %frombool = zext i1 %cmp32 to i8
   %agg.tmp.sroa.0.0.insert.ext = zext i16 %x.0418 to i48
+  %invariant.op = or disjoint i48 %agg.tmp.sroa.3.0.insert.shift, %agg.tmp.sroa.0.0.insert.ext
   br label %for.body57
 
 for.cond.cleanup56:                               ; preds = %if.end269
@@ -5909,12 +5910,11 @@ if.then104:                                       ; preds = %if.then
   %43 = load ptr, ptr %biomegen, align 8, !tbaa !17
   %agg.tmp.sroa.2.0.insert.ext = zext i16 %y.0411 to i48
   %agg.tmp.sroa.2.0.insert.shift = shl nuw nsw i48 %agg.tmp.sroa.2.0.insert.ext, 16
-  %agg.tmp.sroa.2.0.insert.insert = or disjoint i48 %agg.tmp.sroa.2.0.insert.shift, %agg.tmp.sroa.3.0.insert.shift
-  %agg.tmp.sroa.0.0.insert.insert = or disjoint i48 %agg.tmp.sroa.2.0.insert.insert, %agg.tmp.sroa.0.0.insert.ext
+  %agg.tmp.sroa.0.0.insert.insert.reass = or disjoint i48 %agg.tmp.sroa.2.0.insert.shift, %invariant.op
   %vtable107 = load ptr, ptr %43, align 8, !tbaa !15
   %vfn108 = getelementptr inbounds i8, ptr %vtable107, i64 64
   %44 = load ptr, ptr %vfn108, align 8
-  %call109 = tail call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(44) %43, i64 noundef %idxprom41, i48 %agg.tmp.sroa.0.0.insert.insert)
+  %call109 = tail call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(44) %43, i64 noundef %idxprom41, i48 %agg.tmp.sroa.0.0.insert.insert.reass)
   br i1 %cmp103, label %while.body.preheader, label %if.end
 
 while.body.preheader:                             ; preds = %if.then104

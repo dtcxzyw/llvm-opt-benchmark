@@ -989,6 +989,7 @@ if.end21.i:                                       ; preds = %if.end7.i
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end21.i, %land.lhs.true29, %if.end22
+  %invariant.op = add i32 %parameter, -63
   %tobool33.not212 = icmp eq i32 %nvals, 0
   br i1 %tobool33.not212, label %while.end247, label %while.body.lr.ph
 
@@ -1053,12 +1054,12 @@ if.else69:                                        ; preds = %while.body
   br i1 %cmp70, label %if.then72, label %if.end92
 
 if.then72:                                        ; preds = %if.else69
-  %sub73 = add i32 %add37, -64
+  %sub73.reass = add i32 %shr36, %invariant.op
   %16 = load i32, ptr %words, align 4
   %mul75 = shl i32 %16, 6
   %17 = load i32, ptr %bits, align 8
   %mul78 = shl i32 %nvals.addr.0213, 6
-  %add77 = add i32 %sub73, %mul78
+  %add77 = add i32 %sub73.reass, %mul78
   %add79 = add i32 %add77, %17
   %add80 = add i32 %add79, %mul75
   %18 = load i32, ptr %capacity, align 8

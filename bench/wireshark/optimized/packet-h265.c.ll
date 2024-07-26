@@ -2279,57 +2279,57 @@ dissect_h265_vui_parameters.exit:                 ; preds = %343, %349
   %468 = load i32, ptr @hf_h265_sps_num_palette_predictor_initializers_minus1, align 4
   %469 = call fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 noundef %468, ptr noundef %1, ptr noundef readonly %2, ptr noundef nonnull %4, i32 noundef 0)
   %.not298 = icmp eq i32 %.fr297, 0
-  %notmask = shl nsw i32 -1, %449
-  %470 = xor i32 %notmask, -1
-  %notmask310 = shl nsw i32 -1, %448
-  %471 = xor i32 %notmask310, -1
-  %.promoted46.i = load i32, ptr %4, align 4
+  %notmask.i = shl nsw i32 -1, %449
+  %470 = xor i32 %notmask.i, -1
+  %notmask52.i = shl nsw i32 -1, %448
+  %471 = xor i32 %notmask52.i, -1
+  %.promoted47.i = load i32, ptr %4, align 4
   br i1 %.not298, label %.preheader.split.us.i.us, label %.preheader.i242
 
 .preheader.split.us.i.us:                         ; preds = %467, %.preheader.split.us.i.us
   %.045.us.i.us = phi i32 [ %474, %.preheader.split.us.i.us ], [ 0, %467 ]
-  %storemerge4344.us.i.us = phi i32 [ %storemerge.us.i.us, %.preheader.split.us.i.us ], [ %.promoted46.i, %467 ]
+  %storemerge4344.us.i.us = phi i32 [ %storemerge.us.reass.i.us, %.preheader.split.us.i.us ], [ %.promoted47.i, %467 ]
   %472 = load i32, ptr @hf_h265_sps_palette_predictor_initializer, align 4
   %473 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %472, ptr noundef %1, i32 noundef %storemerge4344.us.i.us, i32 noundef %471, i32 noundef 0) #8
-  %storemerge.us.i.us = add i32 %storemerge4344.us.i.us, %471
+  %storemerge.us.reass.i.us = add i32 %storemerge4344.us.i.us, %471
   %474 = add i32 %.045.us.i.us, 1
   %.not42.us.i.us = icmp ugt i32 %474, %469
   br i1 %.not42.us.i.us, label %dissect_h265_sps_scc_extension.exit, label %.preheader.split.us.i.us, !llvm.loop !18
 
 .preheader.i242:                                  ; preds = %467, %.split.us.i
-  %.04049.i = phi i32 [ %482, %.split.us.i ], [ 0, %467 ]
-  %.us-phi4748.i = phi i32 [ %.us-phi.i, %.split.us.i ], [ %.promoted46.i, %467 ]
-  %475 = icmp eq i32 %.04049.i, 0
+  %.04050.i = phi i32 [ %482, %.split.us.i ], [ 0, %467 ]
+  %.us-phi4849.i = phi i32 [ %.us-phi.i, %.split.us.i ], [ %.promoted47.i, %467 ]
+  %475 = icmp eq i32 %.04050.i, 0
   br i1 %475, label %.preheader.split.us.i, label %.preheader.split.i
 
 .preheader.split.us.i:                            ; preds = %.preheader.i242, %.preheader.split.us.i
   %.045.us.i = phi i32 [ %478, %.preheader.split.us.i ], [ 0, %.preheader.i242 ]
-  %storemerge4344.us.i = phi i32 [ %storemerge.us.i, %.preheader.split.us.i ], [ %.us-phi4748.i, %.preheader.i242 ]
+  %storemerge4344.us.i = phi i32 [ %storemerge.us.reass.i, %.preheader.split.us.i ], [ %.us-phi4849.i, %.preheader.i242 ]
   %476 = load i32, ptr @hf_h265_sps_palette_predictor_initializer, align 4
   %477 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %476, ptr noundef %1, i32 noundef %storemerge4344.us.i, i32 noundef %471, i32 noundef 0) #8
-  %storemerge.us.i = add i32 %storemerge4344.us.i, %471
+  %storemerge.us.reass.i = add i32 %storemerge4344.us.i, %471
   %478 = add i32 %.045.us.i, 1
   %.not42.us.i = icmp ugt i32 %478, %469
   br i1 %.not42.us.i, label %.split.us.i, label %.preheader.split.us.i, !llvm.loop !18
 
 .preheader.split.i:                               ; preds = %.preheader.i242, %.preheader.split.i
   %.045.i = phi i32 [ %481, %.preheader.split.i ], [ 0, %.preheader.i242 ]
-  %storemerge4344.i = phi i32 [ %storemerge.i, %.preheader.split.i ], [ %.us-phi4748.i, %.preheader.i242 ]
+  %storemerge4344.i = phi i32 [ %storemerge.reass.i, %.preheader.split.i ], [ %.us-phi4849.i, %.preheader.i242 ]
   %479 = load i32, ptr @hf_h265_sps_palette_predictor_initializer, align 4
   %480 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %479, ptr noundef %1, i32 noundef %storemerge4344.i, i32 noundef %470, i32 noundef 0) #8
-  %storemerge.i = add i32 %storemerge4344.i, %470
+  %storemerge.reass.i = add i32 %storemerge4344.i, %470
   %481 = add i32 %.045.i, 1
   %.not42.i = icmp ugt i32 %481, %469
   br i1 %.not42.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !18
 
 .split.us.i:                                      ; preds = %.preheader.split.i, %.preheader.split.us.i
-  %.us-phi.i = phi i32 [ %storemerge.us.i, %.preheader.split.us.i ], [ %storemerge.i, %.preheader.split.i ]
-  %482 = add nuw nsw i32 %.04049.i, 1
+  %.us-phi.i = phi i32 [ %storemerge.us.reass.i, %.preheader.split.us.i ], [ %storemerge.reass.i, %.preheader.split.i ]
+  %482 = add nuw nsw i32 %.04050.i, 1
   %exitcond.not = icmp eq i32 %482, 3
   br i1 %exitcond.not, label %dissect_h265_sps_scc_extension.exit, label %.preheader.i242, !llvm.loop !19
 
 dissect_h265_sps_scc_extension.exit:              ; preds = %.split.us.i, %.preheader.split.us.i.us, %446, %457
-  %483 = phi i32 [ %466, %457 ], [ %456, %446 ], [ %storemerge.us.i.us, %.preheader.split.us.i.us ], [ %.us-phi.i, %.split.us.i ]
+  %483 = phi i32 [ %466, %457 ], [ %456, %446 ], [ %storemerge.us.reass.i.us, %.preheader.split.us.i.us ], [ %.us-phi.i, %.split.us.i ]
   %484 = load i32, ptr @hf_h265_motion_vector_resolution_control_idc, align 4
   %485 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %484, ptr noundef %1, i32 noundef %483, i32 noundef 2, i32 noundef 0) #8
   %486 = add i32 %483, 2
@@ -2776,44 +2776,44 @@ dissect_h265_pps_range_extension.exit:            ; preds = %189, %175
   %261 = phi i32 [ 1, %248 ], [ 3, %256 ]
   %.0.i178 = phi i32 [ 8, %248 ], [ %259, %256 ]
   %262 = add i32 %255, 8
-  %.promoted80.i = load i32, ptr %4, align 4
+  %.promoted81.i = load i32, ptr %4, align 4
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.split.us.i, %260
-  %.07383.i = phi i32 [ 0, %260 ], [ %276, %.split.us.i ]
-  %.us-phi8182.i = phi i32 [ %.promoted80.i, %260 ], [ %.us-phi.i, %.split.us.i ]
-  %263 = icmp eq i32 %.07383.i, 0
+  %.07384.i = phi i32 [ 0, %260 ], [ %276, %.split.us.i ]
+  %.us-phi8283.i = phi i32 [ %.promoted81.i, %260 ], [ %.us-phi.i, %.split.us.i ]
+  %263 = icmp eq i32 %.07384.i, 0
   br i1 %263, label %.preheader.split.us.i, label %.preheader.split.i
 
 .preheader.split.us.i:                            ; preds = %.preheader.i, %.preheader.split.us.i
   %.07479.us.i = phi i32 [ %269, %.preheader.split.us.i ], [ 0, %.preheader.i ]
-  %264 = phi i32 [ %268, %.preheader.split.us.i ], [ %.us-phi8182.i, %.preheader.i ]
+  %264 = phi i32 [ %268, %.preheader.split.us.i ], [ %.us-phi8283.i, %.preheader.i ]
   %265 = shl i32 %264, 3
   %266 = load i32, ptr @hf_h265_pps_palette_predictor_initializer, align 4
   %267 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %266, ptr noundef %1, i32 noundef %265, i32 noundef %262, i32 noundef 0) #8
-  %.1.us.i = add i32 %262, %265
-  %268 = ashr i32 %.1.us.i, 3
+  %.1.us.reass.i = add i32 %265, %262
+  %268 = ashr i32 %.1.us.reass.i, 3
   %269 = add nuw i32 %.07479.us.i, 1
-  %exitcond87.not.i = icmp eq i32 %269, %247
-  br i1 %exitcond87.not.i, label %.split.us.i, label %.preheader.split.us.i, !llvm.loop !24
+  %exitcond88.not.i = icmp eq i32 %269, %247
+  br i1 %exitcond88.not.i, label %.split.us.i, label %.preheader.split.us.i, !llvm.loop !24
 
 .preheader.split.i:                               ; preds = %.preheader.i, %.preheader.split.i
   %.07479.i = phi i32 [ %275, %.preheader.split.i ], [ 0, %.preheader.i ]
-  %270 = phi i32 [ %274, %.preheader.split.i ], [ %.us-phi8182.i, %.preheader.i ]
+  %270 = phi i32 [ %274, %.preheader.split.i ], [ %.us-phi8283.i, %.preheader.i ]
   %271 = shl i32 %270, 3
   %272 = load i32, ptr @hf_h265_pps_palette_predictor_initializer, align 4
   %273 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %272, ptr noundef %1, i32 noundef %271, i32 noundef %.0.i178, i32 noundef 0) #8
-  %.1.i = add i32 %.0.i178, %271
-  %274 = ashr i32 %.1.i, 3
+  %.1.reass.i = add i32 %271, %.0.i178
+  %274 = ashr i32 %.1.reass.i, 3
   %275 = add nuw i32 %.07479.i, 1
   %exitcond.not.i = icmp eq i32 %275, %247
   br i1 %exitcond.not.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !24
 
 .split.us.i:                                      ; preds = %.preheader.split.i, %.preheader.split.us.i
   %.us-phi.i = phi i32 [ %268, %.preheader.split.us.i ], [ %274, %.preheader.split.i ]
-  %276 = add nuw nsw i32 %.07383.i, 1
-  %exitcond88.not.i = icmp eq i32 %276, %261
-  br i1 %exitcond88.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !25
+  %276 = add nuw nsw i32 %.07384.i, 1
+  %exitcond89.not.i = icmp eq i32 %276, %261
+  br i1 %exitcond89.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !25
 
 .loopexit.i:                                      ; preds = %.split.us.i, %244
   %277 = phi i32 [ %.pre.i, %244 ], [ %.us-phi.i, %.split.us.i ]

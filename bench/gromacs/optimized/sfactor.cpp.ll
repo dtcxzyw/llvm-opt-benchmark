@@ -2488,20 +2488,24 @@ define noundef ptr @_Z26gmx_structurefactors_tableP20gmx_structurefactorsfffi(pt
   %22 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv58
   %23 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 670, i64 noundef %11, i64 noundef 4)
   store ptr %23, ptr %22, align 8
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %24 = icmp slt i64 %indvars.iv58, %21
-  %25 = trunc nuw nsw i64 %indvars.iv58 to i32
-  %reass.sub = sub i32 %25, %6
-  %26 = add i32 %reass.sub, 1
-  br i1 %24, label %.lr.ph.split.us.us, label %.lr.ph.split.us44
+  %25 = trunc nuw nsw i64 %indvars.iv.next59 to i32
+  %.reass.us = sub i32 %25, %6
+  br i1 %24, label %.lr.ph.split.us.us, label %.lr.ph.split.us44.preheader
 
-.lr.ph.split.us44:                                ; preds = %.lr.ph.us, %.lr.ph.split.us44
-  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.lr.ph.split.us44 ], [ 0, %.lr.ph.us ]
+.lr.ph.split.us44.preheader:                      ; preds = %.lr.ph.us
+  %26 = trunc nuw nsw i64 %indvars.iv58 to i32
+  br label %.lr.ph.split.us44
+
+.lr.ph.split.us44:                                ; preds = %.lr.ph.split.us44.preheader, %.lr.ph.split.us44
+  %indvars.iv48 = phi i64 [ 0, %.lr.ph.split.us44.preheader ], [ %indvars.iv.next49, %.lr.ph.split.us44 ]
   %27 = trunc nuw nsw i64 %indvars.iv48 to i32
   %28 = uitofp nneg i32 %27 to float
   %29 = fmul float %28, %2
   %30 = fpext float %29 to double
   %31 = fdiv double %30, %14
-  %32 = tail call noundef double @_Z4CMSFP20gmx_structurefactorsiidd(ptr noundef nonnull %0, i32 noundef %25, i32 noundef %26, double noundef %15, double noundef %31)
+  %32 = tail call noundef double @_Z4CMSFP20gmx_structurefactorsiidd(ptr noundef nonnull %0, i32 noundef %26, i32 noundef %.reass.us, double noundef %15, double noundef %31)
   %33 = fptrunc double %32 to float
   %34 = load ptr, ptr %22, align 8
   %35 = getelementptr inbounds float, ptr %34, i64 %indvars.iv48
@@ -2511,7 +2515,6 @@ define noundef ptr @_Z26gmx_structurefactors_tableP20gmx_structurefactorsfffi(pt
   br i1 %exitcond52.not, label %._crit_edge.us, label %.lr.ph.split.us44, !llvm.loop !36
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.split.us44, %_Z4CMSFP20gmx_structurefactorsiidd.exit.us.us
-  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
   br i1 %exitcond62.not, label %._crit_edge41, label %.lr.ph.us, !llvm.loop !37
 

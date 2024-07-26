@@ -1562,17 +1562,17 @@ thread-pre-split:                                 ; preds = %43, %118, %60
     i8 -80, label %257
     i8 -83, label %258
     i8 -91, label %345
-    i8 -92, label %414
-    i8 -81, label %444
-    i8 -95, label %451
-    i8 -82, label %514
-    i8 -86, label %543
-    i8 -85, label %567
-    i8 -84, label %645
-    i8 -93, label %891
-    i8 64, label %925
-    i8 65, label %925
-    i8 -78, label %992
+    i8 -92, label %413
+    i8 -81, label %442
+    i8 -95, label %449
+    i8 -82, label %512
+    i8 -86, label %541
+    i8 -85, label %565
+    i8 -84, label %643
+    i8 -93, label %874
+    i8 64, label %908
+    i8 65, label %908
+    i8 -78, label %973
   ]
 
 152:                                              ; preds = %151
@@ -1868,14 +1868,15 @@ thread-pre-split:                                 ; preds = %43, %118, %60
   %353 = and i8 %352, 31
   %354 = load i32, ptr @hf_dvb_s2_tbtp_frame_loop_count, align 4
   %355 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %354, ptr noundef %0, i32 noundef %351, i32 noundef 1, i32 noundef 0) #3
+  %invariant.op.i = add nuw nsw i32 %.2, 4
   %356 = add nuw nsw i32 %.2, 2
   %narrow.i326 = add nuw nsw i8 %353, 1
   %357 = zext nneg i8 %narrow.i326 to i32
   br label %358
 
-358:                                              ; preds = %404, %345
-  %.0102.i = phi i32 [ 0, %345 ], [ %406, %404 ]
-  %.096101.i = phi i32 [ 4, %345 ], [ %401, %404 ]
+358:                                              ; preds = %403, %345
+  %.0102.i = phi i32 [ 0, %345 ], [ %405, %403 ]
+  %.096101.i = phi i32 [ 4, %345 ], [ %400, %403 ]
   %359 = load i32, ptr @hf_dvb_s2_tbtp_sf_frame, align 4
   %360 = add i32 %.096101.i, %.2
   %361 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %359, ptr noundef %0, i32 noundef %360, i32 noundef -1, i32 noundef 0) #3
@@ -1893,9 +1894,9 @@ thread-pre-split:                                 ; preds = %43, %118, %60
   %372 = zext nneg i16 %narrow104.i to i32
   br label %373
 
-373:                                              ; preds = %397, %358
-  %.095100.i = phi i32 [ 0, %358 ], [ %403, %397 ]
-  %.199.i = phi i32 [ %371, %358 ], [ %401, %397 ]
+373:                                              ; preds = %396, %358
+  %.095100.i = phi i32 [ 0, %358 ], [ %402, %396 ]
+  %.199.i = phi i32 [ %371, %358 ], [ %400, %396 ]
   %374 = load i32, ptr @hf_dvb_s2_tbtp_btp, align 4
   %375 = add i32 %.199.i, %.2
   %376 = tail call ptr @proto_tree_add_item(ptr noundef %363, i32 noundef %374, ptr noundef %0, i32 noundef %375, i32 noundef -1, i32 noundef 0) #3
@@ -1915,999 +1916,999 @@ thread-pre-split:                                 ; preds = %43, %118, %60
   %390 = tail call ptr @proto_tree_add_item(ptr noundef %378, i32 noundef %389, ptr noundef %0, i32 noundef %381, i32 noundef 2, i32 noundef 0) #3
   %391 = add i32 %.199.i, 4
   %.not98.i = icmp sgt i8 %382, -1
-  br i1 %.not98.i, label %397, label %392
+  br i1 %.not98.i, label %396, label %392
 
 392:                                              ; preds = %373
   %393 = load i32, ptr @hf_dvb_s2_tbtp_channel_id, align 4
-  %394 = add i32 %391, %.2
-  %395 = tail call ptr @proto_tree_add_item(ptr noundef %378, i32 noundef %393, ptr noundef %0, i32 noundef %394, i32 noundef 1, i32 noundef 0) #3
-  %396 = add i32 %.199.i, 5
-  br label %397
+  %.reass.i = add i32 %invariant.op.i, %.199.i
+  %394 = tail call ptr @proto_tree_add_item(ptr noundef %378, i32 noundef %393, ptr noundef %0, i32 noundef %.reass.i, i32 noundef 1, i32 noundef 0) #3
+  %395 = add i32 %.199.i, 5
+  br label %396
 
-397:                                              ; preds = %392, %373
-  %.2.i327 = phi i32 [ %396, %392 ], [ %391, %373 ]
-  %398 = load i32, ptr @hf_dvb_s2_tbtp_assignment_count, align 4
-  %399 = add i32 %.2.i327, %.2
-  %400 = tail call ptr @proto_tree_add_item(ptr noundef %378, i32 noundef %398, ptr noundef %0, i32 noundef %399, i32 noundef 1, i32 noundef 0) #3
-  %401 = add i32 %.2.i327, 1
-  %402 = sub i32 %401, %.199.i
-  tail call void @proto_item_set_len(ptr noundef %376, i32 noundef %402) #3
-  %403 = add nuw nsw i32 %.095100.i, 1
-  %exitcond.not.i328 = icmp eq i32 %403, %372
-  br i1 %exitcond.not.i328, label %404, label %373, !llvm.loop !9
+396:                                              ; preds = %392, %373
+  %.2.i327 = phi i32 [ %395, %392 ], [ %391, %373 ]
+  %397 = load i32, ptr @hf_dvb_s2_tbtp_assignment_count, align 4
+  %398 = add i32 %.2.i327, %.2
+  %399 = tail call ptr @proto_tree_add_item(ptr noundef %378, i32 noundef %397, ptr noundef %0, i32 noundef %398, i32 noundef 1, i32 noundef 0) #3
+  %400 = add i32 %.2.i327, 1
+  %401 = sub i32 %400, %.199.i
+  tail call void @proto_item_set_len(ptr noundef %376, i32 noundef %401) #3
+  %402 = add nuw nsw i32 %.095100.i, 1
+  %exitcond.not.i328 = icmp eq i32 %402, %372
+  br i1 %exitcond.not.i328, label %403, label %373, !llvm.loop !9
 
-404:                                              ; preds = %397
-  %405 = sub i32 %401, %.096101.i
-  tail call void @proto_item_set_len(ptr noundef %361, i32 noundef %405) #3
-  %406 = add nuw nsw i32 %.0102.i, 1
-  %exitcond103.not.i = icmp eq i32 %406, %357
-  br i1 %exitcond103.not.i, label %407, label %358, !llvm.loop !10
+403:                                              ; preds = %396
+  %404 = sub i32 %400, %.096101.i
+  tail call void @proto_item_set_len(ptr noundef %361, i32 noundef %404) #3
+  %405 = add nuw nsw i32 %.0102.i, 1
+  %exitcond103.not.i = icmp eq i32 %405, %357
+  br i1 %exitcond103.not.i, label %406, label %358, !llvm.loop !10
 
-407:                                              ; preds = %404
-  %408 = load i32, ptr @dvb_s2_rcs_version, align 4
-  %409 = icmp eq i32 %408, 0
-  br i1 %409, label %410, label %dissect_dvb_s2_table_sct.exitthread-pre-split
+406:                                              ; preds = %403
+  %407 = load i32, ptr @dvb_s2_rcs_version, align 4
+  %408 = icmp eq i32 %407, 0
+  br i1 %408, label %409, label %dissect_dvb_s2_table_sct.exitthread-pre-split
 
-410:                                              ; preds = %407
-  %411 = load i32, ptr @hf_dvb_s2_table_crc32, align 4
-  %412 = add i32 %401, %.2
-  %413 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %411, ptr noundef %0, i32 noundef %412, i32 noundef 4, i32 noundef 0) #3
+409:                                              ; preds = %406
+  %410 = load i32, ptr @hf_dvb_s2_table_crc32, align 4
+  %411 = add i32 %400, %.2
+  %412 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %410, ptr noundef %0, i32 noundef %411, i32 noundef 4, i32 noundef 0) #3
   br label %dissect_dvb_s2_table_sct.exitthread-pre-split
 
-414:                                              ; preds = %151
-  %415 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #3
-  %416 = zext i8 %415 to i32
-  %417 = load i32, ptr @hf_dvb_s2_table_entry_loop_count, align 4
-  %418 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %417, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #3
-  %419 = add nuw nsw i32 %.2, 1
-  br label %420
+413:                                              ; preds = %151
+  %414 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #3
+  %415 = zext i8 %414 to i32
+  %416 = load i32, ptr @hf_dvb_s2_table_entry_loop_count, align 4
+  %417 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %416, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #3
+  %invariant.op.i329 = add nuw nsw i32 %.2, 3
+  %418 = add nuw nsw i32 %.2, 1
+  br label %419
 
-420:                                              ; preds = %420, %414
-  %.042.i = phi i32 [ 0, %414 ], [ %436, %420 ]
-  %.04041.i = phi i32 [ 1, %414 ], [ %434, %420 ]
-  %421 = load i32, ptr @hf_dvb_s2_table_entry, align 4
-  %422 = add i32 %.04041.i, %.2
-  %423 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %421, ptr noundef %0, i32 noundef %422, i32 noundef -1, i32 noundef 0) #3
-  %424 = load i32, ptr @ett_dvb_s2_hdr_table_entry, align 4
-  %425 = tail call ptr @proto_item_add_subtree(ptr noundef %423, i32 noundef %424) #3
-  %426 = load i32, ptr @hf_dvb_s2_table_group_id, align 4
-  %427 = tail call ptr @proto_tree_add_item(ptr noundef %425, i32 noundef %426, ptr noundef %0, i32 noundef %422, i32 noundef 1, i32 noundef 0) #3
-  %428 = load i32, ptr @hf_dvb_s2_table_entry_login_id, align 4
-  %429 = add i32 %419, %.04041.i
-  %430 = tail call ptr @proto_tree_add_item(ptr noundef %425, i32 noundef %428, ptr noundef %0, i32 noundef %429, i32 noundef 2, i32 noundef 0) #3
-  %431 = add i32 %.04041.i, 3
-  %432 = add i32 %431, %.2
-  %433 = tail call fastcc i32 @dissect_dvb_s2_table_correct_msg(ptr noundef %0, i32 noundef %432, ptr noundef %425)
-  %434 = add i32 %433, %431
-  %435 = sub i32 %434, %.04041.i
-  tail call void @proto_item_set_len(ptr noundef %423, i32 noundef %435) #3
-  %436 = add nuw nsw i32 %.042.i, 1
-  %exitcond.not.i329 = icmp eq i32 %.042.i, %416
-  br i1 %exitcond.not.i329, label %437, label %420, !llvm.loop !11
+419:                                              ; preds = %419, %413
+  %.042.i = phi i32 [ 0, %413 ], [ %434, %419 ]
+  %.04041.i = phi i32 [ 1, %413 ], [ %432, %419 ]
+  %420 = load i32, ptr @hf_dvb_s2_table_entry, align 4
+  %421 = add i32 %.04041.i, %.2
+  %422 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %420, ptr noundef %0, i32 noundef %421, i32 noundef -1, i32 noundef 0) #3
+  %423 = load i32, ptr @ett_dvb_s2_hdr_table_entry, align 4
+  %424 = tail call ptr @proto_item_add_subtree(ptr noundef %422, i32 noundef %423) #3
+  %425 = load i32, ptr @hf_dvb_s2_table_group_id, align 4
+  %426 = tail call ptr @proto_tree_add_item(ptr noundef %424, i32 noundef %425, ptr noundef %0, i32 noundef %421, i32 noundef 1, i32 noundef 0) #3
+  %427 = load i32, ptr @hf_dvb_s2_table_entry_login_id, align 4
+  %428 = add i32 %418, %.04041.i
+  %429 = tail call ptr @proto_tree_add_item(ptr noundef %424, i32 noundef %427, ptr noundef %0, i32 noundef %428, i32 noundef 2, i32 noundef 0) #3
+  %430 = add i32 %.04041.i, 3
+  %.reass.i330 = add i32 %invariant.op.i329, %.04041.i
+  %431 = tail call fastcc i32 @dissect_dvb_s2_table_correct_msg(ptr noundef %0, i32 noundef %.reass.i330, ptr noundef %424)
+  %432 = add i32 %430, %431
+  %433 = sub i32 %432, %.04041.i
+  tail call void @proto_item_set_len(ptr noundef %422, i32 noundef %433) #3
+  %434 = add nuw nsw i32 %.042.i, 1
+  %exitcond.not.i331 = icmp eq i32 %.042.i, %415
+  br i1 %exitcond.not.i331, label %435, label %419, !llvm.loop !11
 
-437:                                              ; preds = %420
-  %438 = load i32, ptr @dvb_s2_rcs_version, align 4
-  %439 = icmp eq i32 %438, 0
-  br i1 %439, label %440, label %dissect_dvb_s2_table_sct.exit
+435:                                              ; preds = %419
+  %436 = load i32, ptr @dvb_s2_rcs_version, align 4
+  %437 = icmp eq i32 %436, 0
+  br i1 %437, label %438, label %dissect_dvb_s2_table_sct.exit
 
-440:                                              ; preds = %437
-  %441 = load i32, ptr @hf_dvb_s2_table_crc32, align 4
-  %442 = add i32 %434, %.2
-  %443 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %441, ptr noundef %0, i32 noundef %442, i32 noundef 4, i32 noundef 0) #3
+438:                                              ; preds = %435
+  %439 = load i32, ptr @hf_dvb_s2_table_crc32, align 4
+  %440 = add i32 %432, %.2
+  %441 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %439, ptr noundef %0, i32 noundef %440, i32 noundef 4, i32 noundef 0) #3
   br label %dissect_dvb_s2_table_sct.exitthread-pre-split
 
-444:                                              ; preds = %151
-  %445 = load i32, ptr @hf_dvb_s2_table_desc_loop_count, align 4
-  %446 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %445, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #3
-  %447 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #3
-  %448 = zext i8 %447 to i32
-  %449 = add nuw nsw i32 %.2, 1
-  %450 = tail call fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %449, ptr noundef %8, i32 noundef %448, i32 noundef 175, ptr noundef nonnull %1)
+442:                                              ; preds = %151
+  %443 = load i32, ptr @hf_dvb_s2_table_desc_loop_count, align 4
+  %444 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %443, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #3
+  %445 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #3
+  %446 = zext i8 %445 to i32
+  %447 = add nuw nsw i32 %.2, 1
+  %448 = tail call fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %447, ptr noundef %8, i32 noundef %446, i32 noundef 175, ptr noundef nonnull %1)
   br label %dissect_dvb_s2_table_sct.exitthread-pre-split
 
-451:                                              ; preds = %151
-  %452 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #3
-  %453 = zext i8 %452 to i32
-  %454 = load i32, ptr @hf_dvb_s2_table_frame_ID_loop_count, align 4
-  %455 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %454, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #3
-  %456 = add nuw nsw i32 %.2, 1
-  %457 = add nuw nsw i32 %.2, 5
-  %458 = add nuw nsw i32 %.2, 7
-  %459 = add nuw nsw i32 %.2, 9
-  %460 = add nuw nsw i32 %.2, 3
-  %461 = add nuw nsw i32 %.2, 8
-  br label %462
+449:                                              ; preds = %151
+  %450 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #3
+  %451 = zext i8 %450 to i32
+  %452 = load i32, ptr @hf_dvb_s2_table_frame_ID_loop_count, align 4
+  %453 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %452, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #3
+  %454 = add nuw nsw i32 %.2, 1
+  %455 = add nuw nsw i32 %.2, 5
+  %456 = add nuw nsw i32 %.2, 7
+  %457 = add nuw nsw i32 %.2, 9
+  %458 = add nuw nsw i32 %.2, 3
+  %459 = add nuw nsw i32 %.2, 8
+  br label %460
 
-462:                                              ; preds = %504, %451
-  %.087.i = phi i32 [ 0, %451 ], [ %506, %504 ]
-  %.08286.i = phi i32 [ 1, %451 ], [ %502, %504 ]
-  %463 = load i32, ptr @hf_dvb_s2_table_frame_ID_branch, align 4
-  %464 = add i32 %.08286.i, %.2
-  %465 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %463, ptr noundef %0, i32 noundef %464, i32 noundef -1, i32 noundef 0) #3
-  %466 = load i32, ptr @ett_dvb_s2_hdr_table_frame_ID, align 4
-  %467 = tail call ptr @proto_item_add_subtree(ptr noundef %465, i32 noundef %466) #3
-  %468 = load i32, ptr @hf_dvb_s2_table_frame_ID, align 4
-  %469 = tail call ptr @proto_tree_add_item(ptr noundef %467, i32 noundef %468, ptr noundef %0, i32 noundef %464, i32 noundef 1, i32 noundef 0) #3
-  %470 = load i32, ptr @hf_dvb_s2_table_frame_ID_frame_duration, align 4
-  %471 = add i32 %456, %.08286.i
-  %472 = tail call ptr @proto_tree_add_item(ptr noundef %467, i32 noundef %470, ptr noundef %0, i32 noundef %471, i32 noundef 4, i32 noundef 0) #3
-  %473 = load i32, ptr @hf_dvb_s2_table_frame_ID_total_timeslot_count, align 4
-  %474 = add i32 %457, %.08286.i
-  %475 = tail call ptr @proto_tree_add_item(ptr noundef %467, i32 noundef %473, ptr noundef %0, i32 noundef %474, i32 noundef 2, i32 noundef 0) #3
-  %476 = load i32, ptr @hf_dvb_s2_table_frame_ID_start_timeslot_number, align 4
-  %477 = add i32 %.08286.i, %458
-  %478 = tail call ptr @proto_tree_add_item(ptr noundef %467, i32 noundef %476, ptr noundef %0, i32 noundef %477, i32 noundef 2, i32 noundef 0) #3
-  %479 = add i32 %459, %.08286.i
-  %480 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %479) #3
-  %481 = zext i8 %480 to i32
-  %482 = load i32, ptr @hf_dvb_s2_table_frame_ID_timeslot_loop_count, align 4
-  %483 = tail call ptr @proto_tree_add_item(ptr noundef %467, i32 noundef %482, ptr noundef %0, i32 noundef %479, i32 noundef 1, i32 noundef 0) #3
-  %484 = add i32 %.08286.i, 10
-  br label %485
+460:                                              ; preds = %502, %449
+  %.087.i = phi i32 [ 0, %449 ], [ %504, %502 ]
+  %.08286.i = phi i32 [ 1, %449 ], [ %500, %502 ]
+  %461 = load i32, ptr @hf_dvb_s2_table_frame_ID_branch, align 4
+  %462 = add i32 %.08286.i, %.2
+  %463 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %461, ptr noundef %0, i32 noundef %462, i32 noundef -1, i32 noundef 0) #3
+  %464 = load i32, ptr @ett_dvb_s2_hdr_table_frame_ID, align 4
+  %465 = tail call ptr @proto_item_add_subtree(ptr noundef %463, i32 noundef %464) #3
+  %466 = load i32, ptr @hf_dvb_s2_table_frame_ID, align 4
+  %467 = tail call ptr @proto_tree_add_item(ptr noundef %465, i32 noundef %466, ptr noundef %0, i32 noundef %462, i32 noundef 1, i32 noundef 0) #3
+  %468 = load i32, ptr @hf_dvb_s2_table_frame_ID_frame_duration, align 4
+  %469 = add i32 %454, %.08286.i
+  %470 = tail call ptr @proto_tree_add_item(ptr noundef %465, i32 noundef %468, ptr noundef %0, i32 noundef %469, i32 noundef 4, i32 noundef 0) #3
+  %471 = load i32, ptr @hf_dvb_s2_table_frame_ID_total_timeslot_count, align 4
+  %472 = add i32 %455, %.08286.i
+  %473 = tail call ptr @proto_tree_add_item(ptr noundef %465, i32 noundef %471, ptr noundef %0, i32 noundef %472, i32 noundef 2, i32 noundef 0) #3
+  %474 = load i32, ptr @hf_dvb_s2_table_frame_ID_start_timeslot_number, align 4
+  %475 = add i32 %.08286.i, %456
+  %476 = tail call ptr @proto_tree_add_item(ptr noundef %465, i32 noundef %474, ptr noundef %0, i32 noundef %475, i32 noundef 2, i32 noundef 0) #3
+  %477 = add i32 %457, %.08286.i
+  %478 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %477) #3
+  %479 = zext i8 %478 to i32
+  %480 = load i32, ptr @hf_dvb_s2_table_frame_ID_timeslot_loop_count, align 4
+  %481 = tail call ptr @proto_tree_add_item(ptr noundef %465, i32 noundef %480, ptr noundef %0, i32 noundef %477, i32 noundef 1, i32 noundef 0) #3
+  %482 = add i32 %.08286.i, 10
+  br label %483
 
-485:                                              ; preds = %485, %462
-  %.08185.i = phi i32 [ 0, %462 ], [ %503, %485 ]
-  %.184.i = phi i32 [ %484, %462 ], [ %502, %485 ]
-  %486 = load i32, ptr @hf_dvb_s2_table_frame_ID_timeslot, align 4
-  %487 = add i32 %.184.i, %.2
-  %488 = tail call ptr @proto_tree_add_item(ptr noundef %467, i32 noundef %486, ptr noundef %0, i32 noundef %487, i32 noundef 9, i32 noundef 0) #3
-  %489 = load i32, ptr @ett_dvb_s2_hdr_table_frame_ID_timeslot, align 4
-  %490 = tail call ptr @proto_item_add_subtree(ptr noundef %488, i32 noundef %489) #3
-  %491 = load i32, ptr @hf_dvb_s2_table_frame_ID_timeslot_timeslot_frequency_offset, align 4
-  %492 = tail call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %491, ptr noundef %0, i32 noundef %487, i32 noundef 3, i32 noundef 0) #3
-  %493 = load i32, ptr @hf_dvb_s2_table_frame_ID_timeslot_timeslot_time_offset, align 4
-  %494 = add i32 %460, %.184.i
-  %495 = tail call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %493, ptr noundef %0, i32 noundef %494, i32 noundef 4, i32 noundef 0) #3
-  %496 = load i32, ptr @hf_dvb_s2_table_frame_ID_timeslot_timeslot_id, align 4
-  %497 = add i32 %.184.i, %458
-  %498 = tail call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %496, ptr noundef %0, i32 noundef %497, i32 noundef 1, i32 noundef 0) #3
-  %499 = load i32, ptr @hf_dvb_s2_table_frame_ID_timeslot_repeat_count, align 4
-  %500 = add i32 %461, %.184.i
-  %501 = tail call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %499, ptr noundef %0, i32 noundef %500, i32 noundef 1, i32 noundef 0) #3
-  %502 = add i32 %.184.i, 9
-  %503 = add nuw nsw i32 %.08185.i, 1
-  %exitcond.not.i330 = icmp eq i32 %.08185.i, %481
-  br i1 %exitcond.not.i330, label %504, label %485, !llvm.loop !12
+483:                                              ; preds = %483, %460
+  %.08185.i = phi i32 [ 0, %460 ], [ %501, %483 ]
+  %.184.i = phi i32 [ %482, %460 ], [ %500, %483 ]
+  %484 = load i32, ptr @hf_dvb_s2_table_frame_ID_timeslot, align 4
+  %485 = add i32 %.184.i, %.2
+  %486 = tail call ptr @proto_tree_add_item(ptr noundef %465, i32 noundef %484, ptr noundef %0, i32 noundef %485, i32 noundef 9, i32 noundef 0) #3
+  %487 = load i32, ptr @ett_dvb_s2_hdr_table_frame_ID_timeslot, align 4
+  %488 = tail call ptr @proto_item_add_subtree(ptr noundef %486, i32 noundef %487) #3
+  %489 = load i32, ptr @hf_dvb_s2_table_frame_ID_timeslot_timeslot_frequency_offset, align 4
+  %490 = tail call ptr @proto_tree_add_item(ptr noundef %488, i32 noundef %489, ptr noundef %0, i32 noundef %485, i32 noundef 3, i32 noundef 0) #3
+  %491 = load i32, ptr @hf_dvb_s2_table_frame_ID_timeslot_timeslot_time_offset, align 4
+  %492 = add i32 %458, %.184.i
+  %493 = tail call ptr @proto_tree_add_item(ptr noundef %488, i32 noundef %491, ptr noundef %0, i32 noundef %492, i32 noundef 4, i32 noundef 0) #3
+  %494 = load i32, ptr @hf_dvb_s2_table_frame_ID_timeslot_timeslot_id, align 4
+  %495 = add i32 %.184.i, %456
+  %496 = tail call ptr @proto_tree_add_item(ptr noundef %488, i32 noundef %494, ptr noundef %0, i32 noundef %495, i32 noundef 1, i32 noundef 0) #3
+  %497 = load i32, ptr @hf_dvb_s2_table_frame_ID_timeslot_repeat_count, align 4
+  %498 = add i32 %459, %.184.i
+  %499 = tail call ptr @proto_tree_add_item(ptr noundef %488, i32 noundef %497, ptr noundef %0, i32 noundef %498, i32 noundef 1, i32 noundef 0) #3
+  %500 = add i32 %.184.i, 9
+  %501 = add nuw nsw i32 %.08185.i, 1
+  %exitcond.not.i332 = icmp eq i32 %.08185.i, %479
+  br i1 %exitcond.not.i332, label %502, label %483, !llvm.loop !12
 
-504:                                              ; preds = %485
-  %505 = sub i32 %502, %.08286.i
-  tail call void @proto_item_set_len(ptr noundef %465, i32 noundef %505) #3
-  %506 = add nuw nsw i32 %.087.i, 1
-  %exitcond88.not.i = icmp eq i32 %.087.i, %453
-  br i1 %exitcond88.not.i, label %507, label %462, !llvm.loop !13
+502:                                              ; preds = %483
+  %503 = sub i32 %500, %.08286.i
+  tail call void @proto_item_set_len(ptr noundef %463, i32 noundef %503) #3
+  %504 = add nuw nsw i32 %.087.i, 1
+  %exitcond88.not.i = icmp eq i32 %.087.i, %451
+  br i1 %exitcond88.not.i, label %505, label %460, !llvm.loop !13
 
-507:                                              ; preds = %504
-  %508 = load i32, ptr @dvb_s2_rcs_version, align 4
-  %509 = icmp eq i32 %508, 0
-  br i1 %509, label %510, label %dissect_dvb_s2_table_sct.exit
+505:                                              ; preds = %502
+  %506 = load i32, ptr @dvb_s2_rcs_version, align 4
+  %507 = icmp eq i32 %506, 0
+  br i1 %507, label %508, label %dissect_dvb_s2_table_sct.exit
 
-510:                                              ; preds = %507
-  %511 = load i32, ptr @hf_dvb_s2_table_crc32, align 4
-  %512 = add i32 %502, %.2
-  %513 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %511, ptr noundef %0, i32 noundef %512, i32 noundef 4, i32 noundef 0) #3
+508:                                              ; preds = %505
+  %509 = load i32, ptr @hf_dvb_s2_table_crc32, align 4
+  %510 = add i32 %500, %.2
+  %511 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %509, ptr noundef %0, i32 noundef %510, i32 noundef 4, i32 noundef 0) #3
   br label %dissect_dvb_s2_table_sct.exitthread-pre-split
 
-514:                                              ; preds = %151
-  %515 = load i32, ptr @hf_dvb_s2_table_common_sytem_margin, align 4
-  %516 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %515, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #3
-  %517 = add nuw nsw i32 %.2, 1
-  %518 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %517) #3
-  %519 = zext i8 %518 to i32
-  %520 = load i32, ptr @hf_dvb_s2_table_tx_mode_count, align 4
-  %521 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %520, ptr noundef %0, i32 noundef %517, i32 noundef 1, i32 noundef 0) #3
-  %.not.i = icmp eq i8 %518, 0
+512:                                              ; preds = %151
+  %513 = load i32, ptr @hf_dvb_s2_table_common_sytem_margin, align 4
+  %514 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %513, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #3
+  %515 = add nuw nsw i32 %.2, 1
+  %516 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %515) #3
+  %517 = zext i8 %516 to i32
+  %518 = load i32, ptr @hf_dvb_s2_table_tx_mode_count, align 4
+  %519 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %518, ptr noundef %0, i32 noundef %515, i32 noundef 1, i32 noundef 0) #3
+  %.not.i = icmp eq i8 %516, 0
   br i1 %.not.i, label %dissect_dvb_s2_table_sct.exitthread-pre-split, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %514
-  %522 = add nuw nsw i32 %.2, 2
-  br label %523
+.lr.ph.i:                                         ; preds = %512
+  %520 = add nuw nsw i32 %.2, 2
+  br label %521
 
-523:                                              ; preds = %523, %.lr.ph.i
-  %.046.i = phi i32 [ 0, %.lr.ph.i ], [ %542, %523 ]
-  %.04445.i = phi i32 [ 2, %.lr.ph.i ], [ %541, %523 ]
-  %524 = load i32, ptr @hf_dvb_s2_table_tx_mode, align 4
-  %525 = add nuw nsw i32 %.04445.i, %.2
-  %526 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %524, ptr noundef %0, i32 noundef %525, i32 noundef 3, i32 noundef 0) #3
-  %527 = load i32, ptr @ett_dvb_s2_hdr_table_txmode, align 4
-  %528 = tail call ptr @proto_item_add_subtree(ptr noundef %526, i32 noundef %527) #3
-  %529 = load i32, ptr @hf_dvb_s2_table_tx_mode_frame_length, align 4
-  %530 = tail call ptr @proto_tree_add_item(ptr noundef %528, i32 noundef %529, ptr noundef %0, i32 noundef %525, i32 noundef 1, i32 noundef 0) #3
-  %531 = load i32, ptr @hf_dvb_s2_table_tx_mode_pilot_symbols, align 4
-  %532 = tail call ptr @proto_tree_add_item(ptr noundef %528, i32 noundef %531, ptr noundef %0, i32 noundef %525, i32 noundef 1, i32 noundef 0) #3
-  %533 = load i32, ptr @hf_dvb_s2_table_tx_mode_modcod, align 4
-  %534 = tail call ptr @proto_tree_add_item(ptr noundef %528, i32 noundef %533, ptr noundef %0, i32 noundef %525, i32 noundef 1, i32 noundef 0) #3
-  %535 = load i32, ptr @hf_dvb_s2_table_tx_mode_modcod_system_margin, align 4
-  %536 = add nuw nsw i32 %.04445.i, %517
-  %537 = tail call ptr @proto_tree_add_item(ptr noundef %528, i32 noundef %535, ptr noundef %0, i32 noundef %536, i32 noundef 1, i32 noundef 0) #3
-  %538 = load i32, ptr @hf_dvb_s2_table_tx_mode_isi, align 4
-  %539 = add nuw nsw i32 %522, %.04445.i
-  %540 = tail call ptr @proto_tree_add_item(ptr noundef %528, i32 noundef %538, ptr noundef %0, i32 noundef %539, i32 noundef 1, i32 noundef 0) #3
-  %541 = add nuw nsw i32 %.04445.i, 3
-  %542 = add nuw nsw i32 %.046.i, 1
-  %exitcond.not.i332 = icmp eq i32 %542, %519
-  br i1 %exitcond.not.i332, label %dissect_dvb_s2_table_sct.exitthread-pre-split, label %523, !llvm.loop !14
+521:                                              ; preds = %521, %.lr.ph.i
+  %.046.i = phi i32 [ 0, %.lr.ph.i ], [ %540, %521 ]
+  %.04445.i = phi i32 [ 2, %.lr.ph.i ], [ %539, %521 ]
+  %522 = load i32, ptr @hf_dvb_s2_table_tx_mode, align 4
+  %523 = add nuw nsw i32 %.04445.i, %.2
+  %524 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %522, ptr noundef %0, i32 noundef %523, i32 noundef 3, i32 noundef 0) #3
+  %525 = load i32, ptr @ett_dvb_s2_hdr_table_txmode, align 4
+  %526 = tail call ptr @proto_item_add_subtree(ptr noundef %524, i32 noundef %525) #3
+  %527 = load i32, ptr @hf_dvb_s2_table_tx_mode_frame_length, align 4
+  %528 = tail call ptr @proto_tree_add_item(ptr noundef %526, i32 noundef %527, ptr noundef %0, i32 noundef %523, i32 noundef 1, i32 noundef 0) #3
+  %529 = load i32, ptr @hf_dvb_s2_table_tx_mode_pilot_symbols, align 4
+  %530 = tail call ptr @proto_tree_add_item(ptr noundef %526, i32 noundef %529, ptr noundef %0, i32 noundef %523, i32 noundef 1, i32 noundef 0) #3
+  %531 = load i32, ptr @hf_dvb_s2_table_tx_mode_modcod, align 4
+  %532 = tail call ptr @proto_tree_add_item(ptr noundef %526, i32 noundef %531, ptr noundef %0, i32 noundef %523, i32 noundef 1, i32 noundef 0) #3
+  %533 = load i32, ptr @hf_dvb_s2_table_tx_mode_modcod_system_margin, align 4
+  %534 = add nuw nsw i32 %.04445.i, %515
+  %535 = tail call ptr @proto_tree_add_item(ptr noundef %526, i32 noundef %533, ptr noundef %0, i32 noundef %534, i32 noundef 1, i32 noundef 0) #3
+  %536 = load i32, ptr @hf_dvb_s2_table_tx_mode_isi, align 4
+  %537 = add nuw nsw i32 %520, %.04445.i
+  %538 = tail call ptr @proto_tree_add_item(ptr noundef %526, i32 noundef %536, ptr noundef %0, i32 noundef %537, i32 noundef 1, i32 noundef 0) #3
+  %539 = add nuw nsw i32 %.04445.i, 3
+  %540 = add nuw nsw i32 %.046.i, 1
+  %exitcond.not.i334 = icmp eq i32 %540, %517
+  br i1 %exitcond.not.i334, label %dissect_dvb_s2_table_sct.exitthread-pre-split, label %521, !llvm.loop !14
 
-543:                                              ; preds = %151
-  %544 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #3
-  %545 = load i32, ptr @hf_dvb_s2_table_tx_mode_count, align 4
-  %546 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %545, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #3
-  %.not.i333 = icmp eq i8 %544, 0
-  br i1 %.not.i333, label %._crit_edge.i, label %.lr.ph.preheader.i
+541:                                              ; preds = %151
+  %542 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #3
+  %543 = load i32, ptr @hf_dvb_s2_table_tx_mode_count, align 4
+  %544 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %543, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #3
+  %.not.i335 = icmp eq i8 %542, 0
+  br i1 %.not.i335, label %._crit_edge.i, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %543
-  %547 = zext i8 %544 to i32
-  br label %.lr.ph.i334
+.lr.ph.preheader.i:                               ; preds = %541
+  %545 = zext i8 %542 to i32
+  br label %.lr.ph.i336
 
-.lr.ph.i334:                                      ; preds = %.lr.ph.i334, %.lr.ph.preheader.i
-  %.03435.i = phi i32 [ %559, %.lr.ph.i334 ], [ 1, %.lr.ph.preheader.i ]
-  %548 = load i32, ptr @hf_dvb_s2_table_tx_mode, align 4
-  %549 = add nuw nsw i32 %.03435.i, %.2
-  %550 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %548, ptr noundef %0, i32 noundef %549, i32 noundef 3, i32 noundef 0) #3
-  %551 = load i32, ptr @ett_dvb_s2_hdr_table_txmode, align 4
-  %552 = tail call ptr @proto_item_add_subtree(ptr noundef %550, i32 noundef %551) #3
-  %553 = load i32, ptr @hf_dvb_s2_table_tx_mode_frame_length, align 4
-  %554 = tail call ptr @proto_tree_add_item(ptr noundef %552, i32 noundef %553, ptr noundef %0, i32 noundef %549, i32 noundef 1, i32 noundef 0) #3
-  %555 = load i32, ptr @hf_dvb_s2_table_tx_mode_pilot_symbols, align 4
-  %556 = tail call ptr @proto_tree_add_item(ptr noundef %552, i32 noundef %555, ptr noundef %0, i32 noundef %549, i32 noundef 1, i32 noundef 0) #3
-  %557 = load i32, ptr @hf_dvb_s2_table_tx_mode_modcod, align 4
-  %558 = tail call ptr @proto_tree_add_item(ptr noundef %552, i32 noundef %557, ptr noundef %0, i32 noundef %549, i32 noundef 1, i32 noundef 0) #3
-  %559 = add nuw nsw i32 %.03435.i, 1
-  %exitcond.not.i335 = icmp eq i32 %.03435.i, %547
-  br i1 %exitcond.not.i335, label %._crit_edge.i.loopexit, label %.lr.ph.i334, !llvm.loop !15
+.lr.ph.i336:                                      ; preds = %.lr.ph.i336, %.lr.ph.preheader.i
+  %.03435.i = phi i32 [ %557, %.lr.ph.i336 ], [ 1, %.lr.ph.preheader.i ]
+  %546 = load i32, ptr @hf_dvb_s2_table_tx_mode, align 4
+  %547 = add nuw nsw i32 %.03435.i, %.2
+  %548 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %546, ptr noundef %0, i32 noundef %547, i32 noundef 3, i32 noundef 0) #3
+  %549 = load i32, ptr @ett_dvb_s2_hdr_table_txmode, align 4
+  %550 = tail call ptr @proto_item_add_subtree(ptr noundef %548, i32 noundef %549) #3
+  %551 = load i32, ptr @hf_dvb_s2_table_tx_mode_frame_length, align 4
+  %552 = tail call ptr @proto_tree_add_item(ptr noundef %550, i32 noundef %551, ptr noundef %0, i32 noundef %547, i32 noundef 1, i32 noundef 0) #3
+  %553 = load i32, ptr @hf_dvb_s2_table_tx_mode_pilot_symbols, align 4
+  %554 = tail call ptr @proto_tree_add_item(ptr noundef %550, i32 noundef %553, ptr noundef %0, i32 noundef %547, i32 noundef 1, i32 noundef 0) #3
+  %555 = load i32, ptr @hf_dvb_s2_table_tx_mode_modcod, align 4
+  %556 = tail call ptr @proto_tree_add_item(ptr noundef %550, i32 noundef %555, ptr noundef %0, i32 noundef %547, i32 noundef 1, i32 noundef 0) #3
+  %557 = add nuw nsw i32 %.03435.i, 1
+  %exitcond.not.i337 = icmp eq i32 %.03435.i, %545
+  br i1 %exitcond.not.i337, label %._crit_edge.i.loopexit, label %.lr.ph.i336, !llvm.loop !15
 
-._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i334
-  %560 = add nuw nsw i32 %547, 1
+._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i336
+  %558 = add nuw nsw i32 %545, 1
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %543
-  %.034.lcssa.i = phi i32 [ 1, %543 ], [ %560, %._crit_edge.i.loopexit ]
-  %561 = load i32, ptr @dvb_s2_rcs_version, align 4
-  %562 = icmp eq i32 %561, 0
-  br i1 %562, label %563, label %dissect_dvb_s2_table_sct.exit
+._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %541
+  %.034.lcssa.i = phi i32 [ 1, %541 ], [ %558, %._crit_edge.i.loopexit ]
+  %559 = load i32, ptr @dvb_s2_rcs_version, align 4
+  %560 = icmp eq i32 %559, 0
+  br i1 %560, label %561, label %dissect_dvb_s2_table_sct.exit
 
-563:                                              ; preds = %._crit_edge.i
-  %564 = load i32, ptr @hf_dvb_s2_table_crc32, align 4
-  %565 = add i32 %.034.lcssa.i, %.2
-  %566 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %564, ptr noundef %0, i32 noundef %565, i32 noundef 4, i32 noundef 0) #3
+561:                                              ; preds = %._crit_edge.i
+  %562 = load i32, ptr @hf_dvb_s2_table_crc32, align 4
+  %563 = add i32 %.034.lcssa.i, %.2
+  %564 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %562, ptr noundef %0, i32 noundef %563, i32 noundef 4, i32 noundef 0) #3
   br label %dissect_dvb_s2_table_sct.exitthread-pre-split
 
-567:                                              ; preds = %151
-  %568 = load i32, ptr @dvb_s2_rcs_version, align 4
-  %569 = icmp eq i32 %568, 1
-  br i1 %569, label %570, label %dissect_dvb_s2_table_sct.exit
+565:                                              ; preds = %151
+  %566 = load i32, ptr @dvb_s2_rcs_version, align 4
+  %567 = icmp eq i32 %566, 1
+  br i1 %567, label %568, label %dissect_dvb_s2_table_sct.exit
 
-570:                                              ; preds = %567
-  %571 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #3
-  %572 = zext i8 %571 to i32
-  %573 = load i32, ptr @hf_dvb_s2_table_frame_type_loop_count, align 4
-  %574 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %573, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #3
-  %575 = add nuw nsw i32 %.2, 1
-  %576 = add nuw nsw i32 %.2, 5
-  %577 = add nuw nsw i32 %.2, 6
-  %578 = add nuw nsw i32 %.2, 9
-  %579 = add nuw nsw i32 %.2, 12
-  %580 = add nuw nsw i32 %.2, 15
-  %581 = add nuw nsw i32 %.2, 17
-  %582 = add nuw nsw i32 %.2, 2
-  br label %583
+568:                                              ; preds = %565
+  %569 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #3
+  %570 = zext i8 %569 to i32
+  %571 = load i32, ptr @hf_dvb_s2_table_frame_type_loop_count, align 4
+  %572 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %571, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #3
+  %573 = add nuw nsw i32 %.2, 1
+  %574 = add nuw nsw i32 %.2, 5
+  %575 = add nuw nsw i32 %.2, 6
+  %576 = add nuw nsw i32 %.2, 9
+  %577 = add nuw nsw i32 %.2, 12
+  %578 = add nuw nsw i32 %.2, 15
+  %579 = add nuw nsw i32 %.2, 17
+  %580 = add nuw nsw i32 %.2, 2
+  br label %581
 
-583:                                              ; preds = %642, %570
-  %.0111.i = phi i32 [ 0, %570 ], [ %644, %642 ]
-  %.0104110.i = phi i32 [ 1, %570 ], [ %640, %642 ]
-  %584 = load i32, ptr @hf_dvb_s2_table_frame_type_branch, align 4
-  %585 = add i32 %.0104110.i, %.2
-  %586 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %584, ptr noundef %0, i32 noundef %585, i32 noundef -1, i32 noundef 0) #3
-  %587 = load i32, ptr @ett_dvb_s2_hdr_table_frametype, align 4
-  %588 = tail call ptr @proto_item_add_subtree(ptr noundef %586, i32 noundef %587) #3
-  %589 = load i32, ptr @hf_dvb_s2_table_frame_type, align 4
-  %590 = tail call ptr @proto_tree_add_item(ptr noundef %588, i32 noundef %589, ptr noundef %0, i32 noundef %585, i32 noundef 1, i32 noundef 0) #3
-  %591 = load i32, ptr @hf_dvb_s2_table_frame_type_frame_duration, align 4
-  %592 = add i32 %.0104110.i, %575
-  %593 = tail call ptr @proto_tree_add_item(ptr noundef %588, i32 noundef %591, ptr noundef %0, i32 noundef %592, i32 noundef 4, i32 noundef 0) #3
-  %594 = load i32, ptr @hf_dvb_s2_table_frame_type_tx_format_class, align 4
-  %595 = add i32 %576, %.0104110.i
-  %596 = tail call ptr @proto_tree_add_item(ptr noundef %588, i32 noundef %594, ptr noundef %0, i32 noundef %595, i32 noundef 1, i32 noundef 0) #3
-  %597 = load i32, ptr @hf_dvb_s2_table_frame_type_btu_duration, align 4
-  %598 = add i32 %577, %.0104110.i
-  %599 = tail call ptr @proto_tree_add_item(ptr noundef %588, i32 noundef %597, ptr noundef %0, i32 noundef %598, i32 noundef 3, i32 noundef 0) #3
-  %600 = load i32, ptr @hf_dvb_s2_table_frame_type_btu_carrier_bw, align 4
-  %601 = add i32 %578, %.0104110.i
-  %602 = tail call ptr @proto_tree_add_item(ptr noundef %588, i32 noundef %600, ptr noundef %0, i32 noundef %601, i32 noundef 3, i32 noundef 0) #3
-  %603 = load i32, ptr @hf_dvb_s2_table_frame_type_btu_symbol_rate, align 4
-  %604 = add i32 %579, %.0104110.i
-  %605 = tail call ptr @proto_tree_add_item(ptr noundef %588, i32 noundef %603, ptr noundef %0, i32 noundef %604, i32 noundef 3, i32 noundef 0) #3
-  %606 = load i32, ptr @hf_dvb_s2_table_frame_type_time_unit_count, align 4
-  %607 = add i32 %580, %.0104110.i
-  %608 = tail call ptr @proto_tree_add_item(ptr noundef %588, i32 noundef %606, ptr noundef %0, i32 noundef %607, i32 noundef 2, i32 noundef 0) #3
-  %609 = add i32 %581, %.0104110.i
-  %610 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %609) #3
-  %611 = zext i8 %610 to i32
-  %612 = load i32, ptr @hf_dvb_s2_table_frame_type_grid_repeat_count, align 4
-  %613 = tail call ptr @proto_tree_add_item(ptr noundef %588, i32 noundef %612, ptr noundef %0, i32 noundef %609, i32 noundef 1, i32 noundef 0) #3
-  %614 = add i32 %.0104110.i, 18
-  %.not112.i = icmp eq i8 %610, 0
-  br i1 %.not112.i, label %._crit_edge.i339, label %.lr.ph.i337
+581:                                              ; preds = %640, %568
+  %.0111.i = phi i32 [ 0, %568 ], [ %642, %640 ]
+  %.0104110.i = phi i32 [ 1, %568 ], [ %638, %640 ]
+  %582 = load i32, ptr @hf_dvb_s2_table_frame_type_branch, align 4
+  %583 = add i32 %.0104110.i, %.2
+  %584 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %582, ptr noundef %0, i32 noundef %583, i32 noundef -1, i32 noundef 0) #3
+  %585 = load i32, ptr @ett_dvb_s2_hdr_table_frametype, align 4
+  %586 = tail call ptr @proto_item_add_subtree(ptr noundef %584, i32 noundef %585) #3
+  %587 = load i32, ptr @hf_dvb_s2_table_frame_type, align 4
+  %588 = tail call ptr @proto_tree_add_item(ptr noundef %586, i32 noundef %587, ptr noundef %0, i32 noundef %583, i32 noundef 1, i32 noundef 0) #3
+  %589 = load i32, ptr @hf_dvb_s2_table_frame_type_frame_duration, align 4
+  %590 = add i32 %.0104110.i, %573
+  %591 = tail call ptr @proto_tree_add_item(ptr noundef %586, i32 noundef %589, ptr noundef %0, i32 noundef %590, i32 noundef 4, i32 noundef 0) #3
+  %592 = load i32, ptr @hf_dvb_s2_table_frame_type_tx_format_class, align 4
+  %593 = add i32 %574, %.0104110.i
+  %594 = tail call ptr @proto_tree_add_item(ptr noundef %586, i32 noundef %592, ptr noundef %0, i32 noundef %593, i32 noundef 1, i32 noundef 0) #3
+  %595 = load i32, ptr @hf_dvb_s2_table_frame_type_btu_duration, align 4
+  %596 = add i32 %575, %.0104110.i
+  %597 = tail call ptr @proto_tree_add_item(ptr noundef %586, i32 noundef %595, ptr noundef %0, i32 noundef %596, i32 noundef 3, i32 noundef 0) #3
+  %598 = load i32, ptr @hf_dvb_s2_table_frame_type_btu_carrier_bw, align 4
+  %599 = add i32 %576, %.0104110.i
+  %600 = tail call ptr @proto_tree_add_item(ptr noundef %586, i32 noundef %598, ptr noundef %0, i32 noundef %599, i32 noundef 3, i32 noundef 0) #3
+  %601 = load i32, ptr @hf_dvb_s2_table_frame_type_btu_symbol_rate, align 4
+  %602 = add i32 %577, %.0104110.i
+  %603 = tail call ptr @proto_tree_add_item(ptr noundef %586, i32 noundef %601, ptr noundef %0, i32 noundef %602, i32 noundef 3, i32 noundef 0) #3
+  %604 = load i32, ptr @hf_dvb_s2_table_frame_type_time_unit_count, align 4
+  %605 = add i32 %578, %.0104110.i
+  %606 = tail call ptr @proto_tree_add_item(ptr noundef %586, i32 noundef %604, ptr noundef %0, i32 noundef %605, i32 noundef 2, i32 noundef 0) #3
+  %607 = add i32 %579, %.0104110.i
+  %608 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %607) #3
+  %609 = zext i8 %608 to i32
+  %610 = load i32, ptr @hf_dvb_s2_table_frame_type_grid_repeat_count, align 4
+  %611 = tail call ptr @proto_tree_add_item(ptr noundef %586, i32 noundef %610, ptr noundef %0, i32 noundef %607, i32 noundef 1, i32 noundef 0) #3
+  %612 = add i32 %.0104110.i, 18
+  %.not112.i = icmp eq i8 %608, 0
+  br i1 %.not112.i, label %._crit_edge.i341, label %.lr.ph.i339
 
-.lr.ph.i337:                                      ; preds = %583, %.lr.ph.i337
-  %.0102107.i = phi i32 [ %619, %.lr.ph.i337 ], [ 0, %583 ]
-  %.1106.i = phi i32 [ %618, %.lr.ph.i337 ], [ %614, %583 ]
-  %615 = load i32, ptr @hf_dvb_s2_table_frame_type_grid_frequency_offset, align 4
-  %616 = add i32 %.1106.i, %.2
-  %617 = tail call ptr @proto_tree_add_item(ptr noundef %588, i32 noundef %615, ptr noundef %0, i32 noundef %616, i32 noundef 3, i32 noundef 0) #3
-  %618 = add i32 %.1106.i, 3
-  %619 = add nuw nsw i32 %.0102107.i, 1
-  %exitcond.not.i338 = icmp eq i32 %619, %611
-  br i1 %exitcond.not.i338, label %._crit_edge.i339, label %.lr.ph.i337, !llvm.loop !16
+.lr.ph.i339:                                      ; preds = %581, %.lr.ph.i339
+  %.0102107.i = phi i32 [ %617, %.lr.ph.i339 ], [ 0, %581 ]
+  %.1106.i = phi i32 [ %616, %.lr.ph.i339 ], [ %612, %581 ]
+  %613 = load i32, ptr @hf_dvb_s2_table_frame_type_grid_frequency_offset, align 4
+  %614 = add i32 %.1106.i, %.2
+  %615 = tail call ptr @proto_tree_add_item(ptr noundef %586, i32 noundef %613, ptr noundef %0, i32 noundef %614, i32 noundef 3, i32 noundef 0) #3
+  %616 = add i32 %.1106.i, 3
+  %617 = add nuw nsw i32 %.0102107.i, 1
+  %exitcond.not.i340 = icmp eq i32 %617, %609
+  br i1 %exitcond.not.i340, label %._crit_edge.i341, label %.lr.ph.i339, !llvm.loop !16
 
-._crit_edge.i339:                                 ; preds = %.lr.ph.i337, %583
-  %.1.lcssa.i = phi i32 [ %614, %583 ], [ %618, %.lr.ph.i337 ]
-  %620 = add i32 %.1.lcssa.i, %.2
-  %621 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %620) #3
-  %622 = zext i8 %621 to i32
-  %623 = load i32, ptr @hf_dvb_s2_table_frame_type_section_loop_count, align 4
-  %624 = tail call ptr @proto_tree_add_item(ptr noundef %588, i32 noundef %623, ptr noundef %0, i32 noundef %620, i32 noundef 1, i32 noundef 0) #3
-  %625 = add i32 %.1.lcssa.i, 1
-  br label %626
+._crit_edge.i341:                                 ; preds = %.lr.ph.i339, %581
+  %.1.lcssa.i = phi i32 [ %612, %581 ], [ %616, %.lr.ph.i339 ]
+  %618 = add i32 %.1.lcssa.i, %.2
+  %619 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %618) #3
+  %620 = zext i8 %619 to i32
+  %621 = load i32, ptr @hf_dvb_s2_table_frame_type_section_loop_count, align 4
+  %622 = tail call ptr @proto_tree_add_item(ptr noundef %586, i32 noundef %621, ptr noundef %0, i32 noundef %618, i32 noundef 1, i32 noundef 0) #3
+  %623 = add i32 %.1.lcssa.i, 1
+  br label %624
 
-626:                                              ; preds = %626, %._crit_edge.i339
-  %.0103109.i = phi i32 [ 0, %._crit_edge.i339 ], [ %641, %626 ]
-  %.2108.i = phi i32 [ %625, %._crit_edge.i339 ], [ %640, %626 ]
-  %627 = load i32, ptr @hf_dvb_s2_table_frame_type_section, align 4
-  %628 = add i32 %.2108.i, %.2
-  %629 = tail call ptr @proto_tree_add_item(ptr noundef %588, i32 noundef %627, ptr noundef %0, i32 noundef %628, i32 noundef 4, i32 noundef 0) #3
-  %630 = load i32, ptr @ett_dvb_s2_hdr_table_frametype_section, align 4
-  %631 = tail call ptr @proto_item_add_subtree(ptr noundef %629, i32 noundef %630) #3
-  %632 = load i32, ptr @hf_dvb_s2_table_frame_type_section_default_tx_type, align 4
-  %633 = tail call ptr @proto_tree_add_item(ptr noundef %631, i32 noundef %632, ptr noundef %0, i32 noundef %628, i32 noundef 1, i32 noundef 0) #3
-  %634 = load i32, ptr @hf_dvb_s2_table_frame_type_section_fix_acc_method, align 4
-  %635 = add i32 %.2108.i, %575
-  %636 = tail call ptr @proto_tree_add_item(ptr noundef %631, i32 noundef %634, ptr noundef %0, i32 noundef %635, i32 noundef 1, i32 noundef 0) #3
-  %637 = load i32, ptr @hf_dvb_s2_table_frame_type_section_repeat_count, align 4
-  %638 = add i32 %582, %.2108.i
-  %639 = tail call ptr @proto_tree_add_item(ptr noundef %631, i32 noundef %637, ptr noundef %0, i32 noundef %638, i32 noundef 2, i32 noundef 0) #3
-  %640 = add i32 %.2108.i, 4
-  %641 = add nuw nsw i32 %.0103109.i, 1
-  %exitcond114.not.i = icmp eq i32 %.0103109.i, %622
-  br i1 %exitcond114.not.i, label %642, label %626, !llvm.loop !17
+624:                                              ; preds = %624, %._crit_edge.i341
+  %.0103109.i = phi i32 [ 0, %._crit_edge.i341 ], [ %639, %624 ]
+  %.2108.i = phi i32 [ %623, %._crit_edge.i341 ], [ %638, %624 ]
+  %625 = load i32, ptr @hf_dvb_s2_table_frame_type_section, align 4
+  %626 = add i32 %.2108.i, %.2
+  %627 = tail call ptr @proto_tree_add_item(ptr noundef %586, i32 noundef %625, ptr noundef %0, i32 noundef %626, i32 noundef 4, i32 noundef 0) #3
+  %628 = load i32, ptr @ett_dvb_s2_hdr_table_frametype_section, align 4
+  %629 = tail call ptr @proto_item_add_subtree(ptr noundef %627, i32 noundef %628) #3
+  %630 = load i32, ptr @hf_dvb_s2_table_frame_type_section_default_tx_type, align 4
+  %631 = tail call ptr @proto_tree_add_item(ptr noundef %629, i32 noundef %630, ptr noundef %0, i32 noundef %626, i32 noundef 1, i32 noundef 0) #3
+  %632 = load i32, ptr @hf_dvb_s2_table_frame_type_section_fix_acc_method, align 4
+  %633 = add i32 %.2108.i, %573
+  %634 = tail call ptr @proto_tree_add_item(ptr noundef %629, i32 noundef %632, ptr noundef %0, i32 noundef %633, i32 noundef 1, i32 noundef 0) #3
+  %635 = load i32, ptr @hf_dvb_s2_table_frame_type_section_repeat_count, align 4
+  %636 = add i32 %580, %.2108.i
+  %637 = tail call ptr @proto_tree_add_item(ptr noundef %629, i32 noundef %635, ptr noundef %0, i32 noundef %636, i32 noundef 2, i32 noundef 0) #3
+  %638 = add i32 %.2108.i, 4
+  %639 = add nuw nsw i32 %.0103109.i, 1
+  %exitcond114.not.i = icmp eq i32 %.0103109.i, %620
+  br i1 %exitcond114.not.i, label %640, label %624, !llvm.loop !17
 
-642:                                              ; preds = %626
-  %643 = sub i32 %640, %.0104110.i
-  tail call void @proto_item_set_len(ptr noundef %586, i32 noundef %643) #3
-  %644 = add nuw nsw i32 %.0111.i, 1
-  %exitcond115.not.i = icmp eq i32 %.0111.i, %572
-  br i1 %exitcond115.not.i, label %dissect_dvb_s2_table_sct.exitthread-pre-split, label %583, !llvm.loop !18
+640:                                              ; preds = %624
+  %641 = sub i32 %638, %.0104110.i
+  tail call void @proto_item_set_len(ptr noundef %584, i32 noundef %641) #3
+  %642 = add nuw nsw i32 %.0111.i, 1
+  %exitcond115.not.i = icmp eq i32 %.0111.i, %570
+  br i1 %exitcond115.not.i, label %dissect_dvb_s2_table_sct.exitthread-pre-split, label %581, !llvm.loop !18
 
-645:                                              ; preds = %151
-  %646 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #3
-  %647 = zext i8 %646 to i32
-  %648 = load i32, ptr @hf_dvb_s2_table_tx_type_loop_count, align 4
-  %649 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %648, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #3
-  %.not403.i = icmp eq i8 %646, 0
-  br i1 %.not403.i, label %dissect_dvb_s2_table_sct.exitthread-pre-split, label %.lr.ph400.i
+643:                                              ; preds = %151
+  %644 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #3
+  %645 = zext i8 %644 to i32
+  %646 = load i32, ptr @hf_dvb_s2_table_tx_type_loop_count, align 4
+  %647 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %646, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #3
+  %invariant.op398.i = add nuw nsw i32 %.2, 3
+  %invariant.op400.i = add nuw nsw i32 %.2, 4
+  %invariant.op402.i = add nuw nsw i32 %.2, 10
+  %invariant.op404.i = add nuw nsw i32 %.2, 14
+  %invariant.op406.i = add nuw nsw i32 %.2, 2
+  %invariant.op416.i = add nuw nsw i32 %.2, 20
+  %invariant.op418.i = add nuw nsw i32 %.2, 6
+  %.not428.i = icmp eq i8 %644, 0
+  br i1 %.not428.i, label %dissect_dvb_s2_table_sct.exitthread-pre-split, label %.lr.ph425.i
 
-.lr.ph400.i:                                      ; preds = %645
-  %650 = add nuw nsw i32 %.2, 1
-  %651 = add nuw nsw i32 %.2, 2
-  %652 = add nuw nsw i32 %.2, 3
-  %653 = add nuw nsw i32 %.2, 5
-  %654 = add nuw nsw i32 %.2, 6
-  %655 = add nuw nsw i32 %.2, 11
-  %656 = add nuw nsw i32 %.2, 12
-  %657 = add nuw nsw i32 %.2, 13
-  %658 = add nuw nsw i32 %.2, 4
-  %659 = add nuw nsw i32 %.2, 7
-  %660 = add nuw nsw i32 %.2, 8
-  %661 = add nuw nsw i32 %.2, 14
-  %662 = add nuw nsw i32 %.2, 15
-  %663 = add nuw nsw i32 %.2, 16
-  %664 = add nuw nsw i32 %.2, 17
-  %665 = add nuw nsw i32 %.2, 18
-  %666 = add nuw nsw i32 %.2, 19
-  %667 = add nuw nsw i32 %.2, 10
-  br label %668
+.lr.ph425.i:                                      ; preds = %643
+  %648 = add nuw nsw i32 %.2, 1
+  %649 = add nuw nsw i32 %.2, 5
+  %650 = add nuw nsw i32 %.2, 11
+  %651 = add nuw nsw i32 %.2, 12
+  %652 = add nuw nsw i32 %.2, 13
+  %653 = add nuw nsw i32 %.2, 7
+  %654 = add nuw nsw i32 %.2, 8
+  %655 = add nuw nsw i32 %.2, 15
+  %656 = add nuw nsw i32 %.2, 16
+  %657 = add nuw nsw i32 %.2, 17
+  %658 = add nuw nsw i32 %.2, 18
+  %659 = add nuw nsw i32 %.2, 19
+  br label %660
 
-668:                                              ; preds = %.loopexit.i, %.lr.ph400.i
-  %.0398.i = phi i32 [ 0, %.lr.ph400.i ], [ %890, %.loopexit.i ]
-  %.0372397.i = phi i32 [ 1, %.lr.ph400.i ], [ %.6.i, %.loopexit.i ]
-  %669 = add i32 %.0372397.i, %.2
-  %670 = add i32 %669, 3
-  %671 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %670) #3
-  %672 = zext i8 %671 to i32
-  %673 = load i32, ptr @hf_dvb_s2_table_tx_type_branch, align 4
-  %674 = add nuw nsw i32 %672, 4
-  %675 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %673, ptr noundef %0, i32 noundef %669, i32 noundef %674, i32 noundef 0) #3
-  %676 = load i32, ptr @ett_dvb_s2_hdr_table_txtype, align 4
-  %677 = tail call ptr @proto_item_add_subtree(ptr noundef %675, i32 noundef %676) #3
-  %678 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %669) #3
-  %679 = load i32, ptr @hf_dvb_s2_table_tx_type, align 4
-  %680 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %679, ptr noundef %0, i32 noundef %669, i32 noundef 1, i32 noundef 0) #3
-  %681 = load i32, ptr @hf_dvb_s2_table_tx_type_tx_content_type, align 4
-  %682 = add i32 %.0372397.i, %650
-  %683 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %681, ptr noundef %0, i32 noundef %682, i32 noundef 1, i32 noundef 0) #3
-  %684 = add i32 %.0372397.i, %651
-  %685 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %684) #3
-  %686 = load i32, ptr @hf_dvb_s2_table_tx_type_tx_format_class, align 4
-  %687 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %686, ptr noundef %0, i32 noundef %684, i32 noundef 1, i32 noundef 0) #3
-  %688 = load i32, ptr @hf_dvb_s2_table_tx_type_tx_format_data_length, align 4
-  %689 = add i32 %.0372397.i, %652
-  %690 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %688, ptr noundef %0, i32 noundef %689, i32 noundef 1, i32 noundef 0) #3
-  %691 = add i32 %.0372397.i, 4
-  %692 = add i32 %691, %.2
-  switch i8 %685, label %886 [
-    i8 1, label %693
-    i8 2, label %800
+660:                                              ; preds = %.loopexit.i, %.lr.ph425.i
+  %.0423.i = phi i32 [ 0, %.lr.ph425.i ], [ %873, %.loopexit.i ]
+  %.0372422.i = phi i32 [ 1, %.lr.ph425.i ], [ %.6.i, %.loopexit.i ]
+  %661 = add i32 %.0372422.i, %.2
+  %.reass399.i = add i32 %.0372422.i, %invariant.op398.i
+  %662 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.reass399.i) #3
+  %663 = zext i8 %662 to i32
+  %664 = load i32, ptr @hf_dvb_s2_table_tx_type_branch, align 4
+  %665 = add nuw nsw i32 %663, 4
+  %666 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %664, ptr noundef %0, i32 noundef %661, i32 noundef %665, i32 noundef 0) #3
+  %667 = load i32, ptr @ett_dvb_s2_hdr_table_txtype, align 4
+  %668 = tail call ptr @proto_item_add_subtree(ptr noundef %666, i32 noundef %667) #3
+  %669 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %661) #3
+  %670 = load i32, ptr @hf_dvb_s2_table_tx_type, align 4
+  %671 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %670, ptr noundef %0, i32 noundef %661, i32 noundef 1, i32 noundef 0) #3
+  %672 = load i32, ptr @hf_dvb_s2_table_tx_type_tx_content_type, align 4
+  %673 = add i32 %.0372422.i, %648
+  %674 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %672, ptr noundef %0, i32 noundef %673, i32 noundef 1, i32 noundef 0) #3
+  %675 = add i32 %.0372422.i, %invariant.op406.i
+  %676 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %675) #3
+  %677 = load i32, ptr @hf_dvb_s2_table_tx_type_tx_format_class, align 4
+  %678 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %677, ptr noundef %0, i32 noundef %675, i32 noundef 1, i32 noundef 0) #3
+  %679 = load i32, ptr @hf_dvb_s2_table_tx_type_tx_format_data_length, align 4
+  %680 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %679, ptr noundef %0, i32 noundef %.reass399.i, i32 noundef 1, i32 noundef 0) #3
+  %681 = add i32 %.0372422.i, 4
+  %.reass421.i = add i32 %.0372422.i, %invariant.op400.i
+  switch i8 %676, label %869 [
+    i8 1, label %682
+    i8 2, label %787
   ]
 
-693:                                              ; preds = %668
-  %694 = load i32, ptr @hf_dvb_s2_table_tx_type_tx_block_size, align 4
-  %695 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %694, ptr noundef %0, i32 noundef %692, i32 noundef 1, i32 noundef 0) #3
-  %696 = load i32, ptr @hf_dvb_s2_table_tx_type_threshold_es_n0, align 4
-  %697 = add i32 %.0372397.i, %653
-  %698 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %696, ptr noundef %0, i32 noundef %697, i32 noundef 1, i32 noundef 0) #3
-  %699 = load i32, ptr @hf_dvb_s2_table_tx_type_tx_start_offset_1, align 4
-  %700 = add i32 %.0372397.i, %654
-  %701 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %699, ptr noundef %0, i32 noundef %700, i32 noundef 1, i32 noundef 0) #3
-  %702 = load i32, ptr @hf_dvb_s2_table_tx_type_tx_start_offset_2, align 4
-  %703 = add i32 %.0372397.i, %659
-  %704 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %702, ptr noundef %0, i32 noundef %703, i32 noundef 3, i32 noundef 0) #3
-  %705 = icmp slt i8 %678, 0
-  %706 = add i32 %667, %.0372397.i
-  br i1 %705, label %707, label %796
+682:                                              ; preds = %660
+  %683 = load i32, ptr @hf_dvb_s2_table_tx_type_tx_block_size, align 4
+  %684 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %683, ptr noundef %0, i32 noundef %.reass421.i, i32 noundef 1, i32 noundef 0) #3
+  %685 = load i32, ptr @hf_dvb_s2_table_tx_type_threshold_es_n0, align 4
+  %686 = add i32 %.0372422.i, %649
+  %687 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %685, ptr noundef %0, i32 noundef %686, i32 noundef 1, i32 noundef 0) #3
+  %688 = load i32, ptr @hf_dvb_s2_table_tx_type_tx_start_offset_1, align 4
+  %689 = add i32 %.0372422.i, %invariant.op418.i
+  %690 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %688, ptr noundef %0, i32 noundef %689, i32 noundef 1, i32 noundef 0) #3
+  %691 = load i32, ptr @hf_dvb_s2_table_tx_type_tx_start_offset_2, align 4
+  %692 = add i32 %.0372422.i, %653
+  %693 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %691, ptr noundef %0, i32 noundef %692, i32 noundef 3, i32 noundef 0) #3
+  %694 = icmp slt i8 %669, 0
+  %.reass415.i = add i32 %.0372422.i, %invariant.op402.i
+  br i1 %694, label %695, label %783
 
-707:                                              ; preds = %693
-  %708 = load i32, ptr @hf_dvb_s2_table_tx_type_payload_size, align 4
-  %709 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %708, ptr noundef %0, i32 noundef %706, i32 noundef 2, i32 noundef 0) #3
-  %710 = add i32 %.0372397.i, %656
-  %711 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %710) #3
-  %712 = load i32, ptr @hf_dvb_s2_table_tx_type_modulation_scheme, align 4
-  %713 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %712, ptr noundef %0, i32 noundef %710, i32 noundef 1, i32 noundef 0) #3
-  %714 = load i32, ptr @hf_dvb_s2_table_tx_type_p, align 4
-  %715 = add i32 %.0372397.i, %657
-  %716 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %714, ptr noundef %0, i32 noundef %715, i32 noundef 1, i32 noundef 0) #3
-  %717 = load i32, ptr @hf_dvb_s2_table_tx_type_q0, align 4
-  %718 = add i32 %661, %.0372397.i
-  %719 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %717, ptr noundef %0, i32 noundef %718, i32 noundef 1, i32 noundef 0) #3
-  %720 = load i32, ptr @hf_dvb_s2_table_tx_type_q1, align 4
-  %721 = add i32 %662, %.0372397.i
-  %722 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %720, ptr noundef %0, i32 noundef %721, i32 noundef 1, i32 noundef 0) #3
-  %723 = load i32, ptr @hf_dvb_s2_table_tx_type_q2, align 4
-  %724 = add i32 %663, %.0372397.i
-  %725 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %723, ptr noundef %0, i32 noundef %724, i32 noundef 1, i32 noundef 0) #3
-  %726 = load i32, ptr @hf_dvb_s2_table_tx_type_q3, align 4
-  %727 = add i32 %664, %.0372397.i
-  %728 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %726, ptr noundef %0, i32 noundef %727, i32 noundef 1, i32 noundef 0) #3
-  %729 = add i32 %665, %.0372397.i
-  %730 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %729) #3
-  %731 = and i8 %730, 31
-  %732 = load i32, ptr @hf_dvb_s2_table_tx_type_y_period, align 4
-  %733 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %732, ptr noundef %0, i32 noundef %729, i32 noundef 1, i32 noundef 0) #3
-  %734 = add i32 %666, %.0372397.i
-  %735 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %734) #3
-  %736 = and i8 %735, 31
-  %737 = load i32, ptr @hf_dvb_s2_table_tx_type_w_period, align 4
-  %738 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %737, ptr noundef %0, i32 noundef %734, i32 noundef 1, i32 noundef 0) #3
-  %739 = add i32 %.0372397.i, 20
-  %740 = load i32, ptr @hf_dvb_s2_table_tx_type_y_pattern, align 4
-  %741 = add i32 %739, %.2
-  %742 = zext nneg i8 %731 to i32
-  %743 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %740, ptr noundef %0, i32 noundef %741, i32 noundef %742, i32 noundef 0) #3
-  %744 = load i32, ptr @ett_dvb_s2_hdr_table_txtype_ypattern, align 4
-  %745 = tail call ptr @proto_item_add_subtree(ptr noundef %743, i32 noundef %744) #3
-  %.not405.i = icmp eq i8 %731, 0
-  br i1 %.not405.i, label %._crit_edge384.i, label %.lr.ph383.i
+695:                                              ; preds = %682
+  %696 = load i32, ptr @hf_dvb_s2_table_tx_type_payload_size, align 4
+  %697 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %696, ptr noundef %0, i32 noundef %.reass415.i, i32 noundef 2, i32 noundef 0) #3
+  %698 = add i32 %.0372422.i, %651
+  %699 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %698) #3
+  %700 = load i32, ptr @hf_dvb_s2_table_tx_type_modulation_scheme, align 4
+  %701 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %700, ptr noundef %0, i32 noundef %698, i32 noundef 1, i32 noundef 0) #3
+  %702 = load i32, ptr @hf_dvb_s2_table_tx_type_p, align 4
+  %703 = add i32 %.0372422.i, %652
+  %704 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %702, ptr noundef %0, i32 noundef %703, i32 noundef 1, i32 noundef 0) #3
+  %705 = load i32, ptr @hf_dvb_s2_table_tx_type_q0, align 4
+  %706 = add i32 %.0372422.i, %invariant.op404.i
+  %707 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %705, ptr noundef %0, i32 noundef %706, i32 noundef 1, i32 noundef 0) #3
+  %708 = load i32, ptr @hf_dvb_s2_table_tx_type_q1, align 4
+  %709 = add i32 %655, %.0372422.i
+  %710 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %708, ptr noundef %0, i32 noundef %709, i32 noundef 1, i32 noundef 0) #3
+  %711 = load i32, ptr @hf_dvb_s2_table_tx_type_q2, align 4
+  %712 = add i32 %656, %.0372422.i
+  %713 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %711, ptr noundef %0, i32 noundef %712, i32 noundef 1, i32 noundef 0) #3
+  %714 = load i32, ptr @hf_dvb_s2_table_tx_type_q3, align 4
+  %715 = add i32 %657, %.0372422.i
+  %716 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %714, ptr noundef %0, i32 noundef %715, i32 noundef 1, i32 noundef 0) #3
+  %717 = add i32 %658, %.0372422.i
+  %718 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %717) #3
+  %719 = and i8 %718, 31
+  %720 = load i32, ptr @hf_dvb_s2_table_tx_type_y_period, align 4
+  %721 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %720, ptr noundef %0, i32 noundef %717, i32 noundef 1, i32 noundef 0) #3
+  %722 = add i32 %659, %.0372422.i
+  %723 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %722) #3
+  %724 = and i8 %723, 31
+  %725 = load i32, ptr @hf_dvb_s2_table_tx_type_w_period, align 4
+  %726 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %725, ptr noundef %0, i32 noundef %722, i32 noundef 1, i32 noundef 0) #3
+  %727 = add i32 %.0372422.i, 20
+  %728 = load i32, ptr @hf_dvb_s2_table_tx_type_y_pattern, align 4
+  %.reass417.i = add i32 %invariant.op416.i, %.0372422.i
+  %729 = zext nneg i8 %719 to i32
+  %730 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %728, ptr noundef %0, i32 noundef %.reass417.i, i32 noundef %729, i32 noundef 0) #3
+  %731 = load i32, ptr @ett_dvb_s2_hdr_table_txtype_ypattern, align 4
+  %732 = tail call ptr @proto_item_add_subtree(ptr noundef %730, i32 noundef %731) #3
+  %.not430.i = icmp eq i8 %719, 0
+  br i1 %.not430.i, label %._crit_edge385.i, label %.lr.ph384.i
 
-.lr.ph383.i:                                      ; preds = %707, %.lr.ph383.i
-  %.0371381.i = phi i32 [ %750, %.lr.ph383.i ], [ 0, %707 ]
-  %.1373380.i = phi i32 [ %749, %.lr.ph383.i ], [ %739, %707 ]
-  %746 = load i32, ptr @hf_dvb_s2_table_tx_type_y_pattern_bit, align 4
-  %747 = add i32 %.1373380.i, %.2
-  %748 = tail call ptr @proto_tree_add_item(ptr noundef %745, i32 noundef %746, ptr noundef %0, i32 noundef %747, i32 noundef 1, i32 noundef 0) #3
-  %749 = add i32 %.1373380.i, 1
-  %750 = add nuw nsw i32 %.0371381.i, 1
-  %exitcond411.not.i = icmp eq i32 %750, %742
-  br i1 %exitcond411.not.i, label %._crit_edge384.loopexit.i, label %.lr.ph383.i, !llvm.loop !19
+.lr.ph384.i:                                      ; preds = %695, %.lr.ph384.i
+  %.0371382.i = phi i32 [ %737, %.lr.ph384.i ], [ 0, %695 ]
+  %.1373381.i = phi i32 [ %736, %.lr.ph384.i ], [ %727, %695 ]
+  %733 = load i32, ptr @hf_dvb_s2_table_tx_type_y_pattern_bit, align 4
+  %734 = add i32 %.1373381.i, %.2
+  %735 = tail call ptr @proto_tree_add_item(ptr noundef %732, i32 noundef %733, ptr noundef %0, i32 noundef %734, i32 noundef 1, i32 noundef 0) #3
+  %736 = add i32 %.1373381.i, 1
+  %737 = add nuw nsw i32 %.0371382.i, 1
+  %exitcond435.not.i = icmp eq i32 %737, %729
+  br i1 %exitcond435.not.i, label %._crit_edge385.i, label %.lr.ph384.i, !llvm.loop !19
 
-._crit_edge384.loopexit.i:                        ; preds = %.lr.ph383.i
-  %.pre.i = add i32 %749, %.2
-  br label %._crit_edge384.i
+._crit_edge385.i:                                 ; preds = %.lr.ph384.i, %695
+  %.1373.lcssa.i = phi i32 [ %727, %695 ], [ %736, %.lr.ph384.i ]
+  %738 = load i32, ptr @hf_dvb_s2_table_tx_type_w_pattern, align 4
+  %739 = add i32 %.1373.lcssa.i, %.2
+  %740 = zext nneg i8 %724 to i32
+  %741 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %738, ptr noundef %0, i32 noundef %739, i32 noundef %740, i32 noundef 0) #3
+  %742 = load i32, ptr @ett_dvb_s2_hdr_table_txtype_wpattern, align 4
+  %743 = tail call ptr @proto_item_add_subtree(ptr noundef %741, i32 noundef %742) #3
+  %.not431.i = icmp eq i8 %724, 0
+  br i1 %.not431.i, label %._crit_edge391.i, label %.lr.ph390.i
 
-._crit_edge384.i:                                 ; preds = %._crit_edge384.loopexit.i, %707
-  %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge384.loopexit.i ], [ %741, %707 ]
-  %.1373.lcssa.i = phi i32 [ %749, %._crit_edge384.loopexit.i ], [ %739, %707 ]
-  %751 = load i32, ptr @hf_dvb_s2_table_tx_type_w_pattern, align 4
-  %752 = zext nneg i8 %736 to i32
-  %753 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %751, ptr noundef %0, i32 noundef %.pre-phi.i, i32 noundef %752, i32 noundef 0) #3
-  %754 = load i32, ptr @ett_dvb_s2_hdr_table_txtype_wpattern, align 4
-  %755 = tail call ptr @proto_item_add_subtree(ptr noundef %753, i32 noundef %754) #3
-  %.not406.i = icmp eq i8 %736, 0
-  br i1 %.not406.i, label %._crit_edge390.i, label %.lr.ph389.i
+.lr.ph390.i:                                      ; preds = %._crit_edge385.i, %.lr.ph390.i
+  %.1388.i = phi i32 [ %748, %.lr.ph390.i ], [ 0, %._crit_edge385.i ]
+  %.2387.i = phi i32 [ %747, %.lr.ph390.i ], [ %.1373.lcssa.i, %._crit_edge385.i ]
+  %744 = load i32, ptr @hf_dvb_s2_table_tx_type_w_pattern_bit, align 4
+  %745 = add i32 %.2387.i, %.2
+  %746 = tail call ptr @proto_tree_add_item(ptr noundef %743, i32 noundef %744, ptr noundef %0, i32 noundef %745, i32 noundef 1, i32 noundef 0) #3
+  %747 = add i32 %.2387.i, 1
+  %748 = add nuw nsw i32 %.1388.i, 1
+  %exitcond436.not.i = icmp eq i32 %748, %740
+  br i1 %exitcond436.not.i, label %._crit_edge391.loopexit.i, label %.lr.ph390.i, !llvm.loop !20
 
-.lr.ph389.i:                                      ; preds = %._crit_edge384.i, %.lr.ph389.i
-  %.1387.i = phi i32 [ %760, %.lr.ph389.i ], [ 0, %._crit_edge384.i ]
-  %.2386.i = phi i32 [ %759, %.lr.ph389.i ], [ %.1373.lcssa.i, %._crit_edge384.i ]
-  %756 = load i32, ptr @hf_dvb_s2_table_tx_type_w_pattern_bit, align 4
-  %757 = add i32 %.2386.i, %.2
-  %758 = tail call ptr @proto_tree_add_item(ptr noundef %755, i32 noundef %756, ptr noundef %0, i32 noundef %757, i32 noundef 1, i32 noundef 0) #3
-  %759 = add i32 %.2386.i, 1
-  %760 = add nuw nsw i32 %.1387.i, 1
-  %exitcond412.not.i = icmp eq i32 %760, %752
-  br i1 %exitcond412.not.i, label %._crit_edge390.loopexit.i, label %.lr.ph389.i, !llvm.loop !20
+._crit_edge391.loopexit.i:                        ; preds = %.lr.ph390.i
+  %.pre.i = add i32 %747, %.2
+  br label %._crit_edge391.i
 
-._crit_edge390.loopexit.i:                        ; preds = %.lr.ph389.i
-  %.pre415.i = add i32 %759, %.2
-  br label %._crit_edge390.i
+._crit_edge391.i:                                 ; preds = %._crit_edge391.loopexit.i, %._crit_edge385.i
+  %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge391.loopexit.i ], [ %739, %._crit_edge385.i ]
+  %.2.lcssa.i = phi i32 [ %747, %._crit_edge391.loopexit.i ], [ %.1373.lcssa.i, %._crit_edge385.i ]
+  %749 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.pre-phi.i) #3
+  %750 = zext i8 %749 to i32
+  %751 = load i32, ptr @hf_dvb_s2_table_tx_type_preamble_len, align 4
+  %752 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %751, ptr noundef %0, i32 noundef %.pre-phi.i, i32 noundef 1, i32 noundef 0) #3
+  %753 = add i32 %.2.lcssa.i, %648
+  %754 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %753) #3
+  %755 = zext i8 %754 to i32
+  %756 = add nuw nsw i32 %755, %750
+  %757 = load i32, ptr @hf_dvb_s2_table_tx_type_postamble_len, align 4
+  %758 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %757, ptr noundef %0, i32 noundef %753, i32 noundef 1, i32 noundef 0) #3
+  %759 = load i32, ptr @hf_dvb_s2_table_tx_type_pilot_period, align 4
+  %760 = add i32 %.2.lcssa.i, %invariant.op406.i
+  %761 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %759, ptr noundef %0, i32 noundef %760, i32 noundef 2, i32 noundef 0) #3
+  %762 = add i32 %.2.lcssa.i, %invariant.op400.i
+  %763 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %762) #3
+  %764 = zext i8 %763 to i32
+  %765 = add nuw nsw i32 %756, %764
+  %766 = load i32, ptr @hf_dvb_s2_table_tx_type_pilot_block_len, align 4
+  %767 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %766, ptr noundef %0, i32 noundef %762, i32 noundef 1, i32 noundef 0) #3
+  %768 = load i32, ptr @hf_dvb_s2_table_tx_type_pilot_sum, align 4
+  %769 = add i32 %.2.lcssa.i, %649
+  %770 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %768, ptr noundef %0, i32 noundef %769, i32 noundef 1, i32 noundef 0) #3
+  %771 = add i32 %.2.lcssa.i, 6
+  %772 = load i32, ptr @hf_dvb_s2_table_tx_type_uw_symbol, align 4
+  %.reass419.i = add i32 %.2.lcssa.i, %invariant.op418.i
+  %773 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %772, ptr noundef %0, i32 noundef %.reass419.i, i32 noundef %765, i32 noundef 0) #3
+  %774 = load i32, ptr @ett_dvb_s2_hdr_table_txtype_uwsymbol, align 4
+  %775 = tail call ptr @proto_item_add_subtree(ptr noundef %773, i32 noundef %774) #3
+  %.not432.i = icmp eq i32 %765, 0
+  br i1 %.not432.i, label %.loopexit.i, label %.lr.ph396.i.preheader
 
-._crit_edge390.i:                                 ; preds = %._crit_edge390.loopexit.i, %._crit_edge384.i
-  %.pre-phi416.i = phi i32 [ %.pre415.i, %._crit_edge390.loopexit.i ], [ %.pre-phi.i, %._crit_edge384.i ]
-  %.2.lcssa.i = phi i32 [ %759, %._crit_edge390.loopexit.i ], [ %.1373.lcssa.i, %._crit_edge384.i ]
-  %761 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.pre-phi416.i) #3
-  %762 = zext i8 %761 to i32
-  %763 = load i32, ptr @hf_dvb_s2_table_tx_type_preamble_len, align 4
-  %764 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %763, ptr noundef %0, i32 noundef %.pre-phi416.i, i32 noundef 1, i32 noundef 0) #3
-  %765 = add i32 %.2.lcssa.i, %650
-  %766 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %765) #3
-  %767 = zext i8 %766 to i32
-  %768 = add nuw nsw i32 %767, %762
-  %769 = load i32, ptr @hf_dvb_s2_table_tx_type_postamble_len, align 4
-  %770 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %769, ptr noundef %0, i32 noundef %765, i32 noundef 1, i32 noundef 0) #3
-  %771 = load i32, ptr @hf_dvb_s2_table_tx_type_pilot_period, align 4
-  %772 = add i32 %.2.lcssa.i, %651
-  %773 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %771, ptr noundef %0, i32 noundef %772, i32 noundef 2, i32 noundef 0) #3
-  %774 = add i32 %.2.lcssa.i, %658
-  %775 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %774) #3
-  %776 = zext i8 %775 to i32
-  %777 = add nuw nsw i32 %768, %776
-  %778 = load i32, ptr @hf_dvb_s2_table_tx_type_pilot_block_len, align 4
-  %779 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %778, ptr noundef %0, i32 noundef %774, i32 noundef 1, i32 noundef 0) #3
-  %780 = load i32, ptr @hf_dvb_s2_table_tx_type_pilot_sum, align 4
-  %781 = add i32 %.2.lcssa.i, %653
-  %782 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %780, ptr noundef %0, i32 noundef %781, i32 noundef 1, i32 noundef 0) #3
-  %783 = add i32 %.2.lcssa.i, 6
-  %784 = load i32, ptr @hf_dvb_s2_table_tx_type_uw_symbol, align 4
-  %785 = add i32 %783, %.2
-  %786 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %784, ptr noundef %0, i32 noundef %785, i32 noundef %777, i32 noundef 0) #3
-  %787 = load i32, ptr @ett_dvb_s2_hdr_table_txtype_uwsymbol, align 4
-  %788 = tail call ptr @proto_item_add_subtree(ptr noundef %786, i32 noundef %787) #3
-  %.not407.i = icmp eq i32 %777, 0
-  br i1 %.not407.i, label %.loopexit.i, label %.lr.ph395.i.preheader
+.lr.ph396.i.preheader:                            ; preds = %._crit_edge391.i
+  %switch.tableidx = add i8 %699, -1
+  %776 = icmp ult i8 %switch.tableidx, 3
+  %777 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_dvb_s2_table, i64 0, i64 %777
+  br label %.lr.ph396.i
 
-.lr.ph395.i.preheader:                            ; preds = %._crit_edge390.i
-  %switch.tableidx = add i8 %711, -1
-  %789 = icmp ult i8 %switch.tableidx, 3
-  %790 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_dvb_s2_table, i64 0, i64 %790
-  br label %.lr.ph395.i
+.lr.ph396.i:                                      ; preds = %.lr.ph396.i.preheader, %779
+  %.0369394.i = phi i32 [ %782, %779 ], [ 0, %.lr.ph396.i.preheader ]
+  %.3393.i = phi i32 [ %.4.i, %779 ], [ %771, %.lr.ph396.i.preheader ]
+  %778 = add i32 %.3393.i, %.2
+  br i1 %776, label %switch.lookup, label %779
 
-.lr.ph395.i:                                      ; preds = %.lr.ph395.i.preheader, %792
-  %.0369393.i = phi i32 [ %795, %792 ], [ 0, %.lr.ph395.i.preheader ]
-  %.3392.i = phi i32 [ %.4.i, %792 ], [ %783, %.lr.ph395.i.preheader ]
-  %791 = add i32 %.3392.i, %.2
-  br i1 %789, label %switch.lookup, label %792
-
-switch.lookup:                                    ; preds = %.lr.ph395.i
+switch.lookup:                                    ; preds = %.lr.ph396.i
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %792
+  br label %779
 
-792:                                              ; preds = %.lr.ph395.i, %switch.lookup
-  %hf_dvb_s2_table_tx_type_uw_symbol_qpsk.sink.i = phi ptr [ %switch.load, %switch.lookup ], [ @hf_dvb_s2_table_tx_type_uw_symbol_unit, %.lr.ph395.i ]
-  %793 = load i32, ptr %hf_dvb_s2_table_tx_type_uw_symbol_qpsk.sink.i, align 4
-  %794 = tail call ptr @proto_tree_add_item(ptr noundef %788, i32 noundef %793, ptr noundef %0, i32 noundef %791, i32 noundef 1, i32 noundef 0) #3
-  %.4.i = add i32 %.3392.i, 1
-  %795 = add nuw nsw i32 %.0369393.i, 1
-  %exitcond413.not.i = icmp eq i32 %795, %777
-  br i1 %exitcond413.not.i, label %.loopexit.i, label %.lr.ph395.i, !llvm.loop !21
+779:                                              ; preds = %.lr.ph396.i, %switch.lookup
+  %hf_dvb_s2_table_tx_type_uw_symbol_qpsk.sink.i = phi ptr [ %switch.load, %switch.lookup ], [ @hf_dvb_s2_table_tx_type_uw_symbol_unit, %.lr.ph396.i ]
+  %780 = load i32, ptr %hf_dvb_s2_table_tx_type_uw_symbol_qpsk.sink.i, align 4
+  %781 = tail call ptr @proto_tree_add_item(ptr noundef %775, i32 noundef %780, ptr noundef %0, i32 noundef %778, i32 noundef 1, i32 noundef 0) #3
+  %.4.i = add i32 %.3393.i, 1
+  %782 = add nuw nsw i32 %.0369394.i, 1
+  %exitcond437.not.i = icmp eq i32 %782, %765
+  br i1 %exitcond437.not.i, label %.loopexit.i, label %.lr.ph396.i, !llvm.loop !21
 
-796:                                              ; preds = %693
-  %797 = load i32, ptr @hf_dvb_s2_table_tx_type_waveform_id, align 4
-  %798 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %797, ptr noundef %0, i32 noundef %706, i32 noundef 1, i32 noundef 0) #3
-  %799 = add i32 %.0372397.i, 11
+783:                                              ; preds = %682
+  %784 = load i32, ptr @hf_dvb_s2_table_tx_type_waveform_id, align 4
+  %785 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %784, ptr noundef %0, i32 noundef %.reass415.i, i32 noundef 1, i32 noundef 0) #3
+  %786 = add i32 %.0372422.i, 11
   br label %.loopexit.i
 
-800:                                              ; preds = %668
-  %801 = load i32, ptr @hf_dvb_s2_table_tx_type_tx_block_size, align 4
-  %802 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %801, ptr noundef %0, i32 noundef %692, i32 noundef 1, i32 noundef 0) #3
-  %803 = load i32, ptr @hf_dvb_s2_table_tx_type_threshold_es_n0, align 4
-  %804 = add i32 %.0372397.i, %653
-  %805 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %803, ptr noundef %0, i32 noundef %804, i32 noundef 1, i32 noundef 0) #3
-  %806 = load i32, ptr @hf_dvb_s2_table_tx_type_tx_start_offset, align 4
-  %807 = add i32 %.0372397.i, %654
-  %808 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %806, ptr noundef %0, i32 noundef %807, i32 noundef 4, i32 noundef 0) #3
-  %809 = add i32 %.0372397.i, 10
-  %810 = icmp slt i8 %678, 0
-  br i1 %810, label %811, label %.loopexit.i
+787:                                              ; preds = %660
+  %788 = load i32, ptr @hf_dvb_s2_table_tx_type_tx_block_size, align 4
+  %789 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %788, ptr noundef %0, i32 noundef %.reass421.i, i32 noundef 1, i32 noundef 0) #3
+  %790 = load i32, ptr @hf_dvb_s2_table_tx_type_threshold_es_n0, align 4
+  %791 = add i32 %.0372422.i, %649
+  %792 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %790, ptr noundef %0, i32 noundef %791, i32 noundef 1, i32 noundef 0) #3
+  %793 = load i32, ptr @hf_dvb_s2_table_tx_type_tx_start_offset, align 4
+  %794 = add i32 %.0372422.i, %invariant.op418.i
+  %795 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %793, ptr noundef %0, i32 noundef %794, i32 noundef 4, i32 noundef 0) #3
+  %796 = add i32 %.0372422.i, 10
+  %797 = icmp slt i8 %669, 0
+  br i1 %797, label %798, label %.loopexit.i
 
-811:                                              ; preds = %800
-  %812 = load i32, ptr @hf_dvb_s2_table_tx_type_modulation_mh, align 4
-  %813 = add i32 %809, %.2
-  %814 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %812, ptr noundef %0, i32 noundef %813, i32 noundef 1, i32 noundef 0) #3
-  %815 = load i32, ptr @hf_dvb_s2_table_tx_type_modulation_ph, align 4
-  %816 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %815, ptr noundef %0, i32 noundef %813, i32 noundef 1, i32 noundef 0) #3
-  %817 = load i32, ptr @hf_dvb_s2_table_tx_type_modulation_type, align 4
-  %818 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %817, ptr noundef %0, i32 noundef %813, i32 noundef 1, i32 noundef 0) #3
-  %819 = load i32, ptr @hf_dvb_s2_table_tx_type_alpha_rc, align 4
-  %820 = add i32 %655, %.0372397.i
-  %821 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %819, ptr noundef %0, i32 noundef %820, i32 noundef 1, i32 noundef 0) #3
-  %822 = load i32, ptr @hf_dvb_s2_table_tx_type_code_rate, align 4
-  %823 = add i32 %.0372397.i, %656
-  %824 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %822, ptr noundef %0, i32 noundef %823, i32 noundef 1, i32 noundef 0) #3
-  %825 = load i32, ptr @hf_dvb_s2_table_tx_type_constraint_length_k, align 4
-  %826 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %825, ptr noundef %0, i32 noundef %823, i32 noundef 1, i32 noundef 0) #3
-  %827 = add i32 %.0372397.i, %657
-  %828 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %827) #3
-  %829 = lshr i8 %828, 2
-  %narrow.i340 = add nuw nsw i8 %829, 1
-  %830 = zext nneg i8 %narrow.i340 to i32
-  %831 = load i32, ptr @hf_dvb_s2_table_tx_type_uw_length, align 4
-  %832 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %831, ptr noundef %0, i32 noundef %827, i32 noundef 1, i32 noundef 0) #3
-  %833 = add i32 %.0372397.i, 14
-  %834 = load i32, ptr @hf_dvb_s2_table_tx_type_uw_symbol, align 4
-  %835 = add i32 %833, %.2
-  %836 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %834, ptr noundef %0, i32 noundef %835, i32 noundef %830, i32 noundef 0) #3
-  %837 = add i32 %833, %830
-  %838 = add i32 %837, %.2
-  %839 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %838) #3
-  %840 = zext i8 %839 to i32
-  %841 = load i32, ptr @hf_dvb_s2_table_tx_type_nbr_uw_segments, align 4
-  %842 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %841, ptr noundef %0, i32 noundef %838, i32 noundef 1, i32 noundef 0) #3
-  %.5375.i = add i32 %837, 1
-  %.not404.i = icmp eq i8 %839, 0
-  br i1 %.not404.i, label %._crit_edge.i343, label %.lr.ph.i341
+798:                                              ; preds = %787
+  %799 = load i32, ptr @hf_dvb_s2_table_tx_type_modulation_mh, align 4
+  %.reass403.i = add i32 %.0372422.i, %invariant.op402.i
+  %800 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %799, ptr noundef %0, i32 noundef %.reass403.i, i32 noundef 1, i32 noundef 0) #3
+  %801 = load i32, ptr @hf_dvb_s2_table_tx_type_modulation_ph, align 4
+  %802 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %801, ptr noundef %0, i32 noundef %.reass403.i, i32 noundef 1, i32 noundef 0) #3
+  %803 = load i32, ptr @hf_dvb_s2_table_tx_type_modulation_type, align 4
+  %804 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %803, ptr noundef %0, i32 noundef %.reass403.i, i32 noundef 1, i32 noundef 0) #3
+  %805 = load i32, ptr @hf_dvb_s2_table_tx_type_alpha_rc, align 4
+  %806 = add i32 %650, %.0372422.i
+  %807 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %805, ptr noundef %0, i32 noundef %806, i32 noundef 1, i32 noundef 0) #3
+  %808 = load i32, ptr @hf_dvb_s2_table_tx_type_code_rate, align 4
+  %809 = add i32 %.0372422.i, %651
+  %810 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %808, ptr noundef %0, i32 noundef %809, i32 noundef 1, i32 noundef 0) #3
+  %811 = load i32, ptr @hf_dvb_s2_table_tx_type_constraint_length_k, align 4
+  %812 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %811, ptr noundef %0, i32 noundef %809, i32 noundef 1, i32 noundef 0) #3
+  %813 = add i32 %.0372422.i, %652
+  %814 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %813) #3
+  %815 = lshr i8 %814, 2
+  %narrow.i342 = add nuw nsw i8 %815, 1
+  %816 = zext nneg i8 %narrow.i342 to i32
+  %817 = load i32, ptr @hf_dvb_s2_table_tx_type_uw_length, align 4
+  %818 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %817, ptr noundef %0, i32 noundef %813, i32 noundef 1, i32 noundef 0) #3
+  %819 = add i32 %.0372422.i, 14
+  %820 = load i32, ptr @hf_dvb_s2_table_tx_type_uw_symbol, align 4
+  %.reass405.i = add i32 %.0372422.i, %invariant.op404.i
+  %821 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %820, ptr noundef %0, i32 noundef %.reass405.i, i32 noundef %816, i32 noundef 0) #3
+  %822 = add i32 %819, %816
+  %823 = add i32 %822, %.2
+  %824 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %823) #3
+  %825 = zext i8 %824 to i32
+  %826 = load i32, ptr @hf_dvb_s2_table_tx_type_nbr_uw_segments, align 4
+  %827 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %826, ptr noundef %0, i32 noundef %823, i32 noundef 1, i32 noundef 0) #3
+  %.5377.i = add i32 %822, 1
+  %.not429.i = icmp eq i8 %824, 0
+  br i1 %.not429.i, label %838, label %.lr.ph.i343
 
-.lr.ph.i341:                                      ; preds = %811, %.lr.ph.i341
-  %.5378.i = phi i32 [ %.5.i, %.lr.ph.i341 ], [ %.5375.i, %811 ]
-  %.0370377.i = phi i32 [ %854, %.lr.ph.i341 ], [ 0, %811 ]
-  %.5.in376.i = phi i32 [ %850, %.lr.ph.i341 ], [ %837, %811 ]
-  %843 = load i32, ptr @hf_dvb_s2_table_tx_type_uw_segment, align 4
-  %844 = add i32 %.5378.i, %.2
-  %845 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %843, ptr noundef %0, i32 noundef %844, i32 noundef 3, i32 noundef 0) #3
-  %846 = load i32, ptr @ett_dvb_s2_hdr_table_txtype_uwsegment, align 4
-  %847 = tail call ptr @proto_item_add_subtree(ptr noundef %845, i32 noundef %846) #3
-  %848 = load i32, ptr @hf_dvb_s2_table_tx_type_uw_segment_start, align 4
-  %849 = tail call ptr @proto_tree_add_item(ptr noundef %847, i32 noundef %848, ptr noundef %0, i32 noundef %844, i32 noundef 2, i32 noundef 0) #3
-  %850 = add i32 %.5.in376.i, 3
-  %851 = load i32, ptr @hf_dvb_s2_table_tx_type_uw_segment_length, align 4
-  %852 = add i32 %850, %.2
-  %853 = tail call ptr @proto_tree_add_item(ptr noundef %847, i32 noundef %851, ptr noundef %0, i32 noundef %852, i32 noundef 1, i32 noundef 0) #3
-  %854 = add nuw nsw i32 %.0370377.i, 1
-  %.5.i = add i32 %.5.in376.i, 4
-  %exitcond.not.i342 = icmp eq i32 %854, %840
-  br i1 %exitcond.not.i342, label %._crit_edge.i343, label %.lr.ph.i341, !llvm.loop !22
+.lr.ph.i343:                                      ; preds = %798, %.lr.ph.i343
+  %.0370379.i = phi i32 [ %837, %.lr.ph.i343 ], [ 0, %798 ]
+  %.5.in378.i = phi i32 [ %834, %.lr.ph.i343 ], [ %822, %798 ]
+  %828 = load i32, ptr @hf_dvb_s2_table_tx_type_uw_segment, align 4
+  %.reass.i344 = add i32 %.5.in378.i, %648
+  %829 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %828, ptr noundef %0, i32 noundef %.reass.i344, i32 noundef 3, i32 noundef 0) #3
+  %830 = load i32, ptr @ett_dvb_s2_hdr_table_txtype_uwsegment, align 4
+  %831 = tail call ptr @proto_item_add_subtree(ptr noundef %829, i32 noundef %830) #3
+  %832 = load i32, ptr @hf_dvb_s2_table_tx_type_uw_segment_start, align 4
+  %833 = tail call ptr @proto_tree_add_item(ptr noundef %831, i32 noundef %832, ptr noundef %0, i32 noundef %.reass.i344, i32 noundef 2, i32 noundef 0) #3
+  %834 = add i32 %.5.in378.i, 3
+  %835 = load i32, ptr @hf_dvb_s2_table_tx_type_uw_segment_length, align 4
+  %.reass376.i = add i32 %.5.in378.i, %invariant.op398.i
+  %836 = tail call ptr @proto_tree_add_item(ptr noundef %831, i32 noundef %835, ptr noundef %0, i32 noundef %.reass376.i, i32 noundef 1, i32 noundef 0) #3
+  %837 = add nuw nsw i32 %.0370379.i, 1
+  %exitcond.not.i345 = icmp eq i32 %837, %825
+  br i1 %exitcond.not.i345, label %._crit_edge.i346, label %.lr.ph.i343, !llvm.loop !22
 
-._crit_edge.i343:                                 ; preds = %.lr.ph.i341, %811
-  %.5.in.lcssa.i = phi i32 [ %837, %811 ], [ %850, %.lr.ph.i341 ]
-  %.5.lcssa.i = phi i32 [ %.5375.i, %811 ], [ %.5.i, %.lr.ph.i341 ]
-  %855 = add i32 %.5.lcssa.i, %.2
-  %856 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %855) #3
-  %857 = load i32, ptr @hf_dvb_s2_table_tx_type_param_interleaver, align 4
-  %858 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %857, ptr noundef %0, i32 noundef %855, i32 noundef 1, i32 noundef 0) #3
-  %.not.i344 = icmp eq i8 %856, 0
-  %859 = add i32 %651, %.5.in.lcssa.i
-  br i1 %.not.i344, label %882, label %860
+._crit_edge.i346:                                 ; preds = %.lr.ph.i343
+  %.5.le.i = add i32 %.5.in378.i, 4
+  br label %838
 
-860:                                              ; preds = %._crit_edge.i343
-  %861 = load i32, ptr @hf_dvb_s2_table_tx_type_n, align 4
-  %862 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %861, ptr noundef %0, i32 noundef %859, i32 noundef 1, i32 noundef 0) #3
-  %863 = load i32, ptr @hf_dvb_s2_table_tx_type_s, align 4
-  %864 = add i32 %.5.in.lcssa.i, %652
-  %865 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %863, ptr noundef %0, i32 noundef %864, i32 noundef 1, i32 noundef 0) #3
-  %866 = load i32, ptr @hf_dvb_s2_table_tx_type_p_interleaver, align 4
-  %867 = add i32 %.5.in.lcssa.i, %658
-  %868 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %866, ptr noundef %0, i32 noundef %867, i32 noundef 1, i32 noundef 0) #3
-  %869 = load i32, ptr @hf_dvb_s2_table_tx_type_n1_12, align 4
-  %870 = add i32 %.5.in.lcssa.i, %653
-  %871 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %869, ptr noundef %0, i32 noundef %870, i32 noundef 1, i32 noundef 0) #3
-  %872 = load i32, ptr @hf_dvb_s2_table_tx_type_k1_12, align 4
-  %873 = add i32 %.5.in.lcssa.i, %654
-  %874 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %872, ptr noundef %0, i32 noundef %873, i32 noundef 1, i32 noundef 0) #3
-  %875 = load i32, ptr @hf_dvb_s2_table_tx_type_K2_12, align 4
-  %876 = add i32 %.5.in.lcssa.i, %659
-  %877 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %875, ptr noundef %0, i32 noundef %876, i32 noundef 1, i32 noundef 0) #3
-  %878 = load i32, ptr @hf_dvb_s2_table_tx_type_K3_12, align 4
-  %879 = add i32 %660, %.5.in.lcssa.i
-  %880 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %878, ptr noundef %0, i32 noundef %879, i32 noundef 1, i32 noundef 0) #3
-  %881 = add i32 %.5.in.lcssa.i, 9
+838:                                              ; preds = %._crit_edge.i346, %798
+  %.5.in.lcssa.i = phi i32 [ %834, %._crit_edge.i346 ], [ %822, %798 ]
+  %.5.lcssa.i = phi i32 [ %.5.le.i, %._crit_edge.i346 ], [ %.5377.i, %798 ]
+  %839 = add i32 %.5.lcssa.i, %.2
+  %840 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %839) #3
+  %841 = load i32, ptr @hf_dvb_s2_table_tx_type_param_interleaver, align 4
+  %842 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %841, ptr noundef %0, i32 noundef %839, i32 noundef 1, i32 noundef 0) #3
+  %.not.i347 = icmp eq i8 %840, 0
+  %.reass409.i = add i32 %.5.in.lcssa.i, %invariant.op406.i
+  br i1 %.not.i347, label %865, label %843
+
+843:                                              ; preds = %838
+  %844 = load i32, ptr @hf_dvb_s2_table_tx_type_n, align 4
+  %845 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %844, ptr noundef %0, i32 noundef %.reass409.i, i32 noundef 1, i32 noundef 0) #3
+  %846 = load i32, ptr @hf_dvb_s2_table_tx_type_s, align 4
+  %847 = add i32 %.5.in.lcssa.i, %invariant.op398.i
+  %848 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %846, ptr noundef %0, i32 noundef %847, i32 noundef 1, i32 noundef 0) #3
+  %849 = load i32, ptr @hf_dvb_s2_table_tx_type_p_interleaver, align 4
+  %850 = add i32 %.5.in.lcssa.i, %invariant.op400.i
+  %851 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %849, ptr noundef %0, i32 noundef %850, i32 noundef 1, i32 noundef 0) #3
+  %852 = load i32, ptr @hf_dvb_s2_table_tx_type_n1_12, align 4
+  %853 = add i32 %.5.in.lcssa.i, %649
+  %854 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %852, ptr noundef %0, i32 noundef %853, i32 noundef 1, i32 noundef 0) #3
+  %855 = load i32, ptr @hf_dvb_s2_table_tx_type_k1_12, align 4
+  %856 = add i32 %.5.in.lcssa.i, %invariant.op418.i
+  %857 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %855, ptr noundef %0, i32 noundef %856, i32 noundef 1, i32 noundef 0) #3
+  %858 = load i32, ptr @hf_dvb_s2_table_tx_type_K2_12, align 4
+  %859 = add i32 %.5.in.lcssa.i, %653
+  %860 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %858, ptr noundef %0, i32 noundef %859, i32 noundef 1, i32 noundef 0) #3
+  %861 = load i32, ptr @hf_dvb_s2_table_tx_type_K3_12, align 4
+  %862 = add i32 %654, %.5.in.lcssa.i
+  %863 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %861, ptr noundef %0, i32 noundef %862, i32 noundef 1, i32 noundef 0) #3
+  %864 = add i32 %.5.in.lcssa.i, 9
   br label %.loopexit.i
 
-882:                                              ; preds = %._crit_edge.i343
-  %883 = load i32, ptr @hf_dvb_s2_table_tx_type_pi_i, align 4
-  %.neg.i = add i32 %691, %672
+865:                                              ; preds = %838
+  %866 = load i32, ptr @hf_dvb_s2_table_tx_type_pi_i, align 4
+  %.neg.i = add i32 %681, %663
   %reass.sub.i = add i32 %.neg.i, -2
-  %884 = sub i32 %reass.sub.i, %.5.in.lcssa.i
-  %885 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %883, ptr noundef %0, i32 noundef %859, i32 noundef %884, i32 noundef 0) #3
+  %867 = sub i32 %reass.sub.i, %.5.in.lcssa.i
+  %868 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %866, ptr noundef %0, i32 noundef %.reass409.i, i32 noundef %867, i32 noundef 0) #3
   br label %.loopexit.i
 
-886:                                              ; preds = %668
-  %887 = load i32, ptr @hf_dvb_s2_table_tx_type_tx_format_data, align 4
-  %888 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %887, ptr noundef %0, i32 noundef %692, i32 noundef %672, i32 noundef 0) #3
-  %889 = add i32 %691, %672
+869:                                              ; preds = %660
+  %870 = load i32, ptr @hf_dvb_s2_table_tx_type_tx_format_data, align 4
+  %871 = tail call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %870, ptr noundef %0, i32 noundef %.reass421.i, i32 noundef %663, i32 noundef 0) #3
+  %872 = add i32 %681, %663
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %792, %886, %882, %860, %800, %796, %._crit_edge390.i
-  %.6.i = phi i32 [ %889, %886 ], [ %881, %860 ], [ %.neg.i, %882 ], [ %809, %800 ], [ %799, %796 ], [ %783, %._crit_edge390.i ], [ %.4.i, %792 ]
-  %890 = add nuw nsw i32 %.0398.i, 1
-  %exitcond414.not.i = icmp eq i32 %890, %647
-  br i1 %exitcond414.not.i, label %dissect_dvb_s2_table_sct.exitthread-pre-split, label %668, !llvm.loop !23
+.loopexit.i:                                      ; preds = %779, %869, %865, %843, %787, %783, %._crit_edge391.i
+  %.6.i = phi i32 [ %872, %869 ], [ %864, %843 ], [ %.neg.i, %865 ], [ %796, %787 ], [ %786, %783 ], [ %771, %._crit_edge391.i ], [ %.4.i, %779 ]
+  %873 = add nuw nsw i32 %.0423.i, 1
+  %exitcond438.not.i = icmp eq i32 %873, %645
+  br i1 %exitcond438.not.i, label %dissect_dvb_s2_table_sct.exitthread-pre-split, label %660, !llvm.loop !23
 
-891:                                              ; preds = %151
-  %892 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #3
-  %893 = zext i8 %892 to i32
-  %894 = load i32, ptr @hf_dvb_s2_table_satellite_loop_count, align 4
-  %895 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %894, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #3
-  %896 = add nuw nsw i32 %.2, 1
-  %897 = add nuw nsw i32 %.2, 5
-  %898 = add nuw nsw i32 %.2, 9
-  br label %899
+874:                                              ; preds = %151
+  %875 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #3
+  %876 = zext i8 %875 to i32
+  %877 = load i32, ptr @hf_dvb_s2_table_satellite_loop_count, align 4
+  %878 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %877, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #3
+  %879 = add nuw nsw i32 %.2, 1
+  %880 = add nuw nsw i32 %.2, 5
+  %881 = add nuw nsw i32 %.2, 9
+  br label %882
 
-899:                                              ; preds = %899, %891
-  %.043.i = phi i32 [ 0, %891 ], [ %917, %899 ]
-  %.04142.i = phi i32 [ 1, %891 ], [ %916, %899 ]
-  %900 = load i32, ptr @hf_dvb_s2_table_satellite, align 4
-  %901 = add nuw nsw i32 %.04142.i, %.2
-  %902 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %900, ptr noundef %0, i32 noundef %901, i32 noundef 13, i32 noundef 0) #3
-  %903 = load i32, ptr @ett_dvb_s2_hdr_table_satellite, align 4
-  %904 = tail call ptr @proto_item_add_subtree(ptr noundef %902, i32 noundef %903) #3
-  %905 = load i32, ptr @hf_dvb_s2_table_satellite_id, align 4
-  %906 = tail call ptr @proto_tree_add_item(ptr noundef %904, i32 noundef %905, ptr noundef %0, i32 noundef %901, i32 noundef 1, i32 noundef 0) #3
-  %907 = load i32, ptr @hf_dvb_s2_table_satellite_x_coordinate, align 4
-  %908 = add nuw nsw i32 %896, %.04142.i
-  %909 = tail call ptr @proto_tree_add_item(ptr noundef %904, i32 noundef %907, ptr noundef %0, i32 noundef %908, i32 noundef 4, i32 noundef 0) #3
-  %910 = load i32, ptr @hf_dvb_s2_table_satellite_y_coordinate, align 4
-  %911 = add nuw nsw i32 %897, %.04142.i
-  %912 = tail call ptr @proto_tree_add_item(ptr noundef %904, i32 noundef %910, ptr noundef %0, i32 noundef %911, i32 noundef 4, i32 noundef 0) #3
-  %913 = load i32, ptr @hf_dvb_s2_table_satellite_z_coordinate, align 4
-  %914 = add nuw nsw i32 %898, %.04142.i
-  %915 = tail call ptr @proto_tree_add_item(ptr noundef %904, i32 noundef %913, ptr noundef %0, i32 noundef %914, i32 noundef 4, i32 noundef 0) #3
-  %916 = add nuw nsw i32 %.04142.i, 13
-  %917 = add nuw nsw i32 %.043.i, 1
-  %exitcond.not.i345 = icmp eq i32 %.043.i, %893
-  br i1 %exitcond.not.i345, label %918, label %899, !llvm.loop !24
+882:                                              ; preds = %882, %874
+  %.043.i = phi i32 [ 0, %874 ], [ %900, %882 ]
+  %.04142.i = phi i32 [ 1, %874 ], [ %899, %882 ]
+  %883 = load i32, ptr @hf_dvb_s2_table_satellite, align 4
+  %884 = add nuw nsw i32 %.04142.i, %.2
+  %885 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %883, ptr noundef %0, i32 noundef %884, i32 noundef 13, i32 noundef 0) #3
+  %886 = load i32, ptr @ett_dvb_s2_hdr_table_satellite, align 4
+  %887 = tail call ptr @proto_item_add_subtree(ptr noundef %885, i32 noundef %886) #3
+  %888 = load i32, ptr @hf_dvb_s2_table_satellite_id, align 4
+  %889 = tail call ptr @proto_tree_add_item(ptr noundef %887, i32 noundef %888, ptr noundef %0, i32 noundef %884, i32 noundef 1, i32 noundef 0) #3
+  %890 = load i32, ptr @hf_dvb_s2_table_satellite_x_coordinate, align 4
+  %891 = add nuw nsw i32 %879, %.04142.i
+  %892 = tail call ptr @proto_tree_add_item(ptr noundef %887, i32 noundef %890, ptr noundef %0, i32 noundef %891, i32 noundef 4, i32 noundef 0) #3
+  %893 = load i32, ptr @hf_dvb_s2_table_satellite_y_coordinate, align 4
+  %894 = add nuw nsw i32 %880, %.04142.i
+  %895 = tail call ptr @proto_tree_add_item(ptr noundef %887, i32 noundef %893, ptr noundef %0, i32 noundef %894, i32 noundef 4, i32 noundef 0) #3
+  %896 = load i32, ptr @hf_dvb_s2_table_satellite_z_coordinate, align 4
+  %897 = add nuw nsw i32 %881, %.04142.i
+  %898 = tail call ptr @proto_tree_add_item(ptr noundef %887, i32 noundef %896, ptr noundef %0, i32 noundef %897, i32 noundef 4, i32 noundef 0) #3
+  %899 = add nuw nsw i32 %.04142.i, 13
+  %900 = add nuw nsw i32 %.043.i, 1
+  %exitcond.not.i348 = icmp eq i32 %.043.i, %876
+  br i1 %exitcond.not.i348, label %901, label %882, !llvm.loop !24
 
-918:                                              ; preds = %899
-  %919 = load i32, ptr @dvb_s2_rcs_version, align 4
-  %920 = icmp eq i32 %919, 0
-  br i1 %920, label %921, label %dissect_dvb_s2_table_sct.exit
+901:                                              ; preds = %882
+  %902 = load i32, ptr @dvb_s2_rcs_version, align 4
+  %903 = icmp eq i32 %902, 0
+  br i1 %903, label %904, label %dissect_dvb_s2_table_sct.exit
 
-921:                                              ; preds = %918
-  %922 = load i32, ptr @hf_dvb_s2_table_crc32, align 4
-  %923 = add i32 %916, %.2
-  %924 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %922, ptr noundef %0, i32 noundef %923, i32 noundef 4, i32 noundef 0) #3
+904:                                              ; preds = %901
+  %905 = load i32, ptr @hf_dvb_s2_table_crc32, align 4
+  %906 = add i32 %899, %.2
+  %907 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %905, ptr noundef %0, i32 noundef %906, i32 noundef 4, i32 noundef 0) #3
   br label %dissect_dvb_s2_table_sct.exitthread-pre-split
 
-925:                                              ; preds = %151, %151
-  %926 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2) #3
-  %927 = and i16 %926, 4095
-  %928 = load i32, ptr @hf_dvb_s2_table_network_descriptors_length, align 4
-  %929 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %928, ptr noundef %0, i32 noundef %.2, i32 noundef 2, i32 noundef 0) #3
-  %930 = zext nneg i16 %927 to i32
-  %.not.i347 = icmp eq i16 %927, 0
-  br i1 %.not.i347, label %._crit_edge.i349, label %.lr.ph.i348
+908:                                              ; preds = %151, %151
+  %909 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2) #3
+  %910 = and i16 %909, 4095
+  %911 = load i32, ptr @hf_dvb_s2_table_network_descriptors_length, align 4
+  %912 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %911, ptr noundef %0, i32 noundef %.2, i32 noundef 2, i32 noundef 0) #3
+  %913 = zext nneg i16 %910 to i32
+  %.not.i350 = icmp eq i16 %910, 0
+  br i1 %.not.i350, label %._crit_edge.i352, label %.lr.ph.i351
 
-.lr.ph.i348:                                      ; preds = %925
-  %931 = add nuw nsw i32 %.2, 3
-  br label %932
+.lr.ph.i351:                                      ; preds = %908
+  %914 = add nuw nsw i32 %.2, 3
+  br label %915
 
-932:                                              ; preds = %932, %.lr.ph.i348
-  %.095.i = phi i32 [ 0, %.lr.ph.i348 ], [ %937, %932 ]
-  %.09094.i = phi i32 [ 0, %.lr.ph.i348 ], [ %938, %932 ]
-  %933 = add i32 %931, %.095.i
-  %934 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %933) #3
-  %935 = zext i8 %934 to i32
-  %936 = add nuw nsw i32 %.095.i, 2
-  %937 = add nuw nsw i32 %936, %935
-  %938 = add i32 %.09094.i, 1
-  %939 = icmp ult i32 %937, %930
-  br i1 %939, label %932, label %._crit_edge.i349, !llvm.loop !25
+915:                                              ; preds = %915, %.lr.ph.i351
+  %.095.i = phi i32 [ 0, %.lr.ph.i351 ], [ %920, %915 ]
+  %.09094.i = phi i32 [ 0, %.lr.ph.i351 ], [ %921, %915 ]
+  %916 = add i32 %914, %.095.i
+  %917 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %916) #3
+  %918 = zext i8 %917 to i32
+  %919 = add nuw nsw i32 %.095.i, 2
+  %920 = add nuw nsw i32 %919, %918
+  %921 = add i32 %.09094.i, 1
+  %922 = icmp ult i32 %920, %913
+  br i1 %922, label %915, label %._crit_edge.i352, !llvm.loop !25
 
-._crit_edge.i349:                                 ; preds = %932, %925
-  %.090.lcssa.i = phi i32 [ -1, %925 ], [ %.09094.i, %932 ]
-  %940 = add i32 %.2, 2
-  %941 = zext i8 %.0320 to i32
-  %942 = tail call fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %940, ptr noundef %8, i32 noundef %.090.lcssa.i, i32 noundef %941, ptr noundef %1)
-  %943 = add i32 %942, %940
-  %944 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %943) #3
-  %945 = and i16 %944, 4095
-  %946 = load i32, ptr @hf_dvb_s2_table_multiplex_streams_spec_length, align 4
-  %947 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %946, ptr noundef %0, i32 noundef %943, i32 noundef 2, i32 noundef 0) #3
-  %948 = add i32 %942, 4
-  %949 = zext nneg i16 %945 to i32
-  %950 = add i32 %948, %949
-  %951 = icmp slt i32 %948, %950
-  br i1 %951, label %.lr.ph104.i, label %._crit_edge105.i
+._crit_edge.i352:                                 ; preds = %915, %908
+  %.090.lcssa.i = phi i32 [ -1, %908 ], [ %.09094.i, %915 ]
+  %923 = add i32 %.2, 2
+  %924 = zext i8 %.0320 to i32
+  %925 = tail call fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %923, ptr noundef %8, i32 noundef %.090.lcssa.i, i32 noundef %924, ptr noundef %1)
+  %926 = add i32 %925, %923
+  %927 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %926) #3
+  %928 = and i16 %927, 4095
+  %929 = load i32, ptr @hf_dvb_s2_table_multiplex_streams_spec_length, align 4
+  %930 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %929, ptr noundef %0, i32 noundef %926, i32 noundef 2, i32 noundef 0) #3
+  %931 = add i32 %925, 4
+  %932 = zext nneg i16 %928 to i32
+  %933 = add i32 %931, %932
+  %invariant.op104.i = add i32 %.2, 6
+  %934 = icmp slt i32 %931, %933
+  br i1 %934, label %.lr.ph108.i, label %._crit_edge109.i
 
-.lr.ph104.i:                                      ; preds = %._crit_edge.i349
-  %952 = icmp eq i8 %.0320, 64
+.lr.ph108.i:                                      ; preds = %._crit_edge.i352
+  %935 = icmp eq i8 %.0320, 64
   %.193.i = add i32 %.2, 4
-  %953 = add i32 %.2, 1
-  br label %954
+  %936 = add i32 %.2, 1
+  br label %937
 
-954:                                              ; preds = %._crit_edge100.i, %.lr.ph104.i
-  %.092102.i = phi i32 [ %948, %.lr.ph104.i ], [ %983, %._crit_edge100.i ]
-  %955 = load i32, ptr @hf_dvb_s2_table_multiplex, align 4
-  %956 = add i32 %.092102.i, %.2
-  %957 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %955, ptr noundef %0, i32 noundef %956, i32 noundef -1, i32 noundef 0) #3
-  %958 = load i32, ptr @ett_dvb_s2_hdr_table_multiplex, align 4
-  %959 = tail call ptr @proto_item_add_subtree(ptr noundef %957, i32 noundef %958) #3
-  %960 = load i32, ptr @hf_dvb_s2_table_multiplex_forward_multiplex, align 4
-  %961 = tail call ptr @proto_tree_add_item(ptr noundef %959, i32 noundef %960, ptr noundef %0, i32 noundef %956, i32 noundef 2, i32 noundef 0) #3
-  %962 = add i32 %940, %.092102.i
+937:                                              ; preds = %._crit_edge100.i, %.lr.ph108.i
+  %.092106.i = phi i32 [ %931, %.lr.ph108.i ], [ %964, %._crit_edge100.i ]
+  %938 = load i32, ptr @hf_dvb_s2_table_multiplex, align 4
+  %939 = add i32 %.092106.i, %.2
+  %940 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %938, ptr noundef %0, i32 noundef %939, i32 noundef -1, i32 noundef 0) #3
+  %941 = load i32, ptr @ett_dvb_s2_hdr_table_multiplex, align 4
+  %942 = tail call ptr @proto_item_add_subtree(ptr noundef %940, i32 noundef %941) #3
+  %943 = load i32, ptr @hf_dvb_s2_table_multiplex_forward_multiplex, align 4
+  %944 = tail call ptr @proto_tree_add_item(ptr noundef %942, i32 noundef %943, ptr noundef %0, i32 noundef %939, i32 noundef 2, i32 noundef 0) #3
+  %.reass103.i = add i32 %.092106.i, %923
   %hf_dvb_s2_table_multiplex_original_network_id.val.i = load i32, ptr @hf_dvb_s2_table_multiplex_original_network_id, align 4
   %hf_dvb_s2_table_multiplex_reward_multiplex.val.i = load i32, ptr @hf_dvb_s2_table_multiplex_reward_multiplex, align 4
-  %963 = select i1 %952, i32 %hf_dvb_s2_table_multiplex_original_network_id.val.i, i32 %hf_dvb_s2_table_multiplex_reward_multiplex.val.i
-  %964 = tail call ptr @proto_tree_add_item(ptr noundef %959, i32 noundef %963, ptr noundef %0, i32 noundef %962, i32 noundef 2, i32 noundef 0) #3
-  %965 = add i32 %.193.i, %.092102.i
-  %966 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %965) #3
-  %967 = and i16 %966, 4095
-  %968 = load i32, ptr @hf_dvb_s2_table_multiplex_transport_descriptors_length, align 4
-  %969 = tail call ptr @proto_tree_add_item(ptr noundef %959, i32 noundef %968, ptr noundef %0, i32 noundef %965, i32 noundef 2, i32 noundef 0) #3
-  %970 = add i32 %.092102.i, 6
-  %971 = zext nneg i16 %967 to i32
-  %.not107.i = icmp eq i16 %967, 0
-  br i1 %.not107.i, label %._crit_edge100.i, label %.lr.ph99.i
+  %945 = select i1 %935, i32 %hf_dvb_s2_table_multiplex_original_network_id.val.i, i32 %hf_dvb_s2_table_multiplex_reward_multiplex.val.i
+  %946 = tail call ptr @proto_tree_add_item(ptr noundef %942, i32 noundef %945, ptr noundef %0, i32 noundef %.reass103.i, i32 noundef 2, i32 noundef 0) #3
+  %947 = add i32 %.193.i, %.092106.i
+  %948 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %947) #3
+  %949 = and i16 %948, 4095
+  %950 = load i32, ptr @hf_dvb_s2_table_multiplex_transport_descriptors_length, align 4
+  %951 = tail call ptr @proto_tree_add_item(ptr noundef %942, i32 noundef %950, ptr noundef %0, i32 noundef %947, i32 noundef 2, i32 noundef 0) #3
+  %952 = add i32 %.092106.i, 6
+  %953 = zext nneg i16 %949 to i32
+  %.not111.i = icmp eq i16 %949, 0
+  br i1 %.not111.i, label %._crit_edge100.i, label %.lr.ph99.i
 
-.lr.ph99.i:                                       ; preds = %954
-  %972 = add i32 %953, %970
-  br label %973
+.lr.ph99.i:                                       ; preds = %937
+  %954 = add i32 %936, %952
+  br label %955
 
-973:                                              ; preds = %973, %.lr.ph99.i
-  %.197.i = phi i32 [ 0, %.lr.ph99.i ], [ %978, %973 ]
-  %.19196.i = phi i32 [ 0, %.lr.ph99.i ], [ %979, %973 ]
-  %974 = add i32 %972, %.197.i
-  %975 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %974) #3
-  %976 = zext i8 %975 to i32
-  %977 = add nuw nsw i32 %.197.i, 2
-  %978 = add nuw nsw i32 %977, %976
-  %979 = add i32 %.19196.i, 1
-  %980 = icmp ult i32 %978, %971
-  br i1 %980, label %973, label %._crit_edge100.i, !llvm.loop !26
+955:                                              ; preds = %955, %.lr.ph99.i
+  %.197.i = phi i32 [ 0, %.lr.ph99.i ], [ %960, %955 ]
+  %.19196.i = phi i32 [ 0, %.lr.ph99.i ], [ %961, %955 ]
+  %956 = add i32 %954, %.197.i
+  %957 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %956) #3
+  %958 = zext i8 %957 to i32
+  %959 = add nuw nsw i32 %.197.i, 2
+  %960 = add nuw nsw i32 %959, %958
+  %961 = add i32 %.19196.i, 1
+  %962 = icmp ult i32 %960, %953
+  br i1 %962, label %955, label %._crit_edge100.i, !llvm.loop !26
 
-._crit_edge100.i:                                 ; preds = %973, %954
-  %.191.lcssa.i = phi i32 [ -1, %954 ], [ %.19196.i, %973 ]
-  %981 = add i32 %970, %.2
-  %982 = tail call fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %981, ptr noundef %959, i32 noundef %.191.lcssa.i, i32 noundef %941, ptr noundef %1)
-  %983 = add i32 %982, %970
-  %984 = sub i32 %983, %.092102.i
-  tail call void @proto_item_set_len(ptr noundef %957, i32 noundef %984) #3
-  %985 = icmp slt i32 %983, %950
-  br i1 %985, label %954, label %._crit_edge105.i, !llvm.loop !27
+._crit_edge100.i:                                 ; preds = %955, %937
+  %.191.lcssa.i = phi i32 [ -1, %937 ], [ %.19196.i, %955 ]
+  %.reass105.i = add i32 %invariant.op104.i, %.092106.i
+  %963 = tail call fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %.reass105.i, ptr noundef %942, i32 noundef %.191.lcssa.i, i32 noundef %924, ptr noundef %1)
+  %964 = add i32 %963, %952
+  %965 = sub i32 %964, %.092106.i
+  tail call void @proto_item_set_len(ptr noundef %940, i32 noundef %965) #3
+  %966 = icmp slt i32 %964, %933
+  br i1 %966, label %937, label %._crit_edge109.i, !llvm.loop !27
 
-._crit_edge105.i:                                 ; preds = %._crit_edge100.i, %._crit_edge.i349
-  %.092.lcssa.i = phi i32 [ %948, %._crit_edge.i349 ], [ %983, %._crit_edge100.i ]
-  %986 = load i32, ptr @dvb_s2_rcs_version, align 4
-  %987 = icmp eq i32 %986, 0
-  br i1 %987, label %988, label %dissect_dvb_s2_table_sct.exit
+._crit_edge109.i:                                 ; preds = %._crit_edge100.i, %._crit_edge.i352
+  %.092.lcssa.i = phi i32 [ %931, %._crit_edge.i352 ], [ %964, %._crit_edge100.i ]
+  %967 = load i32, ptr @dvb_s2_rcs_version, align 4
+  %968 = icmp eq i32 %967, 0
+  br i1 %968, label %969, label %dissect_dvb_s2_table_sct.exit
 
-988:                                              ; preds = %._crit_edge105.i
-  %989 = load i32, ptr @hf_dvb_s2_table_crc32, align 4
-  %990 = add i32 %.092.lcssa.i, %.2
-  %991 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %989, ptr noundef %0, i32 noundef %990, i32 noundef 4, i32 noundef 0) #3
+969:                                              ; preds = %._crit_edge109.i
+  %970 = load i32, ptr @hf_dvb_s2_table_crc32, align 4
+  %971 = add i32 %.092.lcssa.i, %.2
+  %972 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %970, ptr noundef %0, i32 noundef %971, i32 noundef 4, i32 noundef 0) #3
   br label %dissect_dvb_s2_table_sct.exitthread-pre-split
 
-992:                                              ; preds = %151
-  %993 = load i32, ptr @hf_dvb_s2_table_svn_number, align 4
-  %994 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %993, ptr noundef %0, i32 noundef %.2, i32 noundef 2, i32 noundef 0) #3
-  %995 = load i32, ptr @hf_dvb_s2_table_svn_prefix_size, align 4
-  %996 = add nuw nsw i32 %.2, 2
-  %997 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %995, ptr noundef %0, i32 noundef %996, i32 noundef 1, i32 noundef 0) #3
-  %998 = add nuw nsw i32 %.2, 3
-  %999 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %998) #3
-  %1000 = zext i8 %999 to i32
-  %1001 = load i32, ptr @hf_dvb_s2_table_pt_count, align 4
-  %1002 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %1001, ptr noundef %0, i32 noundef %998, i32 noundef 1, i32 noundef 0) #3
-  %1003 = add nuw nsw i32 %.2, 1
+973:                                              ; preds = %151
+  %974 = load i32, ptr @hf_dvb_s2_table_svn_number, align 4
+  %975 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %974, ptr noundef %0, i32 noundef %.2, i32 noundef 2, i32 noundef 0) #3
+  %976 = load i32, ptr @hf_dvb_s2_table_svn_prefix_size, align 4
+  %977 = add nuw nsw i32 %.2, 2
+  %978 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %976, ptr noundef %0, i32 noundef %977, i32 noundef 1, i32 noundef 0) #3
+  %979 = add nuw nsw i32 %.2, 3
+  %980 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %979) #3
+  %981 = zext i8 %980 to i32
+  %982 = load i32, ptr @hf_dvb_s2_table_pt_count, align 4
+  %983 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %982, ptr noundef %0, i32 noundef %979, i32 noundef 1, i32 noundef 0) #3
+  %984 = add nuw nsw i32 %.2, 1
+  br label %985
+
+985:                                              ; preds = %1039, %973
+  %.0138.i = phi i32 [ 0, %973 ], [ %1041, %1039 ]
+  %.0120137.i = phi i32 [ 4, %973 ], [ %1036, %1039 ]
+  %986 = load i32, ptr @hf_dvb_s2_table_protocol, align 4
+  %987 = add i32 %.0120137.i, %.2
+  %988 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %986, ptr noundef %0, i32 noundef %987, i32 noundef -1, i32 noundef 0) #3
+  %989 = load i32, ptr @ett_dvb_s2_hdr_table_pt, align 4
+  %990 = tail call ptr @proto_item_add_subtree(ptr noundef %988, i32 noundef %989) #3
+  %991 = load i32, ptr @hf_dvb_s2_table_pt_protocol_type, align 4
+  %992 = tail call ptr @proto_tree_add_item(ptr noundef %990, i32 noundef %991, ptr noundef %0, i32 noundef %987, i32 noundef 2, i32 noundef 0) #3
+  %993 = add i32 %984, %.0120137.i
+  %994 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %993) #3
+  %995 = load i32, ptr @hf_dvb_s2_table_pt_address_size, align 4
+  %996 = tail call ptr @proto_tree_add_item(ptr noundef %990, i32 noundef %995, ptr noundef %0, i32 noundef %993, i32 noundef 1, i32 noundef 0) #3
+  %997 = add i32 %.0120137.i, %977
+  %998 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %997) #3
+  %999 = zext i8 %998 to i32
+  %1000 = load i32, ptr @hf_dvb_s2_table_pt_mapping_sections, align 4
+  %1001 = tail call ptr @proto_tree_add_item(ptr noundef %990, i32 noundef %1000, ptr noundef %0, i32 noundef %997, i32 noundef 1, i32 noundef 0) #3
+  %1002 = add i32 %.0120137.i, 3
+  %1003 = zext i8 %994 to i32
+  %invariant.op129.i = add i32 %.2, %1003
+  %invariant.op131.i = shl nuw nsw i32 %1003, 1
+  %invariant.op133.i = add i32 %invariant.op131.i, %.2
+  %invariant.op135.i = or disjoint i32 %invariant.op131.i, 1
   br label %1004
 
-1004:                                             ; preds = %1067, %992
-  %.0128.i = phi i32 [ 0, %992 ], [ %1069, %1067 ]
-  %.0120127.i = phi i32 [ 4, %992 ], [ %1064, %1067 ]
-  %1005 = load i32, ptr @hf_dvb_s2_table_protocol, align 4
-  %1006 = add i32 %.0120127.i, %.2
-  %1007 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %1005, ptr noundef %0, i32 noundef %1006, i32 noundef -1, i32 noundef 0) #3
-  %1008 = load i32, ptr @ett_dvb_s2_hdr_table_pt, align 4
+1004:                                             ; preds = %1029, %985
+  %.0118128.i = phi i32 [ 0, %985 ], [ %1038, %1029 ]
+  %.1127.i = phi i32 [ %1002, %985 ], [ %1036, %1029 ]
+  %1005 = load i32, ptr @hf_dvb_s2_table_pt_mapping_section, align 4
+  %1006 = add i32 %.1127.i, %.2
+  %1007 = tail call ptr @proto_tree_add_item(ptr noundef %990, i32 noundef %1005, ptr noundef %0, i32 noundef %1006, i32 noundef -1, i32 noundef 0) #3
+  %1008 = load i32, ptr @ett_dvb_s2_hdr_table_pt_ms, align 4
   %1009 = tail call ptr @proto_item_add_subtree(ptr noundef %1007, i32 noundef %1008) #3
-  %1010 = load i32, ptr @hf_dvb_s2_table_pt_protocol_type, align 4
-  %1011 = tail call ptr @proto_tree_add_item(ptr noundef %1009, i32 noundef %1010, ptr noundef %0, i32 noundef %1006, i32 noundef 2, i32 noundef 0) #3
-  %1012 = add i32 %1003, %.0120127.i
-  %1013 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1012) #3
-  %1014 = load i32, ptr @hf_dvb_s2_table_pt_address_size, align 4
-  %1015 = tail call ptr @proto_tree_add_item(ptr noundef %1009, i32 noundef %1014, ptr noundef %0, i32 noundef %1012, i32 noundef 1, i32 noundef 0) #3
-  %1016 = add i32 %.0120127.i, %996
-  %1017 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1016) #3
-  %1018 = zext i8 %1017 to i32
-  %1019 = load i32, ptr @hf_dvb_s2_table_pt_mapping_sections, align 4
-  %1020 = tail call ptr @proto_tree_add_item(ptr noundef %1009, i32 noundef %1019, ptr noundef %0, i32 noundef %1016, i32 noundef 1, i32 noundef 0) #3
-  %1021 = add i32 %.0120127.i, 3
-  %1022 = zext i8 %1013 to i32
-  %1023 = shl nuw nsw i32 %1022, 1
-  br label %1024
+  %1010 = load i32, ptr @hf_dvb_s2_table_pt_ms_inclusion_start, align 4
+  %1011 = tail call ptr @proto_tree_add_item(ptr noundef %1009, i32 noundef %1010, ptr noundef %0, i32 noundef %1006, i32 noundef %1003, i32 noundef 0) #3
+  %1012 = load i32, ptr @hf_dvb_s2_table_pt_ms_inclusion_end, align 4
+  %.reass130.i = add i32 %.1127.i, %invariant.op129.i
+  %1013 = tail call ptr @proto_tree_add_item(ptr noundef %1009, i32 noundef %1012, ptr noundef %0, i32 noundef %.reass130.i, i32 noundef %1003, i32 noundef 0) #3
+  %.reass134.i = add i32 %invariant.op133.i, %.1127.i
+  %1014 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.reass134.i) #3
+  %1015 = zext i8 %1014 to i32
+  %1016 = load i32, ptr @hf_dvb_s2_table_pt_ms_exclusions, align 4
+  %1017 = tail call ptr @proto_tree_add_item(ptr noundef %1009, i32 noundef %1016, ptr noundef %0, i32 noundef %.reass134.i, i32 noundef 1, i32 noundef 0) #3
+  %.reass136.i = add i32 %invariant.op135.i, %.1127.i
+  br label %1018
 
-1024:                                             ; preds = %1057, %1004
-  %.0118126.i = phi i32 [ 0, %1004 ], [ %1066, %1057 ]
-  %.1125.i = phi i32 [ %1021, %1004 ], [ %1064, %1057 ]
-  %1025 = load i32, ptr @hf_dvb_s2_table_pt_mapping_section, align 4
-  %1026 = add i32 %.1125.i, %.2
-  %1027 = tail call ptr @proto_tree_add_item(ptr noundef %1009, i32 noundef %1025, ptr noundef %0, i32 noundef %1026, i32 noundef -1, i32 noundef 0) #3
-  %1028 = load i32, ptr @ett_dvb_s2_hdr_table_pt_ms, align 4
-  %1029 = tail call ptr @proto_item_add_subtree(ptr noundef %1027, i32 noundef %1028) #3
-  %1030 = load i32, ptr @hf_dvb_s2_table_pt_ms_inclusion_start, align 4
-  %1031 = tail call ptr @proto_tree_add_item(ptr noundef %1029, i32 noundef %1030, ptr noundef %0, i32 noundef %1026, i32 noundef %1022, i32 noundef 0) #3
-  %1032 = add i32 %.1125.i, %1022
-  %1033 = load i32, ptr @hf_dvb_s2_table_pt_ms_inclusion_end, align 4
-  %1034 = add i32 %1032, %.2
-  %1035 = tail call ptr @proto_tree_add_item(ptr noundef %1029, i32 noundef %1033, ptr noundef %0, i32 noundef %1034, i32 noundef %1022, i32 noundef 0) #3
-  %1036 = add i32 %1032, %1022
-  %1037 = add i32 %1036, %.2
-  %1038 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1037) #3
-  %1039 = zext i8 %1038 to i32
-  %1040 = load i32, ptr @hf_dvb_s2_table_pt_ms_exclusions, align 4
-  %1041 = tail call ptr @proto_tree_add_item(ptr noundef %1029, i32 noundef %1040, ptr noundef %0, i32 noundef %1037, i32 noundef 1, i32 noundef 0) #3
-  %1042 = add i32 %1036, 1
-  br label %1043
+1018:                                             ; preds = %1018, %1004
+  %.0119126.i = phi i32 [ 0, %1004 ], [ %1028, %1018 ]
+  %.2125.i = phi i32 [ %.reass136.i, %1004 ], [ %.reass124.i, %1018 ]
+  %1019 = load i32, ptr @hf_dvb_s2_table_pt_ms_exclusion, align 4
+  %1020 = add i32 %.2125.i, %.2
+  %1021 = tail call ptr @proto_tree_add_item(ptr noundef %1009, i32 noundef %1019, ptr noundef %0, i32 noundef %1020, i32 noundef %invariant.op131.i, i32 noundef 0) #3
+  %1022 = load i32, ptr @ett_dvb_s2_hdr_table_pt_ms_exclusion, align 4
+  %1023 = tail call ptr @proto_item_add_subtree(ptr noundef %1021, i32 noundef %1022) #3
+  %1024 = load i32, ptr @hf_dvb_s2_table_pt_ms_exclusion_start, align 4
+  %1025 = tail call ptr @proto_tree_add_item(ptr noundef %1023, i32 noundef %1024, ptr noundef %0, i32 noundef %1020, i32 noundef %1003, i32 noundef 0) #3
+  %1026 = load i32, ptr @hf_dvb_s2_table_pt_ms_exclusion_end, align 4
+  %.reass.i354 = add i32 %.2125.i, %invariant.op129.i
+  %1027 = tail call ptr @proto_tree_add_item(ptr noundef %1023, i32 noundef %1026, ptr noundef %0, i32 noundef %.reass.i354, i32 noundef %1003, i32 noundef 0) #3
+  %.reass124.i = add i32 %.2125.i, %invariant.op131.i
+  %1028 = add nuw nsw i32 %.0119126.i, 1
+  %exitcond.not.i355 = icmp eq i32 %.0119126.i, %1015
+  br i1 %exitcond.not.i355, label %1029, label %1018, !llvm.loop !28
 
-1043:                                             ; preds = %1043, %1024
-  %.0119124.i = phi i32 [ 0, %1024 ], [ %1056, %1043 ]
-  %.2123.i = phi i32 [ %1042, %1024 ], [ %1055, %1043 ]
-  %1044 = load i32, ptr @hf_dvb_s2_table_pt_ms_exclusion, align 4
-  %1045 = add i32 %.2123.i, %.2
-  %1046 = tail call ptr @proto_tree_add_item(ptr noundef %1029, i32 noundef %1044, ptr noundef %0, i32 noundef %1045, i32 noundef %1023, i32 noundef 0) #3
-  %1047 = load i32, ptr @ett_dvb_s2_hdr_table_pt_ms_exclusion, align 4
-  %1048 = tail call ptr @proto_item_add_subtree(ptr noundef %1046, i32 noundef %1047) #3
-  %1049 = load i32, ptr @hf_dvb_s2_table_pt_ms_exclusion_start, align 4
-  %1050 = tail call ptr @proto_tree_add_item(ptr noundef %1048, i32 noundef %1049, ptr noundef %0, i32 noundef %1045, i32 noundef %1022, i32 noundef 0) #3
-  %1051 = add i32 %.2123.i, %1022
-  %1052 = load i32, ptr @hf_dvb_s2_table_pt_ms_exclusion_end, align 4
-  %1053 = add i32 %1051, %.2
-  %1054 = tail call ptr @proto_tree_add_item(ptr noundef %1048, i32 noundef %1052, ptr noundef %0, i32 noundef %1053, i32 noundef %1022, i32 noundef 0) #3
-  %1055 = add i32 %1051, %1022
-  %1056 = add nuw nsw i32 %.0119124.i, 1
-  %exitcond.not.i351 = icmp eq i32 %.0119124.i, %1039
-  br i1 %exitcond.not.i351, label %1057, label %1043, !llvm.loop !28
+1029:                                             ; preds = %1018
+  %1030 = load i32, ptr @hf_dvb_s2_table_pt_ms_mac24_base, align 4
+  %1031 = add i32 %.reass124.i, %.2
+  %1032 = tail call ptr @proto_tree_add_item(ptr noundef %1009, i32 noundef %1030, ptr noundef %0, i32 noundef %1031, i32 noundef 3, i32 noundef 0) #3
+  %1033 = load i32, ptr @hf_dvb_s2_table_pt_ms_mcast_prefix_size, align 4
+  %1034 = add i32 %.reass124.i, %979
+  %1035 = tail call ptr @proto_tree_add_item(ptr noundef %1009, i32 noundef %1033, ptr noundef %0, i32 noundef %1034, i32 noundef 1, i32 noundef 0) #3
+  %1036 = add i32 %.reass124.i, 4
+  %1037 = sub i32 %1036, %.1127.i
+  tail call void @proto_item_set_len(ptr noundef %1007, i32 noundef %1037) #3
+  %1038 = add nuw nsw i32 %.0118128.i, 1
+  %exitcond139.not.i = icmp eq i32 %.0118128.i, %999
+  br i1 %exitcond139.not.i, label %1039, label %1004, !llvm.loop !29
 
-1057:                                             ; preds = %1043
-  %1058 = load i32, ptr @hf_dvb_s2_table_pt_ms_mac24_base, align 4
-  %1059 = add i32 %1055, %.2
-  %1060 = tail call ptr @proto_tree_add_item(ptr noundef %1029, i32 noundef %1058, ptr noundef %0, i32 noundef %1059, i32 noundef 3, i32 noundef 0) #3
-  %1061 = load i32, ptr @hf_dvb_s2_table_pt_ms_mcast_prefix_size, align 4
-  %1062 = add i32 %1055, %998
-  %1063 = tail call ptr @proto_tree_add_item(ptr noundef %1029, i32 noundef %1061, ptr noundef %0, i32 noundef %1062, i32 noundef 1, i32 noundef 0) #3
-  %1064 = add i32 %1055, 4
-  %1065 = sub i32 %1064, %.1125.i
-  tail call void @proto_item_set_len(ptr noundef %1027, i32 noundef %1065) #3
-  %1066 = add nuw nsw i32 %.0118126.i, 1
-  %exitcond130.not.i = icmp eq i32 %.0118126.i, %1018
-  br i1 %exitcond130.not.i, label %1067, label %1024, !llvm.loop !29
+1039:                                             ; preds = %1029
+  %1040 = sub i32 %1036, %.0120137.i
+  tail call void @proto_item_set_len(ptr noundef %988, i32 noundef %1040) #3
+  %1041 = add nuw nsw i32 %.0138.i, 1
+  %exitcond140.not.i = icmp eq i32 %.0138.i, %981
+  br i1 %exitcond140.not.i, label %dissect_dvb_s2_table_sct.exitthread-pre-split, label %985, !llvm.loop !30
 
-1067:                                             ; preds = %1057
-  %1068 = sub i32 %1064, %.0120127.i
-  tail call void @proto_item_set_len(ptr noundef %1007, i32 noundef %1068) #3
-  %1069 = add nuw nsw i32 %.0128.i, 1
-  %exitcond131.not.i = icmp eq i32 %.0128.i, %1000
-  br i1 %exitcond131.not.i, label %dissect_dvb_s2_table_sct.exitthread-pre-split, label %1004, !llvm.loop !30
-
-dissect_dvb_s2_table_sct.exitthread-pre-split:    ; preds = %1067, %.loopexit.i, %642, %523, %342, %410, %407, %151, %152, %256, %257, %444, %252, %440, %510, %514, %563, %645, %921, %988
-  %.pr352 = load i32, ptr @dvb_s2_rcs_version, align 4
+dissect_dvb_s2_table_sct.exitthread-pre-split:    ; preds = %1039, %.loopexit.i, %640, %521, %342, %409, %406, %151, %152, %256, %257, %442, %252, %438, %508, %512, %561, %643, %904, %969
+  %.pr356 = load i32, ptr @dvb_s2_rcs_version, align 4
   br label %dissect_dvb_s2_table_sct.exit
 
-dissect_dvb_s2_table_sct.exit:                    ; preds = %dissect_dvb_s2_table_sct.exitthread-pre-split, %._crit_edge105.i, %918, %._crit_edge.i, %507, %437, %249, %567
-  %1070 = phi i32 [ %.pr352, %dissect_dvb_s2_table_sct.exitthread-pre-split ], [ %986, %._crit_edge105.i ], [ %919, %918 ], [ %561, %._crit_edge.i ], [ %508, %507 ], [ %438, %437 ], [ %250, %249 ], [ %568, %567 ]
-  switch i32 %1070, label %1079 [
-    i32 0, label %1071
-    i32 1, label %1075
+dissect_dvb_s2_table_sct.exit:                    ; preds = %dissect_dvb_s2_table_sct.exitthread-pre-split, %._crit_edge109.i, %901, %._crit_edge.i, %505, %435, %249, %565
+  %1042 = phi i32 [ %.pr356, %dissect_dvb_s2_table_sct.exitthread-pre-split ], [ %967, %._crit_edge109.i ], [ %902, %901 ], [ %559, %._crit_edge.i ], [ %506, %505 ], [ %436, %435 ], [ %250, %249 ], [ %566, %565 ]
+  switch i32 %1042, label %1051 [
+    i32 0, label %1043
+    i32 1, label %1047
   ]
 
-1071:                                             ; preds = %dissect_dvb_s2_table_sct.exit
-  %1072 = zext i16 %.0319 to i32
-  %1073 = add i32 %.2, -8
-  %1074 = add i32 %1073, %1072
-  br label %1079
+1043:                                             ; preds = %dissect_dvb_s2_table_sct.exit
+  %1044 = zext i16 %.0319 to i32
+  %1045 = add i32 %.2, -8
+  %1046 = add i32 %1045, %1044
+  br label %1051
 
-1075:                                             ; preds = %dissect_dvb_s2_table_sct.exit
-  %1076 = zext i16 %.0319 to i32
-  %1077 = add i32 %.2, -4
-  %1078 = add i32 %1077, %1076
-  br label %1079
+1047:                                             ; preds = %dissect_dvb_s2_table_sct.exit
+  %1048 = zext i16 %.0319 to i32
+  %1049 = add i32 %.2, -4
+  %1050 = add i32 %1049, %1048
+  br label %1051
 
-1079:                                             ; preds = %dissect_dvb_s2_table_sct.exit, %1075, %1071
-  %.3 = phi i32 [ %1074, %1071 ], [ %1078, %1075 ], [ %.2, %dissect_dvb_s2_table_sct.exit ]
+1051:                                             ; preds = %dissect_dvb_s2_table_sct.exit, %1047, %1043
+  %.3 = phi i32 [ %1046, %1043 ], [ %1050, %1047 ], [ %.2, %dissect_dvb_s2_table_sct.exit ]
   ret i32 %.3
 }
 
@@ -2974,1051 +2975,1052 @@ define internal fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 nounde
   %8 = alloca i32, align 4
   store i32 0, ptr %7, align 4
   store i32 0, ptr %8, align 4
-  %.not1158 = icmp slt i32 %3, 0
-  br i1 %.not1158, label %._crit_edge1164, label %.lr.ph1163
+  %invariant.op1181 = add i32 %1, 1
+  %invariant.op1183 = add i32 %1, 2
+  %invariant.op1189 = add i32 %1, 13
+  %invariant.op1191 = add i32 %1, 3
+  %invariant.op1193 = add i32 %1, 4
+  %invariant.op1211 = add i32 %1, 11
+  %invariant.op1215 = add i32 %1, 14
+  %invariant.op1219 = add i32 %1, 9
+  %invariant.op1223 = add i32 %1, 10
+  %invariant.op1239 = add i32 %1, 6
+  %.not1241 = icmp slt i32 %3, 0
+  br i1 %.not1241, label %._crit_edge1247, label %.lr.ph1246
 
-.lr.ph1163:                                       ; preds = %6
-  %9 = add i32 %1, 1
-  %10 = add i32 %1, 3
-  %11 = add i32 %1, 7
-  %12 = add i32 %1, 9
-  %13 = add i32 %1, 4
-  %14 = add i32 %1, 5
-  %15 = add i32 %1, 6
-  %16 = add i32 %1, 11
-  %17 = icmp eq i32 %4, 254
-  %18 = add i32 %1, 8
-  %19 = add i32 %1, 10
-  %20 = add i32 %1, 2
-  %21 = add i32 %1, 12
-  %22 = icmp eq i32 %4, 176
-  br label %23
+.lr.ph1246:                                       ; preds = %6
+  %9 = add i32 %1, 7
+  %10 = add i32 %1, 5
+  %11 = icmp eq i32 %4, 254
+  %12 = add i32 %1, 8
+  %13 = add i32 %1, 12
+  %14 = icmp eq i32 %4, 176
+  %invariant.op = add i32 %1, 14
+  %invariant.op1288 = add i32 %1, 17
+  br label %15
 
-23:                                               ; preds = %.lr.ph1163, %.loopexit1112
-  %.01161 = phi i32 [ 0, %.lr.ph1163 ], [ %746, %.loopexit1112 ]
-  %.010681160 = phi i32 [ 0, %.lr.ph1163 ], [ %.28, %.loopexit1112 ]
-  %.010821159 = phi i32 [ 0, %.lr.ph1163 ], [ %.21084, %.loopexit1112 ]
-  %24 = add i32 %.010681160, %1
-  %25 = add i32 %24, 1
-  %26 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %25) #3
-  %27 = load i32, ptr @hf_dvb_s2_table_descriptor, align 4
-  %28 = zext i8 %26 to i32
-  %29 = add nuw nsw i32 %28, 2
-  %30 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef %24, i32 noundef %29, i32 noundef 0) #3
-  %31 = load i32, ptr @ett_dvb_s2_hdr_table_desc, align 4
-  %32 = call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #3
-  %33 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %24) #3
-  %34 = load i32, ptr @hf_dvb_s2_table_desc_tag, align 4
-  %35 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %34, ptr noundef %0, i32 noundef %24, i32 noundef 1, i32 noundef 0) #3
-  %36 = load i32, ptr @hf_dvb_s2_table_desc_length, align 4
-  %37 = add i32 %9, %.010681160
-  %38 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %36, ptr noundef %0, i32 noundef %37, i32 noundef 1, i32 noundef 0) #3
-  %39 = add i32 %.010681160, 2
-  switch i8 %33, label %744 [
-    i8 -92, label %40
-    i8 -95, label %84
-    i8 -79, label %88
-    i8 -71, label %102
-    i8 -69, label %153
-    i8 64, label %289
-    i8 74, label %294
-    i8 -87, label %374
-    i8 -94, label %408
+15:                                               ; preds = %.lr.ph1246, %.loopexit1112
+  %.01244 = phi i32 [ 0, %.lr.ph1246 ], [ %693, %.loopexit1112 ]
+  %.010681243 = phi i32 [ 0, %.lr.ph1246 ], [ %.28, %.loopexit1112 ]
+  %.010821242 = phi i32 [ 0, %.lr.ph1246 ], [ %.21084, %.loopexit1112 ]
+  %16 = add i32 %.010681243, %1
+  %.reass1182 = add i32 %.010681243, %invariant.op1181
+  %17 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.reass1182) #3
+  %18 = load i32, ptr @hf_dvb_s2_table_descriptor, align 4
+  %19 = zext i8 %17 to i32
+  %20 = add nuw nsw i32 %19, 2
+  %21 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef %16, i32 noundef %20, i32 noundef 0) #3
+  %22 = load i32, ptr @ett_dvb_s2_hdr_table_desc, align 4
+  %23 = call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22) #3
+  %24 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %16) #3
+  %25 = load i32, ptr @hf_dvb_s2_table_desc_tag, align 4
+  %26 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %25, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef 0) #3
+  %27 = load i32, ptr @hf_dvb_s2_table_desc_length, align 4
+  %28 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %27, ptr noundef %0, i32 noundef %.reass1182, i32 noundef 1, i32 noundef 0) #3
+  %29 = add i32 %.010681243, 2
+  switch i8 %24, label %691 [
+    i8 -92, label %30
+    i8 -95, label %72
+    i8 -79, label %75
+    i8 -71, label %88
+    i8 -69, label %138
+    i8 64, label %268
+    i8 74, label %272
+    i8 -87, label %347
+    i8 -94, label %377
     i8 -83, label %.preheader
-    i8 -82, label %508
-    i8 -96, label %585
-    i8 -84, label %590
-    i8 -85, label %604
-    i8 -88, label %618
-    i8 -80, label %709
-    i8 -59, label %717
+    i8 -82, label %476
+    i8 -96, label %546
+    i8 -84, label %550
+    i8 -85, label %563
+    i8 -88, label %576
+    i8 -80, label %659
+    i8 -59, label %666
   ]
 
-.preheader:                                       ; preds = %23
-  %.not1167 = icmp eq i8 %26, 0
-  br i1 %.not1167, label %.loopexit1112, label %.lr.ph1133
+.preheader:                                       ; preds = %15
+  %.not1250 = icmp eq i8 %17, 0
+  br i1 %.not1250, label %.loopexit1112, label %.lr.ph1148
 
-.lr.ph1133:                                       ; preds = %.preheader
-  %.neg1098 = add i32 %39, %28
-  br label %485
+.lr.ph1148:                                       ; preds = %.preheader
+  %.neg1098 = add i32 %29, %19
+  br label %453
 
-40:                                               ; preds = %23
-  %41 = load i32, ptr @hf_dvb_s2_table_desc_sync_achieved_time_threshold, align 4
-  %42 = add i32 %39, %1
-  %43 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %41, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef 0) #3
-  %44 = load i32, ptr @hf_dvb_s2_table_desc_max_sync_tries, align 4
-  %45 = add i32 %10, %.010681160
-  %46 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %44, ptr noundef %0, i32 noundef %45, i32 noundef 1, i32 noundef 0) #3
-  %47 = load i32, ptr @hf_dvb_s2_table_desc_sync_achieved_freq_threshold, align 4
-  %48 = add i32 %13, %.010681160
-  %49 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %47, ptr noundef %0, i32 noundef %48, i32 noundef 2, i32 noundef 0) #3
-  %50 = add i32 %.010681160, 6
-  %51 = load i32, ptr @dvb_s2_rcs_version, align 4
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %67
+30:                                               ; preds = %15
+  %31 = load i32, ptr @hf_dvb_s2_table_desc_sync_achieved_time_threshold, align 4
+  %.reass1238 = add i32 %.010681243, %invariant.op1183
+  %32 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %31, ptr noundef %0, i32 noundef %.reass1238, i32 noundef 1, i32 noundef 0) #3
+  %33 = load i32, ptr @hf_dvb_s2_table_desc_max_sync_tries, align 4
+  %34 = add i32 %invariant.op1191, %.010681243
+  %35 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %33, ptr noundef %0, i32 noundef %34, i32 noundef 1, i32 noundef 0) #3
+  %36 = load i32, ptr @hf_dvb_s2_table_desc_sync_achieved_freq_threshold, align 4
+  %37 = add i32 %invariant.op1193, %.010681243
+  %38 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %36, ptr noundef %0, i32 noundef %37, i32 noundef 2, i32 noundef 0) #3
+  %39 = add i32 %.010681243, 6
+  %40 = load i32, ptr @dvb_s2_rcs_version, align 4
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %42, label %55
 
-53:                                               ; preds = %40
-  %54 = load i32, ptr @hf_dvb_s2_table_desc_sync_start_superframe, align 4
-  %55 = add i32 %50, %1
-  %56 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %54, ptr noundef %0, i32 noundef %55, i32 noundef 2, i32 noundef 0) #3
-  %57 = load i32, ptr @hf_dvb_s2_table_desc_sync_frame_nbr, align 4
-  %58 = add i32 %18, %.010681160
-  %59 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %57, ptr noundef %0, i32 noundef %58, i32 noundef 1, i32 noundef 0) #3
-  %60 = load i32, ptr @hf_dvb_s2_table_desc_sync_repeat_period, align 4
-  %61 = add i32 %12, %.010681160
-  %62 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %60, ptr noundef %0, i32 noundef %61, i32 noundef 2, i32 noundef 0) #3
-  %63 = load i32, ptr @hf_dvb_s2_table_desc_sync_slot_nbr, align 4
-  %64 = add i32 %16, %.010681160
-  %65 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %63, ptr noundef %0, i32 noundef %64, i32 noundef 2, i32 noundef 0) #3
-  %66 = add i32 %.010681160, 13
+42:                                               ; preds = %30
+  %43 = load i32, ptr @hf_dvb_s2_table_desc_sync_start_superframe, align 4
+  %.reass1240 = add i32 %.010681243, %invariant.op1239
+  %44 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %43, ptr noundef %0, i32 noundef %.reass1240, i32 noundef 2, i32 noundef 0) #3
+  %45 = load i32, ptr @hf_dvb_s2_table_desc_sync_frame_nbr, align 4
+  %46 = add i32 %12, %.010681243
+  %47 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %45, ptr noundef %0, i32 noundef %46, i32 noundef 1, i32 noundef 0) #3
+  %48 = load i32, ptr @hf_dvb_s2_table_desc_sync_repeat_period, align 4
+  %49 = add i32 %invariant.op1219, %.010681243
+  %50 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %48, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0) #3
+  %51 = load i32, ptr @hf_dvb_s2_table_desc_sync_slot_nbr, align 4
+  %52 = add i32 %invariant.op1211, %.010681243
+  %53 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %51, ptr noundef %0, i32 noundef %52, i32 noundef 2, i32 noundef 0) #3
+  %54 = add i32 %.010681243, 13
   %.pr = load i32, ptr @dvb_s2_rcs_version, align 4
-  br label %67
+  br label %55
 
-67:                                               ; preds = %53, %40
-  %68 = phi i32 [ %.pr, %53 ], [ %51, %40 ]
-  %.11069 = phi i32 [ %66, %53 ], [ %50, %40 ]
-  %69 = icmp eq i32 %68, 1
-  br i1 %69, label %70, label %.loopexit1112
+55:                                               ; preds = %42, %30
+  %56 = phi i32 [ %.pr, %42 ], [ %40, %30 ]
+  %.11069 = phi i32 [ %54, %42 ], [ %39, %30 ]
+  %57 = icmp eq i32 %56, 1
+  br i1 %57, label %58, label %.loopexit1112
 
-70:                                               ; preds = %67
-  %71 = load i32, ptr @hf_dvb_s2_table_desc_ctrl_start_superframe_count, align 4
-  %72 = add i32 %.11069, %1
-  %73 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %71, ptr noundef %0, i32 noundef %72, i32 noundef 2, i32 noundef 0) #3
-  %74 = load i32, ptr @hf_dvb_s2_table_desc_ctrl_frame_nbr, align 4
-  %75 = add i32 %20, %.11069
-  %76 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %74, ptr noundef %0, i32 noundef %75, i32 noundef 1, i32 noundef 0) #3
-  %77 = load i32, ptr @hf_dvb_s2_table_desc_ctrl_repeat_period, align 4
-  %78 = add i32 %10, %.11069
-  %79 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %77, ptr noundef %0, i32 noundef %78, i32 noundef 2, i32 noundef 0) #3
-  %80 = load i32, ptr @hf_dvb_s2_table_desc_ctrl_timeslot_nbr, align 4
-  %81 = add i32 %14, %.11069
-  %82 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %80, ptr noundef %0, i32 noundef %81, i32 noundef 2, i32 noundef 0) #3
-  %83 = add i32 %.11069, 7
+58:                                               ; preds = %55
+  %59 = load i32, ptr @hf_dvb_s2_table_desc_ctrl_start_superframe_count, align 4
+  %60 = add i32 %.11069, %1
+  %61 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %59, ptr noundef %0, i32 noundef %60, i32 noundef 2, i32 noundef 0) #3
+  %62 = load i32, ptr @hf_dvb_s2_table_desc_ctrl_frame_nbr, align 4
+  %63 = add i32 %invariant.op1183, %.11069
+  %64 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %62, ptr noundef %0, i32 noundef %63, i32 noundef 1, i32 noundef 0) #3
+  %65 = load i32, ptr @hf_dvb_s2_table_desc_ctrl_repeat_period, align 4
+  %66 = add i32 %invariant.op1191, %.11069
+  %67 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %65, ptr noundef %0, i32 noundef %66, i32 noundef 2, i32 noundef 0) #3
+  %68 = load i32, ptr @hf_dvb_s2_table_desc_ctrl_timeslot_nbr, align 4
+  %69 = add i32 %10, %.11069
+  %70 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %68, ptr noundef %0, i32 noundef %69, i32 noundef 2, i32 noundef 0) #3
+  %71 = add i32 %.11069, 7
   br label %.loopexit1112
 
-84:                                               ; preds = %23
-  %85 = add i32 %39, %1
-  %86 = call fastcc i32 @dissect_dvb_s2_table_correct_msg(ptr noundef %0, i32 noundef %85, ptr noundef %32)
-  %87 = add i32 %86, %39
+72:                                               ; preds = %15
+  %.reass1236 = add i32 %.010681243, %invariant.op1183
+  %73 = call fastcc i32 @dissect_dvb_s2_table_correct_msg(ptr noundef %0, i32 noundef %.reass1236, ptr noundef %23)
+  %74 = add i32 %73, %29
   br label %.loopexit1112
 
-88:                                               ; preds = %23
-  %89 = load i32, ptr @hf_dvb_s2_table_desc_sf_sequence, align 4
-  %90 = add i32 %39, %1
-  %91 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %89, ptr noundef %0, i32 noundef %90, i32 noundef 1, i32 noundef 0) #3
-  %92 = load i32, ptr @hf_dvb_s2_table_sf_count, align 4
-  %93 = add i32 %10, %.010681160
-  %94 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %92, ptr noundef %0, i32 noundef %93, i32 noundef 2, i32 noundef 0) #3
-  %95 = load i32, ptr @hf_dvb_s2_table_desc_frame_number, align 4
-  %96 = add i32 %14, %.010681160
-  %97 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %95, ptr noundef %0, i32 noundef %96, i32 noundef 1, i32 noundef 0) #3
-  %98 = load i32, ptr @hf_dvb_s2_table_desc_slot_nbr, align 4
-  %99 = add i32 %15, %.010681160
-  %100 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %98, ptr noundef %0, i32 noundef %99, i32 noundef 2, i32 noundef 0) #3
-  %101 = add i32 %.010681160, 8
+75:                                               ; preds = %15
+  %76 = load i32, ptr @hf_dvb_s2_table_desc_sf_sequence, align 4
+  %.reass1234 = add i32 %.010681243, %invariant.op1183
+  %77 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %76, ptr noundef %0, i32 noundef %.reass1234, i32 noundef 1, i32 noundef 0) #3
+  %78 = load i32, ptr @hf_dvb_s2_table_sf_count, align 4
+  %79 = add i32 %invariant.op1191, %.010681243
+  %80 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %78, ptr noundef %0, i32 noundef %79, i32 noundef 2, i32 noundef 0) #3
+  %81 = load i32, ptr @hf_dvb_s2_table_desc_frame_number, align 4
+  %82 = add i32 %10, %.010681243
+  %83 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %81, ptr noundef %0, i32 noundef %82, i32 noundef 1, i32 noundef 0) #3
+  %84 = load i32, ptr @hf_dvb_s2_table_desc_slot_nbr, align 4
+  %85 = add i32 %invariant.op1239, %.010681243
+  %86 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %84, ptr noundef %0, i32 noundef %85, i32 noundef 2, i32 noundef 0) #3
+  %87 = add i32 %.010681243, 8
   br label %.loopexit1112
 
-102:                                              ; preds = %23
-  %103 = load i32, ptr @hf_dvb_s2_table_desc_keep_id_after_logoff, align 4
-  %104 = add i32 %39, %1
-  %105 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %103, ptr noundef %0, i32 noundef %104, i32 noundef 1, i32 noundef 0) #3
-  %106 = load i32, ptr @hf_dvb_s2_table_desc_power_ctrl_mode, align 4
-  %107 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %106, ptr noundef %0, i32 noundef %104, i32 noundef 1, i32 noundef 0) #3
-  %108 = load i32, ptr @hf_dvb_s2_table_desc_rcst_access_status, align 4
-  %109 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %108, ptr noundef %0, i32 noundef %104, i32 noundef 1, i32 noundef 0) #3
-  %110 = load i32, ptr @hf_dvb_s2_table_group_id, align 4
-  %111 = add i32 %10, %.010681160
-  %112 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %110, ptr noundef %0, i32 noundef %111, i32 noundef 1, i32 noundef 0) #3
-  %113 = load i32, ptr @hf_dvb_s2_table_desc_logon_id, align 4
-  %114 = add i32 %13, %.010681160
-  %115 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %113, ptr noundef %0, i32 noundef %114, i32 noundef 2, i32 noundef 0) #3
-  %116 = load i32, ptr @hf_dvb_s2_table_desc_lowest_assign_id, align 4
-  %117 = add i32 %15, %.010681160
-  %118 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %116, ptr noundef %0, i32 noundef %117, i32 noundef 3, i32 noundef 0) #3
-  %119 = add i32 %12, %.010681160
-  %120 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %119) #3
-  %121 = and i8 %120, 15
-  %122 = load i32, ptr @hf_dvb_s2_table_desc_assign_id_count, align 4
-  %123 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %122, ptr noundef %0, i32 noundef %119, i32 noundef 1, i32 noundef 0) #3
-  %124 = load i32, ptr @hf_dvb_s2_table_desc_unicast_mac24_count, align 4
-  %125 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %124, ptr noundef %0, i32 noundef %119, i32 noundef 1, i32 noundef 0) #3
-  %126 = add i32 %.010681160, 10
-  %.not1171 = icmp eq i8 %121, 0
-  br i1 %.not1171, label %._crit_edge1156, label %.lr.ph1155
+88:                                               ; preds = %15
+  %89 = load i32, ptr @hf_dvb_s2_table_desc_keep_id_after_logoff, align 4
+  %.reass1232 = add i32 %.010681243, %invariant.op1183
+  %90 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %89, ptr noundef %0, i32 noundef %.reass1232, i32 noundef 1, i32 noundef 0) #3
+  %91 = load i32, ptr @hf_dvb_s2_table_desc_power_ctrl_mode, align 4
+  %92 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %91, ptr noundef %0, i32 noundef %.reass1232, i32 noundef 1, i32 noundef 0) #3
+  %93 = load i32, ptr @hf_dvb_s2_table_desc_rcst_access_status, align 4
+  %94 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %93, ptr noundef %0, i32 noundef %.reass1232, i32 noundef 1, i32 noundef 0) #3
+  %95 = load i32, ptr @hf_dvb_s2_table_group_id, align 4
+  %96 = add i32 %invariant.op1191, %.010681243
+  %97 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %95, ptr noundef %0, i32 noundef %96, i32 noundef 1, i32 noundef 0) #3
+  %98 = load i32, ptr @hf_dvb_s2_table_desc_logon_id, align 4
+  %99 = add i32 %invariant.op1193, %.010681243
+  %100 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %98, ptr noundef %0, i32 noundef %99, i32 noundef 2, i32 noundef 0) #3
+  %101 = load i32, ptr @hf_dvb_s2_table_desc_lowest_assign_id, align 4
+  %102 = add i32 %invariant.op1239, %.010681243
+  %103 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %101, ptr noundef %0, i32 noundef %102, i32 noundef 3, i32 noundef 0) #3
+  %104 = add i32 %invariant.op1219, %.010681243
+  %105 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %104) #3
+  %106 = and i8 %105, 15
+  %107 = load i32, ptr @hf_dvb_s2_table_desc_assign_id_count, align 4
+  %108 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %107, ptr noundef %0, i32 noundef %104, i32 noundef 1, i32 noundef 0) #3
+  %109 = load i32, ptr @hf_dvb_s2_table_desc_unicast_mac24_count, align 4
+  %110 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %109, ptr noundef %0, i32 noundef %104, i32 noundef 1, i32 noundef 0) #3
+  %111 = add i32 %.010681243, 10
+  %.not1254 = icmp eq i8 %106, 0
+  br i1 %.not1254, label %._crit_edge1179, label %.lr.ph1178
 
-.lr.ph1155:                                       ; preds = %102, %.lr.ph1155
-  %.21153 = phi i32 [ %144, %.lr.ph1155 ], [ %126, %102 ]
-  %.010741152 = phi i8 [ %145, %.lr.ph1155 ], [ 0, %102 ]
-  %127 = load i32, ptr @hf_dvb_s2_table_mac24, align 4
-  %128 = add i32 %.21153, %1
-  %129 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %127, ptr noundef %0, i32 noundef %128, i32 noundef 5, i32 noundef 0) #3
-  %130 = load i32, ptr @ett_dvb_s2_hdr_table_desc, align 4
-  %131 = call ptr @proto_item_add_subtree(ptr noundef %129, i32 noundef %130) #3
-  %132 = load i32, ptr @hf_dvb_s2_table_mac24_prefix_size, align 4
-  %133 = call ptr @proto_tree_add_item(ptr noundef %131, i32 noundef %132, ptr noundef %0, i32 noundef %128, i32 noundef 1, i32 noundef 0) #3
-  %134 = load i32, ptr @hf_dvb_s2_table_mac24_unicast, align 4
-  %135 = add i32 %9, %.21153
-  %136 = call ptr @proto_tree_add_item(ptr noundef %131, i32 noundef %134, ptr noundef %0, i32 noundef %135, i32 noundef 3, i32 noundef 0) #3
-  %137 = load i32, ptr @hf_dvb_s2_table_mac24_mcast_mapping_method, align 4
-  %138 = add i32 %13, %.21153
-  %139 = call ptr @proto_tree_add_item(ptr noundef %131, i32 noundef %137, ptr noundef %0, i32 noundef %138, i32 noundef 1, i32 noundef 0) #3
-  %140 = load i32, ptr @hf_dvb_s2_table_mac24_mcast_ip_version_ind_pres, align 4
-  %141 = call ptr @proto_tree_add_item(ptr noundef %131, i32 noundef %140, ptr noundef %0, i32 noundef %138, i32 noundef 1, i32 noundef 0) #3
-  %142 = load i32, ptr @hf_dvb_s2_table_mac24_mcast_synthesis_field_size, align 4
-  %143 = call ptr @proto_tree_add_item(ptr noundef %131, i32 noundef %142, ptr noundef %0, i32 noundef %138, i32 noundef 1, i32 noundef 0) #3
-  %144 = add i32 %.21153, 5
-  %145 = add nuw nsw i8 %.010741152, 1
-  %exitcond1189.not = icmp eq i8 %145, %121
-  br i1 %exitcond1189.not, label %._crit_edge1156, label %.lr.ph1155, !llvm.loop !31
+.lr.ph1178:                                       ; preds = %88, %.lr.ph1178
+  %.21176 = phi i32 [ %129, %.lr.ph1178 ], [ %111, %88 ]
+  %.010741175 = phi i8 [ %130, %.lr.ph1178 ], [ 0, %88 ]
+  %112 = load i32, ptr @hf_dvb_s2_table_mac24, align 4
+  %113 = add i32 %.21176, %1
+  %114 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %112, ptr noundef %0, i32 noundef %113, i32 noundef 5, i32 noundef 0) #3
+  %115 = load i32, ptr @ett_dvb_s2_hdr_table_desc, align 4
+  %116 = call ptr @proto_item_add_subtree(ptr noundef %114, i32 noundef %115) #3
+  %117 = load i32, ptr @hf_dvb_s2_table_mac24_prefix_size, align 4
+  %118 = call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %117, ptr noundef %0, i32 noundef %113, i32 noundef 1, i32 noundef 0) #3
+  %119 = load i32, ptr @hf_dvb_s2_table_mac24_unicast, align 4
+  %120 = add i32 %invariant.op1181, %.21176
+  %121 = call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %119, ptr noundef %0, i32 noundef %120, i32 noundef 3, i32 noundef 0) #3
+  %122 = load i32, ptr @hf_dvb_s2_table_mac24_mcast_mapping_method, align 4
+  %123 = add i32 %invariant.op1193, %.21176
+  %124 = call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %122, ptr noundef %0, i32 noundef %123, i32 noundef 1, i32 noundef 0) #3
+  %125 = load i32, ptr @hf_dvb_s2_table_mac24_mcast_ip_version_ind_pres, align 4
+  %126 = call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %125, ptr noundef %0, i32 noundef %123, i32 noundef 1, i32 noundef 0) #3
+  %127 = load i32, ptr @hf_dvb_s2_table_mac24_mcast_synthesis_field_size, align 4
+  %128 = call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %127, ptr noundef %0, i32 noundef %123, i32 noundef 1, i32 noundef 0) #3
+  %129 = add i32 %.21176, 5
+  %130 = add nuw nsw i8 %.010741175, 1
+  %exitcond1272.not = icmp eq i8 %130, %106
+  br i1 %exitcond1272.not, label %._crit_edge1179, label %.lr.ph1178, !llvm.loop !31
 
-._crit_edge1156:                                  ; preds = %.lr.ph1155, %102
-  %.2.lcssa = phi i32 [ %126, %102 ], [ %144, %.lr.ph1155 ]
-  %146 = load i32, ptr @hf_dvb_s2_table_desc_default_svn_number, align 4
-  %147 = add i32 %.2.lcssa, %1
-  %148 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %146, ptr noundef %0, i32 noundef %147, i32 noundef 2, i32 noundef 0) #3
-  %149 = load i32, ptr @hf_dvb_s2_table_desc_reserved, align 4
-  %150 = add i32 %20, %.2.lcssa
-  %151 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %149, ptr noundef %0, i32 noundef %150, i32 noundef 1, i32 noundef 0) #3
-  %152 = add i32 %.2.lcssa, 3
+._crit_edge1179:                                  ; preds = %.lr.ph1178, %88
+  %.2.lcssa = phi i32 [ %111, %88 ], [ %129, %.lr.ph1178 ]
+  %131 = load i32, ptr @hf_dvb_s2_table_desc_default_svn_number, align 4
+  %132 = add i32 %.2.lcssa, %1
+  %133 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %131, ptr noundef %0, i32 noundef %132, i32 noundef 2, i32 noundef 0) #3
+  %134 = load i32, ptr @hf_dvb_s2_table_desc_reserved, align 4
+  %135 = add i32 %invariant.op1183, %.2.lcssa
+  %136 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %134, ptr noundef %0, i32 noundef %135, i32 noundef 1, i32 noundef 0) #3
+  %137 = add i32 %.2.lcssa, 3
   br label %.loopexit1112
 
-153:                                              ; preds = %23
-  %154 = load i32, ptr @hf_dvb_s2_table_desc_default_ctrl_random_interval, align 4
-  %155 = add i32 %39, %1
-  %156 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %154, ptr noundef %0, i32 noundef %155, i32 noundef 1, i32 noundef 0) #3
-  %157 = load i32, ptr @hf_dvb_s2_table_desc_dynamic_rate_persistence, align 4
-  %158 = add i32 %10, %.010681160
-  %159 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %157, ptr noundef %0, i32 noundef %158, i32 noundef 1, i32 noundef 0) #3
-  %160 = load i32, ptr @hf_dvb_s2_table_desc_volume_backlog_persistence, align 4
-  %161 = add i32 %13, %.010681160
-  %162 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %160, ptr noundef %0, i32 noundef %161, i32 noundef 1, i32 noundef 0) #3
-  %163 = add i32 %14, %.010681160
-  %164 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %163) #3
-  %165 = and i8 %164, 15
-  %166 = load i32, ptr @hf_dvb_s2_table_desc_lls_count, align 4
-  %167 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %166, ptr noundef %0, i32 noundef %163, i32 noundef 1, i32 noundef 0) #3
-  %168 = add i32 %.010681160, 6
-  %.not1168 = icmp eq i8 %165, 0
-  br i1 %.not1168, label %._crit_edge, label %.lr.ph1139
+138:                                              ; preds = %15
+  %139 = load i32, ptr @hf_dvb_s2_table_desc_default_ctrl_random_interval, align 4
+  %.reass1230 = add i32 %.010681243, %invariant.op1183
+  %140 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %139, ptr noundef %0, i32 noundef %.reass1230, i32 noundef 1, i32 noundef 0) #3
+  %141 = load i32, ptr @hf_dvb_s2_table_desc_dynamic_rate_persistence, align 4
+  %142 = add i32 %invariant.op1191, %.010681243
+  %143 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %141, ptr noundef %0, i32 noundef %142, i32 noundef 1, i32 noundef 0) #3
+  %144 = load i32, ptr @hf_dvb_s2_table_desc_volume_backlog_persistence, align 4
+  %145 = add i32 %invariant.op1193, %.010681243
+  %146 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %144, ptr noundef %0, i32 noundef %145, i32 noundef 1, i32 noundef 0) #3
+  %147 = add i32 %10, %.010681243
+  %148 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %147) #3
+  %149 = and i8 %148, 15
+  %150 = load i32, ptr @hf_dvb_s2_table_desc_lls_count, align 4
+  %151 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %150, ptr noundef %0, i32 noundef %147, i32 noundef 1, i32 noundef 0) #3
+  %152 = add i32 %.010681243, 6
+  %.not1251 = icmp eq i8 %149, 0
+  br i1 %.not1251, label %._crit_edge, label %.lr.ph1156
 
-.lr.ph1139:                                       ; preds = %153, %208
-  %.31138 = phi i32 [ %.5, %208 ], [ %168, %153 ]
-  %.010731137 = phi i8 [ %209, %208 ], [ 0, %153 ]
-  %169 = add i32 %.31138, %1
-  %170 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %169) #3
-  %171 = and i8 %170, 1
-  %172 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %169) #3
-  %173 = and i8 %172, 2
-  %.not1103 = icmp eq i8 %171, 0
+.lr.ph1156:                                       ; preds = %138, %191
+  %.31155 = phi i32 [ %.5, %191 ], [ %152, %138 ]
+  %.010731154 = phi i8 [ %192, %191 ], [ 0, %138 ]
+  %153 = add i32 %.31155, %1
+  %154 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %153) #3
+  %155 = and i8 %154, 1
+  %156 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %153) #3
+  %157 = and i8 %156, 2
+  %.not1103 = icmp eq i8 %155, 0
   %spec.select = select i1 %.not1103, i32 1, i32 6
-  %.not1104 = icmp eq i8 %173, 0
-  %174 = zext nneg i8 %173 to i32
-  %.1 = add nuw nsw i32 %spec.select, %174
-  %175 = load i32, ptr @hf_dvb_s2_table_lls, align 4
-  %176 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %175, ptr noundef %0, i32 noundef %169, i32 noundef %.1, i32 noundef 0) #3
-  %177 = load i32, ptr @ett_dvb_s2_hdr_table_desc, align 4
-  %178 = call ptr @proto_item_add_subtree(ptr noundef %176, i32 noundef %177) #3
-  %179 = load i32, ptr @hf_dvb_s2_table_lls_index, align 4
-  %180 = call ptr @proto_tree_add_item(ptr noundef %178, i32 noundef %179, ptr noundef %0, i32 noundef %169, i32 noundef 1, i32 noundef 0) #3
-  %181 = load i32, ptr @hf_dvb_s2_table_lls_random_access, align 4
-  %182 = call ptr @proto_tree_add_item(ptr noundef %178, i32 noundef %181, ptr noundef %0, i32 noundef %169, i32 noundef 1, i32 noundef 0) #3
-  %183 = load i32, ptr @hf_dvb_s2_table_lls_dedicated_access, align 4
-  %184 = call ptr @proto_tree_add_item(ptr noundef %178, i32 noundef %183, ptr noundef %0, i32 noundef %169, i32 noundef 1, i32 noundef 0) #3
-  %185 = add i32 %.31138, 1
-  br i1 %.not1103, label %199, label %186
+  %.not1104 = icmp eq i8 %157, 0
+  %158 = zext nneg i8 %157 to i32
+  %.1 = add nuw nsw i32 %spec.select, %158
+  %159 = load i32, ptr @hf_dvb_s2_table_lls, align 4
+  %160 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %159, ptr noundef %0, i32 noundef %153, i32 noundef %.1, i32 noundef 0) #3
+  %161 = load i32, ptr @ett_dvb_s2_hdr_table_desc, align 4
+  %162 = call ptr @proto_item_add_subtree(ptr noundef %160, i32 noundef %161) #3
+  %163 = load i32, ptr @hf_dvb_s2_table_lls_index, align 4
+  %164 = call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %163, ptr noundef %0, i32 noundef %153, i32 noundef 1, i32 noundef 0) #3
+  %165 = load i32, ptr @hf_dvb_s2_table_lls_random_access, align 4
+  %166 = call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %165, ptr noundef %0, i32 noundef %153, i32 noundef 1, i32 noundef 0) #3
+  %167 = load i32, ptr @hf_dvb_s2_table_lls_dedicated_access, align 4
+  %168 = call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %167, ptr noundef %0, i32 noundef %153, i32 noundef 1, i32 noundef 0) #3
+  %169 = add i32 %.31155, 1
+  br i1 %.not1103, label %182, label %170
 
-186:                                              ; preds = %.lr.ph1139
-  %187 = load i32, ptr @hf_dvb_s2_table_lls_nominal_rc_index, align 4
-  %188 = add i32 %185, %1
-  %189 = call ptr @proto_tree_add_item(ptr noundef %178, i32 noundef %187, ptr noundef %0, i32 noundef %188, i32 noundef 1, i32 noundef 0) #3
-  %190 = load i32, ptr @hf_dvb_s2_table_lls_nominal_da_ac_index, align 4
-  %191 = call ptr @proto_tree_add_item(ptr noundef %178, i32 noundef %190, ptr noundef %0, i32 noundef %188, i32 noundef 1, i32 noundef 0) #3
-  %192 = load i32, ptr @hf_dvb_s2_table_lls_conditional_demand_rc_map, align 4
-  %193 = add i32 %20, %.31138
-  %194 = call ptr @proto_tree_add_item(ptr noundef %178, i32 noundef %192, ptr noundef %0, i32 noundef %193, i32 noundef 2, i32 noundef 0) #3
-  %195 = load i32, ptr @hf_dvb_s2_table_lls_conditional_scheduler_da_ac_map, align 4
-  %196 = add i32 %13, %.31138
-  %197 = call ptr @proto_tree_add_item(ptr noundef %178, i32 noundef %195, ptr noundef %0, i32 noundef %196, i32 noundef 2, i32 noundef 0) #3
-  %198 = add i32 %.31138, 6
-  br label %199
+170:                                              ; preds = %.lr.ph1156
+  %171 = load i32, ptr @hf_dvb_s2_table_lls_nominal_rc_index, align 4
+  %.reass1153 = add i32 %.31155, %invariant.op1181
+  %172 = call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %171, ptr noundef %0, i32 noundef %.reass1153, i32 noundef 1, i32 noundef 0) #3
+  %173 = load i32, ptr @hf_dvb_s2_table_lls_nominal_da_ac_index, align 4
+  %174 = call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %173, ptr noundef %0, i32 noundef %.reass1153, i32 noundef 1, i32 noundef 0) #3
+  %175 = load i32, ptr @hf_dvb_s2_table_lls_conditional_demand_rc_map, align 4
+  %176 = add i32 %invariant.op1183, %.31155
+  %177 = call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %175, ptr noundef %0, i32 noundef %176, i32 noundef 2, i32 noundef 0) #3
+  %178 = load i32, ptr @hf_dvb_s2_table_lls_conditional_scheduler_da_ac_map, align 4
+  %179 = add i32 %invariant.op1193, %.31155
+  %180 = call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %178, ptr noundef %0, i32 noundef %179, i32 noundef 2, i32 noundef 0) #3
+  %181 = add i32 %.31155, 6
+  br label %182
 
-199:                                              ; preds = %186, %.lr.ph1139
-  %.4 = phi i32 [ %198, %186 ], [ %185, %.lr.ph1139 ]
-  br i1 %.not1104, label %208, label %200
+182:                                              ; preds = %170, %.lr.ph1156
+  %.4 = phi i32 [ %181, %170 ], [ %169, %.lr.ph1156 ]
+  br i1 %.not1104, label %191, label %183
 
-200:                                              ; preds = %199
-  %201 = load i32, ptr @hf_dvb_s2_table_lls_nominal_ra_ac_index, align 4
-  %202 = add i32 %.4, %1
-  %203 = call ptr @proto_tree_add_item(ptr noundef %178, i32 noundef %201, ptr noundef %0, i32 noundef %202, i32 noundef 1, i32 noundef 0) #3
-  %204 = load i32, ptr @hf_dvb_s2_table_lls_conditional_scheduler_ra_ac_map, align 4
-  %205 = add i32 %9, %.4
-  %206 = call ptr @proto_tree_add_item(ptr noundef %178, i32 noundef %204, ptr noundef %0, i32 noundef %205, i32 noundef 1, i32 noundef 0) #3
-  %207 = add i32 %.4, 2
-  br label %208
+183:                                              ; preds = %182
+  %184 = load i32, ptr @hf_dvb_s2_table_lls_nominal_ra_ac_index, align 4
+  %185 = add i32 %.4, %1
+  %186 = call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %184, ptr noundef %0, i32 noundef %185, i32 noundef 1, i32 noundef 0) #3
+  %187 = load i32, ptr @hf_dvb_s2_table_lls_conditional_scheduler_ra_ac_map, align 4
+  %188 = add i32 %invariant.op1181, %.4
+  %189 = call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %187, ptr noundef %0, i32 noundef %188, i32 noundef 1, i32 noundef 0) #3
+  %190 = add i32 %.4, 2
+  br label %191
 
-208:                                              ; preds = %199, %200
-  %.5 = phi i32 [ %207, %200 ], [ %.4, %199 ]
-  %209 = add nuw nsw i8 %.010731137, 1
-  %exitcond1186.not = icmp eq i8 %209, %165
-  br i1 %exitcond1186.not, label %._crit_edge, label %.lr.ph1139, !llvm.loop !32
+191:                                              ; preds = %182, %183
+  %.5 = phi i32 [ %190, %183 ], [ %.4, %182 ]
+  %192 = add nuw nsw i8 %.010731154, 1
+  %exitcond1269.not = icmp eq i8 %192, %149
+  br i1 %exitcond1269.not, label %._crit_edge, label %.lr.ph1156, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %208, %153
-  %.3.lcssa = phi i32 [ %168, %153 ], [ %.5, %208 ]
-  %210 = add i32 %.3.lcssa, %1
-  %211 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %210) #3
-  %212 = and i8 %211, 15
-  %213 = load i32, ptr @hf_dvb_s2_table_desc_rc_count, align 4
-  %214 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %213, ptr noundef %0, i32 noundef %210, i32 noundef 1, i32 noundef 0) #3
-  %215 = add i32 %.3.lcssa, 1
-  %.not1169 = icmp eq i8 %212, 0
-  br i1 %.not1169, label %._crit_edge1145, label %.lr.ph1144
+._crit_edge:                                      ; preds = %191, %138
+  %.3.lcssa = phi i32 [ %152, %138 ], [ %.5, %191 ]
+  %193 = add i32 %.3.lcssa, %1
+  %194 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %193) #3
+  %195 = and i8 %194, 15
+  %196 = load i32, ptr @hf_dvb_s2_table_desc_rc_count, align 4
+  %197 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %196, ptr noundef %0, i32 noundef %193, i32 noundef 1, i32 noundef 0) #3
+  %198 = add i32 %.3.lcssa, 1
+  %.not1252 = icmp eq i8 %195, 0
+  br i1 %.not1252, label %._crit_edge1164, label %.lr.ph1163
 
-.lr.ph1144:                                       ; preds = %._crit_edge, %252
-  %.61142 = phi i32 [ %.8, %252 ], [ %215, %._crit_edge ]
-  %.010721141 = phi i8 [ %253, %252 ], [ 0, %._crit_edge ]
-  %216 = add i32 %.61142, %1
-  %217 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %216) #3
-  %218 = and i8 %217, 4
-  %219 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %216) #3
-  %220 = and i8 %219, 2
-  %.not1101 = icmp eq i8 %218, 0
+.lr.ph1163:                                       ; preds = %._crit_edge, %234
+  %.61161 = phi i32 [ %.8, %234 ], [ %198, %._crit_edge ]
+  %.010721160 = phi i8 [ %235, %234 ], [ 0, %._crit_edge ]
+  %199 = add i32 %.61161, %1
+  %200 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %199) #3
+  %201 = and i8 %200, 4
+  %202 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %199) #3
+  %203 = and i8 %202, 2
+  %.not1101 = icmp eq i8 %201, 0
   %spec.select1105 = select i1 %.not1101, i32 5, i32 7
-  %.not1102.not = icmp eq i8 %220, 0
-  %.lobit = lshr exact i8 %220, 1
-  %221 = zext nneg i8 %.lobit to i32
-  %.11067 = add nuw nsw i32 %spec.select1105, %221
-  %222 = load i32, ptr @hf_dvb_s2_table_rc, align 4
-  %223 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %222, ptr noundef %0, i32 noundef %216, i32 noundef %.11067, i32 noundef 0) #3
-  %224 = load i32, ptr @ett_dvb_s2_hdr_table_desc, align 4
-  %225 = call ptr @proto_item_add_subtree(ptr noundef %223, i32 noundef %224) #3
-  %226 = load i32, ptr @hf_dvb_s2_table_rc_index, align 4
-  %227 = call ptr @proto_tree_add_item(ptr noundef %225, i32 noundef %226, ptr noundef %0, i32 noundef %216, i32 noundef 1, i32 noundef 0) #3
-  %228 = load i32, ptr @hf_dvb_s2_table_rc_constant_assignment_provided, align 4
-  %229 = call ptr @proto_tree_add_item(ptr noundef %225, i32 noundef %228, ptr noundef %0, i32 noundef %216, i32 noundef 1, i32 noundef 0) #3
-  %230 = load i32, ptr @hf_dvb_s2_table_rc_volume_allowed, align 4
-  %231 = call ptr @proto_tree_add_item(ptr noundef %225, i32 noundef %230, ptr noundef %0, i32 noundef %216, i32 noundef 1, i32 noundef 0) #3
-  %232 = load i32, ptr @hf_dvb_s2_table_rc_rbdc_allowed, align 4
-  %233 = call ptr @proto_tree_add_item(ptr noundef %225, i32 noundef %232, ptr noundef %0, i32 noundef %216, i32 noundef 1, i32 noundef 0) #3
-  %234 = load i32, ptr @hf_dvb_s2_table_rc_maximum_service_rate, align 4
-  %235 = add i32 %9, %.61142
-  %236 = call ptr @proto_tree_add_item(ptr noundef %225, i32 noundef %234, ptr noundef %0, i32 noundef %235, i32 noundef 2, i32 noundef 0) #3
-  %237 = load i32, ptr @hf_dvb_s2_table_rc_minimum_service_rate, align 4
-  %238 = add i32 %10, %.61142
-  %239 = call ptr @proto_tree_add_item(ptr noundef %225, i32 noundef %237, ptr noundef %0, i32 noundef %238, i32 noundef 2, i32 noundef 0) #3
-  %240 = add i32 %.61142, 5
-  br i1 %.not1101, label %246, label %241
+  %.not1102.not = icmp eq i8 %203, 0
+  %.lobit = lshr exact i8 %203, 1
+  %204 = zext nneg i8 %.lobit to i32
+  %.11067 = add nuw nsw i32 %spec.select1105, %204
+  %205 = load i32, ptr @hf_dvb_s2_table_rc, align 4
+  %206 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %205, ptr noundef %0, i32 noundef %199, i32 noundef %.11067, i32 noundef 0) #3
+  %207 = load i32, ptr @ett_dvb_s2_hdr_table_desc, align 4
+  %208 = call ptr @proto_item_add_subtree(ptr noundef %206, i32 noundef %207) #3
+  %209 = load i32, ptr @hf_dvb_s2_table_rc_index, align 4
+  %210 = call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %209, ptr noundef %0, i32 noundef %199, i32 noundef 1, i32 noundef 0) #3
+  %211 = load i32, ptr @hf_dvb_s2_table_rc_constant_assignment_provided, align 4
+  %212 = call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %211, ptr noundef %0, i32 noundef %199, i32 noundef 1, i32 noundef 0) #3
+  %213 = load i32, ptr @hf_dvb_s2_table_rc_volume_allowed, align 4
+  %214 = call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %213, ptr noundef %0, i32 noundef %199, i32 noundef 1, i32 noundef 0) #3
+  %215 = load i32, ptr @hf_dvb_s2_table_rc_rbdc_allowed, align 4
+  %216 = call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %215, ptr noundef %0, i32 noundef %199, i32 noundef 1, i32 noundef 0) #3
+  %217 = load i32, ptr @hf_dvb_s2_table_rc_maximum_service_rate, align 4
+  %218 = add i32 %invariant.op1181, %.61161
+  %219 = call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %217, ptr noundef %0, i32 noundef %218, i32 noundef 2, i32 noundef 0) #3
+  %220 = load i32, ptr @hf_dvb_s2_table_rc_minimum_service_rate, align 4
+  %221 = add i32 %invariant.op1191, %.61161
+  %222 = call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %220, ptr noundef %0, i32 noundef %221, i32 noundef 2, i32 noundef 0) #3
+  %223 = add i32 %.61161, 5
+  br i1 %.not1101, label %228, label %224
 
-241:                                              ; preds = %.lr.ph1144
-  %242 = load i32, ptr @hf_dvb_s2_table_rc_constant_service_rate, align 4
-  %243 = add i32 %240, %1
-  %244 = call ptr @proto_tree_add_item(ptr noundef %225, i32 noundef %242, ptr noundef %0, i32 noundef %243, i32 noundef 2, i32 noundef 0) #3
-  %245 = add i32 %.61142, 7
-  br label %246
+224:                                              ; preds = %.lr.ph1163
+  %225 = load i32, ptr @hf_dvb_s2_table_rc_constant_service_rate, align 4
+  %.reass1159 = add i32 %.61161, %10
+  %226 = call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %225, ptr noundef %0, i32 noundef %.reass1159, i32 noundef 2, i32 noundef 0) #3
+  %227 = add i32 %.61161, 7
+  br label %228
 
-246:                                              ; preds = %241, %.lr.ph1144
-  %.7 = phi i32 [ %245, %241 ], [ %240, %.lr.ph1144 ]
-  br i1 %.not1102.not, label %252, label %247
+228:                                              ; preds = %224, %.lr.ph1163
+  %.7 = phi i32 [ %227, %224 ], [ %223, %.lr.ph1163 ]
+  br i1 %.not1102.not, label %234, label %229
 
-247:                                              ; preds = %246
-  %248 = load i32, ptr @hf_dvb_s2_table_rc_maximum_backlog, align 4
-  %249 = add i32 %.7, %1
-  %250 = call ptr @proto_tree_add_item(ptr noundef %225, i32 noundef %248, ptr noundef %0, i32 noundef %249, i32 noundef 1, i32 noundef 0) #3
-  %251 = add i32 %.7, 1
-  br label %252
+229:                                              ; preds = %228
+  %230 = load i32, ptr @hf_dvb_s2_table_rc_maximum_backlog, align 4
+  %231 = add i32 %.7, %1
+  %232 = call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %230, ptr noundef %0, i32 noundef %231, i32 noundef 1, i32 noundef 0) #3
+  %233 = add i32 %.7, 1
+  br label %234
 
-252:                                              ; preds = %246, %247
-  %.8 = phi i32 [ %251, %247 ], [ %.7, %246 ]
-  %253 = add nuw nsw i8 %.010721141, 1
-  %exitcond1187.not = icmp eq i8 %253, %212
-  br i1 %exitcond1187.not, label %._crit_edge1145, label %.lr.ph1144, !llvm.loop !33
+234:                                              ; preds = %228, %229
+  %.8 = phi i32 [ %233, %229 ], [ %.7, %228 ]
+  %235 = add nuw nsw i8 %.010721160, 1
+  %exitcond1270.not = icmp eq i8 %235, %195
+  br i1 %exitcond1270.not, label %._crit_edge1164, label %.lr.ph1163, !llvm.loop !33
 
-._crit_edge1145:                                  ; preds = %252, %._crit_edge
-  %.6.lcssa = phi i32 [ %215, %._crit_edge ], [ %.8, %252 ]
-  %254 = add i32 %.6.lcssa, %1
-  %255 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %254) #3
-  %256 = and i8 %255, 15
-  %257 = load i32, ptr @hf_dvb_s2_table_desc_ra_ac_count, align 4
-  %258 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %257, ptr noundef %0, i32 noundef %254, i32 noundef 1, i32 noundef 0) #3
-  %259 = add i32 %.6.lcssa, 1
-  %.not1170 = icmp eq i8 %256, 0
-  br i1 %.not1170, label %.loopexit1112, label %.lr.ph1150
+._crit_edge1164:                                  ; preds = %234, %._crit_edge
+  %.6.lcssa = phi i32 [ %198, %._crit_edge ], [ %.8, %234 ]
+  %236 = add i32 %.6.lcssa, %1
+  %237 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %236) #3
+  %238 = and i8 %237, 15
+  %239 = load i32, ptr @hf_dvb_s2_table_desc_ra_ac_count, align 4
+  %240 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %239, ptr noundef %0, i32 noundef %236, i32 noundef 1, i32 noundef 0) #3
+  %241 = add i32 %.6.lcssa, 1
+  %.not1253 = icmp eq i8 %238, 0
+  br i1 %.not1253, label %.loopexit1112, label %.lr.ph1173
 
-.lr.ph1150:                                       ; preds = %._crit_edge1145, %.lr.ph1150
-  %.91148 = phi i32 [ %287, %.lr.ph1150 ], [ %259, %._crit_edge1145 ]
-  %.010711147 = phi i8 [ %288, %.lr.ph1150 ], [ 0, %._crit_edge1145 ]
-  %260 = add i32 %.91148, %1
-  %261 = add i32 %260, 4
-  %262 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %261) #3
-  %263 = zext i8 %262 to i32
-  %264 = add nuw nsw i32 %263, 5
-  %265 = load i32, ptr @hf_dvb_s2_table_ra_ac, align 4
-  %266 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %265, ptr noundef %0, i32 noundef %260, i32 noundef %264, i32 noundef 0) #3
-  %267 = load i32, ptr @ett_dvb_s2_hdr_table_desc, align 4
-  %268 = call ptr @proto_item_add_subtree(ptr noundef %266, i32 noundef %267) #3
-  %269 = load i32, ptr @hf_dvb_s2_table_ra_ac_index, align 4
-  %270 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %269, ptr noundef %0, i32 noundef %260, i32 noundef 1, i32 noundef 0) #3
-  %271 = load i32, ptr @hf_dvb_s2_table_ra_ac_max_unique_payload_per_block, align 4
-  %272 = add i32 %9, %.91148
-  %273 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %271, ptr noundef %0, i32 noundef %272, i32 noundef 1, i32 noundef 0) #3
-  %274 = load i32, ptr @hf_dvb_s2_table_ra_ac_max_consecutive_block_accessed, align 4
-  %275 = add i32 %20, %.91148
-  %276 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %274, ptr noundef %0, i32 noundef %275, i32 noundef 1, i32 noundef 0) #3
-  %277 = load i32, ptr @hf_dvb_s2_table_ra_ac_min_idle_block, align 4
-  %278 = add i32 %10, %.91148
-  %279 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %277, ptr noundef %0, i32 noundef %278, i32 noundef 1, i32 noundef 0) #3
-  %280 = load i32, ptr @hf_dvb_s2_table_ra_ac_defaults_field_size, align 4
-  %281 = add i32 %13, %.91148
-  %282 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %280, ptr noundef %0, i32 noundef %281, i32 noundef 1, i32 noundef 0) #3
-  %283 = add i32 %.91148, 5
-  %284 = load i32, ptr @hf_dvb_s2_table_ra_ac_defaults_for_ra_load_control, align 4
-  %285 = add i32 %283, %1
-  %286 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %284, ptr noundef %0, i32 noundef %285, i32 noundef %263, i32 noundef 0) #3
-  %287 = add i32 %283, %263
-  %288 = add nuw nsw i8 %.010711147, 1
-  %exitcond1188.not = icmp eq i8 %288, %256
-  br i1 %exitcond1188.not, label %.loopexit1112, label %.lr.ph1150, !llvm.loop !34
+.lr.ph1173:                                       ; preds = %._crit_edge1164, %.lr.ph1173
+  %.91171 = phi i32 [ %266, %.lr.ph1173 ], [ %241, %._crit_edge1164 ]
+  %.010711170 = phi i8 [ %267, %.lr.ph1173 ], [ 0, %._crit_edge1164 ]
+  %242 = add i32 %.91171, %1
+  %.reass1167 = add i32 %.91171, %invariant.op1193
+  %243 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.reass1167) #3
+  %244 = zext i8 %243 to i32
+  %245 = add nuw nsw i32 %244, 5
+  %246 = load i32, ptr @hf_dvb_s2_table_ra_ac, align 4
+  %247 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %246, ptr noundef %0, i32 noundef %242, i32 noundef %245, i32 noundef 0) #3
+  %248 = load i32, ptr @ett_dvb_s2_hdr_table_desc, align 4
+  %249 = call ptr @proto_item_add_subtree(ptr noundef %247, i32 noundef %248) #3
+  %250 = load i32, ptr @hf_dvb_s2_table_ra_ac_index, align 4
+  %251 = call ptr @proto_tree_add_item(ptr noundef %249, i32 noundef %250, ptr noundef %0, i32 noundef %242, i32 noundef 1, i32 noundef 0) #3
+  %252 = load i32, ptr @hf_dvb_s2_table_ra_ac_max_unique_payload_per_block, align 4
+  %253 = add i32 %invariant.op1181, %.91171
+  %254 = call ptr @proto_tree_add_item(ptr noundef %249, i32 noundef %252, ptr noundef %0, i32 noundef %253, i32 noundef 1, i32 noundef 0) #3
+  %255 = load i32, ptr @hf_dvb_s2_table_ra_ac_max_consecutive_block_accessed, align 4
+  %256 = add i32 %invariant.op1183, %.91171
+  %257 = call ptr @proto_tree_add_item(ptr noundef %249, i32 noundef %255, ptr noundef %0, i32 noundef %256, i32 noundef 1, i32 noundef 0) #3
+  %258 = load i32, ptr @hf_dvb_s2_table_ra_ac_min_idle_block, align 4
+  %259 = add i32 %invariant.op1191, %.91171
+  %260 = call ptr @proto_tree_add_item(ptr noundef %249, i32 noundef %258, ptr noundef %0, i32 noundef %259, i32 noundef 1, i32 noundef 0) #3
+  %261 = load i32, ptr @hf_dvb_s2_table_ra_ac_defaults_field_size, align 4
+  %262 = call ptr @proto_tree_add_item(ptr noundef %249, i32 noundef %261, ptr noundef %0, i32 noundef %.reass1167, i32 noundef 1, i32 noundef 0) #3
+  %263 = add i32 %.91171, 5
+  %264 = load i32, ptr @hf_dvb_s2_table_ra_ac_defaults_for_ra_load_control, align 4
+  %.reass1169 = add i32 %.91171, %10
+  %265 = call ptr @proto_tree_add_item(ptr noundef %249, i32 noundef %264, ptr noundef %0, i32 noundef %.reass1169, i32 noundef %244, i32 noundef 0) #3
+  %266 = add i32 %263, %244
+  %267 = add nuw nsw i8 %.010711170, 1
+  %exitcond1271.not = icmp eq i8 %267, %238
+  br i1 %exitcond1271.not, label %.loopexit1112, label %.lr.ph1173, !llvm.loop !34
 
-289:                                              ; preds = %23
-  %290 = load i32, ptr @hf_dvb_s2_table_nnd_char, align 4
-  %291 = add i32 %39, %1
-  %292 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %290, ptr noundef %0, i32 noundef %291, i32 noundef %28, i32 noundef 0) #3
-  %293 = add i32 %39, %28
+268:                                              ; preds = %15
+  %269 = load i32, ptr @hf_dvb_s2_table_nnd_char, align 4
+  %.reass1228 = add i32 %.010681243, %invariant.op1183
+  %270 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %269, ptr noundef %0, i32 noundef %.reass1228, i32 noundef %19, i32 noundef 0) #3
+  %271 = add i32 %29, %19
   br label %.loopexit1112
 
-294:                                              ; preds = %23
-  %295 = load i32, ptr @hf_dvb_s2_table_ld_fm_id, align 4
-  %296 = add i32 %39, %1
-  %297 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %295, ptr noundef %0, i32 noundef %296, i32 noundef 2, i32 noundef 0) #3
-  %298 = add i32 %13, %.010681160
-  %299 = add i32 %298, 4
-  %300 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %299) #3
-  %301 = add i8 %300, 127
-  %or.cond = icmp ult i8 %301, 2
+272:                                              ; preds = %15
+  %273 = load i32, ptr @hf_dvb_s2_table_ld_fm_id, align 4
+  %.reass1218 = add i32 %.010681243, %invariant.op1183
+  %274 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %273, ptr noundef %0, i32 noundef %.reass1218, i32 noundef 2, i32 noundef 0) #3
+  %275 = add i32 %invariant.op1193, %.010681243
+  %276 = add i32 %275, 4
+  %277 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %276) #3
+  %278 = add i8 %277, 127
+  %or.cond = icmp ult i8 %278, 2
   %hf_dvb_s2_table_ld_rm_id.val = load i32, ptr @hf_dvb_s2_table_ld_rm_id, align 4
   %hf_dvb_s2_table_ld_on_id.val = load i32, ptr @hf_dvb_s2_table_ld_on_id, align 4
-  %302 = select i1 %or.cond, i32 %hf_dvb_s2_table_ld_rm_id.val, i32 %hf_dvb_s2_table_ld_on_id.val
-  %303 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %302, ptr noundef %0, i32 noundef %298, i32 noundef 2, i32 noundef 0) #3
-  %304 = load i32, ptr @hf_dvb_s2_table_ld_service_id, align 4
-  %305 = add i32 %15, %.010681160
-  %306 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %304, ptr noundef %0, i32 noundef %305, i32 noundef 2, i32 noundef 0) #3
-  %307 = load i32, ptr @hf_dvb_s2_table_ld_linkage_type, align 4
-  %308 = add i32 %18, %.010681160
-  %309 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %307, ptr noundef %0, i32 noundef %308, i32 noundef 1, i32 noundef 0) #3
-  %310 = add i32 %.010681160, 9
-  switch i8 %300, label %347 [
-    i8 8, label %311
-    i8 13, label %335
+  %279 = select i1 %or.cond, i32 %hf_dvb_s2_table_ld_rm_id.val, i32 %hf_dvb_s2_table_ld_on_id.val
+  %280 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %279, ptr noundef %0, i32 noundef %275, i32 noundef 2, i32 noundef 0) #3
+  %281 = load i32, ptr @hf_dvb_s2_table_ld_service_id, align 4
+  %282 = add i32 %invariant.op1239, %.010681243
+  %283 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %281, ptr noundef %0, i32 noundef %282, i32 noundef 2, i32 noundef 0) #3
+  %284 = load i32, ptr @hf_dvb_s2_table_ld_linkage_type, align 4
+  %285 = add i32 %12, %.010681243
+  %286 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %284, ptr noundef %0, i32 noundef %285, i32 noundef 1, i32 noundef 0) #3
+  switch i8 %277, label %320 [
+    i8 8, label %287
+    i8 13, label %309
   ]
 
-311:                                              ; preds = %294
-  %312 = load i32, ptr @hf_dvb_s2_table_ld_ho_type, align 4
-  %313 = add i32 %310, %1
-  %314 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %32, i32 noundef %312, ptr noundef %0, i32 noundef %313, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7) #3
-  %315 = load i32, ptr @hf_dvb_s2_table_ld_reserved_future_use, align 4
-  %316 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %315, ptr noundef %0, i32 noundef %313, i32 noundef 1, i32 noundef 0) #3
-  %317 = load i32, ptr @hf_dvb_s2_table_ld_origin_type, align 4
-  %318 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %32, i32 noundef %317, ptr noundef %0, i32 noundef %313, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #3
-  %319 = add i32 %.010681160, 10
-  %320 = load i32, ptr %7, align 4
-  %321 = add i32 %320, -1
-  %or.cond5 = icmp ult i32 %321, 3
-  br i1 %or.cond5, label %322, label %327
+287:                                              ; preds = %272
+  %288 = load i32, ptr @hf_dvb_s2_table_ld_ho_type, align 4
+  %.reass1222 = add i32 %.010681243, %invariant.op1219
+  %289 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %23, i32 noundef %288, ptr noundef %0, i32 noundef %.reass1222, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7) #3
+  %290 = load i32, ptr @hf_dvb_s2_table_ld_reserved_future_use, align 4
+  %291 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %290, ptr noundef %0, i32 noundef %.reass1222, i32 noundef 1, i32 noundef 0) #3
+  %292 = load i32, ptr @hf_dvb_s2_table_ld_origin_type, align 4
+  %293 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %23, i32 noundef %292, ptr noundef %0, i32 noundef %.reass1222, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #3
+  %294 = add i32 %.010681243, 10
+  %295 = load i32, ptr %7, align 4
+  %296 = add i32 %295, -1
+  %or.cond5 = icmp ult i32 %296, 3
+  br i1 %or.cond5, label %297, label %301
 
-322:                                              ; preds = %311
+297:                                              ; preds = %287
+  %298 = load i32, ptr @hf_dvb_s2_table_ld_network_id, align 4
+  %.reass1224 = add i32 %.010681243, %invariant.op1223
+  %299 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %298, ptr noundef %0, i32 noundef %.reass1224, i32 noundef 2, i32 noundef 0) #3
+  %300 = add i32 %.010681243, 12
+  br label %301
+
+301:                                              ; preds = %287, %297
+  %.10 = phi i32 [ %300, %297 ], [ %294, %287 ]
+  %302 = load i32, ptr %8, align 4
+  %303 = icmp eq i32 %302, 0
+  br i1 %303, label %304, label %.thread1108
+
+304:                                              ; preds = %301
+  %305 = load i32, ptr @hf_dvb_s2_table_ld_initial_service_id, align 4
+  %306 = add i32 %.10, %1
+  %307 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %305, ptr noundef %0, i32 noundef %306, i32 noundef 2, i32 noundef 0) #3
+  %308 = add i32 %.10, 2
+  br label %.thread1108
+
+309:                                              ; preds = %272
+  %310 = load i32, ptr @hf_dvb_s2_table_ld_target_event_id, align 4
+  %.reass1220 = add i32 %.010681243, %invariant.op1219
+  %311 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %310, ptr noundef %0, i32 noundef %.reass1220, i32 noundef 2, i32 noundef 0) #3
+  %312 = load i32, ptr @hf_dvb_s2_table_ld_target_listed, align 4
+  %313 = add i32 %invariant.op1211, %.010681243
+  %314 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %312, ptr noundef %0, i32 noundef %313, i32 noundef 1, i32 noundef 0) #3
+  %315 = load i32, ptr @hf_dvb_s2_table_ld_event_simulcast, align 4
+  %316 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %315, ptr noundef %0, i32 noundef %313, i32 noundef 1, i32 noundef 0) #3
+  %317 = load i32, ptr @hf_dvb_s2_table_ld_reserved, align 4
+  %318 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %317, ptr noundef %0, i32 noundef %313, i32 noundef 1, i32 noundef 0) #3
+  %319 = add i32 %.010681243, 12
+  br label %.thread1108
+
+320:                                              ; preds = %272
+  %321 = add i32 %.010681243, 9
+  br i1 %or.cond, label %322, label %.thread1108
+
+322:                                              ; preds = %320
   %323 = load i32, ptr @hf_dvb_s2_table_ld_network_id, align 4
-  %324 = add i32 %319, %1
-  %325 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %323, ptr noundef %0, i32 noundef %324, i32 noundef 2, i32 noundef 0) #3
-  %326 = add i32 %.010681160, 12
-  br label %327
+  %.reass1226 = add i32 %.010681243, %invariant.op1219
+  %324 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %323, ptr noundef %0, i32 noundef %.reass1226, i32 noundef 2, i32 noundef 0) #3
+  %325 = add i32 %invariant.op1211, %.010681243
+  %326 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %325) #3
+  %327 = zext i8 %326 to i32
+  %328 = load i32, ptr @hf_dvb_s2_table_ld_population_id_loop_count, align 4
+  %329 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %328, ptr noundef %0, i32 noundef %325, i32 noundef 1, i32 noundef 0) #3
+  %330 = add i32 %.010681243, 12
+  br label %331
 
-327:                                              ; preds = %311, %322
-  %.10 = phi i32 [ %326, %322 ], [ %319, %311 ]
-  %328 = load i32, ptr %8, align 4
-  %329 = icmp eq i32 %328, 0
-  br i1 %329, label %330, label %.thread1108
+331:                                              ; preds = %322, %331
+  %.131151 = phi i32 [ %330, %322 ], [ %338, %331 ]
+  %.010791150 = phi i32 [ 0, %322 ], [ %339, %331 ]
+  %332 = load i32, ptr @hf_dvb_s2_table_ld_population_id_base, align 4
+  %333 = add i32 %.131151, %1
+  %334 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %332, ptr noundef %0, i32 noundef %333, i32 noundef 2, i32 noundef 0) #3
+  %335 = load i32, ptr @hf_dvb_s2_table_ld_population_id_mask, align 4
+  %336 = add i32 %invariant.op1183, %.131151
+  %337 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %335, ptr noundef %0, i32 noundef %336, i32 noundef 2, i32 noundef 0) #3
+  %338 = add i32 %.131151, 4
+  %339 = add nuw nsw i32 %.010791150, 1
+  %exitcond1268.not = icmp eq i32 %.010791150, %327
+  br i1 %exitcond1268.not, label %.thread1108, label %331, !llvm.loop !35
 
-330:                                              ; preds = %327
-  %331 = load i32, ptr @hf_dvb_s2_table_ld_initial_service_id, align 4
-  %332 = add i32 %.10, %1
-  %333 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %331, ptr noundef %0, i32 noundef %332, i32 noundef 2, i32 noundef 0) #3
-  %334 = add i32 %.10, 2
-  br label %.thread1108
+.thread1108:                                      ; preds = %331, %304, %301, %309, %320
+  %.14 = phi i32 [ %321, %320 ], [ %319, %309 ], [ %.10, %301 ], [ %308, %304 ], [ %338, %331 ]
+  %.neg1100 = sub i32 %29, %.14
+  %340 = add i32 %.neg1100, %19
+  %341 = icmp sgt i32 %340, 0
+  br i1 %341, label %342, label %.loopexit1112
 
-335:                                              ; preds = %294
-  %336 = load i32, ptr @hf_dvb_s2_table_ld_target_event_id, align 4
-  %337 = add i32 %310, %1
-  %338 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %336, ptr noundef %0, i32 noundef %337, i32 noundef 2, i32 noundef 0) #3
-  %339 = load i32, ptr @hf_dvb_s2_table_ld_target_listed, align 4
-  %340 = add i32 %16, %.010681160
-  %341 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %339, ptr noundef %0, i32 noundef %340, i32 noundef 1, i32 noundef 0) #3
-  %342 = load i32, ptr @hf_dvb_s2_table_ld_event_simulcast, align 4
-  %343 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %342, ptr noundef %0, i32 noundef %340, i32 noundef 1, i32 noundef 0) #3
-  %344 = load i32, ptr @hf_dvb_s2_table_ld_reserved, align 4
-  %345 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %344, ptr noundef %0, i32 noundef %340, i32 noundef 1, i32 noundef 0) #3
-  %346 = add i32 %.010681160, 12
-  br label %.thread1108
-
-347:                                              ; preds = %294
-  br i1 %or.cond, label %348, label %.thread1108
-
-348:                                              ; preds = %347
-  %349 = load i32, ptr @hf_dvb_s2_table_ld_network_id, align 4
-  %350 = add i32 %310, %1
-  %351 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %349, ptr noundef %0, i32 noundef %350, i32 noundef 2, i32 noundef 0) #3
-  %352 = add i32 %16, %.010681160
-  %353 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %352) #3
-  %354 = zext i8 %353 to i32
-  %355 = load i32, ptr @hf_dvb_s2_table_ld_population_id_loop_count, align 4
-  %356 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %355, ptr noundef %0, i32 noundef %352, i32 noundef 1, i32 noundef 0) #3
-  %357 = add i32 %.010681160, 12
-  br label %358
-
-358:                                              ; preds = %348, %358
-  %.131136 = phi i32 [ %357, %348 ], [ %365, %358 ]
-  %.010791135 = phi i32 [ 0, %348 ], [ %366, %358 ]
-  %359 = load i32, ptr @hf_dvb_s2_table_ld_population_id_base, align 4
-  %360 = add i32 %.131136, %1
-  %361 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %359, ptr noundef %0, i32 noundef %360, i32 noundef 2, i32 noundef 0) #3
-  %362 = load i32, ptr @hf_dvb_s2_table_ld_population_id_mask, align 4
-  %363 = add i32 %20, %.131136
-  %364 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %362, ptr noundef %0, i32 noundef %363, i32 noundef 2, i32 noundef 0) #3
-  %365 = add i32 %.131136, 4
-  %366 = add nuw nsw i32 %.010791135, 1
-  %exitcond1185.not = icmp eq i32 %.010791135, %354
-  br i1 %exitcond1185.not, label %.thread1108, label %358, !llvm.loop !35
-
-.thread1108:                                      ; preds = %358, %330, %327, %335, %347
-  %.14 = phi i32 [ %310, %347 ], [ %346, %335 ], [ %.10, %327 ], [ %334, %330 ], [ %365, %358 ]
-  %.neg1100 = sub i32 %39, %.14
-  %367 = add i32 %.neg1100, %28
-  %368 = icmp sgt i32 %367, 0
-  br i1 %368, label %369, label %.loopexit1112
-
-369:                                              ; preds = %.thread1108
-  %370 = load i32, ptr @hf_dvb_s2_table_ld_private_data, align 4
-  %371 = add i32 %.14, %1
-  %372 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %370, ptr noundef %0, i32 noundef %371, i32 noundef %367, i32 noundef 0) #3
-  %373 = add i32 %39, %28
+342:                                              ; preds = %.thread1108
+  %343 = load i32, ptr @hf_dvb_s2_table_ld_private_data, align 4
+  %344 = add i32 %.14, %1
+  %345 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %343, ptr noundef %0, i32 noundef %344, i32 noundef %340, i32 noundef 0) #3
+  %346 = add i32 %29, %19
   br label %.loopexit1112
 
-374:                                              ; preds = %23
-  %375 = load i32, ptr @hf_dvb_s2_table_srld_satellite_id, align 4
-  %376 = add i32 %39, %1
-  %377 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %375, ptr noundef %0, i32 noundef %376, i32 noundef 1, i32 noundef 0) #3
-  %378 = load i32, ptr @hf_dvb_s2_table_srld_beam_id, align 4
-  %379 = add i32 %10, %.010681160
-  %380 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %378, ptr noundef %0, i32 noundef %379, i32 noundef 2, i32 noundef 0) #3
-  %381 = load i32, ptr @hf_dvb_s2_table_srld_gateway_id, align 4
-  %382 = add i32 %14, %.010681160
-  %383 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %381, ptr noundef %0, i32 noundef %382, i32 noundef 1, i32 noundef 0) #3
-  %384 = load i32, ptr @hf_dvb_s2_table_srld_reserved, align 4
-  %385 = add i32 %15, %.010681160
-  %386 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %384, ptr noundef %0, i32 noundef %385, i32 noundef 1, i32 noundef 0) #3
-  %387 = load i32, ptr @hf_dvb_s2_table_srld_orbital_position, align 4
-  %388 = add i32 %11, %.010681160
-  %389 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %387, ptr noundef %0, i32 noundef %388, i32 noundef 2, i32 noundef 0) #3
-  %390 = load i32, ptr @hf_dvb_s2_table_srld_west_east_flag, align 4
-  %391 = add i32 %12, %.010681160
-  %392 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %390, ptr noundef %0, i32 noundef %391, i32 noundef 1, i32 noundef 0) #3
-  %393 = load i32, ptr @hf_dvb_s2_table_srld_superframe_sequence, align 4
-  %394 = add i32 %19, %.010681160
-  %395 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %393, ptr noundef %0, i32 noundef %394, i32 noundef 1, i32 noundef 0) #3
-  %396 = add i32 %.010681160, 11
-  %397 = add i32 %396, %1
+347:                                              ; preds = %15
+  %348 = load i32, ptr @hf_dvb_s2_table_srld_satellite_id, align 4
+  %.reass1210 = add i32 %.010681243, %invariant.op1183
+  %349 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %348, ptr noundef %0, i32 noundef %.reass1210, i32 noundef 1, i32 noundef 0) #3
+  %350 = load i32, ptr @hf_dvb_s2_table_srld_beam_id, align 4
+  %351 = add i32 %invariant.op1191, %.010681243
+  %352 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %350, ptr noundef %0, i32 noundef %351, i32 noundef 2, i32 noundef 0) #3
+  %353 = load i32, ptr @hf_dvb_s2_table_srld_gateway_id, align 4
+  %354 = add i32 %10, %.010681243
+  %355 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %353, ptr noundef %0, i32 noundef %354, i32 noundef 1, i32 noundef 0) #3
+  %356 = load i32, ptr @hf_dvb_s2_table_srld_reserved, align 4
+  %357 = add i32 %invariant.op1239, %.010681243
+  %358 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %356, ptr noundef %0, i32 noundef %357, i32 noundef 1, i32 noundef 0) #3
+  %359 = load i32, ptr @hf_dvb_s2_table_srld_orbital_position, align 4
+  %360 = add i32 %9, %.010681243
+  %361 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %359, ptr noundef %0, i32 noundef %360, i32 noundef 2, i32 noundef 0) #3
+  %362 = load i32, ptr @hf_dvb_s2_table_srld_west_east_flag, align 4
+  %363 = add i32 %invariant.op1219, %.010681243
+  %364 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %362, ptr noundef %0, i32 noundef %363, i32 noundef 1, i32 noundef 0) #3
+  %365 = load i32, ptr @hf_dvb_s2_table_srld_superframe_sequence, align 4
+  %366 = add i32 %invariant.op1223, %.010681243
+  %367 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %365, ptr noundef %0, i32 noundef %366, i32 noundef 1, i32 noundef 0) #3
+  %.reass1214 = add i32 %.010681243, %invariant.op1211
   %hf_dvb_s2_table_srld_tx_frequency_offset.val = load i32, ptr @hf_dvb_s2_table_srld_tx_frequency_offset, align 4
   %hf_dvb_s2_table_srld_zero_frequency_offset.val = load i32, ptr @hf_dvb_s2_table_srld_zero_frequency_offset, align 4
-  %398 = select i1 %22, i32 %hf_dvb_s2_table_srld_tx_frequency_offset.val, i32 %hf_dvb_s2_table_srld_zero_frequency_offset.val
-  %399 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %398, ptr noundef %0, i32 noundef %397, i32 noundef 3, i32 noundef 0) #3
-  %400 = add i32 %.010681160, 14
-  %401 = icmp ugt i8 %26, 12
-  br i1 %401, label %402, label %.loopexit1112
+  %368 = select i1 %14, i32 %hf_dvb_s2_table_srld_tx_frequency_offset.val, i32 %hf_dvb_s2_table_srld_zero_frequency_offset.val
+  %369 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %368, ptr noundef %0, i32 noundef %.reass1214, i32 noundef 3, i32 noundef 0) #3
+  %370 = add i32 %.010681243, 14
+  %371 = icmp ugt i8 %17, 12
+  br i1 %371, label %372, label %.loopexit1112
 
-402:                                              ; preds = %374
-  %403 = add nsw i32 %28, -12
-  %404 = load i32, ptr @hf_dvb_s2_table_srld_private_data, align 4
-  %405 = add i32 %400, %1
-  %406 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %404, ptr noundef %0, i32 noundef %405, i32 noundef %403, i32 noundef 0) #3
-  %407 = add i32 %403, %400
+372:                                              ; preds = %347
+  %373 = add nsw i32 %19, -12
+  %374 = load i32, ptr @hf_dvb_s2_table_srld_private_data, align 4
+  %.reass1216 = add i32 %.010681243, %invariant.op1215
+  %375 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %374, ptr noundef %0, i32 noundef %.reass1216, i32 noundef %373, i32 noundef 0) #3
+  %376 = add i32 %373, %370
   br label %.loopexit1112
 
-408:                                              ; preds = %23
-  %409 = load i32, ptr @hf_dvb_s2_table_lid_group_id, align 4
-  %410 = add i32 %39, %1
-  %411 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %409, ptr noundef %0, i32 noundef %410, i32 noundef 1, i32 noundef 0) #3
-  %412 = load i32, ptr @hf_dvb_s2_table_lid_logon_id, align 4
-  %413 = add i32 %10, %.010681160
-  %414 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %412, ptr noundef %0, i32 noundef %413, i32 noundef 2, i32 noundef 0) #3
-  %415 = load i32, ptr @hf_dvb_s2_table_lid_continuous_carrier, align 4
-  %416 = add i32 %14, %.010681160
-  %417 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %415, ptr noundef %0, i32 noundef %416, i32 noundef 1, i32 noundef 0) #3
-  %418 = load i32, ptr @hf_dvb_s2_table_lid_security_handshake, align 4
-  %419 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %418, ptr noundef %0, i32 noundef %416, i32 noundef 1, i32 noundef 0) #3
-  %420 = load i32, ptr @hf_dvb_s2_table_lid_prefix_flag, align 4
-  %421 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %420, ptr noundef %0, i32 noundef %416, i32 noundef 1, i32 noundef 0) #3
-  %422 = load i32, ptr @hf_dvb_s2_table_lid_data_unit_label_flag, align 4
-  %423 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %422, ptr noundef %0, i32 noundef %416, i32 noundef 1, i32 noundef 0) #3
-  %424 = load i32, ptr @hf_dvb_s2_table_lid_mini_slot_flag, align 4
-  %425 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %424, ptr noundef %0, i32 noundef %416, i32 noundef 1, i32 noundef 0) #3
-  %426 = load i32, ptr @hf_dvb_s2_table_lid_contention_based_mini_slot_flag, align 4
-  %427 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %426, ptr noundef %0, i32 noundef %416, i32 noundef 1, i32 noundef 0) #3
-  %428 = add i32 %15, %.010681160
-  %429 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %428) #3
-  %430 = and i8 %429, 64
-  %431 = load i32, ptr @hf_dvb_s2_table_lid_capacity_type_flag, align 4
-  %432 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %431, ptr noundef %0, i32 noundef %428, i32 noundef 1, i32 noundef 0) #3
-  %433 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %428) #3
-  %434 = and i8 %433, 32
-  %435 = load i32, ptr @hf_dvb_s2_table_lid_traffic_burst_type, align 4
-  %436 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %435, ptr noundef %0, i32 noundef %428, i32 noundef 1, i32 noundef 0) #3
-  %437 = icmp eq i8 %434, 0
-  br i1 %437, label %438, label %462
+377:                                              ; preds = %15
+  %378 = load i32, ptr @hf_dvb_s2_table_lid_group_id, align 4
+  %.reass1208 = add i32 %.010681243, %invariant.op1183
+  %379 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %378, ptr noundef %0, i32 noundef %.reass1208, i32 noundef 1, i32 noundef 0) #3
+  %380 = load i32, ptr @hf_dvb_s2_table_lid_logon_id, align 4
+  %381 = add i32 %invariant.op1191, %.010681243
+  %382 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %380, ptr noundef %0, i32 noundef %381, i32 noundef 2, i32 noundef 0) #3
+  %383 = load i32, ptr @hf_dvb_s2_table_lid_continuous_carrier, align 4
+  %384 = add i32 %10, %.010681243
+  %385 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %383, ptr noundef %0, i32 noundef %384, i32 noundef 1, i32 noundef 0) #3
+  %386 = load i32, ptr @hf_dvb_s2_table_lid_security_handshake, align 4
+  %387 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %386, ptr noundef %0, i32 noundef %384, i32 noundef 1, i32 noundef 0) #3
+  %388 = load i32, ptr @hf_dvb_s2_table_lid_prefix_flag, align 4
+  %389 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %388, ptr noundef %0, i32 noundef %384, i32 noundef 1, i32 noundef 0) #3
+  %390 = load i32, ptr @hf_dvb_s2_table_lid_data_unit_label_flag, align 4
+  %391 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %390, ptr noundef %0, i32 noundef %384, i32 noundef 1, i32 noundef 0) #3
+  %392 = load i32, ptr @hf_dvb_s2_table_lid_mini_slot_flag, align 4
+  %393 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %392, ptr noundef %0, i32 noundef %384, i32 noundef 1, i32 noundef 0) #3
+  %394 = load i32, ptr @hf_dvb_s2_table_lid_contention_based_mini_slot_flag, align 4
+  %395 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %394, ptr noundef %0, i32 noundef %384, i32 noundef 1, i32 noundef 0) #3
+  %396 = add i32 %invariant.op1239, %.010681243
+  %397 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %396) #3
+  %398 = and i8 %397, 64
+  %399 = load i32, ptr @hf_dvb_s2_table_lid_capacity_type_flag, align 4
+  %400 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %399, ptr noundef %0, i32 noundef %396, i32 noundef 1, i32 noundef 0) #3
+  %401 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %396) #3
+  %402 = and i8 %401, 32
+  %403 = load i32, ptr @hf_dvb_s2_table_lid_traffic_burst_type, align 4
+  %404 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %403, ptr noundef %0, i32 noundef %396, i32 noundef 1, i32 noundef 0) #3
+  %405 = icmp eq i8 %402, 0
+  br i1 %405, label %406, label %430
 
-438:                                              ; preds = %408
-  %439 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %428) #3
-  %440 = and i8 %439, 16
-  %441 = load i32, ptr @hf_dvb_s2_table_lid_connectivity, align 4
-  %442 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %441, ptr noundef %0, i32 noundef %428, i32 noundef 1, i32 noundef 0) #3
-  %443 = icmp eq i8 %440, 0
-  %444 = add i32 %11, %.010681160
-  %445 = add i32 %18, %.010681160
-  br i1 %443, label %446, label %451
+406:                                              ; preds = %377
+  %407 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %396) #3
+  %408 = and i8 %407, 16
+  %409 = load i32, ptr @hf_dvb_s2_table_lid_connectivity, align 4
+  %410 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %409, ptr noundef %0, i32 noundef %396, i32 noundef 1, i32 noundef 0) #3
+  %411 = icmp eq i8 %408, 0
+  %412 = add i32 %9, %.010681243
+  %413 = add i32 %12, %.010681243
+  br i1 %411, label %414, label %419
 
-446:                                              ; preds = %438
-  %447 = load i32, ptr @hf_dvb_s2_table_lid_return_vpi, align 4
-  %448 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %447, ptr noundef %0, i32 noundef %444, i32 noundef 1, i32 noundef 0) #3
-  %449 = load i32, ptr @hf_dvb_s2_table_lid_return_vci, align 4
-  %450 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %449, ptr noundef %0, i32 noundef %445, i32 noundef 2, i32 noundef 0) #3
-  br label %468
+414:                                              ; preds = %406
+  %415 = load i32, ptr @hf_dvb_s2_table_lid_return_vpi, align 4
+  %416 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %415, ptr noundef %0, i32 noundef %412, i32 noundef 1, i32 noundef 0) #3
+  %417 = load i32, ptr @hf_dvb_s2_table_lid_return_vci, align 4
+  %418 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %417, ptr noundef %0, i32 noundef %413, i32 noundef 2, i32 noundef 0) #3
+  br label %436
 
-451:                                              ; preds = %438
-  %452 = load i32, ptr @hf_dvb_s2_table_lid_return_signalling_vpi, align 4
-  %453 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %452, ptr noundef %0, i32 noundef %444, i32 noundef 1, i32 noundef 0) #3
-  %454 = load i32, ptr @hf_dvb_s2_table_lid_return_signalling_vci, align 4
-  %455 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %454, ptr noundef %0, i32 noundef %445, i32 noundef 2, i32 noundef 0) #3
-  %456 = load i32, ptr @hf_dvb_s2_table_lid_forward_signalling_vpi, align 4
-  %457 = add i32 %16, %.010681160
-  %458 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %456, ptr noundef %0, i32 noundef %457, i32 noundef 1, i32 noundef 0) #3
-  %459 = load i32, ptr @hf_dvb_s2_table_lid_forward_signalling_vci, align 4
-  %460 = add i32 %21, %.010681160
-  %461 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %459, ptr noundef %0, i32 noundef %460, i32 noundef 2, i32 noundef 0) #3
-  br label %468
+419:                                              ; preds = %406
+  %420 = load i32, ptr @hf_dvb_s2_table_lid_return_signalling_vpi, align 4
+  %421 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %420, ptr noundef %0, i32 noundef %412, i32 noundef 1, i32 noundef 0) #3
+  %422 = load i32, ptr @hf_dvb_s2_table_lid_return_signalling_vci, align 4
+  %423 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %422, ptr noundef %0, i32 noundef %413, i32 noundef 2, i32 noundef 0) #3
+  %424 = load i32, ptr @hf_dvb_s2_table_lid_forward_signalling_vpi, align 4
+  %425 = add i32 %invariant.op1211, %.010681243
+  %426 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %424, ptr noundef %0, i32 noundef %425, i32 noundef 1, i32 noundef 0) #3
+  %427 = load i32, ptr @hf_dvb_s2_table_lid_forward_signalling_vci, align 4
+  %428 = add i32 %13, %.010681243
+  %429 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %427, ptr noundef %0, i32 noundef %428, i32 noundef 2, i32 noundef 0) #3
+  br label %436
 
-462:                                              ; preds = %408
-  %463 = load i32, ptr @hf_dvb_s2_table_lid_return_trf_pid, align 4
-  %464 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %463, ptr noundef %0, i32 noundef %428, i32 noundef 2, i32 noundef 0) #3
-  %465 = load i32, ptr @hf_dvb_s2_table_lid_return_ctrl_mngm_pid, align 4
-  %466 = add i32 %18, %.010681160
-  %467 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %465, ptr noundef %0, i32 noundef %466, i32 noundef 2, i32 noundef 0) #3
-  br label %468
+430:                                              ; preds = %377
+  %431 = load i32, ptr @hf_dvb_s2_table_lid_return_trf_pid, align 4
+  %432 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %431, ptr noundef %0, i32 noundef %396, i32 noundef 2, i32 noundef 0) #3
+  %433 = load i32, ptr @hf_dvb_s2_table_lid_return_ctrl_mngm_pid, align 4
+  %434 = add i32 %12, %.010681243
+  %435 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %433, ptr noundef %0, i32 noundef %434, i32 noundef 2, i32 noundef 0) #3
+  br label %436
 
-468:                                              ; preds = %446, %451, %462
-  %.sink = phi i32 [ 10, %446 ], [ 14, %451 ], [ 10, %462 ]
-  %469 = add i32 %.010681160, %.sink
-  %470 = icmp eq i8 %430, 0
-  br i1 %470, label %471, label %.loopexit1112
+436:                                              ; preds = %414, %419, %430
+  %.sink = phi i32 [ 10, %414 ], [ 14, %419 ], [ 10, %430 ]
+  %437 = add i32 %.010681243, %.sink
+  %438 = icmp eq i8 %398, 0
+  br i1 %438, label %439, label %.loopexit1112
 
-471:                                              ; preds = %468
-  %472 = load i32, ptr @hf_dvb_s2_table_lid_cra_level, align 4
-  %473 = add i32 %469, %1
-  %474 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %472, ptr noundef %0, i32 noundef %473, i32 noundef 3, i32 noundef 0) #3
-  %475 = load i32, ptr @hf_dvb_s2_table_lid_vbdc_max, align 4
-  %476 = add i32 %10, %469
-  %477 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %475, ptr noundef %0, i32 noundef %476, i32 noundef 2, i32 noundef 0) #3
-  %478 = load i32, ptr @hf_dvb_s2_table_lid_rbdc_max, align 4
-  %479 = add i32 %14, %469
-  %480 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %478, ptr noundef %0, i32 noundef %479, i32 noundef 3, i32 noundef 0) #3
-  %481 = load i32, ptr @hf_dvb_s2_table_lid_rbdc_timeout, align 4
-  %482 = add i32 %18, %469
-  %483 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %481, ptr noundef %0, i32 noundef %482, i32 noundef 2, i32 noundef 0) #3
-  %484 = add i32 %469, 10
+439:                                              ; preds = %436
+  %440 = load i32, ptr @hf_dvb_s2_table_lid_cra_level, align 4
+  %441 = add i32 %437, %1
+  %442 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %440, ptr noundef %0, i32 noundef %441, i32 noundef 3, i32 noundef 0) #3
+  %443 = load i32, ptr @hf_dvb_s2_table_lid_vbdc_max, align 4
+  %444 = add i32 %invariant.op1191, %437
+  %445 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %443, ptr noundef %0, i32 noundef %444, i32 noundef 2, i32 noundef 0) #3
+  %446 = load i32, ptr @hf_dvb_s2_table_lid_rbdc_max, align 4
+  %447 = add i32 %10, %437
+  %448 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %446, ptr noundef %0, i32 noundef %447, i32 noundef 3, i32 noundef 0) #3
+  %449 = load i32, ptr @hf_dvb_s2_table_lid_rbdc_timeout, align 4
+  %450 = add i32 %12, %437
+  %451 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %449, ptr noundef %0, i32 noundef %450, i32 noundef 2, i32 noundef 0) #3
+  %452 = add i32 %437, 10
   br label %.loopexit1112
 
-485:                                              ; preds = %.lr.ph1133, %505
-  %.161132 = phi i32 [ %39, %.lr.ph1133 ], [ %503, %505 ]
-  %486 = load i32, ptr @hf_dvb_s2_table_fipd_original_network_id, align 4
-  %487 = add i32 %.161132, %1
-  %488 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %486, ptr noundef %0, i32 noundef %487, i32 noundef 2, i32 noundef 0) #3
-  %489 = load i32, ptr @hf_dvb_s2_table_fipd_transport_stream_id, align 4
-  %490 = add i32 %20, %.161132
-  %491 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %489, ptr noundef %0, i32 noundef %490, i32 noundef 2, i32 noundef 0) #3
-  %492 = add i32 %13, %.161132
-  %493 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %492) #3
-  %494 = and i8 %493, 15
-  %495 = load i32, ptr @hf_dvb_s2_table_fipd_pid_loop_count, align 4
-  %496 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %495, ptr noundef %0, i32 noundef %492, i32 noundef 1, i32 noundef 0) #3
-  %497 = add i32 %.161132, 5
-  %narrow1190 = add nuw nsw i8 %494, 1
-  %498 = zext nneg i8 %narrow1190 to i32
-  br label %499
+453:                                              ; preds = %.lr.ph1148, %473
+  %.161147 = phi i32 [ %29, %.lr.ph1148 ], [ %471, %473 ]
+  %454 = load i32, ptr @hf_dvb_s2_table_fipd_original_network_id, align 4
+  %455 = add i32 %.161147, %1
+  %456 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %454, ptr noundef %0, i32 noundef %455, i32 noundef 2, i32 noundef 0) #3
+  %457 = load i32, ptr @hf_dvb_s2_table_fipd_transport_stream_id, align 4
+  %458 = add i32 %invariant.op1183, %.161147
+  %459 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %457, ptr noundef %0, i32 noundef %458, i32 noundef 2, i32 noundef 0) #3
+  %460 = add i32 %invariant.op1193, %.161147
+  %461 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %460) #3
+  %462 = and i8 %461, 15
+  %463 = load i32, ptr @hf_dvb_s2_table_fipd_pid_loop_count, align 4
+  %464 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %463, ptr noundef %0, i32 noundef %460, i32 noundef 1, i32 noundef 0) #3
+  %465 = add i32 %.161147, 5
+  %narrow1273 = add nuw nsw i8 %462, 1
+  %466 = zext nneg i8 %narrow1273 to i32
+  br label %467
 
-499:                                              ; preds = %485, %499
-  %.171131 = phi i32 [ %497, %485 ], [ %503, %499 ]
-  %.010751130 = phi i32 [ 0, %485 ], [ %504, %499 ]
-  %500 = load i32, ptr @hf_dvb_s2_table_fipd_pid, align 4
-  %501 = add i32 %.171131, %1
-  %502 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %500, ptr noundef %0, i32 noundef %501, i32 noundef 2, i32 noundef 0) #3
-  %503 = add i32 %.171131, 2
-  %504 = add nuw nsw i32 %.010751130, 1
-  %exitcond1184.not = icmp eq i32 %504, %498
-  br i1 %exitcond1184.not, label %505, label %499, !llvm.loop !36
+467:                                              ; preds = %453, %467
+  %.171146 = phi i32 [ %465, %453 ], [ %471, %467 ]
+  %.010751145 = phi i32 [ 0, %453 ], [ %472, %467 ]
+  %468 = load i32, ptr @hf_dvb_s2_table_fipd_pid, align 4
+  %469 = add i32 %.171146, %1
+  %470 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %468, ptr noundef %0, i32 noundef %469, i32 noundef 2, i32 noundef 0) #3
+  %471 = add i32 %.171146, 2
+  %472 = add nuw nsw i32 %.010751145, 1
+  %exitcond1267.not = icmp eq i32 %472, %466
+  br i1 %exitcond1267.not, label %473, label %467, !llvm.loop !36
 
-505:                                              ; preds = %499
-  %reass.sub = sub i32 %.neg1098, %.171131
-  %506 = add i32 %reass.sub, -2
-  %507 = icmp sgt i32 %506, 0
-  br i1 %507, label %485, label %.loopexit1112, !llvm.loop !37
+473:                                              ; preds = %467
+  %reass.sub = sub i32 %.neg1098, %.171146
+  %474 = add i32 %reass.sub, -2
+  %475 = icmp sgt i32 %474, 0
+  br i1 %475, label %453, label %.loopexit1112, !llvm.loop !37
 
-508:                                              ; preds = %23
-  %509 = load i32, ptr @hf_dvb_s2_table_ripd_continuous_carrier, align 4
-  %510 = add i32 %39, %1
-  %511 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %509, ptr noundef %0, i32 noundef %510, i32 noundef 1, i32 noundef 0) #3
-  %512 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %510) #3
-  %513 = and i8 %512, 15
-  %514 = load i32, ptr @hf_dvb_s2_table_ripd_network_routing_label_loop_count, align 4
-  %515 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %514, ptr noundef %0, i32 noundef %510, i32 noundef 1, i32 noundef 0) #3
-  %516 = add i32 %.010681160, 3
-  %narrow = add nuw nsw i8 %513, 1
-  %517 = zext nneg i8 %narrow to i32
+476:                                              ; preds = %15
+  %477 = load i32, ptr @hf_dvb_s2_table_ripd_continuous_carrier, align 4
+  %.reass1206 = add i32 %.010681243, %invariant.op1183
+  %478 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %477, ptr noundef %0, i32 noundef %.reass1206, i32 noundef 1, i32 noundef 0) #3
+  %479 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.reass1206) #3
+  %480 = and i8 %479, 15
+  %481 = load i32, ptr @hf_dvb_s2_table_ripd_network_routing_label_loop_count, align 4
+  %482 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %481, ptr noundef %0, i32 noundef %.reass1206, i32 noundef 1, i32 noundef 0) #3
+  %483 = add i32 %.010681243, 3
+  %narrow = add nuw nsw i8 %480, 1
+  %484 = zext nneg i8 %narrow to i32
+  br label %485
+
+485:                                              ; preds = %476, %.loopexit
+  %.181144 = phi i32 [ %483, %476 ], [ %544, %.loopexit ]
+  %.110761143 = phi i32 [ 0, %476 ], [ %545, %.loopexit ]
+  %486 = load i32, ptr @hf_dvb_s2_desc_network_routing, align 4
+  %487 = add i32 %.181144, %1
+  %488 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %486, ptr noundef %0, i32 noundef %487, i32 noundef -1, i32 noundef 0) #3
+  %489 = load i32, ptr @ett_dvb_s2_hdr_table_network_routing, align 4
+  %490 = call ptr @proto_item_add_subtree(ptr noundef %488, i32 noundef %489) #3
+  %491 = load i32, ptr @hf_dvb_s2_table_ripd_allocation_desallocation_flag, align 4
+  %492 = call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %491, ptr noundef %0, i32 noundef %487, i32 noundef 1, i32 noundef 0) #3
+  %493 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %487) #3
+  %494 = and i8 %493, 1
+  %495 = load i32, ptr @hf_dvb_s2_table_ripd_pid_flag, align 4
+  %496 = call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %495, ptr noundef %0, i32 noundef %487, i32 noundef 1, i32 noundef 0) #3
+  %497 = add i32 %.181144, 1
+  %.not1091 = icmp eq i8 %494, 0
+  br i1 %.not1091, label %.loopexit1111, label %498
+
+498:                                              ; preds = %485
+  %.reass1138 = add i32 %.181144, %invariant.op1181
+  %499 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.reass1138) #3
+  %500 = zext i8 %499 to i32
+  %501 = load i32, ptr @hf_dvb_s2_table_ripd_pid_loop_count, align 4
+  %502 = call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %501, ptr noundef %0, i32 noundef %.reass1138, i32 noundef 1, i32 noundef 0) #3
+  %.191120 = add i32 %.181144, 2
+  br label %503
+
+503:                                              ; preds = %498, %503
+  %.191123 = phi i32 [ %.191120, %498 ], [ %.19, %503 ]
+  %.19.in1122 = phi i32 [ %.181144, %498 ], [ %.191123, %503 ]
+  %.010781121 = phi i32 [ 0, %498 ], [ %506, %503 ]
+  %504 = load i32, ptr @hf_dvb_s2_table_ripd_pid, align 4
+  %.reass1119 = add i32 %.19.in1122, %invariant.op1183
+  %505 = call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %504, ptr noundef %0, i32 noundef %.reass1119, i32 noundef 2, i32 noundef 0) #3
+  %506 = add nuw nsw i32 %.010781121, 1
+  %.19 = add i32 %.191123, 2
+  %exitcond1263.not = icmp eq i32 %.010781121, %500
+  br i1 %exitcond1263.not, label %.loopexit1111, label %503, !llvm.loop !38
+
+.loopexit1111:                                    ; preds = %503, %485
+  %.20 = phi i32 [ %497, %485 ], [ %.19, %503 ]
+  %507 = add i32 %.20, %1
+  %508 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %507) #3
+  %509 = and i8 %508, 1
+  %510 = load i32, ptr @hf_dvb_s2_table_ripd_vpi_vci_flag, align 4
+  %511 = call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %510, ptr noundef %0, i32 noundef %507, i32 noundef 1, i32 noundef 0) #3
+  %512 = add i32 %.20, 1
+  %.not1093 = icmp eq i8 %509, 0
+  br i1 %.not1093, label %525, label %513
+
+513:                                              ; preds = %.loopexit1111
+  %.reass1140 = add i32 %.20, %invariant.op1181
+  %514 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.reass1140) #3
+  %515 = zext i8 %514 to i32
+  %516 = load i32, ptr @hf_dvb_s2_table_ripd_vpi_vci_loop_count, align 4
+  %517 = call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %516, ptr noundef %0, i32 noundef %.reass1140, i32 noundef 1, i32 noundef 0) #3
   br label %518
 
-518:                                              ; preds = %508, %.loopexit
-  %.181129 = phi i32 [ %516, %508 ], [ %583, %.loopexit ]
-  %.110761128 = phi i32 [ 0, %508 ], [ %584, %.loopexit ]
-  %519 = load i32, ptr @hf_dvb_s2_desc_network_routing, align 4
-  %520 = add i32 %.181129, %1
-  %521 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %519, ptr noundef %0, i32 noundef %520, i32 noundef -1, i32 noundef 0) #3
-  %522 = load i32, ptr @ett_dvb_s2_hdr_table_network_routing, align 4
-  %523 = call ptr @proto_item_add_subtree(ptr noundef %521, i32 noundef %522) #3
-  %524 = load i32, ptr @hf_dvb_s2_table_ripd_allocation_desallocation_flag, align 4
-  %525 = call ptr @proto_tree_add_item(ptr noundef %523, i32 noundef %524, ptr noundef %0, i32 noundef %520, i32 noundef 1, i32 noundef 0) #3
-  %526 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %520) #3
-  %527 = and i8 %526, 1
-  %528 = load i32, ptr @hf_dvb_s2_table_ripd_pid_flag, align 4
-  %529 = call ptr @proto_tree_add_item(ptr noundef %523, i32 noundef %528, ptr noundef %0, i32 noundef %520, i32 noundef 1, i32 noundef 0) #3
-  %530 = add i32 %.181129, 1
-  %.not1091 = icmp eq i8 %527, 0
-  br i1 %.not1091, label %.loopexit1111, label %531
+518:                                              ; preds = %513, %518
+  %.21.in1130 = phi i32 [ %.20, %513 ], [ %521, %518 ]
+  %.110801129 = phi i32 [ 0, %513 ], [ %524, %518 ]
+  %519 = load i32, ptr @hf_dvb_s2_table_ripd_vpi, align 4
+  %.reass1125 = add i32 %.21.in1130, %invariant.op1183
+  %520 = call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %519, ptr noundef %0, i32 noundef %.reass1125, i32 noundef 1, i32 noundef 0) #3
+  %521 = add i32 %.21.in1130, 3
+  %522 = load i32, ptr @hf_dvb_s2_table_ripd_vci, align 4
+  %.reass1127 = add i32 %.21.in1130, %invariant.op1191
+  %523 = call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %522, ptr noundef %0, i32 noundef %.reass1127, i32 noundef 2, i32 noundef 0) #3
+  %524 = add nuw nsw i32 %.110801129, 1
+  %exitcond1264.not = icmp eq i32 %.110801129, %515
+  br i1 %exitcond1264.not, label %.loopexit1110, label %518, !llvm.loop !39
 
-531:                                              ; preds = %518
-  %532 = add i32 %530, %1
-  %533 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %532) #3
+.loopexit1110:                                    ; preds = %518
+  %.21.le = add i32 %.21.in1130, 5
+  br label %525
+
+525:                                              ; preds = %.loopexit1110, %.loopexit1111
+  %.22 = phi i32 [ %512, %.loopexit1111 ], [ %.21.le, %.loopexit1110 ]
+  %526 = add i32 %.22, %1
+  %527 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %526) #3
+  %528 = and i8 %527, 1
+  %529 = load i32, ptr @hf_dvb_s2_table_ripd_route_id_flag, align 4
+  %530 = call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %529, ptr noundef %0, i32 noundef %526, i32 noundef 1, i32 noundef 0) #3
+  %531 = add i32 %.22, 1
+  %.not1095 = icmp eq i8 %528, 0
+  br i1 %.not1095, label %.loopexit, label %532
+
+532:                                              ; preds = %525
+  %.reass1142 = add i32 %.22, %invariant.op1181
+  %533 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.reass1142) #3
   %534 = zext i8 %533 to i32
-  %535 = load i32, ptr @hf_dvb_s2_table_ripd_pid_loop_count, align 4
-  %536 = call ptr @proto_tree_add_item(ptr noundef %523, i32 noundef %535, ptr noundef %0, i32 noundef %532, i32 noundef 1, i32 noundef 0) #3
-  %.191118 = add i32 %.181129, 2
+  %535 = load i32, ptr @hf_dvb_s2_table_ripd_route_id_loop_count, align 4
+  %536 = call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %535, ptr noundef %0, i32 noundef %.reass1142, i32 noundef 1, i32 noundef 0) #3
+  %.231133 = add i32 %.22, 2
   br label %537
 
-537:                                              ; preds = %531, %537
-  %.191120 = phi i32 [ %.191118, %531 ], [ %.19, %537 ]
-  %.010781119 = phi i32 [ 0, %531 ], [ %541, %537 ]
-  %538 = load i32, ptr @hf_dvb_s2_table_ripd_pid, align 4
-  %539 = add i32 %.191120, %1
-  %540 = call ptr @proto_tree_add_item(ptr noundef %523, i32 noundef %538, ptr noundef %0, i32 noundef %539, i32 noundef 2, i32 noundef 0) #3
-  %541 = add nuw nsw i32 %.010781119, 1
-  %.19 = add i32 %.191120, 2
-  %exitcond1180.not = icmp eq i32 %.010781119, %534
-  br i1 %exitcond1180.not, label %.loopexit1111, label %537, !llvm.loop !38
+537:                                              ; preds = %532, %537
+  %.231136 = phi i32 [ %.231133, %532 ], [ %.23, %537 ]
+  %.23.in1135 = phi i32 [ %.22, %532 ], [ %.231136, %537 ]
+  %.010811134 = phi i32 [ 0, %532 ], [ %540, %537 ]
+  %538 = load i32, ptr @hf_dvb_s2_table_ripd_route_id, align 4
+  %.reass1132 = add i32 %.23.in1135, %invariant.op1183
+  %539 = call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %538, ptr noundef %0, i32 noundef %.reass1132, i32 noundef 2, i32 noundef 0) #3
+  %540 = add nuw nsw i32 %.010811134, 1
+  %.23 = add i32 %.231136, 2
+  %exitcond1265.not = icmp eq i32 %.010811134, %534
+  br i1 %exitcond1265.not, label %.loopexit, label %537, !llvm.loop !40
 
-.loopexit1111:                                    ; preds = %537, %518
-  %.20 = phi i32 [ %530, %518 ], [ %.19, %537 ]
-  %542 = add i32 %.20, %1
-  %543 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %542) #3
-  %544 = and i8 %543, 1
-  %545 = load i32, ptr @hf_dvb_s2_table_ripd_vpi_vci_flag, align 4
-  %546 = call ptr @proto_tree_add_item(ptr noundef %523, i32 noundef %545, ptr noundef %0, i32 noundef %542, i32 noundef 1, i32 noundef 0) #3
-  %547 = add i32 %.20, 1
-  %.not1093 = icmp eq i8 %544, 0
-  br i1 %.not1093, label %.loopexit1110, label %548
+.loopexit:                                        ; preds = %537, %525
+  %.24 = phi i32 [ %531, %525 ], [ %.23, %537 ]
+  %541 = load i32, ptr @hf_dvb_s2_table_ripd_channel_id, align 4
+  %542 = add i32 %.24, %1
+  %543 = call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %541, ptr noundef %0, i32 noundef %542, i32 noundef 1, i32 noundef 0) #3
+  %544 = add i32 %.24, 1
+  %545 = add nuw nsw i32 %.110761143, 1
+  %exitcond1266.not = icmp eq i32 %545, %484
+  br i1 %exitcond1266.not, label %.loopexit1112, label %485, !llvm.loop !41
 
-548:                                              ; preds = %.loopexit1111
-  %549 = add i32 %547, %1
-  %550 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %549) #3
-  %551 = zext i8 %550 to i32
-  %552 = load i32, ptr @hf_dvb_s2_table_ripd_vpi_vci_loop_count, align 4
-  %553 = call ptr @proto_tree_add_item(ptr noundef %523, i32 noundef %552, ptr noundef %0, i32 noundef %549, i32 noundef 1, i32 noundef 0) #3
-  %.211121 = add i32 %.20, 2
-  br label %554
-
-554:                                              ; preds = %548, %554
-  %.211124 = phi i32 [ %.211121, %548 ], [ %.21, %554 ]
-  %.21.in1123 = phi i32 [ %.20, %548 ], [ %558, %554 ]
-  %.110801122 = phi i32 [ 0, %548 ], [ %562, %554 ]
-  %555 = load i32, ptr @hf_dvb_s2_table_ripd_vpi, align 4
-  %556 = add i32 %.211124, %1
-  %557 = call ptr @proto_tree_add_item(ptr noundef %523, i32 noundef %555, ptr noundef %0, i32 noundef %556, i32 noundef 1, i32 noundef 0) #3
-  %558 = add i32 %.21.in1123, 3
-  %559 = load i32, ptr @hf_dvb_s2_table_ripd_vci, align 4
-  %560 = add i32 %558, %1
-  %561 = call ptr @proto_tree_add_item(ptr noundef %523, i32 noundef %559, ptr noundef %0, i32 noundef %560, i32 noundef 2, i32 noundef 0) #3
-  %562 = add nuw nsw i32 %.110801122, 1
-  %.21 = add i32 %.21.in1123, 5
-  %exitcond1181.not = icmp eq i32 %.110801122, %551
-  br i1 %exitcond1181.not, label %.loopexit1110, label %554, !llvm.loop !39
-
-.loopexit1110:                                    ; preds = %554, %.loopexit1111
-  %.22 = phi i32 [ %547, %.loopexit1111 ], [ %.21, %554 ]
-  %563 = add i32 %.22, %1
-  %564 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %563) #3
-  %565 = and i8 %564, 1
-  %566 = load i32, ptr @hf_dvb_s2_table_ripd_route_id_flag, align 4
-  %567 = call ptr @proto_tree_add_item(ptr noundef %523, i32 noundef %566, ptr noundef %0, i32 noundef %563, i32 noundef 1, i32 noundef 0) #3
-  %568 = add i32 %.22, 1
-  %.not1095 = icmp eq i8 %565, 0
-  br i1 %.not1095, label %.loopexit, label %569
-
-569:                                              ; preds = %.loopexit1110
-  %570 = add i32 %568, %1
-  %571 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %570) #3
-  %572 = zext i8 %571 to i32
-  %573 = load i32, ptr @hf_dvb_s2_table_ripd_route_id_loop_count, align 4
-  %574 = call ptr @proto_tree_add_item(ptr noundef %523, i32 noundef %573, ptr noundef %0, i32 noundef %570, i32 noundef 1, i32 noundef 0) #3
-  %.231125 = add i32 %.22, 2
-  br label %575
-
-575:                                              ; preds = %569, %575
-  %.231127 = phi i32 [ %.231125, %569 ], [ %.23, %575 ]
-  %.010811126 = phi i32 [ 0, %569 ], [ %579, %575 ]
-  %576 = load i32, ptr @hf_dvb_s2_table_ripd_route_id, align 4
-  %577 = add i32 %.231127, %1
-  %578 = call ptr @proto_tree_add_item(ptr noundef %523, i32 noundef %576, ptr noundef %0, i32 noundef %577, i32 noundef 2, i32 noundef 0) #3
-  %579 = add nuw nsw i32 %.010811126, 1
-  %.23 = add i32 %.231127, 2
-  %exitcond1182.not = icmp eq i32 %.010811126, %572
-  br i1 %exitcond1182.not, label %.loopexit, label %575, !llvm.loop !40
-
-.loopexit:                                        ; preds = %575, %.loopexit1110
-  %.24 = phi i32 [ %568, %.loopexit1110 ], [ %.23, %575 ]
-  %580 = load i32, ptr @hf_dvb_s2_table_ripd_channel_id, align 4
-  %581 = add i32 %.24, %1
-  %582 = call ptr @proto_tree_add_item(ptr noundef %523, i32 noundef %580, ptr noundef %0, i32 noundef %581, i32 noundef 1, i32 noundef 0) #3
-  %583 = add i32 %.24, 1
-  %584 = add nuw nsw i32 %.110761128, 1
-  %exitcond1183.not = icmp eq i32 %584, %517
-  br i1 %exitcond1183.not, label %.loopexit1112, label %518, !llvm.loop !41
-
-585:                                              ; preds = %23
-  %586 = add i32 %39, %1
-  %587 = load i32, ptr @ett_dvb_s2_hdr_table_desc, align 4
-  %588 = call i32 @dissect_snmp_pdu(ptr noundef %0, i32 noundef %586, ptr noundef %5, ptr noundef %32, i32 noundef 1, i32 noundef %587, i32 noundef 0) #3
-  %589 = add i32 %39, %28
+546:                                              ; preds = %15
+  %.reass1204 = add i32 %.010681243, %invariant.op1183
+  %547 = load i32, ptr @ett_dvb_s2_hdr_table_desc, align 4
+  %548 = call i32 @dissect_snmp_pdu(ptr noundef %0, i32 noundef %.reass1204, ptr noundef %5, ptr noundef %23, i32 noundef 1, i32 noundef %547, i32 noundef 0) #3
+  %549 = add i32 %29, %19
   br label %.loopexit1112
 
-590:                                              ; preds = %23
-  %591 = load i32, ptr @hf_dvb_s2_table_corcd_acq_response_timeout, align 4
-  %592 = add i32 %39, %1
-  %593 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %591, ptr noundef %0, i32 noundef %592, i32 noundef 4, i32 noundef 0) #3
-  %594 = load i32, ptr @hf_dvb_s2_table_corcd_sync_response_timeout, align 4
-  %595 = add i32 %15, %.010681160
-  %596 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %594, ptr noundef %0, i32 noundef %595, i32 noundef 4, i32 noundef 0) #3
-  %597 = load i32, ptr @hf_dvb_s2_table_corcd_acq_max_losses, align 4
-  %598 = add i32 %19, %.010681160
-  %599 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %597, ptr noundef %0, i32 noundef %598, i32 noundef 1, i32 noundef 0) #3
-  %600 = load i32, ptr @hf_dvb_s2_table_corcd_sync_max_losses, align 4
-  %601 = add i32 %16, %.010681160
-  %602 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %600, ptr noundef %0, i32 noundef %601, i32 noundef 1, i32 noundef 0) #3
-  %603 = add i32 %.010681160, 12
+550:                                              ; preds = %15
+  %551 = load i32, ptr @hf_dvb_s2_table_corcd_acq_response_timeout, align 4
+  %.reass1202 = add i32 %.010681243, %invariant.op1183
+  %552 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %551, ptr noundef %0, i32 noundef %.reass1202, i32 noundef 4, i32 noundef 0) #3
+  %553 = load i32, ptr @hf_dvb_s2_table_corcd_sync_response_timeout, align 4
+  %554 = add i32 %invariant.op1239, %.010681243
+  %555 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %553, ptr noundef %0, i32 noundef %554, i32 noundef 4, i32 noundef 0) #3
+  %556 = load i32, ptr @hf_dvb_s2_table_corcd_acq_max_losses, align 4
+  %557 = add i32 %invariant.op1223, %.010681243
+  %558 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %556, ptr noundef %0, i32 noundef %557, i32 noundef 1, i32 noundef 0) #3
+  %559 = load i32, ptr @hf_dvb_s2_table_corcd_sync_max_losses, align 4
+  %560 = add i32 %invariant.op1211, %.010681243
+  %561 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %559, ptr noundef %0, i32 noundef %560, i32 noundef 1, i32 noundef 0) #3
+  %562 = add i32 %.010681243, 12
   br label %.loopexit1112
 
-604:                                              ; preds = %23
-  %605 = load i32, ptr @hf_dvb_s2_table_concd_superframe_id, align 4
-  %606 = add i32 %39, %1
-  %607 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %605, ptr noundef %0, i32 noundef %606, i32 noundef 1, i32 noundef 0) #3
-  %608 = load i32, ptr @hf_dvb_s2_table_concd_csc_response_timeout, align 4
-  %609 = add i32 %10, %.010681160
-  %610 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %608, ptr noundef %0, i32 noundef %609, i32 noundef 4, i32 noundef 0) #3
-  %611 = load i32, ptr @hf_dvb_s2_table_concd_csc_max_losses, align 4
-  %612 = add i32 %11, %.010681160
-  %613 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %611, ptr noundef %0, i32 noundef %612, i32 noundef 1, i32 noundef 0) #3
-  %614 = load i32, ptr @hf_dvb_s2_table_concd_max_time_before_retry, align 4
-  %615 = add i32 %18, %.010681160
-  %616 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %614, ptr noundef %0, i32 noundef %615, i32 noundef 4, i32 noundef 0) #3
-  %617 = add i32 %.010681160, 12
+563:                                              ; preds = %15
+  %564 = load i32, ptr @hf_dvb_s2_table_concd_superframe_id, align 4
+  %.reass1200 = add i32 %.010681243, %invariant.op1183
+  %565 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %564, ptr noundef %0, i32 noundef %.reass1200, i32 noundef 1, i32 noundef 0) #3
+  %566 = load i32, ptr @hf_dvb_s2_table_concd_csc_response_timeout, align 4
+  %567 = add i32 %invariant.op1191, %.010681243
+  %568 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %566, ptr noundef %0, i32 noundef %567, i32 noundef 4, i32 noundef 0) #3
+  %569 = load i32, ptr @hf_dvb_s2_table_concd_csc_max_losses, align 4
+  %570 = add i32 %9, %.010681243
+  %571 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %569, ptr noundef %0, i32 noundef %570, i32 noundef 1, i32 noundef 0) #3
+  %572 = load i32, ptr @hf_dvb_s2_table_concd_max_time_before_retry, align 4
+  %573 = add i32 %12, %.010681243
+  %574 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %572, ptr noundef %0, i32 noundef %573, i32 noundef 4, i32 noundef 0) #3
+  %575 = add i32 %.010681243, 12
   br label %.loopexit1112
 
-618:                                              ; preds = %23
-  %619 = load i32, ptr @hf_dvb_s2_table_sfld_satellite_id, align 4
-  %620 = add i32 %39, %1
-  %621 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %619, ptr noundef %0, i32 noundef %620, i32 noundef 1, i32 noundef 0) #3
-  %622 = load i32, ptr @hf_dvb_s2_table_sfld_beam_id, align 4
-  %623 = add i32 %10, %.010681160
-  %624 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %622, ptr noundef %0, i32 noundef %623, i32 noundef 2, i32 noundef 0) #3
-  %625 = load i32, ptr @hf_dvb_s2_table_sfld_ncc_id, align 4
-  %626 = add i32 %14, %.010681160
-  %627 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %625, ptr noundef %0, i32 noundef %626, i32 noundef 1, i32 noundef 0) #3
-  %628 = load i32, ptr @hf_dvb_s2_table_sfld_multiplex_usage, align 4
-  %629 = add i32 %15, %.010681160
-  %630 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %628, ptr noundef %0, i32 noundef %629, i32 noundef 1, i32 noundef 0) #3
-  %631 = load i32, ptr @hf_dvb_s2_table_sfld_local_multiplex_id, align 4
-  %632 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %631, ptr noundef %0, i32 noundef %629, i32 noundef 1, i32 noundef 0) #3
-  %633 = load i32, ptr @hf_dvb_s2_table_sfld_frequency, align 4
-  %634 = add i32 %11, %.010681160
-  %635 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %633, ptr noundef %0, i32 noundef %634, i32 noundef 4, i32 noundef 0) #3
-  %636 = load i32, ptr @hf_dvb_s2_table_sfld_orbital_position, align 4
-  %637 = add i32 %16, %.010681160
-  %638 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %636, ptr noundef %0, i32 noundef %637, i32 noundef 2, i32 noundef 0) #3
-  %639 = add i32 %.010681160, 13
-  %640 = add i32 %639, %1
-  %641 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %640) #3
-  %642 = lshr i8 %641, 3
-  %643 = and i8 %642, 3
-  %644 = load i32, ptr @hf_dvb_s2_table_sfld_west_east_flag, align 4
-  %645 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %644, ptr noundef %0, i32 noundef %640, i32 noundef 1, i32 noundef 0) #3
-  %646 = load i32, ptr @hf_dvb_s2_table_sfld_polarization, align 4
-  %647 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %646, ptr noundef %0, i32 noundef %640, i32 noundef 1, i32 noundef 0) #3
-  %648 = load i32, ptr @hf_dvb_s2_table_sfld_transmission_standard, align 4
-  %649 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %648, ptr noundef %0, i32 noundef %640, i32 noundef 1, i32 noundef 0) #3
-  %650 = icmp eq i8 %643, 0
-  br i1 %650, label %651, label %653
+576:                                              ; preds = %15
+  %577 = load i32, ptr @hf_dvb_s2_table_sfld_satellite_id, align 4
+  %.reass1188 = add i32 %.010681243, %invariant.op1183
+  %578 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %577, ptr noundef %0, i32 noundef %.reass1188, i32 noundef 1, i32 noundef 0) #3
+  %579 = load i32, ptr @hf_dvb_s2_table_sfld_beam_id, align 4
+  %580 = add i32 %invariant.op1191, %.010681243
+  %581 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %579, ptr noundef %0, i32 noundef %580, i32 noundef 2, i32 noundef 0) #3
+  %582 = load i32, ptr @hf_dvb_s2_table_sfld_ncc_id, align 4
+  %583 = add i32 %10, %.010681243
+  %584 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %582, ptr noundef %0, i32 noundef %583, i32 noundef 1, i32 noundef 0) #3
+  %585 = load i32, ptr @hf_dvb_s2_table_sfld_multiplex_usage, align 4
+  %586 = add i32 %invariant.op1239, %.010681243
+  %587 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %585, ptr noundef %0, i32 noundef %586, i32 noundef 1, i32 noundef 0) #3
+  %588 = load i32, ptr @hf_dvb_s2_table_sfld_local_multiplex_id, align 4
+  %589 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %588, ptr noundef %0, i32 noundef %586, i32 noundef 1, i32 noundef 0) #3
+  %590 = load i32, ptr @hf_dvb_s2_table_sfld_frequency, align 4
+  %591 = add i32 %9, %.010681243
+  %592 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %590, ptr noundef %0, i32 noundef %591, i32 noundef 4, i32 noundef 0) #3
+  %593 = load i32, ptr @hf_dvb_s2_table_sfld_orbital_position, align 4
+  %594 = add i32 %invariant.op1211, %.010681243
+  %595 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %593, ptr noundef %0, i32 noundef %594, i32 noundef 2, i32 noundef 0) #3
+  %.reass1190 = add i32 %.010681243, %invariant.op1189
+  %596 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.reass1190) #3
+  %597 = lshr i8 %596, 3
+  %598 = and i8 %597, 3
+  %599 = load i32, ptr @hf_dvb_s2_table_sfld_west_east_flag, align 4
+  %600 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %599, ptr noundef %0, i32 noundef %.reass1190, i32 noundef 1, i32 noundef 0) #3
+  %601 = load i32, ptr @hf_dvb_s2_table_sfld_polarization, align 4
+  %602 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %601, ptr noundef %0, i32 noundef %.reass1190, i32 noundef 1, i32 noundef 0) #3
+  %603 = load i32, ptr @hf_dvb_s2_table_sfld_transmission_standard, align 4
+  %604 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %603, ptr noundef %0, i32 noundef %.reass1190, i32 noundef 1, i32 noundef 0) #3
+  %605 = icmp eq i8 %598, 0
+  br i1 %605, label %617, label %606
 
-651:                                              ; preds = %618
-  %652 = add i32 %.010681160, 14
-  br label %663
+606:                                              ; preds = %576
+  %607 = add i32 %.010681243, 13
+  %or.cond9.not = icmp eq i8 %598, 3
+  br i1 %or.cond9.not, label %622, label %608
 
-653:                                              ; preds = %618
-  %or.cond9.not = icmp eq i8 %643, 3
-  br i1 %or.cond9.not, label %663, label %654
+608:                                              ; preds = %606
+  %609 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.reass1190) #3
+  %610 = and i8 %609, 4
+  %611 = zext nneg i8 %610 to i32
+  %612 = load i32, ptr @hf_dvb_s2_table_sfld_scrambling_sequence_selector, align 4
+  %613 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %612, ptr noundef %0, i32 noundef %.reass1190, i32 noundef 1, i32 noundef 0) #3
+  %614 = load i32, ptr @hf_dvb_s2_table_sfld_roll_off, align 4
+  %615 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %614, ptr noundef %0, i32 noundef %.reass1190, i32 noundef 1, i32 noundef 0) #3
+  %616 = add i32 %.010681243, 14
+  br label %622
 
-654:                                              ; preds = %653
-  %655 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %640) #3
-  %656 = and i8 %655, 4
-  %657 = zext nneg i8 %656 to i32
-  %658 = load i32, ptr @hf_dvb_s2_table_sfld_scrambling_sequence_selector, align 4
-  %659 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %658, ptr noundef %0, i32 noundef %640, i32 noundef 1, i32 noundef 0) #3
-  %660 = load i32, ptr @hf_dvb_s2_table_sfld_roll_off, align 4
-  %661 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %660, ptr noundef %0, i32 noundef %640, i32 noundef 1, i32 noundef 0) #3
-  %662 = add i32 %.010681160, 14
-  br label %663
+617:                                              ; preds = %576
+  %618 = load i32, ptr @hf_dvb_s2_table_sfld_symbol_rate, align 4
+  %.reass1287 = add i32 %.010681243, %invariant.op
+  %619 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %618, ptr noundef %0, i32 noundef %.reass1287, i32 noundef 3, i32 noundef 0) #3
+  %620 = load i32, ptr @hf_dvb_s2_table_sfld_fec_inner, align 4
+  %.reass1196.reass = add i32 %.010681243, %invariant.op1288
+  %621 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %620, ptr noundef %0, i32 noundef %.reass1196.reass, i32 noundef 1, i32 noundef 0) #3
+  %.reass1290 = add i32 %.010681243, 18
+  br label %638
 
-663:                                              ; preds = %654, %653, %651
-  %.11083 = phi i32 [ %.010821159, %651 ], [ %657, %654 ], [ %.010821159, %653 ]
-  %.25 = phi i32 [ %652, %651 ], [ %662, %654 ], [ %639, %653 ]
-  %664 = load i32, ptr @hf_dvb_s2_table_sfld_symbol_rate, align 4
-  %665 = add i32 %.25, %1
-  %666 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %664, ptr noundef %0, i32 noundef %665, i32 noundef 3, i32 noundef 0) #3
-  %667 = add i32 %.25, 3
-  br i1 %650, label %668, label %673
+622:                                              ; preds = %608, %606
+  %.11083.ph = phi i32 [ %.010821242, %606 ], [ %611, %608 ]
+  %.25.ph = phi i32 [ %607, %606 ], [ %616, %608 ]
+  %623 = load i32, ptr @hf_dvb_s2_table_sfld_symbol_rate, align 4
+  %624 = add i32 %.25.ph, %1
+  %625 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %623, ptr noundef %0, i32 noundef %624, i32 noundef 3, i32 noundef 0) #3
+  %626 = add i32 %.25.ph, 3
+  %or.cond11.not = icmp eq i8 %598, 3
+  br i1 %or.cond11.not, label %638, label %627
 
-668:                                              ; preds = %663
-  %669 = load i32, ptr @hf_dvb_s2_table_sfld_fec_inner, align 4
-  %670 = add i32 %667, %1
-  %671 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %669, ptr noundef %0, i32 noundef %670, i32 noundef 1, i32 noundef 0) #3
-  %672 = add i32 %.25, 4
-  br label %687
+627:                                              ; preds = %622
+  %628 = load i32, ptr @hf_dvb_s2_table_sfld_input_stream_identifier, align 4
+  %.reass1192 = add i32 %.25.ph, %invariant.op1191
+  %629 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %628, ptr noundef %0, i32 noundef %.reass1192, i32 noundef 1, i32 noundef 0) #3
+  %630 = add i32 %.25.ph, 4
+  %631 = icmp eq i32 %.11083.ph, 0
+  br i1 %631, label %632, label %638
 
-673:                                              ; preds = %663
-  %or.cond11.not = icmp eq i8 %643, 3
-  br i1 %or.cond11.not, label %687, label %674
+632:                                              ; preds = %627
+  %633 = load i32, ptr @hf_dvb_s2_table_sfld_reserved_for_forward_spreading, align 4
+  %.reass1194 = add i32 %.25.ph, %invariant.op1193
+  %634 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %633, ptr noundef %0, i32 noundef %.reass1194, i32 noundef 1, i32 noundef 0) #3
+  %635 = load i32, ptr @hf_dvb_s2_table_sfld_scrambling_sequence_index, align 4
+  %636 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %635, ptr noundef %0, i32 noundef %.reass1194, i32 noundef 3, i32 noundef 0) #3
+  %637 = add i32 %.25.ph, 7
+  br label %638
 
-674:                                              ; preds = %673
-  %675 = load i32, ptr @hf_dvb_s2_table_sfld_input_stream_identifier, align 4
-  %676 = add i32 %667, %1
-  %677 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %675, ptr noundef %0, i32 noundef %676, i32 noundef 1, i32 noundef 0) #3
-  %678 = add i32 %.25, 4
-  %679 = icmp eq i32 %.11083, 0
-  br i1 %679, label %680, label %687
+638:                                              ; preds = %622, %632, %627, %617
+  %.110831277 = phi i32 [ %.010821242, %617 ], [ 0, %632 ], [ %.11083.ph, %627 ], [ %.11083.ph, %622 ]
+  %.26 = phi i32 [ %.reass1290, %617 ], [ %637, %632 ], [ %630, %627 ], [ %626, %622 ]
+  %.neg = sub i32 %29, %.26
+  %639 = add i32 %.neg, %19
+  %640 = icmp sgt i32 %639, 0
+  br i1 %640, label %641, label %.loopexit1112
 
-680:                                              ; preds = %674
-  %681 = load i32, ptr @hf_dvb_s2_table_sfld_reserved_for_forward_spreading, align 4
-  %682 = add i32 %678, %1
-  %683 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %681, ptr noundef %0, i32 noundef %682, i32 noundef 1, i32 noundef 0) #3
-  %684 = load i32, ptr @hf_dvb_s2_table_sfld_scrambling_sequence_index, align 4
-  %685 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %684, ptr noundef %0, i32 noundef %682, i32 noundef 3, i32 noundef 0) #3
-  %686 = add i32 %.25, 7
-  br label %687
+641:                                              ; preds = %638
+  %642 = icmp eq i32 %639, 6
+  %or.cond13 = and i1 %11, %642
+  %643 = add i32 %.26, %1
+  br i1 %or.cond13, label %644, label %654
 
-687:                                              ; preds = %673, %680, %674, %668
-  %.26 = phi i32 [ %672, %668 ], [ %686, %680 ], [ %678, %674 ], [ %667, %673 ]
-  %.neg = sub i32 %39, %.26
-  %688 = add i32 %.neg, %28
-  %689 = icmp sgt i32 %688, 0
-  br i1 %689, label %690, label %.loopexit1112
+644:                                              ; preds = %641
+  %645 = load i32, ptr @hf_dvb_s2_table_sfld_ncr_private_data, align 4
+  %646 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %645, ptr noundef %0, i32 noundef %643, i32 noundef 6, i32 noundef 0) #3
+  %647 = load i32, ptr @ett_dvb_s2_hdr_table_desc, align 4
+  %648 = call ptr @proto_item_add_subtree(ptr noundef %646, i32 noundef %647) #3
+  %649 = load i32, ptr @hf_dvb_s2_table_sfld_ncr_base_private_data, align 4
+  %650 = shl i32 %643, 3
+  %651 = call ptr @proto_tree_add_bits_item(ptr noundef %648, i32 noundef %649, ptr noundef %0, i32 noundef %650, i32 noundef 33, i32 noundef 0) #3
+  %652 = load i32, ptr @hf_dvb_s2_table_sfld_ncr_ext_private_data, align 4
+  %.reass1198 = add i32 %.26, %invariant.op1193
+  %653 = call ptr @proto_tree_add_item(ptr noundef %648, i32 noundef %652, ptr noundef %0, i32 noundef %.reass1198, i32 noundef 2, i32 noundef 0) #3
+  br label %657
 
-690:                                              ; preds = %687
-  %691 = icmp eq i32 %688, 6
-  %or.cond13 = and i1 %17, %691
-  %692 = add i32 %.26, %1
-  br i1 %or.cond13, label %693, label %704
+654:                                              ; preds = %641
+  %655 = load i32, ptr @hf_dvb_s2_table_sfld_private_data, align 4
+  %656 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %655, ptr noundef %0, i32 noundef %643, i32 noundef %639, i32 noundef 0) #3
+  br label %657
 
-693:                                              ; preds = %690
-  %694 = load i32, ptr @hf_dvb_s2_table_sfld_ncr_private_data, align 4
-  %695 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %694, ptr noundef %0, i32 noundef %692, i32 noundef 6, i32 noundef 0) #3
-  %696 = load i32, ptr @ett_dvb_s2_hdr_table_desc, align 4
-  %697 = call ptr @proto_item_add_subtree(ptr noundef %695, i32 noundef %696) #3
-  %698 = load i32, ptr @hf_dvb_s2_table_sfld_ncr_base_private_data, align 4
-  %699 = shl i32 %692, 3
-  %700 = call ptr @proto_tree_add_bits_item(ptr noundef %697, i32 noundef %698, ptr noundef %0, i32 noundef %699, i32 noundef 33, i32 noundef 0) #3
-  %701 = load i32, ptr @hf_dvb_s2_table_sfld_ncr_ext_private_data, align 4
-  %702 = add i32 %692, 4
-  %703 = call ptr @proto_tree_add_item(ptr noundef %697, i32 noundef %701, ptr noundef %0, i32 noundef %702, i32 noundef 2, i32 noundef 0) #3
-  br label %707
-
-704:                                              ; preds = %690
-  %705 = load i32, ptr @hf_dvb_s2_table_sfld_private_data, align 4
-  %706 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %705, ptr noundef %0, i32 noundef %692, i32 noundef %688, i32 noundef 0) #3
-  br label %707
-
-707:                                              ; preds = %704, %693
-  %708 = add i32 %39, %28
+657:                                              ; preds = %654, %644
+  %658 = add i32 %29, %19
   br label %.loopexit1112
 
-709:                                              ; preds = %23
-  %710 = load i32, ptr @hf_dvb_s2_table_mc_command_value, align 4
-  %711 = add i32 %39, %1
-  %712 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %710, ptr noundef %0, i32 noundef %711, i32 noundef 2, i32 noundef 0) #3
-  %713 = load i32, ptr @hf_dvb_s2_table_mc_command_parameter, align 4
-  %714 = add i32 %13, %.010681160
-  %715 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %713, ptr noundef %0, i32 noundef %714, i32 noundef 2, i32 noundef 0) #3
-  %716 = add i32 %.010681160, 6
+659:                                              ; preds = %15
+  %660 = load i32, ptr @hf_dvb_s2_table_mc_command_value, align 4
+  %.reass1186 = add i32 %.010681243, %invariant.op1183
+  %661 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %660, ptr noundef %0, i32 noundef %.reass1186, i32 noundef 2, i32 noundef 0) #3
+  %662 = load i32, ptr @hf_dvb_s2_table_mc_command_parameter, align 4
+  %663 = add i32 %invariant.op1193, %.010681243
+  %664 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %662, ptr noundef %0, i32 noundef %663, i32 noundef 2, i32 noundef 0) #3
+  %665 = add i32 %.010681243, 6
   br label %.loopexit1112
 
-717:                                              ; preds = %23
-  %718 = add i32 %39, %1
-  %719 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %718) #3
-  %720 = zext i8 %719 to i32
-  %721 = load i32, ptr @hf_dvb_s2_table_lsvd_group_count, align 4
-  %722 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %721, ptr noundef %0, i32 noundef %718, i32 noundef 1, i32 noundef 0) #3
-  %723 = add i32 %.010681160, 3
-  %.not1166 = icmp eq i8 %719, 0
-  br i1 %.not1166, label %.loopexit1112, label %.lr.ph
+666:                                              ; preds = %15
+  %.reass1184 = add i32 %.010681243, %invariant.op1183
+  %667 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.reass1184) #3
+  %668 = zext i8 %667 to i32
+  %669 = load i32, ptr @hf_dvb_s2_table_lsvd_group_count, align 4
+  %670 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %669, ptr noundef %0, i32 noundef %.reass1184, i32 noundef 1, i32 noundef 0) #3
+  %671 = add i32 %.010681243, 3
+  %.not1249 = icmp eq i8 %667, 0
+  br i1 %.not1249, label %.loopexit1112, label %.lr.ph
 
-.lr.ph:                                           ; preds = %717, %.lr.ph
-  %.271117 = phi i32 [ %742, %.lr.ph ], [ %723, %717 ]
-  %.210771116 = phi i32 [ %743, %.lr.ph ], [ 0, %717 ]
-  %724 = load i32, ptr @hf_dvb_s2_table_lsvd_oui, align 4
-  %725 = add i32 %.271117, %1
-  %726 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %724, ptr noundef %0, i32 noundef %725, i32 noundef 3, i32 noundef 0) #3
-  %727 = load i32, ptr @hf_dvb_s2_table_lsvd_mcast_address, align 4
-  %728 = add i32 %10, %.271117
-  %729 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %727, ptr noundef %0, i32 noundef %728, i32 noundef 4, i32 noundef 0) #3
-  %730 = load i32, ptr @hf_dvb_s2_table_lsvd_mcast_port, align 4
-  %731 = add i32 %11, %.271117
-  %732 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %730, ptr noundef %0, i32 noundef %731, i32 noundef 2, i32 noundef 0) #3
-  %733 = add i32 %12, %.271117
-  %734 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %733) #3
-  %735 = zext i8 %734 to i32
-  %736 = load i32, ptr @hf_dvb_s2_table_lsvd_version_field_length, align 4
-  %737 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %736, ptr noundef %0, i32 noundef %733, i32 noundef 1, i32 noundef 0) #3
-  %738 = add i32 %.271117, 10
-  %739 = load i32, ptr @hf_dvb_s2_table_lsvd_version_bytes, align 4
-  %740 = add i32 %738, %1
-  %741 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %739, ptr noundef %0, i32 noundef %740, i32 noundef %735, i32 noundef 0) #3
-  %742 = add i32 %738, %735
-  %743 = add nuw nsw i32 %.210771116, 1
-  %exitcond.not = icmp eq i32 %743, %720
+.lr.ph:                                           ; preds = %666, %.lr.ph
+  %.271117 = phi i32 [ %689, %.lr.ph ], [ %671, %666 ]
+  %.210771116 = phi i32 [ %690, %.lr.ph ], [ 0, %666 ]
+  %672 = load i32, ptr @hf_dvb_s2_table_lsvd_oui, align 4
+  %673 = add i32 %.271117, %1
+  %674 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %672, ptr noundef %0, i32 noundef %673, i32 noundef 3, i32 noundef 0) #3
+  %675 = load i32, ptr @hf_dvb_s2_table_lsvd_mcast_address, align 4
+  %676 = add i32 %invariant.op1191, %.271117
+  %677 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %675, ptr noundef %0, i32 noundef %676, i32 noundef 4, i32 noundef 0) #3
+  %678 = load i32, ptr @hf_dvb_s2_table_lsvd_mcast_port, align 4
+  %679 = add i32 %9, %.271117
+  %680 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %678, ptr noundef %0, i32 noundef %679, i32 noundef 2, i32 noundef 0) #3
+  %681 = add i32 %invariant.op1219, %.271117
+  %682 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %681) #3
+  %683 = zext i8 %682 to i32
+  %684 = load i32, ptr @hf_dvb_s2_table_lsvd_version_field_length, align 4
+  %685 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %684, ptr noundef %0, i32 noundef %681, i32 noundef 1, i32 noundef 0) #3
+  %686 = add i32 %.271117, 10
+  %687 = load i32, ptr @hf_dvb_s2_table_lsvd_version_bytes, align 4
+  %.reass = add i32 %.271117, %invariant.op1223
+  %688 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %687, ptr noundef %0, i32 noundef %.reass, i32 noundef %683, i32 noundef 0) #3
+  %689 = add i32 %686, %683
+  %690 = add nuw nsw i32 %.210771116, 1
+  %exitcond.not = icmp eq i32 %690, %668
   br i1 %exitcond.not, label %.loopexit1112, label %.lr.ph, !llvm.loop !42
 
-744:                                              ; preds = %23
-  %745 = add i32 %39, %28
+691:                                              ; preds = %15
+  %692 = add i32 %29, %19
   br label %.loopexit1112
 
-.loopexit1112:                                    ; preds = %.lr.ph, %.loopexit, %505, %.lr.ph1150, %717, %.preheader, %._crit_edge1145, %84, %88, %._crit_edge1156, %289, %585, %590, %604, %709, %744, %70, %67, %369, %.thread1108, %402, %374, %471, %468, %707, %687
-  %.21084 = phi i32 [ %.010821159, %744 ], [ %.010821159, %709 ], [ %.11083, %707 ], [ %.11083, %687 ], [ %.010821159, %604 ], [ %.010821159, %590 ], [ %.010821159, %585 ], [ %.010821159, %471 ], [ %.010821159, %468 ], [ %.010821159, %402 ], [ %.010821159, %374 ], [ %.010821159, %369 ], [ %.010821159, %.thread1108 ], [ %.010821159, %289 ], [ %.010821159, %._crit_edge1156 ], [ %.010821159, %88 ], [ %.010821159, %84 ], [ %.010821159, %70 ], [ %.010821159, %67 ], [ %.010821159, %._crit_edge1145 ], [ %.010821159, %.preheader ], [ %.010821159, %717 ], [ %.010821159, %.lr.ph1150 ], [ %.010821159, %505 ], [ %.010821159, %.loopexit ], [ %.010821159, %.lr.ph ]
-  %.28 = phi i32 [ %745, %744 ], [ %716, %709 ], [ %708, %707 ], [ %.26, %687 ], [ %617, %604 ], [ %603, %590 ], [ %589, %585 ], [ %484, %471 ], [ %469, %468 ], [ %407, %402 ], [ %400, %374 ], [ %373, %369 ], [ %.14, %.thread1108 ], [ %293, %289 ], [ %152, %._crit_edge1156 ], [ %101, %88 ], [ %87, %84 ], [ %83, %70 ], [ %.11069, %67 ], [ %259, %._crit_edge1145 ], [ %39, %.preheader ], [ %723, %717 ], [ %287, %.lr.ph1150 ], [ %503, %505 ], [ %583, %.loopexit ], [ %742, %.lr.ph ]
-  %746 = add i32 %.01161, 1
-  %.not = icmp sgt i32 %746, %3
-  br i1 %.not, label %._crit_edge1164, label %23, !llvm.loop !43
+.loopexit1112:                                    ; preds = %.lr.ph, %.loopexit, %473, %.lr.ph1173, %666, %.preheader, %._crit_edge1164, %72, %75, %._crit_edge1179, %268, %546, %550, %563, %659, %691, %58, %55, %342, %.thread1108, %372, %347, %439, %436, %657, %638
+  %.21084 = phi i32 [ %.010821242, %691 ], [ %.010821242, %659 ], [ %.110831277, %657 ], [ %.110831277, %638 ], [ %.010821242, %563 ], [ %.010821242, %550 ], [ %.010821242, %546 ], [ %.010821242, %439 ], [ %.010821242, %436 ], [ %.010821242, %372 ], [ %.010821242, %347 ], [ %.010821242, %342 ], [ %.010821242, %.thread1108 ], [ %.010821242, %268 ], [ %.010821242, %._crit_edge1179 ], [ %.010821242, %75 ], [ %.010821242, %72 ], [ %.010821242, %58 ], [ %.010821242, %55 ], [ %.010821242, %._crit_edge1164 ], [ %.010821242, %.preheader ], [ %.010821242, %666 ], [ %.010821242, %.lr.ph1173 ], [ %.010821242, %473 ], [ %.010821242, %.loopexit ], [ %.010821242, %.lr.ph ]
+  %.28 = phi i32 [ %692, %691 ], [ %665, %659 ], [ %658, %657 ], [ %.26, %638 ], [ %575, %563 ], [ %562, %550 ], [ %549, %546 ], [ %452, %439 ], [ %437, %436 ], [ %376, %372 ], [ %370, %347 ], [ %346, %342 ], [ %.14, %.thread1108 ], [ %271, %268 ], [ %137, %._crit_edge1179 ], [ %87, %75 ], [ %74, %72 ], [ %71, %58 ], [ %.11069, %55 ], [ %241, %._crit_edge1164 ], [ %29, %.preheader ], [ %671, %666 ], [ %266, %.lr.ph1173 ], [ %471, %473 ], [ %544, %.loopexit ], [ %689, %.lr.ph ]
+  %693 = add i32 %.01244, 1
+  %.not = icmp sgt i32 %693, %3
+  br i1 %.not, label %._crit_edge1247, label %15, !llvm.loop !43
 
-._crit_edge1164:                                  ; preds = %.loopexit1112, %6
+._crit_edge1247:                                  ; preds = %.loopexit1112, %6
   %.01068.lcssa = phi i32 [ 0, %6 ], [ %.28, %.loopexit1112 ]
   ret i32 %.01068.lcssa
 }

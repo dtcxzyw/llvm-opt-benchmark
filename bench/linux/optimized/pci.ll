@@ -11120,7 +11120,7 @@ define dso_local void @pci_reassigndev_resource_alignment(ptr noundef %0) local_
   %7 = load i40, ptr %6, align 1
   %8 = and i40 %7, 8388608
   %9 = icmp eq i40 %8, 0
-  br i1 %9, label %10, label %161
+  br i1 %9, label %10, label %157
 
 10:                                               ; preds = %1
   store i16 0, ptr %5, align 2, !annotation !8
@@ -11233,7 +11233,7 @@ define dso_local void @pci_reassigndev_resource_alignment(ptr noundef %0) local_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #27
-  br label %161
+  br label %157
 
 .loopexit:                                        ; preds = %57, %55, %53, %14, %10
   call void @_raw_spin_unlock(ptr noundef nonnull @resource_alignment_lock) #27
@@ -11241,7 +11241,7 @@ define dso_local void @pci_reassigndev_resource_alignment(ptr noundef %0) local_
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #27
   %61 = icmp eq i64 %11, 0
-  br i1 %61, label %161, label %62
+  br i1 %61, label %157, label %62
 
 62:                                               ; preds = %.thread7, %.loopexit
   %63 = phi i64 [ %49, %.thread7 ], [ %11, %.loopexit ]
@@ -11261,7 +11261,7 @@ define dso_local void @pci_reassigndev_resource_alignment(ptr noundef %0) local_
 73:                                               ; preds = %68
   %74 = getelementptr inbounds i8, ptr %0, i64 184
   call void (ptr, ptr, ...) @_dev_warn(ptr noundef %74, ptr noundef nonnull @.str.52) #28
-  br label %161
+  br label %157
 
 75:                                               ; preds = %68, %62
   %76 = call i32 @pci_read_config_word(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %5) #27
@@ -11271,10 +11271,11 @@ define dso_local void @pci_reassigndev_resource_alignment(ptr noundef %0) local_
   %79 = call i32 @pci_write_config_word(ptr noundef %0, i32 noundef 4, i16 noundef zeroext %78) #27
   %80 = getelementptr inbounds i8, ptr %0, i64 920
   %81 = getelementptr inbounds i8, ptr %0, i64 184
+  %invariant.op = add i64 %63, -1
   br i1 %64, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %75, %110
-  %82 = phi i64 [ %111, %110 ], [ 0, %75 ]
+.split.us:                                        ; preds = %75, %108
+  %82 = phi i64 [ %109, %108 ], [ 0, %75 ]
   %83 = getelementptr [11 x %struct.resource], ptr %80, i64 0, i64 %82
   %84 = load i8, ptr %65, align 1
   %85 = icmp eq i8 %84, 2
@@ -11285,7 +11286,7 @@ define dso_local void @pci_reassigndev_resource_alignment(ptr noundef %0) local_
   %90 = load i64, ptr %89, align 8
   %91 = and i64 %90, 512
   %92 = icmp eq i64 %91, 0
-  br i1 %92, label %110, label %93
+  br i1 %92, label %108, label %93
 
 93:                                               ; preds = %.split.us
   %94 = and i64 %90, 16
@@ -11294,7 +11295,7 @@ define dso_local void @pci_reassigndev_resource_alignment(ptr noundef %0) local_
 
 96:                                               ; preds = %93
   call void (ptr, ptr, ...) @_dev_info(ptr noundef %81, ptr noundef nonnull @.str.108, ptr noundef %88, ptr noundef %83, i64 noundef %63) #28
-  br label %110
+  br label %108
 
 97:                                               ; preds = %93
   %98 = getelementptr inbounds i8, ptr %83, i64 8
@@ -11303,110 +11304,105 @@ define dso_local void @pci_reassigndev_resource_alignment(ptr noundef %0) local_
   %101 = add i64 %99, 1
   %102 = sub i64 %101, %100
   %103 = icmp ult i64 %102, %63
-  br i1 %103, label %104, label %110
+  br i1 %103, label %104, label %108
 
 104:                                              ; preds = %97
   call void (ptr, ptr, ...) @_dev_info(ptr noundef %81, ptr noundef nonnull @.str.109, ptr noundef %88, ptr noundef %83, i64 noundef %63) #28
   %105 = load i64, ptr %89, align 8
   %106 = and i64 %105, -537657345
   store i64 %63, ptr %83, align 8
-  %107 = add i64 %102, %63
-  %108 = add i64 %107, -1
-  store i64 %108, ptr %98, align 8
-  %109 = or disjoint i64 %106, 537395200
-  store i64 %109, ptr %89, align 8
-  br label %110
+  %.reass = add i64 %102, %invariant.op
+  store i64 %.reass, ptr %98, align 8
+  %107 = or disjoint i64 %106, 537395200
+  store i64 %107, ptr %89, align 8
+  br label %108
 
-110:                                              ; preds = %104, %97, %96, %.split.us
-  %111 = add nuw nsw i64 %82, 1
-  %112 = icmp eq i64 %111, 7
-  br i1 %112, label %.split11.us, label %.split.us, !llvm.loop !97
+108:                                              ; preds = %104, %97, %96, %.split.us
+  %109 = add nuw nsw i64 %82, 1
+  %110 = icmp eq i64 %109, 7
+  br i1 %110, label %.split11.us, label %.split.us, !llvm.loop !97
 
-.split:                                           ; preds = %75
-  %113 = add i64 %63, -1
-  br label %114
+.split:                                           ; preds = %75, %136
+  %111 = phi i64 [ %137, %136 ], [ 0, %75 ]
+  %112 = getelementptr [11 x %struct.resource], ptr %80, i64 0, i64 %111
+  %113 = load i8, ptr %65, align 1
+  %114 = icmp eq i8 %113, 2
+  %115 = select i1 %114, ptr @pci_resource_name.cardbus_name, ptr @pci_resource_name.bar_name
+  %116 = getelementptr [10 x ptr], ptr %115, i64 0, i64 %111
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds i8, ptr %112, i64 24
+  %119 = load i64, ptr %118, align 8
+  %120 = and i64 %119, 512
+  %121 = icmp eq i64 %120, 0
+  br i1 %121, label %136, label %122
 
-114:                                              ; preds = %140, %.split
-  %115 = phi i64 [ 0, %.split ], [ %141, %140 ]
-  %116 = getelementptr [11 x %struct.resource], ptr %80, i64 0, i64 %115
-  %117 = load i8, ptr %65, align 1
-  %118 = icmp eq i8 %117, 2
-  %119 = select i1 %118, ptr @pci_resource_name.cardbus_name, ptr @pci_resource_name.bar_name
-  %120 = getelementptr [10 x ptr], ptr %119, i64 0, i64 %115
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %116, i64 24
-  %123 = load i64, ptr %122, align 8
-  %124 = and i64 %123, 512
-  %125 = icmp eq i64 %124, 0
-  br i1 %125, label %140, label %126
+122:                                              ; preds = %.split
+  %123 = and i64 %119, 16
+  %124 = icmp eq i64 %123, 0
+  br i1 %124, label %126, label %125
 
-126:                                              ; preds = %114
-  %127 = and i64 %123, 16
-  %128 = icmp eq i64 %127, 0
-  br i1 %128, label %130, label %129
+125:                                              ; preds = %122
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %81, ptr noundef nonnull @.str.108, ptr noundef %117, ptr noundef %112, i64 noundef %63) #28
+  br label %136
 
-129:                                              ; preds = %126
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %81, ptr noundef nonnull @.str.108, ptr noundef %121, ptr noundef %116, i64 noundef %63) #28
-  br label %140
+126:                                              ; preds = %122
+  %127 = getelementptr inbounds i8, ptr %112, i64 8
+  %128 = load i64, ptr %127, align 8
+  %129 = load i64, ptr %112, align 8
+  %130 = add i64 %128, 1
+  %131 = sub i64 %130, %129
+  %132 = icmp ult i64 %131, %63
+  br i1 %132, label %133, label %136
 
-130:                                              ; preds = %126
-  %131 = getelementptr inbounds i8, ptr %116, i64 8
-  %132 = load i64, ptr %131, align 8
-  %133 = load i64, ptr %116, align 8
-  %134 = add i64 %132, 1
-  %135 = sub i64 %134, %133
-  %136 = icmp ult i64 %135, %63
-  br i1 %136, label %137, label %140
+133:                                              ; preds = %126
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %81, ptr noundef nonnull @.str.109, ptr noundef %117, ptr noundef %112, i64 noundef %63) #28
+  store i64 0, ptr %112, align 8
+  store i64 %invariant.op, ptr %127, align 8
+  %134 = load i64, ptr %118, align 8
+  %135 = or i64 %134, 536870912
+  store i64 %135, ptr %118, align 8
+  br label %136
 
-137:                                              ; preds = %130
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %81, ptr noundef nonnull @.str.109, ptr noundef %121, ptr noundef %116, i64 noundef %63) #28
-  store i64 0, ptr %116, align 8
-  store i64 %113, ptr %131, align 8
-  %138 = load i64, ptr %122, align 8
-  %139 = or i64 %138, 536870912
-  store i64 %139, ptr %122, align 8
-  br label %140
+136:                                              ; preds = %133, %126, %125, %.split
+  %137 = add nuw nsw i64 %111, 1
+  %138 = icmp eq i64 %137, 7
+  br i1 %138, label %.split11.us, label %.split, !llvm.loop !97
 
-140:                                              ; preds = %137, %130, %129, %114
-  %141 = add nuw nsw i64 %115, 1
-  %142 = icmp eq i64 %141, 7
-  br i1 %142, label %.split11.us, label %114, !llvm.loop !97
+.split11.us:                                      ; preds = %136, %108
+  %139 = load i8, ptr %65, align 1
+  %140 = icmp eq i8 %139, 1
+  br i1 %140, label %.preheader, label %157
 
-.split11.us:                                      ; preds = %140, %110
-  %143 = load i8, ptr %65, align 1
-  %144 = icmp eq i8 %143, 1
-  br i1 %144, label %.preheader, label %161
+.preheader:                                       ; preds = %.split11.us, %153
+  %141 = phi i64 [ %154, %153 ], [ 7, %.split11.us ]
+  %142 = getelementptr [11 x %struct.resource], ptr %80, i64 0, i64 %141
+  %143 = getelementptr inbounds i8, ptr %142, i64 24
+  %144 = load i64, ptr %143, align 8
+  %145 = and i64 %144, 512
+  %146 = icmp eq i64 %145, 0
+  br i1 %146, label %153, label %147
 
-.preheader:                                       ; preds = %.split11.us, %157
-  %145 = phi i64 [ %158, %157 ], [ 7, %.split11.us ]
-  %146 = getelementptr [11 x %struct.resource], ptr %80, i64 0, i64 %145
-  %147 = getelementptr inbounds i8, ptr %146, i64 24
-  %148 = load i64, ptr %147, align 8
-  %149 = and i64 %148, 512
-  %150 = icmp eq i64 %149, 0
-  br i1 %150, label %157, label %151
+147:                                              ; preds = %.preheader
+  %148 = or i64 %144, 536870912
+  store i64 %148, ptr %143, align 8
+  %149 = getelementptr inbounds i8, ptr %142, i64 8
+  %150 = load i64, ptr %149, align 8
+  %151 = load i64, ptr %142, align 8
+  %152 = sub i64 %150, %151
+  store i64 %152, ptr %149, align 8
+  store i64 0, ptr %142, align 8
+  br label %153
 
-151:                                              ; preds = %.preheader
-  %152 = or i64 %148, 536870912
-  store i64 %152, ptr %147, align 8
-  %153 = getelementptr inbounds i8, ptr %146, i64 8
-  %154 = load i64, ptr %153, align 8
-  %155 = load i64, ptr %146, align 8
-  %156 = sub i64 %154, %155
-  store i64 %156, ptr %153, align 8
-  store i64 0, ptr %146, align 8
+153:                                              ; preds = %147, %.preheader
+  %154 = add nuw nsw i64 %141, 1
+  %155 = icmp eq i64 %154, 11
+  br i1 %155, label %156, label %.preheader, !llvm.loop !98
+
+156:                                              ; preds = %153
+  call void @pci_disable_bridge_window(ptr noundef %0) #27
   br label %157
 
-157:                                              ; preds = %151, %.preheader
-  %158 = add nuw nsw i64 %145, 1
-  %159 = icmp eq i64 %158, 11
-  br i1 %159, label %160, label %.preheader, !llvm.loop !98
-
-160:                                              ; preds = %157
-  call void @pci_disable_bridge_window(ptr noundef %0) #27
-  br label %161
-
-161:                                              ; preds = %.thread, %160, %.split11.us, %73, %.loopexit, %1
+157:                                              ; preds = %.thread, %156, %.split11.us, %73, %.loopexit, %1
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #27
   ret void
 }

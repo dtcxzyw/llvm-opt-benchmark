@@ -736,6 +736,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %repeatMin = getelementptr inbounds i8, ptr %info, i64 4
   %2 = load i32, ptr %repeatMin, align 4
   %conv4 = zext i32 %2 to i64
+  %invariant.op = add i64 %1, %conv4
   %repeatMax = getelementptr inbounds i8, ptr %info, i64 8
   %wide.trip.count = zext i8 %0 to i64
   br label %for.body
@@ -750,12 +751,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.ptr = getelementptr inbounds i16, ptr %state, i64 %indvars.iv
   %3 = load i16, ptr %add.ptr, align 1
   %conv3 = zext i16 %3 to i64
-  %add = add i64 %1, %conv3
-  %add5 = add i64 %add, %conv4
-  %cmp6 = icmp ugt i64 %add5, %offset
+  %add5.reass = add i64 %invariant.op, %conv3
+  %cmp6 = icmp ugt i64 %add5.reass, %offset
   br i1 %cmp6, label %return, label %if.end
 
 if.end:                                           ; preds = %for.body
+  %add = add i64 %1, %conv3
   %4 = load i32, ptr %repeatMax, align 4
   %conv8 = zext i32 %4 to i64
   %add9 = add i64 %add, %conv8
@@ -767,7 +768,7 @@ if.then12:                                        ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %for.body, %for.cond, %entry, %if.then12
-  %retval.0 = phi i64 [ %add13, %if.then12 ], [ 0, %entry ], [ %add5, %for.body ], [ 0, %for.cond ]
+  %retval.0 = phi i64 [ %add13, %if.then12 ], [ 0, %entry ], [ %add5.reass, %for.body ], [ 0, %for.cond ]
   ret i64 %retval.0
 }
 

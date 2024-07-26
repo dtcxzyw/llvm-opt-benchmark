@@ -941,24 +941,24 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %52 = load i8, ptr %51, align 8, !range !98
   %53 = icmp ne i8 %52, 0
   %54 = select i1 %50, i1 true, i1 %53
-  br i1 %54, label %273, label %55
+  br i1 %54, label %271, label %55
 
 55:                                               ; preds = %1
   %56 = getelementptr inbounds i8, ptr %0, i64 96
   %57 = load i32, ptr %56, align 8, !tbaa !71
   %58 = icmp slt i32 %57, 0
-  br i1 %58, label %59, label %276
+  br i1 %58, label %59, label %274
 
 59:                                               ; preds = %55
   %60 = mul nsw i32 %5, 150
   %61 = add nsw i32 %32, -150
   %62 = icmp slt i32 %60, %61
-  br i1 %62, label %63, label %270
+  br i1 %62, label %63, label %268
 
 63:                                               ; preds = %59
   %64 = icmp sgt i32 %45, 150
   %65 = icmp ne i32 %8, 0
-  br i1 %64, label %66, label %270
+  br i1 %64, label %66, label %268
 
 66:                                               ; preds = %63
   tail call void @llvm.assume(i1 %65)
@@ -984,6 +984,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %84 = add nuw nsw i64 %68, 4
   %85 = add nuw nsw i64 %68, 5
   %86 = add nuw nsw i64 %68, 6
+  %invariant.op = add nuw nsw i64 %68, 7
   br i1 %79, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %66
@@ -1032,8 +1033,8 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   br i1 %81, label %.preheader3.us, label %.preheader3
 
 .preheader3.us:                                   ; preds = %.split, %.loopexit4.us
-  %114 = phi i64 [ %182, %.loopexit4.us ], [ %70, %.split ]
-  %115 = phi float [ %178, %.loopexit4.us ], [ 1.000000e+08, %.split ]
+  %114 = phi i64 [ %181, %.loopexit4.us ], [ %70, %.split ]
+  %115 = phi float [ %177, %.loopexit4.us ], [ 1.000000e+08, %.split ]
   %116 = add nuw nsw i64 %114, %71
   %117 = icmp ult i64 %116, %72
   tail call void @llvm.assume(i1 %117)
@@ -1047,9 +1048,9 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   br label %124
 
 124:                                              ; preds = %124, %.preheader3.us
-  %125 = phi i64 [ %179, %124 ], [ 150, %.preheader3.us ]
-  %126 = phi float [ %178, %124 ], [ %115, %.preheader3.us ]
-  %127 = phi i64 [ %180, %124 ], [ 0, %.preheader3.us ]
+  %125 = phi i64 [ %178, %124 ], [ 150, %.preheader3.us ]
+  %126 = phi float [ %177, %124 ], [ %115, %.preheader3.us ]
+  %127 = phi i64 [ %179, %124 ], [ 0, %.preheader3.us ]
   %128 = add nuw nsw i64 %125, %68
   %129 = icmp ule i64 %128, %69
   tail call void @llvm.assume(i1 %129)
@@ -1103,154 +1104,154 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %171 = add nuw nsw i64 %125, 7
   %172 = icmp ult i64 %171, %67
   tail call void @llvm.assume(i1 %172)
-  %173 = add nuw nsw i64 %171, %68
-  %174 = icmp ule i64 %173, %69
-  tail call void @llvm.assume(i1 %174)
-  %175 = getelementptr inbounds float, ptr %123, i64 %173
-  %176 = load float, ptr %175, align 4, !tbaa !76
-  %177 = fcmp olt float %170, %176
-  %178 = select i1 %177, float %170, float %176
-  %179 = add nuw nsw i64 %125, 8
-  %180 = add i64 %127, 8
-  %181 = icmp eq i64 %180, %80
-  br i1 %181, label %.loopexit4.us, label %124, !llvm.loop !124
+  %.reass.us = add nuw nsw i64 %125, %invariant.op
+  %173 = icmp ule i64 %.reass.us, %69
+  tail call void @llvm.assume(i1 %173)
+  %174 = getelementptr inbounds float, ptr %123, i64 %.reass.us
+  %175 = load float, ptr %174, align 4, !tbaa !76
+  %176 = fcmp olt float %170, %175
+  %177 = select i1 %176, float %170, float %175
+  %178 = add nuw nsw i64 %125, 8
+  %179 = add i64 %127, 8
+  %180 = icmp eq i64 %179, %80
+  br i1 %180, label %.loopexit4.us, label %124, !llvm.loop !124
 
 .loopexit4.us:                                    ; preds = %124
-  %182 = add nuw nsw i64 %114, 1
-  %183 = trunc i64 %182 to i32
-  %184 = icmp sgt i32 %61, %183
-  br i1 %184, label %.preheader3.us, label %.split9.us, !llvm.loop !123
+  %181 = add nuw nsw i64 %114, 1
+  %182 = trunc i64 %181 to i32
+  %183 = icmp sgt i32 %61, %182
+  br i1 %183, label %.preheader3.us, label %.split9.us, !llvm.loop !123
 
 .preheader3:                                      ; preds = %.split, %.loopexit
-  %185 = phi i64 [ %266, %.loopexit ], [ %70, %.split ]
-  %186 = phi float [ %262, %.loopexit ], [ 1.000000e+08, %.split ]
-  %187 = add nuw nsw i64 %185, %71
-  %188 = icmp ult i64 %187, %72
-  tail call void @llvm.assume(i1 %188)
-  %189 = trunc nuw nsw i64 %187 to i32
-  %190 = mul nsw i32 %13, %189
-  %191 = add nuw nsw i32 %190, %8
-  %192 = icmp ule i32 %191, %14
-  tail call void @llvm.assume(i1 %192)
-  %193 = zext nneg i32 %190 to i64
-  %194 = getelementptr inbounds float, ptr %3, i64 %193
-  br label %195
+  %184 = phi i64 [ %264, %.loopexit ], [ %70, %.split ]
+  %185 = phi float [ %260, %.loopexit ], [ 1.000000e+08, %.split ]
+  %186 = add nuw nsw i64 %184, %71
+  %187 = icmp ult i64 %186, %72
+  tail call void @llvm.assume(i1 %187)
+  %188 = trunc nuw nsw i64 %186 to i32
+  %189 = mul nsw i32 %13, %188
+  %190 = add nuw nsw i32 %189, %8
+  %191 = icmp ule i32 %190, %14
+  tail call void @llvm.assume(i1 %191)
+  %192 = zext nneg i32 %189 to i64
+  %193 = getelementptr inbounds float, ptr %3, i64 %192
+  br label %194
 
-195:                                              ; preds = %.preheader3, %195
-  %196 = phi i64 [ %250, %195 ], [ 150, %.preheader3 ]
-  %197 = phi float [ %249, %195 ], [ %186, %.preheader3 ]
-  %198 = phi i64 [ %251, %195 ], [ 0, %.preheader3 ]
-  %199 = add nuw nsw i64 %196, %68
-  %200 = icmp ule i64 %199, %69
-  tail call void @llvm.assume(i1 %200)
-  %201 = getelementptr inbounds float, ptr %194, i64 %199
-  %202 = load float, ptr %201, align 4, !tbaa !76
-  %203 = fcmp olt float %197, %202
-  %204 = select i1 %203, float %197, float %202
-  %205 = or disjoint i64 %196, 1
-  %206 = add nuw nsw i64 %205, %68
-  %207 = icmp ule i64 %206, %69
-  tail call void @llvm.assume(i1 %207)
-  %208 = getelementptr inbounds float, ptr %194, i64 %206
-  %209 = load float, ptr %208, align 4, !tbaa !76
-  %210 = fcmp olt float %204, %209
-  %211 = select i1 %210, float %204, float %209
-  %212 = add nuw nsw i64 %82, %196
-  %213 = icmp ule i64 %212, %69
-  tail call void @llvm.assume(i1 %213)
-  %214 = getelementptr inbounds float, ptr %194, i64 %212
-  %215 = load float, ptr %214, align 4, !tbaa !76
-  %216 = fcmp olt float %211, %215
-  %217 = select i1 %216, float %211, float %215
-  %218 = add nuw nsw i64 %83, %196
-  %219 = icmp ule i64 %218, %69
-  tail call void @llvm.assume(i1 %219)
-  %220 = getelementptr inbounds float, ptr %194, i64 %218
-  %221 = load float, ptr %220, align 4, !tbaa !76
-  %222 = fcmp olt float %217, %221
-  %223 = select i1 %222, float %217, float %221
-  %224 = add nuw nsw i64 %84, %196
-  %225 = icmp ule i64 %224, %69
-  tail call void @llvm.assume(i1 %225)
-  %226 = getelementptr inbounds float, ptr %194, i64 %224
-  %227 = load float, ptr %226, align 4, !tbaa !76
-  %228 = fcmp olt float %223, %227
-  %229 = select i1 %228, float %223, float %227
-  %230 = add nuw nsw i64 %85, %196
-  %231 = icmp ule i64 %230, %69
-  tail call void @llvm.assume(i1 %231)
-  %232 = getelementptr inbounds float, ptr %194, i64 %230
-  %233 = load float, ptr %232, align 4, !tbaa !76
-  %234 = fcmp olt float %229, %233
-  %235 = select i1 %234, float %229, float %233
-  %236 = add nuw nsw i64 %86, %196
-  %237 = icmp ule i64 %236, %69
-  tail call void @llvm.assume(i1 %237)
-  %238 = getelementptr inbounds float, ptr %194, i64 %236
-  %239 = load float, ptr %238, align 4, !tbaa !76
-  %240 = fcmp olt float %235, %239
-  %241 = select i1 %240, float %235, float %239
-  %242 = add nuw nsw i64 %196, 7
-  %243 = icmp ult i64 %242, %67
+194:                                              ; preds = %.preheader3, %194
+  %195 = phi i64 [ %248, %194 ], [ 150, %.preheader3 ]
+  %196 = phi float [ %247, %194 ], [ %185, %.preheader3 ]
+  %197 = phi i64 [ %249, %194 ], [ 0, %.preheader3 ]
+  %198 = add nuw nsw i64 %195, %68
+  %199 = icmp ule i64 %198, %69
+  tail call void @llvm.assume(i1 %199)
+  %200 = getelementptr inbounds float, ptr %193, i64 %198
+  %201 = load float, ptr %200, align 4, !tbaa !76
+  %202 = fcmp olt float %196, %201
+  %203 = select i1 %202, float %196, float %201
+  %204 = or disjoint i64 %195, 1
+  %205 = add nuw nsw i64 %204, %68
+  %206 = icmp ule i64 %205, %69
+  tail call void @llvm.assume(i1 %206)
+  %207 = getelementptr inbounds float, ptr %193, i64 %205
+  %208 = load float, ptr %207, align 4, !tbaa !76
+  %209 = fcmp olt float %203, %208
+  %210 = select i1 %209, float %203, float %208
+  %211 = add nuw nsw i64 %82, %195
+  %212 = icmp ule i64 %211, %69
+  tail call void @llvm.assume(i1 %212)
+  %213 = getelementptr inbounds float, ptr %193, i64 %211
+  %214 = load float, ptr %213, align 4, !tbaa !76
+  %215 = fcmp olt float %210, %214
+  %216 = select i1 %215, float %210, float %214
+  %217 = add nuw nsw i64 %83, %195
+  %218 = icmp ule i64 %217, %69
+  tail call void @llvm.assume(i1 %218)
+  %219 = getelementptr inbounds float, ptr %193, i64 %217
+  %220 = load float, ptr %219, align 4, !tbaa !76
+  %221 = fcmp olt float %216, %220
+  %222 = select i1 %221, float %216, float %220
+  %223 = add nuw nsw i64 %84, %195
+  %224 = icmp ule i64 %223, %69
+  tail call void @llvm.assume(i1 %224)
+  %225 = getelementptr inbounds float, ptr %193, i64 %223
+  %226 = load float, ptr %225, align 4, !tbaa !76
+  %227 = fcmp olt float %222, %226
+  %228 = select i1 %227, float %222, float %226
+  %229 = add nuw nsw i64 %85, %195
+  %230 = icmp ule i64 %229, %69
+  tail call void @llvm.assume(i1 %230)
+  %231 = getelementptr inbounds float, ptr %193, i64 %229
+  %232 = load float, ptr %231, align 4, !tbaa !76
+  %233 = fcmp olt float %228, %232
+  %234 = select i1 %233, float %228, float %232
+  %235 = add nuw nsw i64 %86, %195
+  %236 = icmp ule i64 %235, %69
+  tail call void @llvm.assume(i1 %236)
+  %237 = getelementptr inbounds float, ptr %193, i64 %235
+  %238 = load float, ptr %237, align 4, !tbaa !76
+  %239 = fcmp olt float %234, %238
+  %240 = select i1 %239, float %234, float %238
+  %241 = add nuw nsw i64 %195, 7
+  %242 = icmp ult i64 %241, %67
+  tail call void @llvm.assume(i1 %242)
+  %.reass = add nuw nsw i64 %195, %invariant.op
+  %243 = icmp ule i64 %.reass, %69
   tail call void @llvm.assume(i1 %243)
-  %244 = add nuw nsw i64 %242, %68
-  %245 = icmp ule i64 %244, %69
-  tail call void @llvm.assume(i1 %245)
-  %246 = getelementptr inbounds float, ptr %194, i64 %244
-  %247 = load float, ptr %246, align 4, !tbaa !76
-  %248 = fcmp olt float %241, %247
-  %249 = select i1 %248, float %241, float %247
-  %250 = add nuw nsw i64 %196, 8
-  %251 = add i64 %198, 8
-  %252 = icmp eq i64 %251, %80
-  br i1 %252, label %.loopexit4, label %195, !llvm.loop !124
+  %244 = getelementptr inbounds float, ptr %193, i64 %.reass
+  %245 = load float, ptr %244, align 4, !tbaa !76
+  %246 = fcmp olt float %240, %245
+  %247 = select i1 %246, float %240, float %245
+  %248 = add nuw nsw i64 %195, 8
+  %249 = add i64 %197, 8
+  %250 = icmp eq i64 %249, %80
+  br i1 %250, label %.loopexit4, label %194, !llvm.loop !124
 
-.loopexit4:                                       ; preds = %195, %.loopexit4
-  %253 = phi i64 [ %263, %.loopexit4 ], [ %250, %195 ]
-  %254 = phi float [ %262, %.loopexit4 ], [ %249, %195 ]
-  %255 = phi i64 [ %264, %.loopexit4 ], [ 0, %195 ]
-  %256 = icmp ult i64 %253, %67
+.loopexit4:                                       ; preds = %194, %.loopexit4
+  %251 = phi i64 [ %261, %.loopexit4 ], [ %248, %194 ]
+  %252 = phi float [ %260, %.loopexit4 ], [ %247, %194 ]
+  %253 = phi i64 [ %262, %.loopexit4 ], [ 0, %194 ]
+  %254 = icmp ult i64 %251, %67
+  tail call void @llvm.assume(i1 %254)
+  %255 = add nuw nsw i64 %251, %68
+  %256 = icmp ule i64 %255, %69
   tail call void @llvm.assume(i1 %256)
-  %257 = add nuw nsw i64 %253, %68
-  %258 = icmp ule i64 %257, %69
-  tail call void @llvm.assume(i1 %258)
-  %259 = getelementptr inbounds float, ptr %194, i64 %257
-  %260 = load float, ptr %259, align 4, !tbaa !76
-  %261 = fcmp olt float %254, %260
-  %262 = select i1 %261, float %254, float %260
-  %263 = add nuw nsw i64 %253, 1
-  %264 = add nuw nsw i64 %255, 1
-  %265 = icmp eq i64 %264, %78
-  br i1 %265, label %.loopexit, label %.loopexit4, !llvm.loop !122
+  %257 = getelementptr inbounds float, ptr %193, i64 %255
+  %258 = load float, ptr %257, align 4, !tbaa !76
+  %259 = fcmp olt float %252, %258
+  %260 = select i1 %259, float %252, float %258
+  %261 = add nuw nsw i64 %251, 1
+  %262 = add nuw nsw i64 %253, 1
+  %263 = icmp eq i64 %262, %78
+  br i1 %263, label %.loopexit, label %.loopexit4, !llvm.loop !122
 
 .loopexit:                                        ; preds = %.loopexit4
-  %266 = add nuw nsw i64 %185, 1
-  %267 = trunc i64 %266 to i32
-  %268 = icmp sgt i32 %61, %267
-  br i1 %268, label %.preheader3, label %.split9.us, !llvm.loop !123
+  %264 = add nuw nsw i64 %184, 1
+  %265 = trunc i64 %264 to i32
+  %266 = icmp sgt i32 %61, %265
+  br i1 %266, label %.preheader3, label %.split9.us, !llvm.loop !123
 
 .split9.us:                                       ; preds = %.loopexit, %.loopexit4.us, %.loopexit.us, %.split.us
-  %.us-phi = phi float [ undef, %.split.us ], [ %107, %.loopexit.us ], [ %178, %.loopexit4.us ], [ %262, %.loopexit ]
-  %269 = fptosi float %.us-phi to i32
-  br label %270
+  %.us-phi = phi float [ undef, %.split.us ], [ %107, %.loopexit.us ], [ %177, %.loopexit4.us ], [ %260, %.loopexit ]
+  %267 = fptosi float %.us-phi to i32
+  br label %268
 
-270:                                              ; preds = %.split9.us, %63, %59
-  %271 = phi i32 [ 100000000, %59 ], [ %269, %.split9.us ], [ 100000000, %63 ]
-  store i32 %271, ptr %56, align 8, !tbaa !71
-  tail call void (i32, ptr, ...) @_ZN8rawspeed8writeLogENS_10DEBUG_PRIOEPKcz(i32 noundef 4096, ptr noundef nonnull @.str.2, i32 noundef %271)
-  %272 = load i8, ptr %51, align 8, !tbaa !72, !range !98
-  br label %273
+268:                                              ; preds = %.split9.us, %63, %59
+  %269 = phi i32 [ 100000000, %59 ], [ %267, %.split9.us ], [ 100000000, %63 ]
+  store i32 %269, ptr %56, align 8, !tbaa !71
+  tail call void (i32, ptr, ...) @_ZN8rawspeed8writeLogENS_10DEBUG_PRIOEPKcz(i32 noundef 4096, ptr noundef nonnull @.str.2, i32 noundef %269)
+  %270 = load i8, ptr %51, align 8, !tbaa !72, !range !98
+  br label %271
 
-273:                                              ; preds = %270, %1
-  %274 = phi i8 [ %272, %270 ], [ %52, %1 ]
-  %275 = icmp eq i8 %274, 0
-  br i1 %275, label %276, label %277
+271:                                              ; preds = %268, %1
+  %272 = phi i8 [ %270, %268 ], [ %52, %1 ]
+  %273 = icmp eq i8 %272, 0
+  br i1 %273, label %274, label %275
 
-276:                                              ; preds = %273, %55
+274:                                              ; preds = %271, %55
   tail call void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr noundef nonnull align 8 dereferenceable(616) %0)
-  br label %277
+  br label %275
 
-277:                                              ; preds = %276, %273
+275:                                              ; preds = %274, %271
   tail call void @_ZN8rawspeed12RawImageData11startWorkerENS_14RawImageWorker18RawImageWorkerTaskEb(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef 1, i1 noundef zeroext true)
   ret void
 }

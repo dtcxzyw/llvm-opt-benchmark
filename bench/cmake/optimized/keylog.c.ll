@@ -152,7 +152,7 @@ define dso_local noundef zeroext i1 @Curl_tls_keylog_write(ptr nocapture noundef
   br label %14
 
 14:                                               ; preds = %12, %14
-  %.03444 = phi i64 [ %.03441, %12 ], [ %.034, %14 ]
+  %.03444 = phi i64 [ %.03441, %12 ], [ %.034.reass, %14 ]
   %.043 = phi i64 [ 0, %12 ], [ %28, %14 ]
   %.034.in42 = phi i64 [ %8, %12 ], [ %21, %14 ]
   %15 = getelementptr inbounds i8, ptr %1, i64 %.043
@@ -171,12 +171,12 @@ define dso_local noundef zeroext i1 @Curl_tls_keylog_write(ptr nocapture noundef
   %27 = getelementptr inbounds [195 x i8], ptr %5, i64 0, i64 %21
   store i8 %26, ptr %27, align 1
   %28 = add nuw nsw i64 %.043, 1
-  %.034 = add i64 %.034.in42, 3
+  %.034.reass = add i64 %.034.in42, 3
   %exitcond.not = icmp eq i64 %28, 32
   br i1 %exitcond.not, label %29, label %14, !llvm.loop !5
 
 29:                                               ; preds = %14
-  %30 = getelementptr inbounds [195 x i8], ptr %5, i64 0, i64 %.034
+  %30 = getelementptr inbounds [195 x i8], ptr %5, i64 0, i64 %.034.reass
   store i8 32, ptr %30, align 1
   %.13545 = add i64 %.034.in42, 4
   %.not50 = icmp eq i64 %3, 0

@@ -3929,76 +3929,76 @@ thread-pre-split:                                 ; preds = %9, %29
   br i1 %.not205234, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.thread218
+  %invariant.op = add i64 %1, -1
   %118 = ptrtoint ptr %0 to i64
-  %.neg209 = add i64 %118, -1
-  %119 = add i64 %.neg209, %1
+  %.reass = add i64 %invariant.op, %118
   %.neg = add i64 %118, %1
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.backedge, %.preheader.lr.ph
   %.1 = phi ptr [ %117, %.preheader.lr.ph ], [ %.1.be, %.preheader.backedge ]
   %.not206 = icmp eq ptr %.1, %0
-  br i1 %.not206, label %.critedge, label %120
+  br i1 %.not206, label %.critedge, label %119
 
-120:                                              ; preds = %.preheader
-  %121 = getelementptr inbounds i8, ptr %.1, i64 -1
-  %122 = load i8, ptr %121, align 1
-  switch i8 %122, label %.critedge [
+119:                                              ; preds = %.preheader
+  %120 = getelementptr inbounds i8, ptr %.1, i64 -1
+  %121 = load i8, ptr %120, align 1
+  switch i8 %121, label %.critedge [
     i8 47, label %.critedge4
     i8 0, label %.critedge4
   ]
 
-.critedge4:                                       ; preds = %120, %120
-  %123 = getelementptr inbounds i8, ptr %.1, i64 1
-  %124 = ptrtoint ptr %.1 to i64
-  %125 = sub i64 %119, %124
-  %126 = tail call ptr @memchr(ptr noundef nonnull %123, i32 noundef 46, i64 noundef %125) #24
-  %.not210 = icmp eq ptr %126, null
+.critedge4:                                       ; preds = %119, %119
+  %122 = getelementptr inbounds i8, ptr %.1, i64 1
+  %123 = ptrtoint ptr %.1 to i64
+  %124 = sub i64 %.reass, %123
+  %125 = tail call ptr @memchr(ptr noundef nonnull %122, i32 noundef 46, i64 noundef %124) #24
+  %.not210 = icmp eq ptr %125, null
   br i1 %.not210, label %.loopexit, label %.preheader.backedge
 
-.preheader.backedge:                              ; preds = %.critedge4, %142
-  %.1.be = phi ptr [ %126, %.critedge4 ], [ %141, %142 ]
+.preheader.backedge:                              ; preds = %.critedge4, %141
+  %.1.be = phi ptr [ %125, %.critedge4 ], [ %140, %141 ]
   br label %.preheader
 
-.critedge:                                        ; preds = %120, %.preheader
-  %127 = ptrtoint ptr %.1 to i64
-  %128 = sub i64 %.neg, %127
-  %129 = tail call ptr @memchr(ptr noundef nonnull %.1, i32 noundef 47, i64 noundef %128) #24
-  %.not207 = icmp eq ptr %129, null
+.critedge:                                        ; preds = %119, %.preheader
+  %126 = ptrtoint ptr %.1 to i64
+  %127 = sub i64 %.neg, %126
+  %128 = tail call ptr @memchr(ptr noundef nonnull %.1, i32 noundef 47, i64 noundef %127) #24
+  %.not207 = icmp eq ptr %128, null
   store ptr %.1, ptr %2, align 8
-  br i1 %.not207, label %130, label %134
+  br i1 %.not207, label %129, label %133
 
-130:                                              ; preds = %.critedge
-  %131 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #24
-  store i64 %131, ptr %3, align 8
-  %132 = load ptr, ptr %2, align 8
-  %133 = tail call fastcc i32 @phar_check_str(ptr noundef %0, ptr noundef %132, i64 noundef %131, i32 noundef %4, i32 noundef %5)
-  %switch = icmp ne i32 %133, 0
+129:                                              ; preds = %.critedge
+  %130 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #24
+  store i64 %130, ptr %3, align 8
+  %131 = load ptr, ptr %2, align 8
+  %132 = tail call fastcc i32 @phar_check_str(ptr noundef %0, ptr noundef %131, i64 noundef %130, i32 noundef %4, i32 noundef %5)
+  %switch = icmp ne i32 %132, 0
   %. = sext i1 %switch to i32
   br label %.loopexit
 
-134:                                              ; preds = %.critedge
-  %135 = ptrtoint ptr %129 to i64
-  %136 = sub i64 %135, %127
-  store i64 %136, ptr %3, align 8
-  %137 = load ptr, ptr %2, align 8
-  %138 = tail call fastcc i32 @phar_check_str(ptr noundef %0, ptr noundef %137, i64 noundef %136, i32 noundef %4, i32 noundef %5)
-  %switch215 = icmp eq i32 %138, 0
-  br i1 %switch215, label %.loopexit, label %139
+133:                                              ; preds = %.critedge
+  %134 = ptrtoint ptr %128 to i64
+  %135 = sub i64 %134, %126
+  store i64 %135, ptr %3, align 8
+  %136 = load ptr, ptr %2, align 8
+  %137 = tail call fastcc i32 @phar_check_str(ptr noundef %0, ptr noundef %136, i64 noundef %135, i32 noundef %4, i32 noundef %5)
+  %switch215 = icmp eq i32 %137, 0
+  br i1 %switch215, label %.loopexit, label %138
 
-139:                                              ; preds = %134
-  %140 = getelementptr inbounds i8, ptr %.1, i64 1
-  %141 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %140, i32 noundef 46) #24
-  %cond = icmp eq ptr %141, null
-  br i1 %cond, label %.loopexit, label %142
+138:                                              ; preds = %133
+  %139 = getelementptr inbounds i8, ptr %.1, i64 1
+  %140 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %139, i32 noundef 46) #24
+  %cond = icmp eq ptr %140, null
+  br i1 %cond, label %.loopexit, label %141
 
-142:                                              ; preds = %139
+141:                                              ; preds = %138
   store ptr null, ptr %2, align 8
   store i64 0, ptr %3, align 8
   br label %.preheader.backedge
 
-.loopexit:                                        ; preds = %139, %134, %.critedge4, %.thread218, %130, %53, %.loopexit260, %49, %7, %57, %31, %26, %24
-  %.0168 = phi i32 [ -1, %24 ], [ -1, %26 ], [ -1, %31 ], [ -1, %57 ], [ -1, %7 ], [ 0, %.loopexit260 ], [ 0, %49 ], [ 0, %53 ], [ %., %130 ], [ -1, %.thread218 ], [ -1, %139 ], [ 0, %134 ], [ -1, %.critedge4 ]
+.loopexit:                                        ; preds = %138, %133, %.critedge4, %.thread218, %129, %53, %.loopexit260, %49, %7, %57, %31, %26, %24
+  %.0168 = phi i32 [ -1, %24 ], [ -1, %26 ], [ -1, %31 ], [ -1, %57 ], [ -1, %7 ], [ 0, %.loopexit260 ], [ 0, %49 ], [ 0, %53 ], [ %., %129 ], [ -1, %.thread218 ], [ -1, %138 ], [ 0, %133 ], [ -1, %.critedge4 ]
   ret i32 %.0168
 }
 

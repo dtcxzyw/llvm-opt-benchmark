@@ -40539,8 +40539,8 @@ for.body22:                                       ; preds = %for.body22.lr.ph, %
 
 for.cond41.preheader:                             ; preds = %for.cond41.preheader.lr.ph, %for.inc70
   %i37.0512 = phi i32 [ %inc71, %for.inc70 ], [ 1, %for.cond41.preheader.lr.ph ]
-  %sub = add i32 %i37.0512, -1
-  %idxprom47 = zext i32 %sub to i64
+  %invariant.op = add i32 %i37.0512, -1
+  %idxprom47 = zext i32 %invariant.op to i64
   %arrayidx48 = getelementptr inbounds %"class.sat::literal", ptr %as, i64 %idxprom47
   br label %land.rhs
 
@@ -40568,9 +40568,9 @@ for.body44:                                       ; preds = %land.rhs
   %xor.i.i.i72 = xor i32 %agg.tmp53.sroa.0.0.copyload, 1
   %spec.select.i73 = select i1 %cmp.i.i4.i71, i32 %retval.sroa.0.0.copyload.i.i.i61, i32 %xor.i.i.i72
   %retval.sroa.0.0.i74 = select i1 %cmp.i.i.i69, i32 %retval.sroa.0.0.copyload.i.i63, i32 %spec.select.i73
-  %sub62 = add i32 %add, -1
+  %sub62.reass = add i32 %j.0510, %invariant.op
   %12 = load ptr, ptr %out, align 8
-  %idxprom.i75 = zext i32 %sub62 to i64
+  %idxprom.i75 = zext i32 %sub62.reass to i64
   %arrayidx.i76 = getelementptr inbounds %"class.sat::literal", ptr %12, i64 %idxprom.i75
   %agg.tmp60.sroa.0.0.copyload = load i32, ptr %arrayidx.i76, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lits.i77)

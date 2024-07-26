@@ -80,6 +80,7 @@ define internal fastcc ptr @mmap_probe(ptr noundef %rs, i64 noundef %size) unnam
 entry:
   %call = tail call ptr @__errno_location() #9
   %0 = load i32, ptr %call, align 4
+  %invariant.op = add i64 %size, 16777216
   %.pre = load i64, ptr @mmap_probe.hint_addr, align 8
   br label %for.body
 
@@ -125,8 +126,8 @@ if.then17:                                        ; preds = %if.end16
 
 if.then19:                                        ; preds = %if.then17
   %add20 = add i64 %5, 16777216
-  %add21 = add i64 %add20, %size
-  %cmp23.not = icmp ult i64 %add21, 140737488355328
+  %add21.reass = add i64 %5, %invariant.op
+  %cmp23.not = icmp ult i64 %add21.reass, 140737488355328
   %spec.store.select = select i1 %cmp23.not, i64 %add20, i64 0
   br label %for.inc.sink.split
 

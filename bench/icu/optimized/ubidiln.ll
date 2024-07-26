@@ -2142,11 +2142,12 @@ if.then170:                                       ; preds = %for.cond164
 for.cond164.outer:                                ; preds = %if.then170, %for.cond164.preheader
   %begin.0.ph = phi i32 [ %add171, %if.then170 ], [ 0, %for.cond164.preheader ]
   %limit.0.ph = phi i32 [ %limit.0, %if.then170 ], [ %10, %for.cond164.preheader ]
+  %invariant.op = add i32 %begin.0.ph, 1
   br label %for.cond164
 
 if.else172:                                       ; preds = %for.cond164
-  %add165.off = add i32 %add165, 1
-  %cmp173 = icmp ult i32 %add165.off, 3
+  %add165.off.reass = add i32 %limit.0, %invariant.op
+  %cmp173 = icmp ult i32 %add165.off.reass, 3
   br i1 %cmp173, label %if.end185.thread, label %lor.lhs.false174
 
 lor.lhs.false174:                                 ; preds = %if.else172

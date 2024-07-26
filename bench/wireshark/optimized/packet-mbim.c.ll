@@ -11392,8 +11392,8 @@ define internal fastcc void @mbim_dissect_packet_filters(ptr noundef %0, ptr noc
   %24 = load i32, ptr @ett_mbim_pair_list, align 4
   %25 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %18, i32 noundef %23, i32 noundef %24, ptr noundef null, ptr noundef nonnull @.str.2565) #10
   %26 = load i32, ptr %9, align 4
-  %.not50 = icmp eq i32 %26, 0
-  br i1 %.not50, label %.loopexit, label %.lr.ph
+  %.not54 = icmp eq i32 %26, 0
+  br i1 %.not54, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
   %27 = getelementptr inbounds i8, ptr %10, i64 4
@@ -11401,9 +11401,10 @@ define internal fastcc void @mbim_dissect_packet_filters(ptr noundef %0, ptr noc
 
 .preheader:                                       ; preds = %30
   %28 = icmp eq i32 %38, 0
-  br i1 %28, label %.loopexit, label %.lr.ph49
+  %invariant.op50 = add i32 %3, 12
+  br i1 %28, label %.loopexit, label %.lr.ph53
 
-.lr.ph49:                                         ; preds = %.preheader
+.lr.ph53:                                         ; preds = %.preheader
   %29 = getelementptr inbounds i8, ptr %4, i64 24
   br label %40
 
@@ -11422,23 +11423,23 @@ define internal fastcc void @mbim_dissect_packet_filters(ptr noundef %0, ptr noc
   %39 = icmp ult i32 %37, %38
   br i1 %39, label %30, label %.preheader, !llvm.loop !16
 
-40:                                               ; preds = %.lr.ph49, %86
-  %.148 = phi i32 [ 0, %.lr.ph49 ], [ %87, %86 ]
-  %41 = call ptr @wmem_array_index(ptr noundef %21, i32 noundef %.148) #10
+40:                                               ; preds = %.lr.ph53, %83
+  %.152 = phi i32 [ 0, %.lr.ph53 ], [ %84, %83 ]
+  %41 = call ptr @wmem_array_index(ptr noundef %21, i32 noundef %.152) #10
   %42 = load i32, ptr %41, align 4
   %.not44 = icmp eq i32 %42, 0
-  br i1 %.not44, label %86, label %43
+  br i1 %.not44, label %83, label %43
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds i8, ptr %41, i64 4
   %45 = load i32, ptr %44, align 4
   %.not45 = icmp eq i32 %45, 0
-  br i1 %.not45, label %86, label %46
+  br i1 %.not45, label %83, label %46
 
 46:                                               ; preds = %43
   %47 = add i32 %42, %3
   %48 = load i32, ptr @ett_mbim_pair_list, align 4
-  %49 = add nuw i32 %.148, 1
+  %49 = add nuw i32 %.152, 1
   %50 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %47, i32 noundef %45, i32 noundef %48, ptr noundef null, ptr noundef nonnull @.str.2566, i32 noundef %49) #10
   %51 = load i32, ptr %41, align 4
   %52 = add i32 %51, %3
@@ -11447,70 +11448,70 @@ define internal fastcc void @mbim_dissect_packet_filters(ptr noundef %0, ptr noc
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %53 = load i32, ptr @hf_mbim_single_packet_filter_filter_size, align 4
   %54 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %50, i32 noundef %53, ptr noundef %0, i32 noundef %52, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6) #10
-  %55 = add i32 %52, 4
-  %56 = load i32, ptr @hf_mbim_single_packet_filter_packet_filter_offset, align 4
-  %57 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %50, i32 noundef %56, ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %7) #10
-  %58 = add i32 %52, 8
-  %59 = load i32, ptr @hf_mbim_single_packet_filter_packet_mask_offset, align 4
-  %60 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %50, i32 noundef %59, ptr noundef %0, i32 noundef %58, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %8) #10
-  %61 = add i32 %52, 12
-  %62 = load i32, ptr %29, align 8
-  %63 = icmp ugt i32 %62, 2
-  br i1 %63, label %68, label %64
+  %.reass = add i32 %51, %13
+  %55 = load i32, ptr @hf_mbim_single_packet_filter_packet_filter_offset, align 4
+  %56 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %50, i32 noundef %55, ptr noundef %0, i32 noundef %.reass, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %7) #10
+  %.reass49 = add i32 %51, %18
+  %57 = load i32, ptr @hf_mbim_single_packet_filter_packet_mask_offset, align 4
+  %58 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %50, i32 noundef %57, ptr noundef %0, i32 noundef %.reass49, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %8) #10
+  %.reass51 = add i32 %51, %invariant.op50
+  %59 = load i32, ptr %29, align 8
+  %60 = icmp ugt i32 %59, 2
+  br i1 %60, label %65, label %61
 
-64:                                               ; preds = %46
-  %65 = icmp eq i32 %62, 0
-  %66 = load i32, ptr @preferred_mbim_extended_version, align 4
-  %67 = icmp sgt i32 %66, 2
-  %or.cond.i = select i1 %65, i1 %67, i1 false
-  br i1 %or.cond.i, label %68, label %71
+61:                                               ; preds = %46
+  %62 = icmp eq i32 %59, 0
+  %63 = load i32, ptr @preferred_mbim_extended_version, align 4
+  %64 = icmp sgt i32 %63, 2
+  %or.cond.i = select i1 %62, i1 %64, i1 false
+  br i1 %or.cond.i, label %65, label %68
 
-68:                                               ; preds = %64, %46
-  %69 = load i32, ptr @hf_mbim_single_packet_filter_filter_id, align 4
-  %70 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %69, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %71
+65:                                               ; preds = %61, %46
+  %66 = load i32, ptr @hf_mbim_single_packet_filter_filter_id, align 4
+  %67 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %66, ptr noundef %0, i32 noundef %.reass51, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %68
 
-71:                                               ; preds = %68, %64
-  %72 = load i32, ptr %6, align 4
-  %.not.i = icmp eq i32 %72, 0
-  br i1 %.not.i, label %mbim_dissect_single_packet_filter.exit, label %73
+68:                                               ; preds = %65, %61
+  %69 = load i32, ptr %6, align 4
+  %.not.i = icmp eq i32 %69, 0
+  br i1 %.not.i, label %mbim_dissect_single_packet_filter.exit, label %70
 
-73:                                               ; preds = %71
-  %74 = load i32, ptr %7, align 4
-  %.not27.i = icmp eq i32 %74, 0
-  br i1 %.not27.i, label %79, label %75
+70:                                               ; preds = %68
+  %71 = load i32, ptr %7, align 4
+  %.not27.i = icmp eq i32 %71, 0
+  br i1 %.not27.i, label %76, label %72
 
-75:                                               ; preds = %73
-  %76 = load i32, ptr @hf_mbim_single_packet_filter_packet_filter, align 4
-  %77 = add i32 %74, %52
-  %78 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %76, ptr noundef %0, i32 noundef %77, i32 noundef %72, i32 noundef 0) #10
-  br label %79
+72:                                               ; preds = %70
+  %73 = load i32, ptr @hf_mbim_single_packet_filter_packet_filter, align 4
+  %74 = add i32 %71, %52
+  %75 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %73, ptr noundef %0, i32 noundef %74, i32 noundef %69, i32 noundef 0) #10
+  br label %76
 
-79:                                               ; preds = %75, %73
-  %80 = load i32, ptr %8, align 4
-  %.not28.i = icmp eq i32 %80, 0
-  br i1 %.not28.i, label %mbim_dissect_single_packet_filter.exit, label %81
+76:                                               ; preds = %72, %70
+  %77 = load i32, ptr %8, align 4
+  %.not28.i = icmp eq i32 %77, 0
+  br i1 %.not28.i, label %mbim_dissect_single_packet_filter.exit, label %78
 
-81:                                               ; preds = %79
-  %82 = load i32, ptr @hf_mbim_single_packet_filter_packet_mask, align 4
-  %83 = add i32 %80, %52
-  %84 = load i32, ptr %6, align 4
-  %85 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %82, ptr noundef %0, i32 noundef %83, i32 noundef %84, i32 noundef 0) #10
+78:                                               ; preds = %76
+  %79 = load i32, ptr @hf_mbim_single_packet_filter_packet_mask, align 4
+  %80 = add i32 %77, %52
+  %81 = load i32, ptr %6, align 4
+  %82 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %79, ptr noundef %0, i32 noundef %80, i32 noundef %81, i32 noundef 0) #10
   br label %mbim_dissect_single_packet_filter.exit
 
-mbim_dissect_single_packet_filter.exit:           ; preds = %71, %79, %81
+mbim_dissect_single_packet_filter.exit:           ; preds = %68, %76, %78
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %86
+  br label %83
 
-86:                                               ; preds = %40, %43, %mbim_dissect_single_packet_filter.exit
-  %87 = add nuw i32 %.148, 1
-  %88 = load i32, ptr %9, align 4
-  %89 = icmp ult i32 %87, %88
-  br i1 %89, label %40, label %.loopexit, !llvm.loop !17
+83:                                               ; preds = %40, %43, %mbim_dissect_single_packet_filter.exit
+  %84 = add nuw i32 %.152, 1
+  %85 = load i32, ptr %9, align 4
+  %86 = icmp ult i32 %84, %85
+  br i1 %86, label %40, label %.loopexit, !llvm.loop !17
 
-.loopexit:                                        ; preds = %86, %17, %.preheader, %5
+.loopexit:                                        ; preds = %83, %17, %.preheader, %5
   ret void
 }
 
@@ -12332,8 +12333,8 @@ define internal fastcc void @mbim_dissect_atds_operators(ptr noundef %0, ptr nou
   %21 = load i32, ptr @ett_mbim_pair_list, align 4
   %22 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %15, i32 noundef %20, i32 noundef %21, ptr noundef null, ptr noundef nonnull @.str.2569) #10
   %23 = load i32, ptr %9, align 4
-  %.not45 = icmp eq i32 %23, 0
-  br i1 %.not45, label %.loopexit, label %.lr.ph
+  %.not57 = icmp eq i32 %23, 0
+  br i1 %.not57, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
   %24 = getelementptr inbounds i8, ptr %10, i64 4
@@ -12341,7 +12342,13 @@ define internal fastcc void @mbim_dissect_atds_operators(ptr noundef %0, ptr nou
 
 .preheader:                                       ; preds = %26
   %25 = icmp eq i32 %34, 0
-  br i1 %25, label %.loopexit, label %.lr.ph44
+  %invariant.op43 = add i32 %3, 8
+  %invariant.op45 = add i32 %3, 12
+  %invariant.op47 = add i32 %3, 16
+  %invariant.op49 = add i32 %3, 20
+  %invariant.op51 = add i32 %3, 24
+  %invariant.op53 = add i32 %3, 28
+  br i1 %25, label %.loopexit, label %.lr.ph56
 
 26:                                               ; preds = %.lr.ph, %26
   %.042 = phi i32 [ %15, %.lr.ph ], [ %32, %26 ]
@@ -12358,23 +12365,23 @@ define internal fastcc void @mbim_dissect_atds_operators(ptr noundef %0, ptr nou
   %35 = icmp ult i32 %33, %34
   br i1 %35, label %26, label %.preheader, !llvm.loop !19
 
-.lr.ph44:                                         ; preds = %.preheader, %97
-  %.143 = phi i32 [ %98, %97 ], [ 0, %.preheader ]
-  %36 = call ptr @wmem_array_index(ptr noundef %18, i32 noundef %.143) #10
+.lr.ph56:                                         ; preds = %.preheader, %90
+  %.155 = phi i32 [ %91, %90 ], [ 0, %.preheader ]
+  %36 = call ptr @wmem_array_index(ptr noundef %18, i32 noundef %.155) #10
   %37 = load i32, ptr %36, align 4
   %.not39 = icmp eq i32 %37, 0
-  br i1 %.not39, label %97, label %38
+  br i1 %.not39, label %90, label %38
 
-38:                                               ; preds = %.lr.ph44
+38:                                               ; preds = %.lr.ph56
   %39 = getelementptr inbounds i8, ptr %36, i64 4
   %40 = load i32, ptr %39, align 4
   %.not40 = icmp eq i32 %40, 0
-  br i1 %.not40, label %97, label %41
+  br i1 %.not40, label %90, label %41
 
 41:                                               ; preds = %38
   %42 = add i32 %37, %3
   %43 = load i32, ptr @ett_mbim_pair_list, align 4
-  %44 = add nuw i32 %.143, 1
+  %44 = add nuw i32 %.155, 1
   %45 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %42, i32 noundef %40, i32 noundef %43, ptr noundef null, ptr noundef nonnull @.str.2570, i32 noundef %44) #10
   %46 = load i32, ptr %36, align 4
   %47 = add i32 %46, %3
@@ -12384,81 +12391,81 @@ define internal fastcc void @mbim_dissect_atds_operators(ptr noundef %0, ptr nou
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %48 = load i32, ptr @hf_mbim_atds_operator_provider_id_offset, align 4
   %49 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %48, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %5) #10
-  %50 = add i32 %47, 4
-  %51 = load i32, ptr @hf_mbim_atds_operator_provider_id_size, align 4
-  %52 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %51, ptr noundef %0, i32 noundef %50, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6) #10
-  %53 = add i32 %47, 8
-  %54 = load i32, ptr @hf_mbim_atds_operator_provider_state, align 4
-  %55 = load i32, ptr @ett_mbim_bitmap, align 4
-  %56 = call ptr @proto_tree_add_bitmask(ptr noundef %45, ptr noundef %0, i32 noundef %53, i32 noundef %54, i32 noundef %55, ptr noundef nonnull @mbim_provider_state_fields, i32 noundef -2147483648) #10
-  %57 = add i32 %47, 12
-  %58 = load i32, ptr @hf_mbim_atds_operator_provider_name_offset, align 4
-  %59 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %58, ptr noundef %0, i32 noundef %57, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %7) #10
-  %60 = add i32 %47, 16
-  %61 = load i32, ptr @hf_mbim_atds_operator_provider_name_size, align 4
-  %62 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %61, ptr noundef %0, i32 noundef %60, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %8) #10
-  %63 = add i32 %47, 20
-  %64 = load i32, ptr @hf_mbim_atds_operator_plmn_mode, align 4
-  %65 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %64, ptr noundef %0, i32 noundef %63, i32 noundef 4, i32 noundef -2147483648) #10
-  %66 = add i32 %47, 24
-  %67 = load i32, ptr @hf_mbim_atds_operator_rssi, align 4
-  %68 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %67, ptr noundef %0, i32 noundef %66, i32 noundef 4, i32 noundef -2147483648) #10
-  %69 = add i32 %47, 28
-  %70 = load i32, ptr @hf_mbim_atds_operator_error_rate, align 4
-  %71 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %70, ptr noundef %0, i32 noundef %69, i32 noundef 4, i32 noundef -2147483648) #10
-  %72 = load i32, ptr %5, align 4
-  %73 = icmp ne i32 %72, 0
-  %74 = load i32, ptr %6, align 4
-  %75 = icmp ne i32 %74, 0
-  %or.cond.i = select i1 %73, i1 %75, i1 false
-  br i1 %or.cond.i, label %76, label %84
+  %.reass = add i32 %46, %15
+  %50 = load i32, ptr @hf_mbim_atds_operator_provider_id_size, align 4
+  %51 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %50, ptr noundef %0, i32 noundef %.reass, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6) #10
+  %.reass44 = add i32 %46, %invariant.op43
+  %52 = load i32, ptr @hf_mbim_atds_operator_provider_state, align 4
+  %53 = load i32, ptr @ett_mbim_bitmap, align 4
+  %54 = call ptr @proto_tree_add_bitmask(ptr noundef %45, ptr noundef %0, i32 noundef %.reass44, i32 noundef %52, i32 noundef %53, ptr noundef nonnull @mbim_provider_state_fields, i32 noundef -2147483648) #10
+  %.reass46 = add i32 %46, %invariant.op45
+  %55 = load i32, ptr @hf_mbim_atds_operator_provider_name_offset, align 4
+  %56 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %55, ptr noundef %0, i32 noundef %.reass46, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %7) #10
+  %.reass48 = add i32 %46, %invariant.op47
+  %57 = load i32, ptr @hf_mbim_atds_operator_provider_name_size, align 4
+  %58 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %57, ptr noundef %0, i32 noundef %.reass48, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %8) #10
+  %.reass50 = add i32 %46, %invariant.op49
+  %59 = load i32, ptr @hf_mbim_atds_operator_plmn_mode, align 4
+  %60 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %59, ptr noundef %0, i32 noundef %.reass50, i32 noundef 4, i32 noundef -2147483648) #10
+  %.reass52 = add i32 %46, %invariant.op51
+  %61 = load i32, ptr @hf_mbim_atds_operator_rssi, align 4
+  %62 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %61, ptr noundef %0, i32 noundef %.reass52, i32 noundef 4, i32 noundef -2147483648) #10
+  %.reass54 = add i32 %46, %invariant.op53
+  %63 = load i32, ptr @hf_mbim_atds_operator_error_rate, align 4
+  %64 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %63, ptr noundef %0, i32 noundef %.reass54, i32 noundef 4, i32 noundef -2147483648) #10
+  %65 = load i32, ptr %5, align 4
+  %66 = icmp ne i32 %65, 0
+  %67 = load i32, ptr %6, align 4
+  %68 = icmp ne i32 %67, 0
+  %or.cond.i = select i1 %66, i1 %68, i1 false
+  br i1 %or.cond.i, label %69, label %77
 
-76:                                               ; preds = %41
-  %77 = load i32, ptr @hf_mbim_atds_operator_provider_id, align 4
-  %78 = add i32 %72, %47
-  %79 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %77, ptr noundef %0, i32 noundef %78, i32 noundef %74, i32 noundef -2147483644) #10
-  %80 = load i32, ptr %6, align 4
-  %81 = icmp ugt i32 %80, 12
-  br i1 %81, label %82, label %84
+69:                                               ; preds = %41
+  %70 = load i32, ptr @hf_mbim_atds_operator_provider_id, align 4
+  %71 = add i32 %65, %47
+  %72 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %70, ptr noundef %0, i32 noundef %71, i32 noundef %67, i32 noundef -2147483644) #10
+  %73 = load i32, ptr %6, align 4
+  %74 = icmp ugt i32 %73, 12
+  br i1 %74, label %75, label %77
 
-82:                                               ; preds = %76
-  %83 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %79, ptr noundef nonnull @ei_mbim_oversized_string) #10
-  br label %84
+75:                                               ; preds = %69
+  %76 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %72, ptr noundef nonnull @ei_mbim_oversized_string) #10
+  br label %77
 
-84:                                               ; preds = %82, %76, %41
-  %85 = load i32, ptr %7, align 4
-  %86 = icmp ne i32 %85, 0
-  %87 = load i32, ptr %8, align 4
-  %88 = icmp ne i32 %87, 0
-  %or.cond3.i = select i1 %86, i1 %88, i1 false
-  br i1 %or.cond3.i, label %89, label %mbim_dissect_atds_operator.exit
+77:                                               ; preds = %75, %69, %41
+  %78 = load i32, ptr %7, align 4
+  %79 = icmp ne i32 %78, 0
+  %80 = load i32, ptr %8, align 4
+  %81 = icmp ne i32 %80, 0
+  %or.cond3.i = select i1 %79, i1 %81, i1 false
+  br i1 %or.cond3.i, label %82, label %mbim_dissect_atds_operator.exit
 
-89:                                               ; preds = %84
-  %90 = load i32, ptr @hf_mbim_atds_operator_provider_name, align 4
-  %91 = add i32 %85, %47
-  %92 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %90, ptr noundef %0, i32 noundef %91, i32 noundef %87, i32 noundef -2147483644) #10
-  %93 = load i32, ptr %8, align 4
-  %94 = icmp ugt i32 %93, 40
-  br i1 %94, label %95, label %mbim_dissect_atds_operator.exit
+82:                                               ; preds = %77
+  %83 = load i32, ptr @hf_mbim_atds_operator_provider_name, align 4
+  %84 = add i32 %78, %47
+  %85 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %83, ptr noundef %0, i32 noundef %84, i32 noundef %80, i32 noundef -2147483644) #10
+  %86 = load i32, ptr %8, align 4
+  %87 = icmp ugt i32 %86, 40
+  br i1 %87, label %88, label %mbim_dissect_atds_operator.exit
 
-95:                                               ; preds = %89
-  %96 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %92, ptr noundef nonnull @ei_mbim_oversized_string) #10
+88:                                               ; preds = %82
+  %89 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %85, ptr noundef nonnull @ei_mbim_oversized_string) #10
   br label %mbim_dissect_atds_operator.exit
 
-mbim_dissect_atds_operator.exit:                  ; preds = %84, %89, %95
+mbim_dissect_atds_operator.exit:                  ; preds = %77, %82, %88
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %97
+  br label %90
 
-97:                                               ; preds = %.lr.ph44, %38, %mbim_dissect_atds_operator.exit
-  %98 = add nuw i32 %.143, 1
-  %99 = load i32, ptr %9, align 4
-  %100 = icmp ult i32 %98, %99
-  br i1 %100, label %.lr.ph44, label %.loopexit, !llvm.loop !20
+90:                                               ; preds = %.lr.ph56, %38, %mbim_dissect_atds_operator.exit
+  %91 = add nuw i32 %.155, 1
+  %92 = load i32, ptr %9, align 4
+  %93 = icmp ult i32 %91, %92
+  br i1 %93, label %.lr.ph56, label %.loopexit, !llvm.loop !20
 
-.loopexit:                                        ; preds = %97, %14, %.preheader, %4
+.loopexit:                                        ; preds = %90, %14, %.preheader, %4
   ret void
 }
 
@@ -12482,16 +12489,37 @@ define internal fastcc void @mbim_dissect_atds_projection_tables(ptr noundef %0,
   %17 = load i32, ptr @ett_mbim_pair_list, align 4
   %18 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %11, i32 noundef %16, i32 noundef %17, ptr noundef null, ptr noundef nonnull @.str.2571) #10
   %19 = load i32, ptr %5, align 4
-  %.not45 = icmp eq i32 %19, 0
-  br i1 %.not45, label %.loopexit, label %.lr.ph
+  %.not79 = icmp eq i32 %19, 0
+  br i1 %.not79, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10
   %20 = getelementptr inbounds i8, ptr %6, i64 4
   br label %22
 
-.preheader:                                       ; preds = %22
+.preheader.loopexit:                              ; preds = %22
   %21 = icmp eq i32 %30, 0
-  br i1 %21, label %.loopexit, label %.lr.ph44
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.loopexit, %10
+  %.not80 = phi i1 [ %21, %.preheader.loopexit ], [ true, %10 ]
+  %invariant.op43 = add i32 %3, 8
+  %invariant.op45 = add i32 %3, 12
+  %invariant.op47 = add i32 %3, 16
+  %invariant.op49 = add i32 %3, 20
+  %invariant.op51 = add i32 %3, 24
+  %invariant.op53 = add i32 %3, 28
+  %invariant.op55 = add i32 %3, 32
+  %invariant.op57 = add i32 %3, 36
+  %invariant.op59 = add i32 %3, 40
+  %invariant.op61 = add i32 %3, 44
+  %invariant.op63 = add i32 %3, 48
+  %invariant.op65 = add i32 %3, 52
+  %invariant.op67 = add i32 %3, 56
+  %invariant.op69 = add i32 %3, 60
+  %invariant.op71 = add i32 %3, 64
+  %invariant.op73 = add i32 %3, 68
+  %invariant.op75 = add i32 %3, 72
+  br i1 %.not80, label %.loopexit, label %.lr.ph78
 
 22:                                               ; preds = %.lr.ph, %22
   %.042 = phi i32 [ %11, %.lr.ph ], [ %28, %22 ]
@@ -12506,93 +12534,93 @@ define internal fastcc void @mbim_dissect_atds_projection_tables(ptr noundef %0,
   %29 = add nuw i32 %.03641, 1
   %30 = load i32, ptr %5, align 4
   %31 = icmp ult i32 %29, %30
-  br i1 %31, label %22, label %.preheader, !llvm.loop !21
+  br i1 %31, label %22, label %.preheader.loopexit, !llvm.loop !21
 
-.lr.ph44:                                         ; preds = %.preheader, %100
-  %.143 = phi i32 [ %101, %100 ], [ 0, %.preheader ]
-  %32 = call ptr @wmem_array_index(ptr noundef %14, i32 noundef %.143) #10
+.lr.ph78:                                         ; preds = %.preheader, %82
+  %.177 = phi i32 [ %83, %82 ], [ 0, %.preheader ]
+  %32 = call ptr @wmem_array_index(ptr noundef %14, i32 noundef %.177) #10
   %33 = load i32, ptr %32, align 4
   %.not39 = icmp eq i32 %33, 0
-  br i1 %.not39, label %100, label %34
+  br i1 %.not39, label %82, label %34
 
-34:                                               ; preds = %.lr.ph44
+34:                                               ; preds = %.lr.ph78
   %35 = getelementptr inbounds i8, ptr %32, i64 4
   %36 = load i32, ptr %35, align 4
   %.not40 = icmp eq i32 %36, 0
-  br i1 %.not40, label %100, label %37
+  br i1 %.not40, label %82, label %37
 
 37:                                               ; preds = %34
   %38 = add i32 %33, %3
   %39 = load i32, ptr @ett_mbim_pair_list, align 4
-  %40 = add nuw i32 %.143, 1
+  %40 = add nuw i32 %.177, 1
   %41 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %38, i32 noundef %36, i32 noundef %39, ptr noundef null, ptr noundef nonnull @.str.2572, i32 noundef %40) #10
   %42 = load i32, ptr %32, align 4
   %43 = add i32 %42, %3
   %44 = load i32, ptr @hf_mbim_atds_projection_table_type, align 4
   %45 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %44, ptr noundef %0, i32 noundef %43, i32 noundef 4, i32 noundef -2147483648) #10
-  %46 = add i32 %43, 4
-  %47 = load i32, ptr @hf_mbim_atds_projection_table_bar5min, align 4
-  %48 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %47, ptr noundef %0, i32 noundef %46, i32 noundef 4, i32 noundef -2147483648) #10
-  %49 = add i32 %43, 8
-  %50 = load i32, ptr @hf_mbim_atds_projection_table_a5, align 4
-  %51 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %50, ptr noundef %0, i32 noundef %49, i32 noundef 4, i32 noundef -2147483648) #10
-  %52 = add i32 %43, 12
-  %53 = load i32, ptr @hf_mbim_atds_projection_table_b5, align 4
-  %54 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %53, ptr noundef %0, i32 noundef %52, i32 noundef 4, i32 noundef -2147483648) #10
-  %55 = add i32 %43, 16
-  %56 = load i32, ptr @hf_mbim_atds_projection_table_bar4min, align 4
-  %57 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %56, ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef -2147483648) #10
-  %58 = add i32 %43, 20
-  %59 = load i32, ptr @hf_mbim_atds_projection_table_a4, align 4
-  %60 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %59, ptr noundef %0, i32 noundef %58, i32 noundef 4, i32 noundef -2147483648) #10
-  %61 = add i32 %43, 24
-  %62 = load i32, ptr @hf_mbim_atds_projection_table_b4, align 4
-  %63 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %62, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef -2147483648) #10
-  %64 = add i32 %43, 28
-  %65 = load i32, ptr @hf_mbim_atds_projection_table_bar3min, align 4
-  %66 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %65, ptr noundef %0, i32 noundef %64, i32 noundef 4, i32 noundef -2147483648) #10
-  %67 = add i32 %43, 32
-  %68 = load i32, ptr @hf_mbim_atds_projection_table_a3, align 4
-  %69 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %68, ptr noundef %0, i32 noundef %67, i32 noundef 4, i32 noundef -2147483648) #10
-  %70 = add i32 %43, 36
-  %71 = load i32, ptr @hf_mbim_atds_projection_table_b3, align 4
-  %72 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %71, ptr noundef %0, i32 noundef %70, i32 noundef 4, i32 noundef -2147483648) #10
-  %73 = add i32 %43, 40
-  %74 = load i32, ptr @hf_mbim_atds_projection_table_bar2min, align 4
-  %75 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %74, ptr noundef %0, i32 noundef %73, i32 noundef 4, i32 noundef -2147483648) #10
-  %76 = add i32 %43, 44
-  %77 = load i32, ptr @hf_mbim_atds_projection_table_a2, align 4
-  %78 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %77, ptr noundef %0, i32 noundef %76, i32 noundef 4, i32 noundef -2147483648) #10
-  %79 = add i32 %43, 48
-  %80 = load i32, ptr @hf_mbim_atds_projection_table_b2, align 4
-  %81 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %80, ptr noundef %0, i32 noundef %79, i32 noundef 4, i32 noundef -2147483648) #10
-  %82 = add i32 %43, 52
-  %83 = load i32, ptr @hf_mbim_atds_projection_table_bar1min, align 4
-  %84 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %83, ptr noundef %0, i32 noundef %82, i32 noundef 4, i32 noundef -2147483648) #10
-  %85 = add i32 %43, 56
-  %86 = load i32, ptr @hf_mbim_atds_projection_table_a1, align 4
-  %87 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %86, ptr noundef %0, i32 noundef %85, i32 noundef 4, i32 noundef -2147483648) #10
-  %88 = add i32 %43, 60
-  %89 = load i32, ptr @hf_mbim_atds_projection_table_b1, align 4
-  %90 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %89, ptr noundef %0, i32 noundef %88, i32 noundef 4, i32 noundef -2147483648) #10
-  %91 = add i32 %43, 64
-  %92 = load i32, ptr @hf_mbim_atds_projection_table_bar0min, align 4
-  %93 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %92, ptr noundef %0, i32 noundef %91, i32 noundef 4, i32 noundef -2147483648) #10
-  %94 = add i32 %43, 68
-  %95 = load i32, ptr @hf_mbim_atds_projection_table_a0, align 4
-  %96 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %95, ptr noundef %0, i32 noundef %94, i32 noundef 4, i32 noundef -2147483648) #10
-  %97 = add i32 %43, 72
-  %98 = load i32, ptr @hf_mbim_atds_projection_table_b0, align 4
-  %99 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %98, ptr noundef %0, i32 noundef %97, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %100
+  %.reass = add i32 %42, %11
+  %46 = load i32, ptr @hf_mbim_atds_projection_table_bar5min, align 4
+  %47 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %46, ptr noundef %0, i32 noundef %.reass, i32 noundef 4, i32 noundef -2147483648) #10
+  %.reass44 = add i32 %42, %invariant.op43
+  %48 = load i32, ptr @hf_mbim_atds_projection_table_a5, align 4
+  %49 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %48, ptr noundef %0, i32 noundef %.reass44, i32 noundef 4, i32 noundef -2147483648) #10
+  %.reass46 = add i32 %42, %invariant.op45
+  %50 = load i32, ptr @hf_mbim_atds_projection_table_b5, align 4
+  %51 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %50, ptr noundef %0, i32 noundef %.reass46, i32 noundef 4, i32 noundef -2147483648) #10
+  %.reass48 = add i32 %42, %invariant.op47
+  %52 = load i32, ptr @hf_mbim_atds_projection_table_bar4min, align 4
+  %53 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %52, ptr noundef %0, i32 noundef %.reass48, i32 noundef 4, i32 noundef -2147483648) #10
+  %.reass50 = add i32 %42, %invariant.op49
+  %54 = load i32, ptr @hf_mbim_atds_projection_table_a4, align 4
+  %55 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %54, ptr noundef %0, i32 noundef %.reass50, i32 noundef 4, i32 noundef -2147483648) #10
+  %.reass52 = add i32 %42, %invariant.op51
+  %56 = load i32, ptr @hf_mbim_atds_projection_table_b4, align 4
+  %57 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %56, ptr noundef %0, i32 noundef %.reass52, i32 noundef 4, i32 noundef -2147483648) #10
+  %.reass54 = add i32 %42, %invariant.op53
+  %58 = load i32, ptr @hf_mbim_atds_projection_table_bar3min, align 4
+  %59 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %58, ptr noundef %0, i32 noundef %.reass54, i32 noundef 4, i32 noundef -2147483648) #10
+  %.reass56 = add i32 %42, %invariant.op55
+  %60 = load i32, ptr @hf_mbim_atds_projection_table_a3, align 4
+  %61 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %60, ptr noundef %0, i32 noundef %.reass56, i32 noundef 4, i32 noundef -2147483648) #10
+  %.reass58 = add i32 %42, %invariant.op57
+  %62 = load i32, ptr @hf_mbim_atds_projection_table_b3, align 4
+  %63 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %62, ptr noundef %0, i32 noundef %.reass58, i32 noundef 4, i32 noundef -2147483648) #10
+  %.reass60 = add i32 %42, %invariant.op59
+  %64 = load i32, ptr @hf_mbim_atds_projection_table_bar2min, align 4
+  %65 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %64, ptr noundef %0, i32 noundef %.reass60, i32 noundef 4, i32 noundef -2147483648) #10
+  %.reass62 = add i32 %42, %invariant.op61
+  %66 = load i32, ptr @hf_mbim_atds_projection_table_a2, align 4
+  %67 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %66, ptr noundef %0, i32 noundef %.reass62, i32 noundef 4, i32 noundef -2147483648) #10
+  %.reass64 = add i32 %42, %invariant.op63
+  %68 = load i32, ptr @hf_mbim_atds_projection_table_b2, align 4
+  %69 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %68, ptr noundef %0, i32 noundef %.reass64, i32 noundef 4, i32 noundef -2147483648) #10
+  %.reass66 = add i32 %42, %invariant.op65
+  %70 = load i32, ptr @hf_mbim_atds_projection_table_bar1min, align 4
+  %71 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %70, ptr noundef %0, i32 noundef %.reass66, i32 noundef 4, i32 noundef -2147483648) #10
+  %.reass68 = add i32 %42, %invariant.op67
+  %72 = load i32, ptr @hf_mbim_atds_projection_table_a1, align 4
+  %73 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %72, ptr noundef %0, i32 noundef %.reass68, i32 noundef 4, i32 noundef -2147483648) #10
+  %.reass70 = add i32 %42, %invariant.op69
+  %74 = load i32, ptr @hf_mbim_atds_projection_table_b1, align 4
+  %75 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %74, ptr noundef %0, i32 noundef %.reass70, i32 noundef 4, i32 noundef -2147483648) #10
+  %.reass72 = add i32 %42, %invariant.op71
+  %76 = load i32, ptr @hf_mbim_atds_projection_table_bar0min, align 4
+  %77 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %76, ptr noundef %0, i32 noundef %.reass72, i32 noundef 4, i32 noundef -2147483648) #10
+  %.reass74 = add i32 %42, %invariant.op73
+  %78 = load i32, ptr @hf_mbim_atds_projection_table_a0, align 4
+  %79 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %78, ptr noundef %0, i32 noundef %.reass74, i32 noundef 4, i32 noundef -2147483648) #10
+  %.reass76 = add i32 %42, %invariant.op75
+  %80 = load i32, ptr @hf_mbim_atds_projection_table_b0, align 4
+  %81 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %80, ptr noundef %0, i32 noundef %.reass76, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %82
 
-100:                                              ; preds = %.lr.ph44, %34, %37
-  %101 = add nuw i32 %.143, 1
-  %102 = load i32, ptr %5, align 4
-  %103 = icmp ult i32 %101, %102
-  br i1 %103, label %.lr.ph44, label %.loopexit, !llvm.loop !22
+82:                                               ; preds = %.lr.ph78, %34, %37
+  %83 = add nuw i32 %.177, 1
+  %84 = load i32, ptr %5, align 4
+  %85 = icmp ult i32 %83, %84
+  br i1 %85, label %.lr.ph78, label %.loopexit, !llvm.loop !22
 
-.loopexit:                                        ; preds = %100, %10, %.preheader, %4
+.loopexit:                                        ; preds = %82, %.preheader, %4
   ret void
 }
 
@@ -12630,8 +12658,8 @@ define internal fastcc void @mbim_dissect_ms_network_blacklist_info(ptr nocaptur
   %20 = load i32, ptr @ett_mbim_pair_list, align 4
   %21 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %1, i32 noundef %14, i32 noundef %19, i32 noundef %20, ptr noundef null, ptr noundef nonnull @.str.2573) #10
   %22 = load i32, ptr %5, align 4
-  %.not56 = icmp eq i32 %22, 0
-  br i1 %.not56, label %.loopexit, label %.lr.ph
+  %.not58 = icmp eq i32 %22, 0
+  br i1 %.not58, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %23 = getelementptr inbounds i8, ptr %6, i64 4
@@ -12639,7 +12667,8 @@ define internal fastcc void @mbim_dissect_ms_network_blacklist_info(ptr nocaptur
 
 .preheader:                                       ; preds = %25
   %24 = icmp eq i32 %33, 0
-  br i1 %24, label %.loopexit, label %.lr.ph55
+  %invariant.op54 = add i32 %3, 8
+  br i1 %24, label %.loopexit, label %.lr.ph57
 
 25:                                               ; preds = %.lr.ph, %25
   %.053 = phi i32 [ %14, %.lr.ph ], [ %31, %25 ]
@@ -12656,43 +12685,43 @@ define internal fastcc void @mbim_dissect_ms_network_blacklist_info(ptr nocaptur
   %34 = icmp ult i32 %32, %33
   br i1 %34, label %25, label %.preheader, !llvm.loop !23
 
-.lr.ph55:                                         ; preds = %.preheader, %55
-  %.154 = phi i32 [ %56, %55 ], [ 0, %.preheader ]
-  %35 = call ptr @wmem_array_index(ptr noundef %17, i32 noundef %.154) #10
+.lr.ph57:                                         ; preds = %.preheader, %53
+  %.156 = phi i32 [ %54, %53 ], [ 0, %.preheader ]
+  %35 = call ptr @wmem_array_index(ptr noundef %17, i32 noundef %.156) #10
   %36 = load i32, ptr %35, align 4
   %.not50 = icmp eq i32 %36, 0
-  br i1 %.not50, label %55, label %37
+  br i1 %.not50, label %53, label %37
 
-37:                                               ; preds = %.lr.ph55
+37:                                               ; preds = %.lr.ph57
   %38 = getelementptr inbounds i8, ptr %35, i64 4
   %39 = load i32, ptr %38, align 4
   %.not51 = icmp eq i32 %39, 0
-  br i1 %.not51, label %55, label %40
+  br i1 %.not51, label %53, label %40
 
 40:                                               ; preds = %37
   %41 = add i32 %36, %3
   %42 = load i32, ptr @ett_mbim_pair_list, align 4
-  %43 = add nuw i32 %.154, 1
+  %43 = add nuw i32 %.156, 1
   %44 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %1, i32 noundef %41, i32 noundef %39, i32 noundef %42, ptr noundef null, ptr noundef nonnull @.str.2574, i32 noundef %43) #10
   %45 = load i32, ptr %35, align 4
   %46 = add i32 %45, %3
   %47 = load i32, ptr @hf_mbim_ms_network_blacklist_provider_mcc, align 4
   %48 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %47, ptr noundef %1, i32 noundef %46, i32 noundef 4, i32 noundef -2147483648) #10
-  %49 = add i32 %46, 4
-  %50 = load i32, ptr @hf_mbim_ms_network_blacklist_provider_mnc, align 4
-  %51 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %50, ptr noundef %1, i32 noundef %49, i32 noundef 4, i32 noundef -2147483648) #10
-  %52 = add i32 %46, 8
-  %53 = load i32, ptr @hf_mbim_ms_network_blacklist_provider_type, align 4
-  %54 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %53, ptr noundef %1, i32 noundef %52, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %55
+  %.reass = add i32 %45, %14
+  %49 = load i32, ptr @hf_mbim_ms_network_blacklist_provider_mnc, align 4
+  %50 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %49, ptr noundef %1, i32 noundef %.reass, i32 noundef 4, i32 noundef -2147483648) #10
+  %.reass55 = add i32 %45, %invariant.op54
+  %51 = load i32, ptr @hf_mbim_ms_network_blacklist_provider_type, align 4
+  %52 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %51, ptr noundef %1, i32 noundef %.reass55, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %53
 
-55:                                               ; preds = %.lr.ph55, %37, %40
-  %56 = add nuw i32 %.154, 1
-  %57 = load i32, ptr %5, align 4
-  %58 = icmp ult i32 %56, %57
-  br i1 %58, label %.lr.ph55, label %.loopexit, !llvm.loop !24
+53:                                               ; preds = %.lr.ph57, %37, %40
+  %54 = add nuw i32 %.156, 1
+  %55 = load i32, ptr %5, align 4
+  %56 = icmp ult i32 %54, %55
+  br i1 %56, label %.lr.ph57, label %.loopexit, !llvm.loop !24
 
-.loopexit:                                        ; preds = %55, %13, %.preheader, %4
+.loopexit:                                        ; preds = %53, %13, %.preheader, %4
   ret void
 }
 
@@ -13039,18 +13068,18 @@ define internal fastcc void @mbim_dissect_ms_sar_config(ptr noundef %0, ptr noca
   %43 = icmp ult i32 %41, %42
   br i1 %43, label %34, label %.preheader, !llvm.loop !29
 
-.lr.ph58:                                         ; preds = %.preheader, %61
-  %.14957 = phi i32 [ %62, %61 ], [ 0, %.preheader ]
+.lr.ph58:                                         ; preds = %.preheader, %60
+  %.14957 = phi i32 [ %61, %60 ], [ 0, %.preheader ]
   %44 = call ptr @wmem_array_index(ptr noundef %26, i32 noundef %.14957) #10
   %45 = load i32, ptr %44, align 4
   %.not53 = icmp eq i32 %45, 0
-  br i1 %.not53, label %61, label %46
+  br i1 %.not53, label %60, label %46
 
 46:                                               ; preds = %.lr.ph58
   %47 = getelementptr inbounds i8, ptr %44, i64 4
   %48 = load i32, ptr %47, align 4
   %.not54 = icmp eq i32 %48, 0
-  br i1 %.not54, label %61, label %49
+  br i1 %.not54, label %60, label %49
 
 49:                                               ; preds = %46
   %50 = add i32 %45, %3
@@ -13061,18 +13090,18 @@ define internal fastcc void @mbim_dissect_ms_sar_config(ptr noundef %0, ptr noca
   %55 = add i32 %54, %3
   %56 = load i32, ptr @hf_mbim_ms_sar_config_state_sar_antenna_index, align 4
   %57 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %56, ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef -2147483648) #10
-  %58 = add i32 %55, 4
-  %59 = load i32, ptr @hf_mbim_ms_sar_config_state_sar_backoff_index, align 4
-  %60 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %59, ptr noundef %0, i32 noundef %58, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %61
+  %.reass = add i32 %54, %10
+  %58 = load i32, ptr @hf_mbim_ms_sar_config_state_sar_backoff_index, align 4
+  %59 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %58, ptr noundef %0, i32 noundef %.reass, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %60
 
-61:                                               ; preds = %.lr.ph58, %46, %49
-  %62 = add nuw i32 %.14957, 1
-  %63 = load i32, ptr %6, align 4
-  %64 = icmp ult i32 %62, %63
-  br i1 %64, label %.lr.ph58, label %.loopexit, !llvm.loop !30
+60:                                               ; preds = %.lr.ph58, %46, %49
+  %61 = add nuw i32 %.14957, 1
+  %62 = load i32, ptr %6, align 4
+  %63 = icmp ult i32 %61, %62
+  br i1 %63, label %.lr.ph58, label %.loopexit, !llvm.loop !30
 
-.loopexit:                                        ; preds = %61, %22, %.preheader, %18
+.loopexit:                                        ; preds = %60, %22, %.preheader, %18
   ret void
 }
 
@@ -14976,18 +15005,31 @@ define internal fastcc void @mbim_dissect_sms_read_info(ptr noundef %0, ptr noun
   %33 = load i32, ptr @ett_mbim_pair_list, align 4
   %34 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %27, i32 noundef %32, i32 noundef %33, ptr noundef null, ptr noundef nonnull @.str.2591) #10
   %35 = load i32, ptr %18, align 4
-  %.not63 = icmp eq i32 %35, 0
-  br i1 %.not63, label %.loopexit, label %.lr.ph
+  %.not91 = icmp eq i32 %35, 0
+  br i1 %.not91, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26
   %36 = getelementptr inbounds i8, ptr %19, i64 4
   br label %40
 
-.preheader:                                       ; preds = %40
+.preheader.loopexit:                              ; preds = %40
   %37 = icmp eq i32 %48, 0
-  br i1 %37, label %.loopexit, label %.lr.ph62
+  br label %.preheader
 
-.lr.ph62:                                         ; preds = %.preheader
+.preheader:                                       ; preds = %.preheader.loopexit, %26
+  %.not92 = phi i1 [ %37, %.preheader.loopexit ], [ true, %26 ]
+  %invariant.op63 = add i32 %3, 12
+  %invariant.op65 = add i32 %3, 16
+  %invariant.op67 = add i32 %3, 20
+  %invariant.op69 = add i32 %3, 24
+  %invariant.op71 = add i32 %3, 28
+  %invariant.op73 = add i32 %3, 32
+  %invariant.op75 = add i32 %3, 36
+  %invariant.op77 = add i32 %3, 40
+  %invariant.op85 = add i32 %3, 1
+  br i1 %.not92, label %.loopexit, label %.lr.ph90
+
+.lr.ph90:                                         ; preds = %.preheader
   %38 = getelementptr inbounds i8, ptr %4, i64 20
   %39 = getelementptr inbounds i8, ptr %1, i64 348
   br label %50
@@ -15005,32 +15047,32 @@ define internal fastcc void @mbim_dissect_sms_read_info(ptr noundef %0, ptr noun
   %47 = add nuw i32 %.05259, 1
   %48 = load i32, ptr %18, align 4
   %49 = icmp ult i32 %47, %48
-  br i1 %49, label %40, label %.preheader, !llvm.loop !45
+  br i1 %49, label %40, label %.preheader.loopexit, !llvm.loop !45
 
-50:                                               ; preds = %.lr.ph62, %238
-  %.161 = phi i32 [ 0, %.lr.ph62 ], [ %239, %238 ]
-  %51 = call ptr @wmem_array_index(ptr noundef %30, i32 noundef %.161) #10
+50:                                               ; preds = %.lr.ph90, %223
+  %.189 = phi i32 [ 0, %.lr.ph90 ], [ %224, %223 ]
+  %51 = call ptr @wmem_array_index(ptr noundef %30, i32 noundef %.189) #10
   %52 = load i32, ptr %51, align 4
   %.not56 = icmp eq i32 %52, 0
-  br i1 %.not56, label %238, label %53
+  br i1 %.not56, label %223, label %53
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds i8, ptr %51, i64 4
   %55 = load i32, ptr %54, align 4
   %.not57 = icmp eq i32 %55, 0
-  br i1 %.not57, label %238, label %56
+  br i1 %.not57, label %223, label %56
 
 56:                                               ; preds = %53
   %57 = add i32 %52, %3
   %58 = load i32, ptr @ett_mbim_pair_list, align 4
-  %59 = add nuw i32 %.161, 1
+  %59 = add nuw i32 %.189, 1
   %60 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %57, i32 noundef %55, i32 noundef %58, ptr noundef null, ptr noundef nonnull @.str.2592, i32 noundef %59) #10
   %61 = load i32, ptr %17, align 4
   %62 = load i32, ptr %51, align 4
   %63 = add i32 %62, %3
-  switch i32 %61, label %235 [
+  switch i32 %61, label %220 [
     i32 0, label %64
-    i32 1, label %155
+    i32 1, label %150
   ]
 
 64:                                               ; preds = %56
@@ -15039,153 +15081,153 @@ define internal fastcc void @mbim_dissect_sms_read_info(ptr noundef %0, ptr noun
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
   %65 = load i32, ptr @hf_mbim_sms_pdu_record_message_index, align 4
   %66 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %65, ptr noundef %0, i32 noundef %63, i32 noundef 4, i32 noundef -2147483648) #10
-  %67 = add i32 %63, 4
-  %68 = load i32, ptr @hf_mbim_sms_pdu_record_message_status, align 4
-  %69 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %60, i32 noundef %68, ptr noundef %0, i32 noundef %67, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %14) #10
-  %70 = add i32 %63, 8
-  %71 = load i32, ptr @hf_mbim_sms_pdu_record_pdu_data_offset, align 4
-  %72 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %60, i32 noundef %71, ptr noundef %0, i32 noundef %70, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %15) #10
-  %73 = add i32 %63, 12
-  %74 = load i32, ptr @hf_mbim_sms_pdu_record_pdu_data_size, align 4
-  %75 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %60, i32 noundef %74, ptr noundef %0, i32 noundef %73, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %16) #10
-  %76 = load i32, ptr %15, align 4
-  %77 = icmp ne i32 %76, 0
-  %78 = load i32, ptr %16, align 4
-  %79 = icmp ne i32 %78, 0
-  %or.cond.i = select i1 %77, i1 %79, i1 false
-  br i1 %or.cond.i, label %80, label %mbim_dissect_sms_pdu_record.exit
+  %.reass80 = add i32 %62, %22
+  %67 = load i32, ptr @hf_mbim_sms_pdu_record_message_status, align 4
+  %68 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %60, i32 noundef %67, ptr noundef %0, i32 noundef %.reass80, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %14) #10
+  %.reass82 = add i32 %62, %27
+  %69 = load i32, ptr @hf_mbim_sms_pdu_record_pdu_data_offset, align 4
+  %70 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %60, i32 noundef %69, ptr noundef %0, i32 noundef %.reass82, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %15) #10
+  %.reass84 = add i32 %62, %invariant.op63
+  %71 = load i32, ptr @hf_mbim_sms_pdu_record_pdu_data_size, align 4
+  %72 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %60, i32 noundef %71, ptr noundef %0, i32 noundef %.reass84, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %16) #10
+  %73 = load i32, ptr %15, align 4
+  %74 = icmp ne i32 %73, 0
+  %75 = load i32, ptr %16, align 4
+  %76 = icmp ne i32 %75, 0
+  %or.cond.i = select i1 %74, i1 %76, i1 false
+  br i1 %or.cond.i, label %77, label %mbim_dissect_sms_pdu_record.exit
 
-80:                                               ; preds = %64
-  %81 = load i32, ptr @mbim_sms_pdu_format, align 4
-  switch i32 %81, label %131 [
-    i32 0, label %82
-    i32 1, label %86
+77:                                               ; preds = %64
+  %78 = load i32, ptr @mbim_sms_pdu_format, align 4
+  switch i32 %78, label %126 [
+    i32 0, label %79
+    i32 1, label %83
   ]
 
-82:                                               ; preds = %80
-  %83 = load i32, ptr %38, align 4
-  %84 = and i32 %83, 1
-  %.not.i = icmp eq i32 %84, 0
-  %85 = load ptr, ptr @gsm_sms_handle, align 8
-  %.not68.i = icmp eq ptr %85, null
+79:                                               ; preds = %77
+  %80 = load i32, ptr %38, align 4
+  %81 = and i32 %80, 1
+  %.not.i = icmp eq i32 %81, 0
+  %82 = load ptr, ptr @gsm_sms_handle, align 8
+  %.not68.i = icmp eq ptr %82, null
   %or.cond72.i = select i1 %.not.i, i1 true, i1 %.not68.i
-  br i1 %or.cond72.i, label %131, label %87
+  br i1 %or.cond72.i, label %126, label %84
 
-86:                                               ; preds = %80
+83:                                               ; preds = %77
   %.old.i = load ptr, ptr @gsm_sms_handle, align 8
   %.not68.old.i = icmp eq ptr %.old.i, null
-  br i1 %.not68.old.i, label %131, label %87
+  br i1 %.not68.old.i, label %126, label %84
 
-87:                                               ; preds = %86, %82
-  %88 = load i32, ptr @hf_mbim_sms_pdu_record_pdu_data, align 4
-  %89 = add i32 %76, %63
-  %90 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %88, ptr noundef %0, i32 noundef %89, i32 noundef %78, i32 noundef 0) #10
-  %91 = load i32, ptr %16, align 4
-  %92 = icmp ugt i32 %91, 183
-  br i1 %92, label %93, label %95
+84:                                               ; preds = %83, %79
+  %85 = load i32, ptr @hf_mbim_sms_pdu_record_pdu_data, align 4
+  %86 = add i32 %73, %63
+  %87 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %85, ptr noundef %0, i32 noundef %86, i32 noundef %75, i32 noundef 0) #10
+  %88 = load i32, ptr %16, align 4
+  %89 = icmp ugt i32 %88, 183
+  br i1 %89, label %90, label %92
 
-93:                                               ; preds = %87
-  %94 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %90, ptr noundef nonnull @ei_mbim_oversized_pdu) #10
-  br label %95
+90:                                               ; preds = %84
+  %91 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %87, ptr noundef nonnull @ei_mbim_oversized_pdu) #10
+  br label %92
 
-95:                                               ; preds = %93, %87
-  %96 = load i32, ptr @ett_mbim_buffer, align 4
-  %97 = call ptr @proto_item_add_subtree(ptr noundef %90, i32 noundef %96) #10
+92:                                               ; preds = %90, %84
+  %93 = load i32, ptr @ett_mbim_buffer, align 4
+  %94 = call ptr @proto_item_add_subtree(ptr noundef %87, i32 noundef %93) #10
+  %95 = load i32, ptr %15, align 4
+  %96 = add i32 %95, %63
+  %97 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %96) #10
   %98 = load i32, ptr %15, align 4
   %99 = add i32 %98, %63
-  %100 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %99) #10
-  %101 = load i32, ptr %15, align 4
-  %102 = add i32 %101, %63
-  %103 = zext i8 %100 to i32
-  %104 = add nuw nsw i32 %103, 1
-  %105 = load i32, ptr @ett_mbim_sc_address, align 4
-  %106 = call ptr @proto_tree_add_subtree(ptr noundef %97, ptr noundef %0, i32 noundef %102, i32 noundef %104, i32 noundef %105, ptr noundef null, ptr noundef nonnull @.str.610) #10
-  %107 = load i32, ptr @hf_mbim_sms_pdu_record_pdu_data_sc_address_size, align 4
-  %108 = load i32, ptr %15, align 4
-  %109 = add i32 %108, %63
-  %110 = call ptr @proto_tree_add_uint(ptr noundef %106, i32 noundef %107, ptr noundef %0, i32 noundef %109, i32 noundef 1, i32 noundef %103) #10
-  %.not71.i = icmp eq i8 %100, 0
-  br i1 %.not71.i, label %116, label %111
+  %100 = zext i8 %97 to i32
+  %101 = add nuw nsw i32 %100, 1
+  %102 = load i32, ptr @ett_mbim_sc_address, align 4
+  %103 = call ptr @proto_tree_add_subtree(ptr noundef %94, ptr noundef %0, i32 noundef %99, i32 noundef %101, i32 noundef %102, ptr noundef null, ptr noundef nonnull @.str.610) #10
+  %104 = load i32, ptr @hf_mbim_sms_pdu_record_pdu_data_sc_address_size, align 4
+  %105 = load i32, ptr %15, align 4
+  %106 = add i32 %105, %63
+  %107 = call ptr @proto_tree_add_uint(ptr noundef %103, i32 noundef %104, ptr noundef %0, i32 noundef %106, i32 noundef 1, i32 noundef %100) #10
+  %.not71.i = icmp eq i8 %97, 0
+  br i1 %.not71.i, label %112, label %108
 
-111:                                              ; preds = %95
-  %112 = load i32, ptr %15, align 4
-  %113 = add i32 %63, 1
-  %114 = add i32 %113, %112
-  %115 = call zeroext i16 @de_cld_party_bcd_num(ptr noundef %0, ptr noundef %106, ptr noundef %1, i32 noundef %114, i32 noundef %103, ptr noundef null, i32 noundef 0) #10
-  br label %116
+108:                                              ; preds = %92
+  %109 = load i32, ptr %15, align 4
+  %.reass86 = add i32 %62, %invariant.op85
+  %110 = add i32 %.reass86, %109
+  %111 = call zeroext i16 @de_cld_party_bcd_num(ptr noundef %0, ptr noundef %103, ptr noundef %1, i32 noundef %110, i32 noundef %100, ptr noundef null, i32 noundef 0) #10
+  br label %112
 
-116:                                              ; preds = %111, %95
-  %117 = load i32, ptr %16, align 4
-  %118 = icmp ugt i32 %117, %104
-  br i1 %118, label %119, label %mbim_dissect_sms_pdu_record.exit
+112:                                              ; preds = %108, %92
+  %113 = load i32, ptr %16, align 4
+  %114 = icmp ugt i32 %113, %101
+  br i1 %114, label %115, label %mbim_dissect_sms_pdu_record.exit
 
-119:                                              ; preds = %116
-  %120 = sub nuw i32 %117, %104
-  store i32 %120, ptr %16, align 4
-  %121 = load i32, ptr %15, align 4
-  %122 = add i32 %63, 1
-  %123 = add i32 %122, %103
-  %124 = add i32 %123, %121
-  %125 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %124, i32 noundef %120) #10
-  %126 = load i32, ptr %14, align 4
-  %127 = icmp ugt i32 %126, 1
-  %128 = zext i1 %127 to i32
-  store i32 %128, ptr %39, align 4
-  %129 = load ptr, ptr @gsm_sms_handle, align 8
-  %130 = call i32 @call_dissector(ptr noundef %129, ptr noundef %125, ptr noundef %1, ptr noundef %97) #10
+115:                                              ; preds = %112
+  %116 = sub nuw i32 %113, %101
+  store i32 %116, ptr %16, align 4
+  %117 = load i32, ptr %15, align 4
+  %.reass88 = add i32 %62, %invariant.op85
+  %118 = add i32 %.reass88, %100
+  %119 = add i32 %118, %117
+  %120 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %119, i32 noundef %116) #10
+  %121 = load i32, ptr %14, align 4
+  %122 = icmp ugt i32 %121, 1
+  %123 = zext i1 %122 to i32
+  store i32 %123, ptr %39, align 4
+  %124 = load ptr, ptr @gsm_sms_handle, align 8
+  %125 = call i32 @call_dissector(ptr noundef %124, ptr noundef %120, ptr noundef %1, ptr noundef %94) #10
   br label %mbim_dissect_sms_pdu_record.exit
 
-131:                                              ; preds = %86, %82, %80
-  %132 = load i32, ptr @hf_mbim_sms_pdu_record_pdu_data, align 4
-  %133 = add i32 %76, %63
-  %134 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %132, ptr noundef %0, i32 noundef %133, i32 noundef %78, i32 noundef 0) #10
-  %135 = load i32, ptr %16, align 4
-  %136 = icmp ugt i32 %135, 255
-  br i1 %136, label %137, label %139
+126:                                              ; preds = %83, %79, %77
+  %127 = load i32, ptr @hf_mbim_sms_pdu_record_pdu_data, align 4
+  %128 = add i32 %73, %63
+  %129 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %127, ptr noundef %0, i32 noundef %128, i32 noundef %75, i32 noundef 0) #10
+  %130 = load i32, ptr %16, align 4
+  %131 = icmp ugt i32 %130, 255
+  br i1 %131, label %132, label %134
 
-137:                                              ; preds = %131
-  %138 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %134, ptr noundef nonnull @ei_mbim_oversized_pdu) #10
-  br label %139
+132:                                              ; preds = %126
+  %133 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %129, ptr noundef nonnull @ei_mbim_oversized_pdu) #10
+  br label %134
 
-139:                                              ; preds = %137, %131
-  %140 = load i32, ptr @ett_mbim_buffer, align 4
-  %141 = call ptr @proto_item_add_subtree(ptr noundef %134, i32 noundef %140) #10
-  %142 = load i32, ptr @mbim_sms_pdu_format, align 4
-  switch i32 %142, label %mbim_dissect_sms_pdu_record.exit [
-    i32 0, label %143
-    i32 2, label %147
+134:                                              ; preds = %132, %126
+  %135 = load i32, ptr @ett_mbim_buffer, align 4
+  %136 = call ptr @proto_item_add_subtree(ptr noundef %129, i32 noundef %135) #10
+  %137 = load i32, ptr @mbim_sms_pdu_format, align 4
+  switch i32 %137, label %mbim_dissect_sms_pdu_record.exit [
+    i32 0, label %138
+    i32 2, label %142
   ]
 
-143:                                              ; preds = %139
-  %144 = load i32, ptr %38, align 4
-  %145 = and i32 %144, 2
-  %.not69.i = icmp eq i32 %145, 0
-  %146 = load ptr, ptr @cdma_sms_handle, align 8
-  %.not70.i = icmp eq ptr %146, null
+138:                                              ; preds = %134
+  %139 = load i32, ptr %38, align 4
+  %140 = and i32 %139, 2
+  %.not69.i = icmp eq i32 %140, 0
+  %141 = load ptr, ptr @cdma_sms_handle, align 8
+  %.not70.i = icmp eq ptr %141, null
   %or.cond74.i = select i1 %.not69.i, i1 true, i1 %.not70.i
-  br i1 %or.cond74.i, label %mbim_dissect_sms_pdu_record.exit, label %148
+  br i1 %or.cond74.i, label %mbim_dissect_sms_pdu_record.exit, label %143
 
-147:                                              ; preds = %139
+142:                                              ; preds = %134
   %.old73.i = load ptr, ptr @cdma_sms_handle, align 8
   %.not70.old.i = icmp eq ptr %.old73.i, null
-  br i1 %.not70.old.i, label %mbim_dissect_sms_pdu_record.exit, label %148
+  br i1 %.not70.old.i, label %mbim_dissect_sms_pdu_record.exit, label %143
 
-148:                                              ; preds = %147, %143
-  %149 = load i32, ptr %15, align 4
-  %150 = add i32 %149, %63
-  %151 = load i32, ptr %16, align 4
-  %152 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %150, i32 noundef %151) #10
-  %153 = load ptr, ptr @cdma_sms_handle, align 8
-  %154 = call i32 @call_dissector(ptr noundef %153, ptr noundef %152, ptr noundef %1, ptr noundef %141) #10
+143:                                              ; preds = %142, %138
+  %144 = load i32, ptr %15, align 4
+  %145 = add i32 %144, %63
+  %146 = load i32, ptr %16, align 4
+  %147 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %145, i32 noundef %146) #10
+  %148 = load ptr, ptr @cdma_sms_handle, align 8
+  %149 = call i32 @call_dissector(ptr noundef %148, ptr noundef %147, ptr noundef %1, ptr noundef %136) #10
   br label %mbim_dissect_sms_pdu_record.exit
 
-mbim_dissect_sms_pdu_record.exit:                 ; preds = %64, %116, %119, %139, %143, %147, %148
+mbim_dissect_sms_pdu_record.exit:                 ; preds = %64, %112, %115, %134, %138, %142, %143
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
-  br label %238
+  br label %223
 
-155:                                              ; preds = %56
+150:                                              ; preds = %56
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
@@ -15194,110 +15236,110 @@ mbim_dissect_sms_pdu_record.exit:                 ; preds = %64, %116, %119, %13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  %156 = load i32, ptr @hf_mbim_sms_cdma_record_message_index, align 4
-  %157 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %156, ptr noundef %0, i32 noundef %63, i32 noundef 4, i32 noundef -2147483648) #10
-  %158 = add i32 %63, 4
-  %159 = load i32, ptr @hf_mbim_sms_cdma_record_message_status, align 4
-  %160 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %159, ptr noundef %0, i32 noundef %158, i32 noundef 4, i32 noundef -2147483648) #10
-  %161 = add i32 %63, 8
-  %162 = load i32, ptr @hf_mbim_sms_cdma_record_address_offset, align 4
-  %163 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %60, i32 noundef %162, ptr noundef %0, i32 noundef %161, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6) #10
-  %164 = add i32 %63, 12
-  %165 = load i32, ptr @hf_mbim_sms_cdma_record_address_size, align 4
-  %166 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %60, i32 noundef %165, ptr noundef %0, i32 noundef %164, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %7) #10
-  %167 = add i32 %63, 16
-  %168 = load i32, ptr @hf_mbim_sms_cdma_record_timestamp_offset, align 4
-  %169 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %60, i32 noundef %168, ptr noundef %0, i32 noundef %167, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %8) #10
-  %170 = add i32 %63, 20
-  %171 = load i32, ptr @hf_mbim_sms_cdma_record_timestamp_size, align 4
-  %172 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %60, i32 noundef %171, ptr noundef %0, i32 noundef %170, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %9) #10
-  %173 = add i32 %63, 24
-  %174 = load i32, ptr @hf_mbim_sms_cdma_record_encoding_id, align 4
-  %175 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %60, i32 noundef %174, ptr noundef %0, i32 noundef %173, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %10) #10
-  %176 = add i32 %63, 28
-  %177 = load i32, ptr @hf_mbim_sms_cdma_record_language_id, align 4
-  %178 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %177, ptr noundef %0, i32 noundef %176, i32 noundef 4, i32 noundef -2147483648) #10
-  %179 = add i32 %63, 32
-  %180 = load i32, ptr @hf_mbim_sms_cdma_record_encoded_message_offset, align 4
-  %181 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %60, i32 noundef %180, ptr noundef %0, i32 noundef %179, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %11) #10
-  %182 = add i32 %63, 36
-  %183 = load i32, ptr @hf_mbim_sms_cdma_record_size_in_bytes, align 4
-  %184 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %60, i32 noundef %183, ptr noundef %0, i32 noundef %182, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %12) #10
-  %185 = add i32 %63, 40
-  %186 = load i32, ptr @hf_mbim_sms_cdma_record_size_in_characters, align 4
-  %187 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %60, i32 noundef %186, ptr noundef %0, i32 noundef %185, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %13) #10
-  %188 = load i32, ptr %6, align 4
+  %151 = load i32, ptr @hf_mbim_sms_cdma_record_message_index, align 4
+  %152 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %151, ptr noundef %0, i32 noundef %63, i32 noundef 4, i32 noundef -2147483648) #10
+  %.reass = add i32 %62, %22
+  %153 = load i32, ptr @hf_mbim_sms_cdma_record_message_status, align 4
+  %154 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %153, ptr noundef %0, i32 noundef %.reass, i32 noundef 4, i32 noundef -2147483648) #10
+  %.reass62 = add i32 %62, %27
+  %155 = load i32, ptr @hf_mbim_sms_cdma_record_address_offset, align 4
+  %156 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %60, i32 noundef %155, ptr noundef %0, i32 noundef %.reass62, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6) #10
+  %.reass64 = add i32 %62, %invariant.op63
+  %157 = load i32, ptr @hf_mbim_sms_cdma_record_address_size, align 4
+  %158 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %60, i32 noundef %157, ptr noundef %0, i32 noundef %.reass64, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %7) #10
+  %.reass66 = add i32 %62, %invariant.op65
+  %159 = load i32, ptr @hf_mbim_sms_cdma_record_timestamp_offset, align 4
+  %160 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %60, i32 noundef %159, ptr noundef %0, i32 noundef %.reass66, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %8) #10
+  %.reass68 = add i32 %62, %invariant.op67
+  %161 = load i32, ptr @hf_mbim_sms_cdma_record_timestamp_size, align 4
+  %162 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %60, i32 noundef %161, ptr noundef %0, i32 noundef %.reass68, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %9) #10
+  %.reass70 = add i32 %62, %invariant.op69
+  %163 = load i32, ptr @hf_mbim_sms_cdma_record_encoding_id, align 4
+  %164 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %60, i32 noundef %163, ptr noundef %0, i32 noundef %.reass70, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %10) #10
+  %.reass72 = add i32 %62, %invariant.op71
+  %165 = load i32, ptr @hf_mbim_sms_cdma_record_language_id, align 4
+  %166 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %165, ptr noundef %0, i32 noundef %.reass72, i32 noundef 4, i32 noundef -2147483648) #10
+  %.reass74 = add i32 %62, %invariant.op73
+  %167 = load i32, ptr @hf_mbim_sms_cdma_record_encoded_message_offset, align 4
+  %168 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %60, i32 noundef %167, ptr noundef %0, i32 noundef %.reass74, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %11) #10
+  %.reass76 = add i32 %62, %invariant.op75
+  %169 = load i32, ptr @hf_mbim_sms_cdma_record_size_in_bytes, align 4
+  %170 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %60, i32 noundef %169, ptr noundef %0, i32 noundef %.reass76, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %12) #10
+  %.reass78 = add i32 %62, %invariant.op77
+  %171 = load i32, ptr @hf_mbim_sms_cdma_record_size_in_characters, align 4
+  %172 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %60, i32 noundef %171, ptr noundef %0, i32 noundef %.reass78, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %13) #10
+  %173 = load i32, ptr %6, align 4
+  %174 = icmp ne i32 %173, 0
+  %175 = load i32, ptr %7, align 4
+  %176 = icmp ne i32 %175, 0
+  %or.cond.i58 = select i1 %174, i1 %176, i1 false
+  br i1 %or.cond.i58, label %177, label %185
+
+177:                                              ; preds = %150
+  %178 = load i32, ptr @hf_mbim_sms_cdma_record_address, align 4
+  %179 = add i32 %173, %63
+  %180 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %178, ptr noundef %0, i32 noundef %179, i32 noundef %175, i32 noundef -2147483644) #10
+  %181 = load i32, ptr %7, align 4
+  %182 = icmp ugt i32 %181, 40
+  br i1 %182, label %183, label %185
+
+183:                                              ; preds = %177
+  %184 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %180, ptr noundef nonnull @ei_mbim_oversized_string) #10
+  br label %185
+
+185:                                              ; preds = %183, %177, %150
+  %186 = load i32, ptr %8, align 4
+  %187 = icmp ne i32 %186, 0
+  %188 = load i32, ptr %9, align 4
   %189 = icmp ne i32 %188, 0
-  %190 = load i32, ptr %7, align 4
-  %191 = icmp ne i32 %190, 0
-  %or.cond.i58 = select i1 %189, i1 %191, i1 false
-  br i1 %or.cond.i58, label %192, label %200
+  %or.cond3.i = select i1 %187, i1 %189, i1 false
+  br i1 %or.cond3.i, label %190, label %198
 
-192:                                              ; preds = %155
-  %193 = load i32, ptr @hf_mbim_sms_cdma_record_address, align 4
-  %194 = add i32 %188, %63
-  %195 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %193, ptr noundef %0, i32 noundef %194, i32 noundef %190, i32 noundef -2147483644) #10
-  %196 = load i32, ptr %7, align 4
-  %197 = icmp ugt i32 %196, 40
-  br i1 %197, label %198, label %200
+190:                                              ; preds = %185
+  %191 = load i32, ptr @hf_mbim_sms_cdma_record_timestamp, align 4
+  %192 = add i32 %186, %63
+  %193 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %191, ptr noundef %0, i32 noundef %192, i32 noundef %188, i32 noundef 0) #10
+  %194 = load i32, ptr %9, align 4
+  %195 = icmp ugt i32 %194, 21
+  br i1 %195, label %196, label %198
 
-198:                                              ; preds = %192
-  %199 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %195, ptr noundef nonnull @ei_mbim_oversized_string) #10
-  br label %200
+196:                                              ; preds = %190
+  %197 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %193, ptr noundef nonnull @ei_mbim_oversized_string) #10
+  br label %198
 
-200:                                              ; preds = %198, %192, %155
-  %201 = load i32, ptr %8, align 4
+198:                                              ; preds = %196, %190, %185
+  %199 = load i32, ptr %11, align 4
+  %200 = icmp ne i32 %199, 0
+  %201 = load i32, ptr %12, align 4
   %202 = icmp ne i32 %201, 0
-  %203 = load i32, ptr %9, align 4
-  %204 = icmp ne i32 %203, 0
-  %or.cond3.i = select i1 %202, i1 %204, i1 false
-  br i1 %or.cond3.i, label %205, label %213
+  %or.cond5.i = select i1 %200, i1 %202, i1 false
+  br i1 %or.cond5.i, label %203, label %mbim_dissect_sms_cdma_record.exit
 
-205:                                              ; preds = %200
-  %206 = load i32, ptr @hf_mbim_sms_cdma_record_timestamp, align 4
-  %207 = add i32 %201, %63
-  %208 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %206, ptr noundef %0, i32 noundef %207, i32 noundef %203, i32 noundef 0) #10
-  %209 = load i32, ptr %9, align 4
-  %210 = icmp ugt i32 %209, 21
-  br i1 %210, label %211, label %213
+203:                                              ; preds = %198
+  %204 = load i32, ptr @hf_mbim_sms_cdma_record_encoded_message, align 4
+  %205 = add i32 %199, %63
+  %206 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %204, ptr noundef %0, i32 noundef %205, i32 noundef %201, i32 noundef 0) #10
+  %207 = load i32, ptr %12, align 4
+  %208 = icmp ugt i32 %207, 160
+  br i1 %208, label %209, label %211
 
-211:                                              ; preds = %205
-  %212 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %208, ptr noundef nonnull @ei_mbim_oversized_string) #10
-  br label %213
+209:                                              ; preds = %203
+  %210 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %206, ptr noundef nonnull @ei_mbim_oversized_pdu) #10
+  br label %211
 
-213:                                              ; preds = %211, %205, %200
-  %214 = load i32, ptr %11, align 4
-  %215 = icmp ne i32 %214, 0
-  %216 = load i32, ptr %12, align 4
-  %217 = icmp ne i32 %216, 0
-  %or.cond5.i = select i1 %215, i1 %217, i1 false
-  br i1 %or.cond5.i, label %218, label %mbim_dissect_sms_cdma_record.exit
-
-218:                                              ; preds = %213
-  %219 = load i32, ptr @hf_mbim_sms_cdma_record_encoded_message, align 4
-  %220 = add i32 %214, %63
-  %221 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %219, ptr noundef %0, i32 noundef %220, i32 noundef %216, i32 noundef 0) #10
-  %222 = load i32, ptr %12, align 4
-  %223 = icmp ugt i32 %222, 160
-  br i1 %223, label %224, label %226
-
-224:                                              ; preds = %218
-  %225 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %221, ptr noundef nonnull @ei_mbim_oversized_pdu) #10
-  br label %226
-
-226:                                              ; preds = %224, %218
-  %227 = load i32, ptr @ett_mbim_buffer, align 4
-  %228 = call ptr @proto_item_add_subtree(ptr noundef %221, i32 noundef %227) #10
-  %229 = load i32, ptr @hf_mbim_sms_cdma_record_encoded_message_text, align 4
-  %230 = load i32, ptr %11, align 4
-  %231 = add i32 %230, %63
-  %232 = load i32, ptr %10, align 4
-  %233 = load i32, ptr %12, align 4
-  %234 = load i32, ptr %13, align 4
-  call fastcc void @mbim_decode_sms_cdma_text(ptr noundef %0, ptr noundef %1, ptr noundef %228, i32 noundef %229, i32 noundef %231, i32 noundef %232, i32 noundef %233, i32 noundef %234)
+211:                                              ; preds = %209, %203
+  %212 = load i32, ptr @ett_mbim_buffer, align 4
+  %213 = call ptr @proto_item_add_subtree(ptr noundef %206, i32 noundef %212) #10
+  %214 = load i32, ptr @hf_mbim_sms_cdma_record_encoded_message_text, align 4
+  %215 = load i32, ptr %11, align 4
+  %216 = add i32 %215, %63
+  %217 = load i32, ptr %10, align 4
+  %218 = load i32, ptr %12, align 4
+  %219 = load i32, ptr %13, align 4
+  call fastcc void @mbim_decode_sms_cdma_text(ptr noundef %0, ptr noundef %1, ptr noundef %213, i32 noundef %214, i32 noundef %216, i32 noundef %217, i32 noundef %218, i32 noundef %219)
   br label %mbim_dissect_sms_cdma_record.exit
 
-mbim_dissect_sms_cdma_record.exit:                ; preds = %213, %226
+mbim_dissect_sms_cdma_record.exit:                ; preds = %198, %211
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
@@ -15306,20 +15348,20 @@ mbim_dissect_sms_cdma_record.exit:                ; preds = %213, %226
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  br label %238
+  br label %223
 
-235:                                              ; preds = %56
-  %236 = load i32, ptr %54, align 4
-  %237 = call ptr @proto_tree_add_expert(ptr noundef %60, ptr noundef %1, ptr noundef nonnull @ei_mbim_unknown_sms_format, ptr noundef %0, i32 noundef %63, i32 noundef %236) #10
-  br label %238
+220:                                              ; preds = %56
+  %221 = load i32, ptr %54, align 4
+  %222 = call ptr @proto_tree_add_expert(ptr noundef %60, ptr noundef %1, ptr noundef nonnull @ei_mbim_unknown_sms_format, ptr noundef %0, i32 noundef %63, i32 noundef %221) #10
+  br label %223
 
-238:                                              ; preds = %50, %53, %mbim_dissect_sms_cdma_record.exit, %235, %mbim_dissect_sms_pdu_record.exit
-  %239 = add nuw i32 %.161, 1
-  %240 = load i32, ptr %18, align 4
-  %241 = icmp ult i32 %239, %240
-  br i1 %241, label %50, label %.loopexit, !llvm.loop !46
+223:                                              ; preds = %50, %53, %mbim_dissect_sms_cdma_record.exit, %220, %mbim_dissect_sms_pdu_record.exit
+  %224 = add nuw i32 %.189, 1
+  %225 = load i32, ptr %18, align 4
+  %226 = icmp ult i32 %224, %225
+  br i1 %226, label %50, label %.loopexit, !llvm.loop !46
 
-.loopexit:                                        ; preds = %238, %26, %.preheader, %5
+.loopexit:                                        ; preds = %223, %.preheader, %5
   ret void
 }
 
@@ -15446,8 +15488,8 @@ define internal fastcc void @mbim_dissect_phonebook_read_info(ptr noundef %0, pt
   %21 = load i32, ptr @ett_mbim_pair_list, align 4
   %22 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %15, i32 noundef %20, i32 noundef %21, ptr noundef null, ptr noundef nonnull @.str.2593) #10
   %23 = load i32, ptr %9, align 4
-  %.not45 = icmp eq i32 %23, 0
-  br i1 %.not45, label %.loopexit, label %.lr.ph
+  %.not51 = icmp eq i32 %23, 0
+  br i1 %.not51, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
   %24 = getelementptr inbounds i8, ptr %10, i64 4
@@ -15455,7 +15497,10 @@ define internal fastcc void @mbim_dissect_phonebook_read_info(ptr noundef %0, pt
 
 .preheader:                                       ; preds = %26
   %25 = icmp eq i32 %34, 0
-  br i1 %25, label %.loopexit, label %.lr.ph44
+  %invariant.op43 = add i32 %3, 8
+  %invariant.op45 = add i32 %3, 12
+  %invariant.op47 = add i32 %3, 16
+  br i1 %25, label %.loopexit, label %.lr.ph50
 
 26:                                               ; preds = %.lr.ph, %26
   %.042 = phi i32 [ %15, %.lr.ph ], [ %32, %26 ]
@@ -15472,23 +15517,23 @@ define internal fastcc void @mbim_dissect_phonebook_read_info(ptr noundef %0, pt
   %35 = icmp ult i32 %33, %34
   br i1 %35, label %26, label %.preheader, !llvm.loop !47
 
-.lr.ph44:                                         ; preds = %.preheader, %79
-  %.143 = phi i32 [ %80, %79 ], [ 0, %.preheader ]
-  %36 = call ptr @wmem_array_index(ptr noundef %18, i32 noundef %.143) #10
+.lr.ph50:                                         ; preds = %.preheader, %75
+  %.149 = phi i32 [ %76, %75 ], [ 0, %.preheader ]
+  %36 = call ptr @wmem_array_index(ptr noundef %18, i32 noundef %.149) #10
   %37 = load i32, ptr %36, align 4
   %.not39 = icmp eq i32 %37, 0
-  br i1 %.not39, label %79, label %38
+  br i1 %.not39, label %75, label %38
 
-38:                                               ; preds = %.lr.ph44
+38:                                               ; preds = %.lr.ph50
   %39 = getelementptr inbounds i8, ptr %36, i64 4
   %40 = load i32, ptr %39, align 4
   %.not40 = icmp eq i32 %40, 0
-  br i1 %.not40, label %79, label %41
+  br i1 %.not40, label %75, label %41
 
 41:                                               ; preds = %38
   %42 = add i32 %37, %3
   %43 = load i32, ptr @ett_mbim_pair_list, align 4
-  %44 = add nuw i32 %.143, 1
+  %44 = add nuw i32 %.149, 1
   %45 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %42, i32 noundef %40, i32 noundef %43, ptr noundef null, ptr noundef nonnull @.str.2594, i32 noundef %44) #10
   %46 = load i32, ptr %36, align 4
   %47 = add i32 %46, %3
@@ -15498,59 +15543,59 @@ define internal fastcc void @mbim_dissect_phonebook_read_info(ptr noundef %0, pt
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %48 = load i32, ptr @hf_mbim_phonebook_entry_entry_index, align 4
   %49 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %48, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef -2147483648) #10
-  %50 = add i32 %47, 4
-  %51 = load i32, ptr @hf_mbim_phonebook_entry_number_offset, align 4
-  %52 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %51, ptr noundef %0, i32 noundef %50, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %5) #10
-  %53 = add i32 %47, 8
-  %54 = load i32, ptr @hf_mbim_phonebook_entry_number_length, align 4
-  %55 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %54, ptr noundef %0, i32 noundef %53, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6) #10
-  %56 = add i32 %47, 12
-  %57 = load i32, ptr @hf_mbim_phonebook_entry_name_offset, align 4
-  %58 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %57, ptr noundef %0, i32 noundef %56, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %7) #10
-  %59 = add i32 %47, 16
-  %60 = load i32, ptr @hf_mbim_phonebook_entry_name_length, align 4
-  %61 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %60, ptr noundef %0, i32 noundef %59, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %8) #10
-  %62 = load i32, ptr %5, align 4
-  %63 = icmp ne i32 %62, 0
-  %64 = load i32, ptr %6, align 4
-  %65 = icmp ne i32 %64, 0
-  %or.cond.i = select i1 %63, i1 %65, i1 false
-  br i1 %or.cond.i, label %66, label %70
+  %.reass = add i32 %46, %15
+  %50 = load i32, ptr @hf_mbim_phonebook_entry_number_offset, align 4
+  %51 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %50, ptr noundef %0, i32 noundef %.reass, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %5) #10
+  %.reass44 = add i32 %46, %invariant.op43
+  %52 = load i32, ptr @hf_mbim_phonebook_entry_number_length, align 4
+  %53 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %52, ptr noundef %0, i32 noundef %.reass44, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6) #10
+  %.reass46 = add i32 %46, %invariant.op45
+  %54 = load i32, ptr @hf_mbim_phonebook_entry_name_offset, align 4
+  %55 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %54, ptr noundef %0, i32 noundef %.reass46, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %7) #10
+  %.reass48 = add i32 %46, %invariant.op47
+  %56 = load i32, ptr @hf_mbim_phonebook_entry_name_length, align 4
+  %57 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %56, ptr noundef %0, i32 noundef %.reass48, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %8) #10
+  %58 = load i32, ptr %5, align 4
+  %59 = icmp ne i32 %58, 0
+  %60 = load i32, ptr %6, align 4
+  %61 = icmp ne i32 %60, 0
+  %or.cond.i = select i1 %59, i1 %61, i1 false
+  br i1 %or.cond.i, label %62, label %66
 
-66:                                               ; preds = %41
-  %67 = load i32, ptr @hf_mbim_phonebook_entry_number, align 4
-  %68 = add i32 %62, %47
-  %69 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %67, ptr noundef %0, i32 noundef %68, i32 noundef %64, i32 noundef -2147483644) #10
-  br label %70
+62:                                               ; preds = %41
+  %63 = load i32, ptr @hf_mbim_phonebook_entry_number, align 4
+  %64 = add i32 %58, %47
+  %65 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %63, ptr noundef %0, i32 noundef %64, i32 noundef %60, i32 noundef -2147483644) #10
+  br label %66
 
-70:                                               ; preds = %66, %41
-  %71 = load i32, ptr %7, align 4
-  %72 = icmp ne i32 %71, 0
-  %73 = load i32, ptr %8, align 4
-  %74 = icmp ne i32 %73, 0
-  %or.cond3.i = select i1 %72, i1 %74, i1 false
-  br i1 %or.cond3.i, label %75, label %mbim_dissect_phonebook_entry.exit
+66:                                               ; preds = %62, %41
+  %67 = load i32, ptr %7, align 4
+  %68 = icmp ne i32 %67, 0
+  %69 = load i32, ptr %8, align 4
+  %70 = icmp ne i32 %69, 0
+  %or.cond3.i = select i1 %68, i1 %70, i1 false
+  br i1 %or.cond3.i, label %71, label %mbim_dissect_phonebook_entry.exit
 
-75:                                               ; preds = %70
-  %76 = load i32, ptr @hf_mbim_phonebook_entry_name, align 4
-  %77 = add i32 %71, %47
-  %78 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %76, ptr noundef %0, i32 noundef %77, i32 noundef %73, i32 noundef -2147483644) #10
+71:                                               ; preds = %66
+  %72 = load i32, ptr @hf_mbim_phonebook_entry_name, align 4
+  %73 = add i32 %67, %47
+  %74 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %72, ptr noundef %0, i32 noundef %73, i32 noundef %69, i32 noundef -2147483644) #10
   br label %mbim_dissect_phonebook_entry.exit
 
-mbim_dissect_phonebook_entry.exit:                ; preds = %70, %75
+mbim_dissect_phonebook_entry.exit:                ; preds = %66, %71
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %79
+  br label %75
 
-79:                                               ; preds = %.lr.ph44, %38, %mbim_dissect_phonebook_entry.exit
-  %80 = add nuw i32 %.143, 1
-  %81 = load i32, ptr %9, align 4
-  %82 = icmp ult i32 %80, %81
-  br i1 %82, label %.lr.ph44, label %.loopexit, !llvm.loop !48
+75:                                               ; preds = %.lr.ph50, %38, %mbim_dissect_phonebook_entry.exit
+  %76 = add nuw i32 %.149, 1
+  %77 = load i32, ptr %9, align 4
+  %78 = icmp ult i32 %76, %77
+  br i1 %78, label %.lr.ph50, label %.loopexit, !llvm.loop !48
 
-.loopexit:                                        ; preds = %79, %14, %.preheader, %4
+.loopexit:                                        ; preds = %75, %14, %.preheader, %4
   ret void
 }
 
@@ -15859,8 +15904,8 @@ define internal fastcc void @mbim_dissect_adpclk_freq_info(ptr noundef %0, ptr n
   %17 = load i32, ptr @ett_mbim_pair_list, align 4
   %18 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %11, i32 noundef %16, i32 noundef %17, ptr noundef null, ptr noundef nonnull @.str.2595) #10
   %19 = load i32, ptr %5, align 4
-  %.not46 = icmp eq i32 %19, 0
-  br i1 %.not46, label %.loopexit, label %.lr.ph
+  %.not52 = icmp eq i32 %19, 0
+  br i1 %.not52, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10
   %20 = getelementptr inbounds i8, ptr %6, i64 4
@@ -15868,7 +15913,10 @@ define internal fastcc void @mbim_dissect_adpclk_freq_info(ptr noundef %0, ptr n
 
 .preheader:                                       ; preds = %22
   %21 = icmp eq i32 %30, 0
-  br i1 %21, label %.loopexit, label %.lr.ph45
+  %invariant.op44 = add i32 %3, 8
+  %invariant.op46 = add i32 %3, 12
+  %invariant.op48 = add i32 %3, 16
+  br i1 %21, label %.loopexit, label %.lr.ph51
 
 22:                                               ; preds = %.lr.ph, %22
   %.043 = phi i32 [ %11, %.lr.ph ], [ %28, %22 ]
@@ -15885,14 +15933,14 @@ define internal fastcc void @mbim_dissect_adpclk_freq_info(ptr noundef %0, ptr n
   %31 = icmp ult i32 %29, %30
   br i1 %31, label %22, label %.preheader, !llvm.loop !50
 
-.lr.ph45:                                         ; preds = %.preheader, %mbim_dissect_adpclk_freq_value.exit
-  %.144 = phi i32 [ %65, %mbim_dissect_adpclk_freq_value.exit ], [ 0, %.preheader ]
-  %32 = call ptr @wmem_array_index(ptr noundef %14, i32 noundef %.144) #10
+.lr.ph51:                                         ; preds = %.preheader, %mbim_dissect_adpclk_freq_value.exit
+  %.150 = phi i32 [ %61, %mbim_dissect_adpclk_freq_value.exit ], [ 0, %.preheader ]
+  %32 = call ptr @wmem_array_index(ptr noundef %14, i32 noundef %.150) #10
   %33 = load i32, ptr %32, align 4
   %.not40 = icmp eq i32 %33, 0
   br i1 %.not40, label %mbim_dissect_adpclk_freq_value.exit, label %34
 
-34:                                               ; preds = %.lr.ph45
+34:                                               ; preds = %.lr.ph51
   %35 = getelementptr inbounds i8, ptr %32, i64 4
   %36 = load i32, ptr %35, align 4
   %.not41 = icmp eq i32 %36, 0
@@ -15901,44 +15949,44 @@ define internal fastcc void @mbim_dissect_adpclk_freq_info(ptr noundef %0, ptr n
 37:                                               ; preds = %34
   %38 = add i32 %33, %3
   %39 = load i32, ptr @ett_mbim_pair_list, align 4
-  %40 = add nuw i32 %.144, 1
+  %40 = add nuw i32 %.150, 1
   %41 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %38, i32 noundef %36, i32 noundef %39, ptr noundef null, ptr noundef nonnull @.str.2596, i32 noundef %40) #10
   %42 = load i32, ptr %32, align 4
   %43 = add i32 %42, %3
   %44 = load i32, ptr %35, align 4
   %45 = load i32, ptr @hf_mbim_adpclk_freq_info_adpclk_freq_value_center_freq, align 4
   %46 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %45, ptr noundef %0, i32 noundef %43, i32 noundef 8, i32 noundef -2147483648) #10
-  %47 = add i32 %43, 4
-  %48 = load i32, ptr @hf_mbim_adpclk_freq_info_adpclk_freq_value_freq_spread, align 4
-  %49 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %48, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef -2147483648) #10
-  %50 = icmp ugt i32 %44, 8
-  br i1 %50, label %51, label %mbim_dissect_adpclk_freq_value.exit
+  %.reass = add i32 %42, %11
+  %47 = load i32, ptr @hf_mbim_adpclk_freq_info_adpclk_freq_value_freq_spread, align 4
+  %48 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %47, ptr noundef %0, i32 noundef %.reass, i32 noundef 4, i32 noundef -2147483648) #10
+  %49 = icmp ugt i32 %44, 8
+  br i1 %49, label %50, label %mbim_dissect_adpclk_freq_value.exit
 
-51:                                               ; preds = %37
-  %52 = add i32 %43, 8
-  %53 = load i32, ptr @hf_mbim_adpclk_freq_info_adpclk_freq_value_noise_power, align 4
-  %54 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %53, ptr noundef %0, i32 noundef %52, i32 noundef 4, i32 noundef -2147483648) #10
-  %55 = icmp ugt i32 %44, 12
-  br i1 %55, label %56, label %mbim_dissect_adpclk_freq_value.exit
+50:                                               ; preds = %37
+  %.reass45 = add i32 %42, %invariant.op44
+  %51 = load i32, ptr @hf_mbim_adpclk_freq_info_adpclk_freq_value_noise_power, align 4
+  %52 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %51, ptr noundef %0, i32 noundef %.reass45, i32 noundef 4, i32 noundef -2147483648) #10
+  %53 = icmp ugt i32 %44, 12
+  br i1 %53, label %54, label %mbim_dissect_adpclk_freq_value.exit
 
-56:                                               ; preds = %51
-  %57 = add i32 %43, 12
-  %58 = load i32, ptr @hf_mbim_adpclk_freq_info_adpclk_freq_value_rssi, align 4
-  %59 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %58, ptr noundef %0, i32 noundef %57, i32 noundef 4, i32 noundef -2147483648) #10
-  %60 = icmp ugt i32 %44, 16
-  br i1 %60, label %61, label %mbim_dissect_adpclk_freq_value.exit
+54:                                               ; preds = %50
+  %.reass47 = add i32 %42, %invariant.op46
+  %55 = load i32, ptr @hf_mbim_adpclk_freq_info_adpclk_freq_value_rssi, align 4
+  %56 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %55, ptr noundef %0, i32 noundef %.reass47, i32 noundef 4, i32 noundef -2147483648) #10
+  %57 = icmp ugt i32 %44, 16
+  br i1 %57, label %58, label %mbim_dissect_adpclk_freq_value.exit
 
-61:                                               ; preds = %56
-  %62 = add i32 %43, 16
-  %63 = load i32, ptr @hf_mbim_adpclk_freq_info_adpclk_freq_value_connect_status, align 4
-  %64 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %63, ptr noundef %0, i32 noundef %62, i32 noundef 4, i32 noundef -2147483648) #10
+58:                                               ; preds = %54
+  %.reass49 = add i32 %42, %invariant.op48
+  %59 = load i32, ptr @hf_mbim_adpclk_freq_info_adpclk_freq_value_connect_status, align 4
+  %60 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %59, ptr noundef %0, i32 noundef %.reass49, i32 noundef 4, i32 noundef -2147483648) #10
   br label %mbim_dissect_adpclk_freq_value.exit
 
-mbim_dissect_adpclk_freq_value.exit:              ; preds = %61, %56, %51, %37, %.lr.ph45, %34
-  %65 = add nuw i32 %.144, 1
-  %66 = load i32, ptr %5, align 4
-  %67 = icmp ult i32 %65, %66
-  br i1 %67, label %.lr.ph45, label %.loopexit, !llvm.loop !51
+mbim_dissect_adpclk_freq_value.exit:              ; preds = %58, %54, %50, %37, %.lr.ph51, %34
+  %61 = add nuw i32 %.150, 1
+  %62 = load i32, ptr %5, align 4
+  %63 = icmp ult i32 %61, %62
+  br i1 %63, label %.lr.ph51, label %.loopexit, !llvm.loop !51
 
 .loopexit:                                        ; preds = %mbim_dissect_adpclk_freq_value.exit, %10, %.preheader, %4
   ret void
@@ -16127,18 +16175,18 @@ define internal fastcc void @mbim_dissect_ms_provisioned_context_info_v2(ptr nou
   %33 = icmp ult i32 %31, %32
   br i1 %33, label %24, label %.preheader, !llvm.loop !54
 
-.lr.ph48:                                         ; preds = %.preheader, %49
-  %.147 = phi i32 [ %50, %49 ], [ 0, %.preheader ]
+.lr.ph48:                                         ; preds = %.preheader, %48
+  %.147 = phi i32 [ %49, %48 ], [ 0, %.preheader ]
   %34 = call ptr @wmem_array_index(ptr noundef %16, i32 noundef %.147) #10
   %35 = load i32, ptr %34, align 4
   %.not43 = icmp eq i32 %35, 0
-  br i1 %.not43, label %49, label %36
+  br i1 %.not43, label %48, label %36
 
 36:                                               ; preds = %.lr.ph48
   %37 = getelementptr inbounds i8, ptr %34, i64 4
   %38 = load i32, ptr %37, align 4
   %.not44 = icmp eq i32 %38, 0
-  br i1 %.not44, label %49, label %39
+  br i1 %.not44, label %48, label %39
 
 39:                                               ; preds = %36
   %40 = add i32 %35, %3
@@ -16149,18 +16197,18 @@ define internal fastcc void @mbim_dissect_ms_provisioned_context_info_v2(ptr nou
   %45 = add i32 %44, %3
   %46 = load i32, ptr @hf_mbim_ms_provisioned_context_info_v2_context_id, align 4
   %47 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %46, ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef -2147483648) #10
-  %48 = add i32 %45, 4
-  store i32 %48, ptr %6, align 4
+  %.reass = add i32 %44, %13
+  store i32 %.reass, ptr %6, align 4
   call fastcc void @mbim_dissect_ms_context_v2_base(ptr noundef %0, ptr noundef %1, ptr noundef %43, ptr noundef nonnull %6, i32 noundef %45, ptr noundef %4)
-  br label %49
+  br label %48
 
-49:                                               ; preds = %.lr.ph48, %36, %39
-  %50 = add nuw i32 %.147, 1
-  %51 = load i32, ptr %7, align 4
-  %52 = icmp ult i32 %50, %51
-  br i1 %52, label %.lr.ph48, label %.loopexit, !llvm.loop !55
+48:                                               ; preds = %.lr.ph48, %36, %39
+  %49 = add nuw i32 %.147, 1
+  %50 = load i32, ptr %7, align 4
+  %51 = icmp ult i32 %49, %50
+  br i1 %51, label %.lr.ph48, label %.loopexit, !llvm.loop !55
 
-.loopexit:                                        ; preds = %49, %12, %.preheader, %5
+.loopexit:                                        ; preds = %48, %12, %.preheader, %5
   ret void
 }
 
@@ -17757,8 +17805,8 @@ define internal fastcc void @mbim_dissect_ms_app_list(ptr noundef %0, ptr nocapt
   %33 = load i32, ptr @ett_mbim_pair_list, align 4
   %34 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %27, i32 noundef %32, i32 noundef %33, ptr noundef null, ptr noundef nonnull @.str.2623) #10
   %35 = load i32, ptr %12, align 4
-  %.not57 = icmp eq i32 %35, 0
-  br i1 %.not57, label %._crit_edge, label %.lr.ph
+  %.not69 = icmp eq i32 %35, 0
+  br i1 %.not69, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26
   %36 = getelementptr inbounds i8, ptr %13, i64 4
@@ -17781,26 +17829,29 @@ define internal fastcc void @mbim_dissect_ms_app_list(ptr noundef %0, ptr nocapt
 
 .loopexit:                                        ; preds = %37
   %47 = icmp eq i32 %45, 0
-  br i1 %47, label %._crit_edge, label %.lr.ph56
+  %invariant.op61 = add i32 %3, 20
+  %invariant.op63 = add i32 %3, 24
+  %invariant.op65 = add i32 %3, 28
+  br i1 %47, label %._crit_edge, label %.lr.ph68
 
-.lr.ph56:                                         ; preds = %.loopexit, %108
-  %.055 = phi i32 [ %54, %108 ], [ 0, %.loopexit ]
-  %48 = call ptr @wmem_array_index(ptr noundef %30, i32 noundef %.055) #10
+.lr.ph68:                                         ; preds = %.loopexit, %101
+  %.067 = phi i32 [ %54, %101 ], [ 0, %.loopexit ]
+  %48 = call ptr @wmem_array_index(ptr noundef %30, i32 noundef %.067) #10
   %49 = load i32, ptr %48, align 4
   %50 = add i32 %49, %3
   %51 = getelementptr inbounds i8, ptr %48, i64 4
   %52 = load i32, ptr %51, align 4
   %53 = load i32, ptr @ett_mbim_pair_list, align 4
-  %54 = add nuw i32 %.055, 1
+  %54 = add nuw i32 %.067, 1
   %55 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %50, i32 noundef %52, i32 noundef %53, ptr noundef null, ptr noundef nonnull @.str.2624, i32 noundef %54) #10
   %56 = load i32, ptr %51, align 4
   %.not51 = icmp eq i32 %56, 0
-  br i1 %.not51, label %108, label %57
+  br i1 %.not51, label %101, label %57
 
-57:                                               ; preds = %.lr.ph56
+57:                                               ; preds = %.lr.ph68
   %58 = load i32, ptr %48, align 4
   %.not52 = icmp eq i32 %58, 0
-  br i1 %.not52, label %108, label %59
+  br i1 %.not52, label %101, label %59
 
 59:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -17812,68 +17863,68 @@ define internal fastcc void @mbim_dissect_ms_app_list(ptr noundef %0, ptr nocapt
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   %60 = load i32, ptr @hf_mbim_ms_app_info_app_type, align 4
   %61 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %60, ptr noundef %0, i32 noundef %50, i32 noundef 4, i32 noundef -2147483648) #10
-  %62 = add i32 %50, 4
-  %63 = load i32, ptr @hf_mbim_ms_app_info_app_id_offset, align 4
-  %64 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %55, i32 noundef %63, ptr noundef %0, i32 noundef %62, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %5) #10
-  %65 = add i32 %50, 8
-  %66 = load i32, ptr @hf_mbim_ms_app_info_app_id_size, align 4
-  %67 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %55, i32 noundef %66, ptr noundef %0, i32 noundef %65, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6) #10
-  %68 = add i32 %50, 12
-  %69 = load i32, ptr @hf_mbim_ms_app_info_app_name_offset, align 4
-  %70 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %55, i32 noundef %69, ptr noundef %0, i32 noundef %68, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %7) #10
-  %71 = add i32 %50, 16
-  %72 = load i32, ptr @hf_mbim_ms_app_info_app_name_size, align 4
-  %73 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %55, i32 noundef %72, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %8) #10
-  %74 = add i32 %50, 20
-  %75 = load i32, ptr @hf_mbim_ms_app_info_num_pins, align 4
-  %76 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %55, i32 noundef %75, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %11) #10
-  %77 = add i32 %50, 24
-  %78 = load i32, ptr @hf_mbim_ms_app_info_pin_ref_offset, align 4
-  %79 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %55, i32 noundef %78, ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %9) #10
-  %80 = add i32 %50, 28
-  %81 = load i32, ptr @hf_mbim_ms_app_info_pin_ref_size, align 4
-  %82 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %55, i32 noundef %81, ptr noundef %0, i32 noundef %80, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %10) #10
-  %83 = load i32, ptr %5, align 4
-  %84 = icmp ne i32 %83, 0
-  %85 = load i32, ptr %6, align 4
+  %.reass = add i32 %49, %16
+  %62 = load i32, ptr @hf_mbim_ms_app_info_app_id_offset, align 4
+  %63 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %55, i32 noundef %62, ptr noundef %0, i32 noundef %.reass, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %5) #10
+  %.reass56 = add i32 %49, %19
+  %64 = load i32, ptr @hf_mbim_ms_app_info_app_id_size, align 4
+  %65 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %55, i32 noundef %64, ptr noundef %0, i32 noundef %.reass56, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6) #10
+  %.reass58 = add i32 %49, %22
+  %66 = load i32, ptr @hf_mbim_ms_app_info_app_name_offset, align 4
+  %67 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %55, i32 noundef %66, ptr noundef %0, i32 noundef %.reass58, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %7) #10
+  %.reass60 = add i32 %49, %27
+  %68 = load i32, ptr @hf_mbim_ms_app_info_app_name_size, align 4
+  %69 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %55, i32 noundef %68, ptr noundef %0, i32 noundef %.reass60, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %8) #10
+  %.reass62 = add i32 %49, %invariant.op61
+  %70 = load i32, ptr @hf_mbim_ms_app_info_num_pins, align 4
+  %71 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %55, i32 noundef %70, ptr noundef %0, i32 noundef %.reass62, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %11) #10
+  %.reass64 = add i32 %49, %invariant.op63
+  %72 = load i32, ptr @hf_mbim_ms_app_info_pin_ref_offset, align 4
+  %73 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %55, i32 noundef %72, ptr noundef %0, i32 noundef %.reass64, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %9) #10
+  %.reass66 = add i32 %49, %invariant.op65
+  %74 = load i32, ptr @hf_mbim_ms_app_info_pin_ref_size, align 4
+  %75 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %55, i32 noundef %74, ptr noundef %0, i32 noundef %.reass66, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %10) #10
+  %76 = load i32, ptr %5, align 4
+  %77 = icmp ne i32 %76, 0
+  %78 = load i32, ptr %6, align 4
+  %79 = icmp ne i32 %78, 0
+  %or.cond.i = select i1 %77, i1 %79, i1 false
+  br i1 %or.cond.i, label %80, label %84
+
+80:                                               ; preds = %59
+  %81 = load i32, ptr @hf_mbim_ms_app_info_app_id, align 4
+  %82 = add i32 %76, %50
+  %83 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %81, ptr noundef %0, i32 noundef %82, i32 noundef %78, i32 noundef 0) #10
+  br label %84
+
+84:                                               ; preds = %80, %59
+  %85 = load i32, ptr %7, align 4
   %86 = icmp ne i32 %85, 0
-  %or.cond.i = select i1 %84, i1 %86, i1 false
-  br i1 %or.cond.i, label %87, label %91
+  %87 = load i32, ptr %8, align 4
+  %88 = icmp ne i32 %87, 0
+  %or.cond3.i = select i1 %86, i1 %88, i1 false
+  br i1 %or.cond3.i, label %89, label %93
 
-87:                                               ; preds = %59
-  %88 = load i32, ptr @hf_mbim_ms_app_info_app_id, align 4
-  %89 = add i32 %83, %50
-  %90 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %88, ptr noundef %0, i32 noundef %89, i32 noundef %85, i32 noundef 0) #10
-  br label %91
+89:                                               ; preds = %84
+  %90 = load i32, ptr @hf_mbim_ms_app_info_app_name, align 4
+  %91 = add i32 %85, %50
+  %92 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %90, ptr noundef %0, i32 noundef %91, i32 noundef %87, i32 noundef 2) #10
+  br label %93
 
-91:                                               ; preds = %87, %59
-  %92 = load i32, ptr %7, align 4
-  %93 = icmp ne i32 %92, 0
-  %94 = load i32, ptr %8, align 4
-  %95 = icmp ne i32 %94, 0
-  %or.cond3.i = select i1 %93, i1 %95, i1 false
-  br i1 %or.cond3.i, label %96, label %100
+93:                                               ; preds = %89, %84
+  %94 = load i32, ptr %11, align 4
+  %.not.i = icmp eq i32 %94, 0
+  br i1 %.not.i, label %mbim_dissect_ms_app_info_elements.exit, label %95
 
-96:                                               ; preds = %91
-  %97 = load i32, ptr @hf_mbim_ms_app_info_app_name, align 4
-  %98 = add i32 %92, %50
-  %99 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %97, ptr noundef %0, i32 noundef %98, i32 noundef %94, i32 noundef 2) #10
-  br label %100
-
-100:                                              ; preds = %96, %91
-  %101 = load i32, ptr %11, align 4
-  %.not.i = icmp eq i32 %101, 0
-  br i1 %.not.i, label %mbim_dissect_ms_app_info_elements.exit, label %102
-
-102:                                              ; preds = %100
-  %103 = load i32, ptr @hf_mbim_ms_app_info_pin_ref, align 4
-  %104 = load i32, ptr %9, align 4
-  %105 = add i32 %104, %50
-  %106 = load i32, ptr %10, align 4
-  %107 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %103, ptr noundef %0, i32 noundef %105, i32 noundef %106, i32 noundef 0) #10
+95:                                               ; preds = %93
+  %96 = load i32, ptr @hf_mbim_ms_app_info_pin_ref, align 4
+  %97 = load i32, ptr %9, align 4
+  %98 = add i32 %97, %50
+  %99 = load i32, ptr %10, align 4
+  %100 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %96, ptr noundef %0, i32 noundef %98, i32 noundef %99, i32 noundef 0) #10
   br label %mbim_dissect_ms_app_info_elements.exit
 
-mbim_dissect_ms_app_info_elements.exit:           ; preds = %100, %102
+mbim_dissect_ms_app_info_elements.exit:           ; preds = %93, %95
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -17881,14 +17932,14 @@ mbim_dissect_ms_app_info_elements.exit:           ; preds = %100, %102
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  br label %108
+  br label %101
 
-108:                                              ; preds = %.lr.ph56, %57, %mbim_dissect_ms_app_info_elements.exit
-  %109 = load i32, ptr %12, align 4
-  %110 = icmp ult i32 %54, %109
-  br i1 %110, label %.lr.ph56, label %._crit_edge, !llvm.loop !69
+101:                                              ; preds = %.lr.ph68, %57, %mbim_dissect_ms_app_info_elements.exit
+  %102 = load i32, ptr %12, align 4
+  %103 = icmp ult i32 %54, %102
+  br i1 %103, label %.lr.ph68, label %._crit_edge, !llvm.loop !69
 
-._crit_edge:                                      ; preds = %108, %26, %4, %.loopexit
+._crit_edge:                                      ; preds = %101, %4, %26, %.loopexit
   ret void
 }
 

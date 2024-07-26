@@ -1764,7 +1764,7 @@ define internal i32 @dissect_ddp_zip(ptr noundef %0, ptr nocapture noundef reado
 
 13:                                               ; preds = %4
   %14 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
-  br label %106
+  br label %105
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @proto_zip, align 4
@@ -1779,8 +1779,8 @@ define internal i32 @dissect_ddp_zip(ptr noundef %0, ptr nocapture noundef reado
     i8 7, label %33
     i8 2, label %52
     i8 8, label %52
-    i8 5, label %75
-    i8 6, label %80
+    i8 5, label %74
+    i8 6, label %79
   ]
 
 22:                                               ; preds = %15
@@ -1837,8 +1837,8 @@ define internal i32 @dissect_ddp_zip(ptr noundef %0, ptr nocapture noundef reado
   br i1 %.not144, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %52, %.lr.ph
-  %.1140 = phi i32 [ %74, %.lr.ph ], [ 0, %52 ]
-  %.1135139 = phi i32 [ %71, %.lr.ph ], [ 2, %52 ]
+  %.1140 = phi i32 [ %73, %.lr.ph ], [ 0, %52 ]
+  %.1135139 = phi i32 [ %70, %.lr.ph ], [ 2, %52 ]
   %59 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1135139) #8
   %60 = load i32, ptr @ett_zip_network_list, align 4
   %61 = zext i16 %59 to i32
@@ -1850,63 +1850,63 @@ define internal i32 @dissect_ddp_zip(ptr noundef %0, ptr nocapture noundef reado
   %67 = load i32, ptr @hf_zip_zone_name, align 4
   %68 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %67, ptr noundef %0, i32 noundef %65, i32 noundef 1, i32 noundef 0) #8
   %69 = zext i8 %66 to i32
-  %70 = add i32 %.1135139, 3
-  %71 = add i32 %70, %69
-  %72 = load ptr, ptr %5, align 8
-  %73 = add nuw nsw i32 %69, 3
-  call void @proto_item_set_len(ptr noundef %72, i32 noundef %73) #8
-  %74 = add nuw nsw i32 %.1140, 1
-  %exitcond.not = icmp eq i32 %74, %54
+  %.reass = add i32 %.1135139, 3
+  %70 = add i32 %.reass, %69
+  %71 = load ptr, ptr %5, align 8
+  %72 = add nuw nsw i32 %69, 3
+  call void @proto_item_set_len(ptr noundef %71, i32 noundef %72) #8
+  %73 = add nuw nsw i32 %.1140, 1
+  %exitcond.not = icmp eq i32 %73, %54
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
-75:                                               ; preds = %15
-  %76 = load i32, ptr @hf_zip_zero_value, align 4
-  %77 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %76, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #8
-  %78 = load i32, ptr @hf_zip_zero_value, align 4
-  %79 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %78, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef 0) #8
+74:                                               ; preds = %15
+  %75 = load i32, ptr @hf_zip_zero_value, align 4
+  %76 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %75, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #8
+  %77 = load i32, ptr @hf_zip_zero_value, align 4
+  %78 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %77, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef 0) #8
   br label %.loopexit.sink.split
 
-80:                                               ; preds = %15
-  %81 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #8
-  %82 = load i32, ptr @hf_zip_flags, align 4
-  %83 = load i32, ptr @ett_zip_flags, align 4
-  %84 = tail call ptr @proto_tree_add_bitmask(ptr noundef %19, ptr noundef %0, i32 noundef 1, i32 noundef %82, i32 noundef %83, ptr noundef nonnull @dissect_ddp_zip.zip_flags, i32 noundef 0) #8
-  %85 = load i32, ptr @hf_zip_network_start, align 4
-  %86 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %85, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #8
-  %87 = load i32, ptr @hf_zip_network_end, align 4
-  %88 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %87, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #8
-  %89 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #8
-  %90 = load i32, ptr @hf_zip_zone_name, align 4
-  %91 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %90, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #8
-  %92 = zext i8 %89 to i32
-  %93 = add nuw nsw i32 %92, 7
-  %94 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %93) #8
-  %95 = load i32, ptr @hf_zip_multicast_length, align 4
-  %96 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %95, ptr noundef %0, i32 noundef %93, i32 noundef 1, i32 noundef 0) #8
-  %97 = add nuw nsw i32 %92, 8
-  %98 = load i32, ptr @hf_zip_multicast_address, align 4
-  %99 = zext i8 %94 to i32
-  %100 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %98, ptr noundef %0, i32 noundef %97, i32 noundef %99, i32 noundef 0) #8
-  %.not137 = icmp sgt i8 %81, -1
-  br i1 %.not137, label %.loopexit, label %101
+79:                                               ; preds = %15
+  %80 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #8
+  %81 = load i32, ptr @hf_zip_flags, align 4
+  %82 = load i32, ptr @ett_zip_flags, align 4
+  %83 = tail call ptr @proto_tree_add_bitmask(ptr noundef %19, ptr noundef %0, i32 noundef 1, i32 noundef %81, i32 noundef %82, ptr noundef nonnull @dissect_ddp_zip.zip_flags, i32 noundef 0) #8
+  %84 = load i32, ptr @hf_zip_network_start, align 4
+  %85 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %84, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #8
+  %86 = load i32, ptr @hf_zip_network_end, align 4
+  %87 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %86, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #8
+  %88 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #8
+  %89 = load i32, ptr @hf_zip_zone_name, align 4
+  %90 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %89, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #8
+  %91 = zext i8 %88 to i32
+  %92 = add nuw nsw i32 %91, 7
+  %93 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %92) #8
+  %94 = load i32, ptr @hf_zip_multicast_length, align 4
+  %95 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %94, ptr noundef %0, i32 noundef %92, i32 noundef 1, i32 noundef 0) #8
+  %96 = add nuw nsw i32 %91, 8
+  %97 = load i32, ptr @hf_zip_multicast_address, align 4
+  %98 = zext i8 %93 to i32
+  %99 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %97, ptr noundef %0, i32 noundef %96, i32 noundef %98, i32 noundef 0) #8
+  %.not137 = icmp sgt i8 %80, -1
+  br i1 %.not137, label %.loopexit, label %100
 
-101:                                              ; preds = %80
-  %102 = add nuw nsw i32 %97, %99
+100:                                              ; preds = %79
+  %101 = add nuw nsw i32 %96, %98
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %33, %75, %101
-  %hf_zip_default_zone.sink = phi ptr [ @hf_zip_default_zone, %101 ], [ @hf_zip_zone_name, %75 ], [ @hf_zip_zone_name, %33 ]
-  %.sink149 = phi i32 [ %102, %101 ], [ 6, %75 ], [ %51, %33 ]
-  %103 = load i32, ptr %hf_zip_default_zone.sink, align 4
-  %104 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %103, ptr noundef %0, i32 noundef %.sink149, i32 noundef 1, i32 noundef 0) #8
+.loopexit.sink.split:                             ; preds = %33, %74, %100
+  %hf_zip_default_zone.sink = phi ptr [ @hf_zip_default_zone, %100 ], [ @hf_zip_zone_name, %74 ], [ @hf_zip_zone_name, %33 ]
+  %.sink149 = phi i32 [ %101, %100 ], [ 6, %74 ], [ %51, %33 ]
+  %102 = load i32, ptr %hf_zip_default_zone.sink, align 4
+  %103 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %102, ptr noundef %0, i32 noundef %.sink149, i32 noundef 1, i32 noundef 0) #8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph143, %.loopexit.sink.split, %52, %22, %15, %80
-  %105 = call i32 @tvb_captured_length(ptr noundef %0) #8
-  br label %106
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph143, %.loopexit.sink.split, %52, %22, %15, %79
+  %104 = call i32 @tvb_captured_length(ptr noundef %0) #8
+  br label %105
 
-106:                                              ; preds = %.loopexit, %13
-  %.0133 = phi i32 [ %105, %.loopexit ], [ %14, %13 ]
+105:                                              ; preds = %.loopexit, %13
+  %.0133 = phi i32 [ %104, %.loopexit ], [ %14, %13 ]
   ret i32 %.0133
 }
 

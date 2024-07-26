@@ -8565,13 +8565,14 @@ while.body:                                       ; preds = %land.rhs
   %18 = load ptr, ptr %d_last_comb.i, align 8
   %d_n.i = getelementptr inbounds i8, ptr %add.ptr.i163, i64 4
   %19 = load i32, ptr %d_n.i, align 4
+  %invariant.op.i = xor i32 %17, -1
+  %invariant.op13.i = add i32 %19, %invariant.op.i
   %20 = zext i32 %17 to i64
   %21 = add i32 %17, -1
-  %sub3.i = sub i32 %19, %17
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.body.i165, %while.body
-  %indvars.iv22.i = phi i32 [ %indvars.iv.next23.i, %for.body.i165 ], [ %21, %while.body ]
+  %indvars.iv23.i = phi i32 [ %indvars.iv.next24.i, %for.body.i165 ], [ %21, %while.body ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i165 ], [ %20, %while.body ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %indvars.i = trunc i64 %indvars.iv.next.i to i32
@@ -8579,38 +8580,39 @@ for.cond.i:                                       ; preds = %for.body.i165, %whi
   br i1 %cmp.i164, label %for.body.i165, label %cond.end89.loopexit
 
 for.body.i165:                                    ; preds = %for.cond.i
+  %indvars22.i = trunc i64 %indvars.iv.i to i32
   %conv.i = and i64 %indvars.iv.next.i, 2147483647
   %add.ptr.i.i = getelementptr inbounds i32, ptr %18, i64 %conv.i
   %22 = load i32, ptr %add.ptr.i.i, align 4
-  %add.i = add i32 %sub3.i, %indvars.i
-  %cmp4.i = icmp ult i32 %22, %add.i
-  %indvars.iv.next23.i = add nsw i32 %indvars.iv22.i, -1
+  %add.reass.i = add i32 %invariant.op13.i, %indvars22.i
+  %cmp4.i = icmp ult i32 %22, %add.reass.i
+  %indvars.iv.next24.i = add nsw i32 %indvars.iv23.i, -1
   br i1 %cmp4.i, label %while.cond.preheader.i, label %for.cond.i, !llvm.loop !65
 
 while.cond.preheader.i:                           ; preds = %for.body.i165
-  %cmp11.not14.i = icmp ult i32 %21, %indvars.i
-  br i1 %cmp11.not14.i, label %if.end95.thread, label %while.body.preheader.i
+  %cmp11.not15.i = icmp ult i32 %21, %indvars.i
+  br i1 %cmp11.not15.i, label %if.end95.thread, label %while.body.preheader.i
 
 if.end95.thread:                                  ; preds = %while.cond.preheader.i
   store i32 0, ptr %d_curr_ind, align 8
   br label %if.end210
 
 while.body.preheader.i:                           ; preds = %while.cond.preheader.i
-  %23 = zext i32 %indvars.iv22.i to i64
+  %23 = zext i32 %indvars.iv23.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.preheader.i
-  %indvars.iv25.i = phi i64 [ %23, %while.body.preheader.i ], [ %indvars.iv.next26.i, %while.body.i ]
-  %j.0.in16.i = phi i32 [ %22, %while.body.preheader.i ], [ %j.0.i, %while.body.i ]
-  %j.0.i = add i32 %j.0.in16.i, 1
-  %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
+  %indvars.iv26.i = phi i64 [ %23, %while.body.preheader.i ], [ %indvars.iv.next27.i, %while.body.i ]
+  %j.0.in17.i = phi i32 [ %22, %while.body.preheader.i ], [ %j.0.i, %while.body.i ]
+  %j.0.i = add i32 %j.0.in17.i, 1
+  %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %24 = load ptr, ptr %d_last_comb.i, align 8
-  %add.ptr.i8.i = getelementptr inbounds i32, ptr %24, i64 %indvars.iv25.i
+  %add.ptr.i8.i = getelementptr inbounds i32, ptr %24, i64 %indvars.iv26.i
   store i32 %j.0.i, ptr %add.ptr.i8.i, align 4
   %25 = load i32, ptr %d_k.i, align 8
   %sub10.i = add i32 %25, -1
   %26 = zext i32 %sub10.i to i64
-  %cmp11.not.not.i = icmp ult i64 %indvars.iv25.i, %26
+  %cmp11.not.not.i = icmp ult i64 %indvars.iv26.i, %26
   br i1 %cmp11.not.not.i, label %while.body.i, label %if.end95, !llvm.loop !66
 
 cond.end89.loopexit:                              ; preds = %for.cond.i
@@ -10221,12 +10223,14 @@ entry:
   %1 = load ptr, ptr %d_last_comb, align 8
   %d_n = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %d_n, align 4
+  %invariant.op = xor i32 %0, -1
+  %invariant.op13 = add i32 %2, %invariant.op
   %3 = zext i32 %0 to i64
   %4 = add i32 %0, -1
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %entry
-  %indvars.iv22 = phi i32 [ %indvars.iv.next23, %for.body ], [ %4, %entry ]
+  %indvars.iv23 = phi i32 [ %indvars.iv.next24, %for.body ], [ %4, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %3, %entry ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars = trunc i64 %indvars.iv.next to i32
@@ -10234,35 +10238,35 @@ for.cond:                                         ; preds = %for.body, %entry
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
+  %indvars22 = trunc i64 %indvars.iv to i32
   %conv = and i64 %indvars.iv.next, 2147483647
   %add.ptr.i = getelementptr inbounds i32, ptr %1, i64 %conv
   %5 = load i32, ptr %add.ptr.i, align 4
-  %sub3 = sub i32 %indvars, %0
-  %add = add i32 %sub3, %2
-  %cmp4 = icmp ult i32 %5, %add
-  %indvars.iv.next23 = add i32 %indvars.iv22, -1
+  %add.reass = add i32 %invariant.op13, %indvars22
+  %cmp4 = icmp ult i32 %5, %add.reass
+  %indvars.iv.next24 = add i32 %indvars.iv23, -1
   br i1 %cmp4, label %while.cond.preheader, label %for.cond, !llvm.loop !65
 
 while.cond.preheader:                             ; preds = %for.body
-  %cmp11.not14 = icmp ult i32 %4, %indvars
-  br i1 %cmp11.not14, label %for.end, label %while.body.preheader
+  %cmp11.not15 = icmp ult i32 %4, %indvars
+  br i1 %cmp11.not15, label %for.end, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %while.cond.preheader
-  %6 = zext i32 %indvars.iv22 to i64
+  %6 = zext i32 %indvars.iv23 to i64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
-  %indvars.iv25 = phi i64 [ %6, %while.body.preheader ], [ %indvars.iv.next26, %while.body ]
-  %j.0.in16 = phi i32 [ %5, %while.body.preheader ], [ %j.0, %while.body ]
-  %j.0 = add i32 %j.0.in16, 1
-  %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
+  %indvars.iv26 = phi i64 [ %6, %while.body.preheader ], [ %indvars.iv.next27, %while.body ]
+  %j.0.in17 = phi i32 [ %5, %while.body.preheader ], [ %j.0, %while.body ]
+  %j.0 = add i32 %j.0.in17, 1
+  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %7 = load ptr, ptr %d_last_comb, align 8
-  %add.ptr.i8 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv25
+  %add.ptr.i8 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv26
   store i32 %j.0, ptr %add.ptr.i8, align 4
   %8 = load i32, ptr %d_k, align 8
   %sub10 = add i32 %8, -1
   %9 = zext i32 %sub10 to i64
-  %cmp11.not.not = icmp ult i64 %indvars.iv25, %9
+  %cmp11.not.not = icmp ult i64 %indvars.iv26, %9
   br i1 %cmp11.not.not, label %while.body, label %for.end, !llvm.loop !66
 
 for.end:                                          ; preds = %for.cond, %while.body, %while.cond.preheader

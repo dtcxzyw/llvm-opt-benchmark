@@ -5987,6 +5987,7 @@ define internal fastcc void @_ZN8TINShiftL13BuildQuadTreeERKNS_12TINShiftFileEb(
   %8 = getelementptr inbounds i8, ptr %1, i64 452
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
+  %invariant.op.i = add nsw i64 %10, -1
   %11 = getelementptr inbounds i8, ptr %1, i64 464
   %12 = load ptr, ptr %11, align 8, !noalias !100
   %13 = load ptr, ptr %7, align 8, !noalias !100
@@ -5994,9 +5995,8 @@ define internal fastcc void @_ZN8TINShiftL13BuildQuadTreeERKNS_12TINShiftFileEb(
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = ashr exact i64 %16, 3
-  %18 = add nsw i64 %10, -1
-  %19 = icmp ult i64 %18, %17
-  br i1 %19, label %.lr.ph.i, label %..loopexit_crit_edge
+  %18 = icmp ult i64 %invariant.op.i, %17
+  br i1 %18, label %.lr.ph.i, label %..loopexit_crit_edge
 
 ..loopexit_crit_edge:                             ; preds = %3
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 448
@@ -6007,144 +6007,144 @@ define internal fastcc void @_ZN8TINShiftL13BuildQuadTreeERKNS_12TINShiftFileEb(
   br label %.loopexit
 
 .lr.ph.i:                                         ; preds = %3
-  %20 = xor i1 %2, true
-  %21 = getelementptr inbounds i8, ptr %1, i64 448
-  %22 = load i8, ptr %21, align 8
-  %23 = trunc i8 %22 to i1
-  %24 = and i1 %20, %23
-  %25 = select i1 %24, i64 2, i64 0
-  %invariant.gep.i = getelementptr double, ptr %13, i64 %25
-  %26 = select i1 %24, i64 3, i64 1
-  %invariant.gep32.i = getelementptr double, ptr %13, i64 %26
-  br label %27
+  %19 = xor i1 %2, true
+  %20 = getelementptr inbounds i8, ptr %1, i64 448
+  %21 = load i8, ptr %20, align 8
+  %22 = trunc i8 %21 to i1
+  %23 = and i1 %19, %22
+  %24 = select i1 %23, i64 2, i64 0
+  %invariant.gep.i = getelementptr double, ptr %13, i64 %24
+  %25 = select i1 %23, i64 3, i64 1
+  %invariant.gep32.i = getelementptr double, ptr %13, i64 %25
+  br label %26
 
-27:                                               ; preds = %27, %.lr.ph.i
-  %28 = phi i64 [ %10, %.lr.ph.i ], [ %39, %27 ]
-  %.031.i = phi i64 [ 0, %.lr.ph.i ], [ %28, %27 ]
-  %29 = phi <2 x double> [ <double 0x7FEFFFFFFFFFFFFF, double 0x7FEFFFFFFFFFFFFF>, %.lr.ph.i ], [ %36, %27 ]
-  %30 = phi <2 x double> [ <double 0xFFEFFFFFFFFFFFFF, double 0xFFEFFFFFFFFFFFFF>, %.lr.ph.i ], [ %38, %27 ]
+26:                                               ; preds = %26, %.lr.ph.i
+  %27 = phi i64 [ %10, %.lr.ph.i ], [ %38, %26 ]
+  %.031.i = phi i64 [ 0, %.lr.ph.i ], [ %27, %26 ]
+  %28 = phi <2 x double> [ <double 0x7FEFFFFFFFFFFFFF, double 0x7FEFFFFFFFFFFFFF>, %.lr.ph.i ], [ %35, %26 ]
+  %29 = phi <2 x double> [ <double 0xFFEFFFFFFFFFFFFF, double 0xFFEFFFFFFFFFFFFF>, %.lr.ph.i ], [ %37, %26 ]
   %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %.031.i
-  %31 = load double, ptr %gep.i, align 8, !noalias !100
+  %30 = load double, ptr %gep.i, align 8, !noalias !100
   %gep33.i = getelementptr double, ptr %invariant.gep32.i, i64 %.031.i
-  %32 = load double, ptr %gep33.i, align 8, !noalias !100
-  %33 = insertelement <2 x double> poison, double %31, i64 0
-  %34 = insertelement <2 x double> %33, double %32, i64 1
-  %35 = fcmp olt <2 x double> %34, %29
-  %36 = select <2 x i1> %35, <2 x double> %34, <2 x double> %29
-  %37 = fcmp olt <2 x double> %30, %34
-  %38 = select <2 x i1> %37, <2 x double> %34, <2 x double> %30
-  %39 = add i64 %28, %10
-  %40 = add i64 %39, -1
-  %41 = icmp ult i64 %40, %17
-  br i1 %41, label %27, label %.loopexit, !llvm.loop !103
+  %31 = load double, ptr %gep33.i, align 8, !noalias !100
+  %32 = insertelement <2 x double> poison, double %30, i64 0
+  %33 = insertelement <2 x double> %32, double %31, i64 1
+  %34 = fcmp olt <2 x double> %33, %28
+  %35 = select <2 x i1> %34, <2 x double> %33, <2 x double> %28
+  %36 = fcmp olt <2 x double> %29, %33
+  %37 = select <2 x i1> %36, <2 x double> %33, <2 x double> %29
+  %38 = add i64 %27, %10
+  %.reass.i = add i64 %27, %invariant.op.i
+  %39 = icmp ult i64 %.reass.i, %17
+  br i1 %39, label %26, label %.loopexit, !llvm.loop !103
 
-.loopexit:                                        ; preds = %27, %..loopexit_crit_edge
-  %.pre-phi92 = phi i1 [ %.pre91, %..loopexit_crit_edge ], [ %24, %27 ]
-  %42 = phi <2 x double> [ <double 0x7FEFFFFFFFFFFFFF, double 0x7FEFFFFFFFFFFFFF>, %..loopexit_crit_edge ], [ %36, %27 ]
-  %43 = phi <2 x double> [ <double 0xFFEFFFFFFFFFFFFF, double 0xFFEFFFFFFFFFFFFF>, %..loopexit_crit_edge ], [ %38, %27 ]
-  store <2 x double> %42, ptr %6, align 8
+.loopexit:                                        ; preds = %26, %..loopexit_crit_edge
+  %.pre-phi92 = phi i1 [ %.pre91, %..loopexit_crit_edge ], [ %23, %26 ]
+  %40 = phi <2 x double> [ <double 0x7FEFFFFFFFFFFFFF, double 0x7FEFFFFFFFFFFFFF>, %..loopexit_crit_edge ], [ %35, %26 ]
+  %41 = phi <2 x double> [ <double 0xFFEFFFFFFFFFFFFF, double 0xFFEFFFFFFFFFFFFF>, %..loopexit_crit_edge ], [ %37, %26 ]
+  store <2 x double> %40, ptr %6, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
-  store <2 x double> %43, ptr %.sroa.5.0..sroa_idx, align 8
-  %44 = getelementptr inbounds i8, ptr %6, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %44, i8 0, i64 48, i1 false)
-  %45 = getelementptr inbounds i8, ptr %6, i64 80
-  store i32 8, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %6, i64 88
-  store double 5.500000e-01, ptr %46, align 8
+  store <2 x double> %41, ptr %.sroa.5.0..sroa_idx, align 8
+  %42 = getelementptr inbounds i8, ptr %6, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %42, i8 0, i64 48, i1 false)
+  %43 = getelementptr inbounds i8, ptr %6, i64 80
+  store i32 8, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %6, i64 88
+  store double 5.500000e-01, ptr %44, align 8
   store ptr %6, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 480
-  %48 = select i1 %.pre-phi92, i32 2, i32 0
-  %49 = select i1 %.pre-phi92, i32 3, i32 1
-  %50 = getelementptr inbounds i8, ptr %1, i64 488
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %47, align 8
-  %.not = icmp eq ptr %51, %52
+  %45 = getelementptr inbounds i8, ptr %1, i64 480
+  %46 = select i1 %.pre-phi92, i32 2, i32 0
+  %47 = select i1 %.pre-phi92, i32 3, i32 1
+  %48 = getelementptr inbounds i8, ptr %1, i64 488
+  %49 = load ptr, ptr %48, align 8
+  %50 = load ptr, ptr %45, align 8
+  %.not = icmp eq ptr %49, %50
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit
-  %53 = getelementptr inbounds i8, ptr %4, i64 8
-  %54 = getelementptr inbounds i8, ptr %4, i64 16
-  %55 = getelementptr inbounds i8, ptr %4, i64 24
-  br label %56
+  %51 = getelementptr inbounds i8, ptr %4, i64 8
+  %52 = getelementptr inbounds i8, ptr %4, i64 16
+  %53 = getelementptr inbounds i8, ptr %4, i64 24
+  br label %54
 
-56:                                               ; preds = %.lr.ph, %_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERKjRKNS1_7RectObjE.exit
-  %57 = phi ptr [ %52, %.lr.ph ], [ %103, %_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERKjRKNS1_7RectObjE.exit ]
-  %.05087 = phi i64 [ 0, %.lr.ph ], [ %101, %_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERKjRKNS1_7RectObjE.exit ]
-  %58 = getelementptr inbounds %"struct.TINShift::TINShiftFile::VertexIndices", ptr %57, i64 %.05087
+54:                                               ; preds = %.lr.ph, %_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERKjRKNS1_7RectObjE.exit
+  %55 = phi ptr [ %50, %.lr.ph ], [ %101, %_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERKjRKNS1_7RectObjE.exit ]
+  %.05087 = phi i64 [ 0, %.lr.ph ], [ %99, %_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERKjRKNS1_7RectObjE.exit ]
+  %56 = getelementptr inbounds %"struct.TINShift::TINShiftFile::VertexIndices", ptr %55, i64 %.05087
+  %57 = load i32, ptr %56, align 4
+  %58 = getelementptr inbounds i8, ptr %56, i64 4
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %58, i64 4
+  %60 = getelementptr inbounds i8, ptr %56, i64 8
   %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds i8, ptr %58, i64 8
-  %63 = load i32, ptr %62, align 4
-  %64 = mul i32 %59, %9
-  %65 = add i32 %64, %48
-  %66 = zext i32 %65 to i64
-  %67 = load ptr, ptr %7, align 8
-  %68 = getelementptr inbounds double, ptr %67, i64 %66
-  %69 = load double, ptr %68, align 8
-  %70 = add i32 %64, %49
-  %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds double, ptr %67, i64 %71
-  %73 = load double, ptr %72, align 8
-  %74 = mul i32 %61, %9
-  %75 = add i32 %74, %48
-  %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds double, ptr %67, i64 %76
-  %78 = load double, ptr %77, align 8
-  %79 = add i32 %74, %49
-  %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds double, ptr %67, i64 %80
-  %82 = load double, ptr %81, align 8
-  %83 = mul i32 %63, %9
-  %84 = add i32 %83, %48
-  %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds double, ptr %67, i64 %85
-  %87 = load double, ptr %86, align 8
-  %88 = add i32 %83, %49
-  %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds double, ptr %67, i64 %89
-  %91 = load double, ptr %90, align 8
-  %92 = fcmp olt double %78, %69
-  %.sroa.speculated84 = select i1 %92, double %78, double %69
-  %93 = fcmp olt double %82, %73
-  %.sroa.speculated76 = select i1 %93, double %82, double %73
-  %94 = fcmp olt double %69, %78
-  %.sroa.speculated81 = select i1 %94, double %78, double %69
-  %95 = fcmp olt double %73, %82
-  %.sroa.speculated73 = select i1 %95, double %82, double %73
-  %96 = fcmp olt double %87, %.sroa.speculated84
-  %.sroa.speculated68 = select i1 %96, double %87, double %.sroa.speculated84
+  %62 = mul i32 %57, %9
+  %63 = add i32 %62, %46
+  %64 = zext i32 %63 to i64
+  %65 = load ptr, ptr %7, align 8
+  %66 = getelementptr inbounds double, ptr %65, i64 %64
+  %67 = load double, ptr %66, align 8
+  %68 = add i32 %62, %47
+  %69 = zext i32 %68 to i64
+  %70 = getelementptr inbounds double, ptr %65, i64 %69
+  %71 = load double, ptr %70, align 8
+  %72 = mul i32 %59, %9
+  %73 = add i32 %72, %46
+  %74 = zext i32 %73 to i64
+  %75 = getelementptr inbounds double, ptr %65, i64 %74
+  %76 = load double, ptr %75, align 8
+  %77 = add i32 %72, %47
+  %78 = zext i32 %77 to i64
+  %79 = getelementptr inbounds double, ptr %65, i64 %78
+  %80 = load double, ptr %79, align 8
+  %81 = mul i32 %61, %9
+  %82 = add i32 %81, %46
+  %83 = zext i32 %82 to i64
+  %84 = getelementptr inbounds double, ptr %65, i64 %83
+  %85 = load double, ptr %84, align 8
+  %86 = add i32 %81, %47
+  %87 = zext i32 %86 to i64
+  %88 = getelementptr inbounds double, ptr %65, i64 %87
+  %89 = load double, ptr %88, align 8
+  %90 = fcmp olt double %76, %67
+  %.sroa.speculated84 = select i1 %90, double %76, double %67
+  %91 = fcmp olt double %80, %71
+  %.sroa.speculated76 = select i1 %91, double %80, double %71
+  %92 = fcmp olt double %67, %76
+  %.sroa.speculated81 = select i1 %92, double %76, double %67
+  %93 = fcmp olt double %71, %80
+  %.sroa.speculated73 = select i1 %93, double %80, double %71
+  %94 = fcmp olt double %85, %.sroa.speculated84
+  %.sroa.speculated68 = select i1 %94, double %85, double %.sroa.speculated84
   store double %.sroa.speculated68, ptr %4, align 8
-  %97 = fcmp olt double %91, %.sroa.speculated76
-  %.sroa.speculated62 = select i1 %97, double %91, double %.sroa.speculated76
-  store double %.sroa.speculated62, ptr %53, align 8
-  %98 = fcmp olt double %.sroa.speculated81, %87
-  %.sroa.speculated65 = select i1 %98, double %87, double %.sroa.speculated81
-  store double %.sroa.speculated65, ptr %54, align 8
-  %99 = fcmp olt double %.sroa.speculated73, %91
-  %.sroa.speculated = select i1 %99, double %91, double %.sroa.speculated73
-  store double %.sroa.speculated, ptr %55, align 8
-  %100 = trunc i64 %.05087 to i32
-  store i32 %100, ptr %5, align 4
+  %95 = fcmp olt double %89, %.sroa.speculated76
+  %.sroa.speculated62 = select i1 %95, double %89, double %.sroa.speculated76
+  store double %.sroa.speculated62, ptr %51, align 8
+  %96 = fcmp olt double %.sroa.speculated81, %85
+  %.sroa.speculated65 = select i1 %96, double %85, double %.sroa.speculated81
+  store double %.sroa.speculated65, ptr %52, align 8
+  %97 = fcmp olt double %.sroa.speculated73, %89
+  %.sroa.speculated = select i1 %97, double %89, double %.sroa.speculated73
+  store double %.sroa.speculated, ptr %53, align 8
+  %98 = trunc i64 %.05087 to i32
+  store i32 %98, ptr %5, align 4
   invoke void @_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERNS3_4NodeERKjRKNS1_7RectObjE(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERKjRKNS1_7RectObjE.exit unwind label %109
+          to label %_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERKjRKNS1_7RectObjE.exit unwind label %107
 
-_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERKjRKNS1_7RectObjE.exit: ; preds = %56
-  %101 = add nuw i64 %.05087, 1
-  %102 = load ptr, ptr %50, align 8
-  %103 = load ptr, ptr %47, align 8
-  %104 = ptrtoint ptr %102 to i64
-  %105 = ptrtoint ptr %103 to i64
-  %106 = sub i64 %104, %105
-  %107 = sdiv exact i64 %106, 12
-  %108 = icmp ult i64 %101, %107
-  br i1 %108, label %56, label %._crit_edge, !llvm.loop !104
+_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERKjRKNS1_7RectObjE.exit: ; preds = %54
+  %99 = add nuw i64 %.05087, 1
+  %100 = load ptr, ptr %48, align 8
+  %101 = load ptr, ptr %45, align 8
+  %102 = ptrtoint ptr %100 to i64
+  %103 = ptrtoint ptr %101 to i64
+  %104 = sub i64 %102, %103
+  %105 = sdiv exact i64 %104, 12
+  %106 = icmp ult i64 %99, %105
+  br i1 %106, label %54, label %._crit_edge, !llvm.loop !104
 
-109:                                              ; preds = %56
-  %110 = landingpad { ptr, i32 }
+107:                                              ; preds = %54
+  %108 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
-  resume { ptr, i32 } %110
+  resume { ptr, i32 } %108
 
 ._crit_edge:                                      ; preds = %_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERKjRKNS1_7RectObjE.exit, %.loopexit
   ret void

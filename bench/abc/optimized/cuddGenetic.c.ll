@@ -164,6 +164,7 @@ define i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed
   %71 = getelementptr inbounds i8, ptr %0, i64 328
   %72 = load ptr, ptr @storedd, align 8
   %factor = shl nuw i32 %69, 1
+  %invariant.op = or disjoint i32 %factor, 1
   %73 = sext i32 %1 to i64
   %wide.trip.count242 = zext nneg i32 %69 to i64
   br label %74
@@ -174,9 +175,10 @@ define i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed
   %76 = getelementptr i32, ptr %75, i64 %indvars.iv239
   %77 = getelementptr i32, ptr %76, i64 %73
   %78 = load i32, ptr %77, align 4
-  %79 = trunc nuw nsw i64 %indvars.iv239 to i32
-  %80 = sub i32 %factor, %79
-  %81 = sext i32 %80 to i64
+  %79 = trunc i64 %indvars.iv239 to i32
+  %80 = xor i32 %79, -1
+  %.reass = add i32 %invariant.op, %80
+  %81 = sext i32 %.reass to i64
   %82 = getelementptr inbounds i32, ptr %72, i64 %81
   store i32 %78, ptr %82, align 4
   %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 1

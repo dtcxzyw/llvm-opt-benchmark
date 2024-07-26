@@ -165,7 +165,7 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 89:                                               ; preds = %72
   %90 = add nsw i32 %87, %73
-  br label %421
+  br label %419
 
 91:                                               ; preds = %72
   %92 = load i32, ptr %13, align 4, !tbaa !3
@@ -421,8 +421,8 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %270 = icmp sgt i32 %268, 0
   br i1 %270, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %267, %419
-  %271 = phi i32 [ %420, %419 ], [ 1, %267 ]
+.preheader:                                       ; preds = %267, %417
+  %271 = phi i32 [ %418, %417 ], [ 1, %267 ]
   %272 = load i32, ptr %1, align 4, !tbaa !3
   %273 = sub nsw i32 %272, %271
   %274 = add nsw i32 %273, 1
@@ -442,14 +442,14 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 284:                                              ; preds = %.preheader
   %285 = add nsw i32 %282, %271
-  br label %421
+  br label %419
 
 286:                                              ; preds = %.preheader
   %287 = load i32, ptr %13, align 4, !tbaa !3
   %288 = add nsw i32 %287, %271
   %289 = load i32, ptr %1, align 4, !tbaa !3
   %290 = icmp sgt i32 %288, %289
-  br i1 %290, label %419, label %291
+  br i1 %290, label %417, label %291
 
 291:                                              ; preds = %286
   %292 = load i32, ptr %2, align 4, !tbaa !3
@@ -497,7 +497,7 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 319:                                              ; preds = %302, %291
   %320 = phi i32 [ %.pr28, %302 ], [ %300, %291 ]
   %321 = icmp sgt i32 %320, 0
-  br i1 %321, label %322, label %419
+  br i1 %321, label %322, label %417
 
 322:                                              ; preds = %319
   %323 = load i32, ptr %13, align 4, !tbaa !3
@@ -592,7 +592,7 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %385 = load i32, ptr %13, align 4, !tbaa !3
   store i32 %385, ptr %8, align 4, !tbaa !3
   %386 = icmp slt i32 %385, 1
-  br i1 %386, label %419, label %387
+  br i1 %386, label %417, label %387
 
 387:                                              ; preds = %377
   %388 = load i32, ptr %12, align 4
@@ -602,10 +602,11 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .split:                                           ; preds = %387
   %391 = load i32, ptr %2, align 4, !tbaa !3
+  %invariant.op = add i32 %391, 1
   br label %392
 
-392:                                              ; preds = %415, %.split
-  %393 = phi i32 [ 1, %.split ], [ %416, %415 ]
+392:                                              ; preds = %413, %.split
+  %393 = phi i32 [ 1, %.split ], [ %414, %413 ]
   %394 = call i32 @llvm.smin.i32(i32 %388, i32 %393)
   %395 = add i32 %394, 1
   %396 = mul nuw nsw i32 %393, 33
@@ -614,49 +615,48 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %399 = mul nsw i32 %398, %15
   %400 = zext i32 %395 to i64
   %reass.sub60 = sub i32 %399, %393
-  %401 = add i32 %reass.sub60, 1
-  %402 = add i32 %401, %391
-  br label %403
+  %.reass = add i32 %reass.sub60, %invariant.op
+  br label %401
 
-403:                                              ; preds = %403, %392
-  %404 = phi i64 [ 1, %392 ], [ %413, %403 ]
-  %405 = trunc i64 %404 to i32
-  %406 = add i32 %397, %405
-  %407 = sext i32 %406 to i64
-  %408 = getelementptr inbounds [1056 x double], ptr %10, i64 0, i64 %407
-  %409 = load double, ptr %408, align 8, !tbaa !7
-  %410 = add i32 %402, %405
-  %411 = sext i32 %410 to i64
-  %412 = getelementptr inbounds double, ptr %18, i64 %411
-  store double %409, ptr %412, align 8, !tbaa !7
-  %413 = add nuw nsw i64 %404, 1
-  %414 = icmp eq i64 %413, %400
-  br i1 %414, label %415, label %403, !llvm.loop !20
+401:                                              ; preds = %401, %392
+  %402 = phi i64 [ 1, %392 ], [ %411, %401 ]
+  %403 = trunc i64 %402 to i32
+  %404 = add i32 %397, %403
+  %405 = sext i32 %404 to i64
+  %406 = getelementptr inbounds [1056 x double], ptr %10, i64 0, i64 %405
+  %407 = load double, ptr %406, align 8, !tbaa !7
+  %408 = add i32 %.reass, %403
+  %409 = sext i32 %408 to i64
+  %410 = getelementptr inbounds double, ptr %18, i64 %409
+  store double %407, ptr %410, align 8, !tbaa !7
+  %411 = add nuw nsw i64 %402, 1
+  %412 = icmp eq i64 %411, %400
+  br i1 %412, label %413, label %401, !llvm.loop !20
 
-415:                                              ; preds = %403
-  %416 = add nuw i32 %393, 1
-  %417 = icmp eq i32 %393, %385
-  br i1 %417, label %.split59.us, label %392, !llvm.loop !21
+413:                                              ; preds = %401
+  %414 = add nuw i32 %393, 1
+  %415 = icmp eq i32 %393, %385
+  br i1 %415, label %.split59.us, label %392, !llvm.loop !21
 
-.split59.us:                                      ; preds = %415, %387
-  %.us-phi = phi i32 [ 1, %387 ], [ %395, %415 ]
-  %418 = call i32 @llvm.smin.i32(i32 %388, i32 %385)
-  store i32 %418, ptr %9, align 4, !tbaa !3
+.split59.us:                                      ; preds = %413, %387
+  %.us-phi = phi i32 [ 1, %387 ], [ %395, %413 ]
+  %416 = call i32 @llvm.smin.i32(i32 %388, i32 %385)
+  store i32 %416, ptr %9, align 4, !tbaa !3
   store i32 %.us-phi, ptr %14, align 4, !tbaa !3
-  br label %419
+  br label %417
 
-419:                                              ; preds = %.split59.us, %377, %319, %286
-  %420 = add nuw nsw i32 %44, %271
-  %.not = icmp sgt i32 %420, %268
+417:                                              ; preds = %.split59.us, %377, %319, %286
+  %418 = add nuw nsw i32 %44, %271
+  %.not = icmp sgt i32 %418, %268
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !22
 
-421:                                              ; preds = %284, %89
-  %422 = phi i32 [ %285, %284 ], [ %90, %89 ]
-  %423 = add nsw i32 %422, -1
-  store i32 %423, ptr %5, align 4, !tbaa !3
+419:                                              ; preds = %284, %89
+  %420 = phi i32 [ %285, %284 ], [ %90, %89 ]
+  %421 = add nsw i32 %420, -1
+  store i32 %421, ptr %5, align 4, !tbaa !3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %247, %419, %421, %267, %67, %49, %40, %36
+.loopexit:                                        ; preds = %247, %417, %419, %267, %67, %49, %40, %36
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #5

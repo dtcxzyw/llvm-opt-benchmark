@@ -5893,42 +5893,41 @@ define noalias noundef ptr @Cec_ManComputeInitState(ptr noundef %0, i32 noundef 
   %.val100.val = load ptr, ptr %139, align 8
   %140 = getelementptr i8, ptr %.val91, i64 4
   %.val91.val = load i32, ptr %140, align 4
+  %invariant.op = sub i32 %.val91.val, %.val86
   %wide.trip.count = zext nneg i32 %.val86 to i64
   br label %141
 
-141:                                              ; preds = %.lr.ph150.split, %161
-  %indvars.iv156 = phi i64 [ 0, %.lr.ph150.split ], [ %indvars.iv.next157, %161 ]
-  %142 = trunc i64 %indvars.iv156 to i32
-  %143 = sub i32 %142, %.val86
-  %144 = add i32 %143, %.val91.val
-  %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds i32, ptr %.val100.val, i64 %145
-  %147 = load i32, ptr %146, align 4
-  %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val99, i64 %148
-  %150 = load i64, ptr %149, align 4
-  %151 = and i64 %150, 4611686018427387904
-  %.not78 = icmp eq i64 %151, 0
-  br i1 %.not78, label %161, label %152
+141:                                              ; preds = %.lr.ph150.split, %158
+  %indvars.iv156 = phi i64 [ 0, %.lr.ph150.split ], [ %indvars.iv.next157, %158 ]
+  %142 = trunc nuw nsw i64 %indvars.iv156 to i32
+  %.reass = add i32 %invariant.op, %142
+  %143 = sext i32 %.reass to i64
+  %144 = getelementptr inbounds i32, ptr %.val100.val, i64 %143
+  %145 = load i32, ptr %144, align 4
+  %146 = sext i32 %145 to i64
+  %147 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val99, i64 %146
+  %148 = load i64, ptr %147, align 4
+  %149 = and i64 %148, 4611686018427387904
+  %.not78 = icmp eq i64 %149, 0
+  br i1 %.not78, label %158, label %150
 
-152:                                              ; preds = %141
-  %153 = trunc nuw nsw i64 %indvars.iv156 to i32
-  %154 = and i32 %153, 31
-  %155 = shl nuw i32 1, %154
-  %156 = lshr i64 %indvars.iv156, 5
-  %157 = and i64 %156, 134217727
-  %158 = getelementptr inbounds i32, ptr %136, i64 %157
-  %159 = load i32, ptr %158, align 4
-  %160 = or i32 %159, %155
-  store i32 %160, ptr %158, align 4
-  br label %161
+150:                                              ; preds = %141
+  %151 = and i32 %142, 31
+  %152 = shl nuw i32 1, %151
+  %153 = lshr i64 %indvars.iv156, 5
+  %154 = and i64 %153, 134217727
+  %155 = getelementptr inbounds i32, ptr %136, i64 %154
+  %156 = load i32, ptr %155, align 4
+  %157 = or i32 %156, %152
+  store i32 %157, ptr %155, align 4
+  br label %158
 
-161:                                              ; preds = %141, %152
+158:                                              ; preds = %141, %150
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond159.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count
   br i1 %exitcond159.not, label %.critedge10, label %141, !llvm.loop !60
 
-.critedge10:                                      ; preds = %161, %.lr.ph150, %._crit_edge
+.critedge10:                                      ; preds = %158, %.lr.ph150, %._crit_edge
   tail call void @Gia_ManCleanMark1(ptr noundef nonnull %0) #22
   ret ptr %136
 }

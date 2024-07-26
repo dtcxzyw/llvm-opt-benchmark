@@ -582,26 +582,26 @@ define void @Abc_WriteLayer(ptr nocapture noundef %0, i32 noundef %1, i32 nounde
   br i1 %18, label %.lr.ph45, label %._crit_edge46
 
 .lr.ph45:                                         ; preds = %16, %.lr.ph45
-  %19 = phi i32 [ %22, %.lr.ph45 ], [ %17, %16 ]
+  %19 = phi i32 [ %.reass, %.lr.ph45 ], [ %17, %16 ]
   %.343 = phi i32 [ %21, %.lr.ph45 ], [ %.2, %16 ]
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.59, i32 noundef %.343, i32 noundef %19, i32 noundef %.343, i32 noundef %19) #15
   %21 = add nuw nsw i32 %.343, 2
-  %22 = add nuw nsw i32 %.343, 3
-  %23 = icmp slt i32 %22, %1
-  br i1 %23, label %.lr.ph45, label %._crit_edge46, !llvm.loop !22
+  %.reass = add nuw i32 %.343, 3
+  %22 = icmp slt i32 %.reass, %1
+  br i1 %22, label %.lr.ph45, label %._crit_edge46, !llvm.loop !22
 
 ._crit_edge46:                                    ; preds = %.lr.ph45, %16
   %.3.lcssa = phi i32 [ %.2, %16 ], [ %21, %.lr.ph45 ]
-  %24 = icmp slt i32 %.3.lcssa, %1
-  br i1 %24, label %25, label %28
+  %23 = icmp slt i32 %.3.lcssa, %1
+  br i1 %23, label %24, label %27
 
-25:                                               ; preds = %._crit_edge46
-  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.60, i32 noundef %.3.lcssa, i32 noundef %.3.lcssa) #15
-  %27 = tail call i64 @fwrite(ptr nonnull @.str.58, i64 4, i64 1, ptr %0)
-  br label %28
+24:                                               ; preds = %._crit_edge46
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.60, i32 noundef %.3.lcssa, i32 noundef %.3.lcssa) #15
+  %26 = tail call i64 @fwrite(ptr nonnull @.str.58, i64 4, i64 1, ptr %0)
+  br label %27
 
-28:                                               ; preds = %25, %._crit_edge46
-  %29 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 5, i64 1, ptr %0)
+27:                                               ; preds = %24, %._crit_edge46
+  %28 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 5, i64 1, ptr %0)
   %fputc37 = tail call i32 @fputc(i32 10, ptr %0)
   ret void
 }

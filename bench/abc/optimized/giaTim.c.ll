@@ -288,37 +288,37 @@ define range(i32 0, 2) i32 @Gia_ManIsNormalized(ptr nocapture noundef readonly %
   br i1 %13, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %9
-  %14 = add i32 %.val.i, %.val16.val
-  %15 = xor i32 %14, -1
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
-  %17 = load i32, ptr %16, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = load i32, ptr %14, align 8
+  %16 = add i32 %.val.i, %.val16.val
+  %17 = xor i32 %16, -1
+  %invariant.op = add i32 %15, %17
   %18 = add i32 %.val16.val, 1
-  %19 = add i32 %18, %17
-  %20 = add i32 %19, %15
+  %.reass = add i32 %18, %invariant.op
   %.val19 = load ptr, ptr %4, align 8
-  %21 = sext i32 %20 to i64
+  %19 = sext i32 %.reass to i64
   %wide.trip.count34 = zext nneg i32 %.val.i to i64
-  %invariant.gep = getelementptr %struct.Gia_Obj_t_, ptr %.val19, i64 %21
-  br label %23
+  %invariant.gep = getelementptr %struct.Gia_Obj_t_, ptr %.val19, i64 %19
+  br label %21
 
-22:                                               ; preds = %23
+20:                                               ; preds = %21
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
-  br i1 %exitcond35.not, label %.loopexit, label %23, !llvm.loop !9
+  br i1 %exitcond35.not, label %.loopexit, label %21, !llvm.loop !9
 
-23:                                               ; preds = %.lr.ph, %22
-  %indvars.iv31 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next32, %22 ]
+21:                                               ; preds = %.lr.ph, %20
+  %indvars.iv31 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next32, %20 ]
   %gep = getelementptr %struct.Gia_Obj_t_, ptr %invariant.gep, i64 %indvars.iv31
   %.val21 = load i64, ptr %gep, align 4
-  %24 = and i64 %.val21, 2147483648
-  %.not.i = icmp eq i64 %24, 0
-  %25 = and i64 %.val21, 536870911
-  %26 = icmp eq i64 %25, 536870911
-  %narrow.i22.not = or i1 %.not.i, %26
-  br i1 %narrow.i22.not, label %.loopexit, label %22
+  %22 = and i64 %.val21, 2147483648
+  %.not.i = icmp eq i64 %22, 0
+  %23 = and i64 %.val21, 536870911
+  %24 = icmp eq i64 %23, 536870911
+  %narrow.i22.not = or i1 %.not.i, %24
+  br i1 %narrow.i22.not, label %.loopexit, label %20
 
-.loopexit:                                        ; preds = %6, %23, %22, %9
-  %.014 = phi i32 [ 1, %9 ], [ 0, %23 ], [ 1, %22 ], [ 0, %6 ]
+.loopexit:                                        ; preds = %6, %21, %20, %9
+  %.014 = phi i32 [ 1, %9 ], [ 0, %21 ], [ 1, %20 ], [ 0, %6 ]
   ret i32 %.014
 }
 

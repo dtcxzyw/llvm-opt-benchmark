@@ -228,6 +228,7 @@ define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap31find_first_consecutive_
   %13 = load i64, ptr %12, align 8
   %notmask = shl nsw i64 -1, %9
   %14 = and i64 %13, %notmask
+  %invariant.op = add i64 %3, -1
   %15 = icmp sgt i64 %3, 0
   br i1 %15, label %.split.us, label %.split
 
@@ -237,11 +238,11 @@ define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap31find_first_consecutive_
   %.047.us = phi i64 [ %.047.us.be, %.split.us.backedge ], [ %8, %7 ]
   %.046.us = phi i64 [ %.046.us.be, %.split.us.backedge ], [ %1, %7 ]
   %16 = icmp eq i64 %.152.us, 0
-  br i1 %16, label %61, label %.lr.ph.i.us
+  br i1 %16, label %60, label %.lr.ph.i.us
 
-.lr.ph.i.us:                                      ; preds = %.split.us, %57
-  %.02127.i.us = phi i64 [ %58, %57 ], [ %.046.us, %.split.us ]
-  %.02226.i.us = phi i64 [ %59, %57 ], [ %3, %.split.us ]
+.lr.ph.i.us:                                      ; preds = %.split.us, %56
+  %.02127.i.us = phi i64 [ %57, %56 ], [ %.046.us, %.split.us ]
+  %.02226.i.us = phi i64 [ %58, %56 ], [ %3, %.split.us ]
   %17 = ashr i64 %.02127.i.us, 6
   %18 = and i64 %.02127.i.us, 63
   %19 = getelementptr inbounds i64, ptr %11, i64 %17
@@ -257,111 +258,111 @@ define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap31find_first_consecutive_
 
 25:                                               ; preds = %.lr.ph.i.us
   %26 = icmp eq i64 %.0.i.us, %21
-  br i1 %26, label %57, label %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.us
+  br i1 %26, label %56, label %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.us
 
 _ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.us: ; preds = %25
   %27 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.152.us, i1 true)
   %28 = shl i64 %.047.us, 6
   %29 = or disjoint i64 %28, %27
   %30 = add i64 %.046.us, %3
-  %31 = add i64 %30, -1
-  %32 = ashr i64 %31, 6
-  %33 = and i64 %31, 63
-  %34 = icmp eq i64 %33, 63
-  %.neg.i.us = shl nsw i64 -2, %33
-  %35 = add nuw nsw i64 %33, 1
-  %.018.in22.i.us = getelementptr inbounds i64, ptr %11, i64 %32
+  %.reass.us = add i64 %.046.us, %invariant.op
+  %31 = ashr i64 %.reass.us, 6
+  %32 = and i64 %.reass.us, 63
+  %33 = icmp eq i64 %32, 63
+  %.neg.i.us = shl nsw i64 -2, %32
+  %34 = add nuw nsw i64 %32, 1
+  %.018.in22.i.us = getelementptr inbounds i64, ptr %11, i64 %31
   %.01823.i.us = load i64, ptr %.018.in22.i.us, align 8
-  %36 = select i1 %34, i64 0, i64 %.neg.i.us
-  %37 = or i64 %.01823.i.us, %36
-  %38 = icmp eq i64 %37, -1
-  br i1 %38, label %.lr.ph.i62.us, label %_ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl.exit.us
+  %35 = select i1 %33, i64 0, i64 %.neg.i.us
+  %36 = or i64 %.01823.i.us, %35
+  %37 = icmp eq i64 %36, -1
+  br i1 %37, label %.lr.ph.i62.us, label %_ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl.exit.us
 
 .lr.ph.i62.us:                                    ; preds = %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.us, %.lr.ph.i62.us
-  %.026.i.us = phi i64 [ %40, %.lr.ph.i62.us ], [ %32, %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.us ]
-  %.01925.i.us = phi i64 [ 64, %.lr.ph.i62.us ], [ %35, %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.us ]
-  %.02024.i.us = phi i64 [ %39, %.lr.ph.i62.us ], [ 0, %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.us ]
-  %39 = add i64 %.02024.i.us, %.01925.i.us
-  %40 = add i64 %.026.i.us, -1
-  %.018.in.i.us = getelementptr inbounds i64, ptr %11, i64 %40
+  %.026.i.us = phi i64 [ %39, %.lr.ph.i62.us ], [ %31, %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.us ]
+  %.01925.i.us = phi i64 [ 64, %.lr.ph.i62.us ], [ %34, %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.us ]
+  %.02024.i.us = phi i64 [ %38, %.lr.ph.i62.us ], [ 0, %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.us ]
+  %38 = add i64 %.02024.i.us, %.01925.i.us
+  %39 = add i64 %.026.i.us, -1
+  %.018.in.i.us = getelementptr inbounds i64, ptr %11, i64 %39
   %.018.i.us = load i64, ptr %.018.in.i.us, align 8
-  %41 = icmp eq i64 %.018.i.us, -1
-  br i1 %41, label %.lr.ph.i62.us, label %_ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl.exit.us, !llvm.loop !9
+  %40 = icmp eq i64 %.018.i.us, -1
+  br i1 %40, label %.lr.ph.i62.us, label %_ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl.exit.us, !llvm.loop !9
 
 _ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl.exit.us: ; preds = %.lr.ph.i62.us, %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.us
-  %.020.lcssa.i.us = phi i64 [ 0, %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.us ], [ %39, %.lr.ph.i62.us ]
-  %.019.lcssa.i.us = phi i64 [ %35, %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.us ], [ 64, %.lr.ph.i62.us ]
+  %.020.lcssa.i.us = phi i64 [ 0, %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.us ], [ %38, %.lr.ph.i62.us ]
+  %.019.lcssa.i.us = phi i64 [ %34, %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.us ], [ 64, %.lr.ph.i62.us ]
   %.018.lcssa.i.us = phi i64 [ %.01823.i.us, %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.us ], [ %.018.i.us, %.lr.ph.i62.us ]
-  %42 = sub nuw nsw i64 64, %.019.lcssa.i.us
-  %43 = shl i64 %.018.lcssa.i.us, %42
-  %44 = xor i64 %43, -1
-  %45 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %44, i1 true)
-  %46 = add i64 %.020.lcssa.i.us, %45
-  %47 = sub i64 %30, %46
-  %48 = tail call noundef i64 @llvm.umax.i64(i64 %29, i64 %47)
-  %49 = icmp sgt i64 %48, %5
-  br i1 %49, label %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.thread, label %50
+  %41 = sub nuw nsw i64 64, %.019.lcssa.i.us
+  %42 = shl i64 %.018.lcssa.i.us, %41
+  %43 = xor i64 %42, -1
+  %44 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %43, i1 true)
+  %45 = add i64 %.020.lcssa.i.us, %44
+  %46 = sub i64 %30, %45
+  %47 = tail call noundef i64 @llvm.umax.i64(i64 %29, i64 %46)
+  %48 = icmp sgt i64 %47, %5
+  br i1 %48, label %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.thread, label %49
 
-50:                                               ; preds = %_ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl.exit.us
-  %51 = ashr i64 %48, 6
-  %52 = getelementptr inbounds i64, ptr %11, i64 %51
-  %53 = load i64, ptr %52, align 8
-  %54 = and i64 %48, 63
-  %.not60.us = icmp eq i64 %54, 0
-  br i1 %.not60.us, label %.split.us.backedge, label %55
+49:                                               ; preds = %_ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl.exit.us
+  %50 = ashr i64 %47, 6
+  %51 = getelementptr inbounds i64, ptr %11, i64 %50
+  %52 = load i64, ptr %51, align 8
+  %53 = and i64 %47, 63
+  %.not60.us = icmp eq i64 %53, 0
+  br i1 %.not60.us, label %.split.us.backedge, label %54
 
-55:                                               ; preds = %50
-  %notmask61.us = shl nsw i64 -1, %54
-  %56 = and i64 %53, %notmask61.us
+54:                                               ; preds = %49
+  %notmask61.us = shl nsw i64 -1, %53
+  %55 = and i64 %52, %notmask61.us
   br label %.split.us.backedge
 
-57:                                               ; preds = %25
-  %58 = add i64 %21, %.02127.i.us
-  %59 = sub nsw i64 %.02226.i.us, %21
-  %60 = icmp sgt i64 %59, 0
-  br i1 %60, label %.lr.ph.i.us, label %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.thread, !llvm.loop !10
+56:                                               ; preds = %25
+  %57 = add i64 %21, %.02127.i.us
+  %58 = sub nsw i64 %.02226.i.us, %21
+  %59 = icmp sgt i64 %58, 0
+  br i1 %59, label %.lr.ph.i.us, label %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.thread, !llvm.loop !10
 
-61:                                               ; preds = %.split.us
+60:                                               ; preds = %.split.us
   %reass.sub.us = sub i64 %.046.us, %.049.us
-  %62 = add i64 %reass.sub.us, 64
-  %63 = icmp sgt i64 %62, %5
-  br i1 %63, label %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.thread, label %64
+  %61 = add i64 %reass.sub.us, 64
+  %62 = icmp sgt i64 %61, %5
+  br i1 %62, label %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.thread, label %63
 
-64:                                               ; preds = %61
-  %65 = add i64 %.047.us, 1
-  %66 = getelementptr inbounds i64, ptr %11, i64 %65
-  %67 = load i64, ptr %66, align 8
+63:                                               ; preds = %60
+  %64 = add i64 %.047.us, 1
+  %65 = getelementptr inbounds i64, ptr %11, i64 %64
+  %66 = load i64, ptr %65, align 8
   br label %.split.us.backedge
 
-.split.us.backedge:                               ; preds = %64, %55, %50
-  %.152.us.be = phi i64 [ %67, %64 ], [ %56, %55 ], [ %53, %50 ]
-  %.049.us.be = phi i64 [ 0, %64 ], [ %54, %55 ], [ 0, %50 ]
-  %.047.us.be = phi i64 [ %65, %64 ], [ %51, %55 ], [ %51, %50 ]
-  %.046.us.be = phi i64 [ %62, %64 ], [ %48, %55 ], [ %48, %50 ]
+.split.us.backedge:                               ; preds = %63, %54, %49
+  %.152.us.be = phi i64 [ %66, %63 ], [ %55, %54 ], [ %52, %49 ]
+  %.049.us.be = phi i64 [ 0, %63 ], [ %53, %54 ], [ 0, %49 ]
+  %.047.us.be = phi i64 [ %64, %63 ], [ %50, %54 ], [ %50, %49 ]
+  %.046.us.be = phi i64 [ %61, %63 ], [ %47, %54 ], [ %47, %49 ]
   br label %.split.us, !llvm.loop !12
 
 .split:                                           ; preds = %7
-  %68 = icmp eq i64 %14, 0
-  br i1 %68, label %.lr.ph, label %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.thread
+  %67 = icmp eq i64 %14, 0
+  br i1 %67, label %.lr.ph, label %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.thread
 
-.lr.ph:                                           ; preds = %.split, %71
-  %.04671 = phi i64 [ %69, %71 ], [ %1, %.split ]
-  %.04770 = phi i64 [ %72, %71 ], [ %8, %.split ]
-  %.04969 = phi i64 [ 0, %71 ], [ %9, %.split ]
+.lr.ph:                                           ; preds = %.split, %70
+  %.04671 = phi i64 [ %68, %70 ], [ %1, %.split ]
+  %.04770 = phi i64 [ %71, %70 ], [ %8, %.split ]
+  %.04969 = phi i64 [ 0, %70 ], [ %9, %.split ]
   %reass.sub = sub i64 %.04671, %.04969
-  %69 = add i64 %reass.sub, 64
-  %70 = icmp sgt i64 %69, %5
-  br i1 %70, label %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.thread, label %71
+  %68 = add i64 %reass.sub, 64
+  %69 = icmp sgt i64 %68, %5
+  br i1 %69, label %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.thread, label %70
 
-71:                                               ; preds = %.lr.ph
-  %72 = add i64 %.04770, 1
-  %73 = getelementptr inbounds i64, ptr %11, i64 %72
-  %74 = load i64, ptr %73, align 8
-  %75 = icmp eq i64 %74, 0
-  br i1 %75, label %.lr.ph, label %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.thread, !llvm.loop !12
+70:                                               ; preds = %.lr.ph
+  %71 = add i64 %.04770, 1
+  %72 = getelementptr inbounds i64, ptr %11, i64 %71
+  %73 = load i64, ptr %72, align 8
+  %74 = icmp eq i64 %73, 0
+  br i1 %74, label %.lr.ph, label %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.thread, !llvm.loop !12
 
-_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.thread: ; preds = %.lr.ph, %71, %61, %_ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl.exit.us, %57, %.lr.ph.i.us, %.split, %4
-  %.0 = phi i64 [ %2, %4 ], [ %1, %.split ], [ %.046.us, %.lr.ph.i.us ], [ %.046.us, %57 ], [ %2, %_ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl.exit.us ], [ %2, %61 ], [ %69, %71 ], [ %2, %.lr.ph ]
+_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.thread: ; preds = %.lr.ph, %70, %60, %_ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl.exit.us, %56, %.lr.ph.i.us, %.split, %4
+  %.0 = phi i64 [ %2, %4 ], [ %1, %.split ], [ %.046.us, %.lr.ph.i.us ], [ %.046.us, %56 ], [ %2, %_ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl.exit.us ], [ %2, %60 ], [ %68, %70 ], [ %2, %.lr.ph ]
   ret i64 %.0
 }
 

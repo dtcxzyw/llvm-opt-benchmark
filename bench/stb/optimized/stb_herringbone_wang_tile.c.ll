@@ -403,29 +403,29 @@ if.else.i:                                        ; preds = %entry
   br label %stbhw__get_template_info.exit
 
 stbhw__get_template_info.exit:                    ; preds = %if.then.i, %if.else.i
-  %.sink470 = phi i32 [ %3, %if.then.i ], [ %9, %if.else.i ]
-  %mul.i.sink468 = phi i32 [ %mul.i, %if.then.i ], [ %mul58.i, %if.else.i ]
-  %.sink465 = phi i32 [ %4, %if.then.i ], [ %9, %if.else.i ]
-  %mul11.i.sink463 = phi i32 [ %mul11.i, %if.then.i ], [ %mul69.i, %if.else.i ]
-  %.sink462 = phi i32 [ %6, %if.then.i ], [ %12, %if.else.i ]
+  %.sink473 = phi i32 [ %3, %if.then.i ], [ %9, %if.else.i ]
+  %mul.i.sink471 = phi i32 [ %mul.i, %if.then.i ], [ %mul58.i, %if.else.i ]
+  %.sink468 = phi i32 [ %4, %if.then.i ], [ %9, %if.else.i ]
+  %mul11.i.sink466 = phi i32 [ %mul11.i, %if.then.i ], [ %mul69.i, %if.else.i ]
+  %.sink465 = phi i32 [ %6, %if.then.i ], [ %12, %if.else.i ]
   %.sink = phi i32 [ %5, %if.then.i ], [ %mul69.i, %if.else.i ]
   %mul11.i.sink = phi i32 [ %mul11.i, %if.then.i ], [ %12, %if.else.i ]
   %13 = phi i32 [ %5, %if.then.i ], [ %10, %if.else.i ]
   %14 = phi i32 [ %6, %if.then.i ], [ %7, %if.else.i ]
   %15 = phi i32 [ %3, %if.then.i ], [ %8, %if.else.i ]
-  %.sink466.in = getelementptr inbounds i8, ptr %0, i64 36
-  %.sink466 = load i32, ptr %.sink466.in, align 4
+  %.sink469.in = getelementptr inbounds i8, ptr %0, i64 36
+  %.sink469 = load i32, ptr %.sink469.in, align 4
   %short_side_len.i = getelementptr inbounds i8, ptr %0, i64 4
   %16 = load i32, ptr %short_side_len.i, align 4
   %mul36.i = shl nsw i32 %16, 1
   %add.i = add nsw i32 %mul36.i, 3
   %mul5.i = mul i32 %add.i, %2
-  %mul6.i = mul i32 %mul5.i, %.sink470
-  %mul37.i = mul i32 %mul6.i, %mul.i.sink468
+  %mul6.i = mul i32 %mul5.i, %.sink473
+  %mul37.i = mul i32 %mul6.i, %mul.i.sink471
   %add39.i = add nsw i32 %16, 3
-  %mul14.i = mul i32 %add39.i, %.sink466
-  %mul25.i = mul i32 %mul14.i, %mul.i.sink468
-  %mul43.i = mul i32 %mul25.i, %.sink462
+  %mul14.i = mul i32 %add39.i, %.sink469
+  %mul25.i = mul i32 %mul14.i, %mul.i.sink471
+  %mul43.i = mul i32 %mul25.i, %.sink465
   %cond.i = tail call i32 @llvm.smax.i32(i32 %mul37.i, i32 %mul43.i)
   %w = getelementptr inbounds i8, ptr %p, i64 44
   %17 = load i32, ptr %w, align 4
@@ -435,8 +435,8 @@ stbhw__get_template_info.exit:                    ; preds = %if.then.i, %if.else
 lor.lhs.false:                                    ; preds = %stbhw__get_template_info.exit
   %mul35.i = mul i32 %mul5.i, %.sink
   %mul47.i = mul i32 %mul35.i, %mul11.i.sink
-  %mul15.i = mul i32 %mul14.i, %.sink465
-  %mul40.i = mul i32 %mul15.i, %mul11.i.sink463
+  %mul15.i = mul i32 %mul14.i, %.sink468
+  %mul40.i = mul i32 %mul15.i, %mul11.i.sink466
   %add123.i = add nsw i32 %mul40.i, 4
   %add124.i = add nsw i32 %add123.i, %mul47.i
   %h = getelementptr inbounds i8, ptr %p, i64 48
@@ -453,7 +453,7 @@ if.end:                                           ; preds = %lor.lhs.false
 
 for.cond.preheader:                               ; preds = %if.end
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 16
-  %cmp4287 = icmp sgt i32 %.sink465, 0
+  %cmp4287 = icmp sgt i32 %.sink468, 0
   br i1 %cmp4287, label %for.cond5.preheader.lr.ph, label %for.end35
 
 for.cond5.preheader.lr.ph:                        ; preds = %for.cond.preheader
@@ -468,8 +468,8 @@ for.cond5.preheader.lr.ph:                        ; preds = %for.cond.preheader
 
 for.cond81.preheader:                             ; preds = %if.end
   %arrayidx83 = getelementptr inbounds i8, ptr %0, i64 20
-  %cmp84333 = icmp sgt i32 %13, 0
-  br i1 %cmp84333, label %for.cond86.preheader.lr.ph, label %return
+  %cmp84335 = icmp sgt i32 %13, 0
+  br i1 %cmp84335, label %for.cond86.preheader.lr.ph, label %return
 
 for.cond86.preheader.lr.ph:                       ; preds = %for.cond81.preheader
   %arrayidx88 = getelementptr inbounds i8, ptr %0, i64 24
@@ -484,18 +484,18 @@ for.cond86.preheader.lr.ph:                       ; preds = %for.cond81.preheade
   br i1 %21, label %for.cond86.preheader, label %for.cond131.preheader.lr.ph
 
 for.cond5.preheader:                              ; preds = %for.cond5.preheader.lr.ph, %for.inc33
-  %22 = phi i32 [ %85, %for.inc33 ], [ %.sink465, %for.cond5.preheader.lr.ph ]
-  %23 = phi i32 [ %86, %for.inc33 ], [ %15, %for.cond5.preheader.lr.ph ]
-  %24 = phi i32 [ %87, %for.inc33 ], [ %14, %for.cond5.preheader.lr.ph ]
-  %25 = phi i32 [ %88, %for.inc33 ], [ %.sink466, %for.cond5.preheader.lr.ph ]
-  %26 = phi i32 [ %89, %for.inc33 ], [ %16, %for.cond5.preheader.lr.ph ]
-  %27 = phi i32 [ %90, %for.inc33 ], [ %.sink466, %for.cond5.preheader.lr.ph ]
-  %28 = phi i32 [ %91, %for.inc33 ], [ %16, %for.cond5.preheader.lr.ph ]
-  %29 = phi i32 [ %92, %for.inc33 ], [ %.sink466, %for.cond5.preheader.lr.ph ]
-  %30 = phi i32 [ %93, %for.inc33 ], [ %.sink466, %for.cond5.preheader.lr.ph ]
-  %31 = phi i32 [ %94, %for.inc33 ], [ %14, %for.cond5.preheader.lr.ph ]
-  %32 = phi i32 [ %95, %for.inc33 ], [ %14, %for.cond5.preheader.lr.ph ]
-  %33 = phi i32 [ %96, %for.inc33 ], [ %15, %for.cond5.preheader.lr.ph ]
+  %22 = phi i32 [ %84, %for.inc33 ], [ %.sink468, %for.cond5.preheader.lr.ph ]
+  %23 = phi i32 [ %85, %for.inc33 ], [ %15, %for.cond5.preheader.lr.ph ]
+  %24 = phi i32 [ %86, %for.inc33 ], [ %14, %for.cond5.preheader.lr.ph ]
+  %25 = phi i32 [ %87, %for.inc33 ], [ %.sink469, %for.cond5.preheader.lr.ph ]
+  %26 = phi i32 [ %88, %for.inc33 ], [ %16, %for.cond5.preheader.lr.ph ]
+  %27 = phi i32 [ %89, %for.inc33 ], [ %.sink469, %for.cond5.preheader.lr.ph ]
+  %28 = phi i32 [ %90, %for.inc33 ], [ %16, %for.cond5.preheader.lr.ph ]
+  %29 = phi i32 [ %91, %for.inc33 ], [ %.sink469, %for.cond5.preheader.lr.ph ]
+  %30 = phi i32 [ %92, %for.inc33 ], [ %.sink469, %for.cond5.preheader.lr.ph ]
+  %31 = phi i32 [ %93, %for.inc33 ], [ %14, %for.cond5.preheader.lr.ph ]
+  %32 = phi i32 [ %94, %for.inc33 ], [ %14, %for.cond5.preheader.lr.ph ]
+  %33 = phi i32 [ %95, %for.inc33 ], [ %15, %for.cond5.preheader.lr.ph ]
   %ypos.0290 = phi i32 [ %ypos.1.lcssa, %for.inc33 ], [ 2, %for.cond5.preheader.lr.ph ]
   %k.0288 = phi i32 [ %inc34, %for.inc33 ], [ 0, %for.cond5.preheader.lr.ph ]
   %cmp8281 = icmp sgt i32 %33, 0
@@ -504,29 +504,29 @@ for.cond5.preheader:                              ; preds = %for.cond5.preheader
   br i1 %or.cond, label %for.cond10.preheader, label %for.inc33
 
 for.cond10.preheader:                             ; preds = %for.cond5.preheader, %for.inc30
-  %35 = phi i32 [ %76, %for.inc30 ], [ %23, %for.cond5.preheader ]
-  %36 = phi i32 [ %77, %for.inc30 ], [ %24, %for.cond5.preheader ]
-  %37 = phi i32 [ %78, %for.inc30 ], [ %25, %for.cond5.preheader ]
-  %38 = phi i32 [ %79, %for.inc30 ], [ %26, %for.cond5.preheader ]
-  %39 = phi i32 [ %80, %for.inc30 ], [ %27, %for.cond5.preheader ]
-  %40 = phi i32 [ %81, %for.inc30 ], [ %28, %for.cond5.preheader ]
-  %41 = phi i32 [ %82, %for.inc30 ], [ %29, %for.cond5.preheader ]
-  %42 = phi i32 [ %83, %for.inc30 ], [ %30, %for.cond5.preheader ]
-  %43 = phi i32 [ %84, %for.inc30 ], [ %31, %for.cond5.preheader ]
+  %35 = phi i32 [ %75, %for.inc30 ], [ %23, %for.cond5.preheader ]
+  %36 = phi i32 [ %76, %for.inc30 ], [ %24, %for.cond5.preheader ]
+  %37 = phi i32 [ %77, %for.inc30 ], [ %25, %for.cond5.preheader ]
+  %38 = phi i32 [ %78, %for.inc30 ], [ %26, %for.cond5.preheader ]
+  %39 = phi i32 [ %79, %for.inc30 ], [ %27, %for.cond5.preheader ]
+  %40 = phi i32 [ %80, %for.inc30 ], [ %28, %for.cond5.preheader ]
+  %41 = phi i32 [ %81, %for.inc30 ], [ %29, %for.cond5.preheader ]
+  %42 = phi i32 [ %82, %for.inc30 ], [ %30, %for.cond5.preheader ]
+  %43 = phi i32 [ %83, %for.inc30 ], [ %31, %for.cond5.preheader ]
   %ypos.1284 = phi i32 [ %ypos.2.lcssa, %for.inc30 ], [ %ypos.0290, %for.cond5.preheader ]
   %j.0282 = phi i32 [ %inc31, %for.inc30 ], [ 0, %for.cond5.preheader ]
   %cmp13275 = icmp sgt i32 %43, 0
   %44 = icmp sgt i32 %42, 0
-  %or.cond472 = select i1 %cmp13275, i1 %44, i1 false
-  br i1 %or.cond472, label %for.cond15.preheader, label %for.inc30
+  %or.cond475 = select i1 %cmp13275, i1 %44, i1 false
+  br i1 %or.cond475, label %for.cond15.preheader, label %for.inc30
 
 for.cond15.preheader:                             ; preds = %for.cond10.preheader, %for.inc27
-  %45 = phi i32 [ %70, %for.inc27 ], [ %36, %for.cond10.preheader ]
-  %46 = phi i32 [ %71, %for.inc27 ], [ %37, %for.cond10.preheader ]
-  %47 = phi i32 [ %72, %for.inc27 ], [ %38, %for.cond10.preheader ]
-  %48 = phi i32 [ %73, %for.inc27 ], [ %39, %for.cond10.preheader ]
-  %49 = phi i32 [ %74, %for.inc27 ], [ %40, %for.cond10.preheader ]
-  %50 = phi i32 [ %75, %for.inc27 ], [ %41, %for.cond10.preheader ]
+  %45 = phi i32 [ %69, %for.inc27 ], [ %36, %for.cond10.preheader ]
+  %46 = phi i32 [ %70, %for.inc27 ], [ %37, %for.cond10.preheader ]
+  %47 = phi i32 [ %71, %for.inc27 ], [ %38, %for.cond10.preheader ]
+  %48 = phi i32 [ %72, %for.inc27 ], [ %39, %for.cond10.preheader ]
+  %49 = phi i32 [ %73, %for.inc27 ], [ %40, %for.cond10.preheader ]
+  %50 = phi i32 [ %74, %for.inc27 ], [ %41, %for.cond10.preheader ]
   %ypos.2278 = phi i32 [ %ypos.3.lcssa, %for.inc27 ], [ %ypos.1284, %for.cond10.preheader ]
   %i.0276 = phi i32 [ %inc28, %for.inc27 ], [ 0, %for.cond10.preheader ]
   %cmp16272 = icmp sgt i32 %50, 0
@@ -538,34 +538,34 @@ for.body17.lr.ph:                                 ; preds = %for.cond15.preheade
   br i1 %52, label %for.body17, label %for.body17.lr.ph.split.us
 
 for.body17.lr.ph.split.us:                        ; preds = %for.body17.lr.ph
+  %invariant.op = add i32 %49, 3
   %53 = add i32 %ypos.2278, 3
   %smax = tail call i32 @llvm.smax.i32(i32 %48, i32 1)
   %54 = add nsw i32 %smax, -1
-  %55 = add i32 %49, 3
-  %56 = mul i32 %54, %55
-  %57 = add i32 %53, %49
-  %58 = add i32 %57, %56
+  %55 = mul i32 %54, %invariant.op
+  %56 = add i32 %53, %49
+  %57 = add i32 %56, %55
   br label %for.inc27
 
 for.body17:                                       ; preds = %for.body17.lr.ph, %stbhw__process_h_row.exit
-  %59 = phi i32 [ %68, %stbhw__process_h_row.exit ], [ %46, %for.body17.lr.ph ]
-  %60 = phi i32 [ %69, %stbhw__process_h_row.exit ], [ %47, %for.body17.lr.ph ]
+  %58 = phi i32 [ %67, %stbhw__process_h_row.exit ], [ %46, %for.body17.lr.ph ]
+  %59 = phi i32 [ %68, %stbhw__process_h_row.exit ], [ %47, %for.body17.lr.ph ]
   %ypos.3274 = phi i32 [ %add26, %stbhw__process_h_row.exit ], [ %ypos.2278, %for.body17.lr.ph ]
   %q.0273 = phi i32 [ %inc, %stbhw__process_h_row.exit ], [ 0, %for.body17.lr.ph ]
-  %61 = load i32, ptr %arrayidx7, align 4
-  %sub = add nsw i32 %61, -1
-  %62 = load i32, ptr %arrayidx, align 4
-  %sub22 = add nsw i32 %62, -1
-  %63 = load i32, ptr %arrayidx24, align 4
-  %sub25 = add nsw i32 %63, -1
-  %64 = load i32, ptr %num_vary_x, align 4
-  %cmp121.i = icmp sgt i32 %64, 0
+  %60 = load i32, ptr %arrayidx7, align 4
+  %sub = add nsw i32 %60, -1
+  %61 = load i32, ptr %arrayidx, align 4
+  %sub22 = add nsw i32 %61, -1
+  %62 = load i32, ptr %arrayidx24, align 4
+  %sub25 = add nsw i32 %62, -1
+  %63 = load i32, ptr %num_vary_x, align 4
+  %cmp121.i = icmp sgt i32 %63, 0
   br i1 %cmp121.i, label %for.cond1.preheader.lr.ph.i, label %stbhw__process_h_row.exit
 
 for.cond1.preheader.lr.ph.i:                      ; preds = %for.body17
-  %cmp11.not24.i = icmp slt i32 %63, 1
-  %cmp14.not20.i = icmp slt i32 %62, 1
-  %cmp17.not17.i = icmp slt i32 %61, 1
+  %cmp11.not24.i = icmp slt i32 %62, 1
+  %cmp14.not20.i = icmp slt i32 %61, 1
+  %cmp17.not17.i = icmp slt i32 %60, 1
   %brmerge162.i = or i1 %cmp14.not20.i, %cmp11.not24.i
   %brmerge163.i = or i1 %cmp17.not17.i, %brmerge162.i
   br i1 %brmerge163.i, label %stbhw__process_h_row.exit, label %for.cond1.preheader.i
@@ -588,12 +588,12 @@ for.cond16.preheader.i:                           ; preds = %for.cond16.for.inc2
 for.body18.i:                                     ; preds = %for.body18.i, %for.cond16.preheader.i
   %a.019.i = phi i32 [ 0, %for.cond16.preheader.i ], [ %inc.i, %for.body18.i ]
   %xpos.addr.618.i = phi i32 [ %xpos.addr.521.i, %for.cond16.preheader.i ], [ %add20.i, %for.body18.i ]
-  %65 = load ptr, ptr %process_h_rect.i, align 8
-  tail call void %65(ptr noundef %p, i32 noundef %xpos.addr.618.i, i32 noundef %ypos.3274, i32 noundef %a.019.i, i32 noundef %b.022.i, i32 noundef %c.026.i, i32 noundef %i.0276, i32 noundef %j.0282, i32 noundef %k.0288) #15
-  %66 = load ptr, ptr %c1, align 8
-  %short_side_len.i105 = getelementptr inbounds i8, ptr %66, i64 4
-  %67 = load i32, ptr %short_side_len.i105, align 4
-  %mul.i106 = shl nsw i32 %67, 1
+  %64 = load ptr, ptr %process_h_rect.i, align 8
+  tail call void %64(ptr noundef %p, i32 noundef %xpos.addr.618.i, i32 noundef %ypos.3274, i32 noundef %a.019.i, i32 noundef %b.022.i, i32 noundef %c.026.i, i32 noundef %i.0276, i32 noundef %j.0282, i32 noundef %k.0288) #15
+  %65 = load ptr, ptr %c1, align 8
+  %short_side_len.i105 = getelementptr inbounds i8, ptr %65, i64 4
+  %66 = load i32, ptr %short_side_len.i105, align 4
+  %mul.i106 = shl nsw i32 %66, 1
   %add.i107 = add i32 %xpos.addr.618.i, 3
   %add20.i = add i32 %add.i107, %mul.i106
   %inc.i = add nuw nsw i32 %a.019.i, 1
@@ -612,94 +612,94 @@ for.cond13.for.inc24_crit_edge.split.i:           ; preds = %for.cond16.for.inc2
 
 for.cond10.for.inc27_crit_edge.split.split.i:     ; preds = %for.cond13.for.inc24_crit_edge.split.i
   %inc37.i = add nuw nsw i32 %v.0123.i, 1
-  %exitcond160.not.i = icmp eq i32 %inc37.i, %64
+  %exitcond160.not.i = icmp eq i32 %inc37.i, %63
   br i1 %exitcond160.not.i, label %stbhw__process_h_row.exit.loopexit, label %for.cond1.preheader.i, !llvm.loop !11
 
 stbhw__process_h_row.exit.loopexit:               ; preds = %for.cond10.for.inc27_crit_edge.split.split.i
   %.pre = load i32, ptr %short_side_len, align 4
-  %.pre380 = load i32, ptr %num_vary_y, align 4
+  %.pre383 = load i32, ptr %num_vary_y, align 4
   br label %stbhw__process_h_row.exit
 
 stbhw__process_h_row.exit:                        ; preds = %stbhw__process_h_row.exit.loopexit, %for.body17, %for.cond1.preheader.lr.ph.i
-  %68 = phi i32 [ %.pre380, %stbhw__process_h_row.exit.loopexit ], [ %59, %for.body17 ], [ %59, %for.cond1.preheader.lr.ph.i ]
-  %69 = phi i32 [ %.pre, %stbhw__process_h_row.exit.loopexit ], [ %60, %for.body17 ], [ %60, %for.cond1.preheader.lr.ph.i ]
+  %67 = phi i32 [ %.pre383, %stbhw__process_h_row.exit.loopexit ], [ %58, %for.body17 ], [ %58, %for.cond1.preheader.lr.ph.i ]
+  %68 = phi i32 [ %.pre, %stbhw__process_h_row.exit.loopexit ], [ %59, %for.body17 ], [ %59, %for.cond1.preheader.lr.ph.i ]
   %add = add i32 %ypos.3274, 3
-  %add26 = add i32 %add, %69
+  %add26 = add i32 %add, %68
   %inc = add nuw nsw i32 %q.0273, 1
-  %cmp16 = icmp slt i32 %inc, %68
+  %cmp16 = icmp slt i32 %inc, %67
   br i1 %cmp16, label %for.body17, label %for.inc27.loopexit, !llvm.loop !19
 
 for.inc27.loopexit:                               ; preds = %stbhw__process_h_row.exit
-  %.pre381 = load i32, ptr %num_color54.i, align 4
+  %.pre384 = load i32, ptr %num_color54.i, align 4
   br label %for.inc27
 
 for.inc27:                                        ; preds = %for.body17.lr.ph.split.us, %for.inc27.loopexit, %for.cond15.preheader
-  %70 = phi i32 [ %45, %for.cond15.preheader ], [ %.pre381, %for.inc27.loopexit ], [ %45, %for.body17.lr.ph.split.us ]
-  %71 = phi i32 [ %46, %for.cond15.preheader ], [ %68, %for.inc27.loopexit ], [ %46, %for.body17.lr.ph.split.us ]
-  %72 = phi i32 [ %47, %for.cond15.preheader ], [ %69, %for.inc27.loopexit ], [ %47, %for.body17.lr.ph.split.us ]
-  %73 = phi i32 [ %48, %for.cond15.preheader ], [ %68, %for.inc27.loopexit ], [ %48, %for.body17.lr.ph.split.us ]
-  %74 = phi i32 [ %49, %for.cond15.preheader ], [ %69, %for.inc27.loopexit ], [ %49, %for.body17.lr.ph.split.us ]
-  %75 = phi i32 [ %50, %for.cond15.preheader ], [ %68, %for.inc27.loopexit ], [ %48, %for.body17.lr.ph.split.us ]
-  %ypos.3.lcssa = phi i32 [ %ypos.2278, %for.cond15.preheader ], [ %add26, %for.inc27.loopexit ], [ %58, %for.body17.lr.ph.split.us ]
+  %69 = phi i32 [ %45, %for.cond15.preheader ], [ %.pre384, %for.inc27.loopexit ], [ %45, %for.body17.lr.ph.split.us ]
+  %70 = phi i32 [ %46, %for.cond15.preheader ], [ %67, %for.inc27.loopexit ], [ %46, %for.body17.lr.ph.split.us ]
+  %71 = phi i32 [ %47, %for.cond15.preheader ], [ %68, %for.inc27.loopexit ], [ %47, %for.body17.lr.ph.split.us ]
+  %72 = phi i32 [ %48, %for.cond15.preheader ], [ %67, %for.inc27.loopexit ], [ %48, %for.body17.lr.ph.split.us ]
+  %73 = phi i32 [ %49, %for.cond15.preheader ], [ %68, %for.inc27.loopexit ], [ %49, %for.body17.lr.ph.split.us ]
+  %74 = phi i32 [ %50, %for.cond15.preheader ], [ %67, %for.inc27.loopexit ], [ %48, %for.body17.lr.ph.split.us ]
+  %ypos.3.lcssa = phi i32 [ %ypos.2278, %for.cond15.preheader ], [ %add26, %for.inc27.loopexit ], [ %57, %for.body17.lr.ph.split.us ]
   %inc28 = add nuw nsw i32 %i.0276, 1
-  %cmp13 = icmp slt i32 %inc28, %70
+  %cmp13 = icmp slt i32 %inc28, %69
   br i1 %cmp13, label %for.cond15.preheader, label %for.inc30.loopexit, !llvm.loop !21
 
 for.inc30.loopexit:                               ; preds = %for.inc27
-  %.pre382 = load i32, ptr %arrayidx7, align 4
+  %.pre385 = load i32, ptr %arrayidx7, align 4
   br label %for.inc30
 
 for.inc30:                                        ; preds = %for.inc30.loopexit, %for.cond10.preheader
-  %76 = phi i32 [ %35, %for.cond10.preheader ], [ %.pre382, %for.inc30.loopexit ]
-  %77 = phi i32 [ %36, %for.cond10.preheader ], [ %70, %for.inc30.loopexit ]
-  %78 = phi i32 [ %37, %for.cond10.preheader ], [ %71, %for.inc30.loopexit ]
-  %79 = phi i32 [ %38, %for.cond10.preheader ], [ %72, %for.inc30.loopexit ]
-  %80 = phi i32 [ %39, %for.cond10.preheader ], [ %73, %for.inc30.loopexit ]
-  %81 = phi i32 [ %40, %for.cond10.preheader ], [ %74, %for.inc30.loopexit ]
-  %82 = phi i32 [ %41, %for.cond10.preheader ], [ %75, %for.inc30.loopexit ]
-  %83 = phi i32 [ %42, %for.cond10.preheader ], [ %75, %for.inc30.loopexit ]
-  %84 = phi i32 [ %43, %for.cond10.preheader ], [ %70, %for.inc30.loopexit ]
+  %75 = phi i32 [ %35, %for.cond10.preheader ], [ %.pre385, %for.inc30.loopexit ]
+  %76 = phi i32 [ %36, %for.cond10.preheader ], [ %69, %for.inc30.loopexit ]
+  %77 = phi i32 [ %37, %for.cond10.preheader ], [ %70, %for.inc30.loopexit ]
+  %78 = phi i32 [ %38, %for.cond10.preheader ], [ %71, %for.inc30.loopexit ]
+  %79 = phi i32 [ %39, %for.cond10.preheader ], [ %72, %for.inc30.loopexit ]
+  %80 = phi i32 [ %40, %for.cond10.preheader ], [ %73, %for.inc30.loopexit ]
+  %81 = phi i32 [ %41, %for.cond10.preheader ], [ %74, %for.inc30.loopexit ]
+  %82 = phi i32 [ %42, %for.cond10.preheader ], [ %74, %for.inc30.loopexit ]
+  %83 = phi i32 [ %43, %for.cond10.preheader ], [ %69, %for.inc30.loopexit ]
   %ypos.2.lcssa = phi i32 [ %ypos.1284, %for.cond10.preheader ], [ %ypos.3.lcssa, %for.inc30.loopexit ]
   %inc31 = add nuw nsw i32 %j.0282, 1
-  %cmp8 = icmp slt i32 %inc31, %76
+  %cmp8 = icmp slt i32 %inc31, %75
   br i1 %cmp8, label %for.cond10.preheader, label %for.inc33.loopexit, !llvm.loop !22
 
 for.inc33.loopexit:                               ; preds = %for.inc30
-  %.pre383 = load i32, ptr %arrayidx, align 4
+  %.pre386 = load i32, ptr %arrayidx, align 4
   br label %for.inc33
 
 for.inc33:                                        ; preds = %for.inc33.loopexit, %for.cond5.preheader
-  %85 = phi i32 [ %22, %for.cond5.preheader ], [ %.pre383, %for.inc33.loopexit ]
-  %86 = phi i32 [ %23, %for.cond5.preheader ], [ %76, %for.inc33.loopexit ]
-  %87 = phi i32 [ %24, %for.cond5.preheader ], [ %77, %for.inc33.loopexit ]
-  %88 = phi i32 [ %25, %for.cond5.preheader ], [ %78, %for.inc33.loopexit ]
-  %89 = phi i32 [ %26, %for.cond5.preheader ], [ %79, %for.inc33.loopexit ]
-  %90 = phi i32 [ %27, %for.cond5.preheader ], [ %80, %for.inc33.loopexit ]
-  %91 = phi i32 [ %28, %for.cond5.preheader ], [ %81, %for.inc33.loopexit ]
-  %92 = phi i32 [ %29, %for.cond5.preheader ], [ %82, %for.inc33.loopexit ]
-  %93 = phi i32 [ %30, %for.cond5.preheader ], [ %83, %for.inc33.loopexit ]
-  %94 = phi i32 [ %31, %for.cond5.preheader ], [ %84, %for.inc33.loopexit ]
-  %95 = phi i32 [ %32, %for.cond5.preheader ], [ %84, %for.inc33.loopexit ]
-  %96 = phi i32 [ %33, %for.cond5.preheader ], [ %76, %for.inc33.loopexit ]
+  %84 = phi i32 [ %22, %for.cond5.preheader ], [ %.pre386, %for.inc33.loopexit ]
+  %85 = phi i32 [ %23, %for.cond5.preheader ], [ %75, %for.inc33.loopexit ]
+  %86 = phi i32 [ %24, %for.cond5.preheader ], [ %76, %for.inc33.loopexit ]
+  %87 = phi i32 [ %25, %for.cond5.preheader ], [ %77, %for.inc33.loopexit ]
+  %88 = phi i32 [ %26, %for.cond5.preheader ], [ %78, %for.inc33.loopexit ]
+  %89 = phi i32 [ %27, %for.cond5.preheader ], [ %79, %for.inc33.loopexit ]
+  %90 = phi i32 [ %28, %for.cond5.preheader ], [ %80, %for.inc33.loopexit ]
+  %91 = phi i32 [ %29, %for.cond5.preheader ], [ %81, %for.inc33.loopexit ]
+  %92 = phi i32 [ %30, %for.cond5.preheader ], [ %82, %for.inc33.loopexit ]
+  %93 = phi i32 [ %31, %for.cond5.preheader ], [ %83, %for.inc33.loopexit ]
+  %94 = phi i32 [ %32, %for.cond5.preheader ], [ %83, %for.inc33.loopexit ]
+  %95 = phi i32 [ %33, %for.cond5.preheader ], [ %75, %for.inc33.loopexit ]
   %ypos.1.lcssa = phi i32 [ %ypos.0290, %for.cond5.preheader ], [ %ypos.2.lcssa, %for.inc33.loopexit ]
   %inc34 = add nuw nsw i32 %k.0288, 1
-  %cmp4 = icmp slt i32 %inc34, %85
+  %cmp4 = icmp slt i32 %inc34, %84
   br i1 %cmp4, label %for.cond5.preheader, label %for.end35.loopexit, !llvm.loop !23
 
 for.end35.loopexit:                               ; preds = %for.inc33
-  %.pre384 = load i32, ptr %arrayidx24, align 4
-  %97 = add nsw i32 %ypos.1.lcssa, 2
+  %.pre387 = load i32, ptr %arrayidx24, align 4
+  %96 = add nsw i32 %ypos.1.lcssa, 2
   br label %for.end35
 
 for.end35:                                        ; preds = %for.cond5.preheader.lr.ph, %for.end35.loopexit, %for.cond.preheader
-  %98 = phi i32 [ %16, %for.cond.preheader ], [ %89, %for.end35.loopexit ], [ %16, %for.cond5.preheader.lr.ph ]
-  %99 = phi i32 [ %15, %for.cond.preheader ], [ %86, %for.end35.loopexit ], [ %15, %for.cond5.preheader.lr.ph ]
-  %100 = phi i32 [ %14, %for.cond.preheader ], [ %87, %for.end35.loopexit ], [ %14, %for.cond5.preheader.lr.ph ]
-  %101 = phi i32 [ %13, %for.cond.preheader ], [ %.pre384, %for.end35.loopexit ], [ %13, %for.cond5.preheader.lr.ph ]
-  %ypos.0.lcssa = phi i32 [ 4, %for.cond.preheader ], [ %97, %for.end35.loopexit ], [ 4, %for.cond5.preheader.lr.ph ]
+  %97 = phi i32 [ %16, %for.cond.preheader ], [ %88, %for.end35.loopexit ], [ %16, %for.cond5.preheader.lr.ph ]
+  %98 = phi i32 [ %15, %for.cond.preheader ], [ %85, %for.end35.loopexit ], [ %15, %for.cond5.preheader.lr.ph ]
+  %99 = phi i32 [ %14, %for.cond.preheader ], [ %86, %for.end35.loopexit ], [ %14, %for.cond5.preheader.lr.ph ]
+  %100 = phi i32 [ %13, %for.cond.preheader ], [ %.pre387, %for.end35.loopexit ], [ %13, %for.cond5.preheader.lr.ph ]
+  %ypos.0.lcssa = phi i32 [ 4, %for.cond.preheader ], [ %96, %for.end35.loopexit ], [ 4, %for.cond5.preheader.lr.ph ]
   %arrayidx39 = getelementptr inbounds i8, ptr %0, i64 20
-  %cmp40312 = icmp sgt i32 %101, 0
-  br i1 %cmp40312, label %for.cond42.preheader.lr.ph, label %return
+  %cmp40313 = icmp sgt i32 %100, 0
+  br i1 %cmp40313, label %for.cond42.preheader.lr.ph, label %return
 
 for.cond42.preheader.lr.ph:                       ; preds = %for.end35
   %arrayidx49 = getelementptr inbounds i8, ptr %0, i64 12
@@ -707,87 +707,87 @@ for.cond42.preheader.lr.ph:                       ; preds = %for.end35
   %num_vary_y65 = getelementptr inbounds i8, ptr %0, i64 36
   %process_v_rect.i = getelementptr inbounds i8, ptr %p, i64 24
   %short_side_len66 = getelementptr inbounds i8, ptr %0, i64 4
-  %102 = icmp sgt i32 %100, 0
-  br i1 %102, label %for.cond42.preheader, label %return
+  %101 = icmp sgt i32 %99, 0
+  br i1 %101, label %for.cond42.preheader, label %return
 
 for.cond42.preheader:                             ; preds = %for.cond42.preheader.lr.ph, %for.inc78
-  %103 = phi i32 [ %154, %for.inc78 ], [ %100, %for.cond42.preheader.lr.ph ]
-  %104 = phi i32 [ %155, %for.inc78 ], [ %99, %for.cond42.preheader.lr.ph ]
-  %105 = phi i32 [ %156, %for.inc78 ], [ %98, %for.cond42.preheader.lr.ph ]
-  %106 = phi i32 [ %157, %for.inc78 ], [ %98, %for.cond42.preheader.lr.ph ]
-  %107 = phi i32 [ %158, %for.inc78 ], [ %99, %for.cond42.preheader.lr.ph ]
-  %108 = phi i32 [ %159, %for.inc78 ], [ %99, %for.cond42.preheader.lr.ph ]
-  %109 = phi i32 [ %160, %for.inc78 ], [ %100, %for.cond42.preheader.lr.ph ]
-  %ypos.4315 = phi i32 [ %ypos.5.lcssa, %for.inc78 ], [ %ypos.0.lcssa, %for.cond42.preheader.lr.ph ]
-  %k.1313 = phi i32 [ %inc79, %for.inc78 ], [ 0, %for.cond42.preheader.lr.ph ]
-  %cmp45306 = icmp sgt i32 %109, 0
-  %110 = icmp sgt i32 %108, 0
-  %or.cond473 = select i1 %cmp45306, i1 %110, i1 false
-  br i1 %or.cond473, label %for.cond47.preheader, label %for.inc78
+  %102 = phi i32 [ %152, %for.inc78 ], [ %99, %for.cond42.preheader.lr.ph ]
+  %103 = phi i32 [ %153, %for.inc78 ], [ %98, %for.cond42.preheader.lr.ph ]
+  %104 = phi i32 [ %154, %for.inc78 ], [ %97, %for.cond42.preheader.lr.ph ]
+  %105 = phi i32 [ %155, %for.inc78 ], [ %97, %for.cond42.preheader.lr.ph ]
+  %106 = phi i32 [ %156, %for.inc78 ], [ %98, %for.cond42.preheader.lr.ph ]
+  %107 = phi i32 [ %157, %for.inc78 ], [ %98, %for.cond42.preheader.lr.ph ]
+  %108 = phi i32 [ %158, %for.inc78 ], [ %99, %for.cond42.preheader.lr.ph ]
+  %ypos.4316 = phi i32 [ %ypos.5.lcssa, %for.inc78 ], [ %ypos.0.lcssa, %for.cond42.preheader.lr.ph ]
+  %k.1314 = phi i32 [ %inc79, %for.inc78 ], [ 0, %for.cond42.preheader.lr.ph ]
+  %cmp45307 = icmp sgt i32 %108, 0
+  %109 = icmp sgt i32 %107, 0
+  %or.cond476 = select i1 %cmp45307, i1 %109, i1 false
+  br i1 %or.cond476, label %for.cond47.preheader, label %for.inc78
 
 for.cond47.preheader:                             ; preds = %for.cond42.preheader, %for.inc75
-  %111 = phi i32 [ %149, %for.inc75 ], [ %103, %for.cond42.preheader ]
-  %112 = phi i32 [ %150, %for.inc75 ], [ %104, %for.cond42.preheader ]
-  %113 = phi i32 [ %151, %for.inc75 ], [ %105, %for.cond42.preheader ]
-  %114 = phi i32 [ %152, %for.inc75 ], [ %106, %for.cond42.preheader ]
-  %115 = phi i32 [ %153, %for.inc75 ], [ %107, %for.cond42.preheader ]
-  %ypos.5309 = phi i32 [ %ypos.6.lcssa, %for.inc75 ], [ %ypos.4315, %for.cond42.preheader ]
-  %j.1307 = phi i32 [ %inc76, %for.inc75 ], [ 0, %for.cond42.preheader ]
-  %cmp50300 = icmp sgt i32 %115, 0
-  br i1 %cmp50300, label %for.cond52.preheader.lr.ph, label %for.inc75
+  %110 = phi i32 [ %147, %for.inc75 ], [ %102, %for.cond42.preheader ]
+  %111 = phi i32 [ %148, %for.inc75 ], [ %103, %for.cond42.preheader ]
+  %112 = phi i32 [ %149, %for.inc75 ], [ %104, %for.cond42.preheader ]
+  %113 = phi i32 [ %150, %for.inc75 ], [ %105, %for.cond42.preheader ]
+  %114 = phi i32 [ %151, %for.inc75 ], [ %106, %for.cond42.preheader ]
+  %ypos.5310 = phi i32 [ %ypos.6.lcssa, %for.inc75 ], [ %ypos.4316, %for.cond42.preheader ]
+  %j.1308 = phi i32 [ %inc76, %for.inc75 ], [ 0, %for.cond42.preheader ]
+  %cmp50301 = icmp sgt i32 %114, 0
+  br i1 %cmp50301, label %for.cond52.preheader.lr.ph, label %for.inc75
 
 for.cond52.preheader.lr.ph:                       ; preds = %for.cond47.preheader
-  %116 = load i32, ptr %num_vary_x53, align 4
-  %117 = icmp sgt i32 %116, 0
-  br i1 %117, label %for.cond52.preheader, label %for.inc75
+  %115 = load i32, ptr %num_vary_x53, align 4
+  %116 = icmp sgt i32 %115, 0
+  br i1 %116, label %for.cond52.preheader, label %for.inc75
 
 for.cond52.preheader:                             ; preds = %for.cond52.preheader.lr.ph, %for.inc72
-  %118 = phi i32 [ %143, %for.inc72 ], [ %112, %for.cond52.preheader.lr.ph ]
-  %119 = phi i32 [ %144, %for.inc72 ], [ %116, %for.cond52.preheader.lr.ph ]
-  %120 = phi i32 [ %145, %for.inc72 ], [ %113, %for.cond52.preheader.lr.ph ]
-  %121 = phi i32 [ %146, %for.inc72 ], [ %116, %for.cond52.preheader.lr.ph ]
-  %122 = phi i32 [ %147, %for.inc72 ], [ %114, %for.cond52.preheader.lr.ph ]
-  %123 = phi i32 [ %148, %for.inc72 ], [ %116, %for.cond52.preheader.lr.ph ]
-  %ypos.6303 = phi i32 [ %ypos.7.lcssa, %for.inc72 ], [ %ypos.5309, %for.cond52.preheader.lr.ph ]
-  %i.1301 = phi i32 [ %inc73, %for.inc72 ], [ 0, %for.cond52.preheader.lr.ph ]
-  %cmp54295 = icmp sgt i32 %123, 0
+  %117 = phi i32 [ %141, %for.inc72 ], [ %111, %for.cond52.preheader.lr.ph ]
+  %118 = phi i32 [ %142, %for.inc72 ], [ %115, %for.cond52.preheader.lr.ph ]
+  %119 = phi i32 [ %143, %for.inc72 ], [ %112, %for.cond52.preheader.lr.ph ]
+  %120 = phi i32 [ %144, %for.inc72 ], [ %115, %for.cond52.preheader.lr.ph ]
+  %121 = phi i32 [ %145, %for.inc72 ], [ %113, %for.cond52.preheader.lr.ph ]
+  %122 = phi i32 [ %146, %for.inc72 ], [ %115, %for.cond52.preheader.lr.ph ]
+  %ypos.6304 = phi i32 [ %ypos.7.lcssa, %for.inc72 ], [ %ypos.5310, %for.cond52.preheader.lr.ph ]
+  %i.1302 = phi i32 [ %inc73, %for.inc72 ], [ 0, %for.cond52.preheader.lr.ph ]
+  %cmp54295 = icmp sgt i32 %122, 0
   br i1 %cmp54295, label %for.body55.lr.ph, label %for.inc72
 
 for.body55.lr.ph:                                 ; preds = %for.cond52.preheader
-  %124 = load i32, ptr %num_vary_y65, align 4
-  %125 = icmp sgt i32 %124, 0
-  br i1 %125, label %for.body55, label %for.body55.lr.ph.split.us
+  %123 = load i32, ptr %num_vary_y65, align 4
+  %124 = icmp sgt i32 %123, 0
+  br i1 %124, label %for.body55, label %for.body55.lr.ph.split.us
 
 for.body55.lr.ph.split.us:                        ; preds = %for.body55.lr.ph
-  %mul.us = shl i32 %122, 1
-  %126 = add i32 %ypos.6303, 3
-  %smax377 = tail call i32 @llvm.smax.i32(i32 %121, i32 1)
-  %127 = add nsw i32 %smax377, -1
-  %128 = add i32 %mul.us, 3
-  %129 = mul i32 %127, %128
-  %130 = add i32 %126, %129
-  %131 = add i32 %130, %mul.us
+  %mul.us = shl i32 %121, 1
+  %invariant.op300 = add i32 %mul.us, 3
+  %125 = add i32 %ypos.6304, 3
+  %smax380 = tail call i32 @llvm.smax.i32(i32 %120, i32 1)
+  %126 = add nsw i32 %smax380, -1
+  %127 = mul i32 %126, %invariant.op300
+  %128 = add i32 %125, %127
+  %129 = add i32 %128, %mul.us
   br label %for.inc72
 
 for.body55:                                       ; preds = %for.body55.lr.ph, %stbhw__process_v_row.exit
-  %132 = phi i32 [ %141, %stbhw__process_v_row.exit ], [ %119, %for.body55.lr.ph ]
-  %133 = phi i32 [ %142, %stbhw__process_v_row.exit ], [ %120, %for.body55.lr.ph ]
-  %ypos.7297 = phi i32 [ %add68, %stbhw__process_v_row.exit ], [ %ypos.6303, %for.body55.lr.ph ]
+  %130 = phi i32 [ %139, %stbhw__process_v_row.exit ], [ %118, %for.body55.lr.ph ]
+  %131 = phi i32 [ %140, %stbhw__process_v_row.exit ], [ %119, %for.body55.lr.ph ]
+  %ypos.7297 = phi i32 [ %add68, %stbhw__process_v_row.exit ], [ %ypos.6304, %for.body55.lr.ph ]
   %q.1296 = phi i32 [ %inc70, %stbhw__process_v_row.exit ], [ 0, %for.body55.lr.ph ]
-  %134 = load i32, ptr %num_color54.i, align 4
-  %sub58 = add nsw i32 %134, -1
-  %135 = load i32, ptr %arrayidx39, align 4
-  %sub61 = add nsw i32 %135, -1
-  %136 = load i32, ptr %arrayidx, align 4
-  %sub64 = add nsw i32 %136, -1
-  %137 = load i32, ptr %num_vary_y65, align 4
-  %cmp121.i108 = icmp sgt i32 %137, 0
+  %132 = load i32, ptr %num_color54.i, align 4
+  %sub58 = add nsw i32 %132, -1
+  %133 = load i32, ptr %arrayidx39, align 4
+  %sub61 = add nsw i32 %133, -1
+  %134 = load i32, ptr %arrayidx, align 4
+  %sub64 = add nsw i32 %134, -1
+  %135 = load i32, ptr %num_vary_y65, align 4
+  %cmp121.i108 = icmp sgt i32 %135, 0
   br i1 %cmp121.i108, label %for.cond1.preheader.lr.ph.i109, label %stbhw__process_v_row.exit
 
 for.cond1.preheader.lr.ph.i109:                   ; preds = %for.body55
-  %cmp11.not24.i110 = icmp slt i32 %136, 1
-  %cmp14.not20.i111 = icmp slt i32 %135, 1
-  %cmp17.not17.i112 = icmp slt i32 %134, 1
+  %cmp11.not24.i110 = icmp slt i32 %134, 1
+  %cmp14.not20.i111 = icmp slt i32 %133, 1
+  %cmp17.not17.i112 = icmp slt i32 %132, 1
   %brmerge162.i114 = or i1 %cmp14.not20.i111, %cmp11.not24.i110
   %brmerge163.i115 = or i1 %cmp17.not17.i112, %brmerge162.i114
   br i1 %brmerge163.i115, label %stbhw__process_v_row.exit, label %for.cond1.preheader.i116
@@ -810,13 +810,13 @@ for.cond16.preheader.i131:                        ; preds = %for.cond16.for.inc2
 for.body18.i134:                                  ; preds = %for.body18.i134, %for.cond16.preheader.i131
   %a.019.i135 = phi i32 [ 0, %for.cond16.preheader.i131 ], [ %inc.i140, %for.body18.i134 ]
   %xpos.addr.618.i136 = phi i32 [ %xpos.addr.521.i133, %for.cond16.preheader.i131 ], [ %add20.i139, %for.body18.i134 ]
-  %138 = load ptr, ptr %process_v_rect.i, align 8
-  tail call void %138(ptr noundef %p, i32 noundef %xpos.addr.618.i136, i32 noundef %ypos.7297, i32 noundef %a.019.i135, i32 noundef %b.022.i132, i32 noundef %c.026.i129, i32 noundef %i.1301, i32 noundef %j.1307, i32 noundef %k.1313) #15
-  %139 = load ptr, ptr %c1, align 8
-  %short_side_len.i137 = getelementptr inbounds i8, ptr %139, i64 4
-  %140 = load i32, ptr %short_side_len.i137, align 4
+  %136 = load ptr, ptr %process_v_rect.i, align 8
+  tail call void %136(ptr noundef %p, i32 noundef %xpos.addr.618.i136, i32 noundef %ypos.7297, i32 noundef %a.019.i135, i32 noundef %b.022.i132, i32 noundef %c.026.i129, i32 noundef %i.1302, i32 noundef %j.1308, i32 noundef %k.1314) #15
+  %137 = load ptr, ptr %c1, align 8
+  %short_side_len.i137 = getelementptr inbounds i8, ptr %137, i64 4
+  %138 = load i32, ptr %short_side_len.i137, align 4
   %add.i138 = add i32 %xpos.addr.618.i136, 3
-  %add20.i139 = add i32 %add.i138, %140
+  %add20.i139 = add i32 %add.i138, %138
   %inc.i140 = add nuw nsw i32 %a.019.i135, 1
   %exitcond.not.i141 = icmp eq i32 %a.019.i135, %sub58
   br i1 %exitcond.not.i141, label %for.cond16.for.inc21_crit_edge.i142, label %for.body18.i134, !llvm.loop !12
@@ -833,152 +833,152 @@ for.cond13.for.inc24_crit_edge.split.i145:        ; preds = %for.cond16.for.inc2
 
 for.cond10.for.inc27_crit_edge.split.split.i148:  ; preds = %for.cond13.for.inc24_crit_edge.split.i145
   %inc37.i158 = add nuw nsw i32 %v.0123.i117, 1
-  %exitcond160.not.i159 = icmp eq i32 %inc37.i158, %137
+  %exitcond160.not.i159 = icmp eq i32 %inc37.i158, %135
   br i1 %exitcond160.not.i159, label %stbhw__process_v_row.exit.loopexit, label %for.cond1.preheader.i116, !llvm.loop !18
 
 stbhw__process_v_row.exit.loopexit:               ; preds = %for.cond10.for.inc27_crit_edge.split.split.i148
-  %.pre385 = load i32, ptr %short_side_len66, align 4
-  %.pre386 = load i32, ptr %num_vary_x53, align 4
+  %.pre388 = load i32, ptr %short_side_len66, align 4
+  %.pre389 = load i32, ptr %num_vary_x53, align 4
   br label %stbhw__process_v_row.exit
 
 stbhw__process_v_row.exit:                        ; preds = %stbhw__process_v_row.exit.loopexit, %for.body55, %for.cond1.preheader.lr.ph.i109
-  %141 = phi i32 [ %.pre386, %stbhw__process_v_row.exit.loopexit ], [ %132, %for.body55 ], [ %132, %for.cond1.preheader.lr.ph.i109 ]
-  %142 = phi i32 [ %.pre385, %stbhw__process_v_row.exit.loopexit ], [ %133, %for.body55 ], [ %133, %for.cond1.preheader.lr.ph.i109 ]
-  %mul = shl nsw i32 %142, 1
+  %139 = phi i32 [ %.pre389, %stbhw__process_v_row.exit.loopexit ], [ %130, %for.body55 ], [ %130, %for.cond1.preheader.lr.ph.i109 ]
+  %140 = phi i32 [ %.pre388, %stbhw__process_v_row.exit.loopexit ], [ %131, %for.body55 ], [ %131, %for.cond1.preheader.lr.ph.i109 ]
+  %mul = shl nsw i32 %140, 1
   %add67 = add i32 %ypos.7297, 3
   %add68 = add i32 %add67, %mul
   %inc70 = add nuw nsw i32 %q.1296, 1
-  %cmp54 = icmp slt i32 %inc70, %141
+  %cmp54 = icmp slt i32 %inc70, %139
   br i1 %cmp54, label %for.body55, label %for.inc72.loopexit, !llvm.loop !24
 
 for.inc72.loopexit:                               ; preds = %stbhw__process_v_row.exit
-  %.pre387 = load i32, ptr %arrayidx49, align 4
+  %.pre390 = load i32, ptr %arrayidx49, align 4
   br label %for.inc72
 
 for.inc72:                                        ; preds = %for.body55.lr.ph.split.us, %for.inc72.loopexit, %for.cond52.preheader
-  %143 = phi i32 [ %118, %for.cond52.preheader ], [ %.pre387, %for.inc72.loopexit ], [ %118, %for.body55.lr.ph.split.us ]
-  %144 = phi i32 [ %119, %for.cond52.preheader ], [ %141, %for.inc72.loopexit ], [ %119, %for.body55.lr.ph.split.us ]
-  %145 = phi i32 [ %120, %for.cond52.preheader ], [ %142, %for.inc72.loopexit ], [ %120, %for.body55.lr.ph.split.us ]
-  %146 = phi i32 [ %121, %for.cond52.preheader ], [ %141, %for.inc72.loopexit ], [ %121, %for.body55.lr.ph.split.us ]
-  %147 = phi i32 [ %122, %for.cond52.preheader ], [ %142, %for.inc72.loopexit ], [ %122, %for.body55.lr.ph.split.us ]
-  %148 = phi i32 [ %123, %for.cond52.preheader ], [ %141, %for.inc72.loopexit ], [ %121, %for.body55.lr.ph.split.us ]
-  %ypos.7.lcssa = phi i32 [ %ypos.6303, %for.cond52.preheader ], [ %add68, %for.inc72.loopexit ], [ %131, %for.body55.lr.ph.split.us ]
-  %inc73 = add nuw nsw i32 %i.1301, 1
-  %cmp50 = icmp slt i32 %inc73, %143
+  %141 = phi i32 [ %117, %for.cond52.preheader ], [ %.pre390, %for.inc72.loopexit ], [ %117, %for.body55.lr.ph.split.us ]
+  %142 = phi i32 [ %118, %for.cond52.preheader ], [ %139, %for.inc72.loopexit ], [ %118, %for.body55.lr.ph.split.us ]
+  %143 = phi i32 [ %119, %for.cond52.preheader ], [ %140, %for.inc72.loopexit ], [ %119, %for.body55.lr.ph.split.us ]
+  %144 = phi i32 [ %120, %for.cond52.preheader ], [ %139, %for.inc72.loopexit ], [ %120, %for.body55.lr.ph.split.us ]
+  %145 = phi i32 [ %121, %for.cond52.preheader ], [ %140, %for.inc72.loopexit ], [ %121, %for.body55.lr.ph.split.us ]
+  %146 = phi i32 [ %122, %for.cond52.preheader ], [ %139, %for.inc72.loopexit ], [ %120, %for.body55.lr.ph.split.us ]
+  %ypos.7.lcssa = phi i32 [ %ypos.6304, %for.cond52.preheader ], [ %add68, %for.inc72.loopexit ], [ %129, %for.body55.lr.ph.split.us ]
+  %inc73 = add nuw nsw i32 %i.1302, 1
+  %cmp50 = icmp slt i32 %inc73, %141
   br i1 %cmp50, label %for.cond52.preheader, label %for.inc75.loopexit, !llvm.loop !25
 
 for.inc75.loopexit:                               ; preds = %for.inc72
-  %.pre388 = load i32, ptr %num_color54.i, align 4
+  %.pre391 = load i32, ptr %num_color54.i, align 4
   br label %for.inc75
 
 for.inc75:                                        ; preds = %for.cond52.preheader.lr.ph, %for.inc75.loopexit, %for.cond47.preheader
-  %149 = phi i32 [ %111, %for.cond47.preheader ], [ %.pre388, %for.inc75.loopexit ], [ %111, %for.cond52.preheader.lr.ph ]
-  %150 = phi i32 [ %112, %for.cond47.preheader ], [ %143, %for.inc75.loopexit ], [ %112, %for.cond52.preheader.lr.ph ]
-  %151 = phi i32 [ %113, %for.cond47.preheader ], [ %145, %for.inc75.loopexit ], [ %113, %for.cond52.preheader.lr.ph ]
-  %152 = phi i32 [ %114, %for.cond47.preheader ], [ %147, %for.inc75.loopexit ], [ %114, %for.cond52.preheader.lr.ph ]
-  %153 = phi i32 [ %115, %for.cond47.preheader ], [ %143, %for.inc75.loopexit ], [ %115, %for.cond52.preheader.lr.ph ]
-  %ypos.6.lcssa = phi i32 [ %ypos.5309, %for.cond47.preheader ], [ %ypos.7.lcssa, %for.inc75.loopexit ], [ %ypos.5309, %for.cond52.preheader.lr.ph ]
-  %inc76 = add nuw nsw i32 %j.1307, 1
-  %cmp45 = icmp slt i32 %inc76, %149
+  %147 = phi i32 [ %110, %for.cond47.preheader ], [ %.pre391, %for.inc75.loopexit ], [ %110, %for.cond52.preheader.lr.ph ]
+  %148 = phi i32 [ %111, %for.cond47.preheader ], [ %141, %for.inc75.loopexit ], [ %111, %for.cond52.preheader.lr.ph ]
+  %149 = phi i32 [ %112, %for.cond47.preheader ], [ %143, %for.inc75.loopexit ], [ %112, %for.cond52.preheader.lr.ph ]
+  %150 = phi i32 [ %113, %for.cond47.preheader ], [ %145, %for.inc75.loopexit ], [ %113, %for.cond52.preheader.lr.ph ]
+  %151 = phi i32 [ %114, %for.cond47.preheader ], [ %141, %for.inc75.loopexit ], [ %114, %for.cond52.preheader.lr.ph ]
+  %ypos.6.lcssa = phi i32 [ %ypos.5310, %for.cond47.preheader ], [ %ypos.7.lcssa, %for.inc75.loopexit ], [ %ypos.5310, %for.cond52.preheader.lr.ph ]
+  %inc76 = add nuw nsw i32 %j.1308, 1
+  %cmp45 = icmp slt i32 %inc76, %147
   br i1 %cmp45, label %for.cond47.preheader, label %for.inc78, !llvm.loop !26
 
 for.inc78:                                        ; preds = %for.inc75, %for.cond42.preheader
-  %154 = phi i32 [ %103, %for.cond42.preheader ], [ %149, %for.inc75 ]
-  %155 = phi i32 [ %104, %for.cond42.preheader ], [ %150, %for.inc75 ]
-  %156 = phi i32 [ %105, %for.cond42.preheader ], [ %151, %for.inc75 ]
-  %157 = phi i32 [ %106, %for.cond42.preheader ], [ %152, %for.inc75 ]
-  %158 = phi i32 [ %107, %for.cond42.preheader ], [ %153, %for.inc75 ]
-  %159 = phi i32 [ %108, %for.cond42.preheader ], [ %153, %for.inc75 ]
-  %160 = phi i32 [ %109, %for.cond42.preheader ], [ %149, %for.inc75 ]
-  %ypos.5.lcssa = phi i32 [ %ypos.4315, %for.cond42.preheader ], [ %ypos.6.lcssa, %for.inc75 ]
-  %inc79 = add nuw nsw i32 %k.1313, 1
-  %161 = load i32, ptr %arrayidx39, align 4
-  %cmp40 = icmp slt i32 %inc79, %161
+  %152 = phi i32 [ %102, %for.cond42.preheader ], [ %147, %for.inc75 ]
+  %153 = phi i32 [ %103, %for.cond42.preheader ], [ %148, %for.inc75 ]
+  %154 = phi i32 [ %104, %for.cond42.preheader ], [ %149, %for.inc75 ]
+  %155 = phi i32 [ %105, %for.cond42.preheader ], [ %150, %for.inc75 ]
+  %156 = phi i32 [ %106, %for.cond42.preheader ], [ %151, %for.inc75 ]
+  %157 = phi i32 [ %107, %for.cond42.preheader ], [ %151, %for.inc75 ]
+  %158 = phi i32 [ %108, %for.cond42.preheader ], [ %147, %for.inc75 ]
+  %ypos.5.lcssa = phi i32 [ %ypos.4316, %for.cond42.preheader ], [ %ypos.6.lcssa, %for.inc75 ]
+  %inc79 = add nuw nsw i32 %k.1314, 1
+  %159 = load i32, ptr %arrayidx39, align 4
+  %cmp40 = icmp slt i32 %inc79, %159
   br i1 %cmp40, label %for.cond42.preheader, label %return, !llvm.loop !27
 
 for.cond86.preheader:                             ; preds = %for.cond86.preheader.lr.ph, %for.inc122
-  %162 = phi i32 [ %225, %for.inc122 ], [ %13, %for.cond86.preheader.lr.ph ]
-  %163 = phi i32 [ %226, %for.inc122 ], [ %20, %for.cond86.preheader.lr.ph ]
-  %164 = phi i32 [ %227, %for.inc122 ], [ %.sink465, %for.cond86.preheader.lr.ph ]
-  %165 = phi i32 [ %228, %for.inc122 ], [ %.sink466, %for.cond86.preheader.lr.ph ]
-  %166 = phi i32 [ %229, %for.inc122 ], [ %16, %for.cond86.preheader.lr.ph ]
-  %167 = phi i32 [ %230, %for.inc122 ], [ %.sink466, %for.cond86.preheader.lr.ph ]
-  %168 = phi i32 [ %231, %for.inc122 ], [ %16, %for.cond86.preheader.lr.ph ]
-  %169 = phi i32 [ %232, %for.inc122 ], [ %.sink466, %for.cond86.preheader.lr.ph ]
-  %170 = phi i32 [ %233, %for.inc122 ], [ %.sink466, %for.cond86.preheader.lr.ph ]
-  %171 = phi i32 [ %234, %for.inc122 ], [ %.sink465, %for.cond86.preheader.lr.ph ]
-  %172 = phi i32 [ %235, %for.inc122 ], [ %.sink465, %for.cond86.preheader.lr.ph ]
-  %173 = phi i32 [ %236, %for.inc122 ], [ %20, %for.cond86.preheader.lr.ph ]
-  %ypos.8336 = phi i32 [ %ypos.9.lcssa, %for.inc122 ], [ 2, %for.cond86.preheader.lr.ph ]
-  %k.2334 = phi i32 [ %inc123, %for.inc122 ], [ 0, %for.cond86.preheader.lr.ph ]
-  %cmp89327 = icmp sgt i32 %173, 0
-  %174 = icmp sgt i32 %172, 0
-  %or.cond474 = select i1 %cmp89327, i1 %174, i1 false
-  br i1 %or.cond474, label %for.cond91.preheader, label %for.inc122
+  %160 = phi i32 [ %222, %for.inc122 ], [ %13, %for.cond86.preheader.lr.ph ]
+  %161 = phi i32 [ %223, %for.inc122 ], [ %20, %for.cond86.preheader.lr.ph ]
+  %162 = phi i32 [ %224, %for.inc122 ], [ %.sink468, %for.cond86.preheader.lr.ph ]
+  %163 = phi i32 [ %225, %for.inc122 ], [ %.sink469, %for.cond86.preheader.lr.ph ]
+  %164 = phi i32 [ %226, %for.inc122 ], [ %16, %for.cond86.preheader.lr.ph ]
+  %165 = phi i32 [ %227, %for.inc122 ], [ %.sink469, %for.cond86.preheader.lr.ph ]
+  %166 = phi i32 [ %228, %for.inc122 ], [ %16, %for.cond86.preheader.lr.ph ]
+  %167 = phi i32 [ %229, %for.inc122 ], [ %.sink469, %for.cond86.preheader.lr.ph ]
+  %168 = phi i32 [ %230, %for.inc122 ], [ %.sink469, %for.cond86.preheader.lr.ph ]
+  %169 = phi i32 [ %231, %for.inc122 ], [ %.sink468, %for.cond86.preheader.lr.ph ]
+  %170 = phi i32 [ %232, %for.inc122 ], [ %.sink468, %for.cond86.preheader.lr.ph ]
+  %171 = phi i32 [ %233, %for.inc122 ], [ %20, %for.cond86.preheader.lr.ph ]
+  %ypos.8338 = phi i32 [ %ypos.9.lcssa, %for.inc122 ], [ 2, %for.cond86.preheader.lr.ph ]
+  %k.2336 = phi i32 [ %inc123, %for.inc122 ], [ 0, %for.cond86.preheader.lr.ph ]
+  %cmp89329 = icmp sgt i32 %171, 0
+  %172 = icmp sgt i32 %170, 0
+  %or.cond477 = select i1 %cmp89329, i1 %172, i1 false
+  br i1 %or.cond477, label %for.cond91.preheader, label %for.inc122
 
 for.cond91.preheader:                             ; preds = %for.cond86.preheader, %for.inc119
-  %175 = phi i32 [ %216, %for.inc119 ], [ %163, %for.cond86.preheader ]
-  %176 = phi i32 [ %217, %for.inc119 ], [ %164, %for.cond86.preheader ]
-  %177 = phi i32 [ %218, %for.inc119 ], [ %165, %for.cond86.preheader ]
-  %178 = phi i32 [ %219, %for.inc119 ], [ %166, %for.cond86.preheader ]
-  %179 = phi i32 [ %220, %for.inc119 ], [ %167, %for.cond86.preheader ]
-  %180 = phi i32 [ %221, %for.inc119 ], [ %168, %for.cond86.preheader ]
-  %181 = phi i32 [ %222, %for.inc119 ], [ %169, %for.cond86.preheader ]
-  %182 = phi i32 [ %223, %for.inc119 ], [ %170, %for.cond86.preheader ]
-  %183 = phi i32 [ %224, %for.inc119 ], [ %171, %for.cond86.preheader ]
-  %ypos.9330 = phi i32 [ %ypos.10.lcssa, %for.inc119 ], [ %ypos.8336, %for.cond86.preheader ]
-  %j.2328 = phi i32 [ %inc120, %for.inc119 ], [ 0, %for.cond86.preheader ]
-  %cmp94321 = icmp sgt i32 %183, 0
-  %184 = icmp sgt i32 %182, 0
-  %or.cond475 = select i1 %cmp94321, i1 %184, i1 false
-  br i1 %or.cond475, label %for.cond96.preheader, label %for.inc119
+  %173 = phi i32 [ %213, %for.inc119 ], [ %161, %for.cond86.preheader ]
+  %174 = phi i32 [ %214, %for.inc119 ], [ %162, %for.cond86.preheader ]
+  %175 = phi i32 [ %215, %for.inc119 ], [ %163, %for.cond86.preheader ]
+  %176 = phi i32 [ %216, %for.inc119 ], [ %164, %for.cond86.preheader ]
+  %177 = phi i32 [ %217, %for.inc119 ], [ %165, %for.cond86.preheader ]
+  %178 = phi i32 [ %218, %for.inc119 ], [ %166, %for.cond86.preheader ]
+  %179 = phi i32 [ %219, %for.inc119 ], [ %167, %for.cond86.preheader ]
+  %180 = phi i32 [ %220, %for.inc119 ], [ %168, %for.cond86.preheader ]
+  %181 = phi i32 [ %221, %for.inc119 ], [ %169, %for.cond86.preheader ]
+  %ypos.9332 = phi i32 [ %ypos.10.lcssa, %for.inc119 ], [ %ypos.8338, %for.cond86.preheader ]
+  %j.2330 = phi i32 [ %inc120, %for.inc119 ], [ 0, %for.cond86.preheader ]
+  %cmp94323 = icmp sgt i32 %181, 0
+  %182 = icmp sgt i32 %180, 0
+  %or.cond478 = select i1 %cmp94323, i1 %182, i1 false
+  br i1 %or.cond478, label %for.cond96.preheader, label %for.inc119
 
 for.cond96.preheader:                             ; preds = %for.cond91.preheader, %for.inc116
-  %185 = phi i32 [ %210, %for.inc116 ], [ %176, %for.cond91.preheader ]
-  %186 = phi i32 [ %211, %for.inc116 ], [ %177, %for.cond91.preheader ]
-  %187 = phi i32 [ %212, %for.inc116 ], [ %178, %for.cond91.preheader ]
-  %188 = phi i32 [ %213, %for.inc116 ], [ %179, %for.cond91.preheader ]
-  %189 = phi i32 [ %214, %for.inc116 ], [ %180, %for.cond91.preheader ]
-  %190 = phi i32 [ %215, %for.inc116 ], [ %181, %for.cond91.preheader ]
-  %ypos.10324 = phi i32 [ %ypos.11.lcssa, %for.inc116 ], [ %ypos.9330, %for.cond91.preheader ]
-  %i.2322 = phi i32 [ %inc117, %for.inc116 ], [ 0, %for.cond91.preheader ]
-  %cmp98316 = icmp sgt i32 %190, 0
-  br i1 %cmp98316, label %for.body99.lr.ph, label %for.inc116
+  %183 = phi i32 [ %207, %for.inc116 ], [ %174, %for.cond91.preheader ]
+  %184 = phi i32 [ %208, %for.inc116 ], [ %175, %for.cond91.preheader ]
+  %185 = phi i32 [ %209, %for.inc116 ], [ %176, %for.cond91.preheader ]
+  %186 = phi i32 [ %210, %for.inc116 ], [ %177, %for.cond91.preheader ]
+  %187 = phi i32 [ %211, %for.inc116 ], [ %178, %for.cond91.preheader ]
+  %188 = phi i32 [ %212, %for.inc116 ], [ %179, %for.cond91.preheader ]
+  %ypos.10326 = phi i32 [ %ypos.11.lcssa, %for.inc116 ], [ %ypos.9332, %for.cond91.preheader ]
+  %i.2324 = phi i32 [ %inc117, %for.inc116 ], [ 0, %for.cond91.preheader ]
+  %cmp98317 = icmp sgt i32 %188, 0
+  br i1 %cmp98317, label %for.body99.lr.ph, label %for.inc116
 
 for.body99.lr.ph:                                 ; preds = %for.cond96.preheader
-  %191 = load i32, ptr %num_vary_x109, align 4
-  %192 = icmp sgt i32 %191, 0
-  br i1 %192, label %for.body99, label %for.body99.lr.ph.split.us
+  %189 = load i32, ptr %num_vary_x109, align 4
+  %190 = icmp sgt i32 %189, 0
+  br i1 %190, label %for.body99, label %for.body99.lr.ph.split.us
 
 for.body99.lr.ph.split.us:                        ; preds = %for.body99.lr.ph
-  %193 = add i32 %ypos.10324, 3
-  %smax378 = tail call i32 @llvm.smax.i32(i32 %188, i32 1)
-  %194 = add nsw i32 %smax378, -1
-  %195 = add i32 %189, 3
-  %196 = mul i32 %194, %195
-  %197 = add i32 %193, %189
-  %198 = add i32 %197, %196
+  %invariant.op322 = add i32 %187, 3
+  %191 = add i32 %ypos.10326, 3
+  %smax381 = tail call i32 @llvm.smax.i32(i32 %186, i32 1)
+  %192 = add nsw i32 %smax381, -1
+  %193 = mul i32 %192, %invariant.op322
+  %194 = add i32 %191, %187
+  %195 = add i32 %194, %193
   br label %for.inc116
 
 for.body99:                                       ; preds = %for.body99.lr.ph, %stbhw__process_h_row.exit214
-  %199 = phi i32 [ %208, %stbhw__process_h_row.exit214 ], [ %186, %for.body99.lr.ph ]
-  %200 = phi i32 [ %209, %stbhw__process_h_row.exit214 ], [ %187, %for.body99.lr.ph ]
-  %ypos.11318 = phi i32 [ %add112, %stbhw__process_h_row.exit214 ], [ %ypos.10324, %for.body99.lr.ph ]
-  %q.2317 = phi i32 [ %inc114, %stbhw__process_h_row.exit214 ], [ 0, %for.body99.lr.ph ]
-  %201 = load i32, ptr %arrayidx93, align 4
-  %sub102 = add nsw i32 %201, -1
-  %202 = load i32, ptr %arrayidx104, align 4
-  %sub105 = add nsw i32 %202, -1
-  %203 = load i32, ptr %num_color54.i, align 4
-  %sub108 = add nsw i32 %203, -1
-  %204 = load i32, ptr %num_vary_x109, align 4
-  %cmp121.i160 = icmp sgt i32 %204, 0
+  %196 = phi i32 [ %205, %stbhw__process_h_row.exit214 ], [ %184, %for.body99.lr.ph ]
+  %197 = phi i32 [ %206, %stbhw__process_h_row.exit214 ], [ %185, %for.body99.lr.ph ]
+  %ypos.11319 = phi i32 [ %add112, %stbhw__process_h_row.exit214 ], [ %ypos.10326, %for.body99.lr.ph ]
+  %q.2318 = phi i32 [ %inc114, %stbhw__process_h_row.exit214 ], [ 0, %for.body99.lr.ph ]
+  %198 = load i32, ptr %arrayidx93, align 4
+  %sub102 = add nsw i32 %198, -1
+  %199 = load i32, ptr %arrayidx104, align 4
+  %sub105 = add nsw i32 %199, -1
+  %200 = load i32, ptr %num_color54.i, align 4
+  %sub108 = add nsw i32 %200, -1
+  %201 = load i32, ptr %num_vary_x109, align 4
+  %cmp121.i160 = icmp sgt i32 %201, 0
   br i1 %cmp121.i160, label %for.cond1.preheader.lr.ph.i161, label %stbhw__process_h_row.exit214
 
 for.cond1.preheader.lr.ph.i161:                   ; preds = %for.body99
-  %cmp11.not24.i162 = icmp slt i32 %202, 1
-  %cmp17.not17.i164 = icmp slt i32 %201, 1
-  %cmp5.not57.i = icmp slt i32 %203, 1
+  %cmp11.not24.i162 = icmp slt i32 %199, 1
+  %cmp17.not17.i164 = icmp slt i32 %198, 1
+  %cmp5.not57.i = icmp slt i32 %200, 1
   %brmerge161.i = or i1 %cmp11.not24.i162, %cmp5.not57.i
   %brmerge163.i168 = or i1 %cmp17.not17.i164, %brmerge161.i
   br i1 %brmerge163.i168, label %stbhw__process_h_row.exit214, label %for.cond1.preheader.i169
@@ -1001,12 +1001,12 @@ for.cond13.preheader.i181:                        ; preds = %for.cond16.for.inc2
 for.body18.i187:                                  ; preds = %for.body18.i187, %for.cond13.preheader.i181
   %a.019.i188 = phi i32 [ 0, %for.cond13.preheader.i181 ], [ %inc.i194, %for.body18.i187 ]
   %xpos.addr.618.i189 = phi i32 [ %xpos.addr.425.i183, %for.cond13.preheader.i181 ], [ %add20.i193, %for.body18.i187 ]
-  %205 = load ptr, ptr %process_h_rect.i165, align 8
-  tail call void %205(ptr noundef %p, i32 noundef %xpos.addr.618.i189, i32 noundef %ypos.11318, i32 noundef %a.019.i188, i32 noundef %k.2334, i32 noundef %c.026.i182, i32 noundef %j.2328, i32 noundef %e.059.i176, i32 noundef %i.2322) #15
-  %206 = load ptr, ptr %c1, align 8
-  %short_side_len.i190 = getelementptr inbounds i8, ptr %206, i64 4
-  %207 = load i32, ptr %short_side_len.i190, align 4
-  %mul.i191 = shl nsw i32 %207, 1
+  %202 = load ptr, ptr %process_h_rect.i165, align 8
+  tail call void %202(ptr noundef %p, i32 noundef %xpos.addr.618.i189, i32 noundef %ypos.11319, i32 noundef %a.019.i188, i32 noundef %k.2336, i32 noundef %c.026.i182, i32 noundef %j.2330, i32 noundef %e.059.i176, i32 noundef %i.2324) #15
+  %203 = load ptr, ptr %c1, align 8
+  %short_side_len.i190 = getelementptr inbounds i8, ptr %203, i64 4
+  %204 = load i32, ptr %short_side_len.i190, align 4
+  %mul.i191 = shl nsw i32 %204, 1
   %add.i192 = add i32 %xpos.addr.618.i189, 3
   %add20.i193 = add i32 %add.i192, %mul.i191
   %inc.i194 = add nuw nsw i32 %a.019.i188, 1
@@ -1025,89 +1025,89 @@ for.cond10.for.inc27_crit_edge.split.split.i202:  ; preds = %for.cond16.for.inc2
 
 for.cond4.for.inc33_crit_edge.split.split.split.split.i208: ; preds = %for.cond10.for.inc27_crit_edge.split.split.i202
   %inc37.i212 = add nuw nsw i32 %v.0123.i170, 1
-  %exitcond160.not.i213 = icmp eq i32 %inc37.i212, %204
+  %exitcond160.not.i213 = icmp eq i32 %inc37.i212, %201
   br i1 %exitcond160.not.i213, label %stbhw__process_h_row.exit214.loopexit, label %for.cond1.preheader.i169, !llvm.loop !11
 
 stbhw__process_h_row.exit214.loopexit:            ; preds = %for.cond4.for.inc33_crit_edge.split.split.split.split.i208
-  %.pre389 = load i32, ptr %short_side_len110, align 4
-  %.pre390 = load i32, ptr %num_vary_y97, align 4
+  %.pre392 = load i32, ptr %short_side_len110, align 4
+  %.pre393 = load i32, ptr %num_vary_y97, align 4
   br label %stbhw__process_h_row.exit214
 
 stbhw__process_h_row.exit214:                     ; preds = %stbhw__process_h_row.exit214.loopexit, %for.body99, %for.cond1.preheader.lr.ph.i161
-  %208 = phi i32 [ %.pre390, %stbhw__process_h_row.exit214.loopexit ], [ %199, %for.body99 ], [ %199, %for.cond1.preheader.lr.ph.i161 ]
-  %209 = phi i32 [ %.pre389, %stbhw__process_h_row.exit214.loopexit ], [ %200, %for.body99 ], [ %200, %for.cond1.preheader.lr.ph.i161 ]
-  %add111 = add i32 %ypos.11318, 3
-  %add112 = add i32 %add111, %209
-  %inc114 = add nuw nsw i32 %q.2317, 1
-  %cmp98 = icmp slt i32 %inc114, %208
+  %205 = phi i32 [ %.pre393, %stbhw__process_h_row.exit214.loopexit ], [ %196, %for.body99 ], [ %196, %for.cond1.preheader.lr.ph.i161 ]
+  %206 = phi i32 [ %.pre392, %stbhw__process_h_row.exit214.loopexit ], [ %197, %for.body99 ], [ %197, %for.cond1.preheader.lr.ph.i161 ]
+  %add111 = add i32 %ypos.11319, 3
+  %add112 = add i32 %add111, %206
+  %inc114 = add nuw nsw i32 %q.2318, 1
+  %cmp98 = icmp slt i32 %inc114, %205
   br i1 %cmp98, label %for.body99, label %for.inc116.loopexit, !llvm.loop !28
 
 for.inc116.loopexit:                              ; preds = %stbhw__process_h_row.exit214
-  %.pre391 = load i32, ptr %arrayidx93, align 4
+  %.pre394 = load i32, ptr %arrayidx93, align 4
   br label %for.inc116
 
 for.inc116:                                       ; preds = %for.body99.lr.ph.split.us, %for.inc116.loopexit, %for.cond96.preheader
-  %210 = phi i32 [ %185, %for.cond96.preheader ], [ %.pre391, %for.inc116.loopexit ], [ %185, %for.body99.lr.ph.split.us ]
-  %211 = phi i32 [ %186, %for.cond96.preheader ], [ %208, %for.inc116.loopexit ], [ %186, %for.body99.lr.ph.split.us ]
-  %212 = phi i32 [ %187, %for.cond96.preheader ], [ %209, %for.inc116.loopexit ], [ %187, %for.body99.lr.ph.split.us ]
-  %213 = phi i32 [ %188, %for.cond96.preheader ], [ %208, %for.inc116.loopexit ], [ %188, %for.body99.lr.ph.split.us ]
-  %214 = phi i32 [ %189, %for.cond96.preheader ], [ %209, %for.inc116.loopexit ], [ %189, %for.body99.lr.ph.split.us ]
-  %215 = phi i32 [ %190, %for.cond96.preheader ], [ %208, %for.inc116.loopexit ], [ %188, %for.body99.lr.ph.split.us ]
-  %ypos.11.lcssa = phi i32 [ %ypos.10324, %for.cond96.preheader ], [ %add112, %for.inc116.loopexit ], [ %198, %for.body99.lr.ph.split.us ]
-  %inc117 = add nuw nsw i32 %i.2322, 1
-  %cmp94 = icmp slt i32 %inc117, %210
+  %207 = phi i32 [ %183, %for.cond96.preheader ], [ %.pre394, %for.inc116.loopexit ], [ %183, %for.body99.lr.ph.split.us ]
+  %208 = phi i32 [ %184, %for.cond96.preheader ], [ %205, %for.inc116.loopexit ], [ %184, %for.body99.lr.ph.split.us ]
+  %209 = phi i32 [ %185, %for.cond96.preheader ], [ %206, %for.inc116.loopexit ], [ %185, %for.body99.lr.ph.split.us ]
+  %210 = phi i32 [ %186, %for.cond96.preheader ], [ %205, %for.inc116.loopexit ], [ %186, %for.body99.lr.ph.split.us ]
+  %211 = phi i32 [ %187, %for.cond96.preheader ], [ %206, %for.inc116.loopexit ], [ %187, %for.body99.lr.ph.split.us ]
+  %212 = phi i32 [ %188, %for.cond96.preheader ], [ %205, %for.inc116.loopexit ], [ %186, %for.body99.lr.ph.split.us ]
+  %ypos.11.lcssa = phi i32 [ %ypos.10326, %for.cond96.preheader ], [ %add112, %for.inc116.loopexit ], [ %195, %for.body99.lr.ph.split.us ]
+  %inc117 = add nuw nsw i32 %i.2324, 1
+  %cmp94 = icmp slt i32 %inc117, %207
   br i1 %cmp94, label %for.cond96.preheader, label %for.inc119.loopexit, !llvm.loop !29
 
 for.inc119.loopexit:                              ; preds = %for.inc116
-  %.pre392 = load i32, ptr %arrayidx88, align 4
+  %.pre395 = load i32, ptr %arrayidx88, align 4
   br label %for.inc119
 
 for.inc119:                                       ; preds = %for.inc119.loopexit, %for.cond91.preheader
-  %216 = phi i32 [ %175, %for.cond91.preheader ], [ %.pre392, %for.inc119.loopexit ]
-  %217 = phi i32 [ %176, %for.cond91.preheader ], [ %210, %for.inc119.loopexit ]
-  %218 = phi i32 [ %177, %for.cond91.preheader ], [ %211, %for.inc119.loopexit ]
-  %219 = phi i32 [ %178, %for.cond91.preheader ], [ %212, %for.inc119.loopexit ]
-  %220 = phi i32 [ %179, %for.cond91.preheader ], [ %213, %for.inc119.loopexit ]
-  %221 = phi i32 [ %180, %for.cond91.preheader ], [ %214, %for.inc119.loopexit ]
-  %222 = phi i32 [ %181, %for.cond91.preheader ], [ %215, %for.inc119.loopexit ]
-  %223 = phi i32 [ %182, %for.cond91.preheader ], [ %215, %for.inc119.loopexit ]
-  %224 = phi i32 [ %183, %for.cond91.preheader ], [ %210, %for.inc119.loopexit ]
-  %ypos.10.lcssa = phi i32 [ %ypos.9330, %for.cond91.preheader ], [ %ypos.11.lcssa, %for.inc119.loopexit ]
-  %inc120 = add nuw nsw i32 %j.2328, 1
-  %cmp89 = icmp slt i32 %inc120, %216
+  %213 = phi i32 [ %173, %for.cond91.preheader ], [ %.pre395, %for.inc119.loopexit ]
+  %214 = phi i32 [ %174, %for.cond91.preheader ], [ %207, %for.inc119.loopexit ]
+  %215 = phi i32 [ %175, %for.cond91.preheader ], [ %208, %for.inc119.loopexit ]
+  %216 = phi i32 [ %176, %for.cond91.preheader ], [ %209, %for.inc119.loopexit ]
+  %217 = phi i32 [ %177, %for.cond91.preheader ], [ %210, %for.inc119.loopexit ]
+  %218 = phi i32 [ %178, %for.cond91.preheader ], [ %211, %for.inc119.loopexit ]
+  %219 = phi i32 [ %179, %for.cond91.preheader ], [ %212, %for.inc119.loopexit ]
+  %220 = phi i32 [ %180, %for.cond91.preheader ], [ %212, %for.inc119.loopexit ]
+  %221 = phi i32 [ %181, %for.cond91.preheader ], [ %207, %for.inc119.loopexit ]
+  %ypos.10.lcssa = phi i32 [ %ypos.9332, %for.cond91.preheader ], [ %ypos.11.lcssa, %for.inc119.loopexit ]
+  %inc120 = add nuw nsw i32 %j.2330, 1
+  %cmp89 = icmp slt i32 %inc120, %213
   br i1 %cmp89, label %for.cond91.preheader, label %for.inc122.loopexit, !llvm.loop !30
 
 for.inc122.loopexit:                              ; preds = %for.inc119
-  %.pre393 = load i32, ptr %arrayidx83, align 4
+  %.pre396 = load i32, ptr %arrayidx83, align 4
   br label %for.inc122
 
 for.inc122:                                       ; preds = %for.inc122.loopexit, %for.cond86.preheader
-  %225 = phi i32 [ %162, %for.cond86.preheader ], [ %.pre393, %for.inc122.loopexit ]
-  %226 = phi i32 [ %163, %for.cond86.preheader ], [ %216, %for.inc122.loopexit ]
-  %227 = phi i32 [ %164, %for.cond86.preheader ], [ %217, %for.inc122.loopexit ]
-  %228 = phi i32 [ %165, %for.cond86.preheader ], [ %218, %for.inc122.loopexit ]
-  %229 = phi i32 [ %166, %for.cond86.preheader ], [ %219, %for.inc122.loopexit ]
-  %230 = phi i32 [ %167, %for.cond86.preheader ], [ %220, %for.inc122.loopexit ]
-  %231 = phi i32 [ %168, %for.cond86.preheader ], [ %221, %for.inc122.loopexit ]
-  %232 = phi i32 [ %169, %for.cond86.preheader ], [ %222, %for.inc122.loopexit ]
-  %233 = phi i32 [ %170, %for.cond86.preheader ], [ %223, %for.inc122.loopexit ]
-  %234 = phi i32 [ %171, %for.cond86.preheader ], [ %224, %for.inc122.loopexit ]
-  %235 = phi i32 [ %172, %for.cond86.preheader ], [ %224, %for.inc122.loopexit ]
-  %236 = phi i32 [ %173, %for.cond86.preheader ], [ %216, %for.inc122.loopexit ]
-  %ypos.9.lcssa = phi i32 [ %ypos.8336, %for.cond86.preheader ], [ %ypos.10.lcssa, %for.inc122.loopexit ]
-  %inc123 = add nuw nsw i32 %k.2334, 1
-  %cmp84 = icmp slt i32 %inc123, %225
+  %222 = phi i32 [ %160, %for.cond86.preheader ], [ %.pre396, %for.inc122.loopexit ]
+  %223 = phi i32 [ %161, %for.cond86.preheader ], [ %213, %for.inc122.loopexit ]
+  %224 = phi i32 [ %162, %for.cond86.preheader ], [ %214, %for.inc122.loopexit ]
+  %225 = phi i32 [ %163, %for.cond86.preheader ], [ %215, %for.inc122.loopexit ]
+  %226 = phi i32 [ %164, %for.cond86.preheader ], [ %216, %for.inc122.loopexit ]
+  %227 = phi i32 [ %165, %for.cond86.preheader ], [ %217, %for.inc122.loopexit ]
+  %228 = phi i32 [ %166, %for.cond86.preheader ], [ %218, %for.inc122.loopexit ]
+  %229 = phi i32 [ %167, %for.cond86.preheader ], [ %219, %for.inc122.loopexit ]
+  %230 = phi i32 [ %168, %for.cond86.preheader ], [ %220, %for.inc122.loopexit ]
+  %231 = phi i32 [ %169, %for.cond86.preheader ], [ %221, %for.inc122.loopexit ]
+  %232 = phi i32 [ %170, %for.cond86.preheader ], [ %221, %for.inc122.loopexit ]
+  %233 = phi i32 [ %171, %for.cond86.preheader ], [ %213, %for.inc122.loopexit ]
+  %ypos.9.lcssa = phi i32 [ %ypos.8338, %for.cond86.preheader ], [ %ypos.10.lcssa, %for.inc122.loopexit ]
+  %inc123 = add nuw nsw i32 %k.2336, 1
+  %cmp84 = icmp slt i32 %inc123, %222
   br i1 %cmp84, label %for.cond86.preheader, label %for.end124, !llvm.loop !31
 
 for.end124:                                       ; preds = %for.inc122
-  %237 = add nsw i32 %ypos.9.lcssa, 2
-  %cmp129356 = icmp sgt i32 %225, 0
-  br i1 %cmp129356, label %for.cond131.preheader.lr.ph, label %return
+  %234 = add nsw i32 %ypos.9.lcssa, 2
+  %cmp129359 = icmp sgt i32 %222, 0
+  br i1 %cmp129359, label %for.cond131.preheader.lr.ph, label %return
 
 for.cond131.preheader.lr.ph:                      ; preds = %for.cond86.preheader.lr.ph, %for.end124
-  %ypos.8.lcssa401 = phi i32 [ %237, %for.end124 ], [ 4, %for.cond86.preheader.lr.ph ]
-  %238 = phi i32 [ %225, %for.end124 ], [ %13, %for.cond86.preheader.lr.ph ]
-  %239 = phi i32 [ %229, %for.end124 ], [ %16, %for.cond86.preheader.lr.ph ]
+  %ypos.8.lcssa404 = phi i32 [ %234, %for.end124 ], [ 4, %for.cond86.preheader.lr.ph ]
+  %235 = phi i32 [ %222, %for.end124 ], [ %13, %for.cond86.preheader.lr.ph ]
+  %236 = phi i32 [ %226, %for.end124 ], [ %16, %for.cond86.preheader.lr.ph ]
   %arrayidx133 = getelementptr inbounds i8, ptr %0, i64 24
   %arrayidx138 = getelementptr inbounds i8, ptr %0, i64 28
   %num_vary_x142 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1115,89 +1115,89 @@ for.cond131.preheader.lr.ph:                      ; preds = %for.cond86.preheade
   %num_vary_y154 = getelementptr inbounds i8, ptr %0, i64 36
   %process_v_rect.i220 = getelementptr inbounds i8, ptr %p, i64 24
   %short_side_len155 = getelementptr inbounds i8, ptr %0, i64 4
-  %240 = load i32, ptr %arrayidx133, align 4
-  %241 = icmp sgt i32 %240, 0
-  br i1 %241, label %for.cond131.preheader, label %return
+  %237 = load i32, ptr %arrayidx133, align 4
+  %238 = icmp sgt i32 %237, 0
+  br i1 %238, label %for.cond131.preheader, label %return
 
 for.cond131.preheader:                            ; preds = %for.cond131.preheader.lr.ph, %for.inc168
-  %242 = phi i32 [ %292, %for.inc168 ], [ %238, %for.cond131.preheader.lr.ph ]
-  %243 = phi i32 [ %293, %for.inc168 ], [ %240, %for.cond131.preheader.lr.ph ]
-  %244 = phi i32 [ %294, %for.inc168 ], [ %239, %for.cond131.preheader.lr.ph ]
-  %245 = phi i32 [ %295, %for.inc168 ], [ %239, %for.cond131.preheader.lr.ph ]
-  %246 = phi i32 [ %296, %for.inc168 ], [ %240, %for.cond131.preheader.lr.ph ]
-  %ypos.12359 = phi i32 [ %ypos.13.lcssa, %for.inc168 ], [ %ypos.8.lcssa401, %for.cond131.preheader.lr.ph ]
-  %k.3357 = phi i32 [ %inc169, %for.inc168 ], [ 0, %for.cond131.preheader.lr.ph ]
-  %cmp134350 = icmp sgt i32 %246, 0
-  br i1 %cmp134350, label %for.cond136.preheader.lr.ph, label %for.inc168
+  %239 = phi i32 [ %288, %for.inc168 ], [ %235, %for.cond131.preheader.lr.ph ]
+  %240 = phi i32 [ %289, %for.inc168 ], [ %237, %for.cond131.preheader.lr.ph ]
+  %241 = phi i32 [ %290, %for.inc168 ], [ %236, %for.cond131.preheader.lr.ph ]
+  %242 = phi i32 [ %291, %for.inc168 ], [ %236, %for.cond131.preheader.lr.ph ]
+  %243 = phi i32 [ %292, %for.inc168 ], [ %237, %for.cond131.preheader.lr.ph ]
+  %ypos.12362 = phi i32 [ %ypos.13.lcssa, %for.inc168 ], [ %ypos.8.lcssa404, %for.cond131.preheader.lr.ph ]
+  %k.3360 = phi i32 [ %inc169, %for.inc168 ], [ 0, %for.cond131.preheader.lr.ph ]
+  %cmp134353 = icmp sgt i32 %243, 0
+  br i1 %cmp134353, label %for.cond136.preheader.lr.ph, label %for.inc168
 
 for.cond136.preheader.lr.ph:                      ; preds = %for.cond131.preheader
-  %247 = load i32, ptr %arrayidx138, align 4
-  %248 = icmp sgt i32 %247, 0
-  br i1 %248, label %for.cond136.preheader, label %for.inc168
+  %244 = load i32, ptr %arrayidx138, align 4
+  %245 = icmp sgt i32 %244, 0
+  br i1 %245, label %for.cond136.preheader, label %for.inc168
 
 for.cond136.preheader:                            ; preds = %for.cond136.preheader.lr.ph, %for.inc165
-  %249 = phi i32 [ %287, %for.inc165 ], [ %243, %for.cond136.preheader.lr.ph ]
-  %250 = phi i32 [ %288, %for.inc165 ], [ %247, %for.cond136.preheader.lr.ph ]
-  %251 = phi i32 [ %289, %for.inc165 ], [ %244, %for.cond136.preheader.lr.ph ]
-  %252 = phi i32 [ %290, %for.inc165 ], [ %245, %for.cond136.preheader.lr.ph ]
-  %253 = phi i32 [ %291, %for.inc165 ], [ %247, %for.cond136.preheader.lr.ph ]
-  %ypos.13353 = phi i32 [ %ypos.14.lcssa, %for.inc165 ], [ %ypos.12359, %for.cond136.preheader.lr.ph ]
-  %j.3351 = phi i32 [ %inc166, %for.inc165 ], [ 0, %for.cond136.preheader.lr.ph ]
-  %cmp139344 = icmp sgt i32 %253, 0
-  br i1 %cmp139344, label %for.cond141.preheader.lr.ph, label %for.inc165
+  %246 = phi i32 [ %283, %for.inc165 ], [ %240, %for.cond136.preheader.lr.ph ]
+  %247 = phi i32 [ %284, %for.inc165 ], [ %244, %for.cond136.preheader.lr.ph ]
+  %248 = phi i32 [ %285, %for.inc165 ], [ %241, %for.cond136.preheader.lr.ph ]
+  %249 = phi i32 [ %286, %for.inc165 ], [ %242, %for.cond136.preheader.lr.ph ]
+  %250 = phi i32 [ %287, %for.inc165 ], [ %244, %for.cond136.preheader.lr.ph ]
+  %ypos.13356 = phi i32 [ %ypos.14.lcssa, %for.inc165 ], [ %ypos.12362, %for.cond136.preheader.lr.ph ]
+  %j.3354 = phi i32 [ %inc166, %for.inc165 ], [ 0, %for.cond136.preheader.lr.ph ]
+  %cmp139347 = icmp sgt i32 %250, 0
+  br i1 %cmp139347, label %for.cond141.preheader.lr.ph, label %for.inc165
 
 for.cond141.preheader.lr.ph:                      ; preds = %for.cond136.preheader
-  %254 = load i32, ptr %num_vary_x142, align 4
-  %255 = icmp sgt i32 %254, 0
-  br i1 %255, label %for.cond141.preheader, label %for.inc165
+  %251 = load i32, ptr %num_vary_x142, align 4
+  %252 = icmp sgt i32 %251, 0
+  br i1 %252, label %for.cond141.preheader, label %for.inc165
 
 for.cond141.preheader:                            ; preds = %for.cond141.preheader.lr.ph, %for.inc162
-  %256 = phi i32 [ %281, %for.inc162 ], [ %250, %for.cond141.preheader.lr.ph ]
-  %257 = phi i32 [ %282, %for.inc162 ], [ %254, %for.cond141.preheader.lr.ph ]
-  %258 = phi i32 [ %283, %for.inc162 ], [ %251, %for.cond141.preheader.lr.ph ]
-  %259 = phi i32 [ %284, %for.inc162 ], [ %254, %for.cond141.preheader.lr.ph ]
-  %260 = phi i32 [ %285, %for.inc162 ], [ %252, %for.cond141.preheader.lr.ph ]
-  %261 = phi i32 [ %286, %for.inc162 ], [ %254, %for.cond141.preheader.lr.ph ]
-  %ypos.14347 = phi i32 [ %ypos.15.lcssa, %for.inc162 ], [ %ypos.13353, %for.cond141.preheader.lr.ph ]
-  %i.3345 = phi i32 [ %inc163, %for.inc162 ], [ 0, %for.cond141.preheader.lr.ph ]
-  %cmp143339 = icmp sgt i32 %261, 0
-  br i1 %cmp143339, label %for.body144.lr.ph, label %for.inc162
+  %253 = phi i32 [ %277, %for.inc162 ], [ %247, %for.cond141.preheader.lr.ph ]
+  %254 = phi i32 [ %278, %for.inc162 ], [ %251, %for.cond141.preheader.lr.ph ]
+  %255 = phi i32 [ %279, %for.inc162 ], [ %248, %for.cond141.preheader.lr.ph ]
+  %256 = phi i32 [ %280, %for.inc162 ], [ %251, %for.cond141.preheader.lr.ph ]
+  %257 = phi i32 [ %281, %for.inc162 ], [ %249, %for.cond141.preheader.lr.ph ]
+  %258 = phi i32 [ %282, %for.inc162 ], [ %251, %for.cond141.preheader.lr.ph ]
+  %ypos.14350 = phi i32 [ %ypos.15.lcssa, %for.inc162 ], [ %ypos.13356, %for.cond141.preheader.lr.ph ]
+  %i.3348 = phi i32 [ %inc163, %for.inc162 ], [ 0, %for.cond141.preheader.lr.ph ]
+  %cmp143341 = icmp sgt i32 %258, 0
+  br i1 %cmp143341, label %for.body144.lr.ph, label %for.inc162
 
 for.body144.lr.ph:                                ; preds = %for.cond141.preheader
-  %262 = load i32, ptr %num_vary_y154, align 4
-  %263 = icmp sgt i32 %262, 0
-  br i1 %263, label %for.body144, label %for.body144.lr.ph.split.us
+  %259 = load i32, ptr %num_vary_y154, align 4
+  %260 = icmp sgt i32 %259, 0
+  br i1 %260, label %for.body144, label %for.body144.lr.ph.split.us
 
 for.body144.lr.ph.split.us:                       ; preds = %for.body144.lr.ph
-  %mul156.us = shl i32 %260, 1
-  %264 = add i32 %ypos.14347, 3
-  %smax379 = tail call i32 @llvm.smax.i32(i32 %259, i32 1)
-  %265 = add nsw i32 %smax379, -1
-  %266 = add i32 %mul156.us, 3
-  %267 = mul i32 %265, %266
-  %268 = add i32 %264, %267
-  %269 = add i32 %268, %mul156.us
+  %mul156.us = shl i32 %257, 1
+  %invariant.op346 = add i32 %mul156.us, 3
+  %261 = add i32 %ypos.14350, 3
+  %smax382 = tail call i32 @llvm.smax.i32(i32 %256, i32 1)
+  %262 = add nsw i32 %smax382, -1
+  %263 = mul i32 %262, %invariant.op346
+  %264 = add i32 %261, %263
+  %265 = add i32 %264, %mul156.us
   br label %for.inc162
 
 for.body144:                                      ; preds = %for.body144.lr.ph, %stbhw__process_v_row.exit270
-  %270 = phi i32 [ %279, %stbhw__process_v_row.exit270 ], [ %257, %for.body144.lr.ph ]
-  %271 = phi i32 [ %280, %stbhw__process_v_row.exit270 ], [ %258, %for.body144.lr.ph ]
-  %ypos.15341 = phi i32 [ %add158, %stbhw__process_v_row.exit270 ], [ %ypos.14347, %for.body144.lr.ph ]
-  %q.3340 = phi i32 [ %inc160, %stbhw__process_v_row.exit270 ], [ 0, %for.body144.lr.ph ]
-  %272 = load i32, ptr %num_color54.i, align 4
-  %sub147 = add nsw i32 %272, -1
-  %273 = load i32, ptr %arrayidx149, align 4
-  %sub150 = add nsw i32 %273, -1
-  %274 = load i32, ptr %arrayidx138, align 4
-  %sub153 = add nsw i32 %274, -1
-  %275 = load i32, ptr %num_vary_y154, align 4
-  %cmp121.i215 = icmp sgt i32 %275, 0
+  %266 = phi i32 [ %275, %stbhw__process_v_row.exit270 ], [ %254, %for.body144.lr.ph ]
+  %267 = phi i32 [ %276, %stbhw__process_v_row.exit270 ], [ %255, %for.body144.lr.ph ]
+  %ypos.15343 = phi i32 [ %add158, %stbhw__process_v_row.exit270 ], [ %ypos.14350, %for.body144.lr.ph ]
+  %q.3342 = phi i32 [ %inc160, %stbhw__process_v_row.exit270 ], [ 0, %for.body144.lr.ph ]
+  %268 = load i32, ptr %num_color54.i, align 4
+  %sub147 = add nsw i32 %268, -1
+  %269 = load i32, ptr %arrayidx149, align 4
+  %sub150 = add nsw i32 %269, -1
+  %270 = load i32, ptr %arrayidx138, align 4
+  %sub153 = add nsw i32 %270, -1
+  %271 = load i32, ptr %num_vary_y154, align 4
+  %cmp121.i215 = icmp sgt i32 %271, 0
   br i1 %cmp121.i215, label %for.cond1.preheader.lr.ph.i216, label %stbhw__process_v_row.exit270
 
 for.cond1.preheader.lr.ph.i216:                   ; preds = %for.body144
-  %cmp11.not24.i217 = icmp slt i32 %273, 1
-  %cmp17.not17.i219 = icmp slt i32 %272, 1
-  %cmp5.not57.i222 = icmp slt i32 %274, 1
+  %cmp11.not24.i217 = icmp slt i32 %269, 1
+  %cmp17.not17.i219 = icmp slt i32 %268, 1
+  %cmp5.not57.i222 = icmp slt i32 %270, 1
   %brmerge161.i223 = or i1 %cmp11.not24.i217, %cmp5.not57.i222
   %brmerge163.i225 = or i1 %cmp17.not17.i219, %brmerge161.i223
   br i1 %brmerge163.i225, label %stbhw__process_v_row.exit270, label %for.cond1.preheader.i226
@@ -1220,13 +1220,13 @@ for.cond13.preheader.i238:                        ; preds = %for.cond16.for.inc2
 for.body18.i244:                                  ; preds = %for.body18.i244, %for.cond13.preheader.i238
   %a.019.i245 = phi i32 [ 0, %for.cond13.preheader.i238 ], [ %inc.i250, %for.body18.i244 ]
   %xpos.addr.618.i246 = phi i32 [ %xpos.addr.425.i240, %for.cond13.preheader.i238 ], [ %add20.i249, %for.body18.i244 ]
-  %276 = load ptr, ptr %process_v_rect.i220, align 8
-  tail call void %276(ptr noundef %p, i32 noundef %xpos.addr.618.i246, i32 noundef %ypos.15341, i32 noundef %a.019.i245, i32 noundef %i.3345, i32 noundef %c.026.i239, i32 noundef %j.3351, i32 noundef %e.059.i233, i32 noundef %k.3357) #15
-  %277 = load ptr, ptr %c1, align 8
-  %short_side_len.i247 = getelementptr inbounds i8, ptr %277, i64 4
-  %278 = load i32, ptr %short_side_len.i247, align 4
+  %272 = load ptr, ptr %process_v_rect.i220, align 8
+  tail call void %272(ptr noundef %p, i32 noundef %xpos.addr.618.i246, i32 noundef %ypos.15343, i32 noundef %a.019.i245, i32 noundef %i.3348, i32 noundef %c.026.i239, i32 noundef %j.3354, i32 noundef %e.059.i233, i32 noundef %k.3360) #15
+  %273 = load ptr, ptr %c1, align 8
+  %short_side_len.i247 = getelementptr inbounds i8, ptr %273, i64 4
+  %274 = load i32, ptr %short_side_len.i247, align 4
   %add.i248 = add i32 %xpos.addr.618.i246, 3
-  %add20.i249 = add i32 %add.i248, %278
+  %add20.i249 = add i32 %add.i248, %274
   %inc.i250 = add nuw nsw i32 %a.019.i245, 1
   %exitcond.not.i251 = icmp eq i32 %a.019.i245, %sub147
   br i1 %exitcond.not.i251, label %for.cond16.for.inc21_crit_edge.i252, label %for.body18.i244, !llvm.loop !12
@@ -1243,68 +1243,68 @@ for.cond10.for.inc27_crit_edge.split.split.i258:  ; preds = %for.cond16.for.inc2
 
 for.cond4.for.inc33_crit_edge.split.split.split.split.i264: ; preds = %for.cond10.for.inc27_crit_edge.split.split.i258
   %inc37.i268 = add nuw nsw i32 %v.0123.i227, 1
-  %exitcond160.not.i269 = icmp eq i32 %inc37.i268, %275
+  %exitcond160.not.i269 = icmp eq i32 %inc37.i268, %271
   br i1 %exitcond160.not.i269, label %stbhw__process_v_row.exit270.loopexit, label %for.cond1.preheader.i226, !llvm.loop !18
 
 stbhw__process_v_row.exit270.loopexit:            ; preds = %for.cond4.for.inc33_crit_edge.split.split.split.split.i264
-  %.pre394 = load i32, ptr %short_side_len155, align 4
-  %.pre395 = load i32, ptr %num_vary_x142, align 4
+  %.pre397 = load i32, ptr %short_side_len155, align 4
+  %.pre398 = load i32, ptr %num_vary_x142, align 4
   br label %stbhw__process_v_row.exit270
 
 stbhw__process_v_row.exit270:                     ; preds = %stbhw__process_v_row.exit270.loopexit, %for.body144, %for.cond1.preheader.lr.ph.i216
-  %279 = phi i32 [ %.pre395, %stbhw__process_v_row.exit270.loopexit ], [ %270, %for.body144 ], [ %270, %for.cond1.preheader.lr.ph.i216 ]
-  %280 = phi i32 [ %.pre394, %stbhw__process_v_row.exit270.loopexit ], [ %271, %for.body144 ], [ %271, %for.cond1.preheader.lr.ph.i216 ]
-  %mul156 = shl nsw i32 %280, 1
-  %add157 = add i32 %ypos.15341, 3
+  %275 = phi i32 [ %.pre398, %stbhw__process_v_row.exit270.loopexit ], [ %266, %for.body144 ], [ %266, %for.cond1.preheader.lr.ph.i216 ]
+  %276 = phi i32 [ %.pre397, %stbhw__process_v_row.exit270.loopexit ], [ %267, %for.body144 ], [ %267, %for.cond1.preheader.lr.ph.i216 ]
+  %mul156 = shl nsw i32 %276, 1
+  %add157 = add i32 %ypos.15343, 3
   %add158 = add i32 %add157, %mul156
-  %inc160 = add nuw nsw i32 %q.3340, 1
-  %cmp143 = icmp slt i32 %inc160, %279
+  %inc160 = add nuw nsw i32 %q.3342, 1
+  %cmp143 = icmp slt i32 %inc160, %275
   br i1 %cmp143, label %for.body144, label %for.inc162.loopexit, !llvm.loop !32
 
 for.inc162.loopexit:                              ; preds = %stbhw__process_v_row.exit270
-  %.pre396 = load i32, ptr %arrayidx138, align 4
+  %.pre399 = load i32, ptr %arrayidx138, align 4
   br label %for.inc162
 
 for.inc162:                                       ; preds = %for.body144.lr.ph.split.us, %for.inc162.loopexit, %for.cond141.preheader
-  %281 = phi i32 [ %256, %for.cond141.preheader ], [ %.pre396, %for.inc162.loopexit ], [ %256, %for.body144.lr.ph.split.us ]
-  %282 = phi i32 [ %257, %for.cond141.preheader ], [ %279, %for.inc162.loopexit ], [ %257, %for.body144.lr.ph.split.us ]
-  %283 = phi i32 [ %258, %for.cond141.preheader ], [ %280, %for.inc162.loopexit ], [ %258, %for.body144.lr.ph.split.us ]
-  %284 = phi i32 [ %259, %for.cond141.preheader ], [ %279, %for.inc162.loopexit ], [ %259, %for.body144.lr.ph.split.us ]
-  %285 = phi i32 [ %260, %for.cond141.preheader ], [ %280, %for.inc162.loopexit ], [ %260, %for.body144.lr.ph.split.us ]
-  %286 = phi i32 [ %261, %for.cond141.preheader ], [ %279, %for.inc162.loopexit ], [ %259, %for.body144.lr.ph.split.us ]
-  %ypos.15.lcssa = phi i32 [ %ypos.14347, %for.cond141.preheader ], [ %add158, %for.inc162.loopexit ], [ %269, %for.body144.lr.ph.split.us ]
-  %inc163 = add nuw nsw i32 %i.3345, 1
-  %cmp139 = icmp slt i32 %inc163, %281
+  %277 = phi i32 [ %253, %for.cond141.preheader ], [ %.pre399, %for.inc162.loopexit ], [ %253, %for.body144.lr.ph.split.us ]
+  %278 = phi i32 [ %254, %for.cond141.preheader ], [ %275, %for.inc162.loopexit ], [ %254, %for.body144.lr.ph.split.us ]
+  %279 = phi i32 [ %255, %for.cond141.preheader ], [ %276, %for.inc162.loopexit ], [ %255, %for.body144.lr.ph.split.us ]
+  %280 = phi i32 [ %256, %for.cond141.preheader ], [ %275, %for.inc162.loopexit ], [ %256, %for.body144.lr.ph.split.us ]
+  %281 = phi i32 [ %257, %for.cond141.preheader ], [ %276, %for.inc162.loopexit ], [ %257, %for.body144.lr.ph.split.us ]
+  %282 = phi i32 [ %258, %for.cond141.preheader ], [ %275, %for.inc162.loopexit ], [ %256, %for.body144.lr.ph.split.us ]
+  %ypos.15.lcssa = phi i32 [ %ypos.14350, %for.cond141.preheader ], [ %add158, %for.inc162.loopexit ], [ %265, %for.body144.lr.ph.split.us ]
+  %inc163 = add nuw nsw i32 %i.3348, 1
+  %cmp139 = icmp slt i32 %inc163, %277
   br i1 %cmp139, label %for.cond141.preheader, label %for.inc165.loopexit, !llvm.loop !33
 
 for.inc165.loopexit:                              ; preds = %for.inc162
-  %.pre397 = load i32, ptr %arrayidx133, align 4
+  %.pre400 = load i32, ptr %arrayidx133, align 4
   br label %for.inc165
 
 for.inc165:                                       ; preds = %for.cond141.preheader.lr.ph, %for.inc165.loopexit, %for.cond136.preheader
-  %287 = phi i32 [ %249, %for.cond136.preheader ], [ %.pre397, %for.inc165.loopexit ], [ %249, %for.cond141.preheader.lr.ph ]
-  %288 = phi i32 [ %250, %for.cond136.preheader ], [ %281, %for.inc165.loopexit ], [ %250, %for.cond141.preheader.lr.ph ]
-  %289 = phi i32 [ %251, %for.cond136.preheader ], [ %283, %for.inc165.loopexit ], [ %251, %for.cond141.preheader.lr.ph ]
-  %290 = phi i32 [ %252, %for.cond136.preheader ], [ %285, %for.inc165.loopexit ], [ %252, %for.cond141.preheader.lr.ph ]
-  %291 = phi i32 [ %253, %for.cond136.preheader ], [ %281, %for.inc165.loopexit ], [ %253, %for.cond141.preheader.lr.ph ]
-  %ypos.14.lcssa = phi i32 [ %ypos.13353, %for.cond136.preheader ], [ %ypos.15.lcssa, %for.inc165.loopexit ], [ %ypos.13353, %for.cond141.preheader.lr.ph ]
-  %inc166 = add nuw nsw i32 %j.3351, 1
-  %cmp134 = icmp slt i32 %inc166, %287
+  %283 = phi i32 [ %246, %for.cond136.preheader ], [ %.pre400, %for.inc165.loopexit ], [ %246, %for.cond141.preheader.lr.ph ]
+  %284 = phi i32 [ %247, %for.cond136.preheader ], [ %277, %for.inc165.loopexit ], [ %247, %for.cond141.preheader.lr.ph ]
+  %285 = phi i32 [ %248, %for.cond136.preheader ], [ %279, %for.inc165.loopexit ], [ %248, %for.cond141.preheader.lr.ph ]
+  %286 = phi i32 [ %249, %for.cond136.preheader ], [ %281, %for.inc165.loopexit ], [ %249, %for.cond141.preheader.lr.ph ]
+  %287 = phi i32 [ %250, %for.cond136.preheader ], [ %277, %for.inc165.loopexit ], [ %250, %for.cond141.preheader.lr.ph ]
+  %ypos.14.lcssa = phi i32 [ %ypos.13356, %for.cond136.preheader ], [ %ypos.15.lcssa, %for.inc165.loopexit ], [ %ypos.13356, %for.cond141.preheader.lr.ph ]
+  %inc166 = add nuw nsw i32 %j.3354, 1
+  %cmp134 = icmp slt i32 %inc166, %283
   br i1 %cmp134, label %for.cond136.preheader, label %for.inc168.loopexit, !llvm.loop !34
 
 for.inc168.loopexit:                              ; preds = %for.inc165
-  %.pre398 = load i32, ptr %arrayidx83, align 4
+  %.pre401 = load i32, ptr %arrayidx83, align 4
   br label %for.inc168
 
 for.inc168:                                       ; preds = %for.cond136.preheader.lr.ph, %for.inc168.loopexit, %for.cond131.preheader
-  %292 = phi i32 [ %242, %for.cond131.preheader ], [ %.pre398, %for.inc168.loopexit ], [ %242, %for.cond136.preheader.lr.ph ]
-  %293 = phi i32 [ %243, %for.cond131.preheader ], [ %287, %for.inc168.loopexit ], [ %243, %for.cond136.preheader.lr.ph ]
-  %294 = phi i32 [ %244, %for.cond131.preheader ], [ %289, %for.inc168.loopexit ], [ %244, %for.cond136.preheader.lr.ph ]
-  %295 = phi i32 [ %245, %for.cond131.preheader ], [ %290, %for.inc168.loopexit ], [ %245, %for.cond136.preheader.lr.ph ]
-  %296 = phi i32 [ %246, %for.cond131.preheader ], [ %287, %for.inc168.loopexit ], [ %246, %for.cond136.preheader.lr.ph ]
-  %ypos.13.lcssa = phi i32 [ %ypos.12359, %for.cond131.preheader ], [ %ypos.14.lcssa, %for.inc168.loopexit ], [ %ypos.12359, %for.cond136.preheader.lr.ph ]
-  %inc169 = add nuw nsw i32 %k.3357, 1
-  %cmp129 = icmp slt i32 %inc169, %292
+  %288 = phi i32 [ %239, %for.cond131.preheader ], [ %.pre401, %for.inc168.loopexit ], [ %239, %for.cond136.preheader.lr.ph ]
+  %289 = phi i32 [ %240, %for.cond131.preheader ], [ %283, %for.inc168.loopexit ], [ %240, %for.cond136.preheader.lr.ph ]
+  %290 = phi i32 [ %241, %for.cond131.preheader ], [ %285, %for.inc168.loopexit ], [ %241, %for.cond136.preheader.lr.ph ]
+  %291 = phi i32 [ %242, %for.cond131.preheader ], [ %286, %for.inc168.loopexit ], [ %242, %for.cond136.preheader.lr.ph ]
+  %292 = phi i32 [ %243, %for.cond131.preheader ], [ %283, %for.inc168.loopexit ], [ %243, %for.cond136.preheader.lr.ph ]
+  %ypos.13.lcssa = phi i32 [ %ypos.12362, %for.cond131.preheader ], [ %ypos.14.lcssa, %for.inc168.loopexit ], [ %ypos.12362, %for.cond136.preheader.lr.ph ]
+  %inc169 = add nuw nsw i32 %k.3360, 1
+  %cmp129 = icmp slt i32 %inc169, %288
   br i1 %cmp129, label %for.cond131.preheader, label %return, !llvm.loop !35
 
 return:                                           ; preds = %for.inc78, %for.inc168, %for.cond81.preheader, %for.cond131.preheader.lr.ph, %for.cond42.preheader.lr.ph, %for.end35, %for.end124, %if.then

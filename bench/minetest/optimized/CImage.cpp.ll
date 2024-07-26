@@ -2326,6 +2326,7 @@ for.body32.us.preheader:                          ; preds = %for.body32.lr.ph
   %27 = icmp eq i32 %24, 1
   %unroll_iter = and i64 %wide.trip.count, 4294967294
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
+  %invariant.op = shl i32 %conv, 1
   br i1 %27, label %for.body32.us.preheader.split.us, label %for.body32.us
 
 for.body32.us.preheader.split.us:                 ; preds = %for.body32.us.preheader
@@ -2359,7 +2360,7 @@ for.body32.us:                                    ; preds = %for.body32.us.prehe
 
 for.body45.us:                                    ; preds = %for.body32.us, %for.body45.us
   %indvars.iv = phi i64 [ %indvars.iv.next.1, %for.body45.us ], [ 0, %for.body32.us ]
-  %src_x39.0133.us = phi i32 [ %add53.us.1, %for.body45.us ], [ 0, %for.body32.us ]
+  %src_x39.0133.us = phi i32 [ %add53.us.1.reass, %for.body45.us ], [ 0, %for.body32.us ]
   %shr46.us = ashr i32 %src_x39.0133.us, 18
   %idxprom47.us = sext i32 %shr46.us to i64
   %arrayidx48.us = getelementptr inbounds i16, ptr %add.ptr38.us, i64 %idxprom47.us
@@ -2375,7 +2376,7 @@ for.body45.us:                                    ; preds = %for.body32.us, %for
   %arrayidx50.us.1 = getelementptr inbounds i16, ptr %dst25.0136.us, i64 %indvars.iv.next
   store i16 %30, ptr %arrayidx50.us.1, align 2, !tbaa !27
   %indvars.iv.next.1 = add nuw i64 %indvars.iv, 2
-  %add53.us.1 = add nsw i32 %add53.us, %conv
+  %add53.us.1.reass = add i32 %src_x39.0133.us, %invariant.op
   %niter.ncmp.1 = icmp eq i64 %indvars.iv.next.1, %unroll_iter
   br i1 %niter.ncmp.1, label %for.cond41.for.cond.cleanup44_crit_edge.us.unr-lcssa.loopexit, label %for.body45.us, !llvm.loop !80
 
@@ -2383,7 +2384,7 @@ for.cond41.for.cond.cleanup44_crit_edge.us.unr-lcssa.loopexit: ; preds = %for.bo
   br i1 %lcmp.mod.not, label %for.cond41.for.cond.cleanup44_crit_edge.us, label %for.body45.us.epil
 
 for.body45.us.epil:                               ; preds = %for.cond41.for.cond.cleanup44_crit_edge.us.unr-lcssa.loopexit
-  %shr46.us.epil = ashr i32 %add53.us.1, 18
+  %shr46.us.epil = ashr i32 %add53.us.1.reass, 18
   %idxprom47.us.epil = sext i32 %shr46.us.epil to i64
   %arrayidx48.us.epil = getelementptr inbounds i16, ptr %add.ptr38.us, i64 %idxprom47.us.epil
   %31 = load i16, ptr %arrayidx48.us.epil, align 2, !tbaa !27

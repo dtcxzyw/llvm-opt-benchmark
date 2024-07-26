@@ -382,6 +382,7 @@ for.body28:                                       ; preds = %for.cond59.for.cond
   %21 = load i16, ptr %depth_riverbed55, align 4, !tbaa !57
   %22 = load i16, ptr %call16, align 2, !tbaa !15
   %agg.tmp.sroa.0.0.insert.ext = zext i16 %x.0302 to i48
+  %invariant.op = or disjoint i48 %agg.tmp.sroa.3.0.insert.shift, %agg.tmp.sroa.0.0.insert.ext
   br label %for.body66
 
 for.cond59.for.cond.cleanup65_crit_edge:          ; preds = %cleanup
@@ -410,12 +411,11 @@ if.then:                                          ; preds = %for.body66
   %23 = load ptr, ptr %m_bmgn, align 8, !tbaa !13
   %agg.tmp.sroa.2.0.insert.ext = zext i16 %y.0299 to i48
   %agg.tmp.sroa.2.0.insert.shift = shl nuw nsw i48 %agg.tmp.sroa.2.0.insert.ext, 16
-  %agg.tmp.sroa.2.0.insert.insert = or disjoint i48 %agg.tmp.sroa.2.0.insert.shift, %agg.tmp.sroa.3.0.insert.shift
-  %agg.tmp.sroa.0.0.insert.insert = or disjoint i48 %agg.tmp.sroa.2.0.insert.insert, %agg.tmp.sroa.0.0.insert.ext
+  %agg.tmp.sroa.0.0.insert.insert.reass = or disjoint i48 %agg.tmp.sroa.2.0.insert.shift, %invariant.op
   %vtable72 = load ptr, ptr %23, align 8, !tbaa !24
   %vfn73 = getelementptr inbounds i8, ptr %vtable72, i64 64
   %24 = load ptr, ptr %vfn73, align 8
-  %call74 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(44) %23, i64 noundef %idxprom, i48 %agg.tmp.sroa.0.0.insert.insert)
+  %call74 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(44) %23, i64 noundef %idxprom, i48 %agg.tmp.sroa.0.0.insert.insert.reass)
   %25 = sext i32 %cur_biome_depth.0297 to i64
   br label %while.body
 

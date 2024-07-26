@@ -503,7 +503,7 @@ for.cond18.preheader.lr.ph.i:                     ; preds = %if.end.i
 
 for.cond18.preheader.lr.ph.split.us.i:            ; preds = %for.cond18.preheader.lr.ph.i
   %cmp.i34.i = icmp eq i32 %and, 0
-  %wide.trip.count291.i = zext nneg i32 %data.sroa.38.2.i to i64
+  %wide.trip.count290.i = zext nneg i32 %data.sroa.38.2.i to i64
   br i1 %cmp.i34.i, label %for.cond18.preheader.lr.ph.split.us.split.us.i, label %for.cond18.preheader.lr.ph.split.us.split.i
 
 for.cond18.preheader.lr.ph.split.us.split.us.i:   ; preds = %for.cond18.preheader.lr.ph.split.us.i
@@ -511,92 +511,100 @@ for.cond18.preheader.lr.ph.split.us.split.us.i:   ; preds = %for.cond18.preheade
   br i1 %tobool.not.i.i, label %for.cond18.preheader.us.us.us.i, label %for.cond18.preheader.us.us.i
 
 for.cond18.preheader.us.us.us.i:                  ; preds = %for.cond18.preheader.lr.ph.split.us.split.us.i, %for.inc29.us.us.us.i
-  %indvars.iv293.i = phi i64 [ %indvars.iv.next294.i, %for.inc29.us.us.us.i ], [ 0, %for.cond18.preheader.lr.ph.split.us.split.us.i ]
+  %indvars.iv292.i = phi i64 [ %indvars.iv.next293.i, %for.inc29.us.us.us.i ], [ 0, %for.cond18.preheader.lr.ph.split.us.split.us.i ]
+  %74 = trunc i64 %indvars.iv292.i to i32
+  %75 = add i32 %data.sroa.26.2.i, %74
   br label %for.body21.us.us.us.us.us.i
 
 for.inc29.us.us.us.i:                             ; preds = %if.end.i38.us.us.us.us.us.i, %for.body21.us.us.us.us.us.i
-  %indvars.iv.next294.i = add nuw nsw i64 %indvars.iv293.i, 1
-  %exitcond297.not.i = icmp eq i64 %indvars.iv.next294.i, %73
+  %indvars.iv.next293.i = add nuw nsw i64 %indvars.iv292.i, 1
+  %exitcond297.not.i = icmp eq i64 %indvars.iv.next293.i, %73
   br i1 %exitcond297.not.i, label %display_table.exit, label %for.cond18.preheader.us.us.us.i, !llvm.loop !13
 
 for.body21.us.us.us.us.us.i:                      ; preds = %if.end.i38.us.us.us.us.us.i, %for.cond18.preheader.us.us.us.i
   %indvars.iv285.i = phi i64 [ %indvars.iv.next286.i, %if.end.i38.us.us.us.us.us.i ], [ 0, %for.cond18.preheader.us.us.us.i ]
-  %74 = mul nuw nsw i64 %indvars.iv285.i, %73
-  %75 = add nuw nsw i64 %74, %indvars.iv293.i
-  %76 = load i64, ptr %nr, align 8
-  %cmp3.not.i.us.us.us.us.us.i = icmp ugt i64 %76, %75
+  %76 = mul nuw nsw i64 %indvars.iv285.i, %73
+  %77 = add nuw nsw i64 %76, %indvars.iv292.i
+  %78 = load i64, ptr %nr, align 8
+  %cmp3.not.i.us.us.us.us.us.i = icmp ugt i64 %78, %77
   br i1 %cmp3.not.i.us.us.us.us.us.i, label %if.end.i38.us.us.us.us.us.i, label %for.inc29.us.us.us.i
 
 if.end.i38.us.us.us.us.us.i:                      ; preds = %for.body21.us.us.us.us.us.i
-  %arrayidx.i39.us.us.us.us.us.i = getelementptr inbounds i32, ptr %call4.i, i64 %75
-  %77 = load i32, ptr %arrayidx.i39.us.us.us.us.us.i, align 4
-  %78 = add nuw nsw i64 %75, %73
-  %cmp34.i.us.us.us.us.us.not.i = icmp ugt i64 %76, %78
+  %arrayidx.i39.us.us.us.us.us.i = getelementptr inbounds i32, ptr %call4.i, i64 %77
+  %79 = load i32, ptr %arrayidx.i39.us.us.us.us.us.i, align 4
+  %80 = trunc nsw i64 %76 to i32
+  %add30.i.us.reass.us.us.us.us.i = add i32 %75, %80
+  %conv31.i.us.us.us.us.us.i = sext i32 %add30.i.us.reass.us.us.us.us.i to i64
+  %cmp34.i.us.us.us.us.us.not.i = icmp ugt i64 %78, %conv31.i.us.us.us.us.us.i
   %cmp47.i.us.us.us.us.us.i = icmp eq i64 %indvars.iv285.i, 0
   %spec.select122.us.us.us.us.us.i = select i1 %cmp47.i.us.us.us.us.us.i, ptr %cond3842, ptr @.str
-  %79 = load ptr, ptr %list, align 8
-  %arrayidx56.i.us.us.us.us.us.i = getelementptr inbounds %struct.string_list_item, ptr %79, i64 %75
-  %80 = load ptr, ptr %arrayidx56.i.us.us.us.us.us.i, align 8
-  %idx.ext.i.us.us.us.us.us.i = sext i32 %77 to i64
+  %81 = load ptr, ptr %list, align 8
+  %arrayidx56.i.us.us.us.us.us.i = getelementptr inbounds %struct.string_list_item, ptr %81, i64 %77
+  %82 = load ptr, ptr %arrayidx56.i.us.us.us.us.us.i, align 8
+  %idx.ext.i.us.us.us.us.us.i = sext i32 %79 to i64
   %add.ptr.i.us.us.us.us.us.i = getelementptr inbounds i8, ptr %call12.i, i64 %idx.ext.i.us.us.us.us.us.i
   %cond62.i.us.us.us.us.us.i = select i1 %cmp34.i.us.us.us.us.us.not.i, ptr %add.ptr.i.us.us.us.us.us.i, ptr %cond1245
-  %call.i41.us.us.us.us.us.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %spec.select122.us.us.us.us.us.i, ptr noundef %80, ptr noundef %cond62.i.us.us.us.us.us.i)
+  %call.i41.us.us.us.us.us.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %spec.select122.us.us.us.us.us.i, ptr noundef %82, ptr noundef %cond62.i.us.us.us.us.us.i)
   %indvars.iv.next286.i = add nuw nsw i64 %indvars.iv285.i, 1
-  %exitcond292.not.i = icmp eq i64 %indvars.iv.next286.i, %wide.trip.count291.i
-  br i1 %exitcond292.not.i, label %for.inc29.us.us.us.i, label %for.body21.us.us.us.us.us.i, !llvm.loop !14
+  %exitcond291.not.i = icmp eq i64 %indvars.iv.next286.i, %wide.trip.count290.i
+  br i1 %exitcond291.not.i, label %for.inc29.us.us.us.i, label %for.body21.us.us.us.us.us.i, !llvm.loop !14
 
 for.cond18.preheader.us.us.i:                     ; preds = %for.cond18.preheader.lr.ph.split.us.split.us.i, %for.inc29.us.us.i
-  %indvars.iv280.i = phi i64 [ %indvars.iv.next281.i, %for.inc29.us.us.i ], [ 0, %for.cond18.preheader.lr.ph.split.us.split.us.i ]
+  %indvars.iv279.i = phi i64 [ %indvars.iv.next280.i, %for.inc29.us.us.i ], [ 0, %for.cond18.preheader.lr.ph.split.us.split.us.i ]
+  %83 = trunc i64 %indvars.iv279.i to i32
+  %84 = add i32 %data.sroa.26.2.i, %83
   br label %for.body21.us.us.us.i
 
 for.inc29.us.us.i:                                ; preds = %if.end.i38.us.us.us.i, %for.body21.us.us.us.i
-  %indvars.iv.next281.i = add nuw nsw i64 %indvars.iv280.i, 1
-  %exitcond284.not.i = icmp eq i64 %indvars.iv.next281.i, %73
+  %indvars.iv.next280.i = add nuw nsw i64 %indvars.iv279.i, 1
+  %exitcond284.not.i = icmp eq i64 %indvars.iv.next280.i, %73
   br i1 %exitcond284.not.i, label %display_table.exit, label %for.cond18.preheader.us.us.i, !llvm.loop !13
 
 for.body21.us.us.us.i:                            ; preds = %if.end.i38.us.us.us.i, %for.cond18.preheader.us.us.i
   %indvars.iv272.i = phi i64 [ %indvars.iv.next273.i, %if.end.i38.us.us.us.i ], [ 0, %for.cond18.preheader.us.us.i ]
-  %81 = mul nuw nsw i64 %indvars.iv272.i, %73
-  %82 = add nuw nsw i64 %81, %indvars.iv280.i
-  %83 = load i64, ptr %nr, align 8
-  %cmp3.not.i.us.us.us.i = icmp ugt i64 %83, %82
+  %85 = mul nuw nsw i64 %indvars.iv272.i, %73
+  %86 = add nuw nsw i64 %85, %indvars.iv279.i
+  %87 = load i64, ptr %nr, align 8
+  %cmp3.not.i.us.us.us.i = icmp ugt i64 %87, %86
   br i1 %cmp3.not.i.us.us.us.i, label %if.end.i38.us.us.us.i, label %for.inc29.us.us.i
 
 if.end.i38.us.us.us.i:                            ; preds = %for.body21.us.us.us.i
-  %arrayidx.i39.us.us.us.i = getelementptr inbounds i32, ptr %call4.i, i64 %82
-  %84 = load i32, ptr %arrayidx.i39.us.us.us.i, align 4
+  %arrayidx.i39.us.us.us.i = getelementptr inbounds i32, ptr %call4.i, i64 %86
+  %88 = load i32, ptr %arrayidx.i39.us.us.us.i, align 4
   %arrayidx9.i.us.us.us.i = getelementptr inbounds i32, ptr %data.sroa.60.3.fr.i, i64 %indvars.iv272.i
-  %85 = load i32, ptr %arrayidx9.i.us.us.us.i, align 4
-  %idxprom10.i.us.us.us.i = sext i32 %85 to i64
+  %89 = load i32, ptr %arrayidx9.i.us.us.us.i, align 4
+  %idxprom10.i.us.us.us.i = sext i32 %89 to i64
   %arrayidx11.i.us.us.us.i = getelementptr inbounds i32, ptr %call4.i, i64 %idxprom10.i.us.us.us.i
-  %86 = load i32, ptr %arrayidx11.i.us.us.us.i, align 4
-  %cmp12.i.us.us.us.i = icmp slt i32 %86, %add.i.i
-  %.neg34.i.us.us.us.i = add i32 %84, %22
-  %sub22.i.us.us.us.i = sub i32 %.neg34.i.us.us.us.i, %86
-  %len.0.i.us.us.us.i = select i1 %cmp12.i.us.us.us.i, i32 %sub22.i.us.us.us.i, i32 %84
-  %87 = add nuw nsw i64 %82, %73
-  %cmp34.i.us.us.us.not.i = icmp ugt i64 %83, %87
+  %90 = load i32, ptr %arrayidx11.i.us.us.us.i, align 4
+  %cmp12.i.us.us.us.i = icmp slt i32 %90, %add.i.i
+  %.neg34.i.us.us.us.i = add i32 %88, %22
+  %sub22.i.us.us.us.i = sub i32 %.neg34.i.us.us.us.i, %90
+  %len.0.i.us.us.us.i = select i1 %cmp12.i.us.us.us.i, i32 %sub22.i.us.us.us.i, i32 %88
+  %91 = trunc nsw i64 %85 to i32
+  %add30.i.us.reass.us.us.i = add i32 %84, %91
+  %conv31.i.us.us.us.i = sext i32 %add30.i.us.reass.us.us.i to i64
+  %cmp34.i.us.us.us.not.i = icmp ugt i64 %87, %conv31.i.us.us.us.i
   %cmp47.i.us.us.us.i = icmp eq i64 %indvars.iv272.i, 0
   %spec.select122.us.us.us.i = select i1 %cmp47.i.us.us.us.i, ptr %cond3842, ptr @.str
-  %88 = load ptr, ptr %list, align 8
-  %arrayidx56.i.us.us.us.i = getelementptr inbounds %struct.string_list_item, ptr %88, i64 %82
-  %89 = load ptr, ptr %arrayidx56.i.us.us.us.i, align 8
+  %92 = load ptr, ptr %list, align 8
+  %arrayidx56.i.us.us.us.i = getelementptr inbounds %struct.string_list_item, ptr %92, i64 %86
+  %93 = load ptr, ptr %arrayidx56.i.us.us.us.i, align 8
   %idx.ext.i.us.us.us.i = sext i32 %len.0.i.us.us.us.i to i64
   %add.ptr.i.us.us.us.i = getelementptr inbounds i8, ptr %call12.i, i64 %idx.ext.i.us.us.us.i
   %cond62.i.us.us.us.i = select i1 %cmp34.i.us.us.us.not.i, ptr %add.ptr.i.us.us.us.i, ptr %cond1245
-  %call.i41.us.us.us.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %spec.select122.us.us.us.i, ptr noundef %89, ptr noundef %cond62.i.us.us.us.i)
+  %call.i41.us.us.us.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %spec.select122.us.us.us.i, ptr noundef %93, ptr noundef %cond62.i.us.us.us.i)
   %indvars.iv.next273.i = add nuw nsw i64 %indvars.iv272.i, 1
-  %exitcond279.not.i = icmp eq i64 %indvars.iv.next273.i, %wide.trip.count291.i
-  br i1 %exitcond279.not.i, label %for.inc29.us.us.i, label %for.body21.us.us.us.i, !llvm.loop !14
+  %exitcond278.not.i = icmp eq i64 %indvars.iv.next273.i, %wide.trip.count290.i
+  br i1 %exitcond278.not.i, label %for.inc29.us.us.i, label %for.body21.us.us.us.i, !llvm.loop !14
 
 for.cond18.preheader.lr.ph.split.us.split.i:      ; preds = %for.cond18.preheader.lr.ph.split.us.i
-  %90 = zext nneg i32 %sub37.i.i to i64
+  %94 = zext nneg i32 %sub37.i.i to i64
   %wide.trip.count270.i = zext nneg i32 %data.sroa.26.2.i to i64
   br i1 %tobool.not.i.i, label %for.cond18.preheader.us.us205.i, label %for.cond18.preheader.us.i
 
 for.cond18.preheader.us.us205.i:                  ; preds = %for.cond18.preheader.lr.ph.split.us.split.i, %for.inc29.us.us208.i
   %indvars.iv266.i = phi i64 [ %indvars.iv.next267.i, %for.inc29.us.us208.i ], [ 0, %for.cond18.preheader.lr.ph.split.us.split.i ]
-  %91 = mul nuw nsw i64 %indvars.iv266.i, %wide.trip.count291.i
+  %95 = mul nuw nsw i64 %indvars.iv266.i, %wide.trip.count290.i
   br label %for.body21.us146.us.us.i
 
 for.inc29.us.us208.i:                             ; preds = %if.end.i38.us151.us.us.i, %for.body21.us146.us.us.i
@@ -606,41 +614,41 @@ for.inc29.us.us208.i:                             ; preds = %if.end.i38.us151.us
 
 for.body21.us146.us.us.i:                         ; preds = %if.end.i38.us151.us.us.i, %for.cond18.preheader.us.us205.i
   %indvars.iv260.i = phi i64 [ %indvars.iv.next261.i, %if.end.i38.us151.us.us.i ], [ 0, %for.cond18.preheader.us.us205.i ]
-  %92 = add nuw nsw i64 %indvars.iv260.i, %91
-  %93 = load i64, ptr %nr, align 8
-  %cmp3.not.i.us150.us.us.i = icmp ugt i64 %93, %92
+  %96 = add nuw nsw i64 %indvars.iv260.i, %95
+  %97 = load i64, ptr %nr, align 8
+  %cmp3.not.i.us150.us.us.i = icmp ugt i64 %97, %96
   br i1 %cmp3.not.i.us150.us.us.i, label %if.end.i38.us151.us.us.i, label %for.inc29.us.us208.i
 
 if.end.i38.us151.us.us.i:                         ; preds = %for.body21.us146.us.us.i
-  %arrayidx.i39.us152.us.us.i = getelementptr inbounds i32, ptr %call4.i, i64 %92
-  %94 = load i32, ptr %arrayidx.i39.us152.us.us.i, align 4
-  %cmp38.i.us.us.us.i = icmp eq i64 %indvars.iv260.i, %90
-  %sub43.i.us.us.us.i = add i64 %93, -1
-  %cmp44.i.us.us.us.i = icmp eq i64 %sub43.i.us.us.us.i, %92
+  %arrayidx.i39.us152.us.us.i = getelementptr inbounds i32, ptr %call4.i, i64 %96
+  %98 = load i32, ptr %arrayidx.i39.us152.us.us.i, align 4
+  %cmp38.i.us.us.us.i = icmp eq i64 %indvars.iv260.i, %94
+  %sub43.i.us.us.us.i = add i64 %97, -1
+  %cmp44.i.us.us.us.i = icmp eq i64 %sub43.i.us.us.us.i, %96
   %newline.0.shrunk.i.us156.us.us.i = or i1 %cmp38.i.us.us.us.i, %cmp44.i.us.us.us.i
   %cmp47.i.us157.us.us.i = icmp eq i64 %indvars.iv260.i, 0
   %spec.select122.us158.us.us.i = select i1 %cmp47.i.us157.us.us.i, ptr %cond3842, ptr @.str
-  %95 = load ptr, ptr %list, align 8
-  %arrayidx56.i.us159.us.us.i = getelementptr inbounds %struct.string_list_item, ptr %95, i64 %92
-  %96 = load ptr, ptr %arrayidx56.i.us159.us.us.i, align 8
-  %idx.ext.i.us160.us.us.i = sext i32 %94 to i64
+  %99 = load ptr, ptr %list, align 8
+  %arrayidx56.i.us159.us.us.i = getelementptr inbounds %struct.string_list_item, ptr %99, i64 %96
+  %100 = load ptr, ptr %arrayidx56.i.us159.us.us.i, align 8
+  %idx.ext.i.us160.us.us.i = sext i32 %98 to i64
   %add.ptr.i.us161.us.us.i = getelementptr inbounds i8, ptr %call12.i, i64 %idx.ext.i.us160.us.us.i
   %cond62.i.us162.us.us.i = select i1 %newline.0.shrunk.i.us156.us.us.i, ptr %cond1245, ptr %add.ptr.i.us161.us.us.i
-  %call.i41.us163.us.us.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %spec.select122.us158.us.us.i, ptr noundef %96, ptr noundef %cond62.i.us162.us.us.i)
+  %call.i41.us163.us.us.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %spec.select122.us158.us.us.i, ptr noundef %100, ptr noundef %cond62.i.us162.us.us.i)
   %indvars.iv.next261.i = add nuw nsw i64 %indvars.iv260.i, 1
-  %exitcond265.not.i = icmp eq i64 %indvars.iv.next261.i, %wide.trip.count291.i
+  %exitcond265.not.i = icmp eq i64 %indvars.iv.next261.i, %wide.trip.count290.i
   br i1 %exitcond265.not.i, label %for.inc29.us.us208.i, label %for.body21.us146.us.us.i, !llvm.loop !14
 
 for.cond18.preheader.us.i:                        ; preds = %for.cond18.preheader.lr.ph.split.us.split.i, %for.inc29.us.i
   %indvars.iv254.i = phi i64 [ %indvars.iv.next255.i, %for.inc29.us.i ], [ 0, %for.cond18.preheader.lr.ph.split.us.split.i ]
-  %97 = mul nuw nsw i64 %indvars.iv254.i, %wide.trip.count291.i
+  %101 = mul nuw nsw i64 %indvars.iv254.i, %wide.trip.count290.i
   br label %for.body21.us169.i
 
 for.body21.us169.i:                               ; preds = %if.end.i38.us173.i, %for.cond18.preheader.us.i
   %indvars.iv249.i = phi i64 [ 0, %for.cond18.preheader.us.i ], [ %indvars.iv.next250.i, %if.end.i38.us173.i ]
-  %98 = add nuw nsw i64 %indvars.iv249.i, %97
-  %99 = load i64, ptr %nr, align 8
-  %cmp3.not.i.us172.i = icmp ugt i64 %99, %98
+  %102 = add nuw nsw i64 %indvars.iv249.i, %101
+  %103 = load i64, ptr %nr, align 8
+  %cmp3.not.i.us172.i = icmp ugt i64 %103, %102
   br i1 %cmp3.not.i.us172.i, label %if.end.i38.us173.i, label %for.inc29.us.i
 
 for.inc29.us.i:                                   ; preds = %if.end.i38.us173.i, %for.body21.us169.i
@@ -649,32 +657,32 @@ for.inc29.us.i:                                   ; preds = %if.end.i38.us173.i,
   br i1 %exitcond259.not.i, label %display_table.exit, label %for.cond18.preheader.us.i, !llvm.loop !13
 
 if.end.i38.us173.i:                               ; preds = %for.body21.us169.i
-  %arrayidx.i39.us174.i = getelementptr inbounds i32, ptr %call4.i, i64 %98
-  %100 = load i32, ptr %arrayidx.i39.us174.i, align 4
+  %arrayidx.i39.us174.i = getelementptr inbounds i32, ptr %call4.i, i64 %102
+  %104 = load i32, ptr %arrayidx.i39.us174.i, align 4
   %arrayidx9.i.us176.i = getelementptr inbounds i32, ptr %data.sroa.60.3.fr.i, i64 %indvars.iv249.i
-  %101 = load i32, ptr %arrayidx9.i.us176.i, align 4
-  %idxprom10.i.us177.i = sext i32 %101 to i64
+  %105 = load i32, ptr %arrayidx9.i.us176.i, align 4
+  %idxprom10.i.us177.i = sext i32 %105 to i64
   %arrayidx11.i.us178.i = getelementptr inbounds i32, ptr %call4.i, i64 %idxprom10.i.us177.i
-  %102 = load i32, ptr %arrayidx11.i.us178.i, align 4
-  %cmp12.i.us179.i = icmp slt i32 %102, %add.i.i
-  %.neg34.i.us182.i = add i32 %100, %22
-  %sub22.i.us183.i = sub i32 %.neg34.i.us182.i, %102
-  %len.0.i.us185.i = select i1 %cmp12.i.us179.i, i32 %sub22.i.us183.i, i32 %100
-  %cmp38.i.us186.i = icmp eq i64 %indvars.iv249.i, %90
-  %sub43.i.us188.i = add i64 %99, -1
-  %cmp44.i.us189.i = icmp eq i64 %sub43.i.us188.i, %98
+  %106 = load i32, ptr %arrayidx11.i.us178.i, align 4
+  %cmp12.i.us179.i = icmp slt i32 %106, %add.i.i
+  %.neg34.i.us182.i = add i32 %104, %22
+  %sub22.i.us183.i = sub i32 %.neg34.i.us182.i, %106
+  %len.0.i.us185.i = select i1 %cmp12.i.us179.i, i32 %sub22.i.us183.i, i32 %104
+  %cmp38.i.us186.i = icmp eq i64 %indvars.iv249.i, %94
+  %sub43.i.us188.i = add i64 %103, -1
+  %cmp44.i.us189.i = icmp eq i64 %sub43.i.us188.i, %102
   %newline.0.shrunk.i.us.i = or i1 %cmp38.i.us186.i, %cmp44.i.us189.i
   %cmp47.i.us190.i = icmp eq i64 %indvars.iv249.i, 0
   %spec.select122.us191.i = select i1 %cmp47.i.us190.i, ptr %cond3842, ptr @.str
-  %103 = load ptr, ptr %list, align 8
-  %arrayidx56.i.us192.i = getelementptr inbounds %struct.string_list_item, ptr %103, i64 %98
-  %104 = load ptr, ptr %arrayidx56.i.us192.i, align 8
+  %107 = load ptr, ptr %list, align 8
+  %arrayidx56.i.us192.i = getelementptr inbounds %struct.string_list_item, ptr %107, i64 %102
+  %108 = load ptr, ptr %arrayidx56.i.us192.i, align 8
   %idx.ext.i.us193.i = sext i32 %len.0.i.us185.i to i64
   %add.ptr.i.us194.i = getelementptr inbounds i8, ptr %call12.i, i64 %idx.ext.i.us193.i
   %cond62.i.us195.i = select i1 %newline.0.shrunk.i.us.i, ptr %cond1245, ptr %add.ptr.i.us194.i
-  %call.i41.us196.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %spec.select122.us191.i, ptr noundef %104, ptr noundef %cond62.i.us195.i)
+  %call.i41.us196.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %spec.select122.us191.i, ptr noundef %108, ptr noundef %cond62.i.us195.i)
   %indvars.iv.next250.i = add nuw nsw i64 %indvars.iv249.i, 1
-  %exitcond253.not.i = icmp eq i64 %indvars.iv.next250.i, %wide.trip.count291.i
+  %exitcond253.not.i = icmp eq i64 %indvars.iv.next250.i, %wide.trip.count290.i
   br i1 %exitcond253.not.i, label %for.inc29.us.i, label %for.body21.us169.i, !llvm.loop !14
 
 display_table.exit:                               ; preds = %for.inc29.us.i, %for.inc29.us.us208.i, %for.inc29.us.us.i, %for.inc29.us.us.us.i, %if.end.i, %for.cond18.preheader.lr.ph.i

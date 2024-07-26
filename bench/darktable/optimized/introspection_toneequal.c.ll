@@ -8689,10 +8689,11 @@ define internal fastcc void @display_luminance_mask(ptr noalias nocapture nounde
   %43 = icmp eq i64 %42, %26
   %44 = and i64 %26, 1
   %45 = icmp eq i64 %44, 0
+  %invariant.op10 = add nsw i64 %11, 1
   br label %46
 
 46:                                               ; preds = %.loopexit, %35
-  %47 = phi i64 [ %163, %.loopexit ], [ 0, %35 ]
+  %47 = phi i64 [ %161, %.loopexit ], [ 0, %35 ]
   %48 = add i64 %47, %19
   %49 = mul i64 %48, %22
   %50 = add i64 %49, %11
@@ -8790,55 +8791,59 @@ define internal fastcc void @display_luminance_mask(ptr noalias nocapture nounde
   %124 = icmp eq i64 %102, %37
   br i1 %124, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %122, %.preheader
-  %125 = phi i64 [ %161, %.preheader ], [ %123, %122 ]
-  %126 = add i64 %125, %50
-  %127 = getelementptr inbounds float, ptr %1, i64 %126
-  %128 = load float, ptr %127, align 4, !tbaa !6
-  %129 = fadd reassoc nsz arcp contract afn float %128, -3.906250e-03
-  %130 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %129, float 0.000000e+00)
-  %131 = fmul reassoc nsz arcp contract afn float %130, 0x3FF0101020000000
-  %132 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %131, float 1.000000e+00)
-  %133 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %132)
-  %134 = add i64 %125, %51
-  %.idx5 = shl i64 %134, 4
-  %135 = getelementptr inbounds i8, ptr %2, i64 %.idx5
-  %136 = shl i64 %126, 2
-  %137 = or disjoint i64 %136, 3
-  %138 = getelementptr inbounds float, ptr %0, i64 %137
-  %139 = load float, ptr %138, align 4, !tbaa !6
-  %140 = insertelement <4 x float> poison, float %133, i64 0
-  %141 = insertelement <4 x float> %140, float %139, i64 1
-  %142 = shufflevector <4 x float> %141, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  store <4 x float> %142, ptr %135, align 4, !tbaa !6
-  %143 = add nuw i64 %125, 1
-  %144 = add i64 %143, %50
-  %145 = getelementptr inbounds float, ptr %1, i64 %144
-  %146 = load float, ptr %145, align 4, !tbaa !6
-  %147 = fadd reassoc nsz arcp contract afn float %146, -3.906250e-03
-  %148 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %147, float 0.000000e+00)
-  %149 = fmul reassoc nsz arcp contract afn float %148, 0x3FF0101020000000
-  %150 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %149, float 1.000000e+00)
-  %151 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %150)
-  %152 = add i64 %143, %51
-  %.idx6 = shl i64 %152, 4
-  %153 = getelementptr inbounds i8, ptr %2, i64 %.idx6
-  %154 = shl i64 %144, 2
-  %155 = or disjoint i64 %154, 3
-  %156 = getelementptr inbounds float, ptr %0, i64 %155
-  %157 = load float, ptr %156, align 4, !tbaa !6
-  %158 = insertelement <4 x float> poison, float %151, i64 0
-  %159 = insertelement <4 x float> %158, float %157, i64 1
-  %160 = shufflevector <4 x float> %159, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  store <4 x float> %160, ptr %153, align 4, !tbaa !6
-  %161 = add nuw i64 %125, 2
-  %162 = icmp eq i64 %161, %26
-  br i1 %162, label %.loopexit, label %.preheader, !llvm.loop !405
+.preheader:                                       ; preds = %122
+  %invariant.op.reass = add i64 %49, %invariant.op10
+  %invariant.op8 = add i64 %51, 1
+  br label %125
 
-.loopexit:                                        ; preds = %.preheader, %122, %100
-  %163 = add nuw i64 %47, 1
-  %164 = icmp eq i64 %163, %36
-  br i1 %164, label %.loopexit7, label %46
+125:                                              ; preds = %.preheader, %125
+  %126 = phi i64 [ %159, %125 ], [ %123, %.preheader ]
+  %127 = add i64 %126, %50
+  %128 = getelementptr inbounds float, ptr %1, i64 %127
+  %129 = load float, ptr %128, align 4, !tbaa !6
+  %130 = fadd reassoc nsz arcp contract afn float %129, -3.906250e-03
+  %131 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %130, float 0.000000e+00)
+  %132 = fmul reassoc nsz arcp contract afn float %131, 0x3FF0101020000000
+  %133 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %132, float 1.000000e+00)
+  %134 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %133)
+  %135 = add i64 %126, %51
+  %.idx5 = shl i64 %135, 4
+  %136 = getelementptr inbounds i8, ptr %2, i64 %.idx5
+  %137 = shl i64 %127, 2
+  %138 = or disjoint i64 %137, 3
+  %139 = getelementptr inbounds float, ptr %0, i64 %138
+  %140 = load float, ptr %139, align 4, !tbaa !6
+  %141 = insertelement <4 x float> poison, float %134, i64 0
+  %142 = insertelement <4 x float> %141, float %140, i64 1
+  %143 = shufflevector <4 x float> %142, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
+  store <4 x float> %143, ptr %136, align 4, !tbaa !6
+  %.reass = add i64 %126, %invariant.op.reass
+  %144 = getelementptr inbounds float, ptr %1, i64 %.reass
+  %145 = load float, ptr %144, align 4, !tbaa !6
+  %146 = fadd reassoc nsz arcp contract afn float %145, -3.906250e-03
+  %147 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %146, float 0.000000e+00)
+  %148 = fmul reassoc nsz arcp contract afn float %147, 0x3FF0101020000000
+  %149 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %148, float 1.000000e+00)
+  %150 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %149)
+  %.reass9 = add i64 %126, %invariant.op8
+  %.idx6 = shl i64 %.reass9, 4
+  %151 = getelementptr inbounds i8, ptr %2, i64 %.idx6
+  %152 = shl i64 %.reass, 2
+  %153 = or disjoint i64 %152, 3
+  %154 = getelementptr inbounds float, ptr %0, i64 %153
+  %155 = load float, ptr %154, align 4, !tbaa !6
+  %156 = insertelement <4 x float> poison, float %150, i64 0
+  %157 = insertelement <4 x float> %156, float %155, i64 1
+  %158 = shufflevector <4 x float> %157, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
+  store <4 x float> %158, ptr %151, align 4, !tbaa !6
+  %159 = add nuw i64 %126, 2
+  %160 = icmp eq i64 %159, %26
+  br i1 %160, label %.loopexit, label %125, !llvm.loop !405
+
+.loopexit:                                        ; preds = %125, %122, %100
+  %161 = add nuw i64 %47, 1
+  %162 = icmp eq i64 %161, %36
+  br i1 %162, label %.loopexit7, label %46
 
 .loopexit7:                                       ; preds = %.loopexit, %5
   ret void

@@ -2975,7 +2975,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_16
 
 17:                                               ; preds = %13
   invoke void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #28
-          to label %127 unwind label %18
+          to label %125 unwind label %18
 
 18:                                               ; preds = %17, %11, %7
   %19 = landingpad { ptr, i32 }
@@ -3004,8 +3004,9 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_16
   %30 = xor i64 %notmask.i, -1
   %31 = getelementptr inbounds i8, ptr %25, i64 24
   %32 = load i64, ptr %31, align 8
-  %.not52 = icmp eq i64 %32, 0
-  br i1 %.not52, label %._crit_edge, label %.lr.ph
+  %invariant.op = add i32 %28, -8
+  %.not54 = icmp eq i64 %32, 0
+  br i1 %.not54, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23
   %33 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3024,187 +3025,187 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_16
 
 45:                                               ; preds = %.lr.ph, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31 ]
-  %.01150 = phi float [ 0.000000e+00, %.lr.ph ], [ %122, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31 ]
-  %.01249 = phi ptr [ %6, %.lr.ph ], [ %123, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31 ]
-  %.sroa.0.048 = phi ptr [ %38, %.lr.ph ], [ %.sroa.0.2, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31 ]
-  %.sroa.5.047 = phi i8 [ 0, %.lr.ph ], [ %.sroa.5.1, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31 ]
-  %.sroa.14.046 = phi i8 [ 0, %.lr.ph ], [ %.sroa.14.2, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31 ]
-  %.sroa.535.045 = phi i8 [ 0, %.lr.ph ], [ %.sroa.535.1, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31 ]
-  %.sroa.13.044 = phi i8 [ 0, %.lr.ph ], [ %.sroa.13.2, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31 ]
-  %.sroa.033.043 = phi ptr [ %40, %.lr.ph ], [ %.sroa.033.2, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31 ]
-  %46 = icmp eq i8 %.sroa.535.045, 0
+  %.01152 = phi float [ 0.000000e+00, %.lr.ph ], [ %120, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31 ]
+  %.01251 = phi ptr [ %6, %.lr.ph ], [ %121, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31 ]
+  %.sroa.0.050 = phi ptr [ %38, %.lr.ph ], [ %.sroa.0.2, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31 ]
+  %.sroa.5.049 = phi i8 [ 0, %.lr.ph ], [ %.sroa.5.1, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31 ]
+  %.sroa.14.048 = phi i8 [ 0, %.lr.ph ], [ %.sroa.14.2, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31 ]
+  %.sroa.535.047 = phi i8 [ 0, %.lr.ph ], [ %.sroa.535.1, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31 ]
+  %.sroa.13.046 = phi i8 [ 0, %.lr.ph ], [ %.sroa.13.2, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31 ]
+  %.sroa.033.045 = phi ptr [ %40, %.lr.ph ], [ %.sroa.033.2, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31 ]
+  %46 = icmp eq i8 %.sroa.535.047, 0
   br i1 %46, label %47, label %._crit_edge16.i
 
 47:                                               ; preds = %45
-  %48 = load i8, ptr %.sroa.033.043, align 1
+  %48 = load i8, ptr %.sroa.033.045, align 1
   br label %._crit_edge16.i
 
 ._crit_edge16.i:                                  ; preds = %45, %47
-  %.sroa.14.1 = phi i8 [ %48, %47 ], [ %.sroa.14.046, %45 ]
+  %.sroa.14.1 = phi i8 [ %48, %47 ], [ %.sroa.14.048, %45 ]
   %49 = zext i8 %.sroa.14.1 to i32
-  %50 = zext i8 %.sroa.535.045 to i32
+  %50 = zext i8 %.sroa.535.047 to i32
   %51 = lshr i32 %49, %50
   %52 = zext nneg i32 %51 to i64
   %53 = add i32 %50, %28
   %54 = icmp sgt i32 %53, 7
-  br i1 %54, label %55, label %79
+  br i1 %54, label %55, label %78
 
 55:                                               ; preds = %._crit_edge16.i
   %56 = sub nsw i32 8, %50
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds i8, ptr %.sroa.033.043, i64 1
-  %59 = add nsw i32 %53, -8
-  %60 = lshr i32 %59, 3
-  %61 = icmp ugt i32 %53, 15
-  br i1 %61, label %.lr.ph.i.preheader, label %._crit_edge.i
+  %58 = getelementptr inbounds i8, ptr %.sroa.033.045, i64 1
+  %.reass = add i32 %invariant.op, %50
+  %59 = lshr i32 %.reass, 3
+  %60 = icmp ugt i32 %53, 15
+  br i1 %60, label %.lr.ph.i.preheader, label %._crit_edge.i
 
 .lr.ph.i.preheader:                               ; preds = %55
-  %62 = add nsw i32 %60, -1
-  %63 = zext i32 %62 to i64
+  %61 = add nsw i32 %59, -1
+  %62 = zext i32 %61 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.013.i = phi i32 [ %71, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %.0812.i = phi i64 [ %70, %.lr.ph.i ], [ %57, %.lr.ph.i.preheader ]
-  %.0911.i = phi i64 [ %69, %.lr.ph.i ], [ %52, %.lr.ph.i.preheader ]
-  %64 = phi ptr [ %65, %.lr.ph.i ], [ %58, %.lr.ph.i.preheader ]
-  %65 = getelementptr inbounds i8, ptr %64, i64 1
-  %66 = load i8, ptr %64, align 1
-  %67 = zext i8 %66 to i64
-  %68 = shl i64 %67, %.0812.i
-  %69 = or i64 %68, %.0911.i
-  %70 = add nsw i64 %.0812.i, 8
-  %71 = add nuw nsw i32 %.013.i, 1
-  %exitcond.not.i = icmp eq i32 %71, %60
+  %.013.i = phi i32 [ %70, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %.0812.i = phi i64 [ %69, %.lr.ph.i ], [ %57, %.lr.ph.i.preheader ]
+  %.0911.i = phi i64 [ %68, %.lr.ph.i ], [ %52, %.lr.ph.i.preheader ]
+  %63 = phi ptr [ %64, %.lr.ph.i ], [ %58, %.lr.ph.i.preheader ]
+  %64 = getelementptr inbounds i8, ptr %63, i64 1
+  %65 = load i8, ptr %63, align 1
+  %66 = zext i8 %65 to i64
+  %67 = shl i64 %66, %.0812.i
+  %68 = or i64 %67, %.0911.i
+  %69 = add nsw i64 %.0812.i, 8
+  %70 = add nuw nsw i32 %.013.i, 1
+  %exitcond.not.i = icmp eq i32 %70, %59
   br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !21
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
-  %scevgep = getelementptr i8, ptr %.sroa.033.043, i64 2
-  %scevgep59 = getelementptr i8, ptr %scevgep, i64 %63
+  %scevgep = getelementptr i8, ptr %.sroa.033.045, i64 2
+  %scevgep61 = getelementptr i8, ptr %scevgep, i64 %62
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %55
-  %.sroa.033.1 = phi ptr [ %58, %55 ], [ %scevgep59, %._crit_edge.i.loopexit ]
-  %.09.lcssa.i = phi i64 [ %52, %55 ], [ %69, %._crit_edge.i.loopexit ]
-  %.08.lcssa.i = phi i64 [ %57, %55 ], [ %70, %._crit_edge.i.loopexit ]
-  %72 = add i8 %.sroa.535.045, %41
-  %73 = and i8 %72, 7
-  %.not.i = icmp eq i8 %73, 0
-  br i1 %.not.i, label %_ZN5faiss16PQDecoderGeneric6decodeEv.exit, label %74
+  %.sroa.033.1 = phi ptr [ %58, %55 ], [ %scevgep61, %._crit_edge.i.loopexit ]
+  %.09.lcssa.i = phi i64 [ %52, %55 ], [ %68, %._crit_edge.i.loopexit ]
+  %.08.lcssa.i = phi i64 [ %57, %55 ], [ %69, %._crit_edge.i.loopexit ]
+  %71 = add i8 %.sroa.535.047, %41
+  %72 = and i8 %71, 7
+  %.not.i = icmp eq i8 %72, 0
+  br i1 %.not.i, label %_ZN5faiss16PQDecoderGeneric6decodeEv.exit, label %73
 
-74:                                               ; preds = %._crit_edge.i
-  %75 = load i8, ptr %.sroa.033.1, align 1
-  %76 = zext i8 %75 to i64
-  %77 = shl i64 %76, %.08.lcssa.i
-  %78 = or i64 %77, %.09.lcssa.i
+73:                                               ; preds = %._crit_edge.i
+  %74 = load i8, ptr %.sroa.033.1, align 1
+  %75 = zext i8 %74 to i64
+  %76 = shl i64 %75, %.08.lcssa.i
+  %77 = or i64 %76, %.09.lcssa.i
   br label %_ZN5faiss16PQDecoderGeneric6decodeEv.exit
 
-79:                                               ; preds = %._crit_edge16.i
-  %80 = trunc i32 %53 to i8
+78:                                               ; preds = %._crit_edge16.i
+  %79 = trunc i32 %53 to i8
   br label %_ZN5faiss16PQDecoderGeneric6decodeEv.exit
 
-_ZN5faiss16PQDecoderGeneric6decodeEv.exit:        ; preds = %._crit_edge.i, %74, %79
-  %.sroa.033.2 = phi ptr [ %.sroa.033.1, %._crit_edge.i ], [ %.sroa.033.1, %74 ], [ %.sroa.033.043, %79 ]
-  %.sroa.535.1 = phi i8 [ 0, %._crit_edge.i ], [ %73, %74 ], [ %80, %79 ]
-  %.sroa.14.2 = phi i8 [ %.sroa.14.1, %._crit_edge.i ], [ %75, %74 ], [ %.sroa.14.1, %79 ]
-  %.1.i = phi i64 [ %.09.lcssa.i, %._crit_edge.i ], [ %78, %74 ], [ %52, %79 ]
-  %81 = and i64 %.1.i, %30
-  %82 = icmp eq i8 %.sroa.5.047, 0
-  br i1 %82, label %83, label %._crit_edge16.i18
+_ZN5faiss16PQDecoderGeneric6decodeEv.exit:        ; preds = %._crit_edge.i, %73, %78
+  %.sroa.033.2 = phi ptr [ %.sroa.033.1, %._crit_edge.i ], [ %.sroa.033.1, %73 ], [ %.sroa.033.045, %78 ]
+  %.sroa.535.1 = phi i8 [ 0, %._crit_edge.i ], [ %72, %73 ], [ %79, %78 ]
+  %.sroa.14.2 = phi i8 [ %.sroa.14.1, %._crit_edge.i ], [ %74, %73 ], [ %.sroa.14.1, %78 ]
+  %.1.i = phi i64 [ %.09.lcssa.i, %._crit_edge.i ], [ %77, %73 ], [ %52, %78 ]
+  %80 = and i64 %.1.i, %30
+  %81 = icmp eq i8 %.sroa.5.049, 0
+  br i1 %81, label %82, label %._crit_edge16.i18
 
-83:                                               ; preds = %_ZN5faiss16PQDecoderGeneric6decodeEv.exit
-  %84 = load i8, ptr %.sroa.0.048, align 1
+82:                                               ; preds = %_ZN5faiss16PQDecoderGeneric6decodeEv.exit
+  %83 = load i8, ptr %.sroa.0.050, align 1
   br label %._crit_edge16.i18
 
-._crit_edge16.i18:                                ; preds = %_ZN5faiss16PQDecoderGeneric6decodeEv.exit, %83
-  %.sroa.13.1 = phi i8 [ %84, %83 ], [ %.sroa.13.044, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit ]
-  %85 = zext i8 %.sroa.13.1 to i32
-  %86 = zext i8 %.sroa.5.047 to i32
-  %87 = lshr i32 %85, %86
-  %88 = zext nneg i32 %87 to i64
-  %89 = add i32 %86, %28
-  %90 = icmp sgt i32 %89, 7
-  br i1 %90, label %91, label %115
+._crit_edge16.i18:                                ; preds = %_ZN5faiss16PQDecoderGeneric6decodeEv.exit, %82
+  %.sroa.13.1 = phi i8 [ %83, %82 ], [ %.sroa.13.046, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit ]
+  %84 = zext i8 %.sroa.13.1 to i32
+  %85 = zext i8 %.sroa.5.049 to i32
+  %86 = lshr i32 %84, %85
+  %87 = zext nneg i32 %86 to i64
+  %88 = add i32 %85, %28
+  %89 = icmp sgt i32 %88, 7
+  br i1 %89, label %90, label %113
 
-91:                                               ; preds = %._crit_edge16.i18
-  %92 = sub nsw i32 8, %86
-  %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds i8, ptr %.sroa.0.048, i64 1
-  %95 = add nsw i32 %89, -8
-  %96 = lshr i32 %95, 3
-  %97 = icmp ugt i32 %89, 15
-  br i1 %97, label %.lr.ph.i26.preheader, label %._crit_edge.i22
+90:                                               ; preds = %._crit_edge16.i18
+  %91 = sub nsw i32 8, %85
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr inbounds i8, ptr %.sroa.0.050, i64 1
+  %.reass44 = add i32 %invariant.op, %85
+  %94 = lshr i32 %.reass44, 3
+  %95 = icmp ugt i32 %88, 15
+  br i1 %95, label %.lr.ph.i26.preheader, label %._crit_edge.i22
 
-.lr.ph.i26.preheader:                             ; preds = %91
-  %98 = add nsw i32 %96, -1
-  %99 = zext i32 %98 to i64
+.lr.ph.i26.preheader:                             ; preds = %90
+  %96 = add nsw i32 %94, -1
+  %97 = zext i32 %96 to i64
   br label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %.lr.ph.i26.preheader, %.lr.ph.i26
-  %.013.i27 = phi i32 [ %107, %.lr.ph.i26 ], [ 0, %.lr.ph.i26.preheader ]
-  %.0812.i28 = phi i64 [ %106, %.lr.ph.i26 ], [ %93, %.lr.ph.i26.preheader ]
-  %.0911.i29 = phi i64 [ %105, %.lr.ph.i26 ], [ %88, %.lr.ph.i26.preheader ]
-  %100 = phi ptr [ %101, %.lr.ph.i26 ], [ %94, %.lr.ph.i26.preheader ]
-  %101 = getelementptr inbounds i8, ptr %100, i64 1
-  %102 = load i8, ptr %100, align 1
-  %103 = zext i8 %102 to i64
-  %104 = shl i64 %103, %.0812.i28
-  %105 = or i64 %104, %.0911.i29
-  %106 = add nsw i64 %.0812.i28, 8
-  %107 = add nuw nsw i32 %.013.i27, 1
-  %exitcond.not.i30 = icmp eq i32 %107, %96
+  %.013.i27 = phi i32 [ %105, %.lr.ph.i26 ], [ 0, %.lr.ph.i26.preheader ]
+  %.0812.i28 = phi i64 [ %104, %.lr.ph.i26 ], [ %92, %.lr.ph.i26.preheader ]
+  %.0911.i29 = phi i64 [ %103, %.lr.ph.i26 ], [ %87, %.lr.ph.i26.preheader ]
+  %98 = phi ptr [ %99, %.lr.ph.i26 ], [ %93, %.lr.ph.i26.preheader ]
+  %99 = getelementptr inbounds i8, ptr %98, i64 1
+  %100 = load i8, ptr %98, align 1
+  %101 = zext i8 %100 to i64
+  %102 = shl i64 %101, %.0812.i28
+  %103 = or i64 %102, %.0911.i29
+  %104 = add nsw i64 %.0812.i28, 8
+  %105 = add nuw nsw i32 %.013.i27, 1
+  %exitcond.not.i30 = icmp eq i32 %105, %94
   br i1 %exitcond.not.i30, label %._crit_edge.i22.loopexit, label %.lr.ph.i26, !llvm.loop !21
 
 ._crit_edge.i22.loopexit:                         ; preds = %.lr.ph.i26
-  %scevgep60 = getelementptr i8, ptr %.sroa.0.048, i64 2
-  %scevgep61 = getelementptr i8, ptr %scevgep60, i64 %99
+  %scevgep62 = getelementptr i8, ptr %.sroa.0.050, i64 2
+  %scevgep63 = getelementptr i8, ptr %scevgep62, i64 %97
   br label %._crit_edge.i22
 
-._crit_edge.i22:                                  ; preds = %._crit_edge.i22.loopexit, %91
-  %.sroa.0.1 = phi ptr [ %94, %91 ], [ %scevgep61, %._crit_edge.i22.loopexit ]
-  %.09.lcssa.i23 = phi i64 [ %88, %91 ], [ %105, %._crit_edge.i22.loopexit ]
-  %.08.lcssa.i24 = phi i64 [ %93, %91 ], [ %106, %._crit_edge.i22.loopexit ]
-  %108 = add i8 %.sroa.5.047, %41
-  %109 = and i8 %108, 7
-  %.not.i25 = icmp eq i8 %109, 0
-  br i1 %.not.i25, label %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31, label %110
+._crit_edge.i22:                                  ; preds = %._crit_edge.i22.loopexit, %90
+  %.sroa.0.1 = phi ptr [ %93, %90 ], [ %scevgep63, %._crit_edge.i22.loopexit ]
+  %.09.lcssa.i23 = phi i64 [ %87, %90 ], [ %103, %._crit_edge.i22.loopexit ]
+  %.08.lcssa.i24 = phi i64 [ %92, %90 ], [ %104, %._crit_edge.i22.loopexit ]
+  %106 = add i8 %.sroa.5.049, %41
+  %107 = and i8 %106, 7
+  %.not.i25 = icmp eq i8 %107, 0
+  br i1 %.not.i25, label %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31, label %108
 
-110:                                              ; preds = %._crit_edge.i22
-  %111 = load i8, ptr %.sroa.0.1, align 1
-  %112 = zext i8 %111 to i64
-  %113 = shl i64 %112, %.08.lcssa.i24
-  %114 = or i64 %113, %.09.lcssa.i23
+108:                                              ; preds = %._crit_edge.i22
+  %109 = load i8, ptr %.sroa.0.1, align 1
+  %110 = zext i8 %109 to i64
+  %111 = shl i64 %110, %.08.lcssa.i24
+  %112 = or i64 %111, %.09.lcssa.i23
   br label %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31
 
-115:                                              ; preds = %._crit_edge16.i18
-  %116 = trunc i32 %89 to i8
+113:                                              ; preds = %._crit_edge16.i18
+  %114 = trunc i32 %88 to i8
   br label %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31
 
-_ZN5faiss16PQDecoderGeneric6decodeEv.exit31:      ; preds = %._crit_edge.i22, %110, %115
-  %.sroa.13.2 = phi i8 [ %.sroa.13.1, %._crit_edge.i22 ], [ %111, %110 ], [ %.sroa.13.1, %115 ]
-  %.sroa.5.1 = phi i8 [ 0, %._crit_edge.i22 ], [ %109, %110 ], [ %116, %115 ]
-  %.sroa.0.2 = phi ptr [ %.sroa.0.1, %._crit_edge.i22 ], [ %.sroa.0.1, %110 ], [ %.sroa.0.048, %115 ]
-  %.1.i21 = phi i64 [ %.09.lcssa.i23, %._crit_edge.i22 ], [ %114, %110 ], [ %88, %115 ]
-  %117 = and i64 %.1.i21, %30
-  %118 = shl i64 %117, %29
-  %119 = add i64 %118, %81
-  %120 = getelementptr inbounds float, ptr %.01249, i64 %119
-  %121 = load float, ptr %120, align 4
-  %122 = fadd float %.01150, %121
-  %123 = getelementptr inbounds float, ptr %.01249, i64 %44
+_ZN5faiss16PQDecoderGeneric6decodeEv.exit31:      ; preds = %._crit_edge.i22, %108, %113
+  %.sroa.13.2 = phi i8 [ %.sroa.13.1, %._crit_edge.i22 ], [ %109, %108 ], [ %.sroa.13.1, %113 ]
+  %.sroa.5.1 = phi i8 [ 0, %._crit_edge.i22 ], [ %107, %108 ], [ %114, %113 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.1, %._crit_edge.i22 ], [ %.sroa.0.1, %108 ], [ %.sroa.0.050, %113 ]
+  %.1.i21 = phi i64 [ %.09.lcssa.i23, %._crit_edge.i22 ], [ %112, %108 ], [ %87, %113 ]
+  %115 = and i64 %.1.i21, %30
+  %116 = shl i64 %115, %29
+  %117 = add i64 %116, %80
+  %118 = getelementptr inbounds float, ptr %.01251, i64 %117
+  %119 = load float, ptr %118, align 4
+  %120 = fadd float %.01152, %119
+  %121 = getelementptr inbounds float, ptr %.01251, i64 %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %32
   br i1 %exitcond.not, label %._crit_edge, label %45, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31, %23
-  %.011.lcssa = phi float [ 0.000000e+00, %23 ], [ %122, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31 ]
-  %124 = getelementptr inbounds i8, ptr %0, i64 88
-  %125 = load i64, ptr %124, align 8
-  %126 = add i64 %125, 1
-  store i64 %126, ptr %124, align 8
+  %.011.lcssa = phi float [ 0.000000e+00, %23 ], [ %120, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31 ]
+  %122 = getelementptr inbounds i8, ptr %0, i64 88
+  %123 = load i64, ptr %122, align 8
+  %124 = add i64 %123, 1
+  store i64 %124, ptr %122, align 8
   ret float %.011.lcssa
 
-127:                                              ; preds = %17
+125:                                              ; preds = %17
   unreachable
 }
 
@@ -3259,6 +3260,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_16
   %14 = xor i64 %notmask.i.i.i, -1
   %15 = shl nuw i32 1, %12
   %16 = sext i32 %15 to i64
+  %invariant.op.i.i = add i32 %12, -8
   %.not.i.i = icmp eq i64 %9, 0
   br i1 %.not.i.i, label %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit, label %.lr.ph.i.i
 
@@ -3269,9 +3271,9 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_16
   br label %20
 
 20:                                               ; preds = %_ZN5faiss16PQDecoderGeneric6decodeEv.exit.i.i, %.lr.ph.i.i
-  %.021.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %61, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit.i.i ]
-  %.01120.i.i = phi float [ 0.000000e+00, %.lr.ph.i.i ], [ %59, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit.i.i ]
-  %.01219.i.i = phi ptr [ %18, %.lr.ph.i.i ], [ %60, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit.i.i ]
+  %.021.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %60, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit.i.i ]
+  %.01120.i.i = phi float [ 0.000000e+00, %.lr.ph.i.i ], [ %58, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit.i.i ]
+  %.01219.i.i = phi ptr [ %18, %.lr.ph.i.i ], [ %59, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit.i.i ]
   %.sroa.0.018.i.i = phi ptr [ %1, %.lr.ph.i.i ], [ %.sroa.0.2.i.i, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit.i.i ]
   %.sroa.5.017.i.i = phi i8 [ 0, %.lr.ph.i.i ], [ %.sroa.5.1.i.i, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit.i.i ]
   %.sroa.13.016.i.i = phi i8 [ 0, %.lr.ph.i.i ], [ %.sroa.13.2.i.i, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit.i.i ]
@@ -3290,75 +3292,75 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_16
   %27 = zext nneg i32 %26 to i64
   %28 = add i32 %25, %12
   %29 = icmp sgt i32 %28, 7
-  br i1 %29, label %30, label %54
+  br i1 %29, label %30, label %53
 
 30:                                               ; preds = %._crit_edge16.i.i.i
   %31 = sub nsw i32 8, %25
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i, i64 1
-  %34 = add nsw i32 %28, -8
-  %35 = lshr i32 %34, 3
-  %36 = icmp ugt i32 %28, 15
-  br i1 %36, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+  %.reass.i.i = add i32 %invariant.op.i.i, %25
+  %34 = lshr i32 %.reass.i.i, 3
+  %35 = icmp ugt i32 %28, 15
+  br i1 %35, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %30, %.lr.ph.i.i.i
-  %.013.i.i.i = phi i32 [ %44, %.lr.ph.i.i.i ], [ 0, %30 ]
-  %.0812.i.i.i = phi i64 [ %43, %.lr.ph.i.i.i ], [ %32, %30 ]
-  %.0911.i.i.i = phi i64 [ %42, %.lr.ph.i.i.i ], [ %27, %30 ]
-  %37 = phi ptr [ %38, %.lr.ph.i.i.i ], [ %33, %30 ]
-  %38 = getelementptr inbounds i8, ptr %37, i64 1
-  %39 = load i8, ptr %37, align 1
-  %40 = zext i8 %39 to i64
-  %41 = shl i64 %40, %.0812.i.i.i
-  %42 = or i64 %41, %.0911.i.i.i
-  %43 = add nsw i64 %.0812.i.i.i, 8
-  %44 = add nuw nsw i32 %.013.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i32 %44, %35
+  %.013.i.i.i = phi i32 [ %43, %.lr.ph.i.i.i ], [ 0, %30 ]
+  %.0812.i.i.i = phi i64 [ %42, %.lr.ph.i.i.i ], [ %32, %30 ]
+  %.0911.i.i.i = phi i64 [ %41, %.lr.ph.i.i.i ], [ %27, %30 ]
+  %36 = phi ptr [ %37, %.lr.ph.i.i.i ], [ %33, %30 ]
+  %37 = getelementptr inbounds i8, ptr %36, i64 1
+  %38 = load i8, ptr %36, align 1
+  %39 = zext i8 %38 to i64
+  %40 = shl i64 %39, %.0812.i.i.i
+  %41 = or i64 %40, %.0911.i.i.i
+  %42 = add nsw i64 %.0812.i.i.i, 8
+  %43 = add nuw nsw i32 %.013.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i32 %43, %34
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !21
 
 ._crit_edge.i.loopexit.i.i:                       ; preds = %.lr.ph.i.i.i
-  %45 = add nsw i32 %35, -1
-  %46 = zext i32 %45 to i64
+  %44 = add nsw i32 %34, -1
+  %45 = zext i32 %44 to i64
   %scevgep.i.i = getelementptr i8, ptr %.sroa.0.018.i.i, i64 2
-  %scevgep25.i.i = getelementptr i8, ptr %scevgep.i.i, i64 %46
+  %scevgep25.i.i = getelementptr i8, ptr %scevgep.i.i, i64 %45
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.i.loopexit.i.i, %30
   %.sroa.0.1.i.i = phi ptr [ %33, %30 ], [ %scevgep25.i.i, %._crit_edge.i.loopexit.i.i ]
-  %.09.lcssa.i.i.i = phi i64 [ %27, %30 ], [ %42, %._crit_edge.i.loopexit.i.i ]
-  %.08.lcssa.i.i.i = phi i64 [ %32, %30 ], [ %43, %._crit_edge.i.loopexit.i.i ]
-  %47 = add i8 %.sroa.5.017.i.i, %19
-  %48 = and i8 %47, 7
-  %.not.i.i.i = icmp eq i8 %48, 0
-  br i1 %.not.i.i.i, label %_ZN5faiss16PQDecoderGeneric6decodeEv.exit.i.i, label %49
+  %.09.lcssa.i.i.i = phi i64 [ %27, %30 ], [ %41, %._crit_edge.i.loopexit.i.i ]
+  %.08.lcssa.i.i.i = phi i64 [ %32, %30 ], [ %42, %._crit_edge.i.loopexit.i.i ]
+  %46 = add i8 %.sroa.5.017.i.i, %19
+  %47 = and i8 %46, 7
+  %.not.i.i.i = icmp eq i8 %47, 0
+  br i1 %.not.i.i.i, label %_ZN5faiss16PQDecoderGeneric6decodeEv.exit.i.i, label %48
 
-49:                                               ; preds = %._crit_edge.i.i.i
-  %50 = load i8, ptr %.sroa.0.1.i.i, align 1
-  %51 = zext i8 %50 to i64
-  %52 = shl i64 %51, %.08.lcssa.i.i.i
-  %53 = or i64 %52, %.09.lcssa.i.i.i
+48:                                               ; preds = %._crit_edge.i.i.i
+  %49 = load i8, ptr %.sroa.0.1.i.i, align 1
+  %50 = zext i8 %49 to i64
+  %51 = shl i64 %50, %.08.lcssa.i.i.i
+  %52 = or i64 %51, %.09.lcssa.i.i.i
   br label %_ZN5faiss16PQDecoderGeneric6decodeEv.exit.i.i
 
-54:                                               ; preds = %._crit_edge16.i.i.i
-  %55 = trunc i32 %28 to i8
+53:                                               ; preds = %._crit_edge16.i.i.i
+  %54 = trunc i32 %28 to i8
   br label %_ZN5faiss16PQDecoderGeneric6decodeEv.exit.i.i
 
-_ZN5faiss16PQDecoderGeneric6decodeEv.exit.i.i:    ; preds = %54, %49, %._crit_edge.i.i.i
-  %.sroa.13.2.i.i = phi i8 [ %.sroa.13.1.i.i, %._crit_edge.i.i.i ], [ %50, %49 ], [ %.sroa.13.1.i.i, %54 ]
-  %.sroa.5.1.i.i = phi i8 [ 0, %._crit_edge.i.i.i ], [ %48, %49 ], [ %55, %54 ]
-  %.sroa.0.2.i.i = phi ptr [ %.sroa.0.1.i.i, %._crit_edge.i.i.i ], [ %.sroa.0.1.i.i, %49 ], [ %.sroa.0.018.i.i, %54 ]
-  %.1.i.i.i = phi i64 [ %.09.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %53, %49 ], [ %27, %54 ]
-  %56 = and i64 %.1.i.i.i, %14
-  %57 = getelementptr inbounds float, ptr %.01219.i.i, i64 %56
-  %58 = load float, ptr %57, align 4
-  %59 = fadd float %.01120.i.i, %58
-  %60 = getelementptr inbounds float, ptr %.01219.i.i, i64 %16
-  %61 = add nuw i64 %.021.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %61, %9
+_ZN5faiss16PQDecoderGeneric6decodeEv.exit.i.i:    ; preds = %53, %48, %._crit_edge.i.i.i
+  %.sroa.13.2.i.i = phi i8 [ %.sroa.13.1.i.i, %._crit_edge.i.i.i ], [ %49, %48 ], [ %.sroa.13.1.i.i, %53 ]
+  %.sroa.5.1.i.i = phi i8 [ 0, %._crit_edge.i.i.i ], [ %47, %48 ], [ %54, %53 ]
+  %.sroa.0.2.i.i = phi ptr [ %.sroa.0.1.i.i, %._crit_edge.i.i.i ], [ %.sroa.0.1.i.i, %48 ], [ %.sroa.0.018.i.i, %53 ]
+  %.1.i.i.i = phi i64 [ %.09.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %52, %48 ], [ %27, %53 ]
+  %55 = and i64 %.1.i.i.i, %14
+  %56 = getelementptr inbounds float, ptr %.01219.i.i, i64 %55
+  %57 = load float, ptr %56, align 4
+  %58 = fadd float %.01120.i.i, %57
+  %59 = getelementptr inbounds float, ptr %.01219.i.i, i64 %16
+  %60 = add nuw i64 %.021.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %60, %9
   br i1 %exitcond.not.i.i, label %_ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit, label %20, !llvm.loop !23
 
 _ZN5faiss20distance_single_codeINS_16PQDecoderGenericEEEfmmPKfPKh.exit: ; preds = %_ZN5faiss16PQDecoderGeneric6decodeEv.exit.i.i, %2
-  %.011.lcssa.i.i = phi float [ 0.000000e+00, %2 ], [ %59, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit.i.i ]
+  %.011.lcssa.i.i = phi float [ 0.000000e+00, %2 ], [ %58, %_ZN5faiss16PQDecoderGeneric6decodeEv.exit.i.i ]
   ret float %.011.lcssa.i.i
 }
 

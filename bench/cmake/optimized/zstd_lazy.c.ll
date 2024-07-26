@@ -254,11 +254,10 @@ define dso_local void @ZSTD_dedicatedDictSearch_lazy_loadDictionary(ptr nocaptur
   %132 = sub i32 34, %28
   %133 = zext i32 %127 to i64
   %134 = and i64 %7, 4294967295
-  %invariant.gep = getelementptr i8, ptr %10, i64 -4
   br label %135
 
-135:                                              ; preds = %.lr.ph219, %161
-  %indvars.iv246 = phi i64 [ %133, %.lr.ph219 ], [ %indvars.iv.next247, %161 ]
+135:                                              ; preds = %.lr.ph219, %163
+  %indvars.iv246 = phi i64 [ %133, %.lr.ph219 ], [ %indvars.iv.next247, %163 ]
   %136 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv246
   %137 = load i32, ptr %129, align 8
   switch i32 %137, label %138 [
@@ -301,30 +300,35 @@ define dso_local void @ZSTD_dedicatedDictSearch_lazy_loadDictionary(ptr nocaptur
 
 154:                                              ; preds = %151, %148, %145, %142, %138
   %.0141 = phi i64 [ %141, %138 ], [ %150, %148 ], [ %147, %145 ], [ %144, %142 ], [ %153, %151 ]
-  %155 = shl i64 %.0141, 2
-  %156 = and i64 %155, 4294967292
-  br label %157
+  %155 = trunc i64 %.0141 to i32
+  %156 = shl i32 %155, 2
+  %invariant.op = add i32 %156, -1
+  %157 = zext i32 %156 to i64
+  %invariant.gep = getelementptr i32, ptr %10, i64 %157
+  br label %158
 
-157:                                              ; preds = %154, %157
-  %indvars.iv243 = phi i64 [ 2, %154 ], [ %indvars.iv.next244, %157 ]
-  %158 = add nuw nsw i64 %indvars.iv243, %156
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %158
-  %159 = load i32, ptr %gep, align 4
-  %160 = getelementptr inbounds i32, ptr %10, i64 %158
-  store i32 %159, ptr %160, align 4
+158:                                              ; preds = %154, %158
+  %indvars.iv243 = phi i64 [ 2, %154 ], [ %indvars.iv.next244, %158 ]
+  %159 = trunc nuw nsw i64 %indvars.iv243 to i32
+  %.reass = add i32 %invariant.op, %159
+  %160 = zext i32 %.reass to i64
+  %161 = getelementptr inbounds i32, ptr %10, i64 %160
+  %162 = load i32, ptr %161, align 4
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv243
+  store i32 %162, ptr %gep, align 4
   %indvars.iv.next244 = add nsw i64 %indvars.iv243, -1
   %.not161 = icmp eq i64 %indvars.iv.next244, 0
-  br i1 %.not161, label %161, label %157, !llvm.loop !11
+  br i1 %.not161, label %163, label %158, !llvm.loop !11
 
-161:                                              ; preds = %157
-  %162 = getelementptr inbounds i32, ptr %10, i64 %156
-  %163 = trunc nuw i64 %indvars.iv246 to i32
-  store i32 %163, ptr %162, align 4
+163:                                              ; preds = %158
+  %164 = getelementptr inbounds i32, ptr %10, i64 %157
+  %165 = trunc nuw i64 %indvars.iv246 to i32
+  store i32 %165, ptr %164, align 4
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
-  %164 = icmp ult i64 %indvars.iv.next247, %134
-  br i1 %164, label %135, label %._crit_edge220, !llvm.loop !12
+  %166 = icmp ult i64 %indvars.iv.next247, %134
+  br i1 %166, label %135, label %._crit_edge220, !llvm.loop !12
 
-._crit_edge220:                                   ; preds = %161, %126
+._crit_edge220:                                   ; preds = %163, %126
   store i32 %8, ptr %16, align 4
   ret void
 }
@@ -40354,16 +40358,15 @@ ZSTD_count.exit.thread._crit_edge:                ; preds = %167, %163, %ZSTD_co
   br i1 %202, label %.lr.ph383, label %.thread._crit_edge
 
 .lr.ph383:                                        ; preds = %ZSTD_count.exit.thread._crit_edge
+  %invariant.op = add i32 %21, %189
   %203 = getelementptr inbounds i8, ptr %1, i64 4
-  %reass.sub = sub i32 %21, %15
-  %.neg356 = add i32 %reass.sub, 3
-  %204 = add i32 %.neg356, %189
+  %204 = add i32 %invariant.op, 3
   br label %205
 
-205:                                              ; preds = %.lr.ph383, %219
-  %.1339381 = phi i32 [ %.1339378, %.lr.ph383 ], [ %.1339, %219 ]
-  %.1332380 = phi i32 [ %.0331.lcssa, %.lr.ph383 ], [ %223, %219 ]
-  %.3336379 = phi i64 [ %.2335, %.lr.ph383 ], [ %.4337, %219 ]
+205:                                              ; preds = %.lr.ph383, %220
+  %.1339381 = phi i32 [ %.1339378, %.lr.ph383 ], [ %.1339, %220 ]
+  %.1332380 = phi i32 [ %.0331.lcssa, %.lr.ph383 ], [ %224, %220 ]
+  %.3336379 = phi i64 [ %.2335, %.lr.ph383 ], [ %.4337, %220 ]
   %206 = zext i32 %.1339381 to i64
   %207 = getelementptr inbounds i8, ptr %184, i64 %206
   %.val346 = load i32, ptr %207, align 1
@@ -40379,31 +40382,32 @@ ZSTD_count.exit.thread._crit_edge:                ; preds = %167, %163, %ZSTD_co
   br i1 %213, label %214, label %.thread
 
 214:                                              ; preds = %209
-  %215 = sub i32 %204, %.1339381
-  %216 = zext i32 %215 to i64
-  store i64 %216, ptr %3, align 8
-  %217 = getelementptr inbounds i8, ptr %1, i64 %212
-  %218 = icmp eq ptr %217, %2
-  br i1 %218, label %.thread._crit_edge, label %.thread
+  %215 = add i32 %15, %.1339381
+  %216 = sub i32 %204, %215
+  %217 = zext i32 %216 to i64
+  store i64 %217, ptr %3, align 8
+  %218 = getelementptr inbounds i8, ptr %1, i64 %212
+  %219 = icmp eq ptr %218, %2
+  br i1 %219, label %.thread._crit_edge, label %.thread
 
 .thread:                                          ; preds = %205, %214, %209
   %.4337 = phi i64 [ %212, %214 ], [ %.3336379, %209 ], [ %.3336379, %205 ]
   %.not345 = icmp ugt i32 %.1339381, %190
-  br i1 %.not345, label %219, label %.thread._crit_edge
+  br i1 %.not345, label %220, label %.thread._crit_edge
 
-219:                                              ; preds = %.thread
-  %220 = and i32 %.1339381, %180
-  %221 = zext i32 %220 to i64
-  %222 = getelementptr inbounds i32, ptr %176, i64 %221
-  %223 = add i32 %.1332380, -1
-  %.1339 = load i32, ptr %222, align 4
-  %224 = icmp uge i32 %.1339, %182
-  %225 = icmp ne i32 %223, 0
-  %226 = and i1 %225, %224
-  br i1 %226, label %205, label %.thread._crit_edge, !llvm.loop !36
+220:                                              ; preds = %.thread
+  %221 = and i32 %.1339381, %180
+  %222 = zext i32 %221 to i64
+  %223 = getelementptr inbounds i32, ptr %176, i64 %222
+  %224 = add i32 %.1332380, -1
+  %.1339 = load i32, ptr %223, align 4
+  %225 = icmp uge i32 %.1339, %182
+  %226 = icmp ne i32 %224, 0
+  %227 = and i1 %226, %225
+  br i1 %227, label %205, label %.thread._crit_edge, !llvm.loop !36
 
-.thread._crit_edge:                               ; preds = %219, %214, %.thread, %ZSTD_count.exit.thread._crit_edge
-  %.5 = phi i64 [ %.2335, %ZSTD_count.exit.thread._crit_edge ], [ %.4337, %.thread ], [ %212, %214 ], [ %.4337, %219 ]
+.thread._crit_edge:                               ; preds = %220, %214, %.thread, %ZSTD_count.exit.thread._crit_edge
+  %.5 = phi i64 [ %.2335, %ZSTD_count.exit.thread._crit_edge ], [ %.4337, %.thread ], [ %212, %214 ], [ %.4337, %220 ]
   ret i64 %.5
 }
 
@@ -40781,16 +40785,15 @@ ZSTD_count.exit.thread._crit_edge:                ; preds = %165, %161, %ZSTD_co
   br i1 %200, label %.lr.ph383, label %.thread._crit_edge
 
 .lr.ph383:                                        ; preds = %ZSTD_count.exit.thread._crit_edge
+  %invariant.op = add i32 %21, %187
   %201 = getelementptr inbounds i8, ptr %1, i64 4
-  %reass.sub = sub i32 %21, %15
-  %.neg356 = add i32 %reass.sub, 3
-  %202 = add i32 %.neg356, %187
+  %202 = add i32 %invariant.op, 3
   br label %203
 
-203:                                              ; preds = %.lr.ph383, %217
-  %.1339381 = phi i32 [ %.1339378, %.lr.ph383 ], [ %.1339, %217 ]
-  %.1332380 = phi i32 [ %.0331.lcssa, %.lr.ph383 ], [ %221, %217 ]
-  %.3336379 = phi i64 [ %.2335, %.lr.ph383 ], [ %.4337, %217 ]
+203:                                              ; preds = %.lr.ph383, %218
+  %.1339381 = phi i32 [ %.1339378, %.lr.ph383 ], [ %.1339, %218 ]
+  %.1332380 = phi i32 [ %.0331.lcssa, %.lr.ph383 ], [ %222, %218 ]
+  %.3336379 = phi i64 [ %.2335, %.lr.ph383 ], [ %.4337, %218 ]
   %204 = zext i32 %.1339381 to i64
   %205 = getelementptr inbounds i8, ptr %182, i64 %204
   %.val346 = load i32, ptr %205, align 1
@@ -40806,31 +40809,32 @@ ZSTD_count.exit.thread._crit_edge:                ; preds = %165, %161, %ZSTD_co
   br i1 %211, label %212, label %.thread
 
 212:                                              ; preds = %207
-  %213 = sub i32 %202, %.1339381
-  %214 = zext i32 %213 to i64
-  store i64 %214, ptr %3, align 8
-  %215 = getelementptr inbounds i8, ptr %1, i64 %210
-  %216 = icmp eq ptr %215, %2
-  br i1 %216, label %.thread._crit_edge, label %.thread
+  %213 = add i32 %15, %.1339381
+  %214 = sub i32 %202, %213
+  %215 = zext i32 %214 to i64
+  store i64 %215, ptr %3, align 8
+  %216 = getelementptr inbounds i8, ptr %1, i64 %210
+  %217 = icmp eq ptr %216, %2
+  br i1 %217, label %.thread._crit_edge, label %.thread
 
 .thread:                                          ; preds = %203, %212, %207
   %.4337 = phi i64 [ %210, %212 ], [ %.3336379, %207 ], [ %.3336379, %203 ]
   %.not345 = icmp ugt i32 %.1339381, %188
-  br i1 %.not345, label %217, label %.thread._crit_edge
+  br i1 %.not345, label %218, label %.thread._crit_edge
 
-217:                                              ; preds = %.thread
-  %218 = and i32 %.1339381, %178
-  %219 = zext i32 %218 to i64
-  %220 = getelementptr inbounds i32, ptr %174, i64 %219
-  %221 = add i32 %.1332380, -1
-  %.1339 = load i32, ptr %220, align 4
-  %222 = icmp uge i32 %.1339, %180
-  %223 = icmp ne i32 %221, 0
-  %224 = and i1 %223, %222
-  br i1 %224, label %203, label %.thread._crit_edge, !llvm.loop !36
+218:                                              ; preds = %.thread
+  %219 = and i32 %.1339381, %178
+  %220 = zext i32 %219 to i64
+  %221 = getelementptr inbounds i32, ptr %174, i64 %220
+  %222 = add i32 %.1332380, -1
+  %.1339 = load i32, ptr %221, align 4
+  %223 = icmp uge i32 %.1339, %180
+  %224 = icmp ne i32 %222, 0
+  %225 = and i1 %224, %223
+  br i1 %225, label %203, label %.thread._crit_edge, !llvm.loop !36
 
-.thread._crit_edge:                               ; preds = %217, %212, %.thread, %ZSTD_count.exit.thread._crit_edge
-  %.5 = phi i64 [ %.2335, %ZSTD_count.exit.thread._crit_edge ], [ %.4337, %.thread ], [ %210, %212 ], [ %.4337, %217 ]
+.thread._crit_edge:                               ; preds = %218, %212, %.thread, %ZSTD_count.exit.thread._crit_edge
+  %.5 = phi i64 [ %.2335, %ZSTD_count.exit.thread._crit_edge ], [ %.4337, %.thread ], [ %210, %212 ], [ %.4337, %218 ]
   ret i64 %.5
 }
 
@@ -41208,16 +41212,15 @@ ZSTD_count.exit.thread._crit_edge:                ; preds = %165, %161, %ZSTD_co
   br i1 %200, label %.lr.ph383, label %.thread._crit_edge
 
 .lr.ph383:                                        ; preds = %ZSTD_count.exit.thread._crit_edge
+  %invariant.op = add i32 %21, %187
   %201 = getelementptr inbounds i8, ptr %1, i64 4
-  %reass.sub = sub i32 %21, %15
-  %.neg356 = add i32 %reass.sub, 3
-  %202 = add i32 %.neg356, %187
+  %202 = add i32 %invariant.op, 3
   br label %203
 
-203:                                              ; preds = %.lr.ph383, %217
-  %.1339381 = phi i32 [ %.1339378, %.lr.ph383 ], [ %.1339, %217 ]
-  %.1332380 = phi i32 [ %.0331.lcssa, %.lr.ph383 ], [ %221, %217 ]
-  %.3336379 = phi i64 [ %.2335, %.lr.ph383 ], [ %.4337, %217 ]
+203:                                              ; preds = %.lr.ph383, %218
+  %.1339381 = phi i32 [ %.1339378, %.lr.ph383 ], [ %.1339, %218 ]
+  %.1332380 = phi i32 [ %.0331.lcssa, %.lr.ph383 ], [ %222, %218 ]
+  %.3336379 = phi i64 [ %.2335, %.lr.ph383 ], [ %.4337, %218 ]
   %204 = zext i32 %.1339381 to i64
   %205 = getelementptr inbounds i8, ptr %182, i64 %204
   %.val346 = load i32, ptr %205, align 1
@@ -41233,31 +41236,32 @@ ZSTD_count.exit.thread._crit_edge:                ; preds = %165, %161, %ZSTD_co
   br i1 %211, label %212, label %.thread
 
 212:                                              ; preds = %207
-  %213 = sub i32 %202, %.1339381
-  %214 = zext i32 %213 to i64
-  store i64 %214, ptr %3, align 8
-  %215 = getelementptr inbounds i8, ptr %1, i64 %210
-  %216 = icmp eq ptr %215, %2
-  br i1 %216, label %.thread._crit_edge, label %.thread
+  %213 = add i32 %15, %.1339381
+  %214 = sub i32 %202, %213
+  %215 = zext i32 %214 to i64
+  store i64 %215, ptr %3, align 8
+  %216 = getelementptr inbounds i8, ptr %1, i64 %210
+  %217 = icmp eq ptr %216, %2
+  br i1 %217, label %.thread._crit_edge, label %.thread
 
 .thread:                                          ; preds = %203, %212, %207
   %.4337 = phi i64 [ %210, %212 ], [ %.3336379, %207 ], [ %.3336379, %203 ]
   %.not345 = icmp ugt i32 %.1339381, %188
-  br i1 %.not345, label %217, label %.thread._crit_edge
+  br i1 %.not345, label %218, label %.thread._crit_edge
 
-217:                                              ; preds = %.thread
-  %218 = and i32 %.1339381, %178
-  %219 = zext i32 %218 to i64
-  %220 = getelementptr inbounds i32, ptr %174, i64 %219
-  %221 = add i32 %.1332380, -1
-  %.1339 = load i32, ptr %220, align 4
-  %222 = icmp uge i32 %.1339, %180
-  %223 = icmp ne i32 %221, 0
-  %224 = and i1 %223, %222
-  br i1 %224, label %203, label %.thread._crit_edge, !llvm.loop !36
+218:                                              ; preds = %.thread
+  %219 = and i32 %.1339381, %178
+  %220 = zext i32 %219 to i64
+  %221 = getelementptr inbounds i32, ptr %174, i64 %220
+  %222 = add i32 %.1332380, -1
+  %.1339 = load i32, ptr %221, align 4
+  %223 = icmp uge i32 %.1339, %180
+  %224 = icmp ne i32 %222, 0
+  %225 = and i1 %224, %223
+  br i1 %225, label %203, label %.thread._crit_edge, !llvm.loop !36
 
-.thread._crit_edge:                               ; preds = %217, %212, %.thread, %ZSTD_count.exit.thread._crit_edge
-  %.5 = phi i64 [ %.2335, %ZSTD_count.exit.thread._crit_edge ], [ %.4337, %.thread ], [ %210, %212 ], [ %.4337, %217 ]
+.thread._crit_edge:                               ; preds = %218, %212, %.thread, %ZSTD_count.exit.thread._crit_edge
+  %.5 = phi i64 [ %.2335, %ZSTD_count.exit.thread._crit_edge ], [ %.4337, %.thread ], [ %210, %212 ], [ %.4337, %218 ]
   ret i64 %.5
 }
 
@@ -41835,14 +41839,13 @@ ZSTD_count.exit.thread:                           ; preds = %257, %303, %ZSTD_co
   br i1 %.not977, label %._crit_edge970, label %.lr.ph969
 
 .lr.ph969:                                        ; preds = %._crit_edge962
+  %invariant.op = add i32 %24, %.neg907.neg976
   %351 = getelementptr inbounds i8, ptr %1, i64 4
-  %reass.sub = sub i32 %24, %18
-  %.neg927 = add i32 %reass.sub, 3
-  %352 = add i32 %.neg927, %.neg907.neg976
+  %352 = add i32 %invariant.op, 3
   br label %353
 
 353:                                              ; preds = %.lr.ph969, %.thread
-  %.0855967 = phi i64 [ 0, %.lr.ph969 ], [ %369, %.thread ]
+  %.0855967 = phi i64 [ 0, %.lr.ph969 ], [ %370, %.thread ]
   %.3888966 = phi i64 [ %.2887, %.lr.ph969 ], [ %.4889, %.thread ]
   %354 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0855967
   %355 = load i32, ptr %354, align 4
@@ -41861,17 +41864,18 @@ ZSTD_count.exit.thread:                           ; preds = %257, %303, %ZSTD_co
   br i1 %363, label %364, label %.thread
 
 364:                                              ; preds = %359
-  %365 = sub i32 %352, %355
-  %366 = zext i32 %365 to i64
-  store i64 %366, ptr %3, align 8
-  %367 = getelementptr inbounds i8, ptr %1, i64 %362
-  %368 = icmp eq ptr %367, %2
-  br i1 %368, label %._crit_edge970, label %.thread
+  %365 = add i32 %18, %355
+  %366 = sub i32 %352, %365
+  %367 = zext i32 %366 to i64
+  store i64 %367, ptr %3, align 8
+  %368 = getelementptr inbounds i8, ptr %1, i64 %362
+  %369 = icmp eq ptr %368, %2
+  br i1 %369, label %._crit_edge970, label %.thread
 
 .thread:                                          ; preds = %353, %364, %359
   %.4889 = phi i64 [ %362, %364 ], [ %.3888966, %359 ], [ %.3888966, %353 ]
-  %369 = add nuw i64 %.0855967, 1
-  %exitcond989.not = icmp eq i64 %369, %.0856.lcssa
+  %370 = add nuw i64 %.0855967, 1
+  %exitcond989.not = icmp eq i64 %370, %.0856.lcssa
   br i1 %exitcond989.not, label %._crit_edge970, label %353, !llvm.loop !38
 
 ._crit_edge970:                                   ; preds = %.thread, %364, %.critedge909, %._crit_edge962
@@ -42482,14 +42486,13 @@ ZSTD_count.exit.thread:                           ; preds = %269, %315, %ZSTD_co
   br i1 %.not978, label %._crit_edge971, label %.lr.ph970
 
 .lr.ph970:                                        ; preds = %._crit_edge963
+  %invariant.op = add i32 %24, %.neg907.neg977
   %371 = getelementptr inbounds i8, ptr %1, i64 4
-  %reass.sub = sub i32 %24, %18
-  %.neg923 = add i32 %reass.sub, 3
-  %372 = add i32 %.neg923, %.neg907.neg977
+  %372 = add i32 %invariant.op, 3
   br label %373
 
 373:                                              ; preds = %.lr.ph970, %.thread
-  %.0855968 = phi i64 [ 0, %.lr.ph970 ], [ %389, %.thread ]
+  %.0855968 = phi i64 [ 0, %.lr.ph970 ], [ %390, %.thread ]
   %.3888967 = phi i64 [ %.2887, %.lr.ph970 ], [ %.4889, %.thread ]
   %374 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0855968
   %375 = load i32, ptr %374, align 4
@@ -42508,17 +42511,18 @@ ZSTD_count.exit.thread:                           ; preds = %269, %315, %ZSTD_co
   br i1 %383, label %384, label %.thread
 
 384:                                              ; preds = %379
-  %385 = sub i32 %372, %375
-  %386 = zext i32 %385 to i64
-  store i64 %386, ptr %3, align 8
-  %387 = getelementptr inbounds i8, ptr %1, i64 %382
-  %388 = icmp eq ptr %387, %2
-  br i1 %388, label %._crit_edge971, label %.thread
+  %385 = add i32 %18, %375
+  %386 = sub i32 %372, %385
+  %387 = zext i32 %386 to i64
+  store i64 %387, ptr %3, align 8
+  %388 = getelementptr inbounds i8, ptr %1, i64 %382
+  %389 = icmp eq ptr %388, %2
+  br i1 %389, label %._crit_edge971, label %.thread
 
 .thread:                                          ; preds = %373, %384, %379
   %.4889 = phi i64 [ %382, %384 ], [ %.3888967, %379 ], [ %.3888967, %373 ]
-  %389 = add nuw i64 %.0855968, 1
-  %exitcond996.not = icmp eq i64 %389, %.0856.lcssa
+  %390 = add nuw i64 %.0855968, 1
+  %exitcond996.not = icmp eq i64 %390, %.0856.lcssa
   br i1 %exitcond996.not, label %._crit_edge971, label %373, !llvm.loop !38
 
 ._crit_edge971:                                   ; preds = %.thread, %384, %._crit_edge953, %._crit_edge963
@@ -43183,14 +43187,13 @@ ZSTD_count.exit.thread:                           ; preds = %291, %337, %ZSTD_co
   br i1 %.not978, label %._crit_edge971, label %.lr.ph970
 
 .lr.ph970:                                        ; preds = %._crit_edge963
+  %invariant.op = add i32 %26, %.neg907.neg977
   %407 = getelementptr inbounds i8, ptr %1, i64 4
-  %reass.sub = sub i32 %26, %20
-  %.neg923 = add i32 %reass.sub, 3
-  %408 = add i32 %.neg923, %.neg907.neg977
+  %408 = add i32 %invariant.op, 3
   br label %409
 
 409:                                              ; preds = %.lr.ph970, %.thread
-  %.0855968 = phi i64 [ 0, %.lr.ph970 ], [ %425, %.thread ]
+  %.0855968 = phi i64 [ 0, %.lr.ph970 ], [ %426, %.thread ]
   %.3888967 = phi i64 [ %.2887, %.lr.ph970 ], [ %.4889, %.thread ]
   %410 = getelementptr inbounds [64 x i32], ptr %8, i64 0, i64 %.0855968
   %411 = load i32, ptr %410, align 4
@@ -43209,17 +43212,18 @@ ZSTD_count.exit.thread:                           ; preds = %291, %337, %ZSTD_co
   br i1 %419, label %420, label %.thread
 
 420:                                              ; preds = %415
-  %421 = sub i32 %408, %411
-  %422 = zext i32 %421 to i64
-  store i64 %422, ptr %3, align 8
-  %423 = getelementptr inbounds i8, ptr %1, i64 %418
-  %424 = icmp eq ptr %423, %2
-  br i1 %424, label %._crit_edge971, label %.thread
+  %421 = add i32 %20, %411
+  %422 = sub i32 %408, %421
+  %423 = zext i32 %422 to i64
+  store i64 %423, ptr %3, align 8
+  %424 = getelementptr inbounds i8, ptr %1, i64 %418
+  %425 = icmp eq ptr %424, %2
+  br i1 %425, label %._crit_edge971, label %.thread
 
 .thread:                                          ; preds = %409, %420, %415
   %.4889 = phi i64 [ %418, %420 ], [ %.3888967, %415 ], [ %.3888967, %409 ]
-  %425 = add nuw i64 %.0855968, 1
-  %exitcond998.not = icmp eq i64 %425, %.0856.lcssa
+  %426 = add nuw i64 %.0855968, 1
+  %exitcond998.not = icmp eq i64 %426, %.0856.lcssa
   br i1 %exitcond998.not, label %._crit_edge971, label %409, !llvm.loop !38
 
 ._crit_edge971:                                   ; preds = %.thread, %420, %361, %._crit_edge963
@@ -43802,14 +43806,13 @@ ZSTD_count.exit.thread:                           ; preds = %258, %304, %ZSTD_co
   br i1 %.not977, label %._crit_edge970, label %.lr.ph969
 
 .lr.ph969:                                        ; preds = %._crit_edge962
+  %invariant.op = add i32 %24, %.neg907.neg976
   %352 = getelementptr inbounds i8, ptr %1, i64 4
-  %reass.sub = sub i32 %24, %18
-  %.neg927 = add i32 %reass.sub, 3
-  %353 = add i32 %.neg927, %.neg907.neg976
+  %353 = add i32 %invariant.op, 3
   br label %354
 
 354:                                              ; preds = %.lr.ph969, %.thread
-  %.0855967 = phi i64 [ 0, %.lr.ph969 ], [ %370, %.thread ]
+  %.0855967 = phi i64 [ 0, %.lr.ph969 ], [ %371, %.thread ]
   %.3888966 = phi i64 [ %.2887, %.lr.ph969 ], [ %.4889, %.thread ]
   %355 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0855967
   %356 = load i32, ptr %355, align 4
@@ -43828,17 +43831,18 @@ ZSTD_count.exit.thread:                           ; preds = %258, %304, %ZSTD_co
   br i1 %364, label %365, label %.thread
 
 365:                                              ; preds = %360
-  %366 = sub i32 %353, %356
-  %367 = zext i32 %366 to i64
-  store i64 %367, ptr %3, align 8
-  %368 = getelementptr inbounds i8, ptr %1, i64 %363
-  %369 = icmp eq ptr %368, %2
-  br i1 %369, label %._crit_edge970, label %.thread
+  %366 = add i32 %18, %356
+  %367 = sub i32 %353, %366
+  %368 = zext i32 %367 to i64
+  store i64 %368, ptr %3, align 8
+  %369 = getelementptr inbounds i8, ptr %1, i64 %363
+  %370 = icmp eq ptr %369, %2
+  br i1 %370, label %._crit_edge970, label %.thread
 
 .thread:                                          ; preds = %354, %365, %360
   %.4889 = phi i64 [ %363, %365 ], [ %.3888966, %360 ], [ %.3888966, %354 ]
-  %370 = add nuw i64 %.0855967, 1
-  %exitcond989.not = icmp eq i64 %370, %.0856.lcssa
+  %371 = add nuw i64 %.0855967, 1
+  %exitcond989.not = icmp eq i64 %371, %.0856.lcssa
   br i1 %exitcond989.not, label %._crit_edge970, label %354, !llvm.loop !38
 
 ._crit_edge970:                                   ; preds = %.thread, %365, %.critedge909, %._crit_edge962
@@ -44450,14 +44454,13 @@ ZSTD_count.exit.thread:                           ; preds = %270, %316, %ZSTD_co
   br i1 %.not978, label %._crit_edge971, label %.lr.ph970
 
 .lr.ph970:                                        ; preds = %._crit_edge963
+  %invariant.op = add i32 %24, %.neg907.neg977
   %372 = getelementptr inbounds i8, ptr %1, i64 4
-  %reass.sub = sub i32 %24, %18
-  %.neg923 = add i32 %reass.sub, 3
-  %373 = add i32 %.neg923, %.neg907.neg977
+  %373 = add i32 %invariant.op, 3
   br label %374
 
 374:                                              ; preds = %.lr.ph970, %.thread
-  %.0855968 = phi i64 [ 0, %.lr.ph970 ], [ %390, %.thread ]
+  %.0855968 = phi i64 [ 0, %.lr.ph970 ], [ %391, %.thread ]
   %.3888967 = phi i64 [ %.2887, %.lr.ph970 ], [ %.4889, %.thread ]
   %375 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0855968
   %376 = load i32, ptr %375, align 4
@@ -44476,17 +44479,18 @@ ZSTD_count.exit.thread:                           ; preds = %270, %316, %ZSTD_co
   br i1 %384, label %385, label %.thread
 
 385:                                              ; preds = %380
-  %386 = sub i32 %373, %376
-  %387 = zext i32 %386 to i64
-  store i64 %387, ptr %3, align 8
-  %388 = getelementptr inbounds i8, ptr %1, i64 %383
-  %389 = icmp eq ptr %388, %2
-  br i1 %389, label %._crit_edge971, label %.thread
+  %386 = add i32 %18, %376
+  %387 = sub i32 %373, %386
+  %388 = zext i32 %387 to i64
+  store i64 %388, ptr %3, align 8
+  %389 = getelementptr inbounds i8, ptr %1, i64 %383
+  %390 = icmp eq ptr %389, %2
+  br i1 %390, label %._crit_edge971, label %.thread
 
 .thread:                                          ; preds = %374, %385, %380
   %.4889 = phi i64 [ %383, %385 ], [ %.3888967, %380 ], [ %.3888967, %374 ]
-  %390 = add nuw i64 %.0855968, 1
-  %exitcond996.not = icmp eq i64 %390, %.0856.lcssa
+  %391 = add nuw i64 %.0855968, 1
+  %exitcond996.not = icmp eq i64 %391, %.0856.lcssa
   br i1 %exitcond996.not, label %._crit_edge971, label %374, !llvm.loop !38
 
 ._crit_edge971:                                   ; preds = %.thread, %385, %._crit_edge953, %._crit_edge963
@@ -45152,14 +45156,13 @@ ZSTD_count.exit.thread:                           ; preds = %292, %338, %ZSTD_co
   br i1 %.not978, label %._crit_edge971, label %.lr.ph970
 
 .lr.ph970:                                        ; preds = %._crit_edge963
+  %invariant.op = add i32 %26, %.neg907.neg977
   %408 = getelementptr inbounds i8, ptr %1, i64 4
-  %reass.sub = sub i32 %26, %20
-  %.neg923 = add i32 %reass.sub, 3
-  %409 = add i32 %.neg923, %.neg907.neg977
+  %409 = add i32 %invariant.op, 3
   br label %410
 
 410:                                              ; preds = %.lr.ph970, %.thread
-  %.0855968 = phi i64 [ 0, %.lr.ph970 ], [ %426, %.thread ]
+  %.0855968 = phi i64 [ 0, %.lr.ph970 ], [ %427, %.thread ]
   %.3888967 = phi i64 [ %.2887, %.lr.ph970 ], [ %.4889, %.thread ]
   %411 = getelementptr inbounds [64 x i32], ptr %8, i64 0, i64 %.0855968
   %412 = load i32, ptr %411, align 4
@@ -45178,17 +45181,18 @@ ZSTD_count.exit.thread:                           ; preds = %292, %338, %ZSTD_co
   br i1 %420, label %421, label %.thread
 
 421:                                              ; preds = %416
-  %422 = sub i32 %409, %412
-  %423 = zext i32 %422 to i64
-  store i64 %423, ptr %3, align 8
-  %424 = getelementptr inbounds i8, ptr %1, i64 %419
-  %425 = icmp eq ptr %424, %2
-  br i1 %425, label %._crit_edge971, label %.thread
+  %422 = add i32 %20, %412
+  %423 = sub i32 %409, %422
+  %424 = zext i32 %423 to i64
+  store i64 %424, ptr %3, align 8
+  %425 = getelementptr inbounds i8, ptr %1, i64 %419
+  %426 = icmp eq ptr %425, %2
+  br i1 %426, label %._crit_edge971, label %.thread
 
 .thread:                                          ; preds = %410, %421, %416
   %.4889 = phi i64 [ %419, %421 ], [ %.3888967, %416 ], [ %.3888967, %410 ]
-  %426 = add nuw i64 %.0855968, 1
-  %exitcond998.not = icmp eq i64 %426, %.0856.lcssa
+  %427 = add nuw i64 %.0855968, 1
+  %exitcond998.not = icmp eq i64 %427, %.0856.lcssa
   br i1 %exitcond998.not, label %._crit_edge971, label %410, !llvm.loop !38
 
 ._crit_edge971:                                   ; preds = %.thread, %421, %362, %._crit_edge963
@@ -45771,14 +45775,13 @@ ZSTD_count.exit.thread:                           ; preds = %258, %304, %ZSTD_co
   br i1 %.not977, label %._crit_edge970, label %.lr.ph969
 
 .lr.ph969:                                        ; preds = %._crit_edge962
+  %invariant.op = add i32 %24, %.neg907.neg976
   %352 = getelementptr inbounds i8, ptr %1, i64 4
-  %reass.sub = sub i32 %24, %18
-  %.neg927 = add i32 %reass.sub, 3
-  %353 = add i32 %.neg927, %.neg907.neg976
+  %353 = add i32 %invariant.op, 3
   br label %354
 
 354:                                              ; preds = %.lr.ph969, %.thread
-  %.0855967 = phi i64 [ 0, %.lr.ph969 ], [ %370, %.thread ]
+  %.0855967 = phi i64 [ 0, %.lr.ph969 ], [ %371, %.thread ]
   %.3888966 = phi i64 [ %.2887, %.lr.ph969 ], [ %.4889, %.thread ]
   %355 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0855967
   %356 = load i32, ptr %355, align 4
@@ -45797,17 +45800,18 @@ ZSTD_count.exit.thread:                           ; preds = %258, %304, %ZSTD_co
   br i1 %364, label %365, label %.thread
 
 365:                                              ; preds = %360
-  %366 = sub i32 %353, %356
-  %367 = zext i32 %366 to i64
-  store i64 %367, ptr %3, align 8
-  %368 = getelementptr inbounds i8, ptr %1, i64 %363
-  %369 = icmp eq ptr %368, %2
-  br i1 %369, label %._crit_edge970, label %.thread
+  %366 = add i32 %18, %356
+  %367 = sub i32 %353, %366
+  %368 = zext i32 %367 to i64
+  store i64 %368, ptr %3, align 8
+  %369 = getelementptr inbounds i8, ptr %1, i64 %363
+  %370 = icmp eq ptr %369, %2
+  br i1 %370, label %._crit_edge970, label %.thread
 
 .thread:                                          ; preds = %354, %365, %360
   %.4889 = phi i64 [ %363, %365 ], [ %.3888966, %360 ], [ %.3888966, %354 ]
-  %370 = add nuw i64 %.0855967, 1
-  %exitcond989.not = icmp eq i64 %370, %.0856.lcssa
+  %371 = add nuw i64 %.0855967, 1
+  %exitcond989.not = icmp eq i64 %371, %.0856.lcssa
   br i1 %exitcond989.not, label %._crit_edge970, label %354, !llvm.loop !38
 
 ._crit_edge970:                                   ; preds = %.thread, %365, %.critedge909, %._crit_edge962
@@ -46419,14 +46423,13 @@ ZSTD_count.exit.thread:                           ; preds = %270, %316, %ZSTD_co
   br i1 %.not978, label %._crit_edge971, label %.lr.ph970
 
 .lr.ph970:                                        ; preds = %._crit_edge963
+  %invariant.op = add i32 %24, %.neg907.neg977
   %372 = getelementptr inbounds i8, ptr %1, i64 4
-  %reass.sub = sub i32 %24, %18
-  %.neg923 = add i32 %reass.sub, 3
-  %373 = add i32 %.neg923, %.neg907.neg977
+  %373 = add i32 %invariant.op, 3
   br label %374
 
 374:                                              ; preds = %.lr.ph970, %.thread
-  %.0855968 = phi i64 [ 0, %.lr.ph970 ], [ %390, %.thread ]
+  %.0855968 = phi i64 [ 0, %.lr.ph970 ], [ %391, %.thread ]
   %.3888967 = phi i64 [ %.2887, %.lr.ph970 ], [ %.4889, %.thread ]
   %375 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %.0855968
   %376 = load i32, ptr %375, align 4
@@ -46445,17 +46448,18 @@ ZSTD_count.exit.thread:                           ; preds = %270, %316, %ZSTD_co
   br i1 %384, label %385, label %.thread
 
 385:                                              ; preds = %380
-  %386 = sub i32 %373, %376
-  %387 = zext i32 %386 to i64
-  store i64 %387, ptr %3, align 8
-  %388 = getelementptr inbounds i8, ptr %1, i64 %383
-  %389 = icmp eq ptr %388, %2
-  br i1 %389, label %._crit_edge971, label %.thread
+  %386 = add i32 %18, %376
+  %387 = sub i32 %373, %386
+  %388 = zext i32 %387 to i64
+  store i64 %388, ptr %3, align 8
+  %389 = getelementptr inbounds i8, ptr %1, i64 %383
+  %390 = icmp eq ptr %389, %2
+  br i1 %390, label %._crit_edge971, label %.thread
 
 .thread:                                          ; preds = %374, %385, %380
   %.4889 = phi i64 [ %383, %385 ], [ %.3888967, %380 ], [ %.3888967, %374 ]
-  %390 = add nuw i64 %.0855968, 1
-  %exitcond996.not = icmp eq i64 %390, %.0856.lcssa
+  %391 = add nuw i64 %.0855968, 1
+  %exitcond996.not = icmp eq i64 %391, %.0856.lcssa
   br i1 %exitcond996.not, label %._crit_edge971, label %374, !llvm.loop !38
 
 ._crit_edge971:                                   ; preds = %.thread, %385, %._crit_edge953, %._crit_edge963
@@ -47121,14 +47125,13 @@ ZSTD_count.exit.thread:                           ; preds = %292, %338, %ZSTD_co
   br i1 %.not978, label %._crit_edge971, label %.lr.ph970
 
 .lr.ph970:                                        ; preds = %._crit_edge963
+  %invariant.op = add i32 %26, %.neg907.neg977
   %408 = getelementptr inbounds i8, ptr %1, i64 4
-  %reass.sub = sub i32 %26, %20
-  %.neg923 = add i32 %reass.sub, 3
-  %409 = add i32 %.neg923, %.neg907.neg977
+  %409 = add i32 %invariant.op, 3
   br label %410
 
 410:                                              ; preds = %.lr.ph970, %.thread
-  %.0855968 = phi i64 [ 0, %.lr.ph970 ], [ %426, %.thread ]
+  %.0855968 = phi i64 [ 0, %.lr.ph970 ], [ %427, %.thread ]
   %.3888967 = phi i64 [ %.2887, %.lr.ph970 ], [ %.4889, %.thread ]
   %411 = getelementptr inbounds [64 x i32], ptr %8, i64 0, i64 %.0855968
   %412 = load i32, ptr %411, align 4
@@ -47147,17 +47150,18 @@ ZSTD_count.exit.thread:                           ; preds = %292, %338, %ZSTD_co
   br i1 %420, label %421, label %.thread
 
 421:                                              ; preds = %416
-  %422 = sub i32 %409, %412
-  %423 = zext i32 %422 to i64
-  store i64 %423, ptr %3, align 8
-  %424 = getelementptr inbounds i8, ptr %1, i64 %419
-  %425 = icmp eq ptr %424, %2
-  br i1 %425, label %._crit_edge971, label %.thread
+  %422 = add i32 %20, %412
+  %423 = sub i32 %409, %422
+  %424 = zext i32 %423 to i64
+  store i64 %424, ptr %3, align 8
+  %425 = getelementptr inbounds i8, ptr %1, i64 %419
+  %426 = icmp eq ptr %425, %2
+  br i1 %426, label %._crit_edge971, label %.thread
 
 .thread:                                          ; preds = %410, %421, %416
   %.4889 = phi i64 [ %419, %421 ], [ %.3888967, %416 ], [ %.3888967, %410 ]
-  %426 = add nuw i64 %.0855968, 1
-  %exitcond998.not = icmp eq i64 %426, %.0856.lcssa
+  %427 = add nuw i64 %.0855968, 1
+  %exitcond998.not = icmp eq i64 %427, %.0856.lcssa
   br i1 %exitcond998.not, label %._crit_edge971, label %410, !llvm.loop !38
 
 ._crit_edge971:                                   ; preds = %.thread, %421, %362, %._crit_edge963

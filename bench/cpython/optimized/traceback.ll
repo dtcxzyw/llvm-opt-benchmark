@@ -1760,6 +1760,7 @@ lor.lhs.false.i:                                  ; preds = %if.end.i133
 if.end13.i:                                       ; preds = %lor.lhs.false.i
   %call14.i = tail call i64 @PyList_Size(ptr noundef nonnull %call8.i) #10
   %call15.i = tail call ptr @PyObject_GetAttr(ptr noundef nonnull %call10, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 53920)) #10
+  %invariant.op.i = add i64 %call6.i, 1
   %cmp1647.i = icmp sgt i64 %call14.i, 0
   br i1 %cmp1647.i, label %for.body.i, label %finally.i
 
@@ -1795,8 +1796,8 @@ if.end29.i:                                       ; preds = %if.end25.i
   %28 = getelementptr i8, ptr %call26.i, i64 16
   %call26.val.i = load i64, ptr %28, align 8
   %add.i = add i64 %call26.val.i, 1
-  %add31.i = add i64 %add.i, %call6.i
-  %cmp32.i = icmp sgt i64 %add31.i, 4095
+  %add31.reass.i = add i64 %invariant.op.i, %call26.val.i
+  %cmp32.i = icmp sgt i64 %add31.reass.i, 4095
   br i1 %cmp32.i, label %if.then33.i, label %if.end34.i
 
 if.then33.i:                                      ; preds = %if.end29.i

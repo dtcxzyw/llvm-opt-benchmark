@@ -107,45 +107,45 @@ define hidden noundef double @_ZN12G1MMUTracker17calculate_gc_timeEd(ptr nocaptu
 .lr.ph:                                           ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 1044
   %9 = load i32, ptr %8, align 4
+  %invariant.op = add i32 %9, 64
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   br label %11
 
-11:                                               ; preds = %.lr.ph, %29
-  %.018 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %29 ]
-  %.01517 = phi i32 [ 0, %.lr.ph ], [ %30, %29 ]
-  %12 = add nuw i32 %.01517, 64
-  %13 = add i32 %12, %9
-  %14 = srem i32 %13, 64
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds [64 x %class.G1MMUTrackerElem], ptr %10, i64 0, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
-  %18 = load double, ptr %17, align 8
-  %19 = fcmp ogt double %18, %4
-  br i1 %19, label %20, label %29
+11:                                               ; preds = %.lr.ph, %27
+  %.018 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %27 ]
+  %.01517 = phi i32 [ 0, %.lr.ph ], [ %28, %27 ]
+  %.reass = add i32 %.01517, %invariant.op
+  %12 = srem i32 %.reass, 64
+  %13 = sext i32 %12 to i64
+  %14 = getelementptr inbounds [64 x %class.G1MMUTrackerElem], ptr %10, i64 0, i64 %13
+  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = load double, ptr %15, align 8
+  %17 = fcmp ogt double %16, %4
+  br i1 %17, label %18, label %27
 
-20:                                               ; preds = %11
-  %21 = load double, ptr %16, align 8
-  %22 = fcmp ogt double %21, %4
-  br i1 %22, label %23, label %26
+18:                                               ; preds = %11
+  %19 = load double, ptr %14, align 8
+  %20 = fcmp ogt double %19, %4
+  br i1 %20, label %21, label %24
 
-23:                                               ; preds = %20
-  %24 = fsub double %18, %21
-  %25 = fadd double %.018, %24
-  br label %29
+21:                                               ; preds = %18
+  %22 = fsub double %16, %19
+  %23 = fadd double %.018, %22
+  br label %27
 
-26:                                               ; preds = %20
-  %27 = fsub double %18, %4
-  %28 = fadd double %.018, %27
-  br label %29
+24:                                               ; preds = %18
+  %25 = fsub double %16, %4
+  %26 = fadd double %.018, %25
+  br label %27
 
-29:                                               ; preds = %11, %26, %23
-  %.1 = phi double [ %25, %23 ], [ %28, %26 ], [ %.018, %11 ]
-  %30 = add nuw nsw i32 %.01517, 1
-  %exitcond.not = icmp eq i32 %30, %6
+27:                                               ; preds = %11, %24, %21
+  %.1 = phi double [ %23, %21 ], [ %26, %24 ], [ %.018, %11 ]
+  %28 = add nuw nsw i32 %.01517, 1
+  %exitcond.not = icmp eq i32 %28, %6
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %29, %2
-  %.0.lcssa = phi double [ 0.000000e+00, %2 ], [ %.1, %29 ]
+._crit_edge:                                      ; preds = %27, %2
+  %.0.lcssa = phi double [ 0.000000e+00, %2 ], [ %.1, %27 ]
   ret double %.0.lcssa
 }
 
@@ -236,78 +236,78 @@ _ZN12G1MMUTracker22remove_expired_entriesEd.exit.thread: ; preds = %17, %._crit_
 .lr.ph.i10:                                       ; preds = %39
   %48 = getelementptr inbounds i8, ptr %0, i64 1044
   %49 = load i32, ptr %48, align 4
-  %50 = add i32 %49, 64
-  br label %51
+  %invariant.op.i = add i32 %49, 64
+  br label %50
 
-51:                                               ; preds = %68, %.lr.ph.i10
-  %.018.i = phi double [ 0.000000e+00, %.lr.ph.i10 ], [ %.1.i, %68 ]
-  %.01517.i = phi i32 [ 0, %.lr.ph.i10 ], [ %69, %68 ]
-  %52 = add i32 %50, %.01517.i
-  %53 = srem i32 %52, 64
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds [64 x %class.G1MMUTrackerElem], ptr %41, i64 0, i64 %54
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
-  %57 = load double, ptr %56, align 8
-  %58 = fcmp ogt double %57, %45
-  br i1 %58, label %59, label %68
+50:                                               ; preds = %66, %.lr.ph.i10
+  %.018.i = phi double [ 0.000000e+00, %.lr.ph.i10 ], [ %.1.i, %66 ]
+  %.01517.i = phi i32 [ 0, %.lr.ph.i10 ], [ %67, %66 ]
+  %.reass.i = add i32 %invariant.op.i, %.01517.i
+  %51 = srem i32 %.reass.i, 64
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds [64 x %class.G1MMUTrackerElem], ptr %41, i64 0, i64 %52
+  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %55 = load double, ptr %54, align 8
+  %56 = fcmp ogt double %55, %45
+  br i1 %56, label %57, label %66
 
-59:                                               ; preds = %51
-  %60 = load double, ptr %55, align 8
-  %61 = fcmp ogt double %60, %45
-  br i1 %61, label %62, label %65
+57:                                               ; preds = %50
+  %58 = load double, ptr %53, align 8
+  %59 = fcmp ogt double %58, %45
+  br i1 %59, label %60, label %63
 
-62:                                               ; preds = %59
-  %63 = fsub double %57, %60
-  %64 = fadd double %.018.i, %63
-  br label %68
+60:                                               ; preds = %57
+  %61 = fsub double %55, %58
+  %62 = fadd double %.018.i, %61
+  br label %66
 
-65:                                               ; preds = %59
-  %66 = fsub double %57, %45
-  %67 = fadd double %.018.i, %66
-  br label %68
+63:                                               ; preds = %57
+  %64 = fsub double %55, %45
+  %65 = fadd double %.018.i, %64
+  br label %66
 
-68:                                               ; preds = %65, %62, %51
-  %.1.i = phi double [ %64, %62 ], [ %67, %65 ], [ %.018.i, %51 ]
-  %69 = add nuw nsw i32 %.01517.i, 1
-  %exitcond.not.i = icmp eq i32 %69, %46
-  br i1 %exitcond.not.i, label %_ZN12G1MMUTracker17calculate_gc_timeEd.exit, label %51, !llvm.loop !8
+66:                                               ; preds = %63, %60, %50
+  %.1.i = phi double [ %62, %60 ], [ %65, %63 ], [ %.018.i, %50 ]
+  %67 = add nuw nsw i32 %.01517.i, 1
+  %exitcond.not.i = icmp eq i32 %67, %46
+  br i1 %exitcond.not.i, label %_ZN12G1MMUTracker17calculate_gc_timeEd.exit, label %50, !llvm.loop !8
 
-_ZN12G1MMUTracker17calculate_gc_timeEd.exit:      ; preds = %68, %39
-  %.0.lcssa.i = phi double [ 0.000000e+00, %39 ], [ %.1.i, %68 ]
-  %70 = getelementptr inbounds i8, ptr %0, i64 8
-  %71 = load double, ptr %70, align 8
-  tail call void @_ZN11G1MMUTracer10report_mmuEddd(double noundef %44, double noundef %.0.lcssa.i, double noundef %71) #9
-  %72 = load double, ptr %70, align 8
-  %73 = fcmp olt double %.0.lcssa.i, %72
-  br i1 %73, label %74, label %81
+_ZN12G1MMUTracker17calculate_gc_timeEd.exit:      ; preds = %66, %39
+  %.0.lcssa.i = phi double [ 0.000000e+00, %39 ], [ %.1.i, %66 ]
+  %68 = getelementptr inbounds i8, ptr %0, i64 8
+  %69 = load double, ptr %68, align 8
+  tail call void @_ZN11G1MMUTracer10report_mmuEddd(double noundef %44, double noundef %.0.lcssa.i, double noundef %69) #9
+  %70 = load double, ptr %68, align 8
+  %71 = fcmp olt double %.0.lcssa.i, %70
+  br i1 %71, label %72, label %79
 
-74:                                               ; preds = %_ZN12G1MMUTracker17calculate_gc_timeEd.exit
-  %75 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_88ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not11 = icmp eq ptr %75, null
-  br i1 %.not11, label %88, label %76
+72:                                               ; preds = %_ZN12G1MMUTracker17calculate_gc_timeEd.exit
+  %73 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_88ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not11 = icmp eq ptr %73, null
+  br i1 %.not11, label %86, label %74
 
-76:                                               ; preds = %74
-  %77 = fmul double %.0.lcssa.i, 1.000000e+03
-  %78 = fmul double %72, 1.000000e+03
-  %79 = load double, ptr %0, align 8
-  %80 = fmul double %79, 1.000000e+03
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_88ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.6, double noundef %77, double noundef %78, double noundef %80)
-  br label %88
+74:                                               ; preds = %72
+  %75 = fmul double %.0.lcssa.i, 1.000000e+03
+  %76 = fmul double %70, 1.000000e+03
+  %77 = load double, ptr %0, align 8
+  %78 = fmul double %77, 1.000000e+03
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_88ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.6, double noundef %75, double noundef %76, double noundef %78)
+  br label %86
 
-81:                                               ; preds = %_ZN12G1MMUTracker17calculate_gc_timeEd.exit
-  %82 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_88ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not = icmp eq ptr %82, null
-  br i1 %.not, label %88, label %83
+79:                                               ; preds = %_ZN12G1MMUTracker17calculate_gc_timeEd.exit
+  %80 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_88ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not = icmp eq ptr %80, null
+  br i1 %.not, label %86, label %81
 
-83:                                               ; preds = %81
-  %84 = fmul double %.0.lcssa.i, 1.000000e+03
-  %85 = fmul double %72, 1.000000e+03
-  %86 = load double, ptr %0, align 8
-  %87 = fmul double %86, 1.000000e+03
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_88ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.7, double noundef %84, double noundef %85, double noundef %87)
-  br label %88
+81:                                               ; preds = %79
+  %82 = fmul double %.0.lcssa.i, 1.000000e+03
+  %83 = fmul double %70, 1.000000e+03
+  %84 = load double, ptr %0, align 8
+  %85 = fmul double %84, 1.000000e+03
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_88ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.7, double noundef %82, double noundef %83, double noundef %85)
+  br label %86
 
-88:                                               ; preds = %83, %81, %76, %74
+86:                                               ; preds = %81, %79, %74, %72
   ret void
 }
 
@@ -349,43 +349,43 @@ define hidden noundef double @_ZNK12G1MMUTracker8when_secEdd(ptr nocapture nound
   %14 = fsub double %5, %7
   %15 = getelementptr inbounds i8, ptr %0, i64 1040
   %16 = load i32, ptr %15, align 8
+  %invariant.op = add i32 %16, 64
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   br label %18
 
-18:                                               ; preds = %.lr.ph, %35
-  %.02228 = phi double [ %14, %.lr.ph ], [ %36, %35 ]
-  %.02327 = phi i32 [ 0, %.lr.ph ], [ %37, %35 ]
-  %reass.sub = sub i32 %16, %.02327
-  %19 = add i32 %reass.sub, 64
-  %20 = srem i32 %19, 64
-  %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [64 x %class.G1MMUTrackerElem], ptr %17, i64 0, i64 %21
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
-  %24 = load double, ptr %23, align 8
-  %25 = fcmp ugt double %24, %10
-  br i1 %25, label %26, label %.loopexit
+18:                                               ; preds = %.lr.ph, %34
+  %.02228 = phi double [ %14, %.lr.ph ], [ %35, %34 ]
+  %.02327 = phi i32 [ 0, %.lr.ph ], [ %36, %34 ]
+  %.reass = sub i32 %invariant.op, %.02327
+  %19 = srem i32 %.reass, 64
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds [64 x %class.G1MMUTrackerElem], ptr %17, i64 0, i64 %20
+  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = load double, ptr %22, align 8
+  %24 = fcmp ugt double %23, %10
+  br i1 %24, label %25, label %.loopexit
 
-26:                                               ; preds = %18
-  %27 = load double, ptr %22, align 8
-  %28 = fcmp ogt double %27, %10
-  %29 = select i1 %28, double %27, double %10
-  %30 = fsub double %24, %29
-  %31 = fcmp ogt double %30, %.02228
-  br i1 %31, label %32, label %35
+25:                                               ; preds = %18
+  %26 = load double, ptr %21, align 8
+  %27 = fcmp ogt double %26, %10
+  %28 = select i1 %27, double %26, double %10
+  %29 = fsub double %23, %28
+  %30 = fcmp ogt double %29, %.02228
+  br i1 %30, label %31, label %34
 
-32:                                               ; preds = %26
-  %33 = fsub double %24, %.02228
-  %34 = fsub double %33, %10
+31:                                               ; preds = %25
+  %32 = fsub double %23, %.02228
+  %33 = fsub double %32, %10
   br label %.loopexit
 
-35:                                               ; preds = %26
-  %36 = fsub double %.02228, %30
-  %37 = add nuw nsw i32 %.02327, 1
-  %exitcond.not = icmp eq i32 %37, %12
+34:                                               ; preds = %25
+  %35 = fsub double %.02228, %29
+  %36 = add nuw nsw i32 %.02327, 1
+  %exitcond.not = icmp eq i32 %36, %12
   br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !9
 
-.loopexit:                                        ; preds = %18, %35, %3, %32
-  %.0 = phi double [ %34, %32 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %35 ], [ 0.000000e+00, %18 ]
+.loopexit:                                        ; preds = %18, %34, %3, %31
+  %.0 = phi double [ %33, %31 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %34 ], [ 0.000000e+00, %18 ]
   ret double %.0
 }
 

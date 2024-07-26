@@ -856,12 +856,12 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %.lr.ph.i116.i
   %exitcond.not.i25 = icmp eq i64 %indvars.iv.next166.i, %121
   br i1 %exitcond.not.i25, label %.preheader.i26, label %296, !llvm.loop !18
 
-.loopexit120.i:                                   ; preds = %357
+.loopexit120.i:                                   ; preds = %356
   %indvars.iv.next176.i = add nsw i64 %indvars.iv175.i, -1
   br label %320, !llvm.loop !19
 
 320:                                              ; preds = %.loopexit120.i, %.preheader.i26
-  %indvars.iv = phi i64 [ %352, %.loopexit120.i ], [ %295, %.preheader.i26 ]
+  %indvars.iv = phi i64 [ %351, %.loopexit120.i ], [ %295, %.preheader.i26 ]
   %indvars.iv175.i = phi i64 [ %indvars.iv.next176.i, %.loopexit120.i ], [ %294, %.preheader.i26 ]
   %.3149.i = phi ptr [ %spec.select111.i, %.loopexit120.i ], [ %.293.i, %.preheader.i26 ]
   %.095147.i = phi i32 [ %.196.i, %.loopexit120.i ], [ 1, %.preheader.i26 ]
@@ -878,10 +878,11 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %.lr.ph.i116.i
   %326 = add i32 %325, %3
   %327 = zext i8 %321 to i32
   %328 = mul i32 %327, %3
+  %invariant.op.i = add i32 %.097146.i, 1
   br label %329
 
 329:                                              ; preds = %329, %.lr.ph138.i
-  %330 = phi i32 [ %323, %.lr.ph138.i ], [ %345, %329 ]
+  %330 = phi i32 [ %323, %.lr.ph138.i ], [ %344, %329 ]
   %.087137.i = phi i32 [ 0, %.lr.ph138.i ], [ %342, %329 ]
   %.290136.i = phi i32 [ 0, %.lr.ph138.i ], [ %343, %329 ]
   %331 = zext i32 %330 to i64
@@ -897,61 +898,61 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %.lr.ph.i116.i
   %341 = mul nsw i32 %340, %335
   %342 = add nsw i32 %341, %.087137.i
   %343 = add i32 %.290136.i, 1
-  %344 = add i32 %343, %.097146.i
-  %345 = urem i32 %344, %3
-  %.not108.i = icmp eq i32 %345, %322
+  %.reass.i = add i32 %invariant.op.i, %.290136.i
+  %344 = urem i32 %.reass.i, %3
+  %.not108.i = icmp eq i32 %344, %322
   br i1 %.not108.i, label %._crit_edge.i, label %329, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %329
-  %346 = icmp sgt i32 %342, 0
-  br i1 %346, label %347, label %._crit_edge.thread.i
+  %345 = icmp sgt i32 %342, 0
+  br i1 %345, label %346, label %._crit_edge.thread.i
 
-347:                                              ; preds = %._crit_edge.i
-  %348 = icmp eq i32 %.097146.i, 0
-  %.v.i = select i1 %348, i32 %3, i32 %.097146.i
-  %349 = add i32 %.v.i, -1
+346:                                              ; preds = %._crit_edge.i
+  %347 = icmp eq i32 %.097146.i, 0
+  %.v.i = select i1 %347, i32 %3, i32 %.097146.i
+  %348 = add i32 %.v.i, -1
   br label %._crit_edge.thread.i
 
-._crit_edge.thread.i:                             ; preds = %347, %._crit_edge.i, %320
-  %.sink.i = phi i32 [ %349, %347 ], [ %322, %320 ], [ %322, %._crit_edge.i ]
-  %.198.i = phi i32 [ %349, %347 ], [ %.097146.i, %320 ], [ %.097146.i, %._crit_edge.i ]
-  %.196.i = phi i32 [ %.095147.i, %347 ], [ %322, %320 ], [ %322, %._crit_edge.i ]
-  %350 = zext i32 %.sink.i to i64
-  %351 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 %350
-  store i8 %321, ptr %351, align 1
-  %352 = add nsw i64 %indvars.iv, -1
-  %353 = getelementptr inbounds [256 x %struct.Sum], ptr %9, i64 0, i64 %352
-  %354 = load i64, ptr %353, align 8
-  store i64 %354, ptr %.3149.i, align 4
-  %.not.i.wide = icmp eq i64 %352, 0
+._crit_edge.thread.i:                             ; preds = %346, %._crit_edge.i, %320
+  %.sink.i = phi i32 [ %348, %346 ], [ %322, %320 ], [ %322, %._crit_edge.i ]
+  %.198.i = phi i32 [ %348, %346 ], [ %.097146.i, %320 ], [ %.097146.i, %._crit_edge.i ]
+  %.196.i = phi i32 [ %.095147.i, %346 ], [ %322, %320 ], [ %322, %._crit_edge.i ]
+  %349 = zext i32 %.sink.i to i64
+  %350 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 %349
+  store i8 %321, ptr %350, align 1
+  %351 = add nsw i64 %indvars.iv, -1
+  %352 = getelementptr inbounds [256 x %struct.Sum], ptr %9, i64 0, i64 %351
+  %353 = load i64, ptr %352, align 8
+  store i64 %353, ptr %.3149.i, align 4
+  %.not.i.wide = icmp eq i64 %351, 0
   br i1 %.not.i.wide, label %.lr.ph152.preheader.i, label %.lr.ph144.i
 
 .lr.ph144.i:                                      ; preds = %._crit_edge.thread.i
-  %355 = zext i8 %321 to i32
-  %356 = mul i32 %355, %3
-  br label %357
+  %354 = zext i8 %321 to i32
+  %355 = mul i32 %354, %3
+  br label %356
 
-357:                                              ; preds = %357, %.lr.ph144.i
-  %indvars.iv168.i = phi i64 [ 0, %.lr.ph144.i ], [ %indvars.iv.next169.i, %357 ]
-  %.4141.i = phi ptr [ %9, %.lr.ph144.i ], [ %spec.select111.i, %357 ]
-  %358 = getelementptr inbounds [256 x %struct.Sum], ptr %9, i64 0, i64 %indvars.iv168.i
-  %359 = load i8, ptr %358, align 8
-  %360 = zext i8 %359 to i32
-  %361 = add i32 %356, %360
-  %362 = zext i32 %361 to i64
-  %363 = getelementptr inbounds i32, ptr %108, i64 %362
-  %364 = load i32, ptr %363, align 4
-  %365 = getelementptr inbounds i8, ptr %358, i64 4
-  %366 = load i32, ptr %365, align 4
-  %367 = add i32 %366, %364
-  store i32 %367, ptr %365, align 4
-  %368 = getelementptr inbounds i8, ptr %.4141.i, i64 4
-  %369 = load i32, ptr %368, align 4
-  %370 = icmp ugt i32 %367, %369
-  %spec.select111.i = select i1 %370, ptr %358, ptr %.4141.i
+356:                                              ; preds = %356, %.lr.ph144.i
+  %indvars.iv168.i = phi i64 [ 0, %.lr.ph144.i ], [ %indvars.iv.next169.i, %356 ]
+  %.4141.i = phi ptr [ %9, %.lr.ph144.i ], [ %spec.select111.i, %356 ]
+  %357 = getelementptr inbounds [256 x %struct.Sum], ptr %9, i64 0, i64 %indvars.iv168.i
+  %358 = load i8, ptr %357, align 8
+  %359 = zext i8 %358 to i32
+  %360 = add i32 %355, %359
+  %361 = zext i32 %360 to i64
+  %362 = getelementptr inbounds i32, ptr %108, i64 %361
+  %363 = load i32, ptr %362, align 4
+  %364 = getelementptr inbounds i8, ptr %357, i64 4
+  %365 = load i32, ptr %364, align 4
+  %366 = add i32 %365, %363
+  store i32 %366, ptr %364, align 4
+  %367 = getelementptr inbounds i8, ptr %.4141.i, i64 4
+  %368 = load i32, ptr %367, align 4
+  %369 = icmp ugt i32 %366, %368
+  %spec.select111.i = select i1 %369, ptr %357, ptr %.4141.i
   %indvars.iv.next169.i = add nuw nsw i64 %indvars.iv168.i, 1
   %exitcond174.not.i = icmp eq i64 %indvars.iv.next169.i, %indvars.iv175.i
-  br i1 %exitcond174.not.i, label %.loopexit120.i, label %357, !llvm.loop !21
+  br i1 %exitcond174.not.i, label %.loopexit120.i, label %356, !llvm.loop !21
 
 .lr.ph152.preheader.i:                            ; preds = %._crit_edge.thread.i, %CoOccurrenceFindMax.exit.i
   %.299.i = phi i32 [ 0, %CoOccurrenceFindMax.exit.i ], [ %.198.i, %._crit_edge.thread.i ]
@@ -960,17 +961,17 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %.lr.ph.i116.i
 
 .lr.ph152.i:                                      ; preds = %.lr.ph152.i, %.lr.ph152.preheader.i
   %indvars.iv178.i = phi i64 [ 0, %.lr.ph152.preheader.i ], [ %indvars.iv.next179.i, %.lr.ph152.i ]
-  %371 = trunc nuw i64 %indvars.iv178.i to i32
-  %372 = add i32 %.299.i, %371
-  %373 = urem i32 %372, %3
-  %374 = zext i32 %373 to i64
-  %375 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 %374
-  %376 = load i8, ptr %375, align 1
-  %377 = zext i8 %376 to i64
-  %378 = getelementptr inbounds i32, ptr %2, i64 %377
-  %379 = load i32, ptr %378, align 4
-  %380 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv178.i
-  store i32 %379, ptr %380, align 4
+  %370 = trunc nuw i64 %indvars.iv178.i to i32
+  %371 = add i32 %.299.i, %370
+  %372 = urem i32 %371, %3
+  %373 = zext i32 %372 to i64
+  %374 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 %373
+  %375 = load i8, ptr %374, align 1
+  %376 = zext i8 %375 to i64
+  %377 = getelementptr inbounds i32, ptr %2, i64 %376
+  %378 = load i32, ptr %377, align 4
+  %379 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv178.i
+  store i32 %378, ptr %379, align 4
   %indvars.iv.next179.i = add nuw nsw i64 %indvars.iv178.i, 1
   %exitcond183.not.i = icmp eq i64 %indvars.iv.next179.i, %121
   br i1 %exitcond183.not.i, label %PaletteSortModifiedZeng.exit, label %.lr.ph152.i, !llvm.loop !22

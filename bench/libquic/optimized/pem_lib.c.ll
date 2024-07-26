@@ -578,8 +578,8 @@ while.end137:                                     ; preds = %while.body135, %lan
   br i1 %or.cond2, label %if.end205, label %if.end157
 
 if.end157:                                        ; preds = %while.end137
-  %add158 = add nsw i32 %i.2.lcssa, 11
-  %add159 = add i32 %add158, %9
+  %add158.reass = add nsw i32 %i.2.lcssa, 11
+  %add159 = add i32 %add158.reass, %9
   %conv160 = sext i32 %add159 to i64
   %call161 = call i64 @BUF_MEM_grow_clean(ptr noundef %call2, i64 noundef %conv160) #11
   %tobool162.not = icmp eq i64 %call161, 0

@@ -83,74 +83,74 @@ define internal i64 @armthumb_code(ptr nocapture readnone %0, i32 noundef %1, i1
 49:                                               ; preds = %19, %13, %.lr.ph.split.us
   %.1.us = phi i64 [ %29, %19 ], [ %.03742.us, %13 ], [ %.03742.us, %.lr.ph.split.us ]
   %50 = add i64 %.1.us, 2
-  %51 = add i64 %.1.us, 6
-  %.not.us = icmp ugt i64 %51, %4
+  %.reass.us = add i64 %.1.us, 6
+  %.not.us = icmp ugt i64 %.reass.us, %4
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !5
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %94
-  %.03742 = phi i64 [ %95, %94 ], [ 0, %.lr.ph ]
-  %52 = getelementptr i8, ptr %3, i64 %.03742
-  %53 = getelementptr i8, ptr %52, i64 1
-  %54 = load i8, ptr %53, align 1
-  %55 = zext i8 %54 to i32
-  %56 = and i32 %55, 248
-  %57 = icmp eq i32 %56, 240
-  br i1 %57, label %58, label %94
+.lr.ph.split:                                     ; preds = %.lr.ph, %93
+  %.03742 = phi i64 [ %94, %93 ], [ 0, %.lr.ph ]
+  %51 = getelementptr i8, ptr %3, i64 %.03742
+  %52 = getelementptr i8, ptr %51, i64 1
+  %53 = load i8, ptr %52, align 1
+  %54 = zext i8 %53 to i32
+  %55 = and i32 %54, 248
+  %56 = icmp eq i32 %55, 240
+  br i1 %56, label %57, label %93
 
-58:                                               ; preds = %.lr.ph.split
-  %59 = getelementptr i8, ptr %52, i64 3
-  %60 = load i8, ptr %59, align 1
-  %61 = zext i8 %60 to i32
-  %62 = and i32 %61, 248
-  %63 = icmp eq i32 %62, 248
-  br i1 %63, label %64, label %94
+57:                                               ; preds = %.lr.ph.split
+  %58 = getelementptr i8, ptr %51, i64 3
+  %59 = load i8, ptr %58, align 1
+  %60 = zext i8 %59 to i32
+  %61 = and i32 %60, 248
+  %62 = icmp eq i32 %61, 248
+  br i1 %62, label %63, label %93
 
-64:                                               ; preds = %58
-  %65 = shl nuw nsw i32 %55, 19
-  %66 = and i32 %65, 3670016
-  %67 = load i8, ptr %52, align 1
-  %68 = zext i8 %67 to i32
-  %69 = shl nuw nsw i32 %68, 11
-  %70 = or disjoint i32 %69, %66
-  %71 = shl nuw nsw i32 %61, 8
-  %72 = and i32 %71, 1792
-  %73 = or disjoint i32 %70, %72
-  %74 = add i64 %.03742, 2
-  %75 = getelementptr inbounds i8, ptr %3, i64 %74
-  %76 = load i8, ptr %75, align 1
-  %77 = zext i8 %76 to i32
-  %78 = or disjoint i32 %73, %77
-  %79 = shl nuw nsw i32 %78, 1
-  %80 = trunc i64 %.03742 to i32
-  %81 = add i32 %80, %1
-  %reass.sub = sub i32 %79, %81
-  %82 = add i32 %reass.sub, -4
-  %83 = lshr i32 %82, 1
-  %84 = lshr i32 %82, 20
-  %85 = trunc i32 %84 to i8
-  %86 = and i8 %85, 7
-  %87 = or disjoint i8 %86, -16
-  store i8 %87, ptr %53, align 1
-  %88 = lshr i32 %82, 12
-  %89 = trunc i32 %88 to i8
-  store i8 %89, ptr %52, align 1
-  %90 = lshr i32 %82, 9
-  %91 = trunc i32 %90 to i8
-  %92 = or i8 %91, -8
-  store i8 %92, ptr %59, align 1
-  %93 = trunc i32 %83 to i8
-  store i8 %93, ptr %75, align 1
-  br label %94
+63:                                               ; preds = %57
+  %64 = shl nuw nsw i32 %54, 19
+  %65 = and i32 %64, 3670016
+  %66 = load i8, ptr %51, align 1
+  %67 = zext i8 %66 to i32
+  %68 = shl nuw nsw i32 %67, 11
+  %69 = or disjoint i32 %68, %65
+  %70 = shl nuw nsw i32 %60, 8
+  %71 = and i32 %70, 1792
+  %72 = or disjoint i32 %69, %71
+  %73 = add i64 %.03742, 2
+  %74 = getelementptr inbounds i8, ptr %3, i64 %73
+  %75 = load i8, ptr %74, align 1
+  %76 = zext i8 %75 to i32
+  %77 = or disjoint i32 %72, %76
+  %78 = shl nuw nsw i32 %77, 1
+  %79 = trunc i64 %.03742 to i32
+  %80 = add i32 %79, %1
+  %reass.sub = sub i32 %78, %80
+  %81 = add i32 %reass.sub, -4
+  %82 = lshr i32 %81, 1
+  %83 = lshr i32 %81, 20
+  %84 = trunc i32 %83 to i8
+  %85 = and i8 %84, 7
+  %86 = or disjoint i8 %85, -16
+  store i8 %86, ptr %52, align 1
+  %87 = lshr i32 %81, 12
+  %88 = trunc i32 %87 to i8
+  store i8 %88, ptr %51, align 1
+  %89 = lshr i32 %81, 9
+  %90 = trunc i32 %89 to i8
+  %91 = or i8 %90, -8
+  store i8 %91, ptr %58, align 1
+  %92 = trunc i32 %82 to i8
+  store i8 %92, ptr %74, align 1
+  br label %93
 
-94:                                               ; preds = %.lr.ph.split, %58, %64
-  %.1 = phi i64 [ %74, %64 ], [ %.03742, %58 ], [ %.03742, %.lr.ph.split ]
-  %95 = add i64 %.1, 2
-  %96 = add i64 %.1, 6
-  %.not = icmp ugt i64 %96, %4
+93:                                               ; preds = %.lr.ph.split, %57, %63
+  %.1 = phi i64 [ %73, %63 ], [ %.03742, %57 ], [ %.03742, %.lr.ph.split ]
+  %94 = add i64 %.1, 2
+  %.reass = add i64 %.1, 6
+  %.not = icmp ugt i64 %.reass, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %94, %49, %5
-  %.037.lcssa = phi i64 [ 0, %5 ], [ %50, %49 ], [ %95, %94 ]
+._crit_edge:                                      ; preds = %93, %49, %5
+  %.037.lcssa = phi i64 [ 0, %5 ], [ %50, %49 ], [ %94, %93 ]
   ret i64 %.037.lcssa
 }
 

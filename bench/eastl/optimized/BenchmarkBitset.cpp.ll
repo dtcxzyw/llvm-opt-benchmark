@@ -3064,14 +3064,14 @@ for.body12.i.i.preheader.i1348:                   ; preds = %_ZNSt6bitsetILm1500
 
 for.body12.i.i.i:                                 ; preds = %for.body12.i.i.i, %for.body12.i.i.preheader.i1348
   %307 = phi i64 [ %308, %for.body12.i.i.i ], [ %.pre.i, %for.body12.i.i.preheader.i1348 ]
-  %__n9.021.i.i.i = phi i64 [ %add18.i.i.i, %for.body12.i.i.i ], [ 0, %for.body12.i.i.preheader.i1348 ]
+  %__n9.021.i.i.i = phi i64 [ %add18.reass.i.i.i, %for.body12.i.i.i ], [ 0, %for.body12.i.i.preheader.i1348 ]
   %arrayidx15.i.i.i = getelementptr inbounds [24 x i64], ptr %stdBitset1500, i64 0, i64 %__n9.021.i.i.i
-  %add18.i.i.i = add nuw nsw i64 %__n9.021.i.i.i, 1
-  %arrayidx19.i.i.i = getelementptr inbounds [24 x i64], ptr %stdBitset1500, i64 0, i64 %add18.i.i.i
+  %add18.reass.i.i.i = add nuw nsw i64 %__n9.021.i.i.i, 1
+  %arrayidx19.i.i.i = getelementptr inbounds [24 x i64], ptr %stdBitset1500, i64 0, i64 %add18.reass.i.i.i
   %308 = load i64, ptr %arrayidx19.i.i.i, align 8
   %or.i.i.i1350 = call i64 @llvm.fshl.i64(i64 %308, i64 %307, i64 63)
   store i64 %or.i.i.i1350, ptr %arrayidx15.i.i.i, align 8
-  %exitcond.not.i.i.i1351 = icmp eq i64 %add18.i.i.i, 23
+  %exitcond.not.i.i.i1351 = icmp eq i64 %add18.reass.i.i.i, 23
   br i1 %exitcond.not.i.i.i1351, label %_ZNSt6bitsetILm1500EErSEm.exit.i, label %for.body12.i.i.i, !llvm.loop !65
 
 _ZNSt6bitsetILm1500EErSEm.exit.i:                 ; preds = %for.body12.i.i.i

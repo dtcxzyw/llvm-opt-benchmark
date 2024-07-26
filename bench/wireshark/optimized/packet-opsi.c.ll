@@ -422,9 +422,9 @@ define internal i32 @dissect_opsi_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %45 = icmp sgt i32 %44, 3
   br i1 %45, label %.lr.ph64.i, label %._crit_edge65.i
 
-.lr.ph64.i:                                       ; preds = %43, %96
-  %.062.i = phi i32 [ %97, %96 ], [ 8, %43 ]
-  %.04161.i = phi i32 [ %98, %96 ], [ %44, %43 ]
+.lr.ph64.i:                                       ; preds = %43, %95
+  %.062.i = phi i32 [ %96, %95 ], [ 8, %43 ]
+  %.04161.i = phi i32 [ %97, %95 ], [ %44, %43 ]
   %46 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.062.i) #3
   %47 = zext i16 %46 to i32
   %48 = add i32 %.062.i, 2
@@ -453,88 +453,92 @@ tailrecurse.outer.i.i:                            ; preds = %._crit_edge.i
   %63 = phi i32 [ %56, %tailrecurse.outer.i.i ], [ 26, %52 ]
   %.tr24.ph33.i.i = phi i32 [ %.tr2429.i.lcssa.i, %tailrecurse.outer.i.i ], [ 52, %52 ]
   %.tr.ph32.i.i = phi i32 [ %54, %tailrecurse.outer.i.i ], [ 0, %52 ]
+  %invariant.op.i.i = add nsw i32 %.tr.ph32.i.i, -1
   %64 = icmp ult i32 %62, %47
   br i1 %64, label %._crit_edge.i, label %.lr.ph.i
 
 65:                                               ; preds = %tailrecurse.i.i
-  %66 = icmp ult i16 %75, %46
-  br i1 %66, label %._crit_edge.i, label %.lr.ph.i
+  %66 = icmp ult i16 %74, %46
+  br i1 %66, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %65, %.lr.ph.i.i
-  %.lcssa.i = phi i32 [ %63, %.lr.ph.i.i ], [ %72, %65 ]
-  %.tr2429.i.lcssa.i = phi i32 [ %.tr24.ph33.i.i, %.lr.ph.i.i ], [ %70, %65 ]
-  %67 = icmp eq i32 %.lcssa.i, %.tr2429.i.lcssa.i
-  br i1 %67, label %get_opsi_attribute_index.exit.thread.i, label %tailrecurse.outer.i.i
+._crit_edge.loopexit.i:                           ; preds = %65
+  %67 = add nsw i32 %69, -1
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph.i.i
+  %.lcssa.i = phi i32 [ %63, %.lr.ph.i.i ], [ %71, %._crit_edge.loopexit.i ]
+  %.tr2429.i.lcssa.i = phi i32 [ %.tr24.ph33.i.i, %.lr.ph.i.i ], [ %67, %._crit_edge.loopexit.i ]
+  %68 = icmp eq i32 %.lcssa.i, %.tr2429.i.lcssa.i
+  br i1 %68, label %get_opsi_attribute_index.exit.thread.i, label %tailrecurse.outer.i.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i, %65
-  %68 = phi i32 [ %72, %65 ], [ %63, %.lr.ph.i.i ]
-  %69 = icmp eq i32 %68, %.tr.ph32.i.i
-  br i1 %69, label %get_opsi_attribute_index.exit.thread.i, label %tailrecurse.i.i
+  %69 = phi i32 [ %71, %65 ], [ %63, %.lr.ph.i.i ]
+  %70 = icmp eq i32 %69, %.tr.ph32.i.i
+  br i1 %70, label %get_opsi_attribute_index.exit.thread.i, label %tailrecurse.i.i
 
 tailrecurse.i.i:                                  ; preds = %.lr.ph.i
-  %70 = add nsw i32 %68, -1
-  %71 = add nsw i32 %70, %.tr.ph32.i.i
-  %72 = sdiv i32 %71, 2
-  %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr [53 x %struct.opsi_attribute_handle_t], ptr @opsi_attributes, i64 0, i64 %73
-  %75 = load i16, ptr %74, align 8
-  %76 = icmp eq i16 %75, %46
-  br i1 %76, label %get_opsi_attribute_index.exit.i, label %65
+  %.reass.i.i = add i32 %invariant.op.i.i, %69
+  %71 = sdiv i32 %.reass.i.i, 2
+  %72 = zext nneg i32 %71 to i64
+  %73 = getelementptr [53 x %struct.opsi_attribute_handle_t], ptr @opsi_attributes, i64 0, i64 %72
+  %74 = load i16, ptr %73, align 8
+  %75 = icmp eq i16 %74, %46
+  br i1 %75, label %get_opsi_attribute_index.exit.i, label %65
 
 get_opsi_attribute_index.exit.i:                  ; preds = %tailrecurse.outer.i.i, %tailrecurse.i.i
-  %.0.i.i = phi i32 [ %72, %tailrecurse.i.i ], [ %56, %tailrecurse.outer.i.i ]
-  %77 = icmp eq i32 %.0.i.i, -1
-  br i1 %77, label %get_opsi_attribute_index.exit.thread.i, label %get_opsi_attribute_index.exit.thread45.i
+  %.0.i.i = phi i32 [ %71, %tailrecurse.i.i ], [ %56, %tailrecurse.outer.i.i ]
+  %76 = icmp eq i32 %.0.i.i, -1
+  br i1 %76, label %get_opsi_attribute_index.exit.thread.i, label %get_opsi_attribute_index.exit.thread45.i
 
 get_opsi_attribute_index.exit.thread.i:           ; preds = %._crit_edge.i, %.lr.ph.i, %get_opsi_attribute_index.exit.i
-  %78 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %17, ptr noundef %1, ptr noundef nonnull @ei_opsi_unknown_attribute, ptr noundef %0, i32 noundef %.062.i, i32 noundef %50, ptr noundef nonnull @.str.158, i32 noundef %47) #3
-  br label %94
+  %77 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %17, ptr noundef %1, ptr noundef nonnull @ei_opsi_unknown_attribute, ptr noundef %0, i32 noundef %.062.i, i32 noundef %50, ptr noundef nonnull @.str.158, i32 noundef %47) #3
+  br label %93
 
 get_opsi_attribute_index.exit.thread45.i:         ; preds = %get_opsi_attribute_index.exit.i, %52
   %.0.i47.i = phi i32 [ %.0.i.i, %get_opsi_attribute_index.exit.i ], [ 26, %52 ]
-  %79 = sext i32 %.0.i47.i to i64
-  %80 = getelementptr [53 x %struct.opsi_attribute_handle_t], ptr @opsi_attributes, i64 0, i64 %79
-  %81 = getelementptr inbounds i8, ptr %80, i64 16
-  %82 = load ptr, ptr %81, align 8
-  %83 = load i32, ptr %82, align 4
-  %84 = getelementptr inbounds i8, ptr %80, i64 8
-  %85 = load ptr, ptr %84, align 8
-  %86 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %0, i32 noundef %.062.i, i32 noundef %50, i32 noundef %83, ptr noundef nonnull %5, ptr noundef nonnull @.str.159, ptr noundef %85, i32 noundef %47) #3
-  %87 = load i32, ptr @hf_opsi_attribute_length, align 4
-  %88 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %87, ptr noundef %0, i32 noundef %48, i32 noundef 2, i32 noundef 0) #3
-  %89 = getelementptr inbounds i8, ptr %80, i64 32
-  %90 = load ptr, ptr %89, align 8
-  %91 = load ptr, ptr %5, align 8
-  %92 = getelementptr inbounds i8, ptr %80, i64 24
-  %93 = load ptr, ptr %92, align 8
-  call void %90(ptr noundef %0, ptr noundef %1, ptr noundef %86, ptr noundef %91, ptr noundef %93, i32 noundef %.062.i, i32 noundef %50) #3
-  br label %94
+  %78 = sext i32 %.0.i47.i to i64
+  %79 = getelementptr [53 x %struct.opsi_attribute_handle_t], ptr @opsi_attributes, i64 0, i64 %78
+  %80 = getelementptr inbounds i8, ptr %79, i64 16
+  %81 = load ptr, ptr %80, align 8
+  %82 = load i32, ptr %81, align 4
+  %83 = getelementptr inbounds i8, ptr %79, i64 8
+  %84 = load ptr, ptr %83, align 8
+  %85 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %0, i32 noundef %.062.i, i32 noundef %50, i32 noundef %82, ptr noundef nonnull %5, ptr noundef nonnull @.str.159, ptr noundef %84, i32 noundef %47) #3
+  %86 = load i32, ptr @hf_opsi_attribute_length, align 4
+  %87 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %86, ptr noundef %0, i32 noundef %48, i32 noundef 2, i32 noundef 0) #3
+  %88 = getelementptr inbounds i8, ptr %79, i64 32
+  %89 = load ptr, ptr %88, align 8
+  %90 = load ptr, ptr %5, align 8
+  %91 = getelementptr inbounds i8, ptr %79, i64 24
+  %92 = load ptr, ptr %91, align 8
+  call void %89(ptr noundef %0, ptr noundef %1, ptr noundef %85, ptr noundef %90, ptr noundef %92, i32 noundef %.062.i, i32 noundef %50) #3
+  br label %93
 
-94:                                               ; preds = %get_opsi_attribute_index.exit.thread45.i, %get_opsi_attribute_index.exit.thread.i
-  %95 = icmp ult i16 %49, 4
-  br i1 %95, label %.thread.i, label %96
+93:                                               ; preds = %get_opsi_attribute_index.exit.thread45.i, %get_opsi_attribute_index.exit.thread.i
+  %94 = icmp ult i16 %49, 4
+  br i1 %94, label %.thread.i, label %95
 
-96:                                               ; preds = %94
-  %97 = add i32 %.062.i, %50
-  %98 = sub nsw i32 %.04161.i, %50
-  %99 = icmp sgt i32 %98, 3
-  br i1 %99, label %.lr.ph64.i, label %._crit_edge65.i, !llvm.loop !4
+95:                                               ; preds = %93
+  %96 = add i32 %.062.i, %50
+  %97 = sub nsw i32 %.04161.i, %50
+  %98 = icmp sgt i32 %97, 3
+  br i1 %98, label %.lr.ph64.i, label %._crit_edge65.i, !llvm.loop !4
 
-._crit_edge65.i:                                  ; preds = %96, %43
-  %.041.lcssa.i = phi i32 [ %44, %43 ], [ %98, %96 ]
-  %.0.lcssa.i = phi i32 [ 8, %43 ], [ %97, %96 ]
+._crit_edge65.i:                                  ; preds = %95, %43
+  %.041.lcssa.i = phi i32 [ %44, %43 ], [ %97, %95 ]
+  %.0.lcssa.i = phi i32 [ 8, %43 ], [ %96, %95 ]
   %.not.i = icmp eq i32 %.041.lcssa.i, 0
   br i1 %.not.i, label %dissect_attributes.exit, label %.thread.i
 
-.thread.i:                                        ; preds = %94, %.lr.ph64.i, %._crit_edge65.i
-  %.058.i = phi i32 [ %.0.lcssa.i, %._crit_edge65.i ], [ %.062.i, %.lr.ph64.i ], [ %.062.i, %94 ]
-  %100 = call ptr @proto_tree_add_expert(ptr noundef %17, ptr noundef %1, ptr noundef nonnull @ei_opsi_short_frame, ptr noundef %0, i32 noundef %.058.i, i32 noundef -1) #3
+.thread.i:                                        ; preds = %93, %.lr.ph64.i, %._crit_edge65.i
+  %.058.i = phi i32 [ %.0.lcssa.i, %._crit_edge65.i ], [ %.062.i, %.lr.ph64.i ], [ %.062.i, %93 ]
+  %99 = call ptr @proto_tree_add_expert(ptr noundef %17, ptr noundef %1, ptr noundef nonnull @ei_opsi_short_frame, ptr noundef %0, i32 noundef %.058.i, i32 noundef -1) #3
   br label %dissect_attributes.exit
 
 dissect_attributes.exit:                          ; preds = %._crit_edge65.i, %.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %101 = call i32 @tvb_reported_length(ptr noundef %0) #3
-  ret i32 %101
+  %100 = call i32 @tvb_reported_length(ptr noundef %0) #3
+  ret i32 %100
 }
 
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1

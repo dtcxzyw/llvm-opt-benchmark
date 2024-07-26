@@ -1938,6 +1938,7 @@ entry:
   %1 = load ptr, ptr %this, align 8
   %m_to_refine = getelementptr inbounds i8, ptr %1, i64 288
   %2 = load i32, ptr %m_to_refine, align 8
+  %invariant.op = add i32 %call2, -1
   %cmp.not9 = icmp eq i32 %2, 0
   br i1 %cmp.not9, label %for.end, label %invoke.cont.lr.ph
 
@@ -1946,11 +1947,11 @@ invoke.cont.lr.ph:                                ; preds = %entry
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %invoke.cont.lr.ph, %if.end18
-  %dec10.in = phi i32 [ %2, %invoke.cont.lr.ph ], [ %dec10, %if.end18 ]
-  %dec10 = add i32 %dec10.in, -1
+  %i.010 = phi i32 [ %2, %invoke.cont.lr.ph ], [ %dec11, %if.end18 ]
+  %dec11 = add i32 %i.010, -1
   %3 = load ptr, ptr %this, align 8
-  %add = add i32 %dec10, %call2
-  %rem = urem i32 %add, %2
+  %add.reass = add i32 %i.010, %invariant.op
+  %rem = urem i32 %add.reass, %2
   %m_elems.i = getelementptr inbounds i8, ptr %3, i64 296
   %4 = load ptr, ptr %m_elems.i, align 8
   %idxprom.i.i = zext i32 %rem to i64
@@ -1998,7 +1999,7 @@ if.then:                                          ; preds = %_ZN8rationalD2Ev.ex
   br i1 %call16, label %return, label %if.end18
 
 if.end18:                                         ; preds = %if.then, %_ZN8rationalD2Ev.exit
-  %cmp.not = icmp eq i32 %dec10, 0
+  %cmp.not = icmp eq i32 %dec11, 0
   br i1 %cmp.not, label %for.end.loopexit, label %invoke.cont, !llvm.loop !10
 
 for.end.loopexit:                                 ; preds = %if.end18

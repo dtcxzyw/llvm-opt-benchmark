@@ -5145,15 +5145,16 @@ define void @Extra_Transpose32(ptr nocapture noundef %0) local_unnamed_addr #8 {
 define void @Extra_Transpose64(ptr nocapture noundef %0) local_unnamed_addr #8 {
   br label %.preheader
 
-.preheader:                                       ; preds = %1, %21
-  %.032 = phi i64 [ 4294967295, %1 ], [ %25, %21 ]
-  %.02831 = phi i32 [ 32, %1 ], [ %22, %21 ]
+.preheader:                                       ; preds = %1, %20
+  %.032 = phi i64 [ 4294967295, %1 ], [ %24, %20 ]
+  %.02831 = phi i32 [ 32, %1 ], [ %21, %20 ]
   %2 = zext nneg i32 %.02831 to i64
+  %invariant.op = add nuw nsw i32 %.02831, 1
   %3 = xor i32 %.02831, -1
   br label %4
 
 4:                                                ; preds = %.preheader, %4
-  %.02930 = phi i32 [ 0, %.preheader ], [ %19, %4 ]
+  %.02930 = phi i32 [ 0, %.preheader ], [ %18, %4 ]
   %5 = sext i32 %.02930 to i64
   %6 = getelementptr inbounds i64, ptr %0, i64 %5
   %7 = load i64, ptr %6, align 8
@@ -5169,20 +5170,20 @@ define void @Extra_Transpose64(ptr nocapture noundef %0) local_unnamed_addr #8 {
   %16 = shl i64 %14, %2
   %17 = xor i64 %16, %11
   store i64 %17, ptr %10, align 8
-  %18 = add nsw i32 %8, 1
-  %19 = and i32 %18, %3
-  %20 = icmp slt i32 %19, 64
-  br i1 %20, label %4, label %21, !llvm.loop !90
+  %.reass = add i32 %.02930, %invariant.op
+  %18 = and i32 %.reass, %3
+  %19 = icmp slt i32 %18, 64
+  br i1 %19, label %4, label %20, !llvm.loop !90
 
-21:                                               ; preds = %4
-  %22 = lshr i32 %.02831, 1
-  %23 = zext nneg i32 %22 to i64
-  %24 = shl i64 %.032, %23
-  %25 = xor i64 %24, %.032
+20:                                               ; preds = %4
+  %21 = lshr i32 %.02831, 1
+  %22 = zext nneg i32 %21 to i64
+  %23 = shl i64 %.032, %22
+  %24 = xor i64 %23, %.032
   %.not = icmp ult i32 %.02831, 2
-  br i1 %.not, label %26, label %.preheader, !llvm.loop !91
+  br i1 %.not, label %25, label %.preheader, !llvm.loop !91
 
-26:                                               ; preds = %21
+25:                                               ; preds = %20
   ret void
 }
 
@@ -5190,15 +5191,16 @@ define void @Extra_Transpose64(ptr nocapture noundef %0) local_unnamed_addr #8 {
 define void @Extra_Transpose64p(ptr nocapture noundef readonly %0) local_unnamed_addr #23 {
   br label %.preheader
 
-.preheader:                                       ; preds = %1, %25
-  %.032 = phi i64 [ 4294967295, %1 ], [ %29, %25 ]
-  %.02831 = phi i32 [ 32, %1 ], [ %26, %25 ]
+.preheader:                                       ; preds = %1, %24
+  %.032 = phi i64 [ 4294967295, %1 ], [ %28, %24 ]
+  %.02831 = phi i32 [ 32, %1 ], [ %25, %24 ]
   %2 = zext nneg i32 %.02831 to i64
+  %invariant.op = add nuw nsw i32 %.02831, 1
   %3 = xor i32 %.02831, -1
   br label %4
 
 4:                                                ; preds = %.preheader, %4
-  %.02930 = phi i32 [ 0, %.preheader ], [ %23, %4 ]
+  %.02930 = phi i32 [ 0, %.preheader ], [ %22, %4 ]
   %5 = sext i32 %.02930 to i64
   %6 = getelementptr inbounds ptr, ptr %0, i64 %5
   %7 = load ptr, ptr %6, align 8
@@ -5218,20 +5220,20 @@ define void @Extra_Transpose64p(ptr nocapture noundef readonly %0) local_unnamed
   %20 = shl i64 %16, %2
   %21 = xor i64 %20, %19
   store i64 %21, ptr %18, align 8
-  %22 = add nsw i32 %9, 1
-  %23 = and i32 %22, %3
-  %24 = icmp slt i32 %23, 64
-  br i1 %24, label %4, label %25, !llvm.loop !92
+  %.reass = add i32 %.02930, %invariant.op
+  %22 = and i32 %.reass, %3
+  %23 = icmp slt i32 %22, 64
+  br i1 %23, label %4, label %24, !llvm.loop !92
 
-25:                                               ; preds = %4
-  %26 = lshr i32 %.02831, 1
-  %27 = zext nneg i32 %26 to i64
-  %28 = shl i64 %.032, %27
-  %29 = xor i64 %28, %.032
+24:                                               ; preds = %4
+  %25 = lshr i32 %.02831, 1
+  %26 = zext nneg i32 %25 to i64
+  %27 = shl i64 %.032, %26
+  %28 = xor i64 %27, %.032
   %.not = icmp ult i32 %.02831, 2
-  br i1 %.not, label %30, label %.preheader, !llvm.loop !93
+  br i1 %.not, label %29, label %.preheader, !llvm.loop !93
 
-30:                                               ; preds = %25
+29:                                               ; preds = %24
   ret void
 }
 
@@ -5260,15 +5262,16 @@ define void @Extra_BitMatrixTransposeP(ptr nocapture noundef readonly %0, i32 no
   %13 = or disjoint i64 %12, 63
   br label %.preheader.us
 
-.preheader.i.us:                                  ; preds = %41, %36
-  %.032.i.us = phi i64 [ %40, %36 ], [ 4294967295, %41 ]
-  %.02831.i.us = phi i32 [ %37, %36 ], [ 32, %41 ]
+.preheader.i.us:                                  ; preds = %40, %35
+  %.032.i.us = phi i64 [ %39, %35 ], [ 4294967295, %40 ]
+  %.02831.i.us = phi i32 [ %36, %35 ], [ 32, %40 ]
   %14 = zext nneg i32 %.02831.i.us to i64
+  %invariant.op.i.us = add nuw nsw i32 %.02831.i.us, 1
   %15 = xor i32 %.02831.i.us, -1
   br label %16
 
 16:                                               ; preds = %16, %.preheader.i.us
-  %.02930.i.us = phi i32 [ 0, %.preheader.i.us ], [ %34, %16 ]
+  %.02930.i.us = phi i32 [ 0, %.preheader.i.us ], [ %33, %16 ]
   %17 = sext i32 %.02930.i.us to i64
   %18 = getelementptr inbounds ptr, ptr %5, i64 %17
   %19 = load ptr, ptr %18, align 8
@@ -5287,51 +5290,51 @@ define void @Extra_BitMatrixTransposeP(ptr nocapture noundef readonly %0, i32 no
   %31 = shl i64 %28, %14
   %32 = xor i64 %31, %30
   store i64 %32, ptr %24, align 8
-  %33 = add nsw i32 %21, 1
-  %34 = and i32 %33, %15
-  %35 = icmp slt i32 %34, 64
-  br i1 %35, label %16, label %36, !llvm.loop !92
+  %.reass.i.us = add i32 %invariant.op.i.us, %.02930.i.us
+  %33 = and i32 %.reass.i.us, %15
+  %34 = icmp slt i32 %33, 64
+  br i1 %34, label %16, label %35, !llvm.loop !92
 
-36:                                               ; preds = %16
-  %37 = lshr i32 %.02831.i.us, 1
-  %38 = zext nneg i32 %37 to i64
-  %39 = shl i64 %.032.i.us, %38
-  %40 = xor i64 %39, %.032.i.us
+35:                                               ; preds = %16
+  %36 = lshr i32 %.02831.i.us, 1
+  %37 = zext nneg i32 %36 to i64
+  %38 = shl i64 %.032.i.us, %37
+  %39 = xor i64 %38, %.032.i.us
   %.not.i.us = icmp ult i32 %.02831.i.us, 2
   br i1 %.not.i.us, label %Extra_Transpose64p.exit.us, label %.preheader.i.us, !llvm.loop !93
 
-Extra_Transpose64p.exit.us:                       ; preds = %36
+Extra_Transpose64p.exit.us:                       ; preds = %35
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, %wide.trip.count
   br i1 %exitcond40.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !94
 
-41:                                               ; preds = %.preheader.us, %41
-  %indvars.iv31 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next32, %41 ]
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %41 ]
-  %42 = add nsw i64 %53, %indvars.iv
-  %43 = mul nsw i64 %42, %10
+40:                                               ; preds = %.preheader.us, %40
+  %indvars.iv31 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next32, %40 ]
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %40 ]
+  %41 = add nsw i64 %52, %indvars.iv
+  %42 = mul nsw i64 %41, %10
   %.val.us = load ptr, ptr %8, align 8
-  %44 = getelementptr i64, ptr %.val.us, i64 %43
-  %45 = getelementptr i64, ptr %44, i64 %indvars.iv41
-  %46 = getelementptr inbounds [64 x ptr], ptr %5, i64 0, i64 %indvars.iv31
-  store ptr %45, ptr %46, align 8
-  %47 = add nsw i64 %13, %indvars.iv
-  %48 = mul nsw i64 %47, %11
+  %43 = getelementptr i64, ptr %.val.us, i64 %42
+  %44 = getelementptr i64, ptr %43, i64 %indvars.iv41
+  %45 = getelementptr inbounds [64 x ptr], ptr %5, i64 0, i64 %indvars.iv31
+  store ptr %44, ptr %45, align 8
+  %46 = add nsw i64 %13, %indvars.iv
+  %47 = mul nsw i64 %46, %11
   %.val23.us = load ptr, ptr %9, align 8
-  %49 = getelementptr i64, ptr %.val23.us, i64 %48
-  %50 = getelementptr i64, ptr %49, i64 %indvars.iv37
-  %51 = load i64, ptr %50, align 8
-  store i64 %51, ptr %45, align 8
+  %48 = getelementptr i64, ptr %.val23.us, i64 %47
+  %49 = getelementptr i64, ptr %48, i64 %indvars.iv37
+  %50 = load i64, ptr %49, align 8
+  store i64 %50, ptr %44, align 8
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %exitcond.not = icmp eq i64 %indvars.iv.next32, 64
-  br i1 %exitcond.not, label %.preheader.i.us, label %41, !llvm.loop !95
+  br i1 %exitcond.not, label %.preheader.i.us, label %40, !llvm.loop !95
 
 .preheader.us:                                    ; preds = %.preheader24.us, %Extra_Transpose64p.exit.us
   %indvars.iv37 = phi i64 [ 0, %.preheader24.us ], [ %indvars.iv.next38, %Extra_Transpose64p.exit.us ]
-  %52 = shl nsw i64 %indvars.iv37, 6
-  %53 = or disjoint i64 %52, 63
-  br label %41
+  %51 = shl nsw i64 %indvars.iv37, 6
+  %52 = or disjoint i64 %51, 63
+  br label %40
 
 ._crit_edge.us:                                   ; preds = %Extra_Transpose64p.exit.us
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
@@ -5366,15 +5369,16 @@ define void @Extra_BitMatrixTransposePP(ptr nocapture noundef readonly %0, i32 n
   %12 = or disjoint i64 %11, 63
   br label %.preheader.us
 
-.preheader.i.us:                                  ; preds = %40, %35
-  %.032.i.us = phi i64 [ %39, %35 ], [ 4294967295, %40 ]
-  %.02831.i.us = phi i32 [ %36, %35 ], [ 32, %40 ]
+.preheader.i.us:                                  ; preds = %39, %34
+  %.032.i.us = phi i64 [ %38, %34 ], [ 4294967295, %39 ]
+  %.02831.i.us = phi i32 [ %35, %34 ], [ 32, %39 ]
   %13 = zext nneg i32 %.02831.i.us to i64
+  %invariant.op.i.us = add nuw nsw i32 %.02831.i.us, 1
   %14 = xor i32 %.02831.i.us, -1
   br label %15
 
 15:                                               ; preds = %15, %.preheader.i.us
-  %.02930.i.us = phi i32 [ 0, %.preheader.i.us ], [ %33, %15 ]
+  %.02930.i.us = phi i32 [ 0, %.preheader.i.us ], [ %32, %15 ]
   %16 = sext i32 %.02930.i.us to i64
   %17 = getelementptr inbounds ptr, ptr %5, i64 %16
   %18 = load ptr, ptr %17, align 8
@@ -5393,51 +5397,51 @@ define void @Extra_BitMatrixTransposePP(ptr nocapture noundef readonly %0, i32 n
   %30 = shl i64 %27, %13
   %31 = xor i64 %30, %29
   store i64 %31, ptr %23, align 8
-  %32 = add nsw i32 %20, 1
-  %33 = and i32 %32, %14
-  %34 = icmp slt i32 %33, 64
-  br i1 %34, label %15, label %35, !llvm.loop !92
+  %.reass.i.us = add i32 %invariant.op.i.us, %.02930.i.us
+  %32 = and i32 %.reass.i.us, %14
+  %33 = icmp slt i32 %32, 64
+  br i1 %33, label %15, label %34, !llvm.loop !92
 
-35:                                               ; preds = %15
-  %36 = lshr i32 %.02831.i.us, 1
-  %37 = zext nneg i32 %36 to i64
-  %38 = shl i64 %.032.i.us, %37
-  %39 = xor i64 %38, %.032.i.us
+34:                                               ; preds = %15
+  %35 = lshr i32 %.02831.i.us, 1
+  %36 = zext nneg i32 %35 to i64
+  %37 = shl i64 %.032.i.us, %36
+  %38 = xor i64 %37, %.032.i.us
   %.not.i.us = icmp ult i32 %.02831.i.us, 2
   br i1 %.not.i.us, label %Extra_Transpose64p.exit.us, label %.preheader.i.us, !llvm.loop !93
 
-Extra_Transpose64p.exit.us:                       ; preds = %35
+Extra_Transpose64p.exit.us:                       ; preds = %34
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count
   br i1 %exitcond38.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !97
 
-40:                                               ; preds = %.preheader.us, %40
-  %indvars.iv29 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next30, %40 ]
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %40 ]
-  %41 = add nsw i64 %52, %indvars.iv
-  %42 = mul nsw i64 %41, %10
+39:                                               ; preds = %.preheader.us, %39
+  %indvars.iv29 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next30, %39 ]
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %39 ]
+  %40 = add nsw i64 %51, %indvars.iv
+  %41 = mul nsw i64 %40, %10
   %.val.us = load ptr, ptr %8, align 8
-  %43 = getelementptr i64, ptr %.val.us, i64 %42
-  %44 = getelementptr i64, ptr %43, i64 %indvars.iv39
-  %45 = getelementptr inbounds [64 x ptr], ptr %5, i64 0, i64 %indvars.iv29
-  store ptr %44, ptr %45, align 8
+  %42 = getelementptr i64, ptr %.val.us, i64 %41
+  %43 = getelementptr i64, ptr %42, i64 %indvars.iv39
+  %44 = getelementptr inbounds [64 x ptr], ptr %5, i64 0, i64 %indvars.iv29
+  store ptr %43, ptr %44, align 8
   %.val21.us = load ptr, ptr %9, align 8
-  %46 = getelementptr ptr, ptr %.val21.us, i64 %12
-  %47 = getelementptr ptr, ptr %46, i64 %indvars.iv
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i64, ptr %48, i64 %indvars.iv35
-  %50 = load i64, ptr %49, align 8
-  store i64 %50, ptr %44, align 8
+  %45 = getelementptr ptr, ptr %.val21.us, i64 %12
+  %46 = getelementptr ptr, ptr %45, i64 %indvars.iv
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i64, ptr %47, i64 %indvars.iv35
+  %49 = load i64, ptr %48, align 8
+  store i64 %49, ptr %43, align 8
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %exitcond.not = icmp eq i64 %indvars.iv.next30, 64
-  br i1 %exitcond.not, label %.preheader.i.us, label %40, !llvm.loop !98
+  br i1 %exitcond.not, label %.preheader.i.us, label %39, !llvm.loop !98
 
 .preheader.us:                                    ; preds = %.preheader22.us, %Extra_Transpose64p.exit.us
   %indvars.iv35 = phi i64 [ 0, %.preheader22.us ], [ %indvars.iv.next36, %Extra_Transpose64p.exit.us ]
-  %51 = shl nsw i64 %indvars.iv35, 6
-  %52 = or disjoint i64 %51, 63
-  br label %40
+  %50 = shl nsw i64 %indvars.iv35, 6
+  %51 = or disjoint i64 %50, 63
+  br label %39
 
 ._crit_edge.us:                                   ; preds = %Extra_Transpose64p.exit.us
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
@@ -5603,15 +5607,16 @@ Vec_WrdStartRandom.exit:                          ; preds = %10
   %invariant.gep = getelementptr i64, ptr %calloc.i, i64 %indvars.iv41.i
   br label %.preheader.us.i
 
-.preheader.i.us.i:                                ; preds = %42, %37
-  %.032.i.us.i = phi i64 [ %41, %37 ], [ 4294967295, %42 ]
-  %.02831.i.us.i = phi i32 [ %38, %37 ], [ 32, %42 ]
+.preheader.i.us.i:                                ; preds = %41, %36
+  %.032.i.us.i = phi i64 [ %40, %36 ], [ 4294967295, %41 ]
+  %.02831.i.us.i = phi i32 [ %37, %36 ], [ 32, %41 ]
   %15 = zext nneg i32 %.02831.i.us.i to i64
+  %invariant.op.i.us.i = add nuw nsw i32 %.02831.i.us.i, 1
   %16 = xor i32 %.02831.i.us.i, -1
   br label %17
 
 17:                                               ; preds = %17, %.preheader.i.us.i
-  %.02930.i.us.i = phi i32 [ 0, %.preheader.i.us.i ], [ %35, %17 ]
+  %.02930.i.us.i = phi i32 [ 0, %.preheader.i.us.i ], [ %34, %17 ]
   %18 = sext i32 %.02930.i.us.i to i64
   %19 = getelementptr inbounds ptr, ptr %2, i64 %18
   %20 = load ptr, ptr %19, align 8
@@ -5630,48 +5635,48 @@ Vec_WrdStartRandom.exit:                          ; preds = %10
   %32 = shl i64 %29, %15
   %33 = xor i64 %32, %31
   store i64 %33, ptr %25, align 8
-  %34 = add nsw i32 %22, 1
-  %35 = and i32 %34, %16
-  %36 = icmp slt i32 %35, 64
-  br i1 %36, label %17, label %37, !llvm.loop !92
+  %.reass.i.us.i = add i32 %invariant.op.i.us.i, %.02930.i.us.i
+  %34 = and i32 %.reass.i.us.i, %16
+  %35 = icmp slt i32 %34, 64
+  br i1 %35, label %17, label %36, !llvm.loop !92
 
-37:                                               ; preds = %17
-  %38 = lshr i32 %.02831.i.us.i, 1
-  %39 = zext nneg i32 %38 to i64
-  %40 = shl i64 %.032.i.us.i, %39
-  %41 = xor i64 %40, %.032.i.us.i
+36:                                               ; preds = %17
+  %37 = lshr i32 %.02831.i.us.i, 1
+  %38 = zext nneg i32 %37 to i64
+  %39 = shl i64 %.032.i.us.i, %38
+  %40 = xor i64 %39, %.032.i.us.i
   %.not.i.us.i = icmp ult i32 %.02831.i.us.i, 2
   br i1 %.not.i.us.i, label %Extra_Transpose64p.exit.us.i, label %.preheader.i.us.i, !llvm.loop !93
 
-Extra_Transpose64p.exit.us.i:                     ; preds = %37
+Extra_Transpose64p.exit.us.i:                     ; preds = %36
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next38.i, 100
   br i1 %exitcond40.not.i, label %._crit_edge.us.i, label %.preheader.us.i, !llvm.loop !94
 
-42:                                               ; preds = %.preheader.us.i, %42
-  %indvars.iv31.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next32.i, %42 ]
-  %indvars.iv.i23 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i24, %42 ]
-  %43 = add nsw i64 %48, %indvars.iv.i23
-  %.idx = mul nuw nsw i64 %43, 1600
+41:                                               ; preds = %.preheader.us.i, %41
+  %indvars.iv31.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next32.i, %41 ]
+  %indvars.iv.i23 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i24, %41 ]
+  %42 = add nsw i64 %47, %indvars.iv.i23
+  %.idx = mul nuw nsw i64 %42, 1600
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
-  %44 = getelementptr inbounds [64 x ptr], ptr %2, i64 0, i64 %indvars.iv31.i
-  store ptr %gep, ptr %44, align 8
-  %45 = add nsw i64 %14, %indvars.iv.i23
-  %.idx36 = mul nuw nsw i64 %45, 800
+  %43 = getelementptr inbounds [64 x ptr], ptr %2, i64 0, i64 %indvars.iv31.i
+  store ptr %gep, ptr %43, align 8
+  %44 = add nsw i64 %14, %indvars.iv.i23
+  %.idx36 = mul nuw nsw i64 %44, 800
   %gep40 = getelementptr i8, ptr %invariant.gep39, i64 %.idx36
-  %46 = load i64, ptr %gep40, align 8
-  store i64 %46, ptr %gep, align 8
+  %45 = load i64, ptr %gep40, align 8
+  store i64 %45, ptr %gep, align 8
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %indvars.iv.next.i24 = add nsw i64 %indvars.iv.i23, -1
   %exitcond.not.i25 = icmp eq i64 %indvars.iv.next32.i, 64
-  br i1 %exitcond.not.i25, label %.preheader.i.us.i, label %42, !llvm.loop !95
+  br i1 %exitcond.not.i25, label %.preheader.i.us.i, label %41, !llvm.loop !95
 
 .preheader.us.i:                                  ; preds = %Extra_Transpose64p.exit.us.i, %.preheader24.us.i
   %indvars.iv37.i = phi i64 [ 0, %.preheader24.us.i ], [ %indvars.iv.next38.i, %Extra_Transpose64p.exit.us.i ]
-  %47 = shl nsw i64 %indvars.iv37.i, 6
-  %48 = or disjoint i64 %47, 63
+  %46 = shl nsw i64 %indvars.iv37.i, 6
+  %47 = or disjoint i64 %46, 63
   %invariant.gep39 = getelementptr i64, ptr %calloc.i.i, i64 %indvars.iv37.i
-  br label %42
+  br label %41
 
 ._crit_edge.us.i:                                 ; preds = %Extra_Transpose64p.exit.us.i
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
@@ -5682,93 +5687,93 @@ Extra_Transpose64p.exit.us.i:                     ; preds = %37
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2)
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %68, %.lr.ph.i.i
-  %indvars.iv21.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next22.i, %68 ]
-  %49 = trunc nuw nsw i64 %indvars.iv21.i to i32
-  %50 = and i32 %49, 31
-  %51 = shl nuw i32 1, %50
-  %52 = lshr i64 %indvars.iv21.i, 5
-  %53 = and i64 %52, 134217727
+.preheader.i:                                     ; preds = %67, %.lr.ph.i.i
+  %indvars.iv21.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next22.i, %67 ]
+  %48 = trunc nuw nsw i64 %indvars.iv21.i to i32
+  %49 = and i32 %48, 31
+  %50 = shl nuw i32 1, %49
+  %51 = lshr i64 %indvars.iv21.i, 5
+  %52 = and i64 %51, 134217727
   %.idx.i = mul nuw nsw i64 %indvars.iv21.i, 800
-  %54 = getelementptr inbounds i8, ptr %calloc.i.i, i64 %.idx.i
-  %invariant.gep41 = getelementptr inbounds i32, ptr %calloc.i22, i64 %53
-  br label %55
+  %53 = getelementptr inbounds i8, ptr %calloc.i.i, i64 %.idx.i
+  %invariant.gep41 = getelementptr inbounds i32, ptr %calloc.i22, i64 %52
+  br label %54
 
-55:                                               ; preds = %67, %.preheader.i
-  %indvars.iv.i26 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i27, %67 ]
-  %56 = trunc nuw nsw i64 %indvars.iv.i26 to i32
-  %57 = lshr i64 %indvars.iv.i26, 5
-  %58 = and i64 %57, 134217727
-  %59 = getelementptr inbounds i32, ptr %54, i64 %58
-  %60 = load i32, ptr %59, align 4
-  %61 = and i32 %56, 31
-  %62 = shl nuw i32 1, %61
-  %63 = and i32 %62, %60
-  %.not.i = icmp eq i32 %63, 0
-  br i1 %.not.i, label %67, label %64
+54:                                               ; preds = %66, %.preheader.i
+  %indvars.iv.i26 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i27, %66 ]
+  %55 = trunc nuw nsw i64 %indvars.iv.i26 to i32
+  %56 = lshr i64 %indvars.iv.i26, 5
+  %57 = and i64 %56, 134217727
+  %58 = getelementptr inbounds i32, ptr %53, i64 %57
+  %59 = load i32, ptr %58, align 4
+  %60 = and i32 %55, 31
+  %61 = shl nuw i32 1, %60
+  %62 = and i32 %61, %59
+  %.not.i = icmp eq i32 %62, 0
+  br i1 %.not.i, label %66, label %63
 
-64:                                               ; preds = %55
+63:                                               ; preds = %54
   %.idx25.i = mul nuw nsw i64 %indvars.iv.i26, 1600
   %gep42 = getelementptr inbounds i8, ptr %invariant.gep41, i64 %.idx25.i
-  %65 = load i32, ptr %gep42, align 4
-  %66 = or i32 %65, %51
-  store i32 %66, ptr %gep42, align 4
-  br label %67
+  %64 = load i32, ptr %gep42, align 4
+  %65 = or i32 %64, %50
+  store i32 %65, ptr %gep42, align 4
+  br label %66
 
-67:                                               ; preds = %64, %55
+66:                                               ; preds = %63, %54
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i26, 1
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, 6400
-  br i1 %exitcond.not.i28, label %68, label %55, !llvm.loop !103
+  br i1 %exitcond.not.i28, label %67, label %54, !llvm.loop !103
 
-68:                                               ; preds = %67
+67:                                               ; preds = %66
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond24.not.i = icmp eq i64 %indvars.iv.next22.i, 12800
   br i1 %exitcond24.not.i, label %Extra_BitMatrixTransposeSimple.exit, label %.preheader.i, !llvm.loop !104
 
-Extra_BitMatrixTransposeSimple.exit:              ; preds = %68
+Extra_BitMatrixTransposeSimple.exit:              ; preds = %67
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(10240000) %calloc.i, ptr noundef nonnull dereferenceable(10240000) %calloc.i22, i64 10240000)
   %.not = icmp eq i32 %bcmp, 0
   %str.5.str.6 = select i1 %.not, ptr @str.5, ptr @str.6
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %str.5.str.6)
   call void @free(ptr noundef nonnull %calloc.i.i) #32
   %.not.i30 = icmp eq ptr %calloc.i, null
-  br i1 %.not.i30, label %Vec_WrdFree.exit31, label %69
+  br i1 %.not.i30, label %Vec_WrdFree.exit31, label %68
 
-69:                                               ; preds = %Extra_BitMatrixTransposeSimple.exit
+68:                                               ; preds = %Extra_BitMatrixTransposeSimple.exit
   call void @free(ptr noundef nonnull %calloc.i) #32
   br label %Vec_WrdFree.exit31
 
-Vec_WrdFree.exit31:                               ; preds = %Extra_BitMatrixTransposeSimple.exit, %69
+Vec_WrdFree.exit31:                               ; preds = %Extra_BitMatrixTransposeSimple.exit, %68
   %.not.i32 = icmp eq ptr %calloc.i22, null
-  br i1 %.not.i32, label %Vec_WrdFree.exit33, label %70
+  br i1 %.not.i32, label %Vec_WrdFree.exit33, label %69
 
-70:                                               ; preds = %Vec_WrdFree.exit31
+69:                                               ; preds = %Vec_WrdFree.exit31
   call void @free(ptr noundef nonnull %calloc.i22) #32
   br label %Vec_WrdFree.exit33
 
-Vec_WrdFree.exit33:                               ; preds = %Vec_WrdFree.exit31, %70
+Vec_WrdFree.exit33:                               ; preds = %Vec_WrdFree.exit31, %69
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
-  %71 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #32
-  %72 = icmp slt i32 %71, 0
-  br i1 %72, label %Abc_Clock.exit35, label %73
+  %70 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #32
+  %71 = icmp slt i32 %70, 0
+  br i1 %71, label %Abc_Clock.exit35, label %72
 
-73:                                               ; preds = %Vec_WrdFree.exit33
-  %74 = load i64, ptr %1, align 8
-  %75 = mul nsw i64 %74, 1000000
-  %76 = getelementptr inbounds i8, ptr %1, i64 8
-  %77 = load i64, ptr %76, align 8
-  %78 = sdiv i64 %77, 1000
-  %79 = add nsw i64 %78, %75
+72:                                               ; preds = %Vec_WrdFree.exit33
+  %73 = load i64, ptr %1, align 8
+  %74 = mul nsw i64 %73, 1000000
+  %75 = getelementptr inbounds i8, ptr %1, i64 8
+  %76 = load i64, ptr %75, align 8
+  %77 = sdiv i64 %76, 1000
+  %78 = add nsw i64 %77, %74
   br label %Abc_Clock.exit35
 
-Abc_Clock.exit35:                                 ; preds = %Vec_WrdFree.exit33, %73
-  %.0.i34 = phi i64 [ %79, %73 ], [ -1, %Vec_WrdFree.exit33 ]
+Abc_Clock.exit35:                                 ; preds = %Vec_WrdFree.exit33, %72
+  %.0.i34 = phi i64 [ %78, %72 ], [ -1, %Vec_WrdFree.exit33 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
-  %80 = add i64 %.0.i34, %.0.i.neg
+  %79 = add i64 %.0.i34, %.0.i.neg
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.19)
-  %81 = sitofp i64 %80 to double
-  %82 = fdiv double %81, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.24, double noundef %82)
+  %80 = sitofp i64 %79 to double
+  %81 = fdiv double %80, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.24, double noundef %81)
   ret void
 }
 

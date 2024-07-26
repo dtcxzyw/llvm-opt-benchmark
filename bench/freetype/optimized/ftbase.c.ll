@@ -19736,8 +19736,8 @@ FT_Stream_ReadUShort.exit.thread:                 ; preds = %62, %70
   %86 = icmp eq i16 %83, 0
   br i1 %86, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %76, %163
-  %.02122 = phi i32 [ %164, %163 ], [ 0, %76 ]
+.preheader:                                       ; preds = %76, %161
+  %.02122 = phi i32 [ %162, %161 ], [ 0, %76 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %87 = load i64, ptr %10, align 8
   %88 = add i64 %87, 3
@@ -19757,152 +19757,152 @@ FT_Stream_ReadUShort.exit.thread:                 ; preds = %62, %70
 
 ..thread_crit_edge.i61:                           ; preds = %93
   %.pre.pre.i62 = load i64, ptr %10, align 8
-  br label %100
+  br label %99
 
 95:                                               ; preds = %91
   %96 = load ptr, ptr %0, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 %87
   %.not23.i67 = icmp eq ptr %96, null
-  br i1 %.not23.i67, label %.thread27, label %100
+  br i1 %.not23.i67, label %.thread27, label %99
 
 .thread27:                                        ; preds = %95
   %98 = add i64 %87, 4
   store i64 %98, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %99 = add i64 %87, 12
-  br label %159
+  %.reass30 = add i64 %87, 12
+  br label %157
 
 FT_Stream_ReadULong.exit68.thread:                ; preds = %.preheader, %93
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %.loopexit
 
-100:                                              ; preds = %..thread_crit_edge.i61, %95
+99:                                               ; preds = %..thread_crit_edge.i61, %95
   %.pre.i64 = phi i64 [ %87, %95 ], [ %.pre.pre.i62, %..thread_crit_edge.i61 ]
   %.01926.i65 = phi ptr [ %97, %95 ], [ %5, %..thread_crit_edge.i61 ]
-  %101 = load i8, ptr %.01926.i65, align 1
-  %102 = zext i8 %101 to i32
-  %103 = shl nuw i32 %102, 24
-  %104 = getelementptr inbounds i8, ptr %.01926.i65, i64 1
-  %105 = load i8, ptr %104, align 1
-  %106 = zext i8 %105 to i32
-  %107 = shl nuw nsw i32 %106, 16
-  %108 = or disjoint i32 %107, %103
-  %109 = getelementptr inbounds i8, ptr %.01926.i65, i64 2
-  %110 = load i8, ptr %109, align 1
-  %111 = zext i8 %110 to i32
-  %112 = shl nuw nsw i32 %111, 8
-  %113 = or disjoint i32 %108, %112
-  %114 = getelementptr inbounds i8, ptr %.01926.i65, i64 3
-  %115 = load i8, ptr %114, align 1
-  %116 = zext i8 %115 to i32
-  %117 = or disjoint i32 %113, %116
-  %118 = add i64 %.pre.i64, 4
-  store i64 %118, ptr %10, align 8
+  %100 = load i8, ptr %.01926.i65, align 1
+  %101 = zext i8 %100 to i32
+  %102 = shl nuw i32 %101, 24
+  %103 = getelementptr inbounds i8, ptr %.01926.i65, i64 1
+  %104 = load i8, ptr %103, align 1
+  %105 = zext i8 %104 to i32
+  %106 = shl nuw nsw i32 %105, 16
+  %107 = or disjoint i32 %106, %102
+  %108 = getelementptr inbounds i8, ptr %.01926.i65, i64 2
+  %109 = load i8, ptr %108, align 1
+  %110 = zext i8 %109 to i32
+  %111 = shl nuw nsw i32 %110, 8
+  %112 = or disjoint i32 %107, %111
+  %113 = getelementptr inbounds i8, ptr %.01926.i65, i64 3
+  %114 = load i8, ptr %113, align 1
+  %115 = zext i8 %114 to i32
+  %116 = or disjoint i32 %112, %115
+  %117 = add i64 %.pre.i64, 4
+  store i64 %117, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %119 = icmp eq i32 %117, 2
-  br i1 %119, label %120, label %155
+  %118 = icmp eq i32 %116, 2
+  br i1 %118, label %119, label %154
 
-120:                                              ; preds = %100
+119:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %121 = add i64 %.pre.i64, 7
-  %122 = load i64, ptr %13, align 8
-  %123 = icmp ult i64 %121, %122
-  br i1 %123, label %124, label %FT_Stream_ReadULong.exit80.thread
+  %120 = add i64 %.pre.i64, 7
+  %121 = load i64, ptr %13, align 8
+  %122 = icmp ult i64 %120, %121
+  br i1 %122, label %123, label %FT_Stream_ReadULong.exit80.thread
 
-124:                                              ; preds = %120
-  %125 = load ptr, ptr %17, align 8
-  %.not.i71 = icmp eq ptr %125, null
-  br i1 %.not.i71, label %128, label %126
+123:                                              ; preds = %119
+  %124 = load ptr, ptr %17, align 8
+  %.not.i71 = icmp eq ptr %124, null
+  br i1 %.not.i71, label %127, label %125
 
-126:                                              ; preds = %124
-  %127 = call i64 %125(ptr noundef nonnull %0, i64 noundef %118, ptr noundef nonnull %4, i64 noundef 4) #34
-  %.not22.i72 = icmp eq i64 %127, 4
+125:                                              ; preds = %123
+  %126 = call i64 %124(ptr noundef nonnull %0, i64 noundef %117, ptr noundef nonnull %4, i64 noundef 4) #34
+  %.not22.i72 = icmp eq i64 %126, 4
   br i1 %.not22.i72, label %..thread_crit_edge.i73, label %FT_Stream_ReadULong.exit80.thread
 
-..thread_crit_edge.i73:                           ; preds = %126
+..thread_crit_edge.i73:                           ; preds = %125
   %.pre.pre.i74 = load i64, ptr %10, align 8
   br label %.thread.i75
 
-128:                                              ; preds = %124
-  %129 = load ptr, ptr %0, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 %118
-  %.not23.i79 = icmp eq ptr %129, null
-  br i1 %.not23.i79, label %148, label %.thread.i75
+127:                                              ; preds = %123
+  %128 = load ptr, ptr %0, align 8
+  %129 = getelementptr inbounds i8, ptr %128, i64 %117
+  %.not23.i79 = icmp eq ptr %128, null
+  br i1 %.not23.i79, label %147, label %.thread.i75
 
-.thread.i75:                                      ; preds = %128, %..thread_crit_edge.i73
-  %.pre.i76 = phi i64 [ %118, %128 ], [ %.pre.pre.i74, %..thread_crit_edge.i73 ]
-  %.01926.i77 = phi ptr [ %130, %128 ], [ %4, %..thread_crit_edge.i73 ]
-  %131 = load i8, ptr %.01926.i77, align 1
-  %132 = zext i8 %131 to i32
-  %133 = shl nuw i32 %132, 24
-  %134 = getelementptr inbounds i8, ptr %.01926.i77, i64 1
-  %135 = load i8, ptr %134, align 1
-  %136 = zext i8 %135 to i32
-  %137 = shl nuw nsw i32 %136, 16
-  %138 = or disjoint i32 %137, %133
-  %139 = getelementptr inbounds i8, ptr %.01926.i77, i64 2
-  %140 = load i8, ptr %139, align 1
-  %141 = zext i8 %140 to i32
-  %142 = shl nuw nsw i32 %141, 8
-  %143 = or disjoint i32 %138, %142
-  %144 = getelementptr inbounds i8, ptr %.01926.i77, i64 3
-  %145 = load i8, ptr %144, align 1
-  %146 = zext i8 %145 to i32
-  %147 = or disjoint i32 %143, %146
-  br label %148
+.thread.i75:                                      ; preds = %127, %..thread_crit_edge.i73
+  %.pre.i76 = phi i64 [ %117, %127 ], [ %.pre.pre.i74, %..thread_crit_edge.i73 ]
+  %.01926.i77 = phi ptr [ %129, %127 ], [ %4, %..thread_crit_edge.i73 ]
+  %130 = load i8, ptr %.01926.i77, align 1
+  %131 = zext i8 %130 to i32
+  %132 = shl nuw i32 %131, 24
+  %133 = getelementptr inbounds i8, ptr %.01926.i77, i64 1
+  %134 = load i8, ptr %133, align 1
+  %135 = zext i8 %134 to i32
+  %136 = shl nuw nsw i32 %135, 16
+  %137 = or disjoint i32 %136, %132
+  %138 = getelementptr inbounds i8, ptr %.01926.i77, i64 2
+  %139 = load i8, ptr %138, align 1
+  %140 = zext i8 %139 to i32
+  %141 = shl nuw nsw i32 %140, 8
+  %142 = or disjoint i32 %137, %141
+  %143 = getelementptr inbounds i8, ptr %.01926.i77, i64 3
+  %144 = load i8, ptr %143, align 1
+  %145 = zext i8 %144 to i32
+  %146 = or disjoint i32 %142, %145
+  br label %147
 
-FT_Stream_ReadULong.exit80.thread:                ; preds = %120, %126
+FT_Stream_ReadULong.exit80.thread:                ; preds = %119, %125
   store i32 85, ptr %9, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %163
+  br label %161
 
-148:                                              ; preds = %.thread.i75, %128
-  %149 = phi i64 [ %.pre.i76, %.thread.i75 ], [ %118, %128 ]
-  %.0.i78 = phi i32 [ %147, %.thread.i75 ], [ 0, %128 ]
-  %150 = add i64 %149, 4
-  store i64 %150, ptr %10, align 8
+147:                                              ; preds = %.thread.i75, %127
+  %148 = phi i64 [ %.pre.i76, %.thread.i75 ], [ %117, %127 ]
+  %.0.i78 = phi i32 [ %146, %.thread.i75 ], [ 0, %127 ]
+  %149 = add i64 %148, 4
+  store i64 %149, ptr %10, align 8
   store i32 0, ptr %9, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %151 = call i32 @FT_Stream_ReadULong(ptr noundef nonnull %0, ptr noundef nonnull %9)
-  %152 = load i32, ptr %9, align 4
-  %.not36 = icmp eq i32 %152, 0
-  br i1 %.not36, label %153, label %163
+  %150 = call i32 @FT_Stream_ReadULong(ptr noundef nonnull %0, ptr noundef nonnull %9)
+  %151 = load i32, ptr %9, align 4
+  %.not36 = icmp eq i32 %151, 0
+  br i1 %.not36, label %152, label %161
 
-153:                                              ; preds = %148
-  %154 = sext i32 %.0.i78 to i64
-  store i64 %154, ptr %2, align 8
+152:                                              ; preds = %147
+  %153 = sext i32 %.0.i78 to i64
+  store i64 %153, ptr %2, align 8
   br label %.loopexit
 
-155:                                              ; preds = %100
+154:                                              ; preds = %99
   %.pre25 = load ptr, ptr %17, align 8
-  %156 = add i64 %.pre.i64, 12
+  %.reass = add i64 %.pre.i64, 12
   %.not.i.i81 = icmp eq ptr %.pre25, null
-  br i1 %.not.i.i81, label %159, label %157
+  br i1 %.not.i.i81, label %157, label %155
 
-157:                                              ; preds = %155
-  %158 = call i64 %.pre25(ptr noundef nonnull %0, i64 noundef %156, ptr noundef null, i64 noundef 0) #34
-  %.not10.i.i82 = icmp eq i64 %158, 0
+155:                                              ; preds = %154
+  %156 = call i64 %.pre25(ptr noundef nonnull %0, i64 noundef %.reass, ptr noundef null, i64 noundef 0) #34
+  %.not10.i.i82 = icmp eq i64 %156, 0
   br i1 %.not10.i.i82, label %FT_Stream_Skip.exit85, label %.loopexit
 
-159:                                              ; preds = %.thread27, %155
-  %160 = phi i64 [ %99, %.thread27 ], [ %156, %155 ]
-  %161 = load i64, ptr %13, align 8
-  %.not17.i.i84 = icmp ult i64 %161, %160
+157:                                              ; preds = %.thread27, %154
+  %158 = phi i64 [ %.reass30, %.thread27 ], [ %.reass, %154 ]
+  %159 = load i64, ptr %13, align 8
+  %.not17.i.i84 = icmp ult i64 %159, %158
   br i1 %.not17.i.i84, label %.loopexit, label %FT_Stream_Skip.exit85
 
-FT_Stream_Skip.exit85:                            ; preds = %157, %159
-  %162 = phi i64 [ %156, %157 ], [ %160, %159 ]
-  store i64 %162, ptr %10, align 8
+FT_Stream_Skip.exit85:                            ; preds = %155, %157
+  %160 = phi i64 [ %.reass, %155 ], [ %158, %157 ]
+  store i64 %160, ptr %10, align 8
   store i32 0, ptr %9, align 4
-  br label %163
+  br label %161
 
-163:                                              ; preds = %FT_Stream_Skip.exit85, %FT_Stream_ReadULong.exit80.thread, %148
-  %164 = add nuw nsw i32 %.02122, 1
-  %exitcond.not = icmp eq i32 %164, %85
+161:                                              ; preds = %FT_Stream_Skip.exit85, %FT_Stream_ReadULong.exit80.thread, %147
+  %162 = add nuw nsw i32 %.02122, 1
+  %exitcond.not = icmp eq i32 %162, %85
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !83
 
-.loopexit:                                        ; preds = %163, %159, %157, %58, %56, %FT_Stream_ReadULong.exit68.thread, %.thread, %FT_Stream_ReadUShort.exit.thread, %FT_Stream_ReadULong.exit48.thread, %FT_Stream_ReadULong.exit.thread, %76, %41, %153
-  %.0 = phi i32 [ 0, %153 ], [ 2, %41 ], [ 2, %76 ], [ 85, %FT_Stream_ReadULong.exit.thread ], [ 85, %FT_Stream_ReadULong.exit48.thread ], [ 85, %FT_Stream_ReadUShort.exit.thread ], [ 2, %.thread ], [ 85, %FT_Stream_ReadULong.exit68.thread ], [ 85, %56 ], [ 85, %58 ], [ 85, %157 ], [ 85, %159 ], [ 2, %163 ]
+.loopexit:                                        ; preds = %161, %157, %155, %58, %56, %FT_Stream_ReadULong.exit68.thread, %.thread, %FT_Stream_ReadUShort.exit.thread, %FT_Stream_ReadULong.exit48.thread, %FT_Stream_ReadULong.exit.thread, %76, %41, %152
+  %.0 = phi i32 [ 0, %152 ], [ 2, %41 ], [ 2, %76 ], [ 85, %FT_Stream_ReadULong.exit.thread ], [ 85, %FT_Stream_ReadULong.exit48.thread ], [ 85, %FT_Stream_ReadUShort.exit.thread ], [ 2, %.thread ], [ 85, %FT_Stream_ReadULong.exit68.thread ], [ 85, %56 ], [ 85, %58 ], [ 85, %155 ], [ 85, %157 ], [ 2, %161 ]
   ret i32 %.0
 }
 

@@ -87,9 +87,9 @@ define dso_local range(i32 0, 256) i32 @look_up_OID(ptr nocapture noundef readon
   %42 = add nuw i32 %31, 1
   br label %.loopexit8
 
-.loopexit8:                                       ; preds = %68, %61, %41
-  %43 = phi i32 [ %42, %41 ], [ %63, %61 ], [ %78, %68 ]
-  %44 = phi i32 [ %29, %41 ], [ %29, %61 ], [ %79, %68 ]
+.loopexit8:                                       ; preds = %69, %61, %41
+  %43 = phi i32 [ %42, %41 ], [ %63, %61 ], [ %78, %69 ]
+  %44 = phi i32 [ %29, %41 ], [ %29, %61 ], [ %79, %69 ]
   %45 = icmp ult i32 %43, %44
   br i1 %45, label %25, label %.loopexit, !llvm.loop !8
 
@@ -115,30 +115,34 @@ define dso_local range(i32 0, 256) i32 @look_up_OID(ptr nocapture noundef readon
   %63 = add nuw i32 %31, 1
   br i1 %62, label %.loopexit8, label %.preheader
 
-.preheader:                                       ; preds = %61, %68
-  %64 = phi i32 [ %78, %68 ], [ %27, %61 ]
-  %65 = phi i32 [ %79, %68 ], [ %29, %61 ]
-  %66 = phi i64 [ %69, %68 ], [ %59, %61 ]
-  %67 = icmp eq i64 %66, 0
-  br i1 %67, label %.loopexit, label %68
+.preheader:                                       ; preds = %61
+  %invariant.op = add nsw i64 %58, -1
+  br label %64
 
-68:                                               ; preds = %.preheader
-  %69 = add nsw i64 %66, -1
-  %70 = add nuw nsw i64 %69, %58
-  %71 = getelementptr [702 x i8], ptr @oid_data, i64 0, i64 %70
+64:                                               ; preds = %.preheader, %69
+  %65 = phi i32 [ %78, %69 ], [ %27, %.preheader ]
+  %66 = phi i32 [ %79, %69 ], [ %29, %.preheader ]
+  %67 = phi i64 [ %70, %69 ], [ %59, %.preheader ]
+  %68 = icmp eq i64 %67, 0
+  br i1 %68, label %.loopexit, label %69
+
+69:                                               ; preds = %64
+  %70 = add nsw i64 %67, -1
+  %.reass = add i64 %67, %invariant.op
+  %71 = getelementptr [702 x i8], ptr @oid_data, i64 0, i64 %.reass
   %72 = load i8, ptr %71, align 1
-  %73 = getelementptr i8, ptr %0, i64 %69
+  %73 = getelementptr i8, ptr %0, i64 %70
   %74 = load i8, ptr %73, align 1
   %75 = icmp ugt i8 %72, %74
   %76 = icmp ult i8 %72, %74
-  %77 = select i1 %76, i32 %63, i32 %64
-  %78 = select i1 %75, i32 %64, i32 %77
-  %79 = select i1 %75, i32 %31, i32 %65
+  %77 = select i1 %76, i32 %63, i32 %65
+  %78 = select i1 %75, i32 %65, i32 %77
+  %79 = select i1 %75, i32 %31, i32 %66
   %80 = icmp eq i8 %72, %74
-  br i1 %80, label %.preheader, label %.loopexit8, !llvm.loop !8
+  br i1 %80, label %64, label %.loopexit8, !llvm.loop !8
 
-.loopexit:                                        ; preds = %.loopexit8, %37, %.preheader
-  %81 = phi i32 [ %49, %.preheader ], [ 98, %37 ], [ 98, %.loopexit8 ]
+.loopexit:                                        ; preds = %.loopexit8, %37, %64
+  %81 = phi i32 [ %49, %64 ], [ 98, %37 ], [ 98, %.loopexit8 ]
   ret i32 %81
 }
 
@@ -218,9 +222,9 @@ define dso_local noundef range(i32 -74, 1) i32 @parse_OID(ptr nocapture noundef 
   %55 = add nuw i32 %44, 1
   br label %.loopexit9
 
-.loopexit9:                                       ; preds = %81, %74, %54
-  %56 = phi i32 [ %55, %54 ], [ %76, %74 ], [ %91, %81 ]
-  %57 = phi i32 [ %42, %54 ], [ %42, %74 ], [ %92, %81 ]
+.loopexit9:                                       ; preds = %82, %74, %54
+  %56 = phi i32 [ %55, %54 ], [ %76, %74 ], [ %91, %82 ]
+  %57 = phi i32 [ %42, %54 ], [ %42, %74 ], [ %92, %82 ]
   %58 = icmp ult i32 %56, %57
   br i1 %58, label %38, label %.loopexit, !llvm.loop !8
 
@@ -246,30 +250,34 @@ define dso_local noundef range(i32 -74, 1) i32 @parse_OID(ptr nocapture noundef 
   %76 = add nuw i32 %44, 1
   br i1 %75, label %.loopexit9, label %.preheader
 
-.preheader:                                       ; preds = %74, %81
-  %77 = phi i32 [ %91, %81 ], [ %40, %74 ]
-  %78 = phi i32 [ %92, %81 ], [ %42, %74 ]
-  %79 = phi i64 [ %82, %81 ], [ %72, %74 ]
-  %80 = icmp eq i64 %79, 0
-  br i1 %80, label %.loopexit, label %81
+.preheader:                                       ; preds = %74
+  %invariant.op = add nsw i64 %71, -1
+  br label %77
 
-81:                                               ; preds = %.preheader
-  %82 = add nsw i64 %79, -1
-  %83 = add nuw nsw i64 %82, %71
-  %84 = getelementptr [702 x i8], ptr @oid_data, i64 0, i64 %83
+77:                                               ; preds = %.preheader, %82
+  %78 = phi i32 [ %91, %82 ], [ %40, %.preheader ]
+  %79 = phi i32 [ %92, %82 ], [ %42, %.preheader ]
+  %80 = phi i64 [ %83, %82 ], [ %72, %.preheader ]
+  %81 = icmp eq i64 %80, 0
+  br i1 %81, label %.loopexit, label %82
+
+82:                                               ; preds = %77
+  %83 = add nsw i64 %80, -1
+  %.reass = add i64 %80, %invariant.op
+  %84 = getelementptr [702 x i8], ptr @oid_data, i64 0, i64 %.reass
   %85 = load i8, ptr %84, align 1
-  %86 = getelementptr i8, ptr %15, i64 %82
+  %86 = getelementptr i8, ptr %15, i64 %83
   %87 = load i8, ptr %86, align 1
   %88 = icmp ugt i8 %85, %87
   %89 = icmp ult i8 %85, %87
-  %90 = select i1 %89, i32 %76, i32 %77
-  %91 = select i1 %88, i32 %77, i32 %90
-  %92 = select i1 %88, i32 %44, i32 %78
+  %90 = select i1 %89, i32 %76, i32 %78
+  %91 = select i1 %88, i32 %78, i32 %90
+  %92 = select i1 %88, i32 %44, i32 %79
   %93 = icmp eq i8 %85, %87
-  br i1 %93, label %.preheader, label %.loopexit9, !llvm.loop !8
+  br i1 %93, label %77, label %.loopexit9, !llvm.loop !8
 
-.loopexit:                                        ; preds = %.loopexit9, %50, %.preheader
-  %94 = phi i32 [ %62, %.preheader ], [ 98, %50 ], [ 98, %.loopexit9 ]
+.loopexit:                                        ; preds = %.loopexit9, %50, %77
+  %94 = phi i32 [ %62, %77 ], [ 98, %50 ], [ 98, %.loopexit9 ]
   store i32 %94, ptr %2, align 4
   br label %95
 

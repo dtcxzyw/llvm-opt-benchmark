@@ -385,7 +385,7 @@ define void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %126 = trunc i64 %indvars.iv155 to i32
   %127 = add i32 %126, 3
   %128 = icmp slt i32 %127, %.val129
-  %indvars.iv.next154 = add i64 %indvars.iv153, 2
+  %indvars.iv.next154 = add nuw i64 %indvars.iv153, 2
   br i1 %128, label %57, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %54, %34, %125, %21, %.preheader, %12, %17, %18
@@ -612,7 +612,7 @@ define void @Json_Write_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %101 = trunc i64 %indvars.iv110 to i32
   %102 = add i32 %101, 3
   %103 = icmp slt i32 %102, %.val92
-  %indvars.iv.next109 = add i64 %indvars.iv108, 2
+  %indvars.iv.next109 = add nuw i64 %indvars.iv108, 2
   br i1 %103, label %70, label %.critedge2, !llvm.loop !8
 
 .critedge2:                                       ; preds = %100, %63

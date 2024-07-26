@@ -4108,19 +4108,19 @@ _ZNK5drjit7TextureIfLm3EE4evalERKNS_5ArrayIfLm3EEEPfb.exit: ; preds = %90, %89
 
 .preheader70.i.i.i:                               ; preds = %156, %135
   %143 = phi i1 [ true, %135 ], [ false, %156 ]
-  %indvars.iv79.i.i.i = phi i64 [ 0, %135 ], [ 1, %156 ]
-  %144 = shl nuw nsw i64 %indvars.iv79.i.i.i, 2
+  %indvars.iv81.i.i.i = phi i64 [ 0, %135 ], [ 1, %156 ]
+  %144 = shl nuw nsw i64 %indvars.iv81.i.i.i, 2
   %invariant.gep.i.i.i = getelementptr inbounds i32, ptr %141, i64 %144
-  %invariant.gep87.i.i.i = getelementptr inbounds i32, ptr %142, i64 %indvars.iv79.i.i.i
+  %invariant.gep89.i.i.i = getelementptr inbounds i32, ptr %142, i64 %indvars.iv81.i.i.i
   br label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %155, %.preheader70.i.i.i
   %145 = phi i1 [ true, %.preheader70.i.i.i ], [ false, %155 ]
-  %indvars.iv76.i.i.i = phi i64 [ 0, %.preheader70.i.i.i ], [ 1, %155 ]
-  %146 = shl nuw nsw i64 %indvars.iv76.i.i.i, 1
+  %indvars.iv78.i.i.i = phi i64 [ 0, %.preheader70.i.i.i ], [ 1, %155 ]
+  %146 = shl nuw nsw i64 %indvars.iv78.i.i.i, 1
   %147 = or disjoint i64 %146, %144
-  %invariant.gep82.i.i.i = getelementptr inbounds i32, ptr %invariant.gep.i.i.i, i64 %indvars.iv76.i.i.i
-  %gep.i.i.i = getelementptr inbounds i32, ptr %invariant.gep87.i.i.i, i64 %146
+  %invariant.gep84.i.i.i = getelementptr inbounds i32, ptr %invariant.gep.i.i.i, i64 %indvars.iv78.i.i.i
+  %gep.i.i.i = getelementptr inbounds i32, ptr %invariant.gep89.i.i.i, i64 %146
   br label %148
 
 148:                                              ; preds = %148, %.preheader.i.i.i
@@ -4133,12 +4133,12 @@ _ZNK5drjit7TextureIfLm3EE4evalERKNS_5ArrayIfLm3EEEPfb.exit: ; preds = %90, %89
   store i32 %150, ptr %152, align 4, !alias.scope !36
   %153 = add nsw i32 %indvars.iv.i.sroa.phi.sroa.speculated.i.i, %.sroa.041.4.vec.extract.i.i
   %.idx.i.i.i = shl nuw nsw i64 %indvars.iv.i.i.i, 3
-  %gep83.i.i.i = getelementptr inbounds i8, ptr %invariant.gep82.i.i.i, i64 %.idx.i.i.i
-  store i32 %153, ptr %gep83.i.i.i, align 4, !alias.scope !36
+  %gep85.i.i.i = getelementptr inbounds i8, ptr %invariant.gep84.i.i.i, i64 %.idx.i.i.i
+  store i32 %153, ptr %gep85.i.i.i, align 4, !alias.scope !36
   %154 = add nsw i32 %indvars.iv.i.sroa.phi.sroa.speculated.i.i, %.sroa.041.8.vec.extract.i.i
-  %.idx74.i.i.i = shl nuw nsw i64 %indvars.iv.i.i.i, 4
-  %gep86.i.i.i = getelementptr inbounds i8, ptr %gep.i.i.i, i64 %.idx74.i.i.i
-  store i32 %154, ptr %gep86.i.i.i, align 4, !alias.scope !36
+  %.idx76.i.i.i = shl nuw nsw i64 %indvars.iv.i.i.i, 4
+  %gep88.i.i.i = getelementptr inbounds i8, ptr %gep.i.i.i, i64 %.idx76.i.i.i
+  store i32 %154, ptr %gep88.i.i.i, align 4, !alias.scope !36
   br i1 %149, label %148, label %155, !llvm.loop !39
 
 155:                                              ; preds = %148
@@ -4243,19 +4243,19 @@ _ZNK5drjit7TextureIfLm3EE10eval_fetchERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEEb.exit: ;
 
 .preheader70.i.i:                                 ; preds = %215, %194
   %202 = phi i1 [ true, %194 ], [ false, %215 ]
-  %indvars.iv79.i.i = phi i64 [ 0, %194 ], [ 1, %215 ]
-  %203 = shl nuw nsw i64 %indvars.iv79.i.i, 2
+  %indvars.iv81.i.i = phi i64 [ 0, %194 ], [ 1, %215 ]
+  %203 = shl nuw nsw i64 %indvars.iv81.i.i, 2
   %invariant.gep.i.i = getelementptr inbounds i32, ptr %200, i64 %203
-  %invariant.gep87.i.i = getelementptr inbounds i32, ptr %201, i64 %indvars.iv79.i.i
+  %invariant.gep89.i.i = getelementptr inbounds i32, ptr %201, i64 %indvars.iv81.i.i
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %214, %.preheader70.i.i
   %204 = phi i1 [ true, %.preheader70.i.i ], [ false, %214 ]
-  %indvars.iv76.i.i = phi i64 [ 0, %.preheader70.i.i ], [ 1, %214 ]
-  %205 = shl nuw nsw i64 %indvars.iv76.i.i, 1
+  %indvars.iv78.i.i = phi i64 [ 0, %.preheader70.i.i ], [ 1, %214 ]
+  %205 = shl nuw nsw i64 %indvars.iv78.i.i, 1
   %206 = or disjoint i64 %205, %203
-  %invariant.gep82.i.i = getelementptr inbounds i32, ptr %invariant.gep.i.i, i64 %indvars.iv76.i.i
-  %gep.i.i = getelementptr inbounds i32, ptr %invariant.gep87.i.i, i64 %205
+  %invariant.gep84.i.i = getelementptr inbounds i32, ptr %invariant.gep.i.i, i64 %indvars.iv78.i.i
+  %gep.i.i = getelementptr inbounds i32, ptr %invariant.gep89.i.i, i64 %205
   br label %207
 
 207:                                              ; preds = %207, %.preheader.i.i
@@ -4268,12 +4268,12 @@ _ZNK5drjit7TextureIfLm3EE10eval_fetchERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEEb.exit: ;
   store i32 %209, ptr %211, align 4, !alias.scope !44
   %212 = add nsw i32 %indvars.iv.i.sroa.phi.sroa.speculated.i, %.sroa.041.4.vec.extract.i
   %.idx.i.i = shl nuw nsw i64 %indvars.iv.i.i2564, 3
-  %gep83.i.i = getelementptr inbounds i8, ptr %invariant.gep82.i.i, i64 %.idx.i.i
-  store i32 %212, ptr %gep83.i.i, align 4, !alias.scope !44
+  %gep85.i.i = getelementptr inbounds i8, ptr %invariant.gep84.i.i, i64 %.idx.i.i
+  store i32 %212, ptr %gep85.i.i, align 4, !alias.scope !44
   %213 = add nsw i32 %indvars.iv.i.sroa.phi.sroa.speculated.i, %.sroa.041.8.vec.extract.i
-  %.idx74.i.i = shl nuw nsw i64 %indvars.iv.i.i2564, 4
-  %gep86.i.i = getelementptr inbounds i8, ptr %gep.i.i, i64 %.idx74.i.i
-  store i32 %213, ptr %gep86.i.i, align 4, !alias.scope !44
+  %.idx76.i.i = shl nuw nsw i64 %indvars.iv.i.i2564, 4
+  %gep88.i.i = getelementptr inbounds i8, ptr %gep.i.i, i64 %.idx76.i.i
+  store i32 %213, ptr %gep88.i.i, align 4, !alias.scope !44
   br i1 %208, label %207, label %214, !llvm.loop !39
 
 214:                                              ; preds = %207
@@ -4904,19 +4904,19 @@ define weak_odr <4 x float> @_ZNK7mitsuba10GridVolumeIfN5drjit6MatrixINS_8Spectr
 
 .preheader70.i.i.i:                               ; preds = %85, %64
   %72 = phi i1 [ true, %64 ], [ false, %85 ]
-  %indvars.iv79.i.i.i = phi i64 [ 0, %64 ], [ 1, %85 ]
-  %73 = shl nuw nsw i64 %indvars.iv79.i.i.i, 2
+  %indvars.iv81.i.i.i = phi i64 [ 0, %64 ], [ 1, %85 ]
+  %73 = shl nuw nsw i64 %indvars.iv81.i.i.i, 2
   %invariant.gep.i.i.i = getelementptr inbounds i32, ptr %70, i64 %73
-  %invariant.gep87.i.i.i = getelementptr inbounds i32, ptr %71, i64 %indvars.iv79.i.i.i
+  %invariant.gep89.i.i.i = getelementptr inbounds i32, ptr %71, i64 %indvars.iv81.i.i.i
   br label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %84, %.preheader70.i.i.i
   %74 = phi i1 [ true, %.preheader70.i.i.i ], [ false, %84 ]
-  %indvars.iv76.i.i.i = phi i64 [ 0, %.preheader70.i.i.i ], [ 1, %84 ]
-  %75 = shl nuw nsw i64 %indvars.iv76.i.i.i, 1
+  %indvars.iv78.i.i.i = phi i64 [ 0, %.preheader70.i.i.i ], [ 1, %84 ]
+  %75 = shl nuw nsw i64 %indvars.iv78.i.i.i, 1
   %76 = or disjoint i64 %75, %73
-  %invariant.gep82.i.i.i = getelementptr inbounds i32, ptr %invariant.gep.i.i.i, i64 %indvars.iv76.i.i.i
-  %gep.i.i.i = getelementptr inbounds i32, ptr %invariant.gep87.i.i.i, i64 %75
+  %invariant.gep84.i.i.i = getelementptr inbounds i32, ptr %invariant.gep.i.i.i, i64 %indvars.iv78.i.i.i
+  %gep.i.i.i = getelementptr inbounds i32, ptr %invariant.gep89.i.i.i, i64 %75
   br label %77
 
 77:                                               ; preds = %77, %.preheader.i.i.i
@@ -4929,12 +4929,12 @@ define weak_odr <4 x float> @_ZNK7mitsuba10GridVolumeIfN5drjit6MatrixINS_8Spectr
   store i32 %79, ptr %81, align 4, !alias.scope !47
   %82 = add nsw i32 %indvars.iv.i.sroa.phi.sroa.speculated.i.i, %.sroa.041.4.vec.extract.i.i
   %.idx.i.i.i = shl nuw nsw i64 %indvars.iv.i.i.i, 3
-  %gep83.i.i.i = getelementptr inbounds i8, ptr %invariant.gep82.i.i.i, i64 %.idx.i.i.i
-  store i32 %82, ptr %gep83.i.i.i, align 4, !alias.scope !47
+  %gep85.i.i.i = getelementptr inbounds i8, ptr %invariant.gep84.i.i.i, i64 %.idx.i.i.i
+  store i32 %82, ptr %gep85.i.i.i, align 4, !alias.scope !47
   %83 = add nsw i32 %indvars.iv.i.sroa.phi.sroa.speculated.i.i, %.sroa.041.8.vec.extract.i.i
-  %.idx74.i.i.i = shl nuw nsw i64 %indvars.iv.i.i.i, 4
-  %gep86.i.i.i = getelementptr inbounds i8, ptr %gep.i.i.i, i64 %.idx74.i.i.i
-  store i32 %83, ptr %gep86.i.i.i, align 4, !alias.scope !47
+  %.idx76.i.i.i = shl nuw nsw i64 %indvars.iv.i.i.i, 4
+  %gep88.i.i.i = getelementptr inbounds i8, ptr %gep.i.i.i, i64 %.idx76.i.i.i
+  store i32 %83, ptr %gep88.i.i.i, align 4, !alias.scope !47
   br i1 %78, label %77, label %84, !llvm.loop !39
 
 84:                                               ; preds = %77
@@ -5040,19 +5040,19 @@ _ZNK5drjit7TextureIfLm3EE10eval_fetchERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEEb.exit: ;
 
 .preheader70.i.i:                                 ; preds = %146, %125
   %133 = phi i1 [ true, %125 ], [ false, %146 ]
-  %indvars.iv79.i.i = phi i64 [ 0, %125 ], [ 1, %146 ]
-  %134 = shl nuw nsw i64 %indvars.iv79.i.i, 2
+  %indvars.iv81.i.i = phi i64 [ 0, %125 ], [ 1, %146 ]
+  %134 = shl nuw nsw i64 %indvars.iv81.i.i, 2
   %invariant.gep.i.i = getelementptr inbounds i32, ptr %131, i64 %134
-  %invariant.gep87.i.i = getelementptr inbounds i32, ptr %132, i64 %indvars.iv79.i.i
+  %invariant.gep89.i.i = getelementptr inbounds i32, ptr %132, i64 %indvars.iv81.i.i
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %145, %.preheader70.i.i
   %135 = phi i1 [ true, %.preheader70.i.i ], [ false, %145 ]
-  %indvars.iv76.i.i = phi i64 [ 0, %.preheader70.i.i ], [ 1, %145 ]
-  %136 = shl nuw nsw i64 %indvars.iv76.i.i, 1
+  %indvars.iv78.i.i = phi i64 [ 0, %.preheader70.i.i ], [ 1, %145 ]
+  %136 = shl nuw nsw i64 %indvars.iv78.i.i, 1
   %137 = or disjoint i64 %136, %134
-  %invariant.gep82.i.i = getelementptr inbounds i32, ptr %invariant.gep.i.i, i64 %indvars.iv76.i.i
-  %gep.i.i = getelementptr inbounds i32, ptr %invariant.gep87.i.i, i64 %136
+  %invariant.gep84.i.i = getelementptr inbounds i32, ptr %invariant.gep.i.i, i64 %indvars.iv78.i.i
+  %gep.i.i = getelementptr inbounds i32, ptr %invariant.gep89.i.i, i64 %136
   br label %138
 
 138:                                              ; preds = %138, %.preheader.i.i
@@ -5065,12 +5065,12 @@ _ZNK5drjit7TextureIfLm3EE10eval_fetchERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEEb.exit: ;
   store i32 %140, ptr %142, align 4, !alias.scope !50
   %143 = add nsw i32 %indvars.iv.i.sroa.phi.sroa.speculated.i, %.sroa.041.4.vec.extract.i
   %.idx.i.i = shl nuw nsw i64 %indvars.iv.i.i2481, 3
-  %gep83.i.i = getelementptr inbounds i8, ptr %invariant.gep82.i.i, i64 %.idx.i.i
-  store i32 %143, ptr %gep83.i.i, align 4, !alias.scope !50
+  %gep85.i.i = getelementptr inbounds i8, ptr %invariant.gep84.i.i, i64 %.idx.i.i
+  store i32 %143, ptr %gep85.i.i, align 4, !alias.scope !50
   %144 = add nsw i32 %indvars.iv.i.sroa.phi.sroa.speculated.i, %.sroa.041.8.vec.extract.i
-  %.idx74.i.i = shl nuw nsw i64 %indvars.iv.i.i2481, 4
-  %gep86.i.i = getelementptr inbounds i8, ptr %gep.i.i, i64 %.idx74.i.i
-  store i32 %144, ptr %gep86.i.i, align 4, !alias.scope !50
+  %.idx76.i.i = shl nuw nsw i64 %indvars.iv.i.i2481, 4
+  %gep88.i.i = getelementptr inbounds i8, ptr %gep.i.i, i64 %.idx76.i.i
+  store i32 %144, ptr %gep88.i.i, align 4, !alias.scope !50
   br i1 %139, label %138, label %145, !llvm.loop !39
 
 145:                                              ; preds = %138
@@ -6856,19 +6856,19 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit: ; preds =
 
 .preheader70.i:                                   ; preds = %121, %102
   %108 = phi i1 [ true, %102 ], [ false, %121 ]
-  %indvars.iv79.i = phi i64 [ 0, %102 ], [ 1, %121 ]
-  %109 = shl nuw nsw i64 %indvars.iv79.i, 2
+  %indvars.iv81.i = phi i64 [ 0, %102 ], [ 1, %121 ]
+  %109 = shl nuw nsw i64 %indvars.iv81.i, 2
   %invariant.gep.i = getelementptr inbounds i32, ptr %106, i64 %109
-  %invariant.gep87.i = getelementptr inbounds i32, ptr %107, i64 %indvars.iv79.i
+  %invariant.gep89.i = getelementptr inbounds i32, ptr %107, i64 %indvars.iv81.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %120, %.preheader70.i
   %110 = phi i1 [ true, %.preheader70.i ], [ false, %120 ]
-  %indvars.iv76.i = phi i64 [ 0, %.preheader70.i ], [ 1, %120 ]
-  %111 = shl nuw nsw i64 %indvars.iv76.i, 1
+  %indvars.iv78.i = phi i64 [ 0, %.preheader70.i ], [ 1, %120 ]
+  %111 = shl nuw nsw i64 %indvars.iv78.i, 1
   %112 = or disjoint i64 %111, %109
-  %invariant.gep82.i = getelementptr inbounds i32, ptr %invariant.gep.i, i64 %indvars.iv76.i
-  %gep.i = getelementptr inbounds i32, ptr %invariant.gep87.i, i64 %111
+  %invariant.gep84.i = getelementptr inbounds i32, ptr %invariant.gep.i, i64 %indvars.iv78.i
+  %gep.i = getelementptr inbounds i32, ptr %invariant.gep89.i, i64 %111
   br label %113
 
 113:                                              ; preds = %113, %.preheader.i
@@ -6881,12 +6881,12 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit: ; preds =
   store i32 %115, ptr %117, align 4, !alias.scope !68
   %118 = add nsw i32 %indvars.iv.i.sroa.phi.sroa.speculated, %.sroa.0391.4.vec.extract
   %.idx.i = shl nuw nsw i64 %indvars.iv.i, 3
-  %gep83.i = getelementptr inbounds i8, ptr %invariant.gep82.i, i64 %.idx.i
-  store i32 %118, ptr %gep83.i, align 4, !alias.scope !68
+  %gep85.i = getelementptr inbounds i8, ptr %invariant.gep84.i, i64 %.idx.i
+  store i32 %118, ptr %gep85.i, align 4, !alias.scope !68
   %119 = add nsw i32 %indvars.iv.i.sroa.phi.sroa.speculated, %.sroa.0391.8.vec.extract
-  %.idx74.i = shl nuw nsw i64 %indvars.iv.i, 4
-  %gep86.i = getelementptr inbounds i8, ptr %gep.i, i64 %.idx74.i
-  store i32 %119, ptr %gep86.i, align 4, !alias.scope !68
+  %.idx76.i = shl nuw nsw i64 %indvars.iv.i, 4
+  %gep88.i = getelementptr inbounds i8, ptr %gep.i, i64 %.idx76.i
+  store i32 %119, ptr %gep88.i, align 4, !alias.scope !68
   br i1 %114, label %113, label %120, !llvm.loop !39
 
 120:                                              ; preds = %113

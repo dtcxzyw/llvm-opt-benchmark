@@ -3344,11 +3344,12 @@ define dso_local i32 @snd_hda_codec_amp_stereo(ptr noundef %0, i16 noundef zeroe
   %15 = getelementptr inbounds i8, ptr %0, i64 824
   %16 = getelementptr inbounds i8, ptr %0, i64 1144
   %17 = getelementptr inbounds i8, ptr %0, i64 768
+  %invariant.op = or disjoint i32 %11, %13
   br label %18
 
 18:                                               ; preds = %38, %6
   %19 = phi i1 [ true, %6 ], [ false, %38 ]
-  %20 = phi i32 [ 0, %6 ], [ %53, %38 ]
+  %20 = phi i32 [ 0, %6 ], [ %51, %38 ]
   %21 = load i16, ptr %10, align 4
   %22 = zext i16 %21 to i32
   %23 = icmp ugt i16 %21, %1
@@ -3377,26 +3378,25 @@ define dso_local i32 @snd_hda_codec_amp_stereo(ptr noundef %0, i16 noundef zeroe
 38:                                               ; preds = %36, %28
   %39 = phi i16 [ %1, %28 ], [ %37, %36 ]
   %40 = select i1 %19, i32 8192, i32 0
-  %41 = or disjoint i32 %40, %11
-  %42 = or disjoint i32 %41, %13
-  %43 = or i32 %42, %3
+  %.reass = or disjoint i32 %40, %invariant.op
+  %41 = or i32 %.reass, %3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #24
   store i32 0, ptr %7, align 4, !annotation !9
-  %44 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %39, i32 noundef %14, ptr noundef nonnull %7) #24
-  %45 = load i32, ptr %7, align 4
-  %46 = icmp sgt i32 %44, -1
-  %47 = and i32 %45, -1073741824
+  %42 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %39, i32 noundef %14, ptr noundef nonnull %7) #24
+  %43 = load i32, ptr %7, align 4
+  %44 = icmp sgt i32 %42, -1
+  %45 = and i32 %43, -1073741824
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #24
-  %48 = icmp eq i32 %47, 1073741824
-  %49 = select i1 %46, i1 %48, i1 false
-  %50 = select i1 %49, i32 720912, i32 720896
-  %51 = or i32 %43, %50
-  %52 = call i32 @snd_hdac_regmap_update_raw(ptr noundef %0, i32 noundef %51, i32 noundef %8, i32 noundef %5) #24
-  %53 = or i32 %52, %20
-  br i1 %19, label %18, label %54, !llvm.loop !36
+  %46 = icmp eq i32 %45, 1073741824
+  %47 = select i1 %44, i1 %46, i1 false
+  %48 = select i1 %47, i32 720912, i32 720896
+  %49 = or i32 %41, %48
+  %50 = call i32 @snd_hdac_regmap_update_raw(ptr noundef %0, i32 noundef %49, i32 noundef %8, i32 noundef %5) #24
+  %51 = or i32 %50, %20
+  br i1 %19, label %18, label %52, !llvm.loop !36
 
-54:                                               ; preds = %38
-  ret i32 %53
+52:                                               ; preds = %38
+  ret i32 %51
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3485,12 +3485,13 @@ define dso_local i32 @snd_hda_codec_amp_init_stereo(ptr noundef %0, i16 noundef 
   %16 = getelementptr inbounds i8, ptr %0, i64 880
   %17 = shl i32 %9, 20
   %18 = select i1 %11, i32 32768, i32 0
+  %invariant.op = or disjoint i32 %17, %18
   br label %19
 
-19:                                               ; preds = %57, %6
-  %20 = phi i32 [ 8192, %6 ], [ 0, %57 ]
-  %21 = phi i1 [ true, %6 ], [ false, %57 ]
-  %22 = phi i32 [ 0, %6 ], [ %59, %57 ]
+19:                                               ; preds = %55, %6
+  %20 = phi i32 [ 8192, %6 ], [ 0, %55 ]
+  %21 = phi i1 [ true, %6 ], [ false, %55 ]
+  %22 = phi i32 [ 0, %6 ], [ %57, %55 ]
   %23 = load i16, ptr %10, align 4
   %24 = zext i16 %23 to i32
   %25 = icmp ugt i16 %23, %1
@@ -3525,28 +3526,27 @@ define dso_local i32 @snd_hda_codec_amp_init_stereo(ptr noundef %0, i16 noundef 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #24
   %44 = load ptr, ptr %16, align 8
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %57, label %46
+  br i1 %45, label %55, label %46
 
 46:                                               ; preds = %40
-  %47 = or disjoint i32 %20, %17
-  %48 = or disjoint i32 %47, %18
-  %49 = or i32 %48, %3
-  %50 = icmp sgt i32 %42, -1
-  %51 = and i32 %43, -1073741824
-  %52 = icmp eq i32 %51, 1073741824
-  %53 = select i1 %50, i1 %52, i1 false
-  %54 = select i1 %53, i32 720912, i32 720896
-  %55 = or i32 %49, %54
-  %56 = call i32 @snd_hdac_regmap_update_raw_once(ptr noundef %0, i32 noundef %55, i32 noundef %8, i32 noundef %5) #24
-  br label %57
+  %.reass = or disjoint i32 %20, %invariant.op
+  %47 = or i32 %.reass, %3
+  %48 = icmp sgt i32 %42, -1
+  %49 = and i32 %43, -1073741824
+  %50 = icmp eq i32 %49, 1073741824
+  %51 = select i1 %48, i1 %50, i1 false
+  %52 = select i1 %51, i32 720912, i32 720896
+  %53 = or i32 %47, %52
+  %54 = call i32 @snd_hdac_regmap_update_raw_once(ptr noundef %0, i32 noundef %53, i32 noundef %8, i32 noundef %5) #24
+  br label %55
 
-57:                                               ; preds = %46, %40
-  %58 = phi i32 [ %56, %46 ], [ -22, %40 ]
-  %59 = or i32 %58, %22
-  br i1 %21, label %19, label %60, !llvm.loop !37
+55:                                               ; preds = %46, %40
+  %56 = phi i32 [ %54, %46 ], [ -22, %40 ]
+  %57 = or i32 %56, %22
+  br i1 %21, label %19, label %58, !llvm.loop !37
 
-60:                                               ; preds = %57
-  ret i32 %59
+58:                                               ; preds = %55
+  ret i32 %57
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

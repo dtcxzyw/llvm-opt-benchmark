@@ -3911,7 +3911,7 @@ define internal fastcc noundef i32 @dissect_kafka_offset_for_leader_epoch_reques
   br label %.lr.ph.i.i19.i
 
 .lr.ph.i.i19.i:                                   ; preds = %.lr.ph.i.i19.i.preheader, %dissect_kafka_offset_for_leader_epoch_request_topic.exit
-  %.011.i.i20.i = phi i32 [ %81, %dissect_kafka_offset_for_leader_epoch_request_topic.exit ], [ 0, %.lr.ph.i.i19.i.preheader ]
+  %.011.i.i20.i = phi i32 [ %79, %dissect_kafka_offset_for_leader_epoch_request_topic.exit ], [ 0, %.lr.ph.i.i19.i.preheader ]
   %.0910.i.i21.i = phi i32 [ %.0.i.i, %dissect_kafka_offset_for_leader_epoch_request_topic.exit ], [ %24, %.lr.ph.i.i19.i.preheader ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
@@ -3941,8 +3941,8 @@ define internal fastcc noundef i32 @dissect_kafka_offset_for_leader_epoch_reques
   br i1 %31, label %.lr.ph.i.i19.i.us.i, label %.lr.ph.i.i19.i.i
 
 .lr.ph.i.i19.i.us.i:                              ; preds = %.lr.ph.i.i19.i.preheader.i, %.lr.ph.i.i19.i.us.i
-  %.011.i.i20.i.us.i = phi i32 [ %61, %.lr.ph.i.i19.i.us.i ], [ 0, %.lr.ph.i.i19.i.preheader.i ]
-  %.0910.i.i21.i.us.i = phi i32 [ %58, %.lr.ph.i.i19.i.us.i ], [ %40, %.lr.ph.i.i19.i.preheader.i ]
+  %.011.i.i20.i.us.i = phi i32 [ %60, %.lr.ph.i.i19.i.us.i ], [ 0, %.lr.ph.i.i19.i.preheader.i ]
+  %.0910.i.i21.i.us.i = phi i32 [ %.reass23.i, %.lr.ph.i.i19.i.us.i ], [ %40, %.lr.ph.i.i19.i.preheader.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %47 = load i32, ptr @ett_kafka_partition, align 4
   %48 = call ptr @proto_tree_add_subtree(ptr noundef %38, ptr noundef %0, i32 noundef %.0910.i.i21.i.us.i, i32 noundef -1, i32 noundef %47, ptr noundef nonnull %6, ptr noundef nonnull @.str.549) #6
@@ -3955,62 +3955,62 @@ define internal fastcc noundef i32 @dissect_kafka_offset_for_leader_epoch_reques
   %55 = add i32 %.0910.i.i21.i.us.i, 8
   %56 = load i32, ptr @hf_kafka_leader_epoch, align 4
   %57 = call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %56, ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef 0) #6
-  %58 = add i32 %.0910.i.i21.i.us.i, 12
+  %.reass23.i = add i32 %.0910.i.i21.i.us.i, 12
+  %58 = load ptr, ptr %6, align 8
+  call void @proto_item_set_end(ptr noundef %58, ptr noundef %0, i32 noundef %.reass23.i) #6
   %59 = load ptr, ptr %6, align 8
-  call void @proto_item_set_end(ptr noundef %59, ptr noundef %0, i32 noundef %58) #6
-  %60 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %60, ptr noundef nonnull @.str.550, i32 noundef %49) #6
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %59, ptr noundef nonnull @.str.550, i32 noundef %49) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %61 = add nuw nsw i32 %.011.i.i20.i.us.i, 1
-  %exitcond.not.i.i22.i.us.i = icmp eq i32 %61, %39
+  %60 = add nuw nsw i32 %.011.i.i20.i.us.i, 1
+  %exitcond.not.i.i22.i.us.i = icmp eq i32 %60, %39
   br i1 %exitcond.not.i.i22.i.us.i, label %dissect_kafka_offset_for_leader_epoch_request_topic.exit, label %.lr.ph.i.i19.i.us.i, !llvm.loop !6
 
 .lr.ph.i.i19.i.i:                                 ; preds = %.lr.ph.i.i19.i.preheader.i, %.lr.ph.i.i19.i.i
-  %.011.i.i20.i.i = phi i32 [ %73, %.lr.ph.i.i19.i.i ], [ 0, %.lr.ph.i.i19.i.preheader.i ]
-  %.0910.i.i21.i.i = phi i32 [ %70, %.lr.ph.i.i19.i.i ], [ %40, %.lr.ph.i.i19.i.preheader.i ]
+  %.011.i.i20.i.i = phi i32 [ %71, %.lr.ph.i.i19.i.i ], [ 0, %.lr.ph.i.i19.i.preheader.i ]
+  %.0910.i.i21.i.i = phi i32 [ %.reass.i, %.lr.ph.i.i19.i.i ], [ %40, %.lr.ph.i.i19.i.preheader.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %62 = load i32, ptr @ett_kafka_partition, align 4
-  %63 = call ptr @proto_tree_add_subtree(ptr noundef %38, ptr noundef %0, i32 noundef %.0910.i.i21.i.i, i32 noundef -1, i32 noundef %62, ptr noundef nonnull %6, ptr noundef nonnull @.str.549) #6
-  %64 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0910.i.i21.i.i) #6
-  %65 = load i32, ptr @hf_kafka_partition_id, align 4
-  %66 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %65, ptr noundef %0, i32 noundef %.0910.i.i21.i.i, i32 noundef 4, i32 noundef 0) #6
-  %67 = add i32 %.0910.i.i21.i.i, 4
-  %68 = load i32, ptr @hf_kafka_leader_epoch, align 4
-  %69 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %68, ptr noundef %0, i32 noundef %67, i32 noundef 4, i32 noundef 0) #6
-  %70 = add i32 %.0910.i.i21.i.i, 8
-  %71 = load ptr, ptr %6, align 8
-  call void @proto_item_set_end(ptr noundef %71, ptr noundef %0, i32 noundef %70) #6
-  %72 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %72, ptr noundef nonnull @.str.550, i32 noundef %64) #6
+  %61 = load i32, ptr @ett_kafka_partition, align 4
+  %62 = call ptr @proto_tree_add_subtree(ptr noundef %38, ptr noundef %0, i32 noundef %.0910.i.i21.i.i, i32 noundef -1, i32 noundef %61, ptr noundef nonnull %6, ptr noundef nonnull @.str.549) #6
+  %63 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0910.i.i21.i.i) #6
+  %64 = load i32, ptr @hf_kafka_partition_id, align 4
+  %65 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %64, ptr noundef %0, i32 noundef %.0910.i.i21.i.i, i32 noundef 4, i32 noundef 0) #6
+  %66 = add i32 %.0910.i.i21.i.i, 4
+  %67 = load i32, ptr @hf_kafka_leader_epoch, align 4
+  %68 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %67, ptr noundef %0, i32 noundef %66, i32 noundef 4, i32 noundef 0) #6
+  %.reass.i = add i32 %.0910.i.i21.i.i, 8
+  %69 = load ptr, ptr %6, align 8
+  call void @proto_item_set_end(ptr noundef %69, ptr noundef %0, i32 noundef %.reass.i) #6
+  %70 = load ptr, ptr %6, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef nonnull @.str.550, i32 noundef %63) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %73 = add nuw nsw i32 %.011.i.i20.i.i, 1
-  %exitcond.not.i.i22.i.i = icmp eq i32 %73, %39
+  %71 = add nuw nsw i32 %.011.i.i20.i.i, 1
+  %exitcond.not.i.i22.i.i = icmp eq i32 %71, %39
   br i1 %exitcond.not.i.i22.i.i, label %dissect_kafka_offset_for_leader_epoch_request_topic.exit, label %.lr.ph.i.i19.i.i, !llvm.loop !6
 
 dissect_kafka_offset_for_leader_epoch_request_topic.exit: ; preds = %.lr.ph.i.i19.i.i, %.lr.ph.i.i19.i.us.i, %42, %45
-  %.0.i.i = phi i32 [ %40, %42 ], [ %40, %45 ], [ %58, %.lr.ph.i.i19.i.us.i ], [ %70, %.lr.ph.i.i19.i.i ]
-  %74 = load ptr, ptr %10, align 8
-  call void @proto_item_set_end(ptr noundef %74, ptr noundef %0, i32 noundef %.0.i.i) #6
-  %75 = load ptr, ptr %9, align 8
-  call void @proto_item_set_end(ptr noundef %75, ptr noundef %0, i32 noundef %.0.i.i) #6
-  %76 = load ptr, ptr %9, align 8
-  %77 = load ptr, ptr %32, align 8
-  %78 = load i32, ptr %7, align 4
-  %79 = load i32, ptr %8, align 4
-  %80 = call ptr @tvb_get_string_enc(ptr noundef %77, ptr noundef %0, i32 noundef %78, i32 noundef %79, i32 noundef 2) #6
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %76, ptr noundef nonnull @.str.548, ptr noundef %80) #6
+  %.0.i.i = phi i32 [ %40, %42 ], [ %40, %45 ], [ %.reass23.i, %.lr.ph.i.i19.i.us.i ], [ %.reass.i, %.lr.ph.i.i19.i.i ]
+  %72 = load ptr, ptr %10, align 8
+  call void @proto_item_set_end(ptr noundef %72, ptr noundef %0, i32 noundef %.0.i.i) #6
+  %73 = load ptr, ptr %9, align 8
+  call void @proto_item_set_end(ptr noundef %73, ptr noundef %0, i32 noundef %.0.i.i) #6
+  %74 = load ptr, ptr %9, align 8
+  %75 = load ptr, ptr %32, align 8
+  %76 = load i32, ptr %7, align 4
+  %77 = load i32, ptr %8, align 4
+  %78 = call ptr @tvb_get_string_enc(ptr noundef %75, ptr noundef %0, i32 noundef %76, i32 noundef %77, i32 noundef 2) #6
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %74, ptr noundef nonnull @.str.548, ptr noundef %78) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %81 = add nuw nsw i32 %.011.i.i20.i, 1
-  %exitcond.not.i.i22.i = icmp eq i32 %81, %23
+  %79 = add nuw nsw i32 %.011.i.i20.i, 1
+  %exitcond.not.i.i22.i = icmp eq i32 %79, %23
   br i1 %exitcond.not.i.i22.i, label %dissect_kafka_array.exit, label %.lr.ph.i.i19.i, !llvm.loop !6
 
 dissect_kafka_array.exit:                         ; preds = %dissect_kafka_offset_for_leader_epoch_request_topic.exit, %29, %26
   %.0.i = phi i32 [ %24, %26 ], [ %24, %29 ], [ %.0.i.i, %dissect_kafka_offset_for_leader_epoch_request_topic.exit ]
-  %82 = load ptr, ptr %11, align 8
-  call void @proto_item_set_end(ptr noundef %82, ptr noundef %0, i32 noundef %.0.i) #6
+  %80 = load ptr, ptr %11, align 8
+  call void @proto_item_set_end(ptr noundef %80, ptr noundef %0, i32 noundef %.0.i) #6
   ret i32 %.0.i
 }
 

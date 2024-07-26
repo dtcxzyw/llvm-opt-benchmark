@@ -83,7 +83,7 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
   %spec.select = call i64 @llvm.umin.i64(i64 %30, i64 2048)
   %31 = trunc nuw nsw i64 %spec.select to i32
   %.not199 = icmp eq i64 %29, %.0126
-  br i1 %.not199, label %134, label %32
+  br i1 %.not199, label %133, label %32
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %7, align 8
@@ -110,13 +110,13 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
 42:                                               ; preds = %37, %.loopexit
   %.2150252 = phi i32 [ %.2150243, %37 ], [ %.2150, %.loopexit ]
   %.2251 = phi i64 [ %.1, %37 ], [ %.6, %.loopexit ]
-  %.0127250 = phi i8 [ 0, %37 ], [ %133, %.loopexit ]
+  %.0127250 = phi i8 [ 0, %37 ], [ %132, %.loopexit ]
   %.1129249 = phi i32 [ %.0128, %37 ], [ %.5133, %.loopexit ]
   %.2136248 = phi i32 [ %.1135, %37 ], [ %.6140, %.loopexit ]
   %.1143247 = phi i32 [ %.0142, %37 ], [ %.5147, %.loopexit ]
   %.1159246 = phi i32 [ %.0158, %37 ], [ %.3161, %.loopexit ]
   %.2164245 = phi ptr [ %.1163, %37 ], [ %.6168, %.loopexit ]
-  %.0170244 = phi i32 [ 1, %37 ], [ %132, %.loopexit ]
+  %.0170244 = phi i32 [ 1, %37 ], [ %131, %.loopexit ]
   %43 = and i32 %.0170244, %41
   %.not204 = icmp eq i32 %43, 0
   %44 = icmp eq i32 %.2150252, %.2136248
@@ -244,81 +244,81 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
   %105 = and i32 %104, 3840
   %106 = or disjoint i32 %105, %87
   %107 = and i32 %103, 15
-  %108 = add nuw nsw i32 %107, 2
-  br label %109
+  %.reass = add nuw nsw i32 %107, 2
+  br label %108
 
-109:                                              ; preds = %99, %117
-  %110 = phi i32 [ %108, %99 ], [ %130, %117 ]
-  %.3131242 = phi i32 [ %.1129249, %99 ], [ %.4132, %117 ]
-  %.3145241 = phi i32 [ %.1143247, %99 ], [ %125, %117 ]
-  %.0157240 = phi i32 [ %106, %99 ], [ %127, %117 ]
-  %.2160239 = phi i32 [ %.1159246, %99 ], [ %129, %117 ]
-  %111 = icmp eq i32 %.3145241, 2048
-  br i1 %111, label %112, label %117
+108:                                              ; preds = %99, %116
+  %109 = phi i32 [ %.reass, %99 ], [ %129, %116 ]
+  %.3131242 = phi i32 [ %.1129249, %99 ], [ %.4132, %116 ]
+  %.3145241 = phi i32 [ %.1143247, %99 ], [ %124, %116 ]
+  %.0157240 = phi i32 [ %106, %99 ], [ %126, %116 ]
+  %.2160239 = phi i32 [ %.1159246, %99 ], [ %128, %116 ]
+  %110 = icmp eq i32 %.3145241, 2048
+  br i1 %110, label %111, label %116
 
-112:                                              ; preds = %109
-  %113 = call i64 @cli_writen(i32 noundef %1, ptr noundef nonnull %4, i64 noundef 2048) #4
-  %114 = and i64 %113, 4294967295
-  %.not210 = icmp eq i64 %114, 2048
-  br i1 %.not210, label %115, label %.loopexit223
+111:                                              ; preds = %108
+  %112 = call i64 @cli_writen(i32 noundef %1, ptr noundef nonnull %4, i64 noundef 2048) #4
+  %113 = and i64 %112, 4294967295
+  %.not210 = icmp eq i64 %113, 2048
+  br i1 %.not210, label %114, label %.loopexit223
 
-115:                                              ; preds = %112
-  %116 = add i32 %.3131242, 2048
-  %.not211 = icmp ult i32 %116, %21
-  br i1 %.not211, label %117, label %.loopexit223
+114:                                              ; preds = %111
+  %115 = add i32 %.3131242, 2048
+  %.not211 = icmp ult i32 %115, %21
+  br i1 %.not211, label %116, label %.loopexit223
 
-117:                                              ; preds = %115, %109
-  %.4146 = phi i32 [ %.3145241, %109 ], [ 0, %115 ]
-  %.4132 = phi i32 [ %.3131242, %109 ], [ %116, %115 ]
-  %118 = zext nneg i32 %.0157240 to i64
-  %119 = getelementptr inbounds [4096 x i8], ptr %3, i64 0, i64 %118
-  %120 = load i8, ptr %119, align 1
-  %121 = zext i32 %.2160239 to i64
-  %122 = getelementptr inbounds [4096 x i8], ptr %3, i64 0, i64 %121
-  store i8 %120, ptr %122, align 1
-  %123 = zext i32 %.4146 to i64
-  %124 = getelementptr inbounds [2048 x i8], ptr %4, i64 0, i64 %123
-  store i8 %120, ptr %124, align 1
-  %125 = add i32 %.4146, 1
-  %126 = add nuw nsw i32 %.0157240, 1
-  %127 = and i32 %126, 4095
-  %128 = add i32 %.2160239, 1
-  %129 = and i32 %128, 4095
-  %130 = add nsw i32 %110, -1
-  %.not209 = icmp eq i32 %110, 0
-  br i1 %.not209, label %.loopexit, label %109
+116:                                              ; preds = %114, %108
+  %.4146 = phi i32 [ %.3145241, %108 ], [ 0, %114 ]
+  %.4132 = phi i32 [ %.3131242, %108 ], [ %115, %114 ]
+  %117 = zext nneg i32 %.0157240 to i64
+  %118 = getelementptr inbounds [4096 x i8], ptr %3, i64 0, i64 %117
+  %119 = load i8, ptr %118, align 1
+  %120 = zext i32 %.2160239 to i64
+  %121 = getelementptr inbounds [4096 x i8], ptr %3, i64 0, i64 %120
+  store i8 %119, ptr %121, align 1
+  %122 = zext i32 %.4146 to i64
+  %123 = getelementptr inbounds [2048 x i8], ptr %4, i64 0, i64 %122
+  store i8 %119, ptr %123, align 1
+  %124 = add i32 %.4146, 1
+  %125 = add nuw nsw i32 %.0157240, 1
+  %126 = and i32 %125, 4095
+  %127 = add i32 %.2160239, 1
+  %128 = and i32 %127, 4095
+  %129 = add nsw i32 %109, -1
+  %.not209 = icmp eq i32 %109, 0
+  br i1 %.not209, label %.loopexit, label %108
 
-.loopexit:                                        ; preds = %117, %62
-  %.6168 = phi ptr [ %.3165, %62 ], [ %.5167, %117 ]
-  %.3161 = phi i32 [ %72, %62 ], [ %129, %117 ]
-  %.6154.in = phi i32 [ %.3151, %62 ], [ %.5153, %117 ]
-  %.5147 = phi i32 [ %70, %62 ], [ %125, %117 ]
-  %.6140 = phi i32 [ %.3137, %62 ], [ %.5139, %117 ]
-  %.5133 = phi i32 [ %.2130, %62 ], [ %.4132, %117 ]
-  %.6 = phi i64 [ %.3, %62 ], [ %.5, %117 ]
-  %131 = shl nuw nsw i32 %.0170244, 1
-  %132 = and i32 %131, 510
-  %133 = add nuw nsw i8 %.0127250, 1
+.loopexit:                                        ; preds = %116, %62
+  %.6168 = phi ptr [ %.3165, %62 ], [ %.5167, %116 ]
+  %.3161 = phi i32 [ %72, %62 ], [ %128, %116 ]
+  %.6154.in = phi i32 [ %.3151, %62 ], [ %.5153, %116 ]
+  %.5147 = phi i32 [ %70, %62 ], [ %124, %116 ]
+  %.6140 = phi i32 [ %.3137, %62 ], [ %.5139, %116 ]
+  %.5133 = phi i32 [ %.2130, %62 ], [ %.4132, %116 ]
+  %.6 = phi i64 [ %.3, %62 ], [ %.5, %116 ]
+  %130 = shl nuw nsw i32 %.0170244, 1
+  %131 = and i32 %130, 510
+  %132 = add nuw nsw i8 %.0127250, 1
   %.2150 = add i32 %.6154.in, 1
-  %exitcond.not = icmp eq i8 %133, 8
+  %exitcond.not = icmp eq i8 %132, 8
   br i1 %exitcond.not, label %.loopexit274, label %42
 
-134:                                              ; preds = %28
+133:                                              ; preds = %28
   %.not200 = icmp eq i32 %.0142, 0
-  br i1 %.not200, label %.loopexit223, label %135
+  br i1 %.not200, label %.loopexit223, label %134
 
-135:                                              ; preds = %134
-  %136 = zext i32 %.0142 to i64
-  %137 = call i64 @cli_writen(i32 noundef %1, ptr noundef nonnull %4, i64 noundef %136) #4
-  %138 = icmp ne i64 %137, -1
-  %139 = trunc i64 %137 to i32
-  %.not201 = icmp eq i32 %.0142, %139
-  %or.cond221 = select i1 %138, i1 %.not201, i1 false
+134:                                              ; preds = %133
+  %135 = zext i32 %.0142 to i64
+  %136 = call i64 @cli_writen(i32 noundef %1, ptr noundef nonnull %4, i64 noundef %135) #4
+  %137 = icmp ne i64 %136, -1
+  %138 = trunc i64 %136 to i32
+  %.not201 = icmp eq i32 %.0142, %138
+  %or.cond221 = select i1 %137, i1 %.not201, i1 false
   %spec.select222 = select i1 %or.cond221, i32 0, i32 14
   br label %.loopexit223
 
-.loopexit223:                                     ; preds = %32, %94, %78, %60, %57, %50, %115, %112, %135, %134, %19, %2, %18
-  %.0 = phi i32 [ 26, %18 ], [ 12, %2 ], [ 0, %19 ], [ 0, %134 ], [ %spec.select222, %135 ], [ 0, %115 ], [ 14, %112 ], [ 12, %94 ], [ 12, %78 ], [ 0, %60 ], [ 14, %57 ], [ 12, %50 ], [ 12, %32 ]
+.loopexit223:                                     ; preds = %32, %94, %78, %60, %57, %50, %114, %111, %134, %133, %19, %2, %18
+  %.0 = phi i32 [ 26, %18 ], [ 12, %2 ], [ 0, %19 ], [ 0, %133 ], [ %spec.select222, %134 ], [ 0, %114 ], [ 14, %111 ], [ 12, %94 ], [ 12, %78 ], [ 0, %60 ], [ 14, %57 ], [ 12, %50 ], [ 12, %32 ]
   ret i32 %.0
 }
 

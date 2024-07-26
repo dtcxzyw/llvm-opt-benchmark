@@ -1449,9 +1449,9 @@ define void @Io_NtkEdgelistWriteNodeInt(ptr nocapture noundef %0, ptr nocapture 
   %11 = getelementptr i8, ptr %1, i64 28
   %.val152 = load i32, ptr %11, align 4
   %12 = icmp sgt i32 %.val152, 7
-  %indvars.iv202.sroa.gep214 = getelementptr inbounds i8, ptr %9, i64 4
-  %indvars.iv202.sroa.gep217 = getelementptr inbounds i8, ptr %8, i64 16
-  %indvars.iv202.sroa.gep220 = getelementptr inbounds i8, ptr %7, i64 8
+  %indvars.iv204.sroa.gep216 = getelementptr inbounds i8, ptr %9, i64 4
+  %indvars.iv204.sroa.gep219 = getelementptr inbounds i8, ptr %8, i64 16
+  %indvars.iv204.sroa.gep222 = getelementptr inbounds i8, ptr %7, i64 8
   br i1 %12, label %13, label %22
 
 13:                                               ; preds = %3
@@ -1493,24 +1493,24 @@ define void @Io_NtkEdgelistWriteNodeInt(ptr nocapture noundef %0, ptr nocapture 
   br label %27
 
 27:                                               ; preds = %.lr.ph186, %27
-  %indvars.iv205 = phi i64 [ 0, %.lr.ph186 ], [ %indvars.iv.next206, %27 ]
+  %indvars.iv207 = phi i64 [ 0, %.lr.ph186 ], [ %indvars.iv.next208, %27 ]
   %.val148 = load ptr, ptr %1, align 8
   %.val149 = load ptr, ptr %26, align 8
   %28 = getelementptr i8, ptr %.val148, i64 32
   %.val148.val = load ptr, ptr %28, align 8
   %29 = getelementptr i8, ptr %.val148.val, i64 8
   %.val148.val.val = load ptr, ptr %29, align 8
-  %30 = getelementptr inbounds i32, ptr %.val149, i64 %indvars.iv205
+  %30 = getelementptr inbounds i32, ptr %.val149, i64 %indvars.iv207
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds ptr, ptr %.val148.val.val, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr @Abc_ObjName(ptr noundef %34) #11
   %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef %35) #11
-  %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
+  %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %.val151 = load i32, ptr %11, align 4
   %37 = sext i32 %.val151 to i64
-  %38 = icmp slt i64 %indvars.iv.next206, %37
+  %38 = icmp slt i64 %indvars.iv.next208, %37
   br i1 %38, label %27, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %27, %.preheader
@@ -1642,16 +1642,16 @@ define void @Io_NtkEdgelistWriteNodeInt(ptr nocapture noundef %0, ptr nocapture 
 
 109:                                              ; preds = %72, %._crit_edge182
   %110 = phi i1 [ true, %72 ], [ false, %._crit_edge182 ]
-  %indvars.iv202.sroa.phi = phi ptr [ %9, %72 ], [ %indvars.iv202.sroa.gep214, %._crit_edge182 ]
-  %indvars.iv202.sroa.phi215 = phi ptr [ %8, %72 ], [ %indvars.iv202.sroa.gep217, %._crit_edge182 ]
-  %indvars.iv202.sroa.phi218 = phi ptr [ %7, %72 ], [ %indvars.iv202.sroa.gep220, %._crit_edge182 ]
-  %indvars.iv202 = phi i64 [ 0, %72 ], [ 1, %._crit_edge182 ]
+  %indvars.iv204.sroa.phi = phi ptr [ %9, %72 ], [ %indvars.iv204.sroa.gep216, %._crit_edge182 ]
+  %indvars.iv204.sroa.phi217 = phi ptr [ %8, %72 ], [ %indvars.iv204.sroa.gep219, %._crit_edge182 ]
+  %indvars.iv204.sroa.phi220 = phi ptr [ %7, %72 ], [ %indvars.iv204.sroa.gep222, %._crit_edge182 ]
+  %indvars.iv204 = phi i64 [ 0, %72 ], [ 1, %._crit_edge182 ]
   %.val153 = load ptr, ptr %1, align 8
   %111 = getelementptr inbounds i8, ptr %.val153, i64 256
   %112 = load ptr, ptr %111, align 8
-  %.in = select i1 %53, ptr %indvars.iv202.sroa.phi215, ptr %indvars.iv202.sroa.phi218
+  %.in = select i1 %53, ptr %indvars.iv204.sroa.phi217, ptr %indvars.iv204.sroa.phi220
   %113 = load i64, ptr %.in, align 8
-  %114 = load i32, ptr %indvars.iv202.sroa.phi, align 4
+  %114 = load i32, ptr %indvars.iv204.sroa.phi, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %113, ptr %5, align 8
   %115 = call i32 @Kit_TruthIsop(ptr noundef nonnull %5, i32 noundef %114, ptr noundef %2, i32 noundef 1) #11
@@ -1679,13 +1679,13 @@ define void @Io_NtkEdgelistWriteNodeInt(ptr nocapture noundef %0, ptr nocapture 
 Io_NtkWriteEdgelistDeriveSop.exit:                ; preds = %109, %116, %118, %120
   %.0.i = phi ptr [ %119, %120 ], [ %119, %118 ], [ @.str.13, %116 ], [ @.str.15, %109 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %121 = load i32, ptr %indvars.iv202.sroa.phi, align 4
+  %121 = load i32, ptr %indvars.iv204.sroa.phi, align 4
   %122 = icmp sgt i32 %121, 0
   br i1 %122, label %.lr.ph181, label %._crit_edge182
 
 .lr.ph181:                                        ; preds = %Io_NtkWriteEdgelistDeriveSop.exit, %.lr.ph181
-  %indvars.iv199 = phi i64 [ %indvars.iv.next200, %.lr.ph181 ], [ 0, %Io_NtkWriteEdgelistDeriveSop.exit ]
-  %123 = getelementptr inbounds [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv202, i64 %indvars.iv199
+  %indvars.iv201 = phi i64 [ %indvars.iv.next202, %.lr.ph181 ], [ 0, %Io_NtkWriteEdgelistDeriveSop.exit ]
+  %123 = getelementptr inbounds [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv204, i64 %indvars.iv201
   %124 = load i32, ptr %123, align 4
   %.val142 = load ptr, ptr %1, align 8
   %.val143 = load ptr, ptr %73, align 8
@@ -1701,10 +1701,10 @@ Io_NtkWriteEdgelistDeriveSop.exit:                ; preds = %109, %116, %118, %1
   %132 = load ptr, ptr %131, align 8
   %133 = call ptr @Abc_ObjName(ptr noundef %132) #11
   %134 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef %133) #11
-  %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
-  %135 = load i32, ptr %indvars.iv202.sroa.phi, align 4
+  %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
+  %135 = load i32, ptr %indvars.iv204.sroa.phi, align 4
   %136 = sext i32 %135 to i64
-  %137 = icmp slt i64 %indvars.iv.next200, %136
+  %137 = icmp slt i64 %indvars.iv.next202, %136
   br i1 %137, label %.lr.ph181, label %._crit_edge182, !llvm.loop !22
 
 ._crit_edge182:                                   ; preds = %.lr.ph181, %Io_NtkWriteEdgelistDeriveSop.exit
@@ -1719,7 +1719,7 @@ Io_NtkWriteEdgelistDeriveSop.exit:                ; preds = %109, %116, %118, %1
   %141 = getelementptr inbounds ptr, ptr %.val125.val.val, i64 %140
   %142 = load ptr, ptr %141, align 8
   %143 = call ptr @Abc_ObjName(ptr noundef %142) #11
-  %144 = trunc nuw nsw i64 %indvars.iv202 to i32
+  %144 = trunc nuw nsw i64 %indvars.iv204 to i32
   %145 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.33, ptr noundef %143, i32 noundef %144) #11
   %fputs119 = call i32 @fputs(ptr %.0.i, ptr %0)
   br i1 %110, label %109, label %.loopexit, !llvm.loop !23
@@ -1762,43 +1762,43 @@ Io_NtkWriteEdgelistDeriveSop.exit:                ; preds = %109, %116, %118, %1
   br label %.loopexit
 
 165:                                              ; preds = %.preheader172, %Io_NtkWriteEdgelistDeriveSop.exit160
-  %indvars.iv196 = phi i64 [ 1, %.preheader172 ], [ %indvars.iv.next197, %Io_NtkWriteEdgelistDeriveSop.exit160 ]
-  %.not = icmp eq i64 %indvars.iv196, 0
+  %indvars.iv197 = phi i64 [ 1, %.preheader172 ], [ %indvars.iv.next198, %Io_NtkWriteEdgelistDeriveSop.exit160 ]
+  %.not = icmp eq i64 %indvars.iv197, 0
   %166 = select i1 %.not, i64 %.0114, i64 %151
   %167 = and i64 %166, 65535
-  %168 = getelementptr inbounds [2 x i64], ptr %6, i64 0, i64 %indvars.iv196
+  %168 = getelementptr inbounds [2 x i64], ptr %6, i64 0, i64 %indvars.iv197
   %169 = mul nuw i64 %167, 281479271743489
   store i64 %169, ptr %168, align 8
-  %170 = shl nuw nsw i64 %indvars.iv196, 5
-  br label %171
+  %170 = shl nuw nsw i64 %indvars.iv197, 5
+  %171 = or disjoint i64 %170, 16
+  br label %172
 
-171:                                              ; preds = %165, %171
-  %indvars.iv189 = phi i64 [ 0, %165 ], [ %indvars.iv.next190, %171 ]
-  %172 = shl nuw nsw i64 %indvars.iv189, 2
-  %173 = add nuw nsw i64 %172, %170
-  %174 = add nuw nsw i64 %173, 16
+172:                                              ; preds = %165, %172
+  %indvars.iv189 = phi i64 [ 0, %165 ], [ %indvars.iv.next190, %172 ]
+  %173 = shl nuw nsw i64 %indvars.iv189, 2
+  %174 = add nuw nsw i64 %173, %171
   %175 = lshr i64 %.0114, %174
   %176 = trunc i64 %175 to i32
   %177 = and i32 %176, 7
-  %178 = getelementptr inbounds [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv196, i64 %indvars.iv189
+  %178 = getelementptr inbounds [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv197, i64 %indvars.iv189
   store i32 %177, ptr %178, align 4
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
-  %exitcond192.not = icmp eq i64 %indvars.iv.next190, 4
-  br i1 %exitcond192.not, label %179, label %171, !llvm.loop !24
+  %exitcond193.not = icmp eq i64 %indvars.iv.next190, 4
+  br i1 %exitcond193.not, label %179, label %172, !llvm.loop !24
 
-179:                                              ; preds = %171
-  %180 = getelementptr inbounds [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv196
-  %181 = getelementptr inbounds [2 x i32], ptr %9, i64 0, i64 %indvars.iv196
+179:                                              ; preds = %172
+  %180 = getelementptr inbounds [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv197
+  %181 = getelementptr inbounds [2 x i32], ptr %9, i64 0, i64 %indvars.iv197
   %182 = call i64 @If_Dec6MinimumBase(i64 noundef %169, ptr noundef nonnull %180, i32 noundef 4, ptr noundef nonnull %181) #11
-  %183 = getelementptr inbounds [2 x i64], ptr %7, i64 0, i64 %indvars.iv196
+  %183 = getelementptr inbounds [2 x i64], ptr %7, i64 0, i64 %indvars.iv197
   store i64 %182, ptr %183, align 8
   %184 = load i32, ptr %181, align 4
   %185 = icmp sgt i32 %184, 0
   br i1 %185, label %.lr.ph178, label %._crit_edge
 
 .lr.ph178:                                        ; preds = %179, %194
-  %indvars.iv193 = phi i64 [ %indvars.iv.next194, %194 ], [ 0, %179 ]
-  %186 = getelementptr inbounds [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv196, i64 %indvars.iv193
+  %indvars.iv194 = phi i64 [ %indvars.iv.next195, %194 ], [ 0, %179 ]
+  %186 = getelementptr inbounds [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv197, i64 %indvars.iv194
   %187 = load i32, ptr %186, align 4
   %188 = icmp eq i32 %187, 7
   %.val121 = load ptr, ptr %1, align 8
@@ -1827,10 +1827,10 @@ Io_NtkWriteEdgelistDeriveSop.exit:                ; preds = %109, %116, %118, %1
   %197 = load ptr, ptr %196, align 8
   %198 = call ptr @Abc_ObjName(ptr noundef %197) #11
   %199 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.35.sink, ptr noundef %198) #11
-  %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
+  %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %200 = load i32, ptr %181, align 4
   %201 = sext i32 %200 to i64
-  %202 = icmp slt i64 %indvars.iv.next194, %201
+  %202 = icmp slt i64 %indvars.iv.next195, %201
   br i1 %202, label %.lr.ph178, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %194, %179
@@ -1880,9 +1880,9 @@ Io_NtkWriteEdgelistDeriveSop.exit160:             ; preds = %._crit_edge, %216, 
   %.0.i159 = phi ptr [ %219, %220 ], [ %219, %218 ], [ @.str.13, %216 ], [ @.str.15, %._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %fputs = call i32 @fputs(ptr %.0.i159, ptr %0)
-  %indvars.iv.next197 = add nsw i64 %indvars.iv196, -1
-  %.not208 = icmp eq i64 %indvars.iv196, 0
-  br i1 %.not208, label %.loopexit, label %165, !llvm.loop !26
+  %indvars.iv.next198 = add nsw i64 %indvars.iv197, -1
+  %.not210 = icmp eq i64 %indvars.iv197, 0
+  br i1 %.not210, label %.loopexit, label %165, !llvm.loop !26
 
 .loopexit:                                        ; preds = %Io_NtkWriteEdgelistDeriveSop.exit160, %._crit_edge182, %156, %.critedge, %13
   ret void

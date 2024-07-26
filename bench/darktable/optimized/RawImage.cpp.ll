@@ -1455,13 +1455,16 @@ define hidden void @_ZN8rawspeed12RawImageData9clearAreaENS_12iRectangle2DE(ptr 
 85:                                               ; preds = %71
   %86 = and i32 %22, -4
   %87 = add nuw i32 %76, 1
+  %invariant.op = add nuw i32 %53, 1
   %88 = add nuw i32 %76, 2
+  %invariant.op6 = add nuw i32 %53, 2
   %89 = add i32 %76, 3
+  %invariant.op8 = add nuw i32 %53, 3
   br label %90
 
 90:                                               ; preds = %90, %85
-  %91 = phi i64 [ 0, %85 ], [ %142, %90 ]
-  %92 = phi i32 [ %18, %85 ], [ %141, %90 ]
+  %91 = phi i64 [ 0, %85 ], [ %139, %90 ]
+  %92 = phi i32 [ %18, %85 ], [ %138, %90 ]
   %93 = trunc i64 %91 to i32
   %94 = add i32 %76, %93
   %95 = mul i32 %94, %39
@@ -1486,83 +1489,83 @@ define hidden void @_ZN8rawspeed12RawImageData9clearAreaENS_12iRectangle2DE(ptr 
   %110 = getelementptr i8, ptr %75, i64 %109
   %111 = icmp ult i32 %105, %16
   tail call void @llvm.assume(i1 %111)
-  %112 = add nuw nsw i32 %105, %53
-  %113 = icmp ugt i32 %36, %112
-  tail call void @llvm.assume(i1 %113)
-  %114 = mul nuw nsw i32 %112, %39
-  %115 = add nuw nsw i32 %114, %34
-  %116 = icmp ule i32 %115, %40
-  tail call void @llvm.assume(i1 %116)
+  %.reass = add nuw i32 %92, %invariant.op
+  %112 = icmp ugt i32 %36, %.reass
+  tail call void @llvm.assume(i1 %112)
+  %113 = mul nuw nsw i32 %.reass, %39
+  %114 = add nuw nsw i32 %113, %34
+  %115 = icmp ule i32 %114, %40
+  tail call void @llvm.assume(i1 %115)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %110, i8 0, i64 %81, i1 false), !tbaa !138
-  %117 = add nuw nsw i32 %92, 2
-  %118 = add i32 %88, %93
-  %119 = mul i32 %118, %39
-  %120 = zext i32 %119 to i64
-  %121 = shl nuw nsw i64 %120, 1
-  %122 = getelementptr i8, ptr %75, i64 %121
-  %123 = icmp ult i32 %117, %16
+  %116 = add nuw nsw i32 %92, 2
+  %117 = add i32 %88, %93
+  %118 = mul i32 %117, %39
+  %119 = zext i32 %118 to i64
+  %120 = shl nuw nsw i64 %119, 1
+  %121 = getelementptr i8, ptr %75, i64 %120
+  %122 = icmp ult i32 %116, %16
+  tail call void @llvm.assume(i1 %122)
+  %.reass7 = add nuw i32 %92, %invariant.op6
+  %123 = icmp ugt i32 %36, %.reass7
   tail call void @llvm.assume(i1 %123)
-  %124 = add nuw nsw i32 %117, %53
-  %125 = icmp ugt i32 %36, %124
-  tail call void @llvm.assume(i1 %125)
-  %126 = mul nuw nsw i32 %124, %39
-  %127 = add nuw nsw i32 %126, %34
-  %128 = icmp ule i32 %127, %40
-  tail call void @llvm.assume(i1 %128)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %122, i8 0, i64 %81, i1 false), !tbaa !138
-  %129 = add nuw nsw i32 %92, 3
-  %130 = add i32 %89, %93
-  %131 = mul i32 %130, %39
-  %132 = zext i32 %131 to i64
-  %133 = shl nuw nsw i64 %132, 1
-  %134 = getelementptr i8, ptr %75, i64 %133
-  %135 = icmp ult i32 %129, %16
-  tail call void @llvm.assume(i1 %135)
-  %136 = add nuw nsw i32 %129, %53
-  %137 = icmp ugt i32 %36, %136
+  %124 = mul nuw nsw i32 %.reass7, %39
+  %125 = add nuw nsw i32 %124, %34
+  %126 = icmp ule i32 %125, %40
+  tail call void @llvm.assume(i1 %126)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %121, i8 0, i64 %81, i1 false), !tbaa !138
+  %127 = add nuw nsw i32 %92, 3
+  %128 = add i32 %89, %93
+  %129 = mul i32 %128, %39
+  %130 = zext i32 %129 to i64
+  %131 = shl nuw nsw i64 %130, 1
+  %132 = getelementptr i8, ptr %75, i64 %131
+  %133 = icmp ult i32 %127, %16
+  tail call void @llvm.assume(i1 %133)
+  %.reass9 = add nuw i32 %92, %invariant.op8
+  %134 = icmp ugt i32 %36, %.reass9
+  tail call void @llvm.assume(i1 %134)
+  %135 = mul nuw nsw i32 %.reass9, %39
+  %136 = add nuw nsw i32 %135, %34
+  %137 = icmp ule i32 %136, %40
   tail call void @llvm.assume(i1 %137)
-  %138 = mul nuw nsw i32 %136, %39
-  %139 = add nuw nsw i32 %138, %34
-  %140 = icmp ule i32 %139, %40
-  tail call void @llvm.assume(i1 %140)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %134, i8 0, i64 %81, i1 false), !tbaa !138
-  %141 = add nuw nsw i32 %92, 4
-  %142 = add nuw nsw i64 %91, 4
-  %indvars = trunc i64 %142 to i32
-  %143 = icmp eq i32 %86, %indvars
-  br i1 %143, label %.loopexit4, label %90, !llvm.loop !140
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %132, i8 0, i64 %81, i1 false), !tbaa !138
+  %138 = add nuw nsw i32 %92, 4
+  %139 = add nuw nsw i64 %91, 4
+  %indvars = trunc i64 %139 to i32
+  %140 = icmp eq i32 %86, %indvars
+  br i1 %140, label %.loopexit4, label %90, !llvm.loop !140
 
 .loopexit4:                                       ; preds = %90, %71
-  %144 = phi i64 [ 0, %71 ], [ %142, %90 ]
-  %145 = phi i32 [ %18, %71 ], [ %141, %90 ]
-  %146 = icmp eq i32 %82, 0
-  br i1 %146, label %.loopexit, label %.preheader
+  %141 = phi i64 [ 0, %71 ], [ %139, %90 ]
+  %142 = phi i32 [ %18, %71 ], [ %138, %90 ]
+  %143 = icmp eq i32 %82, 0
+  br i1 %143, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit4, %.preheader
-  %147 = phi i64 [ %163, %.preheader ], [ %144, %.loopexit4 ]
-  %148 = phi i32 [ %162, %.preheader ], [ %145, %.loopexit4 ]
-  %149 = phi i32 [ %164, %.preheader ], [ 0, %.loopexit4 ]
-  %150 = trunc i64 %147 to i32
-  %151 = add i32 %76, %150
-  %152 = mul i32 %151, %39
-  %153 = zext i32 %152 to i64
-  %154 = shl nuw nsw i64 %153, 1
-  %155 = getelementptr i8, ptr %75, i64 %154
-  %156 = icmp ult i32 %148, %16
-  tail call void @llvm.assume(i1 %156)
-  %157 = add nuw nsw i32 %148, %53
-  %158 = icmp ugt i32 %36, %157
+  %144 = phi i64 [ %160, %.preheader ], [ %141, %.loopexit4 ]
+  %145 = phi i32 [ %159, %.preheader ], [ %142, %.loopexit4 ]
+  %146 = phi i32 [ %161, %.preheader ], [ 0, %.loopexit4 ]
+  %147 = trunc i64 %144 to i32
+  %148 = add i32 %76, %147
+  %149 = mul i32 %148, %39
+  %150 = zext i32 %149 to i64
+  %151 = shl nuw nsw i64 %150, 1
+  %152 = getelementptr i8, ptr %75, i64 %151
+  %153 = icmp ult i32 %145, %16
+  tail call void @llvm.assume(i1 %153)
+  %154 = add nuw nsw i32 %145, %53
+  %155 = icmp ugt i32 %36, %154
+  tail call void @llvm.assume(i1 %155)
+  %156 = mul nsw i32 %154, %39
+  %157 = add nuw nsw i32 %156, %34
+  %158 = icmp ule i32 %157, %40
   tail call void @llvm.assume(i1 %158)
-  %159 = mul nsw i32 %157, %39
-  %160 = add nuw nsw i32 %159, %34
-  %161 = icmp ule i32 %160, %40
-  tail call void @llvm.assume(i1 %161)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %155, i8 0, i64 %81, i1 false), !tbaa !138
-  %162 = add nuw nsw i32 %148, 1
-  %163 = add nuw nsw i64 %147, 1
-  %164 = add nuw nsw i32 %149, 1
-  %165 = icmp eq i32 %164, %82
-  br i1 %165, label %.loopexit, label %.preheader, !llvm.loop !141
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %152, i8 0, i64 %81, i1 false), !tbaa !138
+  %159 = add nuw nsw i32 %145, 1
+  %160 = add nuw nsw i64 %144, 1
+  %161 = add nuw nsw i32 %146, 1
+  %162 = icmp eq i32 %161, %82
+  br i1 %162, label %.loopexit, label %.preheader, !llvm.loop !141
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit4, %67, %27, %3
   ret void

@@ -12986,136 +12986,135 @@ Rtl_NtkCellParamValue.exit90:                     ; preds = %39, %43, %56, %Rtl_
 .lr.ph:                                           ; preds = %Rtl_NtkCellParamValue.exit90
   %60 = getelementptr inbounds i8, ptr %2, i64 16
   %61 = load i32, ptr %60, align 4
+  %invariant.op = add i32 %34, %61
   %62 = getelementptr i8, ptr %2, i64 12
   %wide.trip.count = zext nneg i32 %58 to i64
-  %63 = add i32 %34, %61
-  %64 = shl nsw i32 %63, 1
-  %65 = sext i32 %64 to i64
-  %gep120 = getelementptr i32, ptr %invariant.gep.i, i64 %65
-  %66 = load i32, ptr %gep120, align 4
-  %.not121 = icmp eq i32 %66, 0
+  %63 = shl nsw i32 %invariant.op, 1
+  %64 = sext i32 %63 to i64
+  %gep120 = getelementptr i32, ptr %invariant.gep.i, i64 %64
+  %65 = load i32, ptr %gep120, align 4
+  %.not121 = icmp eq i32 %65, 0
   br i1 %.not121, label %.critedge, label %.lr.ph124
 
-67:                                               ; preds = %81
-  %68 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %69 = add i32 %34, %68
-  %70 = add i32 %69, %61
-  %71 = shl nsw i32 %70, 1
-  %72 = sext i32 %71 to i64
-  %gep = getelementptr i32, ptr %invariant.gep.i, i64 %72
-  %73 = load i32, ptr %gep, align 4
-  %.not = icmp eq i32 %73, 0
+66:                                               ; preds = %78
+  %67 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %.reass = add i32 %invariant.op, %67
+  %68 = shl nsw i32 %.reass, 1
+  %69 = sext i32 %68 to i64
+  %gep = getelementptr i32, ptr %invariant.gep.i, i64 %69
+  %70 = load i32, ptr %gep, align 4
+  %.not = icmp eq i32 %70, 0
   br i1 %.not, label %.critedge, label %.lr.ph124, !llvm.loop !111
 
-.lr.ph124:                                        ; preds = %.lr.ph, %67
-  %74 = phi i64 [ %72, %67 ], [ %65, %.lr.ph ]
-  %.05794123 = phi i32 [ %.158, %67 ], [ -1, %.lr.ph ]
-  %indvars.iv122 = phi i64 [ %indvars.iv.next, %67 ], [ 0, %.lr.ph ]
-  %gep92 = getelementptr i32, ptr %invariant.gep21.i, i64 %74
-  %75 = load i32, ptr %gep92, align 4
-  %.not64 = icmp eq i32 %75, 0
-  br i1 %.not64, label %.critedge, label %76
+.lr.ph124:                                        ; preds = %.lr.ph, %66
+  %71 = phi i64 [ %69, %66 ], [ %64, %.lr.ph ]
+  %.05794123 = phi i32 [ %.158, %66 ], [ -1, %.lr.ph ]
+  %indvars.iv122 = phi i64 [ %indvars.iv.next, %66 ], [ 0, %.lr.ph ]
+  %gep92 = getelementptr i32, ptr %invariant.gep21.i, i64 %71
+  %72 = load i32, ptr %gep92, align 4
+  %.not64 = icmp eq i32 %72, 0
+  br i1 %.not64, label %.critedge, label %73
 
-76:                                               ; preds = %.lr.ph124
+73:                                               ; preds = %.lr.ph124
   %.val72 = load i32, ptr %62, align 4
-  %77 = sext i32 %.val72 to i64
-  %78 = icmp slt i64 %indvars.iv122, %77
-  br i1 %78, label %81, label %79
+  %74 = sext i32 %.val72 to i64
+  %75 = icmp slt i64 %indvars.iv122, %74
+  br i1 %75, label %78, label %76
 
-79:                                               ; preds = %76
-  %80 = tail call i32 @Rtl_NtkCountSignalRange(ptr noundef %1, i32 noundef %75)
-  br label %81
+76:                                               ; preds = %73
+  %77 = tail call i32 @Rtl_NtkCountSignalRange(ptr noundef %1, i32 noundef %72)
+  br label %78
 
-81:                                               ; preds = %76, %79
-  %.158 = phi i32 [ %.05794123, %76 ], [ %80, %79 ]
+78:                                               ; preds = %73, %76
+  %.158 = phi i32 [ %.05794123, %73 ], [ %77, %76 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv122, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %67, !llvm.loop !111
+  br i1 %exitcond.not, label %.critedge, label %66, !llvm.loop !111
 
-.critedge:                                        ; preds = %67, %81, %.lr.ph124, %.lr.ph, %Rtl_NtkCellParamValue.exit90
-  %.057.lcssa = phi i32 [ -1, %Rtl_NtkCellParamValue.exit90 ], [ -1, %.lr.ph ], [ %.05794123, %.lr.ph124 ], [ %.158, %81 ], [ %.158, %67 ]
-  %.160 = phi i32 [ -1, %Rtl_NtkCellParamValue.exit90 ], [ -1, %.lr.ph ], [ 0, %.lr.ph124 ], [ %75, %81 ], [ %75, %67 ]
-  br label %88
+.critedge:                                        ; preds = %66, %78, %.lr.ph124, %.lr.ph, %Rtl_NtkCellParamValue.exit90
+  %.057.lcssa = phi i32 [ -1, %Rtl_NtkCellParamValue.exit90 ], [ -1, %.lr.ph ], [ %.05794123, %.lr.ph124 ], [ %.158, %78 ], [ %.158, %66 ]
+  %.160 = phi i32 [ -1, %Rtl_NtkCellParamValue.exit90 ], [ -1, %.lr.ph ], [ 0, %.lr.ph124 ], [ %72, %78 ], [ %72, %66 ]
+  br label %85
 
-.preheader:                                       ; preds = %88
-  %82 = getelementptr inbounds i8, ptr %2, i64 16
-  %83 = load i32, ptr %57, align 4
-  %84 = icmp sgt i32 %83, 0
-  br i1 %84, label %.lr.ph109, label %.critedge2
+.preheader:                                       ; preds = %85
+  %79 = getelementptr inbounds i8, ptr %2, i64 16
+  %80 = load i32, ptr %57, align 4
+  %81 = icmp sgt i32 %80, 0
+  br i1 %81, label %.lr.ph109, label %.critedge2
 
 .lr.ph109:                                        ; preds = %.preheader
-  %85 = getelementptr i8, ptr %2, i64 12
-  %86 = getelementptr inbounds i8, ptr %1, i64 152
-  %87 = getelementptr inbounds i8, ptr %1, i64 156
-  br label %92
+  %82 = getelementptr i8, ptr %2, i64 12
+  %83 = getelementptr inbounds i8, ptr %1, i64 152
+  %84 = getelementptr inbounds i8, ptr %1, i64 156
+  br label %89
 
-88:                                               ; preds = %.critedge, %88
-  %indvars.iv113 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next114, %88 ]
-  %89 = load ptr, ptr %4, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 256
-  %91 = getelementptr inbounds [5 x %struct.Vec_Int_t_], ptr %90, i64 0, i64 %indvars.iv113, i32 1
-  store i32 0, ptr %91, align 4
+85:                                               ; preds = %.critedge, %85
+  %indvars.iv113 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next114, %85 ]
+  %86 = load ptr, ptr %4, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 256
+  %88 = getelementptr inbounds [5 x %struct.Vec_Int_t_], ptr %87, i64 0, i64 %indvars.iv113, i32 1
+  store i32 0, ptr %88, align 4
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next114, 5
-  br i1 %exitcond116.not, label %.preheader, label %88, !llvm.loop !112
+  br i1 %exitcond116.not, label %.preheader, label %85, !llvm.loop !112
 
-92:                                               ; preds = %.lr.ph109, %110
-  %93 = phi i32 [ %83, %.lr.ph109 ], [ %111, %110 ]
-  %indvars.iv117 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next118, %110 ]
-  %94 = load i32, ptr %82, align 4
-  %95 = load i32, ptr %8, align 4
-  %96 = trunc nuw nsw i64 %indvars.iv117 to i32
-  %97 = add i32 %94, %96
-  %98 = add i32 %97, %95
-  %99 = shl nsw i32 %98, 1
-  %100 = sext i32 %99 to i64
-  %gep105 = getelementptr i32, ptr %invariant.gep.i, i64 %100
-  %101 = load i32, ptr %gep105, align 4
-  %.not65 = icmp eq i32 %101, 0
-  br i1 %.not65, label %.critedge2, label %102
+89:                                               ; preds = %.lr.ph109, %107
+  %90 = phi i32 [ %80, %.lr.ph109 ], [ %108, %107 ]
+  %indvars.iv117 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next118, %107 ]
+  %91 = load i32, ptr %79, align 4
+  %92 = load i32, ptr %8, align 4
+  %93 = trunc nuw nsw i64 %indvars.iv117 to i32
+  %94 = add i32 %91, %93
+  %95 = add i32 %94, %92
+  %96 = shl nsw i32 %95, 1
+  %97 = sext i32 %96 to i64
+  %gep105 = getelementptr i32, ptr %invariant.gep.i, i64 %97
+  %98 = load i32, ptr %gep105, align 4
+  %.not65 = icmp eq i32 %98, 0
+  br i1 %.not65, label %.critedge2, label %99
 
-102:                                              ; preds = %92
-  %gep107 = getelementptr i32, ptr %invariant.gep21.i, i64 %100
-  %103 = load i32, ptr %gep107, align 4
-  %.not66 = icmp eq i32 %103, 0
-  br i1 %.not66, label %.critedge2, label %104
+99:                                               ; preds = %89
+  %gep107 = getelementptr i32, ptr %invariant.gep21.i, i64 %97
+  %100 = load i32, ptr %gep107, align 4
+  %.not66 = icmp eq i32 %100, 0
+  br i1 %.not66, label %.critedge2, label %101
 
-104:                                              ; preds = %102
-  %.val71 = load i32, ptr %85, align 4
-  %105 = sext i32 %.val71 to i64
-  %.not67 = icmp slt i64 %indvars.iv117, %105
-  br i1 %.not67, label %106, label %110
+101:                                              ; preds = %99
+  %.val71 = load i32, ptr %82, align 4
+  %102 = sext i32 %.val71 to i64
+  %.not67 = icmp slt i64 %indvars.iv117, %102
+  br i1 %.not67, label %103, label %107
 
-106:                                              ; preds = %104
-  store i32 0, ptr %87, align 4
-  tail call void @Rtl_NtkCollectSignalRange(ptr noundef %1, i32 noundef %103)
-  %107 = load ptr, ptr %4, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 256
-  %109 = getelementptr inbounds [5 x %struct.Vec_Int_t_], ptr %108, i64 0, i64 %indvars.iv117
-  tail call fastcc void @Vec_IntAppend(ptr noundef nonnull %109, ptr noundef nonnull %86)
+103:                                              ; preds = %101
+  store i32 0, ptr %84, align 4
+  tail call void @Rtl_NtkCollectSignalRange(ptr noundef %1, i32 noundef %100)
+  %104 = load ptr, ptr %4, align 8
+  %105 = getelementptr inbounds i8, ptr %104, i64 256
+  %106 = getelementptr inbounds [5 x %struct.Vec_Int_t_], ptr %105, i64 0, i64 %indvars.iv117
+  tail call fastcc void @Vec_IntAppend(ptr noundef nonnull %106, ptr noundef nonnull %83)
   %.pre = load i32, ptr %57, align 4
-  br label %110
+  br label %107
 
-110:                                              ; preds = %104, %106
-  %111 = phi i32 [ %93, %104 ], [ %.pre, %106 ]
+107:                                              ; preds = %101, %103
+  %108 = phi i32 [ %90, %101 ], [ %.pre, %103 ]
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
-  %112 = sext i32 %111 to i64
-  %113 = icmp slt i64 %indvars.iv.next118, %112
-  br i1 %113, label %92, label %.critedge2, !llvm.loop !113
+  %109 = sext i32 %108 to i64
+  %110 = icmp slt i64 %indvars.iv.next118, %109
+  br i1 %110, label %89, label %.critedge2, !llvm.loop !113
 
-.critedge2:                                       ; preds = %102, %110, %92, %.preheader
-  %114 = getelementptr i8, ptr %2, i64 8
-  %.val68 = load i32, ptr %114, align 4
-  %115 = getelementptr i8, ptr %2, i64 12
-  %.val70 = load i32, ptr %115, align 4
-  %116 = load ptr, ptr %4, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 256
-  tail call void @Rtl_NtkBlastNode(ptr noundef %0, i32 noundef %.val68, i32 noundef %.val70, ptr noundef nonnull %117, i32 noundef %.057.lcssa, i32 noundef %.016.lcssa.i, i32 noundef %.016.lcssa.i77) #37
-  %118 = getelementptr i8, ptr %5, i64 312
-  %.val69 = load ptr, ptr %118, align 8
-  %119 = getelementptr i8, ptr %5, i64 308
-  %.val = load i32, ptr %119, align 4
-  %120 = tail call i32 @Rtl_NtkInsertSignalRange(ptr noundef %1, i32 noundef %.160, ptr noundef %.val69, i32 noundef %.val)
+.critedge2:                                       ; preds = %99, %107, %89, %.preheader
+  %111 = getelementptr i8, ptr %2, i64 8
+  %.val68 = load i32, ptr %111, align 4
+  %112 = getelementptr i8, ptr %2, i64 12
+  %.val70 = load i32, ptr %112, align 4
+  %113 = load ptr, ptr %4, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i64 256
+  tail call void @Rtl_NtkBlastNode(ptr noundef %0, i32 noundef %.val68, i32 noundef %.val70, ptr noundef nonnull %114, i32 noundef %.057.lcssa, i32 noundef %.016.lcssa.i, i32 noundef %.016.lcssa.i77) #37
+  %115 = getelementptr i8, ptr %5, i64 312
+  %.val69 = load ptr, ptr %115, align 8
+  %116 = getelementptr i8, ptr %5, i64 308
+  %.val = load i32, ptr %116, align 4
+  %117 = tail call i32 @Rtl_NtkInsertSignalRange(ptr noundef %1, i32 noundef %.160, ptr noundef %.val69, i32 noundef %.val)
   ret void
 }
 

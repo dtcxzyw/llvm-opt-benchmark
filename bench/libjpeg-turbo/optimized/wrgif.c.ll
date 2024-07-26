@@ -304,9 +304,9 @@ define internal void @put_LZW_pixel_rows(ptr nocapture noundef readonly %0, ptr 
   %17 = getelementptr inbounds i8, ptr %1, i64 84
   br label %18
 
-18:                                               ; preds = %.lr.ph, %91
-  %.078 = phi ptr [ %8, %.lr.ph ], [ %19, %91 ]
-  %.06377 = phi i32 [ %5, %.lr.ph ], [ %92, %91 ]
+18:                                               ; preds = %.lr.ph, %90
+  %.078 = phi ptr [ %8, %.lr.ph ], [ %19, %90 ]
+  %.06377 = phi i32 [ %5, %.lr.ph ], [ %91, %90 ]
   %19 = getelementptr inbounds i8, ptr %.078, i64 2
   %20 = load i16, ptr %.078, align 2
   %21 = load i32, ptr %9, align 8
@@ -316,7 +316,7 @@ define internal void @put_LZW_pixel_rows(ptr nocapture noundef readonly %0, ptr 
 22:                                               ; preds = %18
   store i16 %20, ptr %10, align 4
   store i32 0, ptr %9, align 8
-  br label %91
+  br label %90
 
 23:                                               ; preds = %18
   %24 = sext i16 %20 to i32
@@ -370,7 +370,7 @@ define internal void @put_LZW_pixel_rows(ptr nocapture noundef readonly %0, ptr 
 
 53:                                               ; preds = %47, %41
   store i16 %20, ptr %10, align 4
-  br label %91
+  br label %90
 
 54:                                               ; preds = %23
   %55 = load ptr, ptr %12, align 8
@@ -381,78 +381,79 @@ define internal void @put_LZW_pixel_rows(ptr nocapture noundef readonly %0, ptr 
 
 59:                                               ; preds = %54
   store i16 %36, ptr %10, align 4
-  br label %91
+  br label %90
 
 60:                                               ; preds = %54
   %61 = icmp eq i32 %spec.select, 0
   %.neg = add nsw i32 %spec.select, -5003
   %.061.neg = select i1 %61, i32 -1, i32 %.neg
+  %invariant.op = add nsw i32 %.061.neg, 5003
   br label %62
 
-62:                                               ; preds = %86, %60
-  %.1 = phi i32 [ %spec.select, %60 ], [ %spec.select70, %86 ]
+62:                                               ; preds = %85, %60
+  %.1 = phi i32 [ %spec.select, %60 ], [ %spec.select70, %85 ]
   %63 = add i32 %.1, %.061.neg
   %64 = icmp slt i32 %63, 0
-  %65 = add nsw i32 %63, 5003
-  %spec.select70 = select i1 %64, i32 %65, i32 %63
-  %66 = sext i32 %spec.select70 to i64
-  %67 = getelementptr inbounds i16, ptr %33, i64 %66
-  %68 = load i16, ptr %67, align 2
-  %69 = icmp eq i16 %68, 0
-  br i1 %69, label %70, label %86
+  %.reass = add i32 %.1, %invariant.op
+  %spec.select70 = select i1 %64, i32 %.reass, i32 %63
+  %65 = sext i32 %spec.select70 to i64
+  %66 = getelementptr inbounds i16, ptr %33, i64 %65
+  %67 = load i16, ptr %66, align 2
+  %68 = icmp eq i16 %67, 0
+  br i1 %68, label %69, label %85
 
-70:                                               ; preds = %62
+69:                                               ; preds = %62
   tail call fastcc void @output(ptr noundef %1, i16 noundef signext %26)
-  %71 = load i16, ptr %13, align 8
-  %72 = icmp slt i16 %71, 4096
-  br i1 %72, label %73, label %79
+  %70 = load i16, ptr %13, align 8
+  %71 = icmp slt i16 %70, 4096
+  br i1 %71, label %72, label %78
 
-73:                                               ; preds = %70
-  %74 = add nsw i16 %71, 1
-  store i16 %74, ptr %13, align 8
-  %75 = load ptr, ptr %11, align 8
-  %76 = getelementptr inbounds i16, ptr %75, i64 %66
-  store i16 %71, ptr %76, align 2
-  %77 = load ptr, ptr %12, align 8
-  %78 = getelementptr inbounds i32, ptr %77, i64 %66
-  store i32 %32, ptr %78, align 4
-  br label %85
+72:                                               ; preds = %69
+  %73 = add nsw i16 %70, 1
+  store i16 %73, ptr %13, align 8
+  %74 = load ptr, ptr %11, align 8
+  %75 = getelementptr inbounds i16, ptr %74, i64 %65
+  store i16 %70, ptr %75, align 2
+  %76 = load ptr, ptr %12, align 8
+  %77 = getelementptr inbounds i32, ptr %76, i64 %65
+  store i32 %32, ptr %77, align 4
+  br label %84
 
-79:                                               ; preds = %70
+78:                                               ; preds = %69
   %.val.i71 = load ptr, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10006) %.val.i71, i8 0, i64 10006, i1 false)
-  %80 = load i16, ptr %14, align 4
-  %81 = add i16 %80, 2
-  store i16 %81, ptr %13, align 8
-  tail call fastcc void @output(ptr noundef nonnull %1, i16 noundef signext %80)
-  %82 = load i32, ptr %15, align 8
-  store i32 %82, ptr %16, align 8
-  %notmask.i72 = shl nsw i32 -1, %82
-  %83 = trunc i32 %notmask.i72 to i16
-  %84 = xor i16 %83, -1
-  store i16 %84, ptr %17, align 4
-  br label %85
+  %79 = load i16, ptr %14, align 4
+  %80 = add i16 %79, 2
+  store i16 %80, ptr %13, align 8
+  tail call fastcc void @output(ptr noundef nonnull %1, i16 noundef signext %79)
+  %81 = load i32, ptr %15, align 8
+  store i32 %81, ptr %16, align 8
+  %notmask.i72 = shl nsw i32 -1, %81
+  %82 = trunc i32 %notmask.i72 to i16
+  %83 = xor i16 %82, -1
+  store i16 %83, ptr %17, align 4
+  br label %84
 
-85:                                               ; preds = %79, %73
+84:                                               ; preds = %78, %72
   store i16 %20, ptr %10, align 4
-  br label %91
+  br label %90
 
-86:                                               ; preds = %62
-  %87 = getelementptr inbounds i32, ptr %55, i64 %66
-  %88 = load i32, ptr %87, align 4
-  %89 = icmp eq i32 %88, %32
-  br i1 %89, label %90, label %62
+85:                                               ; preds = %62
+  %86 = getelementptr inbounds i32, ptr %55, i64 %65
+  %87 = load i32, ptr %86, align 4
+  %88 = icmp eq i32 %87, %32
+  br i1 %88, label %89, label %62
 
-90:                                               ; preds = %86
-  store i16 %68, ptr %10, align 4
-  br label %91
+89:                                               ; preds = %85
+  store i16 %67, ptr %10, align 4
+  br label %90
 
-91:                                               ; preds = %85, %90, %59, %53, %22
-  %92 = add i32 %.06377, -1
-  %.not = icmp eq i32 %92, 0
+90:                                               ; preds = %84, %89, %59, %53, %22
+  %91 = add i32 %.06377, -1
+  %.not = icmp eq i32 %91, 0
   br i1 %.not, label %._crit_edge, label %18, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %91, %3
+._crit_edge:                                      ; preds = %90, %3
   ret void
 }
 

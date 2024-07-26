@@ -2580,6 +2580,7 @@ while.end:                                        ; preds = %if.end14, %entry
 ; Function Attrs: nounwind uwtable
 define void @stbte__draw_bitmap(i32 noundef %x, i32 noundef %y, i32 noundef %w, ptr nocapture noundef readonly %bitmap, i32 noundef %color) local_unnamed_addr #14 {
 entry:
+  %invariant.op = add i32 %x, 1
   %cmp3 = icmp sgt i32 %w, 0
   br i1 %cmp3, label %for.body, label %for.end
 
@@ -2593,7 +2594,7 @@ for.body:                                         ; preds = %entry, %stbte__draw
   br i1 %tobool.not11.i, label %stbte__draw_bitmask_as_columns.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %for.body
-  %add7.i = add nsw i32 %add, 1
+  %add7.i.reass = add i32 %i.05, %invariant.op
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end14.i, %while.body.lr.ph.i
@@ -2618,7 +2619,7 @@ if.else.i:                                        ; preds = %while.body.i
 if.then6.i:                                       ; preds = %if.else.i
   %add.i = add nsw i32 %start_i.013.i, %y
   %add8.i = add nsw i32 %i.014.i, %y
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add, i32 noundef %add.i, i32 noundef %add7.i, i32 noundef %add8.i, i32 noundef %color) #25
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add, i32 noundef %add.i, i32 noundef %add7.i.reass, i32 noundef %add8.i, i32 noundef %color) #25
   %1 = trunc i32 %shl.i to i16
   %2 = sub i16 0, %1
   %conv12.i = and i16 %bitmask.addr.012.i, %2
@@ -2667,6 +2668,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp, label %while.end, label %if.end
 
 if.end:                                           ; preds = %while.body
+  %invariant.op.i = add i32 %x.addr.015, 1
   %cmp3.i = icmp sgt i16 %2, 0
   br i1 %cmp3.i, label %for.body.i.preheader, label %stbte__draw_bitmap.exit
 
@@ -2687,7 +2689,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   br i1 %tobool.not11.i.i, label %stbte__draw_bitmask_as_columns.exit.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %for.body.i
-  %add7.i.i = add nsw i32 %add.i, 1
+  %add7.i.reass.i = add i32 %invariant.op.i, %i.05.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end14.i.i, %while.body.lr.ph.i.i
@@ -2712,7 +2714,7 @@ if.else.i.i:                                      ; preds = %while.body.i.i
 if.then6.i.i:                                     ; preds = %if.else.i.i
   %add.i.i = add nsw i32 %start_i.013.i.i, %y
   %add8.i.i = add nsw i32 %i.014.i.i, %y
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i, i32 noundef %add.i.i, i32 noundef %add7.i.i, i32 noundef %add8.i.i, i32 noundef %color) #25
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i, i32 noundef %add.i.i, i32 noundef %add7.i.reass.i, i32 noundef %add8.i.i, i32 noundef %color) #25
   %5 = trunc i32 %shl.i.i to i16
   %6 = sub i16 0, %5
   %conv12.i.i = and i16 %bitmask.addr.012.i.i, %6
@@ -2736,8 +2738,7 @@ stbte__draw_bitmap.exit:                          ; preds = %stbte__draw_bitmask
   %7 = load i16, ptr getelementptr inbounds (i8, ptr @stbte__fontdata, i64 64), align 16
   %conv.i12 = sext i16 %7 to i32
   %cw.0 = select i1 %or.cond, i32 %conv.i12, i32 %conv.i
-  %add10 = add i32 %x.addr.015, 1
-  %add11 = add i32 %add10, %cw.0
+  %add11 = add i32 %invariant.op.i, %cw.0
   %8 = load i8, ptr %incdec.ptr, align 1
   %tobool.not = icmp eq i8 %8, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !22
@@ -2769,6 +2770,7 @@ while.body.i:                                     ; preds = %entry, %stbte__draw
   br i1 %cmp.i, label %stbte__draw_text_core.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body.i
+  %invariant.op.i.i = add i32 %x.addr.015.i, 1
   %cmp3.i.i = icmp sgt i16 %2, 0
   br i1 %cmp3.i.i, label %for.body.i.preheader.i, label %stbte__draw_bitmap.exit.i
 
@@ -2789,7 +2791,7 @@ for.body.i.i:                                     ; preds = %stbte__draw_bitmask
   br i1 %tobool.not11.i.i.i, label %stbte__draw_bitmask_as_columns.exit.i.i, label %while.body.lr.ph.i.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %for.body.i.i
-  %add7.i.i.i = add nsw i32 %add.i.i, 1
+  %add7.i.reass.i.i = add i32 %i.05.i.i, %invariant.op.i.i
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end14.i.i.i, %while.body.lr.ph.i.i.i
@@ -2814,7 +2816,7 @@ if.else.i.i.i:                                    ; preds = %while.body.i.i.i
 if.then6.i.i.i:                                   ; preds = %if.else.i.i.i
   %add.i.i.i = add nsw i32 %start_i.013.i.i.i, %y
   %add8.i.i.i = add nsw i32 %i.014.i.i.i, %y
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i, i32 noundef %add.i.i.i, i32 noundef %add7.i.i.i, i32 noundef %add8.i.i.i, i32 noundef %color) #25
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i, i32 noundef %add.i.i.i, i32 noundef %add7.i.reass.i.i, i32 noundef %add8.i.i.i, i32 noundef %color) #25
   %5 = trunc i32 %shl.i.i.i to i16
   %6 = sub i16 0, %5
   %conv12.i.i.i = and i16 %bitmask.addr.012.i.i.i, %6
@@ -2833,7 +2835,7 @@ stbte__draw_bitmask_as_columns.exit.i.i:          ; preds = %if.end14.i.i.i, %fo
   br i1 %exitcond.not.i.i, label %stbte__draw_bitmap.exit.i, label %for.body.i.i, !llvm.loop !21
 
 stbte__draw_bitmap.exit.i:                        ; preds = %stbte__draw_bitmask_as_columns.exit.i.i, %if.end.i
-  %add11.i = add i32 %add1.i, 1
+  %add11.i = add i32 %invariant.op.i.i, %conv.i.i
   %7 = load i8, ptr %incdec.ptr.i, align 1
   %tobool.not.i = icmp eq i8 %7, 0
   br i1 %tobool.not.i, label %stbte__draw_text_core.exit, label %while.body.i, !llvm.loop !22
@@ -3076,6 +3078,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
   br i1 %cmp.i.i, label %stbte__draw_text.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i.i
+  %invariant.op.i.i.i = add i32 %x.addr.015.i.i, 1
   %cmp3.i.i.i = icmp sgt i16 %5, 0
   br i1 %cmp3.i.i.i, label %for.body.i.preheader.i.i, label %stbte__draw_bitmap.exit.i.i
 
@@ -3096,7 +3099,7 @@ for.body.i.i.i:                                   ; preds = %stbte__draw_bitmask
   br i1 %tobool.not11.i.i.i.i, label %stbte__draw_bitmask_as_columns.exit.i.i.i, label %while.body.lr.ph.i.i.i.i
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %for.body.i.i.i
-  %add7.i.i.i.i = add nsw i32 %add.i.i.i, 1
+  %add7.i.reass.i.i.i = add i32 %i.05.i.i.i, %invariant.op.i.i.i
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end14.i.i.i.i, %while.body.lr.ph.i.i.i.i
@@ -3121,7 +3124,7 @@ if.else.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
 if.then6.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
   %add.i.i.i.i = add nsw i32 %start_i.013.i.i.i.i, %add1
   %add8.i.i.i.i = add nsw i32 %i.014.i.i.i.i, %add1
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i.i, i32 noundef %add.i.i.i.i, i32 noundef %add7.i.i.i.i, i32 noundef %add8.i.i.i.i, i32 noundef %2) #25
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i.i, i32 noundef %add.i.i.i.i, i32 noundef %add7.i.reass.i.i.i, i32 noundef %add8.i.i.i.i, i32 noundef %2) #25
   %8 = trunc i32 %shl.i.i.i.i to i16
   %9 = sub i16 0, %8
   %conv12.i.i.i.i = and i16 %bitmask.addr.012.i.i.i.i, %9
@@ -3140,7 +3143,7 @@ stbte__draw_bitmask_as_columns.exit.i.i.i:        ; preds = %if.end14.i.i.i.i, %
   br i1 %exitcond.not.i.i.i, label %stbte__draw_bitmap.exit.i.i, label %for.body.i.i.i, !llvm.loop !21
 
 stbte__draw_bitmap.exit.i.i:                      ; preds = %stbte__draw_bitmask_as_columns.exit.i.i.i, %if.end.i.i
-  %add11.i.i = add i32 %add1.i.i, 1
+  %add11.i.i = add i32 %invariant.op.i.i.i, %conv.i.i.i
   %10 = load i8, ptr %incdec.ptr.i.i, align 1
   %tobool.not.i.i = icmp eq i8 %10, 0
   br i1 %tobool.not.i.i, label %stbte__draw_text.exit, label %while.body.i.i, !llvm.loop !22
@@ -9495,6 +9498,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body.i
+  %invariant.op.i.i = add i32 %x.addr.015.i, 1
   %cmp3.i.i = icmp sgt i16 %6, 0
   br i1 %cmp3.i.i, label %for.body.i.preheader.i, label %stbte__draw_bitmap.exit.i
 
@@ -9515,7 +9519,7 @@ for.body.i.i:                                     ; preds = %stbte__draw_bitmask
   br i1 %tobool.not11.i.i.i, label %stbte__draw_bitmask_as_columns.exit.i.i, label %while.body.lr.ph.i.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %for.body.i.i
-  %add7.i.i.i = add nsw i32 %add.i.i, 1
+  %add7.i.reass.i.i = add i32 %i.05.i.i, %invariant.op.i.i
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end14.i.i.i, %while.body.lr.ph.i.i.i
@@ -9540,7 +9544,7 @@ if.else.i.i.i:                                    ; preds = %while.body.i.i.i
 if.then6.i.i.i:                                   ; preds = %if.else.i.i.i
   %add.i.i.i = add nsw i32 %start_i.013.i.i.i, %y
   %add8.i.i.i = add nsw i32 %i.014.i.i.i, %y
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i, i32 noundef %add.i.i.i, i32 noundef %add7.i.i.i, i32 noundef %add8.i.i.i, i32 noundef %3) #25
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i, i32 noundef %add.i.i.i, i32 noundef %add7.i.reass.i.i, i32 noundef %add8.i.i.i, i32 noundef %3) #25
   %9 = trunc i32 %shl.i.i.i to i16
   %10 = sub i16 0, %9
   %conv12.i.i.i = and i16 %bitmask.addr.012.i.i.i, %10
@@ -9563,8 +9567,7 @@ stbte__draw_bitmap.exit.i:                        ; preds = %stbte__draw_bitmask
   %11 = load i16, ptr getelementptr inbounds (i8, ptr @stbte__fontdata, i64 64), align 16
   %conv.i12.i = sext i16 %11 to i32
   %cw.0.i = select i1 %cmp5.i, i32 %conv.i12.i, i32 %conv.i.i
-  %add10.i = add i32 %x.addr.015.i, 1
-  %add11.i = add i32 %add10.i, %cw.0.i
+  %add11.i = add i32 %cw.0.i, %invariant.op.i.i
   %12 = load i8, ptr %incdec.ptr.i, align 1
   %tobool.not.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i, label %if.end, label %while.body.i, !llvm.loop !22
@@ -9668,6 +9671,7 @@ while.body.i.i:                                   ; preds = %stbte__draw_bitmap.
   br i1 %cmp.i.i, label %stbte__draw_text.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i.i
+  %invariant.op.i.i.i = add i32 %x.addr.015.i.i, 1
   %cmp3.i.i.i = icmp sgt i16 %11, 0
   br i1 %cmp3.i.i.i, label %for.body.i.preheader.i.i, label %stbte__draw_bitmap.exit.i.i
 
@@ -9688,7 +9692,7 @@ for.body.i.i.i:                                   ; preds = %stbte__draw_bitmask
   br i1 %tobool.not11.i.i.i.i, label %stbte__draw_bitmask_as_columns.exit.i.i.i, label %while.body.lr.ph.i.i.i.i
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %for.body.i.i.i
-  %add7.i.i.i.i = add nsw i32 %add.i.i.i, 1
+  %add7.i.reass.i.i.i = add i32 %i.05.i.i.i, %invariant.op.i.i.i
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end14.i.i.i.i, %while.body.lr.ph.i.i.i.i
@@ -9713,7 +9717,7 @@ if.else.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
 if.then6.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
   %add.i.i.i.i = add nsw i32 %start_i.013.i.i.i.i, %add30
   %add8.i.i.i.i = add nsw i32 %i.014.i.i.i.i, %add30
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i.i, i32 noundef %add.i.i.i.i, i32 noundef %add7.i.i.i.i, i32 noundef %add8.i.i.i.i, i32 noundef %9) #25
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i.i, i32 noundef %add.i.i.i.i, i32 noundef %add7.i.reass.i.i.i, i32 noundef %add8.i.i.i.i, i32 noundef %9) #25
   %14 = trunc i32 %shl.i.i.i.i to i16
   %15 = sub i16 0, %14
   %conv12.i.i.i.i = and i16 %bitmask.addr.012.i.i.i.i, %15
@@ -9732,7 +9736,7 @@ stbte__draw_bitmask_as_columns.exit.i.i.i:        ; preds = %if.end14.i.i.i.i, %
   br i1 %exitcond.not.i.i.i, label %stbte__draw_bitmap.exit.i.i, label %for.body.i.i.i, !llvm.loop !21
 
 stbte__draw_bitmap.exit.i.i:                      ; preds = %stbte__draw_bitmask_as_columns.exit.i.i.i, %if.end.i.i
-  %add11.i.i = add i32 %add1.i.i, 1
+  %add11.i.i = add i32 %invariant.op.i.i.i, %conv.i.i.i
   %16 = load i8, ptr %incdec.ptr.i.i.ptr, align 1
   %exitcond = icmp eq i64 %str.addr.014.i.i.add, 6
   br i1 %exitcond, label %stbte__draw_text.exit, label %while.body.i.i, !llvm.loop !22
@@ -9781,8 +9785,8 @@ if.end:                                           ; preds = %entry
   br label %if.end15
 
 if.then9:                                         ; preds = %entry
-  %add5144 = add nsw i32 %x0, 2
-  %add6145 = add nsw i32 %y0, 5
+  %add5145 = add nsw i32 %x0, 2
+  %add6146 = add nsw i32 %y0, 5
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 20), align 4
   %cmp10 = icmp eq i32 %4, 0
   br i1 %cmp10, label %if.then11, label %if.end15
@@ -9795,7 +9799,7 @@ if.then11:                                        ; preds = %if.then9
 
 while.body.i.i:                                   ; preds = %stbte__draw_bitmap.exit.i.i, %if.then11
   %6 = phi i8 [ %12, %stbte__draw_bitmap.exit.i.i ], [ 76, %if.then11 ]
-  %x.addr.015.i.i = phi i32 [ %add11.i.i, %stbte__draw_bitmap.exit.i.i ], [ %add5144, %if.then11 ]
+  %x.addr.015.i.i = phi i32 [ %add11.i.i, %stbte__draw_bitmap.exit.i.i ], [ %add5145, %if.then11 ]
   %str.addr.014.i.i.idx = phi i64 [ %str.addr.014.i.i.add, %stbte__draw_bitmap.exit.i.i ], [ 0, %if.then11 ]
   %str.addr.014.i.i.add = add nuw nsw i64 %str.addr.014.i.i.idx, 1
   %incdec.ptr.i.i.ptr = getelementptr inbounds i8, ptr @.str.17, i64 %str.addr.014.i.i.add
@@ -9809,6 +9813,7 @@ while.body.i.i:                                   ; preds = %stbte__draw_bitmap.
   br i1 %cmp.i.i, label %if.end15, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i.i
+  %invariant.op.i.i.i = add i32 %x.addr.015.i.i, 1
   %cmp3.i.i.i = icmp sgt i16 %7, 0
   br i1 %cmp3.i.i.i, label %for.body.i.preheader.i.i, label %stbte__draw_bitmap.exit.i.i
 
@@ -9829,7 +9834,7 @@ for.body.i.i.i:                                   ; preds = %stbte__draw_bitmask
   br i1 %tobool.not11.i.i.i.i, label %stbte__draw_bitmask_as_columns.exit.i.i.i, label %while.body.lr.ph.i.i.i.i
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %for.body.i.i.i
-  %add7.i.i.i.i = add nsw i32 %add.i.i.i, 1
+  %add7.i.reass.i.i.i = add i32 %i.05.i.i.i, %invariant.op.i.i.i
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end14.i.i.i.i, %while.body.lr.ph.i.i.i.i
@@ -9852,9 +9857,9 @@ if.else.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
   br i1 %cmp4.i.i.i.i, label %if.then6.i.i.i.i, label %if.end14.i.i.i.i
 
 if.then6.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
-  %add.i.i.i.i = add nsw i32 %start_i.013.i.i.i.i, %add6145
-  %add8.i.i.i.i = add nsw i32 %i.014.i.i.i.i, %add6145
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i.i, i32 noundef %add.i.i.i.i, i32 noundef %add7.i.i.i.i, i32 noundef %add8.i.i.i.i, i32 noundef %5) #25
+  %add.i.i.i.i = add nsw i32 %start_i.013.i.i.i.i, %add6146
+  %add8.i.i.i.i = add nsw i32 %i.014.i.i.i.i, %add6146
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i.i, i32 noundef %add.i.i.i.i, i32 noundef %add7.i.reass.i.i.i, i32 noundef %add8.i.i.i.i, i32 noundef %5) #25
   %10 = trunc i32 %shl.i.i.i.i to i16
   %11 = sub i16 0, %10
   %conv12.i.i.i.i = and i16 %bitmask.addr.012.i.i.i.i, %11
@@ -9873,31 +9878,31 @@ stbte__draw_bitmask_as_columns.exit.i.i.i:        ; preds = %if.end14.i.i.i.i, %
   br i1 %exitcond.not.i.i.i, label %stbte__draw_bitmap.exit.i.i, label %for.body.i.i.i, !llvm.loop !21
 
 stbte__draw_bitmap.exit.i.i:                      ; preds = %stbte__draw_bitmask_as_columns.exit.i.i.i, %if.end.i.i
-  %add11.i.i = add i32 %add1.i.i, 1
+  %add11.i.i = add i32 %invariant.op.i.i.i, %conv.i.i.i
   %12 = load i8, ptr %incdec.ptr.i.i.ptr, align 1
   %exitcond = icmp eq i64 %str.addr.014.i.i.add, 6
   br i1 %exitcond, label %if.end15, label %while.body.i.i, !llvm.loop !22
 
 if.end15:                                         ; preds = %while.body.i.i, %stbte__draw_bitmap.exit.i.i, %if.then9, %if.end
   %.sink = phi i32 [ 5, %if.end ], [ 16, %if.then9 ], [ 16, %stbte__draw_bitmap.exit.i.i ], [ 16, %while.body.i.i ]
-  %add5148 = phi i32 [ %add5, %if.end ], [ %add5144, %if.then9 ], [ %add5144, %stbte__draw_bitmap.exit.i.i ], [ %add5144, %while.body.i.i ]
-  %xoff.0146 = phi i32 [ %sub.add2, %if.end ], [ 20, %if.then9 ], [ 20, %stbte__draw_bitmap.exit.i.i ], [ 20, %while.body.i.i ]
+  %add5149 = phi i32 [ %add5, %if.end ], [ %add5145, %if.then9 ], [ %add5145, %stbte__draw_bitmap.exit.i.i ], [ %add5145, %while.body.i.i ]
+  %xoff.0147 = phi i32 [ %sub.add2, %if.end ], [ 20, %if.then9 ], [ 20, %stbte__draw_bitmap.exit.i.i ], [ 20, %while.body.i.i ]
   %add6 = add nsw i32 %.sink, %y0
   %sub16 = sub i32 %h, %.sink
   %div = sdiv i32 %sub16, 15
   %dec = add nsw i32 %div, -1
   %num_layers = getelementptr inbounds i8, ptr %tm, i64 800008
   %13 = load i32, ptr %num_layers, align 8
-  %cmp17151 = icmp sgt i32 %13, 0
-  br i1 %cmp17151, label %for.body.lr.ph, label %for.end
+  %cmp17152 = icmp sgt i32 %13, 0
+  br i1 %cmp17152, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end15
   %layerinfo = getelementptr inbounds i8, ptr %tm, i64 800896
   %solo_layer = getelementptr inbounds i8, ptr %tm, i64 801040
   %layer_scroll = getelementptr inbounds i8, ptr %tm, i64 801032
-  %sub39 = add nsw i32 %xoff.0146, -2
+  %sub39 = add nsw i32 %xoff.0147, -2
   %cur_layer = getelementptr inbounds i8, ptr %tm, i64 800044
-  %add55 = add nsw i32 %xoff.0146, %add5148
+  %add55 = add nsw i32 %xoff.0147, %add5149
   %add77 = add nsw i32 %add55, 12
   %add96 = add nsw i32 %add55, 24
   br label %for.body
@@ -9905,7 +9910,7 @@ for.body.lr.ph:                                   ; preds = %if.end15
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %14 = phi i32 [ %13, %for.body.lr.ph ], [ %34, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %y.0152 = phi i32 [ %add6, %for.body.lr.ph ], [ %y.1, %for.inc ]
+  %y.0153 = phi i32 [ %add6, %for.body.lr.ph ], [ %y.1, %for.inc ]
   %arrayidx19 = getelementptr inbounds [8 x %struct.stbte__layer], ptr %layerinfo, i64 0, i64 %indvars.iv
   %locked23 = getelementptr inbounds i8, ptr %arrayidx19, i64 8
   %15 = load i32, ptr %locked23, align 8
@@ -9944,7 +9949,7 @@ if.end36:                                         ; preds = %if.then34, %if.then
   %24 = zext i32 %23 to i64
   %cmp41 = icmp eq i64 %indvars.iv, %24
   %conv42 = zext i1 %cmp41 to i32
-  %call43 = call i32 @stbte__button(i32 noundef 8, ptr noundef nonnull %str.0, i32 noundef %add5148, i32 noundef %y.0152, i32 noundef %mul, i32 noundef %sub39, i32 noundef %add40, i32 noundef %conv42, i32 noundef 0)
+  %call43 = call i32 @stbte__button(i32 noundef 8, ptr noundef nonnull %str.0, i32 noundef %add5149, i32 noundef %y.0153, i32 noundef %mul, i32 noundef %sub39, i32 noundef %add40, i32 noundef %conv42, i32 noundef 0)
   %tobool44.not = icmp eq i32 %call43, 0
   br i1 %tobool44.not, label %if.end54, label %if.then45
 
@@ -9957,7 +9962,7 @@ if.then45:                                        ; preds = %if.end36
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then45, %if.end36
-  %add57 = add nsw i32 %y.0152, 1
+  %add57 = add nsw i32 %y.0153, 1
   %add59 = or disjoint i32 %shl, 11
   %hidden = getelementptr inbounds i8, ptr %arrayidx19, i64 12
   %27 = load i32, ptr %hidden, align 4
@@ -10009,13 +10014,13 @@ if.then105:                                       ; preds = %if.end94
   br label %if.end114
 
 if.end114:                                        ; preds = %if.then105, %if.end94
-  %add115 = add nsw i32 %y.0152, 15
+  %add115 = add nsw i32 %y.0153, 15
   %.pre = load i32, ptr %num_layers, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end114
   %34 = phi i32 [ %.pre, %if.end114 ], [ %14, %for.body ]
-  %y.1 = phi i32 [ %add115, %if.end114 ], [ %y.0152, %for.body ]
+  %y.1 = phi i32 [ %add115, %if.end114 ], [ %y.0153, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = sext i32 %34 to i64
   %cmp17 = icmp slt i64 %indvars.iv.next, %35
@@ -10045,20 +10050,20 @@ while.body.i:                                     ; preds = %while.body.i, %for.
   %add.i = add i32 %x.04.i, 1
   %add1.i = add i32 %add.i, %conv.i.i88
   %38 = load i8, ptr %incdec.ptr.i.ptr, align 1
-  %exitcond159 = icmp eq i64 %str.addr.05.i.add, 5
-  br i1 %exitcond159, label %stbte__text_width.exit, label %while.body.i, !llvm.loop !11
+  %exitcond160 = icmp eq i64 %str.addr.05.i.add, 5
+  br i1 %exitcond160, label %stbte__text_width.exit, label %while.body.i, !llvm.loop !11
 
 stbte__text_width.exit:                           ; preds = %while.body.i
   %add122 = add nsw i32 %add1.i, 2
   %add123 = add nsw i32 %y.0.lcssa, 2
   %39 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__color_table, i64 308), align 4
-  %add.i.i89 = add nsw i32 %add5148, %w
+  %add.i.i89 = add nsw i32 %add5149, %w
   br label %while.body.i.i90
 
-while.body.i.i90:                                 ; preds = %stbte__draw_bitmap.exit.i.i102, %stbte__text_width.exit
-  %40 = phi i8 [ %46, %stbte__draw_bitmap.exit.i.i102 ], [ 112, %stbte__text_width.exit ]
-  %x.addr.015.i.i91 = phi i32 [ %add11.i.i103, %stbte__draw_bitmap.exit.i.i102 ], [ %add5148, %stbte__text_width.exit ]
-  %str.addr.014.i.i92.idx = phi i64 [ %str.addr.014.i.i92.add, %stbte__draw_bitmap.exit.i.i102 ], [ 0, %stbte__text_width.exit ]
+while.body.i.i90:                                 ; preds = %stbte__draw_bitmap.exit.i.i103, %stbte__text_width.exit
+  %40 = phi i8 [ %46, %stbte__draw_bitmap.exit.i.i103 ], [ 112, %stbte__text_width.exit ]
+  %x.addr.015.i.i91 = phi i32 [ %add11.i.i104, %stbte__draw_bitmap.exit.i.i103 ], [ %add5149, %stbte__text_width.exit ]
+  %str.addr.014.i.i92.idx = phi i64 [ %str.addr.014.i.i92.add, %stbte__draw_bitmap.exit.i.i103 ], [ 0, %stbte__text_width.exit ]
   %str.addr.014.i.i92.add = add nuw nsw i64 %str.addr.014.i.i92.idx, 1
   %incdec.ptr.i.i93.ptr = getelementptr inbounds i8, ptr @.str.19, i64 %str.addr.014.i.i92.add
   %conv.i.i94 = sext i8 %40 to i64
@@ -10068,79 +10073,80 @@ while.body.i.i90:                                 ; preds = %stbte__draw_bitmap.
   %conv.i.i.i97 = sext i16 %41 to i32
   %add1.i.i98 = add nsw i32 %x.addr.015.i.i91, %conv.i.i.i97
   %cmp.i.i99 = icmp sgt i32 %add1.i.i98, %add.i.i89
-  br i1 %cmp.i.i99, label %stbte__draw_text.exit142, label %if.end.i.i100
+  br i1 %cmp.i.i99, label %stbte__draw_text.exit143, label %if.end.i.i100
 
 if.end.i.i100:                                    ; preds = %while.body.i.i90
-  %cmp3.i.i.i101 = icmp sgt i16 %41, 0
-  br i1 %cmp3.i.i.i101, label %for.body.i.preheader.i.i105, label %stbte__draw_bitmap.exit.i.i102
+  %invariant.op.i.i.i101 = add i32 %x.addr.015.i.i91, 1
+  %cmp3.i.i.i102 = icmp sgt i16 %41, 0
+  br i1 %cmp3.i.i.i102, label %for.body.i.preheader.i.i106, label %stbte__draw_bitmap.exit.i.i103
 
-for.body.i.preheader.i.i105:                      ; preds = %if.end.i.i100
-  %arrayidx.i11.i.i106 = getelementptr inbounds [111 x i16], ptr @stbte__font_offset, i64 0, i64 %sub.i.i.i95
-  %42 = load i16, ptr %arrayidx.i11.i.i106, align 2
-  %idx.ext.i.i.i107 = sext i16 %42 to i64
-  %add.ptr.i.i.i108 = getelementptr inbounds i16, ptr @stbte__fontdata, i64 %idx.ext.i.i.i107
-  br label %for.body.i.i.i109
+for.body.i.preheader.i.i106:                      ; preds = %if.end.i.i100
+  %arrayidx.i11.i.i107 = getelementptr inbounds [111 x i16], ptr @stbte__font_offset, i64 0, i64 %sub.i.i.i95
+  %42 = load i16, ptr %arrayidx.i11.i.i107, align 2
+  %idx.ext.i.i.i108 = sext i16 %42 to i64
+  %add.ptr.i.i.i109 = getelementptr inbounds i16, ptr @stbte__fontdata, i64 %idx.ext.i.i.i108
+  br label %for.body.i.i.i110
 
-for.body.i.i.i109:                                ; preds = %stbte__draw_bitmask_as_columns.exit.i.i.i133, %for.body.i.preheader.i.i105
-  %i.05.i.i.i110 = phi i32 [ %inc.i.i.i134, %stbte__draw_bitmask_as_columns.exit.i.i.i133 ], [ 0, %for.body.i.preheader.i.i105 ]
-  %bitmap.addr.04.i.i.i111 = phi ptr [ %incdec.ptr.i.i.i113, %stbte__draw_bitmask_as_columns.exit.i.i.i133 ], [ %add.ptr.i.i.i108, %for.body.i.preheader.i.i105 ]
-  %add.i.i.i112 = add nsw i32 %i.05.i.i.i110, %x.addr.015.i.i91
-  %incdec.ptr.i.i.i113 = getelementptr inbounds i8, ptr %bitmap.addr.04.i.i.i111, i64 2
-  %43 = load i16, ptr %bitmap.addr.04.i.i.i111, align 2
-  %tobool.not11.i.i.i.i114 = icmp eq i16 %43, 0
-  br i1 %tobool.not11.i.i.i.i114, label %stbte__draw_bitmask_as_columns.exit.i.i.i133, label %while.body.lr.ph.i.i.i.i115
+for.body.i.i.i110:                                ; preds = %stbte__draw_bitmask_as_columns.exit.i.i.i134, %for.body.i.preheader.i.i106
+  %i.05.i.i.i111 = phi i32 [ %inc.i.i.i135, %stbte__draw_bitmask_as_columns.exit.i.i.i134 ], [ 0, %for.body.i.preheader.i.i106 ]
+  %bitmap.addr.04.i.i.i112 = phi ptr [ %incdec.ptr.i.i.i114, %stbte__draw_bitmask_as_columns.exit.i.i.i134 ], [ %add.ptr.i.i.i109, %for.body.i.preheader.i.i106 ]
+  %add.i.i.i113 = add nsw i32 %i.05.i.i.i111, %x.addr.015.i.i91
+  %incdec.ptr.i.i.i114 = getelementptr inbounds i8, ptr %bitmap.addr.04.i.i.i112, i64 2
+  %43 = load i16, ptr %bitmap.addr.04.i.i.i112, align 2
+  %tobool.not11.i.i.i.i115 = icmp eq i16 %43, 0
+  br i1 %tobool.not11.i.i.i.i115, label %stbte__draw_bitmask_as_columns.exit.i.i.i134, label %while.body.lr.ph.i.i.i.i116
 
-while.body.lr.ph.i.i.i.i115:                      ; preds = %for.body.i.i.i109
-  %add7.i.i.i.i116 = add nsw i32 %add.i.i.i112, 1
-  br label %while.body.i.i.i.i117
+while.body.lr.ph.i.i.i.i116:                      ; preds = %for.body.i.i.i110
+  %add7.i.reass.i.i.i117 = add i32 %i.05.i.i.i111, %invariant.op.i.i.i101
+  br label %while.body.i.i.i.i118
 
-while.body.i.i.i.i117:                            ; preds = %if.end14.i.i.i.i128, %while.body.lr.ph.i.i.i.i115
-  %i.014.i.i.i.i118 = phi i32 [ 0, %while.body.lr.ph.i.i.i.i115 ], [ %inc.i.i.i.i131, %if.end14.i.i.i.i128 ]
-  %start_i.013.i.i.i.i119 = phi i32 [ -1, %while.body.lr.ph.i.i.i.i115 ], [ %start_i.1.i.i.i.i130, %if.end14.i.i.i.i128 ]
-  %bitmask.addr.012.i.i.i.i120 = phi i16 [ %43, %while.body.lr.ph.i.i.i.i115 ], [ %bitmask.addr.1.i.i.i.i129, %if.end14.i.i.i.i128 ]
-  %conv.i.i.i.i121 = sext i16 %bitmask.addr.012.i.i.i.i120 to i32
-  %shl.i.i.i.i122 = shl nuw i32 1, %i.014.i.i.i.i118
-  %and.i.i.i.i123 = and i32 %shl.i.i.i.i122, %conv.i.i.i.i121
-  %tobool1.not.i.i.i.i124 = icmp eq i32 %and.i.i.i.i123, 0
-  br i1 %tobool1.not.i.i.i.i124, label %if.else.i.i.i.i136, label %if.then.i.i.i.i125
+while.body.i.i.i.i118:                            ; preds = %if.end14.i.i.i.i129, %while.body.lr.ph.i.i.i.i116
+  %i.014.i.i.i.i119 = phi i32 [ 0, %while.body.lr.ph.i.i.i.i116 ], [ %inc.i.i.i.i132, %if.end14.i.i.i.i129 ]
+  %start_i.013.i.i.i.i120 = phi i32 [ -1, %while.body.lr.ph.i.i.i.i116 ], [ %start_i.1.i.i.i.i131, %if.end14.i.i.i.i129 ]
+  %bitmask.addr.012.i.i.i.i121 = phi i16 [ %43, %while.body.lr.ph.i.i.i.i116 ], [ %bitmask.addr.1.i.i.i.i130, %if.end14.i.i.i.i129 ]
+  %conv.i.i.i.i122 = sext i16 %bitmask.addr.012.i.i.i.i121 to i32
+  %shl.i.i.i.i123 = shl nuw i32 1, %i.014.i.i.i.i119
+  %and.i.i.i.i124 = and i32 %shl.i.i.i.i123, %conv.i.i.i.i122
+  %tobool1.not.i.i.i.i125 = icmp eq i32 %and.i.i.i.i124, 0
+  br i1 %tobool1.not.i.i.i.i125, label %if.else.i.i.i.i137, label %if.then.i.i.i.i126
 
-if.then.i.i.i.i125:                               ; preds = %while.body.i.i.i.i117
-  %cmp.i.i.i.i126 = icmp slt i32 %start_i.013.i.i.i.i119, 0
-  %spec.select.i.i.i.i127 = select i1 %cmp.i.i.i.i126, i32 %i.014.i.i.i.i118, i32 %start_i.013.i.i.i.i119
-  br label %if.end14.i.i.i.i128
+if.then.i.i.i.i126:                               ; preds = %while.body.i.i.i.i118
+  %cmp.i.i.i.i127 = icmp slt i32 %start_i.013.i.i.i.i120, 0
+  %spec.select.i.i.i.i128 = select i1 %cmp.i.i.i.i127, i32 %i.014.i.i.i.i119, i32 %start_i.013.i.i.i.i120
+  br label %if.end14.i.i.i.i129
 
-if.else.i.i.i.i136:                               ; preds = %while.body.i.i.i.i117
-  %cmp4.i.i.i.i137 = icmp sgt i32 %start_i.013.i.i.i.i119, -1
-  br i1 %cmp4.i.i.i.i137, label %if.then6.i.i.i.i138, label %if.end14.i.i.i.i128
+if.else.i.i.i.i137:                               ; preds = %while.body.i.i.i.i118
+  %cmp4.i.i.i.i138 = icmp sgt i32 %start_i.013.i.i.i.i120, -1
+  br i1 %cmp4.i.i.i.i138, label %if.then6.i.i.i.i139, label %if.end14.i.i.i.i129
 
-if.then6.i.i.i.i138:                              ; preds = %if.else.i.i.i.i136
-  %add.i.i.i.i139 = add nsw i32 %start_i.013.i.i.i.i119, %add123
-  %add8.i.i.i.i140 = add nsw i32 %i.014.i.i.i.i118, %add123
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i.i112, i32 noundef %add.i.i.i.i139, i32 noundef %add7.i.i.i.i116, i32 noundef %add8.i.i.i.i140, i32 noundef %39) #25
-  %44 = trunc i32 %shl.i.i.i.i122 to i16
+if.then6.i.i.i.i139:                              ; preds = %if.else.i.i.i.i137
+  %add.i.i.i.i140 = add nsw i32 %start_i.013.i.i.i.i120, %add123
+  %add8.i.i.i.i141 = add nsw i32 %i.014.i.i.i.i119, %add123
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i.i113, i32 noundef %add.i.i.i.i140, i32 noundef %add7.i.reass.i.i.i117, i32 noundef %add8.i.i.i.i141, i32 noundef %39) #25
+  %44 = trunc i32 %shl.i.i.i.i123 to i16
   %45 = sub i16 0, %44
-  %conv12.i.i.i.i141 = and i16 %bitmask.addr.012.i.i.i.i120, %45
-  br label %if.end14.i.i.i.i128
+  %conv12.i.i.i.i142 = and i16 %bitmask.addr.012.i.i.i.i121, %45
+  br label %if.end14.i.i.i.i129
 
-if.end14.i.i.i.i128:                              ; preds = %if.then6.i.i.i.i138, %if.else.i.i.i.i136, %if.then.i.i.i.i125
-  %bitmask.addr.1.i.i.i.i129 = phi i16 [ %conv12.i.i.i.i141, %if.then6.i.i.i.i138 ], [ %bitmask.addr.012.i.i.i.i120, %if.else.i.i.i.i136 ], [ %bitmask.addr.012.i.i.i.i120, %if.then.i.i.i.i125 ]
-  %start_i.1.i.i.i.i130 = phi i32 [ -1, %if.then6.i.i.i.i138 ], [ %start_i.013.i.i.i.i119, %if.else.i.i.i.i136 ], [ %spec.select.i.i.i.i127, %if.then.i.i.i.i125 ]
-  %inc.i.i.i.i131 = add nuw nsw i32 %i.014.i.i.i.i118, 1
-  %tobool.not.i.i.i.i132 = icmp eq i16 %bitmask.addr.1.i.i.i.i129, 0
-  br i1 %tobool.not.i.i.i.i132, label %stbte__draw_bitmask_as_columns.exit.i.i.i133, label %while.body.i.i.i.i117, !llvm.loop !20
+if.end14.i.i.i.i129:                              ; preds = %if.then6.i.i.i.i139, %if.else.i.i.i.i137, %if.then.i.i.i.i126
+  %bitmask.addr.1.i.i.i.i130 = phi i16 [ %conv12.i.i.i.i142, %if.then6.i.i.i.i139 ], [ %bitmask.addr.012.i.i.i.i121, %if.else.i.i.i.i137 ], [ %bitmask.addr.012.i.i.i.i121, %if.then.i.i.i.i126 ]
+  %start_i.1.i.i.i.i131 = phi i32 [ -1, %if.then6.i.i.i.i139 ], [ %start_i.013.i.i.i.i120, %if.else.i.i.i.i137 ], [ %spec.select.i.i.i.i128, %if.then.i.i.i.i126 ]
+  %inc.i.i.i.i132 = add nuw nsw i32 %i.014.i.i.i.i119, 1
+  %tobool.not.i.i.i.i133 = icmp eq i16 %bitmask.addr.1.i.i.i.i130, 0
+  br i1 %tobool.not.i.i.i.i133, label %stbte__draw_bitmask_as_columns.exit.i.i.i134, label %while.body.i.i.i.i118, !llvm.loop !20
 
-stbte__draw_bitmask_as_columns.exit.i.i.i133:     ; preds = %if.end14.i.i.i.i128, %for.body.i.i.i109
-  %inc.i.i.i134 = add nuw nsw i32 %i.05.i.i.i110, 1
-  %exitcond.not.i.i.i135 = icmp eq i32 %inc.i.i.i134, %conv.i.i.i97
-  br i1 %exitcond.not.i.i.i135, label %stbte__draw_bitmap.exit.i.i102, label %for.body.i.i.i109, !llvm.loop !21
+stbte__draw_bitmask_as_columns.exit.i.i.i134:     ; preds = %if.end14.i.i.i.i129, %for.body.i.i.i110
+  %inc.i.i.i135 = add nuw nsw i32 %i.05.i.i.i111, 1
+  %exitcond.not.i.i.i136 = icmp eq i32 %inc.i.i.i135, %conv.i.i.i97
+  br i1 %exitcond.not.i.i.i136, label %stbte__draw_bitmap.exit.i.i103, label %for.body.i.i.i110, !llvm.loop !21
 
-stbte__draw_bitmap.exit.i.i102:                   ; preds = %stbte__draw_bitmask_as_columns.exit.i.i.i133, %if.end.i.i100
-  %add11.i.i103 = add i32 %add1.i.i98, 1
+stbte__draw_bitmap.exit.i.i103:                   ; preds = %stbte__draw_bitmask_as_columns.exit.i.i.i134, %if.end.i.i100
+  %add11.i.i104 = add i32 %invariant.op.i.i.i101, %conv.i.i.i97
   %46 = load i8, ptr %incdec.ptr.i.i93.ptr, align 1
-  %exitcond160 = icmp eq i64 %str.addr.014.i.i92.add, 5
-  br i1 %exitcond160, label %stbte__draw_text.exit142, label %while.body.i.i90, !llvm.loop !22
+  %exitcond161 = icmp eq i64 %str.addr.014.i.i92.add, 5
+  br i1 %exitcond161, label %stbte__draw_text.exit143, label %while.body.i.i90, !llvm.loop !22
 
-stbte__draw_text.exit142:                         ; preds = %while.body.i.i90, %stbte__draw_bitmap.exit.i.i102
+stbte__draw_text.exit143:                         ; preds = %while.body.i.i90, %stbte__draw_bitmap.exit.i.i103
   %sub124 = sub nsw i32 %w, %add122
   %47 = tail call i32 @llvm.smin.i32(i32 %sub124, i32 54)
   %spec.store.select = add nsw i32 %47, -4
@@ -10149,19 +10155,19 @@ stbte__draw_text.exit142:                         ; preds = %while.body.i.i90, %
   %idxprom130 = sext i32 %48 to i64
   %arrayidx131 = getelementptr inbounds [3 x ptr], ptr @__const.stbte__layers.propmodes, i64 0, i64 %idxprom130
   %49 = load ptr, ptr %arrayidx131, align 8
-  %add132 = add nsw i32 %add122, %add5148
+  %add132 = add nsw i32 %add122, %add5149
   %call133 = tail call i32 @stbte__button(i32 noundef 8, ptr noundef %49, i32 noundef %add132, i32 noundef %y.0.lcssa, i32 noundef 0, i32 noundef %spec.store.select, i32 noundef 32777, i32 noundef 0, i32 noundef 0)
   %tobool134.not = icmp eq i32 %call133, 0
   br i1 %tobool134.not, label %if.end140, label %if.then135
 
-if.then135:                                       ; preds = %stbte__draw_text.exit142
+if.then135:                                       ; preds = %stbte__draw_text.exit143
   %50 = load i32, ptr %propmode, align 4
   %add137 = add nsw i32 %50, 1
   %rem138 = srem i32 %add137, 3
   store i32 %rem138, ptr %propmode, align 4
   br label %if.end140
 
-if.end140:                                        ; preds = %if.then135, %stbte__draw_text.exit142
+if.end140:                                        ; preds = %if.then135, %stbte__draw_text.exit143
   ret void
 }
 
@@ -10835,8 +10841,8 @@ for.body60.us:                                    ; preds = %for.cond58.preheade
 
 for.cond58.for.inc71_crit_edge.us:                ; preds = %for.body60.us
   %inc72.us = add nuw i32 %j.0260.us, 1
-  %exitcond292.not = icmp eq i32 %inc72.us, %j1.0
-  br i1 %exitcond292.not, label %for.end73, label %for.cond58.preheader.us, !llvm.loop !63
+  %exitcond293.not = icmp eq i32 %inc72.us, %j1.0
+  br i1 %exitcond293.not, label %for.end73, label %for.cond58.preheader.us, !llvm.loop !63
 
 for.end73:                                        ; preds = %for.cond58.for.inc71_crit_edge.us, %for.cond55.preheader
   %cmp74 = icmp eq i32 %n.0270, 0
@@ -10908,11 +10914,11 @@ for.inc112:                                       ; preds = %for.body104, %for.c
   br i1 %cmp54, label %for.cond55.preheader, label %if.end115.loopexit, !llvm.loop !66
 
 if.end115.loopexit:                               ; preds = %for.inc112
-  %.pre304 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 20), align 4
+  %.pre306 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 20), align 4
   br label %if.end115
 
 if.end115:                                        ; preds = %if.end115.loopexit, %for.cond.preheader
-  %75 = phi i32 [ %.pre304, %if.end115.loopexit ], [ 0, %for.cond.preheader ]
+  %75 = phi i32 [ %.pre306, %if.end115.loopexit ], [ 0, %for.cond.preheader ]
   %cmp116 = icmp eq i32 %75, 0
   %76 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 5188), align 4
   %cmp118 = icmp eq i32 %76, 2
@@ -10980,8 +10986,8 @@ for.body149:                                      ; preds = %for.cond144.prehead
 if.end157:                                        ; preds = %for.body149, %if.end14, %for.cond144.preheader, %if.end115
   %cmp159282 = icmp slt i32 %spec.store.select1, %j1.0
   %cmp162280 = icmp slt i32 %spec.store.select, %spec.select
-  %or.cond321 = select i1 %cmp159282, i1 %cmp162280, i1 false
-  br i1 %or.cond321, label %for.cond161.preheader.us, label %for.end181
+  %or.cond323 = select i1 %cmp159282, i1 %cmp162280, i1 false
+  br i1 %or.cond323, label %for.cond161.preheader.us, label %for.end181
 
 for.cond161.preheader.us:                         ; preds = %if.end157, %for.cond161.for.inc179_crit_edge.us
   %j.3283.us = phi i32 [ %inc180.us, %for.cond161.for.inc179_crit_edge.us ], [ %spec.store.select1, %if.end157 ]
@@ -11003,13 +11009,13 @@ for.body163.us:                                   ; preds = %for.cond161.prehead
   %sub175.us = sub i32 %add173.us, %102
   tail call void @stbte__tile(ptr noundef nonnull %tm, i32 noundef %sub169.us, i32 noundef %sub175.us, i32 noundef %i.3281.us, i32 noundef %j.3283.us)
   %inc177.us = add nuw i32 %i.3281.us, 1
-  %exitcond293.not = icmp eq i32 %inc177.us, %spec.select
-  br i1 %exitcond293.not, label %for.cond161.for.inc179_crit_edge.us, label %for.body163.us, !llvm.loop !69
+  %exitcond294.not = icmp eq i32 %inc177.us, %spec.select
+  br i1 %exitcond294.not, label %for.cond161.for.inc179_crit_edge.us, label %for.body163.us, !llvm.loop !69
 
 for.cond161.for.inc179_crit_edge.us:              ; preds = %for.body163.us
   %inc180.us = add nuw i32 %j.3283.us, 1
-  %exitcond294.not = icmp eq i32 %inc180.us, %j1.0
-  br i1 %exitcond294.not, label %for.end181, label %for.cond161.preheader.us, !llvm.loop !70
+  %exitcond295.not = icmp eq i32 %inc180.us, %j1.0
+  br i1 %exitcond295.not, label %for.end181, label %for.cond161.preheader.us, !llvm.loop !70
 
 for.end181:                                       ; preds = %for.cond161.for.inc179_crit_edge.us, %if.end157
   %103 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 20), align 4
@@ -11146,25 +11152,25 @@ stbte__hittest.exit:                              ; preds = %if.end223, %land.en
 sw.bb:                                            ; preds = %stbte__hittest.exit
   %134 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 20), align 4
   %cmp235 = icmp eq i32 %134, 0
-  %.pre308 = load i32, ptr %y0225, align 8
-  %.pre310 = load i32, ptr %width227, align 4
+  %.pre310 = load i32, ptr %y0225, align 8
+  %.pre312 = load i32, ptr %width227, align 4
   br i1 %cmp235, label %if.then236, label %if.end245
 
 if.then236:                                       ; preds = %sw.bb
-  %.pre312 = load i32, ptr %height230, align 8
-  %add241 = add nsw i32 %.pre310, %123
-  %add244 = add nsw i32 %.pre312, %.pre308
+  %.pre314 = load i32, ptr %height230, align 8
+  %add241 = add nsw i32 %.pre312, %123
+  %add244 = add nsw i32 %.pre314, %.pre310
   %135 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__color_table, i64 84), align 4
-  tail call void @STBTE_DRAW_RECT(i32 noundef %123, i32 noundef %.pre308, i32 noundef %add241, i32 noundef %add244, i32 noundef %135) #25
-  %.pre306 = load i32, ptr %x0224, align 4
-  %.pre307 = load i32, ptr %y0225, align 8
-  %.pre309 = load i32, ptr %width227, align 4
+  tail call void @STBTE_DRAW_RECT(i32 noundef %123, i32 noundef %.pre310, i32 noundef %add241, i32 noundef %add244, i32 noundef %135) #25
+  %.pre308 = load i32, ptr %x0224, align 4
+  %.pre309 = load i32, ptr %y0225, align 8
+  %.pre311 = load i32, ptr %width227, align 4
   br label %if.end245
 
 if.end245:                                        ; preds = %if.then236, %sw.bb
-  %136 = phi i32 [ %.pre309, %if.then236 ], [ %.pre310, %sw.bb ]
-  %137 = phi i32 [ %.pre307, %if.then236 ], [ %.pre308, %sw.bb ]
-  %138 = phi i32 [ %.pre306, %if.then236 ], [ %123, %sw.bb ]
+  %136 = phi i32 [ %.pre311, %if.then236 ], [ %.pre312, %sw.bb ]
+  %137 = phi i32 [ %.pre309, %if.then236 ], [ %.pre310, %sw.bb ]
+  %138 = phi i32 [ %.pre308, %if.then236 ], [ %123, %sw.bb ]
   tail call void @stbte__toolbar(ptr noundef %tm, i32 noundef %138, i32 noundef %137, i32 noundef %136, i32 poison)
   br label %sw.epilog
 
@@ -11209,11 +11215,11 @@ if.then270:                                       ; preds = %land.lhs.true268
   %add280 = add nsw i32 %149, 1
   %151 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__color_table, i64 252), align 4
   tail call void @STBTE_DRAW_RECT(i32 noundef %add272, i32 noundef %sub274, i32 noundef %sub278, i32 noundef %add280, i32 noundef %151) #25
-  %.pre305 = load i32, ptr %x0224, align 4
+  %.pre307 = load i32, ptr %x0224, align 4
   br label %if.end281
 
 if.end281:                                        ; preds = %if.then270, %land.lhs.true268, %sw.bb266
-  %152 = phi i32 [ %.pre305, %if.then270 ], [ %123, %land.lhs.true268 ], [ %123, %sw.bb266 ]
+  %152 = phi i32 [ %.pre307, %if.then270 ], [ %123, %land.lhs.true268 ], [ %123, %sw.bb266 ]
   %153 = load i32, ptr %y0225, align 8
   %154 = load i32, ptr %width227, align 4
   %155 = load i32, ptr %height230, align 8
@@ -11227,31 +11233,30 @@ sw.epilog:                                        ; preds = %if.end281, %sw.bb26
   br i1 %cmp294, label %for.inc326, label %for.body293.preheader
 
 for.body293.preheader:                            ; preds = %sw.epilog
-  %156 = trunc nuw nsw i64 %124 to i32
+  %156 = trunc i64 %124 to i32
+  %157 = or disjoint i32 %156, 131
   br label %for.body293
 
 for.body293:                                      ; preds = %for.body293.preheader, %for.inc323
   %cmp292 = phi i1 [ false, %for.inc323 ], [ true, %for.body293.preheader ]
-  %j.4284 = phi i32 [ 1, %for.inc323 ], [ 0, %for.body293.preheader ]
-  %157 = load i32, ptr %x0224, align 4
-  %158 = load i32, ptr %width227, align 4
-  %mul302 = shl nuw nsw i32 %j.4284, 2
+  %j.4285 = phi i32 [ 1, %for.inc323 ], [ 0, %for.body293.preheader ]
+  %158 = load i32, ptr %x0224, align 4
+  %159 = load i32, ptr %width227, align 4
+  %mul302 = shl nuw nsw i32 %j.4285, 2
   %add299 = add nuw nsw i32 %mul302, -9
-  %sub301 = add i32 %add299, %157
-  %add303 = add i32 %sub301, %158
-  %159 = load i32, ptr %y0225, align 8
-  %add305 = add nsw i32 %159, 2
-  %add307 = shl nuw nsw i32 %j.4284, 7
-  %160 = add nuw nsw i32 %add307, 128
-  %shl309 = or disjoint i32 %160, %156
-  %add310 = or disjoint i32 %shl309, 3
-  %add311 = or disjoint i32 %j.4284, 4
-  %call312 = tail call i32 @stbte__microbutton(i32 noundef %add303, i32 noundef %add305, i32 noundef 3, i32 noundef %add310, i32 noundef %add311)
+  %sub301 = add i32 %add299, %158
+  %add303 = add i32 %sub301, %159
+  %160 = load i32, ptr %y0225, align 8
+  %add305 = add nsw i32 %160, 2
+  %add307 = shl nuw nsw i32 %j.4285, 7
+  %add310.reass = add nuw nsw i32 %add307, %157
+  %add311 = or disjoint i32 %j.4285, 4
+  %call312 = tail call i32 @stbte__microbutton(i32 noundef %add303, i32 noundef %add305, i32 noundef 3, i32 noundef %add310.reass, i32 noundef %add311)
   %tobool313.not = icmp eq i32 %call312, 0
   br i1 %tobool313.not, label %for.inc323, label %if.then314
 
 if.then314:                                       ; preds = %for.body293
-  %trunc = trunc nuw i32 %j.4284 to i1
+  %trunc = trunc nuw i32 %j.4285 to i1
   br i1 %trunc, label %sw.bb319, label %sw.bb315
 
 sw.bb315:                                         ; preds = %if.then314
@@ -11271,8 +11276,8 @@ for.inc323:                                       ; preds = %for.body293, %sw.bb
 
 for.inc326:                                       ; preds = %for.inc323, %sw.epilog
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond298.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond298.not, label %for.end328, label %for.body214, !llvm.loop !72
+  %exitcond300.not = icmp eq i64 %indvars.iv.next, 7
+  br i1 %exitcond300.not, label %for.end328, label %for.body214, !llvm.loop !72
 
 for.end328:                                       ; preds = %for.inc326
   %162 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 5532), align 4
@@ -11297,8 +11302,8 @@ for.body337.preheader:                            ; preds = %if.then333, %if.end
 
 for.body337:                                      ; preds = %for.body337.preheader, %for.inc417
   %cmp347 = phi i1 [ false, %for.inc417 ], [ true, %for.body337.preheader ]
-  %indvars.iv299 = phi i64 [ 1, %for.inc417 ], [ 0, %for.body337.preheader ]
-  %arrayidx339 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %indvars.iv299
+  %indvars.iv301 = phi i64 [ 1, %for.inc417 ], [ 0, %for.body337.preheader ]
+  %arrayidx339 = getelementptr inbounds [4 x %struct.stbte__region_t], ptr @stbte__region, i64 0, i64 %indvars.iv301
   %active = getelementptr inbounds i8, ptr %arrayidx339, i64 16
   %164 = load i32, ptr %active, align 8
   %tobool340.not = icmp eq i32 %164, 0
@@ -11328,8 +11333,8 @@ if.end356:                                        ; preds = %if.else, %if.then34
   %y359 = getelementptr inbounds i8, ptr %arrayidx339, i64 12
   %169 = load i32, ptr %y359, align 4
   %add360 = add nsw i32 %169, 2
-  %indvars.iv299.tr = trunc nuw nsw i64 %indvars.iv299 to i32
-  %170 = shl nuw nsw i32 %indvars.iv299.tr, 7
+  %indvars.iv301.tr = trunc nuw nsw i64 %indvars.iv301 to i32
+  %170 = shl nuw nsw i32 %indvars.iv301.tr, 7
   %171 = or disjoint i32 %170, 2
   %call363 = call i32 @stbte__microbutton_dragger(i32 noundef %x342.0, i32 noundef %add360, i32 noundef 5, i32 noundef %171, ptr noundef nonnull %width346)
   %tobool364.not = icmp eq i32 %call363, 0
@@ -11386,21 +11391,21 @@ for.inc417:                                       ; preds = %for.body337, %if.th
 for.end419:                                       ; preds = %for.inc417
   %178 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 20), align 4
   %cmp420 = icmp eq i32 %178, 0
-  %.pre314 = load ptr, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 5352), align 8
+  %.pre316 = load ptr, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 5352), align 8
   br i1 %cmp420, label %land.lhs.true422, label %if.end453
 
 land.lhs.true422:                                 ; preds = %for.end419
-  %tobool423.not = icmp eq ptr %.pre314, null
+  %tobool423.not = icmp eq ptr %.pre316, null
   br i1 %tobool423.not, label %if.then467, label %if.then424
 
 if.then424:                                       ; preds = %land.lhs.true422
-  %179 = load i8, ptr %.pre314, align 1
+  %179 = load i8, ptr %.pre316, align 1
   %tobool.not3.i = icmp eq i8 %179, 0
   br i1 %tobool.not3.i, label %stbte__text_width.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.then424, %while.body.i
   %180 = phi i8 [ %182, %while.body.i ], [ %179, %if.then424 ]
-  %str.addr.05.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %.pre314, %if.then424 ]
+  %str.addr.05.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %.pre316, %if.then424 ]
   %x.04.i = phi i32 [ %add1.i, %while.body.i ], [ 0, %if.then424 ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.05.i, i64 1
   %conv.i = sext i8 %180 to i64
@@ -11464,6 +11469,7 @@ while.body.i.i:                                   ; preds = %stbte__text_width.e
   br i1 %cmp.i.i232, label %if.end453thread-pre-split.loopexit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i.i
+  %invariant.op.i.i.i = add i32 %x.addr.015.i.i, 1
   %cmp3.i.i.i233 = icmp sgt i16 %190, 0
   br i1 %cmp3.i.i.i233, label %for.body.i.preheader.i.i, label %stbte__draw_bitmap.exit.i.i
 
@@ -11484,7 +11490,7 @@ for.body.i.i.i234:                                ; preds = %stbte__draw_bitmask
   br i1 %tobool.not11.i.i.i.i, label %stbte__draw_bitmask_as_columns.exit.i.i.i, label %while.body.lr.ph.i.i.i.i
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %for.body.i.i.i234
-  %add7.i.i.i.i = add nsw i32 %add.i.i.i, 1
+  %add7.i.reass.i.i.i = add i32 %i.05.i.i.i, %invariant.op.i.i.i
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end14.i.i.i.i, %while.body.lr.ph.i.i.i.i
@@ -11509,7 +11515,7 @@ if.else.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
 if.then6.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
   %add.i.i.i.i = add nsw i32 %start_i.013.i.i.i.i, %sub451
   %add8.i.i.i.i = add nsw i32 %i.014.i.i.i.i, %sub451
-  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i.i, i32 noundef %add.i.i.i.i, i32 noundef %add7.i.i.i.i, i32 noundef %add8.i.i.i.i, i32 noundef 16744512) #25
+  tail call void @STBTE_DRAW_RECT(i32 noundef %add.i.i.i, i32 noundef %add.i.i.i.i, i32 noundef %add7.i.reass.i.i.i, i32 noundef %add8.i.i.i.i, i32 noundef 16744512) #25
   %193 = trunc i32 %shl.i.i.i.i to i16
   %194 = sub i16 0, %193
   %conv12.i.i.i.i = and i16 %bitmask.addr.012.i.i.i.i, %194
@@ -11528,22 +11534,22 @@ stbte__draw_bitmask_as_columns.exit.i.i.i:        ; preds = %if.end14.i.i.i.i, %
   br i1 %exitcond.not.i.i.i237, label %stbte__draw_bitmap.exit.i.i, label %for.body.i.i.i234, !llvm.loop !21
 
 stbte__draw_bitmap.exit.i.i:                      ; preds = %stbte__draw_bitmask_as_columns.exit.i.i.i, %if.end.i.i
-  %add11.i.i = add i32 %add1.i.i, 1
+  %add11.i.i = add i32 %invariant.op.i.i.i, %conv.i.i.i231
   %195 = load i8, ptr %incdec.ptr.i.i, align 1
   %tobool.not.i.i = icmp eq i8 %195, 0
   br i1 %tobool.not.i.i, label %if.end453thread-pre-split.loopexit, label %while.body.i.i, !llvm.loop !22
 
 if.end453thread-pre-split.loopexit:               ; preds = %stbte__draw_bitmap.exit.i.i, %while.body.i.i
-  %.pre313.pre = load ptr, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 5352), align 8
+  %.pre315.pre = load ptr, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 5352), align 8
   br label %if.end453thread-pre-split
 
 if.end453thread-pre-split:                        ; preds = %if.end453thread-pre-split.loopexit, %stbte__text_width.exit
-  %.pre313 = phi ptr [ %.pre313.pre, %if.end453thread-pre-split.loopexit ], [ %187, %stbte__text_width.exit ]
+  %.pre315 = phi ptr [ %.pre315.pre, %if.end453thread-pre-split.loopexit ], [ %187, %stbte__text_width.exit ]
   %.pr = load i32, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 20), align 4
   br label %if.end453
 
 if.end453:                                        ; preds = %if.end453thread-pre-split, %for.end419
-  %196 = phi ptr [ %.pre313, %if.end453thread-pre-split ], [ %.pre314, %for.end419 ]
+  %196 = phi ptr [ %.pre315, %if.end453thread-pre-split ], [ %.pre316, %for.end419 ]
   %197 = phi i32 [ %.pr, %if.end453thread-pre-split ], [ %178, %for.end419 ]
   %cmp454 = icmp ne i32 %197, 1
   %tobool457.not = icmp eq ptr %196, null

@@ -2361,11 +2361,11 @@ while.body59:                                     ; preds = %_ZNK14NodeDefManage
   %41 = load ptr, ptr %m_map, align 8, !tbaa !18
   %testpos.sroa.6.0.insert.ext = zext i16 %add8.i336 to i48
   %testpos.sroa.6.0.insert.shift = shl nuw nsw i48 %testpos.sroa.6.0.insert.ext, 16
-  %testpos.sroa.6.0.insert.insert = or disjoint i48 %testpos.sroa.6.0.insert.shift, %retval.sroa.3.0.insert.shift.i
-  %testpos.sroa.0.0.insert.insert = or disjoint i48 %testpos.sroa.6.0.insert.insert, %retval.sroa.0.0.insert.ext.i
-  %call65 = tail call i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %41, i48 %testpos.sroa.0.0.insert.insert, ptr noundef null)
-  %42 = and i32 %call65, 65535
-  %cmp49.not = icmp eq i32 %42, 127
+  %42 = or disjoint i48 %testpos.sroa.6.0.insert.shift, %retval.sroa.0.0.insert.ext.i
+  %testpos.sroa.0.0.insert.insert.reass = or disjoint i48 %42, %retval.sroa.3.0.insert.shift.i
+  %call65 = tail call i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %41, i48 %testpos.sroa.0.0.insert.insert.reass, ptr noundef null)
+  %43 = and i32 %call65, 65535
+  %cmp49.not = icmp eq i32 %43, 127
   br i1 %cmp49.not, label %cleanup225, label %land.lhs.true, !llvm.loop !141
 
 while.end66:                                      ; preds = %_ZNK14NodeDefManager3getERK7MapNode.exit330
@@ -2378,8 +2378,8 @@ land.lhs.true78:                                  ; preds = %while.end66
 land.lhs.true.i.i350:                             ; preds = %land.lhs.true78
   %add.ptr.i.i.i351 = getelementptr inbounds %struct.ContentFeatures, ptr %37, i64 %conv.i.i316
   %_M_string_length.i.i.i.i352 = getelementptr inbounds i8, ptr %add.ptr.i.i.i351, i64 1456
-  %43 = load i64, ptr %_M_string_length.i.i.i.i352, align 8, !tbaa !49
-  %cmp.i.i.i353 = icmp eq i64 %43, 0
+  %44 = load i64, ptr %_M_string_length.i.i.i.i352, align 8, !tbaa !49
+  %cmp.i.i.i353 = icmp eq i64 %44, 0
   br i1 %cmp.i.i.i353, label %cond.false.i.i347, label %_ZNK14NodeDefManager3getERK7MapNode.exit354
 
 cond.false.i.i347:                                ; preds = %land.lhs.true.i.i350, %land.lhs.true78
@@ -2389,18 +2389,18 @@ cond.false.i.i347:                                ; preds = %land.lhs.true.i.i35
 _ZNK14NodeDefManager3getERK7MapNode.exit354:      ; preds = %cond.false.i.i347, %land.lhs.true.i.i350
   %cond-lvalue.i.i349 = phi ptr [ %add.ptr.i14.i.i348, %cond.false.i.i347 ], [ %add.ptr.i.i.i351, %land.lhs.true.i.i350 ]
   %walkable81 = getelementptr inbounds i8, ptr %cond-lvalue.i.i349, i64 3043
-  %44 = load i8, ptr %walkable81, align 1, !tbaa !52, !range !86, !noundef !87
-  %tobool82.not = icmp eq i8 %44, 0
+  %45 = load i8, ptr %walkable81, align 1, !tbaa !52, !range !86, !noundef !87
+  %tobool82.not = icmp eq i8 %45, 0
   br i1 %tobool82.not, label %cleanup225, label %if.then83
 
 if.then83:                                        ; preds = %_ZNK14NodeDefManager3getERK7MapNode.exit354
   %conv85 = sext i16 %add8.i to i32
-  %45 = xor i16 %testpos.sroa.6.0536, -1
-  %46 = sext i16 %45 to i32
-  %sub88 = add nsw i32 %46, %conv85
+  %46 = xor i16 %testpos.sroa.6.0536, -1
+  %47 = sext i16 %46 to i32
+  %sub88 = add nsw i32 %47, %conv85
   %m_maxdrop = getelementptr inbounds i8, ptr %this, i64 12
-  %47 = load i32, ptr %m_maxdrop, align 4, !tbaa !23
-  %cmp89.not = icmp sgt i32 %sub88, %47
+  %48 = load i32, ptr %m_maxdrop, align 4, !tbaa !23
+  %cmp89.not = icmp sgt i32 %sub88, %48
   br i1 %cmp89.not, label %if.else102, label %if.then90
 
 if.then90:                                        ; preds = %if.then83
@@ -2415,35 +2415,35 @@ if.then90:                                        ; preds = %if.then83
 
 if.else102:                                       ; preds = %if.then83
   %.not = icmp eq ptr @_ZTH10infostream, null
-  br i1 %.not, label %_ZTW10infostream.exit, label %48
+  br i1 %.not, label %_ZTW10infostream.exit, label %49
 
-48:                                               ; preds = %if.else102
+49:                                               ; preds = %if.else102
   tail call void @_ZTH10infostream()
   br label %_ZTW10infostream.exit
 
-_ZTW10infostream.exit:                            ; preds = %48, %if.else102
-  %49 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @infostream)
-  %call103 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9LogStreamlsIRA13_KcEER11StreamProxyOT_(ptr noundef nonnull align 8 dereferenceable(992) %49, ptr noundef nonnull align 1 dereferenceable(13) @.str)
+_ZTW10infostream.exit:                            ; preds = %49, %if.else102
+  %50 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @infostream)
+  %call103 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9LogStreamlsIRA13_KcEER11StreamProxyOT_(ptr noundef nonnull align 8 dereferenceable(992) %50, ptr noundef nonnull align 1 dereferenceable(13) @.str)
   %call104 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN11StreamProxylsIRA48_KcEERS_OT_(ptr noundef nonnull align 8 dereferenceable(8) %call103, ptr noundef nonnull align 1 dereferenceable(48) @.str.14)
-  %50 = load ptr, ptr %call104, align 8, !tbaa !98
-  %tobool.not.i355 = icmp eq ptr %50, null
+  %51 = load ptr, ptr %call104, align 8, !tbaa !98
+  %tobool.not.i355 = icmp eq ptr %51, null
   br i1 %tobool.not.i355, label %_ZN11StreamProxylsIiEERS_OT_.exit, label %if.then.i356
 
 if.then.i356:                                     ; preds = %_ZTW10infostream.exit
   %conv107 = sext i16 %testpos.sroa.6.0536 to i32
   %sub110 = sub nsw i32 %conv107, %conv85
-  %call.i357 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %50, i32 noundef %sub110)
+  %call.i357 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %51, i32 noundef %sub110)
   br label %_ZN11StreamProxylsIiEERS_OT_.exit
 
 _ZN11StreamProxylsIiEERS_OT_.exit:                ; preds = %if.then.i356, %_ZTW10infostream.exit
   %call112 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN11StreamProxylsIRA7_KcEERS_OT_(ptr noundef nonnull align 8 dereferenceable(8) %call104, ptr noundef nonnull align 1 dereferenceable(7) @.str.15)
-  %51 = load ptr, ptr %call112, align 8, !tbaa !98
-  %tobool.not.i358 = icmp eq ptr %51, null
+  %52 = load ptr, ptr %call112, align 8, !tbaa !98
+  %tobool.not.i358 = icmp eq ptr %52, null
   br i1 %tobool.not.i358, label %cleanup225, label %_ZN11StreamProxylsIRiEERS_OT_.exit
 
 _ZN11StreamProxylsIRiEERS_OT_.exit:               ; preds = %_ZN11StreamProxylsIiEERS_OT_.exit
-  %52 = load i32, ptr %m_maxdrop, align 4, !tbaa !129
-  %call.i360 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %51, i32 noundef %52)
+  %53 = load i32, ptr %m_maxdrop, align 4, !tbaa !129
+  %call.i360 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %52, i32 noundef %53)
   %.pr492 = load ptr, ptr %call112, align 8, !tbaa !98
   %tobool.not.i361 = icmp eq ptr %.pr492, null
   br i1 %tobool.not.i361, label %cleanup225, label %if.then.i362
@@ -2454,15 +2454,15 @@ if.then.i362:                                     ; preds = %_ZN11StreamProxylsI
 
 if.else123:                                       ; preds = %_ZNK14NodeDefManager3getERK7MapNode.exit
   %call126 = tail call i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %20, i48 %retval.sroa.0.0.insert.insert.i, ptr noundef null)
-  %53 = load ptr, ptr %m_map, align 8, !tbaa !18
-  %call129 = tail call i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %53, i48 %pos.coerce, ptr noundef null)
+  %54 = load ptr, ptr %m_map, align 8, !tbaa !18
+  %call129 = tail call i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %54, i48 %pos.coerce, ptr noundef null)
   %node_jump.sroa.0.0.extract.trunc521 = trunc i32 %call129 to i16
-  %54 = and i32 %call126, 65535
-  %cmp133.not522 = icmp eq i32 %54, 127
+  %55 = and i32 %call126, 65535
+  %cmp133.not522 = icmp eq i32 %55, 127
   br i1 %cmp133.not522, label %while.end169, label %land.lhs.true134.lr.ph
 
 land.lhs.true134.lr.ph:                           ; preds = %if.else123
-  %55 = and i48 %pos.coerce, -4294901761
+  %56 = and i48 %pos.coerce, -4294901761
   br label %land.lhs.true134
 
 land.lhs.true134:                                 ; preds = %if.end156, %land.lhs.true134.lr.ph
@@ -2471,37 +2471,37 @@ land.lhs.true134:                                 ; preds = %if.end156, %land.lh
   %targetpos.sroa.7.0525 = phi i16 [ %add8.i, %land.lhs.true134.lr.ph ], [ %add8.i398, %if.end156 ]
   %jumppos.sroa.7.0524 = phi i16 [ %pos.sroa.3.0.extract.trunc, %land.lhs.true134.lr.ph ], [ %add8.i407, %if.end156 ]
   %node_target.sroa.0.0.in523 = phi i32 [ %call126, %land.lhs.true134.lr.ph ], [ %call164, %if.end156 ]
-  %56 = load ptr, ptr %m_ndef, align 8, !tbaa !19
+  %57 = load ptr, ptr %m_ndef, align 8, !tbaa !19
   %node_target.sroa.0.0.mask = and i32 %node_target.sroa.0.0.in523, 65535
   %conv.i.i363 = zext nneg i32 %node_target.sroa.0.0.mask to i64
-  %_M_finish.i.i.i364 = getelementptr inbounds i8, ptr %56, i64 8
-  %57 = load ptr, ptr %_M_finish.i.i.i364, align 8, !tbaa !46
-  %58 = load ptr, ptr %56, align 8, !tbaa !48
-  %sub.ptr.lhs.cast.i.i.i365 = ptrtoint ptr %57 to i64
-  %sub.ptr.rhs.cast.i.i.i366 = ptrtoint ptr %58 to i64
+  %_M_finish.i.i.i364 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = load ptr, ptr %_M_finish.i.i.i364, align 8, !tbaa !46
+  %59 = load ptr, ptr %57, align 8, !tbaa !48
+  %sub.ptr.lhs.cast.i.i.i365 = ptrtoint ptr %58 to i64
+  %sub.ptr.rhs.cast.i.i.i366 = ptrtoint ptr %59 to i64
   %sub.ptr.sub.i.i.i367 = sub i64 %sub.ptr.lhs.cast.i.i.i365, %sub.ptr.rhs.cast.i.i.i366
   %sub.ptr.div.i.i.i368 = sdiv exact i64 %sub.ptr.sub.i.i.i367, 3712
   %cmp.i.i369 = icmp ugt i64 %sub.ptr.div.i.i.i368, %conv.i.i363
   br i1 %cmp.i.i369, label %land.lhs.true.i.i373, label %cond.false.i.i370
 
 land.lhs.true.i.i373:                             ; preds = %land.lhs.true134
-  %add.ptr.i.i.i374 = getelementptr inbounds %struct.ContentFeatures, ptr %58, i64 %conv.i.i363
+  %add.ptr.i.i.i374 = getelementptr inbounds %struct.ContentFeatures, ptr %59, i64 %conv.i.i363
   %_M_string_length.i.i.i.i375 = getelementptr inbounds i8, ptr %add.ptr.i.i.i374, i64 1456
-  %59 = load i64, ptr %_M_string_length.i.i.i.i375, align 8, !tbaa !49
-  %cmp.i.i.i376 = icmp eq i64 %59, 0
+  %60 = load i64, ptr %_M_string_length.i.i.i.i375, align 8, !tbaa !49
+  %cmp.i.i.i376 = icmp eq i64 %60, 0
   br i1 %cmp.i.i.i376, label %cond.false.i.i370, label %_ZNK14NodeDefManager3getERK7MapNode.exit377
 
 cond.false.i.i370:                                ; preds = %land.lhs.true.i.i373, %land.lhs.true134
-  %add.ptr.i14.i.i371 = getelementptr inbounds i8, ptr %58, i64 464000
+  %add.ptr.i14.i.i371 = getelementptr inbounds i8, ptr %59, i64 464000
   br label %_ZNK14NodeDefManager3getERK7MapNode.exit377
 
 _ZNK14NodeDefManager3getERK7MapNode.exit377:      ; preds = %cond.false.i.i370, %land.lhs.true.i.i373
   %cond-lvalue.i.i372 = phi ptr [ %add.ptr.i14.i.i371, %cond.false.i.i370 ], [ %add.ptr.i.i.i374, %land.lhs.true.i.i373 ]
   %walkable137 = getelementptr inbounds i8, ptr %cond-lvalue.i.i372, i64 3043
-  %60 = load i8, ptr %walkable137, align 1, !tbaa !52, !range !86, !noundef !87
-  %tobool138.not = icmp ne i8 %60, 0
-  %61 = load i16, ptr %Y19.i, align 2
-  %cmp145 = icmp slt i16 %targetpos.sroa.7.0525, %61
+  %61 = load i8, ptr %walkable137, align 1, !tbaa !52, !range !86, !noundef !87
+  %tobool138.not = icmp ne i8 %61, 0
+  %62 = load i16, ptr %Y19.i, align 2
+  %cmp145 = icmp slt i16 %targetpos.sroa.7.0525, %62
   %or.cond502 = select i1 %tobool138.not, i1 %cmp145, i1 false
   br i1 %or.cond502, label %while.body147, label %while.end169
 
@@ -2516,40 +2516,40 @@ lor.lhs.false:                                    ; preds = %while.body147
   br i1 %cmp.i.i384, label %land.lhs.true.i.i388, label %cond.false.i.i385
 
 land.lhs.true.i.i388:                             ; preds = %lor.lhs.false
-  %add.ptr.i.i.i389 = getelementptr inbounds %struct.ContentFeatures, ptr %58, i64 %conv.i.i378
+  %add.ptr.i.i.i389 = getelementptr inbounds %struct.ContentFeatures, ptr %59, i64 %conv.i.i378
   %_M_string_length.i.i.i.i390 = getelementptr inbounds i8, ptr %add.ptr.i.i.i389, i64 1456
-  %62 = load i64, ptr %_M_string_length.i.i.i.i390, align 8, !tbaa !49
-  %cmp.i.i.i391 = icmp eq i64 %62, 0
+  %63 = load i64, ptr %_M_string_length.i.i.i.i390, align 8, !tbaa !49
+  %cmp.i.i.i391 = icmp eq i64 %63, 0
   br i1 %cmp.i.i.i391, label %cond.false.i.i385, label %_ZNK14NodeDefManager3getERK7MapNode.exit392
 
 cond.false.i.i385:                                ; preds = %land.lhs.true.i.i388, %lor.lhs.false
-  %add.ptr.i14.i.i386 = getelementptr inbounds i8, ptr %58, i64 464000
+  %add.ptr.i14.i.i386 = getelementptr inbounds i8, ptr %59, i64 464000
   br label %_ZNK14NodeDefManager3getERK7MapNode.exit392
 
 _ZNK14NodeDefManager3getERK7MapNode.exit392:      ; preds = %cond.false.i.i385, %land.lhs.true.i.i388
   %cond-lvalue.i.i387 = phi ptr [ %add.ptr.i14.i.i386, %cond.false.i.i385 ], [ %add.ptr.i.i.i389, %land.lhs.true.i.i388 ]
   %walkable153 = getelementptr inbounds i8, ptr %cond-lvalue.i.i387, i64 3043
-  %63 = load i8, ptr %walkable153, align 1, !tbaa !52, !range !86, !noundef !87
-  %tobool154.not = icmp eq i8 %63, 0
+  %64 = load i8, ptr %walkable153, align 1, !tbaa !52, !range !86, !noundef !87
+  %tobool154.not = icmp eq i8 %64, 0
   br i1 %tobool154.not, label %if.end156, label %lor.lhs.false173
 
 if.end156:                                        ; preds = %_ZNK14NodeDefManager3getERK7MapNode.exit392
   %add8.i398 = add nsw i16 %targetpos.sroa.7.0525, 1
   %add8.i407 = add i16 %jumppos.sroa.7.0524, 1
-  %64 = load ptr, ptr %m_map, align 8, !tbaa !18
+  %65 = load ptr, ptr %m_map, align 8, !tbaa !18
   %targetpos.sroa.7.0.insert.ext = zext i16 %add8.i398 to i48
   %targetpos.sroa.7.0.insert.shift = shl nuw nsw i48 %targetpos.sroa.7.0.insert.ext, 16
-  %targetpos.sroa.7.0.insert.insert = or disjoint i48 %targetpos.sroa.7.0.insert.shift, %retval.sroa.3.0.insert.shift.i
-  %targetpos.sroa.0.0.insert.insert = or disjoint i48 %targetpos.sroa.7.0.insert.insert, %retval.sroa.0.0.insert.ext.i
-  %call164 = tail call i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %64, i48 %targetpos.sroa.0.0.insert.insert, ptr noundef null)
-  %65 = load ptr, ptr %m_map, align 8, !tbaa !18
+  %66 = or disjoint i48 %targetpos.sroa.7.0.insert.shift, %retval.sroa.0.0.insert.ext.i
+  %targetpos.sroa.0.0.insert.insert.reass = or disjoint i48 %66, %retval.sroa.3.0.insert.shift.i
+  %call164 = tail call i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %65, i48 %targetpos.sroa.0.0.insert.insert.reass, ptr noundef null)
+  %67 = load ptr, ptr %m_map, align 8, !tbaa !18
   %jumppos.sroa.7.0.insert.ext = zext i16 %add8.i407 to i48
   %jumppos.sroa.7.0.insert.shift = shl nuw nsw i48 %jumppos.sroa.7.0.insert.ext, 16
-  %jumppos.sroa.0.0.insert.insert = or disjoint i48 %jumppos.sroa.7.0.insert.shift, %55
-  %call168 = tail call i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %65, i48 %jumppos.sroa.0.0.insert.insert, ptr noundef null)
+  %jumppos.sroa.0.0.insert.insert = or disjoint i48 %jumppos.sroa.7.0.insert.shift, %56
+  %call168 = tail call i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %67, i48 %jumppos.sroa.0.0.insert.insert, ptr noundef null)
   %node_jump.sroa.0.0.extract.trunc = trunc i32 %call168 to i16
-  %66 = and i32 %call164, 65535
-  %cmp133.not = icmp eq i32 %66, 127
+  %68 = and i32 %call164, 65535
+  %cmp133.not = icmp eq i32 %68, 127
   br i1 %cmp133.not, label %while.end169, label %land.lhs.true134, !llvm.loop !142
 
 while.end169:                                     ; preds = %if.end156, %_ZNK14NodeDefManager3getERK7MapNode.exit377, %if.else123
@@ -2576,7 +2576,7 @@ while.end169.lor.lhs.false173_crit_edge:          ; preds = %while.end169
 lor.lhs.false173:                                 ; preds = %_ZNK14NodeDefManager3getERK7MapNode.exit392, %while.end169.lor.lhs.false173_crit_edge
   %sub.ptr.div.i.i.i416.pre-phi = phi i64 [ %.pre554, %while.end169.lor.lhs.false173_crit_edge ], [ %sub.ptr.div.i.i.i368, %_ZNK14NodeDefManager3getERK7MapNode.exit392 ]
   %conv.i.i411.pre-phi = phi i64 [ %.pre550, %while.end169.lor.lhs.false173_crit_edge ], [ %conv.i.i378, %_ZNK14NodeDefManager3getERK7MapNode.exit392 ]
-  %67 = phi ptr [ %.pre548, %while.end169.lor.lhs.false173_crit_edge ], [ %58, %_ZNK14NodeDefManager3getERK7MapNode.exit392 ]
+  %69 = phi ptr [ %.pre548, %while.end169.lor.lhs.false173_crit_edge ], [ %59, %_ZNK14NodeDefManager3getERK7MapNode.exit392 ]
   %node_target.sroa.0.0.in520 = phi i32 [ %node_target.sroa.0.0.in.lcssa, %while.end169.lor.lhs.false173_crit_edge ], [ %node_target.sroa.0.0.in523, %_ZNK14NodeDefManager3getERK7MapNode.exit392 ]
   %targetpos.sroa.7.0517 = phi i16 [ %targetpos.sroa.7.0.lcssa, %while.end169.lor.lhs.false173_crit_edge ], [ %targetpos.sroa.7.0525, %_ZNK14NodeDefManager3getERK7MapNode.exit392 ]
   %headbanger.0499 = phi i1 [ false, %while.end169.lor.lhs.false173_crit_edge ], [ true, %_ZNK14NodeDefManager3getERK7MapNode.exit392 ]
@@ -2584,24 +2584,24 @@ lor.lhs.false173:                                 ; preds = %_ZNK14NodeDefManage
   br i1 %cmp.i.i417, label %land.lhs.true.i.i421, label %cond.false.i.i418
 
 land.lhs.true.i.i421:                             ; preds = %lor.lhs.false173
-  %add.ptr.i.i.i422 = getelementptr inbounds %struct.ContentFeatures, ptr %67, i64 %conv.i.i411.pre-phi
+  %add.ptr.i.i.i422 = getelementptr inbounds %struct.ContentFeatures, ptr %69, i64 %conv.i.i411.pre-phi
   %_M_string_length.i.i.i.i423 = getelementptr inbounds i8, ptr %add.ptr.i.i.i422, i64 1456
-  %68 = load i64, ptr %_M_string_length.i.i.i.i423, align 8, !tbaa !49
-  %cmp.i.i.i424 = icmp eq i64 %68, 0
+  %70 = load i64, ptr %_M_string_length.i.i.i.i423, align 8, !tbaa !49
+  %cmp.i.i.i424 = icmp eq i64 %70, 0
   br i1 %cmp.i.i.i424, label %cond.false.i.i418, label %_ZNK14NodeDefManager3getERK7MapNode.exit425
 
 cond.false.i.i418:                                ; preds = %land.lhs.true.i.i421, %lor.lhs.false173
-  %add.ptr.i14.i.i419 = getelementptr inbounds i8, ptr %67, i64 464000
+  %add.ptr.i14.i.i419 = getelementptr inbounds i8, ptr %69, i64 464000
   br label %_ZNK14NodeDefManager3getERK7MapNode.exit425
 
 _ZNK14NodeDefManager3getERK7MapNode.exit425:      ; preds = %cond.false.i.i418, %land.lhs.true.i.i421
   %cond-lvalue.i.i420 = phi ptr [ %add.ptr.i14.i.i419, %cond.false.i.i418 ], [ %add.ptr.i.i.i422, %land.lhs.true.i.i421 ]
   %walkable176 = getelementptr inbounds i8, ptr %cond-lvalue.i.i420, i64 3043
-  %69 = load i8, ptr %walkable176, align 1, !tbaa !52, !range !86, !noundef !87
-  %tobool177.not = icmp ne i8 %69, 0
+  %71 = load i8, ptr %walkable176, align 1, !tbaa !52, !range !86, !noundef !87
+  %tobool177.not = icmp ne i8 %71, 0
   %brmerge = or i1 %headbanger.0499, %tobool177.not
-  %70 = load i16, ptr %Y19.i, align 2
-  %cmp188.not = icmp sgt i16 %targetpos.sroa.7.0517, %70
+  %72 = load i16, ptr %Y19.i, align 2
+  %cmp188.not = icmp sgt i16 %targetpos.sroa.7.0517, %72
   %or.cond503 = select i1 %brmerge, i1 true, i1 %cmp188.not
   br i1 %or.cond503, label %cleanup225, label %land.lhs.true189
 
@@ -2612,21 +2612,21 @@ land.lhs.true189:                                 ; preds = %_ZNK14NodeDefManage
   br i1 %cmp.i.i432, label %land.lhs.true.i.i436, label %cond.false.i.i433
 
 land.lhs.true.i.i436:                             ; preds = %land.lhs.true189
-  %add.ptr.i.i.i437 = getelementptr inbounds %struct.ContentFeatures, ptr %67, i64 %conv.i.i426
+  %add.ptr.i.i.i437 = getelementptr inbounds %struct.ContentFeatures, ptr %69, i64 %conv.i.i426
   %_M_string_length.i.i.i.i438 = getelementptr inbounds i8, ptr %add.ptr.i.i.i437, i64 1456
-  %71 = load i64, ptr %_M_string_length.i.i.i.i438, align 8, !tbaa !49
-  %cmp.i.i.i439 = icmp eq i64 %71, 0
+  %73 = load i64, ptr %_M_string_length.i.i.i.i438, align 8, !tbaa !49
+  %cmp.i.i.i439 = icmp eq i64 %73, 0
   br i1 %cmp.i.i.i439, label %cond.false.i.i433, label %_ZNK14NodeDefManager3getERK7MapNode.exit440
 
 cond.false.i.i433:                                ; preds = %land.lhs.true.i.i436, %land.lhs.true189
-  %add.ptr.i14.i.i434 = getelementptr inbounds i8, ptr %67, i64 464000
+  %add.ptr.i14.i.i434 = getelementptr inbounds i8, ptr %69, i64 464000
   br label %_ZNK14NodeDefManager3getERK7MapNode.exit440
 
 _ZNK14NodeDefManager3getERK7MapNode.exit440:      ; preds = %cond.false.i.i433, %land.lhs.true.i.i436
   %cond-lvalue.i.i435 = phi ptr [ %add.ptr.i14.i.i434, %cond.false.i.i433 ], [ %add.ptr.i.i.i437, %land.lhs.true.i.i436 ]
   %walkable192 = getelementptr inbounds i8, ptr %cond-lvalue.i.i435, i64 3043
-  %72 = load i8, ptr %walkable192, align 1, !tbaa !52, !range !86, !noundef !87
-  %tobool193.not = icmp eq i8 %72, 0
+  %74 = load i8, ptr %walkable192, align 1, !tbaa !52, !range !86, !noundef !87
+  %tobool193.not = icmp eq i8 %74, 0
   br i1 %tobool193.not, label %if.then194, label %cleanup225
 
 if.then194:                                       ; preds = %_ZNK14NodeDefManager3getERK7MapNode.exit440
@@ -2634,8 +2634,8 @@ if.then194:                                       ; preds = %_ZNK14NodeDefManage
   %conv198 = sext i16 %add8.i to i32
   %sub199 = sub nsw i32 %conv196, %conv198
   %m_maxjump = getelementptr inbounds i8, ptr %this, i64 16
-  %73 = load i32, ptr %m_maxjump, align 8, !tbaa !22
-  %cmp200.not = icmp sgt i32 %sub199, %73
+  %75 = load i32, ptr %m_maxjump, align 8, !tbaa !22
+  %cmp200.not = icmp sgt i32 %sub199, %75
   br i1 %cmp200.not, label %cleanup225, label %if.then201
 
 if.then201:                                       ; preds = %if.then194
@@ -2785,21 +2785,21 @@ for.cond27.preheader.us.us.us:                    ; preds = %for.cond27.for.cond
   %y.088.us.us.us = phi i32 [ 0, %for.cond21.preheader.us.us ], [ %inc43.us.us.us, %for.cond27.for.cond.cleanup31_crit_edge.us.us.us ]
   %9 = shl i32 %y.088.us.us.us, 16
   %ipos.sroa.5.0.insert.shift.us.us.us = zext i32 %9 to i48
+  %invariant.op = add nuw nsw i48 %ipos.sroa.5.0.insert.shift.us.us.us, %ipos.sroa.0.0.insert.ext.us.us
   br label %for.body32.us.us.us
 
 for.body32.us.us.us:                              ; preds = %invoke.cont41.us.us.us, %for.cond27.preheader.us.us.us
   %z.086.us.us.us = phi i32 [ 0, %for.cond27.preheader.us.us.us ], [ %inc.us.us.us, %invoke.cont41.us.us.us ]
   %ipos.sroa.6.0.insert.ext.us.us.us = zext nneg i32 %z.086.us.us.us to i48
   %ipos.sroa.6.0.insert.shift.us.us.us = shl nuw i48 %ipos.sroa.6.0.insert.ext.us.us.us, 32
-  %ipos.sroa.5.0.insert.insert.us.us.us = or disjoint i48 %ipos.sroa.6.0.insert.shift.us.us.us, %ipos.sroa.5.0.insert.shift.us.us.us
-  %ipos.sroa.0.0.insert.insert.us.us.us = add nuw nsw i48 %ipos.sroa.5.0.insert.insert.us.us.us, %ipos.sroa.0.0.insert.ext.us.us
+  %ipos.sroa.0.0.insert.insert.us.us.us.reass = add nuw i48 %ipos.sroa.6.0.insert.shift.us.us.us, %invariant.op
   %vtable.us.us.us = load ptr, ptr %this, align 8, !tbaa !20
   %10 = load ptr, ptr %vtable.us.us.us, align 8
-  %call40.us.us.us = invoke noundef nonnull align 4 dereferenceable(92) ptr %10(ptr noundef nonnull align 8 dereferenceable(48) %this, i48 %ipos.sroa.0.0.insert.insert.us.us.us)
+  %call40.us.us.us = invoke noundef nonnull align 4 dereferenceable(92) ptr %10(ptr noundef nonnull align 8 dereferenceable(48) %this, i48 %ipos.sroa.0.0.insert.insert.us.us.us.reass)
           to label %invoke.cont39.us.us.us unwind label %lpad36.split.us.split.us.split.us
 
 invoke.cont39.us.us.us:                           ; preds = %for.body32.us.us.us
-  invoke void @_ZN17GridNodeContainer8initNodeEN3irr4core8vector3dIsEEP12PathGridnode(ptr noundef nonnull align 8 dereferenceable(16) %this, i48 %ipos.sroa.0.0.insert.insert.us.us.us, ptr noundef nonnull %call40.us.us.us)
+  invoke void @_ZN17GridNodeContainer8initNodeEN3irr4core8vector3dIsEEP12PathGridnode(ptr noundef nonnull align 8 dereferenceable(16) %this, i48 %ipos.sroa.0.0.insert.insert.us.us.us.reass, ptr noundef nonnull %call40.us.us.us)
           to label %invoke.cont41.us.us.us unwind label %lpad36.split.us.split.us.split.us
 
 invoke.cont41.us.us.us:                           ; preds = %invoke.cont39.us.us.us

@@ -720,6 +720,11 @@ for.body107.lr.ph:                                ; preds = %if.end81
   %Y.i636 = getelementptr inbounds i8, ptr %ref.tmp306, i64 4
   %Y.i = getelementptr inbounds i8, ptr %ref.tmp279, i64 4
   %Y.i634 = getelementptr inbounds i8, ptr %ref.tmp284, i64 4
+  %invariant.op = add i32 %y_bottom, -50
+  %invariant.op46 = add i32 %y_bottom, -35
+  %invariant.op47 = add i32 %y_bottom, -15
+  %invariant.op48 = add i32 %y_bottom, -32
+  %invariant.op49 = add i32 %y_bottom, -18
   br label %for.body107
 
 for.body73:                                       ; preds = %for.cond.cleanup, %if.end81
@@ -772,12 +777,12 @@ for.body107:                                      ; preds = %for.cond.cleanup234
   %64 = load float, ptr %max115, align 4, !tbaa !70
   %conv = fpext float %63 to double
   %cmp116 = fcmp nsz ult double %conv, -1.000000e-04
-  %.pre55 = fpext float %64 to double
+  %.pre59 = fpext float %64 to double
   br i1 %cmp116, label %if.end126, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body107
-  %cmp118 = fcmp nsz ult double %.pre55, -1.000000e-04
-  %mul122 = fmul nsz double %.pre55, 5.000000e-01
+  %cmp118 = fcmp nsz ult double %.pre59, -1.000000e-04
+  %mul122 = fmul nsz double %.pre59, 5.000000e-01
   %cmp123 = fcmp nsz ult double %mul122, %conv
   %or.cond468 = or i1 %cmp118, %cmp123
   br i1 %or.cond468, label %if.end126, label %if.then124
@@ -791,7 +796,7 @@ if.end126:                                        ; preds = %for.body107, %if.th
   %65 = call nsz float @llvm.floor.f32(float %64)
   %cmp127 = fcmp nsz oeq float %65, %64
   %66 = select i1 %cmp127, ptr @.str, ptr @.str.1
-  %67 = invoke noundef i32 (ptr, i64, ptr, ...) @_ZN7porting11mt_snprintfEPcmPKcz(ptr noundef nonnull %buf, i64 noundef 20, ptr noundef nonnull %66, double noundef %.pre55)
+  %67 = invoke noundef i32 (ptr, i64, ptr, ...) @_ZN7porting11mt_snprintfEPcmPKcz(ptr noundef nonnull %buf, i64 noundef 20, ptr noundef nonnull %66, double noundef %.pre59)
           to label %if.end137 unwind label %lpad130
 
 lpad130:                                          ; preds = %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit, %if.end126
@@ -813,12 +818,12 @@ invoke.cont143:                                   ; preds = %if.end137
 
 invoke.cont152:                                   ; preds = %invoke.cont143
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp147) #18
-  %sub148 = add nsw i32 %sub113, -50
-  %add150 = add nsw i32 %sub113, -35
+  %sub148.reass = add i32 %mul.neg, %invariant.op
+  %add150.reass = add i32 %mul.neg, %invariant.op46
   store i32 %add95, ptr %ref.tmp147, align 4, !tbaa !74
-  store i32 %sub148, ptr %Y.i.i, align 4, !tbaa !76
+  store i32 %sub148.reass, ptr %Y.i.i, align 4, !tbaa !76
   store i32 %sub, ptr %LowerRightCorner.i, align 4, !tbaa !74
-  store i32 %add150, ptr %Y.i2.i, align 4, !tbaa !76
+  store i32 %add150.reass, ptr %Y.i2.i, align 4, !tbaa !76
   %color154 = getelementptr inbounds i8, ptr %__begin198.sroa.0.0719, i64 72
   %agg.tmp153.sroa.0.0.copyload = load i32, ptr %color154, align 4, !tbaa !61
   %vtable = load ptr, ptr %font, align 8, !tbaa !77
@@ -931,9 +936,9 @@ invoke.cont179:                                   ; preds = %if.end173
 
 invoke.cont186:                                   ; preds = %invoke.cont179
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp183) #18
-  %sub184 = add nsw i32 %sub113, -15
+  %sub184.reass = add i32 %mul.neg, %invariant.op47
   store i32 %add95, ptr %ref.tmp183, align 4, !tbaa !74
-  store i32 %sub184, ptr %Y.i.i515, align 4, !tbaa !76
+  store i32 %sub184.reass, ptr %Y.i.i515, align 4, !tbaa !76
   store i32 %sub, ptr %LowerRightCorner.i516, align 4, !tbaa !74
   store i32 %sub113, ptr %Y.i2.i517, align 4, !tbaa !76
   %agg.tmp187.sroa.0.0.copyload = load i32, ptr %color154, align 4, !tbaa !61
@@ -991,12 +996,12 @@ invoke.cont203:                                   ; preds = %_ZNSt7__cxx1112basi
 
 invoke.cont214:                                   ; preds = %invoke.cont203
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp207) #18
-  %sub209 = add nsw i32 %sub113, -32
-  %add212 = add nsw i32 %sub113, -18
+  %sub209.reass = add i32 %mul.neg, %invariant.op48
+  %add212.reass = add i32 %mul.neg, %invariant.op49
   store i32 %add95, ptr %ref.tmp207, align 4, !tbaa !74
-  store i32 %sub209, ptr %Y.i.i530, align 4, !tbaa !76
+  store i32 %sub209.reass, ptr %Y.i.i530, align 4, !tbaa !76
   store i32 %sub, ptr %LowerRightCorner.i531, align 4, !tbaa !74
-  store i32 %add212, ptr %Y.i2.i532, align 4, !tbaa !76
+  store i32 %add212.reass, ptr %Y.i2.i532, align 4, !tbaa !76
   %agg.tmp215.sroa.0.0.copyload = load i32, ptr %color154, align 4, !tbaa !61
   %vtable218 = load ptr, ptr %font, align 8, !tbaa !77
   %93 = load ptr, ptr %vtable218, align 8

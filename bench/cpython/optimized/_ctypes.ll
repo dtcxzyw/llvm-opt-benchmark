@@ -11998,12 +11998,16 @@ land.rhs.lr.ph:                                   ; preds = %for.cond.preheader
   br i1 %tobool26.not, label %land.rhs.lr.ph.split.us, label %land.rhs.lr.ph.split
 
 land.rhs.lr.ph.split.us:                          ; preds = %land.rhs.lr.ph
-  br i1 %cmp16.us58, label %for.body.us, label %for.end
+  br i1 %cmp16.us58, label %for.body.us.preheader, label %for.end
+
+for.body.us.preheader:                            ; preds = %land.rhs.lr.ph.split.us
+  %invariant.op88 = add i64 %index.addr.0, 1
+  br label %for.body.us
 
 land.rhs.us:                                      ; preds = %for.cond.us
-  %add.us = add nsw i64 %inc.us, %index.addr.0
+  %add.us.reass = add i64 %i.048.us59, %invariant.op88
   %args.val.us = load i64, ptr %3, align 8
-  %cmp16.us = icmp slt i64 %add.us, %args.val.us
+  %cmp16.us = icmp slt i64 %add.us.reass, %args.val.us
   br i1 %cmp16.us, label %for.body.us, label %for.end, !llvm.loop !25
 
 for.cond.us:                                      ; preds = %Py_DECREF.exit.us
@@ -12012,8 +12016,8 @@ for.cond.us:                                      ; preds = %Py_DECREF.exit.us
   %cmp14.us = icmp slt i64 %inc.us, %4
   br i1 %cmp14.us, label %land.rhs.us, label %for.end, !llvm.loop !25
 
-for.body.us:                                      ; preds = %land.rhs.lr.ph.split.us, %land.rhs.us
-  %i.048.us59 = phi i64 [ %inc.us, %land.rhs.us ], [ 0, %land.rhs.lr.ph.split.us ]
+for.body.us:                                      ; preds = %for.body.us.preheader, %land.rhs.us
+  %i.048.us59 = phi i64 [ %inc.us, %land.rhs.us ], [ 0, %for.body.us.preheader ]
   %add.us60 = add nsw i64 %i.048.us59, %index.addr.0
   %call17.us = tail call ptr @PySequence_GetItem(ptr noundef nonnull %call6, i64 noundef %i.048.us59) #15
   %tobool18.not.us = icmp eq ptr %call17.us, null
@@ -12064,7 +12068,11 @@ Py_DECREF.exit.us:                                ; preds = %if.then1.i.us, %if.
   br i1 %cmp38.us, label %return, label %for.cond.us
 
 land.rhs.lr.ph.split:                             ; preds = %land.rhs.lr.ph
-  br i1 %cmp16.us58, label %for.body, label %for.end
+  br i1 %cmp16.us58, label %for.body.preheader, label %for.end
+
+for.body.preheader:                               ; preds = %land.rhs.lr.ph.split
+  %invariant.op = add i64 %index.addr.0, 1
+  br label %for.body
 
 if.then8:                                         ; preds = %if.end4
   %call9 = tail call ptr @PyErr_Occurred() #15
@@ -12079,13 +12087,13 @@ for.cond:                                         ; preds = %Py_DECREF.exit
   br i1 %cmp14, label %land.rhs, label %for.end, !llvm.loop !25
 
 land.rhs:                                         ; preds = %for.cond
-  %add = add nsw i64 %inc, %index.addr.0
+  %add.reass = add i64 %i.04854, %invariant.op
   %args.val = load i64, ptr %3, align 8
-  %cmp16 = icmp slt i64 %add, %args.val
+  %cmp16 = icmp slt i64 %add.reass, %args.val
   br i1 %cmp16, label %for.body, label %for.end, !llvm.loop !25
 
-for.body:                                         ; preds = %land.rhs.lr.ph.split, %land.rhs
-  %i.04854 = phi i64 [ %inc, %land.rhs ], [ 0, %land.rhs.lr.ph.split ]
+for.body:                                         ; preds = %for.body.preheader, %land.rhs
+  %i.04854 = phi i64 [ %inc, %land.rhs ], [ 0, %for.body.preheader ]
   %add55 = add nsw i64 %i.04854, %index.addr.0
   %call17 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %call6, i64 noundef %i.04854) #15
   %tobool18.not = icmp eq ptr %call17, null

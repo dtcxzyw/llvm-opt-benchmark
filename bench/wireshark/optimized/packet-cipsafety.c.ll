@@ -1128,12 +1128,13 @@ define internal i32 @dissect_s_supervisor_output_connection_point_owners(ptr nou
 15:                                               ; preds = %11
   %16 = load i32, ptr @ett_ssupervisor_output_cp_owners, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %16) #6
+  %invariant.op = add i32 %4, 11
   %18 = add i32 %4, 10
   br label %19
 
 19:                                               ; preds = %15, %41
   %.05463 = phi i32 [ 2, %15 ], [ %37, %41 ]
-  %.05562 = phi i16 [ 0, %15 ], [ %46, %41 ]
+  %.05562 = phi i16 [ 0, %15 ], [ %45, %41 ]
   %20 = add i32 %.05463, 11
   %21 = icmp sgt i32 %20, %5
   br i1 %21, label %22, label %24
@@ -1165,13 +1166,13 @@ define internal i32 @dissect_s_supervisor_output_connection_point_owners(ptr nou
   br label %.loopexit
 
 41:                                               ; preds = %24
-  %42 = add i32 %20, %4
-  %43 = load i32, ptr @ett_path, align 4
-  %44 = call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %3, i32 noundef %42, i32 noundef %36, i32 noundef %43, ptr noundef nonnull %7, ptr noundef nonnull @.str.441) #6
-  %45 = load ptr, ptr %7, align 8
-  call void @dissect_epath(ptr noundef %3, ptr noundef %0, ptr noundef %44, ptr noundef %45, i32 noundef %42, i32 noundef %36, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0) #6
-  %46 = add nuw i16 %.05562, 1
-  %exitcond.not = icmp eq i16 %46, %14
+  %.reass = add i32 %.05463, %invariant.op
+  %42 = load i32, ptr @ett_path, align 4
+  %43 = call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %3, i32 noundef %.reass, i32 noundef %36, i32 noundef %42, ptr noundef nonnull %7, ptr noundef nonnull @.str.441) #6
+  %44 = load ptr, ptr %7, align 8
+  call void @dissect_epath(ptr noundef %3, ptr noundef %0, ptr noundef %43, ptr noundef %44, i32 noundef %.reass, i32 noundef %36, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0) #6
+  %45 = add nuw i16 %.05562, 1
+  %exitcond.not = icmp eq i16 %45, %14
   br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !4
 
 .loopexit:                                        ; preds = %41, %11, %39, %22, %9

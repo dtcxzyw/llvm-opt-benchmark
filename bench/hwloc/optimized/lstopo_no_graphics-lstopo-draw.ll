@@ -3726,7 +3726,7 @@ define internal void @bridge_draw(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %30 = getelementptr inbounds i8, ptr %10, i64 76
   store i32 %12, ptr %30, align 4
   tail call fastcc void @place_children(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %28, i32 noundef 0)
-  br label %103
+  br label %102
 
 31:                                               ; preds = %21
   %32 = getelementptr inbounds i8, ptr %0, i64 1600
@@ -3747,120 +3747,125 @@ define internal void @bridge_draw(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %44 = getelementptr inbounds i8, ptr %1, i64 152
   %45 = load i32, ptr %44, align 8
   %.not106 = icmp eq i32 %45, 0
-  br i1 %.not106, label %103, label %.preheader
+  br i1 %.not106, label %102, label %.preheader
 
 .preheader:                                       ; preds = %31
   %46 = call fastcc ptr @next_child(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 15, ptr noundef null, ptr noundef nonnull %7)
   %.not107113 = icmp eq ptr %46, null
+  br i1 %.not107113, label %.preheader.._crit_edge_crit_edge, label %.lr.ph
+
+.preheader.._crit_edge_crit_edge:                 ; preds = %.preheader
   %.pre = add i32 %2, -1
-  br i1 %.not107113, label %._crit_edge, label %.lr.ph
+  br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %47 = mul i32 %12, 3
-  %48 = add i32 %47, %3
-  %49 = add i32 %48, %22
-  %50 = getelementptr inbounds i8, ptr %0, i64 1184
-  %51 = getelementptr inbounds i8, ptr %0, i64 1208
-  %52 = getelementptr inbounds i8, ptr %0, i64 1268
-  %53 = getelementptr inbounds i8, ptr %33, i64 32
-  %54 = getelementptr inbounds i8, ptr %6, i64 16
-  %55 = load ptr, ptr %54, align 8
-  %56 = mul i32 %12, 5
-  %57 = lshr i32 %56, 1
-  %58 = add i32 %57, %3
-  br label %59
+  %invariant.op = add i32 %22, %3
+  %47 = add i32 %2, -1
+  %48 = mul i32 %12, 3
+  %.reass = add i32 %48, %invariant.op
+  %49 = getelementptr inbounds i8, ptr %0, i64 1184
+  %50 = getelementptr inbounds i8, ptr %0, i64 1208
+  %51 = getelementptr inbounds i8, ptr %0, i64 1268
+  %52 = getelementptr inbounds i8, ptr %33, i64 32
+  %53 = getelementptr inbounds i8, ptr %6, i64 16
+  %54 = load ptr, ptr %53, align 8
+  %55 = mul i32 %12, 5
+  %56 = lshr i32 %55, 1
+  %57 = add i32 %56, %3
+  br label %58
 
-59:                                               ; preds = %.lr.ph, %99
-  %60 = phi ptr [ %46, %.lr.ph ], [ %101, %99 ]
-  %.0101115 = phi i32 [ -1, %.lr.ph ], [ %spec.select112, %99 ]
-  %.0102114 = phi i32 [ 0, %.lr.ph ], [ %100, %99 ]
-  %61 = getelementptr inbounds i8, ptr %60, i64 232
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 212
-  %64 = load i32, ptr %63, align 4
-  %65 = add i32 %38, %64
-  %66 = load ptr, ptr %39, align 8
-  %67 = add nuw nsw i32 %.0102114, 2
-  call void %66(ptr noundef nonnull %0, i32 noundef %.pre, i32 noundef %43, i32 noundef %65, i32 noundef %49, i32 noundef %65, ptr noundef %1, i32 noundef %67) #24
-  %68 = icmp eq i32 %.0101115, -1
-  %spec.select112 = select i1 %68, i32 %65, i32 %.0101115
-  %69 = load i32, ptr %15, align 4
-  %.not108 = icmp eq i32 %69, 0
-  br i1 %.not108, label %99, label %70
+58:                                               ; preds = %.lr.ph, %98
+  %59 = phi ptr [ %46, %.lr.ph ], [ %100, %98 ]
+  %.0101115 = phi i32 [ -1, %.lr.ph ], [ %spec.select112, %98 ]
+  %.0102114 = phi i32 [ 0, %.lr.ph ], [ %99, %98 ]
+  %60 = getelementptr inbounds i8, ptr %59, i64 232
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 212
+  %63 = load i32, ptr %62, align 4
+  %64 = add i32 %38, %63
+  %65 = load ptr, ptr %39, align 8
+  %66 = add nuw nsw i32 %.0102114, 2
+  call void %65(ptr noundef nonnull %0, i32 noundef %47, i32 noundef %43, i32 noundef %64, i32 noundef %.reass, i32 noundef %64, ptr noundef %1, i32 noundef %66) #24
+  %67 = icmp eq i32 %.0101115, -1
+  %spec.select112 = select i1 %67, i32 %64, i32 %.0101115
+  %68 = load i32, ptr %15, align 4
+  %.not108 = icmp eq i32 %68, 0
+  br i1 %.not108, label %98, label %69
 
-70:                                               ; preds = %59
-  %71 = load i32, ptr %50, align 8
-  %.not109 = icmp eq i32 %71, 0
-  br i1 %.not109, label %99, label %72
+69:                                               ; preds = %58
+  %70 = load i32, ptr %49, align 8
+  %.not109 = icmp eq i32 %70, 0
+  br i1 %.not109, label %98, label %71
 
-72:                                               ; preds = %70
-  %73 = load i32, ptr %60, align 8
-  switch i32 %73, label %pci_link_speed.exit [
-    i32 15, label %74
-    i32 14, label %77
+71:                                               ; preds = %69
+  %72 = load i32, ptr %59, align 8
+  switch i32 %72, label %pci_link_speed.exit [
+    i32 15, label %73
+    i32 14, label %76
   ]
 
-74:                                               ; preds = %72
-  %75 = getelementptr inbounds i8, ptr %60, i64 40
-  %76 = load ptr, ptr %75, align 8
+73:                                               ; preds = %71
+  %74 = getelementptr inbounds i8, ptr %59, i64 40
+  %75 = load ptr, ptr %74, align 8
   br label %.sink.split.i
 
-77:                                               ; preds = %72
-  %78 = getelementptr inbounds i8, ptr %60, i64 40
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 24
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 1
-  br i1 %82, label %.sink.split.i, label %pci_link_speed.exit
+76:                                               ; preds = %71
+  %77 = getelementptr inbounds i8, ptr %59, i64 40
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 24
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 1
+  br i1 %81, label %.sink.split.i, label %pci_link_speed.exit
 
-.sink.split.i:                                    ; preds = %77, %74
-  %.sink7.i = phi ptr [ %76, %74 ], [ %79, %77 ]
-  %83 = getelementptr inbounds i8, ptr %.sink7.i, i64 20
-  %84 = load float, ptr %83, align 4
+.sink.split.i:                                    ; preds = %76, %73
+  %.sink7.i = phi ptr [ %75, %73 ], [ %78, %76 ]
+  %82 = getelementptr inbounds i8, ptr %.sink7.i, i64 20
+  %83 = load float, ptr %82, align 4
   br label %pci_link_speed.exit
 
-pci_link_speed.exit:                              ; preds = %72, %77, %.sink.split.i
-  %.0.i = phi float [ 0.000000e+00, %72 ], [ 0.000000e+00, %77 ], [ %84, %.sink.split.i ]
-  %85 = load i32, ptr %51, align 8
-  %.not110 = icmp eq i32 %85, 0
-  br i1 %.not110, label %99, label %86
+pci_link_speed.exit:                              ; preds = %71, %76, %.sink.split.i
+  %.0.i = phi float [ 0.000000e+00, %71 ], [ 0.000000e+00, %76 ], [ %83, %.sink.split.i ]
+  %84 = load i32, ptr %50, align 8
+  %.not110 = icmp eq i32 %84, 0
+  br i1 %.not110, label %98, label %85
 
-86:                                               ; preds = %pci_link_speed.exit
-  %87 = load i32, ptr %52, align 4
-  %.not111 = icmp ne i32 %87, 0
-  %88 = fcmp une float %.0.i, 0.000000e+00
-  %or.cond = select i1 %.not111, i1 %88, i1 false
-  br i1 %or.cond, label %89, label %99
+85:                                               ; preds = %pci_link_speed.exit
+  %86 = load i32, ptr %51, align 4
+  %.not111 = icmp ne i32 %86, 0
+  %87 = fcmp une float %.0.i, 0.000000e+00
+  %or.cond = select i1 %.not111, i1 %87, i1 false
+  br i1 %or.cond, label %88, label %98
 
-89:                                               ; preds = %86
-  %90 = fcmp ult float %.0.i, 1.000000e+01
-  %91 = getelementptr inbounds i8, ptr %60, i64 40
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 20
-  %94 = load float, ptr %93, align 4
-  %95 = fpext float %94 to double
-  %.str.93..str.92 = select i1 %90, ptr @.str.93, ptr @.str.92
-  %96 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 4, ptr noundef nonnull %.str.93..str.92, double noundef %95) #24
-  %97 = load ptr, ptr %53, align 8
-  %98 = add i32 %65, %37
-  call void %97(ptr noundef nonnull %0, ptr noundef %55, i32 noundef %14, i32 noundef %.pre, i32 noundef %58, i32 noundef %98, ptr noundef nonnull %8, ptr noundef %1, i32 noundef %67) #24
-  br label %99
+88:                                               ; preds = %85
+  %89 = fcmp ult float %.0.i, 1.000000e+01
+  %90 = getelementptr inbounds i8, ptr %59, i64 40
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 20
+  %93 = load float, ptr %92, align 4
+  %94 = fpext float %93 to double
+  %.str.93..str.92 = select i1 %89, ptr @.str.93, ptr @.str.92
+  %95 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 4, ptr noundef nonnull %.str.93..str.92, double noundef %94) #24
+  %96 = load ptr, ptr %52, align 8
+  %97 = add i32 %64, %37
+  call void %96(ptr noundef nonnull %0, ptr noundef %54, i32 noundef %14, i32 noundef %47, i32 noundef %57, i32 noundef %97, ptr noundef nonnull %8, ptr noundef %1, i32 noundef %66) #24
+  br label %98
 
-99:                                               ; preds = %pci_link_speed.exit, %86, %89, %70, %59
-  %100 = add nuw nsw i32 %.0102114, 1
-  %101 = call fastcc ptr @next_child(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 15, ptr noundef nonnull %60, ptr noundef nonnull %7)
-  %.not107 = icmp eq ptr %101, null
-  br i1 %.not107, label %._crit_edge, label %59, !llvm.loop !26
+98:                                               ; preds = %pci_link_speed.exit, %85, %88, %69, %58
+  %99 = add nuw nsw i32 %.0102114, 1
+  %100 = call fastcc ptr @next_child(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 15, ptr noundef nonnull %59, ptr noundef nonnull %7)
+  %.not107 = icmp eq ptr %100, null
+  br i1 %.not107, label %._crit_edge, label %58, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %99, %.preheader
-  %.0101.lcssa = phi i32 [ -1, %.preheader ], [ %spec.select112, %99 ]
-  %.0100.lcssa = phi i32 [ -1, %.preheader ], [ %65, %99 ]
-  %102 = load ptr, ptr %39, align 8
-  call void %102(ptr noundef nonnull %0, i32 noundef %.pre, i32 noundef %43, i32 noundef %.0101.lcssa, i32 noundef %43, i32 noundef %.0100.lcssa, ptr noundef %1, i32 noundef 1) #24
-  call fastcc void @draw_children(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.pre, i32 noundef %3, i32 noundef %4)
-  br label %103
+._crit_edge:                                      ; preds = %98, %.preheader.._crit_edge_crit_edge
+  %.pre-phi = phi i32 [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %47, %98 ]
+  %.0101.lcssa = phi i32 [ -1, %.preheader.._crit_edge_crit_edge ], [ %spec.select112, %98 ]
+  %.0100.lcssa = phi i32 [ -1, %.preheader.._crit_edge_crit_edge ], [ %64, %98 ]
+  %101 = load ptr, ptr %39, align 8
+  call void %101(ptr noundef nonnull %0, i32 noundef %.pre-phi, i32 noundef %43, i32 noundef %.0101.lcssa, i32 noundef %43, i32 noundef %.0100.lcssa, ptr noundef %1, i32 noundef 1) #24
+  call fastcc void @draw_children(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.pre-phi, i32 noundef %3, i32 noundef %4)
+  br label %102
 
-103:                                              ; preds = %31, %._crit_edge, %26
+102:                                              ; preds = %31, %._crit_edge, %26
   ret void
 }
 

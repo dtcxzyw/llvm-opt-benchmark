@@ -659,7 +659,6 @@ entry:
 
 while.cond2.preheader.lr.ph:                      ; preds = %entry
   %arrayidx27 = getelementptr inbounds i8, ptr %buf, i64 1
-  %0 = zext nneg i32 %numbytes to i64
   br label %while.cond2.preheader
 
 while.cond2.preheader:                            ; preds = %while.cond2.preheader.lr.ph, %if.end64
@@ -670,45 +669,44 @@ while.body5:                                      ; preds = %while.cond2.prehead
   %run_count.049 = phi i32 [ 0, %while.cond2.preheader ], [ %run_count.1.lcssa, %while.end ]
   %beg_run.048 = phi i32 [ %cur.054, %while.cond2.preheader ], [ %add, %while.end ]
   %add = add nsw i32 %run_count.049, %beg_run.048
-  %add743 = add nsw i32 %add, 1
+  %add743 = add i32 %add, 1
   %cmp844 = icmp slt i32 %add743, %numbytes
   br i1 %cmp844, label %land.rhs10.lr.ph, label %while.end
 
 land.rhs10.lr.ph:                                 ; preds = %while.body5
   %idxprom = sext i32 %add to i64
   %arrayidx = getelementptr inbounds i8, ptr %data, i64 %idxprom
-  %1 = load i8, ptr %arrayidx, align 1
+  %0 = load i8, ptr %arrayidx, align 1
   br label %land.rhs10
 
 land.rhs10:                                       ; preds = %land.rhs10.lr.ph, %while.body17
   %indvars.iv = phi i64 [ 1, %land.rhs10.lr.ph ], [ %indvars.iv.next, %while.body17 ]
-  %add746 = phi i32 [ %add743, %land.rhs10.lr.ph ], [ %4, %while.body17 ]
+  %add746 = phi i32 [ %add743, %land.rhs10.lr.ph ], [ %add7.reass, %while.body17 ]
   %idxprom12 = sext i32 %add746 to i64
   %arrayidx13 = getelementptr inbounds i8, ptr %data, i64 %idxprom12
-  %2 = load i8, ptr %arrayidx13, align 1
-  %cmp15 = icmp eq i8 %1, %2
-  br i1 %cmp15, label %while.body17, label %while.end.loopexit
+  %1 = load i8, ptr %arrayidx13, align 1
+  %cmp15 = icmp eq i8 %0, %1
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
+  br i1 %cmp15, label %while.body17, label %while.end
 
 while.body17:                                     ; preds = %land.rhs10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %3 = add nsw i64 %indvars.iv.next, %idxprom
-  %cmp8 = icmp slt i64 %3, %0
+  %add7.reass = add i32 %add743, %2
+  %cmp8 = icmp slt i32 %add7.reass, %numbytes
   %cmp9 = icmp ult i64 %indvars.iv, 126
   %or.cond = and i1 %cmp9, %cmp8
-  %4 = trunc nsw i64 %3 to i32
-  br i1 %or.cond, label %land.rhs10, label %while.end.loopexit, !llvm.loop !4
+  br i1 %or.cond, label %land.rhs10, label %while.end.loopexit.split.loop.exit, !llvm.loop !4
 
-while.end.loopexit:                               ; preds = %while.body17, %land.rhs10
-  %run_count.1.lcssa.ph.in = phi i64 [ %indvars.iv, %land.rhs10 ], [ %indvars.iv.next, %while.body17 ]
-  %run_count.1.lcssa.ph = trunc i64 %run_count.1.lcssa.ph.in to i32
+while.end.loopexit.split.loop.exit:               ; preds = %while.body17
+  %indvars.le = trunc i64 %indvars.iv.next to i32
   br label %while.end
 
-while.end:                                        ; preds = %while.end.loopexit, %while.body5
-  %run_count.1.lcssa = phi i32 [ 1, %while.body5 ], [ %run_count.1.lcssa.ph, %while.end.loopexit ]
+while.end:                                        ; preds = %land.rhs10, %while.end.loopexit.split.loop.exit, %while.body5
+  %run_count.1.lcssa = phi i32 [ 1, %while.body5 ], [ %indvars.le, %while.end.loopexit.split.loop.exit ], [ %2, %land.rhs10 ]
   %cmp3 = icmp ult i32 %run_count.1.lcssa, 4
   %cmp4 = icmp slt i32 %add, %numbytes
-  %5 = and i1 %cmp4, %cmp3
-  br i1 %5, label %while.body5, label %while.end18, !llvm.loop !6
+  %3 = and i1 %cmp4, %cmp3
+  br i1 %3, label %while.body5, label %while.end18, !llvm.loop !6
 
 while.end18:                                      ; preds = %while.end
   %cmp19 = icmp sgt i32 %run_count.049, 1
@@ -718,13 +716,13 @@ while.end18:                                      ; preds = %while.end
   br i1 %or.cond38, label %if.then, label %if.end29
 
 if.then:                                          ; preds = %while.end18
-  %6 = trunc nuw i32 %run_count.049 to i8
-  %conv23 = or disjoint i8 %6, -128
+  %4 = trunc nuw i32 %run_count.049 to i8
+  %conv23 = or disjoint i8 %4, -128
   store i8 %conv23, ptr %buf, align 1
   %idxprom25 = sext i32 %cur.054 to i64
   %arrayidx26 = getelementptr inbounds i8, ptr %data, i64 %idxprom25
-  %7 = load i8, ptr %arrayidx26, align 1
-  store i8 %7, ptr %arrayidx27, align 1
+  %5 = load i8, ptr %arrayidx26, align 1
+  store i8 %5, ptr %arrayidx27, align 1
   %call = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %buf, i64 noundef 2, i64 noundef 1)
   br i1 %call, label %while.end50, label %return
 
@@ -759,13 +757,13 @@ while.end50:                                      ; preds = %while.cond30, %if.t
   br i1 %cmp51, label %if.then52, label %if.end64
 
 if.then52:                                        ; preds = %while.end50
-  %8 = trunc i32 %run_count.1.lcssa to i8
-  %conv54 = xor i8 %8, -128
+  %6 = trunc i32 %run_count.1.lcssa to i8
+  %conv54 = xor i8 %6, -128
   store i8 %conv54, ptr %buf, align 1
   %idxprom56 = sext i32 %add to i64
   %arrayidx57 = getelementptr inbounds i8, ptr %data, i64 %idxprom56
-  %9 = load i8, ptr %arrayidx57, align 1
-  store i8 %9, ptr %arrayidx27, align 1
+  %7 = load i8, ptr %arrayidx57, align 1
+  store i8 %7, ptr %arrayidx27, align 1
   %call60 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %buf, i64 noundef 2, i64 noundef 1)
   br i1 %call60, label %if.end62, label %return
 

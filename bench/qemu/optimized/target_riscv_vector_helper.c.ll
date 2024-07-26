@@ -153,7 +153,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
   %conv349.us.us.i = phi i64 [ %conv3.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv345.i, %while.cond.preheader.lr.ph.split.us.i ]
-  %i.047.us.us.i = phi i32 [ %inc24.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.047.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.047.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.047.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.047.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -192,8 +193,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %13 = trunc nuw nsw i64 %indvars.iv14 to i32
   %mul.us.us.us.i = mul i32 %cond.i.i, %13
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.047.us.us.i
-  %add12.us.us.us.i = add i32 %add.us.us.us.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i36.i, i32 noundef %add.us.us.us.i, i32 noundef %add12.us.us.us.i) #10
+  %add12.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i36.i, i32 noundef %add.us.us.us.i, i32 noundef %add12.reass.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
 while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i, %if.end.us.us.us.i
@@ -202,11 +203,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond71.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !5
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc24.us.us.i = add i32 %i.047.us.us.i, 1
   %14 = load i64, ptr %vstart.i, align 8
   %inc26.us.us.i = add i64 %14, 1
   store i64 %inc26.us.us.i, ptr %vstart.i, align 8
-  %conv3.us.us.i = zext i32 %inc24.us.us.i to i64
+  %conv3.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %15 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %15, %conv3.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !7
@@ -337,7 +337,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
   %conv349.us.us.i = phi i64 [ %conv3.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv345.i, %while.cond.preheader.lr.ph.split.us.i ]
-  %i.047.us.us.i = phi i32 [ %inc24.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.047.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.047.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.047.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.047.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -378,7 +379,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %14
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.047.us.us.i
   %mul932.us.us.us.i = shl i32 %add.us.us.us.i, 1
-  %mul1333.us.us.us.i = add i32 %mul932.us.us.us.i, 2
+  %add12.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1333.us.us.us.i = shl i32 %add12.reass.us.us.us.i, 1
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i36.i, i32 noundef %mul932.us.us.us.i, i32 noundef %mul1333.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -388,11 +390,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond71.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !5
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc24.us.us.i = add i32 %i.047.us.us.i, 1
   %15 = load i64, ptr %vstart.i, align 8
   %inc26.us.us.i = add i64 %15, 1
   store i64 %inc26.us.us.i, ptr %vstart.i, align 8
-  %conv3.us.us.i = zext i32 %inc24.us.us.i to i64
+  %conv3.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %16 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %16, %conv3.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !7
@@ -523,7 +524,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
   %conv349.us.us.i = phi i64 [ %conv3.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv345.i, %while.cond.preheader.lr.ph.split.us.i ]
-  %i.047.us.us.i = phi i32 [ %inc24.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.047.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.047.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.047.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.047.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -563,7 +565,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %14
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.047.us.us.i
   %mul932.us.us.us.i = shl i32 %add.us.us.us.i, 2
-  %mul1333.us.us.us.i = add i32 %mul932.us.us.us.i, 4
+  %add12.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1333.us.us.us.i = shl i32 %add12.reass.us.us.us.i, 2
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i36.i, i32 noundef %mul932.us.us.us.i, i32 noundef %mul1333.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -573,11 +576,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond71.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !5
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc24.us.us.i = add i32 %i.047.us.us.i, 1
   %15 = load i64, ptr %vstart.i, align 8
   %inc26.us.us.i = add i64 %15, 1
   store i64 %inc26.us.us.i, ptr %vstart.i, align 8
-  %conv3.us.us.i = zext i32 %inc24.us.us.i to i64
+  %conv3.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %16 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %16, %conv3.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !7
@@ -706,7 +708,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
   %conv349.us.us.i = phi i64 [ %conv3.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv345.i, %while.cond.preheader.lr.ph.split.us.i ]
-  %i.047.us.us.i = phi i32 [ %inc24.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.047.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.047.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.047.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.047.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -746,7 +749,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %14
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.047.us.us.i
   %mul932.us.us.us.i = shl i32 %add.us.us.us.i, 3
-  %mul1333.us.us.us.i = add i32 %mul932.us.us.us.i, 8
+  %add12.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1333.us.us.us.i = shl i32 %add12.reass.us.us.us.i, 3
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i36.i, i32 noundef %mul932.us.us.us.i, i32 noundef %mul1333.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -756,11 +760,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond71.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !5
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc24.us.us.i = add i32 %i.047.us.us.i, 1
   %15 = load i64, ptr %vstart.i, align 8
   %inc26.us.us.i = add i64 %15, 1
   store i64 %inc26.us.us.i, ptr %vstart.i, align 8
-  %conv3.us.us.i = zext i32 %inc24.us.us.i to i64
+  %conv3.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %16 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %16, %conv3.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !7
@@ -888,7 +891,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
   %conv349.us.us.i = phi i64 [ %conv3.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv345.i, %while.cond.preheader.lr.ph.split.us.i ]
-  %i.047.us.us.i = phi i32 [ %inc24.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.047.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.047.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.047.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.047.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -927,8 +931,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %14 = trunc nuw nsw i64 %indvars.iv13 to i32
   %mul.us.us.us.i = mul i32 %cond.i.i, %14
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.047.us.us.i
-  %add12.us.us.us.i = add i32 %add.us.us.us.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i36.i, i32 noundef %add.us.us.us.i, i32 noundef %add12.us.us.us.i) #10
+  %add12.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i36.i, i32 noundef %add.us.us.us.i, i32 noundef %add12.reass.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
 while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i, %if.end.us.us.us.i
@@ -937,11 +941,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond71.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !5
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc24.us.us.i = add i32 %i.047.us.us.i, 1
   %15 = load i64, ptr %vstart.i, align 8
   %inc26.us.us.i = add i64 %15, 1
   store i64 %inc26.us.us.i, ptr %vstart.i, align 8
-  %conv3.us.us.i = zext i32 %inc24.us.us.i to i64
+  %conv3.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %16 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %16, %conv3.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !7
@@ -1058,7 +1061,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
   %conv349.us.us.i = phi i64 [ %conv3.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv345.i, %while.cond.preheader.lr.ph.split.us.i ]
-  %i.047.us.us.i = phi i32 [ %inc24.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.047.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.047.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.047.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.047.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -1099,7 +1103,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %15
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.047.us.us.i
   %mul932.us.us.us.i = shl i32 %add.us.us.us.i, 1
-  %mul1333.us.us.us.i = add i32 %mul932.us.us.us.i, 2
+  %add12.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1333.us.us.us.i = shl i32 %add12.reass.us.us.us.i, 1
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i36.i, i32 noundef %mul932.us.us.us.i, i32 noundef %mul1333.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -1109,11 +1114,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond71.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !5
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc24.us.us.i = add i32 %i.047.us.us.i, 1
   %16 = load i64, ptr %vstart.i, align 8
   %inc26.us.us.i = add i64 %16, 1
   store i64 %inc26.us.us.i, ptr %vstart.i, align 8
-  %conv3.us.us.i = zext i32 %inc24.us.us.i to i64
+  %conv3.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %17 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %17, %conv3.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !7
@@ -1233,7 +1237,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
   %conv349.us.us.i = phi i64 [ %conv3.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv345.i, %while.cond.preheader.lr.ph.split.us.i ]
-  %i.047.us.us.i = phi i32 [ %inc24.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.047.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.047.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.047.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.047.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -1273,7 +1278,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %15
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.047.us.us.i
   %mul932.us.us.us.i = shl i32 %add.us.us.us.i, 2
-  %mul1333.us.us.us.i = add i32 %mul932.us.us.us.i, 4
+  %add12.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1333.us.us.us.i = shl i32 %add12.reass.us.us.us.i, 2
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i36.i, i32 noundef %mul932.us.us.us.i, i32 noundef %mul1333.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -1283,11 +1289,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond71.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !5
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc24.us.us.i = add i32 %i.047.us.us.i, 1
   %16 = load i64, ptr %vstart.i, align 8
   %inc26.us.us.i = add i64 %16, 1
   store i64 %inc26.us.us.i, ptr %vstart.i, align 8
-  %conv3.us.us.i = zext i32 %inc24.us.us.i to i64
+  %conv3.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %17 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %17, %conv3.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !7
@@ -1406,7 +1411,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
   %conv349.us.us.i = phi i64 [ %conv3.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv345.i, %while.cond.preheader.lr.ph.split.us.i ]
-  %i.047.us.us.i = phi i32 [ %inc24.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.047.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.047.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.047.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.047.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -1446,7 +1452,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %15
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.047.us.us.i
   %mul932.us.us.us.i = shl i32 %add.us.us.us.i, 3
-  %mul1333.us.us.us.i = add i32 %mul932.us.us.us.i, 8
+  %add12.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1333.us.us.us.i = shl i32 %add12.reass.us.us.us.i, 3
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i36.i, i32 noundef %mul932.us.us.us.i, i32 noundef %mul1333.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -1456,11 +1463,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond71.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !5
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc24.us.us.i = add i32 %i.047.us.us.i, 1
   %16 = load i64, ptr %vstart.i, align 8
   %inc26.us.us.i = add i64 %16, 1
   store i64 %inc26.us.us.i, ptr %vstart.i, align 8
-  %conv3.us.us.i = zext i32 %inc24.us.us.i to i64
+  %conv3.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %17 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %17, %conv3.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !7
@@ -1576,7 +1582,8 @@ while.cond.preheader.us.us.i.preheader:           ; preds = %while.cond.preheade
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.us.us.i.preheader, %while.cond.for.inc_crit_edge.split.us.us.us.i
   %conv349.us.us.i = phi i64 [ %conv3.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv345.i, %while.cond.preheader.us.us.i.preheader ]
-  %i.047.us.us.i = phi i32 [ %inc24.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.us.us.i.preheader ]
+  %i.047.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.us.us.i.preheader ]
+  %invariant.op.us.us.i = add i32 %i.047.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.047.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.047.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -1615,8 +1622,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %11 = trunc nuw nsw i64 %indvars.iv to i32
   %mul.us.us.us.i = mul i32 %cond.i.i, %11
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.047.us.us.i
-  %add12.us.us.us.i = add i32 %add.us.us.us.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i36.i, i32 noundef %add.us.us.us.i, i32 noundef %add12.us.us.us.i) #10
+  %add12.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i36.i, i32 noundef %add.us.us.us.i, i32 noundef %add12.reass.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
 while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i, %if.end.us.us.us.i
@@ -1625,11 +1632,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond71.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !5
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc24.us.us.i = add i32 %i.047.us.us.i, 1
   %12 = load i64, ptr %vstart.i, align 8
   %inc26.us.us.i = add i64 %12, 1
   store i64 %inc26.us.us.i, ptr %vstart.i, align 8
-  %conv3.us.us.i = zext i32 %inc24.us.us.i to i64
+  %conv3.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %13 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %13, %conv3.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !7
@@ -1807,7 +1813,8 @@ while.cond.preheader.us.us.i.preheader:           ; preds = %while.cond.preheade
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.us.us.i.preheader, %while.cond.for.inc_crit_edge.split.us.us.us.i
   %conv349.us.us.i = phi i64 [ %conv3.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv345.i, %while.cond.preheader.us.us.i.preheader ]
-  %i.047.us.us.i = phi i32 [ %inc24.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.us.us.i.preheader ]
+  %i.047.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.us.us.i.preheader ]
+  %invariant.op.us.us.i = add i32 %i.047.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.047.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.047.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -1848,7 +1855,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %13
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.047.us.us.i
   %mul932.us.us.us.i = shl i32 %add.us.us.us.i, 1
-  %mul1333.us.us.us.i = add i32 %mul932.us.us.us.i, 2
+  %add12.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1333.us.us.us.i = shl i32 %add12.reass.us.us.us.i, 1
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i36.i, i32 noundef %mul932.us.us.us.i, i32 noundef %mul1333.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -1858,11 +1866,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond71.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !5
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc24.us.us.i = add i32 %i.047.us.us.i, 1
   %14 = load i64, ptr %vstart.i, align 8
   %inc26.us.us.i = add i64 %14, 1
   store i64 %inc26.us.us.i, ptr %vstart.i, align 8
-  %conv3.us.us.i = zext i32 %inc24.us.us.i to i64
+  %conv3.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %15 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %15, %conv3.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !7
@@ -2046,7 +2053,8 @@ while.cond.preheader.us.us.i.preheader:           ; preds = %while.cond.preheade
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.us.us.i.preheader, %while.cond.for.inc_crit_edge.split.us.us.us.i
   %conv349.us.us.i = phi i64 [ %conv3.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv345.i, %while.cond.preheader.us.us.i.preheader ]
-  %i.047.us.us.i = phi i32 [ %inc24.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.us.us.i.preheader ]
+  %i.047.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.us.us.i.preheader ]
+  %invariant.op.us.us.i = add i32 %i.047.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.047.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.047.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -2086,7 +2094,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %13
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.047.us.us.i
   %mul932.us.us.us.i = shl i32 %add.us.us.us.i, 2
-  %mul1333.us.us.us.i = add i32 %mul932.us.us.us.i, 4
+  %add12.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1333.us.us.us.i = shl i32 %add12.reass.us.us.us.i, 2
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i36.i, i32 noundef %mul932.us.us.us.i, i32 noundef %mul1333.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -2096,11 +2105,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond71.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !5
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc24.us.us.i = add i32 %i.047.us.us.i, 1
   %14 = load i64, ptr %vstart.i, align 8
   %inc26.us.us.i = add i64 %14, 1
   store i64 %inc26.us.us.i, ptr %vstart.i, align 8
-  %conv3.us.us.i = zext i32 %inc24.us.us.i to i64
+  %conv3.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %15 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %15, %conv3.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !7
@@ -2283,7 +2291,8 @@ while.cond.preheader.us.us.i.preheader:           ; preds = %while.cond.preheade
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.us.us.i.preheader, %while.cond.for.inc_crit_edge.split.us.us.us.i
   %conv349.us.us.i = phi i64 [ %conv3.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv345.i, %while.cond.preheader.us.us.i.preheader ]
-  %i.047.us.us.i = phi i32 [ %inc24.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.us.us.i.preheader ]
+  %i.047.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.us.us.i.preheader ]
+  %invariant.op.us.us.i = add i32 %i.047.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.047.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.047.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -2323,7 +2332,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %13
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.047.us.us.i
   %mul932.us.us.us.i = shl i32 %add.us.us.us.i, 3
-  %mul1333.us.us.us.i = add i32 %mul932.us.us.us.i, 8
+  %add12.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1333.us.us.us.i = shl i32 %add12.reass.us.us.us.i, 3
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i36.i, i32 noundef %mul932.us.us.us.i, i32 noundef %mul1333.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -2333,11 +2343,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond71.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !5
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc24.us.us.i = add i32 %i.047.us.us.i, 1
   %14 = load i64, ptr %vstart.i, align 8
   %inc26.us.us.i = add i64 %14, 1
   store i64 %inc26.us.us.i, ptr %vstart.i, align 8
-  %conv3.us.us.i = zext i32 %inc24.us.us.i to i64
+  %conv3.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %15 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %15, %conv3.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !7
@@ -2517,7 +2526,8 @@ while.cond.preheader.us.us.i.preheader:           ; preds = %while.cond.preheade
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.us.us.i.preheader, %while.cond.for.inc_crit_edge.split.us.us.us.i
   %conv349.us.us.i = phi i64 [ %conv3.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv345.i, %while.cond.preheader.us.us.i.preheader ]
-  %i.047.us.us.i = phi i32 [ %inc24.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.us.us.i.preheader ]
+  %i.047.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.us.us.i.preheader ]
+  %invariant.op.us.us.i = add i32 %i.047.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.047.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.047.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -2556,8 +2566,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   %mul.us.us.us.i = mul i32 %cond.i.i, %12
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.047.us.us.i
-  %add12.us.us.us.i = add i32 %add.us.us.us.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i36.i, i32 noundef %add.us.us.us.i, i32 noundef %add12.us.us.us.i) #10
+  %add12.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i36.i, i32 noundef %add.us.us.us.i, i32 noundef %add12.reass.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
 while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i, %if.end.us.us.us.i
@@ -2566,11 +2576,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond71.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !5
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc24.us.us.i = add i32 %i.047.us.us.i, 1
   %13 = load i64, ptr %vstart.i, align 8
   %inc26.us.us.i = add i64 %13, 1
   store i64 %inc26.us.us.i, ptr %vstart.i, align 8
-  %conv3.us.us.i = zext i32 %inc24.us.us.i to i64
+  %conv3.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %14 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %14, %conv3.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !7
@@ -2748,7 +2757,8 @@ while.cond.preheader.us.us.i.preheader:           ; preds = %while.cond.preheade
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.us.us.i.preheader, %while.cond.for.inc_crit_edge.split.us.us.us.i
   %conv349.us.us.i = phi i64 [ %conv3.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv345.i, %while.cond.preheader.us.us.i.preheader ]
-  %i.047.us.us.i = phi i32 [ %inc24.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.us.us.i.preheader ]
+  %i.047.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.us.us.i.preheader ]
+  %invariant.op.us.us.i = add i32 %i.047.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.047.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.047.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -2789,7 +2799,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %14
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.047.us.us.i
   %mul932.us.us.us.i = shl i32 %add.us.us.us.i, 1
-  %mul1333.us.us.us.i = add i32 %mul932.us.us.us.i, 2
+  %add12.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1333.us.us.us.i = shl i32 %add12.reass.us.us.us.i, 1
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i36.i, i32 noundef %mul932.us.us.us.i, i32 noundef %mul1333.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -2799,11 +2810,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond71.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !5
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc24.us.us.i = add i32 %i.047.us.us.i, 1
   %15 = load i64, ptr %vstart.i, align 8
   %inc26.us.us.i = add i64 %15, 1
   store i64 %inc26.us.us.i, ptr %vstart.i, align 8
-  %conv3.us.us.i = zext i32 %inc24.us.us.i to i64
+  %conv3.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %16 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %16, %conv3.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !7
@@ -2987,7 +2997,8 @@ while.cond.preheader.us.us.i.preheader:           ; preds = %while.cond.preheade
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.us.us.i.preheader, %while.cond.for.inc_crit_edge.split.us.us.us.i
   %conv349.us.us.i = phi i64 [ %conv3.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv345.i, %while.cond.preheader.us.us.i.preheader ]
-  %i.047.us.us.i = phi i32 [ %inc24.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.us.us.i.preheader ]
+  %i.047.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.us.us.i.preheader ]
+  %invariant.op.us.us.i = add i32 %i.047.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.047.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.047.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -3027,7 +3038,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %14
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.047.us.us.i
   %mul932.us.us.us.i = shl i32 %add.us.us.us.i, 2
-  %mul1333.us.us.us.i = add i32 %mul932.us.us.us.i, 4
+  %add12.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1333.us.us.us.i = shl i32 %add12.reass.us.us.us.i, 2
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i36.i, i32 noundef %mul932.us.us.us.i, i32 noundef %mul1333.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -3037,11 +3049,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond71.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !5
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc24.us.us.i = add i32 %i.047.us.us.i, 1
   %15 = load i64, ptr %vstart.i, align 8
   %inc26.us.us.i = add i64 %15, 1
   store i64 %inc26.us.us.i, ptr %vstart.i, align 8
-  %conv3.us.us.i = zext i32 %inc24.us.us.i to i64
+  %conv3.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %16 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %16, %conv3.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !7
@@ -3224,7 +3235,8 @@ while.cond.preheader.us.us.i.preheader:           ; preds = %while.cond.preheade
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.us.us.i.preheader, %while.cond.for.inc_crit_edge.split.us.us.us.i
   %conv349.us.us.i = phi i64 [ %conv3.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv345.i, %while.cond.preheader.us.us.i.preheader ]
-  %i.047.us.us.i = phi i32 [ %inc24.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.us.us.i.preheader ]
+  %i.047.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.us.us.i.preheader ]
+  %invariant.op.us.us.i = add i32 %i.047.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.047.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.047.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -3264,7 +3276,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %14
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.047.us.us.i
   %mul932.us.us.us.i = shl i32 %add.us.us.us.i, 3
-  %mul1333.us.us.us.i = add i32 %mul932.us.us.us.i, 8
+  %add12.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1333.us.us.us.i = shl i32 %add12.reass.us.us.us.i, 3
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i36.i, i32 noundef %mul932.us.us.us.i, i32 noundef %mul1333.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -3274,11 +3287,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond71.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !5
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc24.us.us.i = add i32 %i.047.us.us.i, 1
   %15 = load i64, ptr %vstart.i, align 8
   %inc26.us.us.i = add i64 %15, 1
   store i64 %inc26.us.us.i, ptr %vstart.i, align 8
-  %conv3.us.us.i = zext i32 %inc24.us.us.i to i64
+  %conv3.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %16 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %16, %conv3.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !7
@@ -3661,7 +3673,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -3703,8 +3716,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %14 = trunc nuw nsw i64 %indvars.iv20 to i32
   %mul.us.us.us.i = mul i32 %cond.i.i, %14
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
-  %add13.us.us.us.i = add i32 %add.us.us.us.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %add.us.us.us.i, i32 noundef %add13.us.us.us.i) #10
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %add.us.us.us.i, i32 noundef %add13.reass.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
 while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i, %if.end.us.us.us.i
@@ -3713,11 +3726,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %15 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %15, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %16 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %16, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -3835,7 +3847,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -3879,7 +3892,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %15
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
   %mul1033.us.us.us.i = shl i32 %add.us.us.us.i, 1
-  %mul1434.us.us.us.i = add i32 %mul1033.us.us.us.i, 2
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1434.us.us.us.i = shl i32 %add13.reass.us.us.us.i, 1
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %mul1033.us.us.us.i, i32 noundef %mul1434.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -3889,11 +3903,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %16 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %16, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %17 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %17, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -4014,7 +4027,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -4057,7 +4071,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %15
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
   %mul1033.us.us.us.i = shl i32 %add.us.us.us.i, 2
-  %mul1434.us.us.us.i = add i32 %mul1033.us.us.us.i, 4
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1434.us.us.us.i = shl i32 %add13.reass.us.us.us.i, 2
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %mul1033.us.us.us.i, i32 noundef %mul1434.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -4067,11 +4082,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %16 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %16, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %17 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %17, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -4191,7 +4205,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -4234,7 +4249,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %15
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
   %mul1033.us.us.us.i = shl i32 %add.us.us.us.i, 3
-  %mul1434.us.us.us.i = add i32 %mul1033.us.us.us.i, 8
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1434.us.us.us.i = shl i32 %add13.reass.us.us.us.i, 3
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %mul1033.us.us.us.i, i32 noundef %mul1434.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -4244,11 +4260,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %16 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %16, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %17 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %17, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -4367,7 +4382,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -4409,8 +4425,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %14 = trunc nuw nsw i64 %indvars.iv20 to i32
   %mul.us.us.us.i = mul i32 %cond.i.i, %14
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
-  %add13.us.us.us.i = add i32 %add.us.us.us.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %add.us.us.us.i, i32 noundef %add13.us.us.us.i) #10
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %add.us.us.us.i, i32 noundef %add13.reass.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
 while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i, %if.end.us.us.us.i
@@ -4419,11 +4435,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %15 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %15, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %16 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %16, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -4541,7 +4556,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -4585,7 +4601,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %15
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
   %mul1033.us.us.us.i = shl i32 %add.us.us.us.i, 1
-  %mul1434.us.us.us.i = add i32 %mul1033.us.us.us.i, 2
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1434.us.us.us.i = shl i32 %add13.reass.us.us.us.i, 1
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %mul1033.us.us.us.i, i32 noundef %mul1434.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -4595,11 +4612,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %16 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %16, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %17 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %17, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -4720,7 +4736,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -4763,7 +4780,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %15
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
   %mul1033.us.us.us.i = shl i32 %add.us.us.us.i, 2
-  %mul1434.us.us.us.i = add i32 %mul1033.us.us.us.i, 4
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1434.us.us.us.i = shl i32 %add13.reass.us.us.us.i, 2
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %mul1033.us.us.us.i, i32 noundef %mul1434.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -4773,11 +4791,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %16 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %16, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %17 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %17, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -4897,7 +4914,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -4940,7 +4958,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %15
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
   %mul1033.us.us.us.i = shl i32 %add.us.us.us.i, 3
-  %mul1434.us.us.us.i = add i32 %mul1033.us.us.us.i, 8
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1434.us.us.us.i = shl i32 %add13.reass.us.us.us.i, 3
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %mul1033.us.us.us.i, i32 noundef %mul1434.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -4950,11 +4969,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %16 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %16, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %17 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %17, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -5073,7 +5091,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -5115,8 +5134,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %14 = trunc nuw nsw i64 %indvars.iv20 to i32
   %mul.us.us.us.i = mul i32 %cond.i.i, %14
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
-  %add13.us.us.us.i = add i32 %add.us.us.us.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %add.us.us.us.i, i32 noundef %add13.us.us.us.i) #10
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %add.us.us.us.i, i32 noundef %add13.reass.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
 while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i, %if.end.us.us.us.i
@@ -5125,11 +5144,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %15 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %15, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %16 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %16, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -5247,7 +5265,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -5291,7 +5310,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %15
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
   %mul1033.us.us.us.i = shl i32 %add.us.us.us.i, 1
-  %mul1434.us.us.us.i = add i32 %mul1033.us.us.us.i, 2
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1434.us.us.us.i = shl i32 %add13.reass.us.us.us.i, 1
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %mul1033.us.us.us.i, i32 noundef %mul1434.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -5301,11 +5321,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %16 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %16, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %17 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %17, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -5426,7 +5445,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -5469,7 +5489,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %15
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
   %mul1033.us.us.us.i = shl i32 %add.us.us.us.i, 2
-  %mul1434.us.us.us.i = add i32 %mul1033.us.us.us.i, 4
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1434.us.us.us.i = shl i32 %add13.reass.us.us.us.i, 2
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %mul1033.us.us.us.i, i32 noundef %mul1434.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -5479,11 +5500,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %16 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %16, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %17 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %17, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -5603,7 +5623,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -5646,7 +5667,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %15
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
   %mul1033.us.us.us.i = shl i32 %add.us.us.us.i, 3
-  %mul1434.us.us.us.i = add i32 %mul1033.us.us.us.i, 8
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1434.us.us.us.i = shl i32 %add13.reass.us.us.us.i, 3
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %mul1033.us.us.us.i, i32 noundef %mul1434.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -5656,11 +5678,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %16 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %16, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %17 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %17, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -5779,7 +5800,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -5820,8 +5842,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %14 = trunc nuw nsw i64 %indvars.iv18 to i32
   %mul.us.us.us.i = mul i32 %cond.i.i, %14
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
-  %add13.us.us.us.i = add i32 %add.us.us.us.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %add.us.us.us.i, i32 noundef %add13.us.us.us.i) #10
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %add.us.us.us.i, i32 noundef %add13.reass.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
 while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i, %if.end.us.us.us.i
@@ -5830,11 +5852,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %15 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %15, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %16 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %16, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -5951,7 +5972,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -5994,7 +6016,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %15
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
   %mul1033.us.us.us.i = shl i32 %add.us.us.us.i, 1
-  %mul1434.us.us.us.i = add i32 %mul1033.us.us.us.i, 2
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1434.us.us.us.i = shl i32 %add13.reass.us.us.us.i, 1
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %mul1033.us.us.us.i, i32 noundef %mul1434.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -6004,11 +6027,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %16 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %16, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %17 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %17, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -6128,7 +6150,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -6170,7 +6193,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %15
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
   %mul1033.us.us.us.i = shl i32 %add.us.us.us.i, 2
-  %mul1434.us.us.us.i = add i32 %mul1033.us.us.us.i, 4
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1434.us.us.us.i = shl i32 %add13.reass.us.us.us.i, 2
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %mul1033.us.us.us.i, i32 noundef %mul1434.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -6180,11 +6204,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %16 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %16, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %17 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %17, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -6303,7 +6326,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -6345,7 +6369,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %15
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
   %mul1033.us.us.us.i = shl i32 %add.us.us.us.i, 3
-  %mul1434.us.us.us.i = add i32 %mul1033.us.us.us.i, 8
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1434.us.us.us.i = shl i32 %add13.reass.us.us.us.i, 3
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %mul1033.us.us.us.i, i32 noundef %mul1434.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -6355,11 +6380,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %16 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %16, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %17 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %17, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -6477,7 +6501,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -6519,8 +6544,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %15 = trunc nuw nsw i64 %indvars.iv19 to i32
   %mul.us.us.us.i = mul i32 %cond.i.i, %15
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
-  %add13.us.us.us.i = add i32 %add.us.us.us.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %add.us.us.us.i, i32 noundef %add13.us.us.us.i) #10
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %add.us.us.us.i, i32 noundef %add13.reass.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
 while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i, %if.end.us.us.us.i
@@ -6529,11 +6554,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %16 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %16, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %17 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %17, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -6651,7 +6675,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -6695,7 +6720,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %16
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
   %mul1033.us.us.us.i = shl i32 %add.us.us.us.i, 1
-  %mul1434.us.us.us.i = add i32 %mul1033.us.us.us.i, 2
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1434.us.us.us.i = shl i32 %add13.reass.us.us.us.i, 1
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %mul1033.us.us.us.i, i32 noundef %mul1434.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -6705,11 +6731,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %17 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %17, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %18 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %18, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -6830,7 +6855,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -6873,7 +6899,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %16
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
   %mul1033.us.us.us.i = shl i32 %add.us.us.us.i, 2
-  %mul1434.us.us.us.i = add i32 %mul1033.us.us.us.i, 4
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1434.us.us.us.i = shl i32 %add13.reass.us.us.us.i, 2
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %mul1033.us.us.us.i, i32 noundef %mul1434.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -6883,11 +6910,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %17 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %17, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %18 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %18, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -7007,7 +7033,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -7050,7 +7077,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %16
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
   %mul1033.us.us.us.i = shl i32 %add.us.us.us.i, 3
-  %mul1434.us.us.us.i = add i32 %mul1033.us.us.us.i, 8
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1434.us.us.us.i = shl i32 %add13.reass.us.us.us.i, 3
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %mul1033.us.us.us.i, i32 noundef %mul1434.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -7060,11 +7088,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %17 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %17, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %18 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %18, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -7183,7 +7210,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -7225,8 +7253,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %15 = trunc nuw nsw i64 %indvars.iv19 to i32
   %mul.us.us.us.i = mul i32 %cond.i.i, %15
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
-  %add13.us.us.us.i = add i32 %add.us.us.us.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %add.us.us.us.i, i32 noundef %add13.us.us.us.i) #10
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %add.us.us.us.i, i32 noundef %add13.reass.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
 while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i, %if.end.us.us.us.i
@@ -7235,11 +7263,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %16 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %16, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %17 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %17, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -7357,7 +7384,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -7401,7 +7429,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %16
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
   %mul1033.us.us.us.i = shl i32 %add.us.us.us.i, 1
-  %mul1434.us.us.us.i = add i32 %mul1033.us.us.us.i, 2
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1434.us.us.us.i = shl i32 %add13.reass.us.us.us.i, 1
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %mul1033.us.us.us.i, i32 noundef %mul1434.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -7411,11 +7440,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %17 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %17, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %18 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %18, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -7536,7 +7564,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -7579,7 +7608,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %16
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
   %mul1033.us.us.us.i = shl i32 %add.us.us.us.i, 2
-  %mul1434.us.us.us.i = add i32 %mul1033.us.us.us.i, 4
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1434.us.us.us.i = shl i32 %add13.reass.us.us.us.i, 2
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %mul1033.us.us.us.i, i32 noundef %mul1434.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -7589,11 +7619,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %17 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %17, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %18 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %18, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -7713,7 +7742,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -7756,7 +7786,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %16
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
   %mul1033.us.us.us.i = shl i32 %add.us.us.us.i, 3
-  %mul1434.us.us.us.i = add i32 %mul1033.us.us.us.i, 8
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1434.us.us.us.i = shl i32 %add13.reass.us.us.us.i, 3
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %mul1033.us.us.us.i, i32 noundef %mul1434.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -7766,11 +7797,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %17 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %17, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %18 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %18, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -7889,7 +7919,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -7931,8 +7962,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %15 = trunc nuw nsw i64 %indvars.iv19 to i32
   %mul.us.us.us.i = mul i32 %cond.i.i, %15
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
-  %add13.us.us.us.i = add i32 %add.us.us.us.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %add.us.us.us.i, i32 noundef %add13.us.us.us.i) #10
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %add.us.us.us.i, i32 noundef %add13.reass.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
 while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i, %if.end.us.us.us.i
@@ -7941,11 +7972,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %16 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %16, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %17 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %17, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -8063,7 +8093,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -8107,7 +8138,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %16
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
   %mul1033.us.us.us.i = shl i32 %add.us.us.us.i, 1
-  %mul1434.us.us.us.i = add i32 %mul1033.us.us.us.i, 2
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1434.us.us.us.i = shl i32 %add13.reass.us.us.us.i, 1
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %mul1033.us.us.us.i, i32 noundef %mul1434.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -8117,11 +8149,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %17 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %17, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %18 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %18, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -8242,7 +8273,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -8285,7 +8317,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %16
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
   %mul1033.us.us.us.i = shl i32 %add.us.us.us.i, 2
-  %mul1434.us.us.us.i = add i32 %mul1033.us.us.us.i, 4
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1434.us.us.us.i = shl i32 %add13.reass.us.us.us.i, 2
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %mul1033.us.us.us.i, i32 noundef %mul1434.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -8295,11 +8328,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %17 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %17, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %18 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %18, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -8419,7 +8451,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -8462,7 +8495,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %16
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
   %mul1033.us.us.us.i = shl i32 %add.us.us.us.i, 3
-  %mul1434.us.us.us.i = add i32 %mul1033.us.us.us.i, 8
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1434.us.us.us.i = shl i32 %add13.reass.us.us.us.i, 3
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %mul1033.us.us.us.i, i32 noundef %mul1434.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -8472,11 +8506,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %17 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %17, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %18 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %18, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -8595,7 +8628,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -8636,8 +8670,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %15 = trunc nuw nsw i64 %indvars.iv17 to i32
   %mul.us.us.us.i = mul i32 %cond.i.i, %15
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
-  %add13.us.us.us.i = add i32 %add.us.us.us.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %add.us.us.us.i, i32 noundef %add13.us.us.us.i) #10
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %add.us.us.us.i, i32 noundef %add13.reass.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
 while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i, %if.end.us.us.us.i
@@ -8646,11 +8680,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %16 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %16, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %17 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %17, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -8767,7 +8800,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -8810,7 +8844,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %16
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
   %mul1033.us.us.us.i = shl i32 %add.us.us.us.i, 1
-  %mul1434.us.us.us.i = add i32 %mul1033.us.us.us.i, 2
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1434.us.us.us.i = shl i32 %add13.reass.us.us.us.i, 1
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %mul1033.us.us.us.i, i32 noundef %mul1434.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -8820,11 +8855,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %17 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %17, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %18 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %18, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -8944,7 +8978,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -8986,7 +9021,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %16
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
   %mul1033.us.us.us.i = shl i32 %add.us.us.us.i, 2
-  %mul1434.us.us.us.i = add i32 %mul1033.us.us.us.i, 4
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1434.us.us.us.i = shl i32 %add13.reass.us.us.us.i, 2
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %mul1033.us.us.us.i, i32 noundef %mul1434.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -8996,11 +9032,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %17 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %17, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %18 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %18, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -9119,7 +9154,8 @@ while.cond.preheader.lr.ph.split.us.i:            ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %while.cond.preheader.us.us.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.us.i:                     ; preds = %while.cond.preheader.lr.ph.split.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i
-  %i.049.us.us.i = phi i32 [ %inc23.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %i.049.us.us.i = phi i32 [ %invariant.op.us.us.i, %while.cond.for.inc_crit_edge.split.us.us.us.i ], [ %conv.i, %while.cond.preheader.lr.ph.split.us.i ]
+  %invariant.op.us.us.i = add i32 %i.049.us.us.i, 1
   %div.i.us.us.i = sdiv i32 %i.049.us.us.i, 64
   %rem.i.us.us.i = srem i32 %i.049.us.us.i, 64
   %idxprom.i.us.us.i = sext i32 %div.i.us.us.i to i64
@@ -9161,7 +9197,8 @@ if.then.us.us.us.i:                               ; preds = %while.body.us.us.us
   %mul.us.us.us.i = mul i32 %cond.i.i, %16
   %add.us.us.us.i = add i32 %mul.us.us.us.i, %i.049.us.us.i
   %mul1033.us.us.us.i = shl i32 %add.us.us.us.i, 3
-  %mul1434.us.us.us.i = add i32 %mul1033.us.us.us.i, 8
+  %add13.reass.us.us.us.i = add i32 %mul.us.us.us.i, %invariant.op.us.us.i
+  %mul1434.us.us.us.i = shl i32 %add13.reass.us.us.us.i, 3
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i38.i, i32 noundef %mul1033.us.us.us.i, i32 noundef %mul1434.us.us.us.i) #10
   br label %while.cond.backedge.us.us.us.i
 
@@ -9171,11 +9208,10 @@ while.cond.backedge.us.us.us.i:                   ; preds = %if.then.us.us.us.i,
   br i1 %exitcond73.not.i, label %while.cond.for.inc_crit_edge.split.us.us.us.i, label %while.body.us.us.us.i, !llvm.loop !11
 
 while.cond.for.inc_crit_edge.split.us.us.us.i:    ; preds = %while.cond.backedge.us.us.us.i
-  %inc23.us.us.i = add i32 %i.049.us.us.i, 1
   %17 = load i64, ptr %vstart.i, align 8
   %inc25.us.us.i = add i64 %17, 1
   store i64 %inc25.us.us.i, ptr %vstart.i, align 8
-  %conv4.us.us.i = zext i32 %inc23.us.us.i to i64
+  %conv4.us.us.i = zext i32 %invariant.op.us.us.i to i64
   %18 = load i64, ptr %vl.i, align 16
   %cmp.us.us.i = icmp ugt i64 %18, %conv4.us.us.i
   br i1 %cmp.us.us.i, label %while.cond.preheader.us.us.i, label %for.end.i, !llvm.loop !12
@@ -9413,7 +9449,8 @@ while.cond52.preheader.lr.ph.split.us:            ; preds = %while.cond52.prehea
   br i1 %tobool56.not, label %while.cond52.preheader.us.us, label %while.cond52.preheader.us
 
 while.cond52.preheader.us.us:                     ; preds = %while.cond52.preheader.lr.ph.split.us, %while.cond52.for.inc80_crit_edge.split.us.us.us
-  %i.1122.us.us = phi i32 [ %inc81.us.us, %while.cond52.for.inc80_crit_edge.split.us.us.us ], [ %conv45, %while.cond52.preheader.lr.ph.split.us ]
+  %i.1122.us.us = phi i32 [ %invariant.op.us.us, %while.cond52.for.inc80_crit_edge.split.us.us.us ], [ %conv45, %while.cond52.preheader.lr.ph.split.us ]
+  %invariant.op.us.us = add i32 %i.1122.us.us, 1
   %div.i89.us.us = sdiv i32 %i.1122.us.us, 64
   %rem.i90.us.us = srem i32 %i.1122.us.us, 64
   %idxprom.i91.us.us = sext i32 %div.i89.us.us to i64
@@ -9449,8 +9486,8 @@ if.then60.us.us.us:                               ; preds = %while.body55.us.us.
   %mul61.us.us.us = mul i32 %k.0119.us.us.us, %cond.i
   %add62.us.us.us = add i32 %mul61.us.us.us, %i.1122.us.us
   %mul6369.us.us.us = shl i32 %add62.us.us.us, %log2_esz
-  %add66.us.us.us = add i32 %add62.us.us.us, 1
-  %mul6770.us.us.us = shl i32 %add66.us.us.us, %log2_esz
+  %add66.reass.us.us.us = add i32 %mul61.us.us.us, %invariant.op.us.us
+  %mul6770.us.us.us = shl i32 %add66.reass.us.us.us, %log2_esz
   tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i78, i32 noundef %mul6369.us.us.us, i32 noundef %mul6770.us.us.us) #10
   br label %while.cond52.backedge.us.us.us
 
@@ -9460,8 +9497,7 @@ while.cond52.backedge.us.us.us:                   ; preds = %if.then60.us.us.us,
   br i1 %exitcond147.not, label %while.cond52.for.inc80_crit_edge.split.us.us.us, label %while.body55.us.us.us, !llvm.loop !16
 
 while.cond52.for.inc80_crit_edge.split.us.us.us:  ; preds = %while.cond52.backedge.us.us.us
-  %inc81.us.us = add i32 %i.1122.us.us, 1
-  %conv47.us.us = zext i32 %inc81.us.us to i64
+  %conv47.us.us = zext i32 %invariant.op.us.us to i64
   %17 = load i64, ptr %vl5, align 16
   %cmp49.us.us = icmp ugt i64 %17, %conv47.us.us
   br i1 %cmp49.us.us, label %while.cond52.preheader.us.us, label %for.end82, !llvm.loop !17
@@ -9630,24 +9666,25 @@ for.cond21.preheader.us.i:                        ; preds = %for.cond21.preheade
   %k.147.us.i = phi i32 [ %inc40.us.i, %for.cond21.for.inc39_crit_edge.us.i ], [ %k.0.i, %for.cond21.preheader.us.i.preheader ]
   %mul26.us.i = mul nuw nsw i32 %k.147.us.i, %shr.i
   %13 = zext i32 %mul26.us.i to i64
+  %invariant.op = add i64 %13, %base
+  %invariant.gep = getelementptr i8, ptr %vd, i64 %13
   br label %for.body24.us.i
 
 for.body24.us.i:                                  ; preds = %for.body24.us.i, %for.cond21.preheader.us.i
   %indvars.iv6 = phi i64 [ %indvars.iv.next7, %for.body24.us.i ], [ 0, %for.cond21.preheader.us.i ]
-  %14 = add nuw nsw i64 %indvars.iv6, %13
-  %add30.us.i = add i64 %14, %base
+  %add30.us.i.reass = add i64 %indvars.iv6, %invariant.op
   %env.val37.us.i = load i64, ptr %10, align 16
   %env.val38.us.i = load i64, ptr %11, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
-  %and.i40.us.i = and i64 %add30.us.i, %not.i39.us.i
+  %and.i40.us.i = and i64 %add30.us.i.reass, %not.i39.us.i
   %or.i41.us.i = or i64 %and.i40.us.i, %env.val38.us.i
-  %add.ptr.i = getelementptr i8, ptr %vd, i64 %14
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv6
   %call.i = tail call i32 @cpu_ldsb_data_ra(ptr noundef nonnull %env, i64 noundef %or.i41.us.i, i64 noundef %1) #10
   %conv.i = trunc i32 %call.i to i8
-  store i8 %conv.i, ptr %add.ptr.i, align 1
+  store i8 %conv.i, ptr %gep, align 1
   %indvars.iv.next7 = add nuw nsw i64 %indvars.iv6, 1
-  %15 = load i64, ptr %vstart.i, align 8
-  %inc37.us.i = add i64 %15, 1
+  %14 = load i64, ptr %vstart.i, align 8
+  %inc37.us.i = add i64 %14, 1
   store i64 %inc37.us.i, ptr %vstart.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next7, %12
   br i1 %exitcond.not.i, label %for.cond21.for.inc39_crit_edge.us.i, label %for.body24.us.i, !llvm.loop !19
@@ -10074,24 +10111,25 @@ for.cond21.preheader.us.i:                        ; preds = %for.cond21.preheade
   %k.147.us.i = phi i32 [ %inc40.us.i, %for.cond21.for.inc39_crit_edge.us.i ], [ %k.0.i, %for.cond21.preheader.us.i.preheader ]
   %mul26.us.i = mul nuw nsw i32 %k.147.us.i, %shr.i
   %13 = zext i32 %mul26.us.i to i64
+  %invariant.op = add i64 %13, %base
+  %invariant.gep = getelementptr i8, ptr %vd, i64 %13
   br label %for.body24.us.i
 
 for.body24.us.i:                                  ; preds = %for.body24.us.i, %for.cond21.preheader.us.i
   %indvars.iv6 = phi i64 [ %indvars.iv.next7, %for.body24.us.i ], [ 0, %for.cond21.preheader.us.i ]
-  %14 = add nuw nsw i64 %indvars.iv6, %13
-  %add30.us.i = add i64 %14, %base
+  %add30.us.i.reass = add i64 %indvars.iv6, %invariant.op
   %env.val37.us.i = load i64, ptr %10, align 16
   %env.val38.us.i = load i64, ptr %11, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
-  %and.i40.us.i = and i64 %add30.us.i, %not.i39.us.i
+  %and.i40.us.i = and i64 %add30.us.i.reass, %not.i39.us.i
   %or.i41.us.i = or i64 %and.i40.us.i, %env.val38.us.i
-  %add.ptr.i = getelementptr i8, ptr %vd, i64 %14
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv6
   %call.i = tail call i32 @cpu_ldsb_data_ra(ptr noundef nonnull %env, i64 noundef %or.i41.us.i, i64 noundef %1) #10
   %conv.i = trunc i32 %call.i to i8
-  store i8 %conv.i, ptr %add.ptr.i, align 1
+  store i8 %conv.i, ptr %gep, align 1
   %indvars.iv.next7 = add nuw nsw i64 %indvars.iv6, 1
-  %15 = load i64, ptr %vstart.i, align 8
-  %inc37.us.i = add i64 %15, 1
+  %14 = load i64, ptr %vstart.i, align 8
+  %inc37.us.i = add i64 %14, 1
   store i64 %inc37.us.i, ptr %vstart.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next7, %12
   br i1 %exitcond.not.i, label %for.cond21.for.inc39_crit_edge.us.i, label %for.body24.us.i, !llvm.loop !19
@@ -10518,24 +10556,25 @@ for.cond21.preheader.us.i:                        ; preds = %for.cond21.preheade
   %k.147.us.i = phi i32 [ %inc40.us.i, %for.cond21.for.inc39_crit_edge.us.i ], [ %k.0.i, %for.cond21.preheader.us.i.preheader ]
   %mul26.us.i = mul nuw nsw i32 %k.147.us.i, %shr.i
   %13 = zext i32 %mul26.us.i to i64
+  %invariant.op = add i64 %13, %base
+  %invariant.gep = getelementptr i8, ptr %vd, i64 %13
   br label %for.body24.us.i
 
 for.body24.us.i:                                  ; preds = %for.body24.us.i, %for.cond21.preheader.us.i
   %indvars.iv6 = phi i64 [ %indvars.iv.next7, %for.body24.us.i ], [ 0, %for.cond21.preheader.us.i ]
-  %14 = add nuw nsw i64 %indvars.iv6, %13
-  %add30.us.i = add i64 %14, %base
+  %add30.us.i.reass = add i64 %indvars.iv6, %invariant.op
   %env.val37.us.i = load i64, ptr %10, align 16
   %env.val38.us.i = load i64, ptr %11, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
-  %and.i40.us.i = and i64 %add30.us.i, %not.i39.us.i
+  %and.i40.us.i = and i64 %add30.us.i.reass, %not.i39.us.i
   %or.i41.us.i = or i64 %and.i40.us.i, %env.val38.us.i
-  %add.ptr.i = getelementptr i8, ptr %vd, i64 %14
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv6
   %call.i = tail call i32 @cpu_ldsb_data_ra(ptr noundef nonnull %env, i64 noundef %or.i41.us.i, i64 noundef %1) #10
   %conv.i = trunc i32 %call.i to i8
-  store i8 %conv.i, ptr %add.ptr.i, align 1
+  store i8 %conv.i, ptr %gep, align 1
   %indvars.iv.next7 = add nuw nsw i64 %indvars.iv6, 1
-  %15 = load i64, ptr %vstart.i, align 8
-  %inc37.us.i = add i64 %15, 1
+  %14 = load i64, ptr %vstart.i, align 8
+  %inc37.us.i = add i64 %14, 1
   store i64 %inc37.us.i, ptr %vstart.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next7, %12
   br i1 %exitcond.not.i, label %for.cond21.for.inc39_crit_edge.us.i, label %for.body24.us.i, !llvm.loop !19
@@ -10962,24 +11001,25 @@ for.cond21.preheader.us.i:                        ; preds = %for.cond21.preheade
   %k.147.us.i = phi i32 [ %inc40.us.i, %for.cond21.for.inc39_crit_edge.us.i ], [ %k.0.i, %for.cond21.preheader.us.i.preheader ]
   %mul26.us.i = mul nuw nsw i32 %k.147.us.i, %shr.i
   %13 = zext i32 %mul26.us.i to i64
+  %invariant.op = add i64 %13, %base
+  %invariant.gep = getelementptr i8, ptr %vd, i64 %13
   br label %for.body24.us.i
 
 for.body24.us.i:                                  ; preds = %for.body24.us.i, %for.cond21.preheader.us.i
   %indvars.iv6 = phi i64 [ %indvars.iv.next7, %for.body24.us.i ], [ 0, %for.cond21.preheader.us.i ]
-  %14 = add nuw nsw i64 %indvars.iv6, %13
-  %add30.us.i = add i64 %14, %base
+  %add30.us.i.reass = add i64 %indvars.iv6, %invariant.op
   %env.val37.us.i = load i64, ptr %10, align 16
   %env.val38.us.i = load i64, ptr %11, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
-  %and.i40.us.i = and i64 %add30.us.i, %not.i39.us.i
+  %and.i40.us.i = and i64 %add30.us.i.reass, %not.i39.us.i
   %or.i41.us.i = or i64 %and.i40.us.i, %env.val38.us.i
-  %add.ptr.i = getelementptr i8, ptr %vd, i64 %14
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv6
   %call.i = tail call i32 @cpu_ldsb_data_ra(ptr noundef nonnull %env, i64 noundef %or.i41.us.i, i64 noundef %1) #10
   %conv.i = trunc i32 %call.i to i8
-  store i8 %conv.i, ptr %add.ptr.i, align 1
+  store i8 %conv.i, ptr %gep, align 1
   %indvars.iv.next7 = add nuw nsw i64 %indvars.iv6, 1
-  %15 = load i64, ptr %vstart.i, align 8
-  %inc37.us.i = add i64 %15, 1
+  %14 = load i64, ptr %vstart.i, align 8
+  %inc37.us.i = add i64 %14, 1
   store i64 %inc37.us.i, ptr %vstart.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next7, %12
   br i1 %exitcond.not.i, label %for.cond21.for.inc39_crit_edge.us.i, label %for.body24.us.i, !llvm.loop !19
@@ -11406,24 +11446,25 @@ for.cond21.preheader.us.i:                        ; preds = %for.cond21.preheade
   %k.147.us.i = phi i32 [ %inc40.us.i, %for.cond21.for.inc39_crit_edge.us.i ], [ %k.0.i, %for.cond21.preheader.us.i.preheader ]
   %mul26.us.i = mul nuw nsw i32 %k.147.us.i, %shr.i
   %14 = zext i32 %mul26.us.i to i64
+  %invariant.op = add i64 %14, %base
+  %invariant.gep = getelementptr i8, ptr %vd, i64 %14
   br label %for.body24.us.i
 
 for.body24.us.i:                                  ; preds = %for.body24.us.i, %for.cond21.preheader.us.i
   %indvars.iv5 = phi i64 [ %indvars.iv.next6, %for.body24.us.i ], [ 0, %for.cond21.preheader.us.i ]
-  %15 = add nuw nsw i64 %indvars.iv5, %14
-  %add30.us.i = add i64 %15, %base
+  %add30.us.i.reass = add i64 %indvars.iv5, %invariant.op
   %env.val37.us.i = load i64, ptr %11, align 16
   %env.val38.us.i = load i64, ptr %12, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
-  %and.i40.us.i = and i64 %add30.us.i, %not.i39.us.i
+  %and.i40.us.i = and i64 %add30.us.i.reass, %not.i39.us.i
   %or.i41.us.i = or i64 %and.i40.us.i, %env.val38.us.i
-  %add.ptr.i = getelementptr i8, ptr %vd, i64 %15
-  %16 = load i8, ptr %add.ptr.i, align 1
-  %conv.i = sext i8 %16 to i32
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv5
+  %15 = load i8, ptr %gep, align 1
+  %conv.i = sext i8 %15 to i32
   tail call void @cpu_stb_data_ra(ptr noundef nonnull %env, i64 noundef %or.i41.us.i, i32 noundef %conv.i, i64 noundef %1) #10
   %indvars.iv.next6 = add nuw nsw i64 %indvars.iv5, 1
-  %17 = load i64, ptr %vstart.i, align 8
-  %inc37.us.i = add i64 %17, 1
+  %16 = load i64, ptr %vstart.i, align 8
+  %inc37.us.i = add i64 %16, 1
   store i64 %inc37.us.i, ptr %vstart.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next6, %13
   br i1 %exitcond.not.i, label %for.cond21.for.inc39_crit_edge.us.i, label %for.body24.us.i, !llvm.loop !19
@@ -11515,24 +11556,25 @@ for.cond21.preheader.us.i:                        ; preds = %for.cond21.preheade
   %k.147.us.i = phi i32 [ %inc40.us.i, %for.cond21.for.inc39_crit_edge.us.i ], [ %k.0.i, %for.cond21.preheader.us.i.preheader ]
   %mul26.us.i = mul nuw nsw i32 %k.147.us.i, %shr.i
   %14 = zext i32 %mul26.us.i to i64
+  %invariant.op = add i64 %14, %base
+  %invariant.gep = getelementptr i8, ptr %vd, i64 %14
   br label %for.body24.us.i
 
 for.body24.us.i:                                  ; preds = %for.body24.us.i, %for.cond21.preheader.us.i
   %indvars.iv5 = phi i64 [ %indvars.iv.next6, %for.body24.us.i ], [ 0, %for.cond21.preheader.us.i ]
-  %15 = add nuw nsw i64 %indvars.iv5, %14
-  %add30.us.i = add i64 %15, %base
+  %add30.us.i.reass = add i64 %indvars.iv5, %invariant.op
   %env.val37.us.i = load i64, ptr %11, align 16
   %env.val38.us.i = load i64, ptr %12, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
-  %and.i40.us.i = and i64 %add30.us.i, %not.i39.us.i
+  %and.i40.us.i = and i64 %add30.us.i.reass, %not.i39.us.i
   %or.i41.us.i = or i64 %and.i40.us.i, %env.val38.us.i
-  %add.ptr.i = getelementptr i8, ptr %vd, i64 %15
-  %16 = load i8, ptr %add.ptr.i, align 1
-  %conv.i = sext i8 %16 to i32
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv5
+  %15 = load i8, ptr %gep, align 1
+  %conv.i = sext i8 %15 to i32
   tail call void @cpu_stb_data_ra(ptr noundef nonnull %env, i64 noundef %or.i41.us.i, i32 noundef %conv.i, i64 noundef %1) #10
   %indvars.iv.next6 = add nuw nsw i64 %indvars.iv5, 1
-  %17 = load i64, ptr %vstart.i, align 8
-  %inc37.us.i = add i64 %17, 1
+  %16 = load i64, ptr %vstart.i, align 8
+  %inc37.us.i = add i64 %16, 1
   store i64 %inc37.us.i, ptr %vstart.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next6, %13
   br i1 %exitcond.not.i, label %for.cond21.for.inc39_crit_edge.us.i, label %for.body24.us.i, !llvm.loop !19
@@ -11624,24 +11666,25 @@ for.cond21.preheader.us.i:                        ; preds = %for.cond21.preheade
   %k.147.us.i = phi i32 [ %inc40.us.i, %for.cond21.for.inc39_crit_edge.us.i ], [ %k.0.i, %for.cond21.preheader.us.i.preheader ]
   %mul26.us.i = mul nuw nsw i32 %k.147.us.i, %shr.i
   %14 = zext i32 %mul26.us.i to i64
+  %invariant.op = add i64 %14, %base
+  %invariant.gep = getelementptr i8, ptr %vd, i64 %14
   br label %for.body24.us.i
 
 for.body24.us.i:                                  ; preds = %for.body24.us.i, %for.cond21.preheader.us.i
   %indvars.iv5 = phi i64 [ %indvars.iv.next6, %for.body24.us.i ], [ 0, %for.cond21.preheader.us.i ]
-  %15 = add nuw nsw i64 %indvars.iv5, %14
-  %add30.us.i = add i64 %15, %base
+  %add30.us.i.reass = add i64 %indvars.iv5, %invariant.op
   %env.val37.us.i = load i64, ptr %11, align 16
   %env.val38.us.i = load i64, ptr %12, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
-  %and.i40.us.i = and i64 %add30.us.i, %not.i39.us.i
+  %and.i40.us.i = and i64 %add30.us.i.reass, %not.i39.us.i
   %or.i41.us.i = or i64 %and.i40.us.i, %env.val38.us.i
-  %add.ptr.i = getelementptr i8, ptr %vd, i64 %15
-  %16 = load i8, ptr %add.ptr.i, align 1
-  %conv.i = sext i8 %16 to i32
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv5
+  %15 = load i8, ptr %gep, align 1
+  %conv.i = sext i8 %15 to i32
   tail call void @cpu_stb_data_ra(ptr noundef nonnull %env, i64 noundef %or.i41.us.i, i32 noundef %conv.i, i64 noundef %1) #10
   %indvars.iv.next6 = add nuw nsw i64 %indvars.iv5, 1
-  %17 = load i64, ptr %vstart.i, align 8
-  %inc37.us.i = add i64 %17, 1
+  %16 = load i64, ptr %vstart.i, align 8
+  %inc37.us.i = add i64 %16, 1
   store i64 %inc37.us.i, ptr %vstart.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next6, %13
   br i1 %exitcond.not.i, label %for.cond21.for.inc39_crit_edge.us.i, label %for.body24.us.i, !llvm.loop !19
@@ -11733,24 +11776,25 @@ for.cond21.preheader.us.i:                        ; preds = %for.cond21.preheade
   %k.147.us.i = phi i32 [ %inc40.us.i, %for.cond21.for.inc39_crit_edge.us.i ], [ %k.0.i, %for.cond21.preheader.us.i.preheader ]
   %mul26.us.i = mul nuw nsw i32 %k.147.us.i, %shr.i
   %14 = zext i32 %mul26.us.i to i64
+  %invariant.op = add i64 %14, %base
+  %invariant.gep = getelementptr i8, ptr %vd, i64 %14
   br label %for.body24.us.i
 
 for.body24.us.i:                                  ; preds = %for.body24.us.i, %for.cond21.preheader.us.i
   %indvars.iv5 = phi i64 [ %indvars.iv.next6, %for.body24.us.i ], [ 0, %for.cond21.preheader.us.i ]
-  %15 = add nuw nsw i64 %indvars.iv5, %14
-  %add30.us.i = add i64 %15, %base
+  %add30.us.i.reass = add i64 %indvars.iv5, %invariant.op
   %env.val37.us.i = load i64, ptr %11, align 16
   %env.val38.us.i = load i64, ptr %12, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
-  %and.i40.us.i = and i64 %add30.us.i, %not.i39.us.i
+  %and.i40.us.i = and i64 %add30.us.i.reass, %not.i39.us.i
   %or.i41.us.i = or i64 %and.i40.us.i, %env.val38.us.i
-  %add.ptr.i = getelementptr i8, ptr %vd, i64 %15
-  %16 = load i8, ptr %add.ptr.i, align 1
-  %conv.i = sext i8 %16 to i32
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv5
+  %15 = load i8, ptr %gep, align 1
+  %conv.i = sext i8 %15 to i32
   tail call void @cpu_stb_data_ra(ptr noundef nonnull %env, i64 noundef %or.i41.us.i, i32 noundef %conv.i, i64 noundef %1) #10
   %indvars.iv.next6 = add nuw nsw i64 %indvars.iv5, 1
-  %17 = load i64, ptr %vstart.i, align 8
-  %inc37.us.i = add i64 %17, 1
+  %16 = load i64, ptr %vstart.i, align 8
+  %inc37.us.i = add i64 %16, 1
   store i64 %inc37.us.i, ptr %vstart.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next6, %13
   br i1 %exitcond.not.i, label %for.cond21.for.inc39_crit_edge.us.i, label %for.body24.us.i, !llvm.loop !19

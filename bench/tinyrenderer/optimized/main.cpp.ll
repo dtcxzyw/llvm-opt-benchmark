@@ -2298,10 +2298,10 @@ _ZNK3matILi3ELi3EE9get_minorEii.exit.i.i:         ; preds = %.loopexit.i.i.i, %_
 
 _ZNK3matILi3ELi3EE8cofactorEii.exit.i:            ; preds = %_ZNK3matILi3ELi3EE9get_minorEii.exit.i.i
   %29 = add nsw i32 %.014.i, -1
-  %30 = add nuw nsw i32 %29, %7
+  %30 = sub nsw i32 %7, %.014.i
   %31 = and i32 %30, 1
-  %.not.i.i = icmp eq i32 %31, 0
-  %32 = select i1 %.not.i.i, i32 1, i32 -1
+  %.not.i.not.i = icmp eq i32 %31, 0
+  %32 = select i1 %.not.i.not.i, i32 -1, i32 1
   %33 = sitofp i32 %32 to double
   %34 = fmul double %28, %33
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !162
@@ -2555,11 +2555,11 @@ _ZNK3matILi3ELi3EE8cofactorEii.exit.i.i.i:        ; preds = %_ZNK3matILi3ELi3EE9
 
 _ZNK3matILi4ELi4EE8cofactorEii.exit:              ; preds = %_ZNK3matILi3ELi3EE8cofactorEii.exit.i.i.i
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %50 = add nuw nsw i64 %indvars.iv.next, %indvars.iv18
+  %50 = sub nsw i64 %indvars.iv18, %indvars.iv
   %51 = and i64 %50, 1
-  %.not.i = icmp eq i64 %51, 0
+  %.not.i.not = icmp eq i64 %51, 0
   %52 = fneg double %49
-  %53 = select i1 %.not.i, double %49, double %52
+  %53 = select i1 %.not.i.not, double %52, double %49
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   %54 = getelementptr inbounds [4 x double], ptr %8, i64 0, i64 %indvars.iv.next
   store double %53, ptr %54, align 8

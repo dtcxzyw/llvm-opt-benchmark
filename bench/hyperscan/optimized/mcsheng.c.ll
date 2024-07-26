@@ -129,6 +129,7 @@ if.end11.i:                                       ; preds = %if.end.i.thread139,
 while.body.i.preheader:                           ; preds = %if.end11.i
   %cmp13.i = icmp slt i64 %20, 0
   %cond.i = select i1 %cmp13.i, ptr %add.ptr5, ptr %1
+  %invariant.op = add i64 %0, 1
   %sheng_end1.i.i = getelementptr inbounds i8, ptr %n, i64 88
   %aux_offset.i.i127 = getelementptr inbounds i8, ptr %n, i64 76
   %accept_limit_8.i.i = getelementptr inbounds i8, ptr %n, i64 94
@@ -166,7 +167,6 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %cmp53.i = icmp slt i64 %sp.i.0, 0
   %cond61.i = tail call i64 @llvm.smin.i64(i64 %cond51.i, i64 0)
   %local_ep.i.0 = select i1 %cmp53.i, i64 %cond61.i, i64 %cond51.i
-  %add.i = add i64 %sp.i.0, %0
   %add.ptr64.i = getelementptr inbounds i8, ptr %cur_buf.i.0, i64 %sp.i.0
   %tobool.i.not.i = icmp eq i64 %local_ep.i.0, %sp.i.0
   br i1 %tobool.i.not.i, label %land.lhs.true102.i, label %if.end.i.i
@@ -187,11 +187,11 @@ if.end.i.i:                                       ; preds = %while.body.i
   br i1 %or.cond.i, label %without_accel.i.i, label %if.end.i.with_accel.i_crit_edge.i
 
 if.end.i.with_accel.i_crit_edge.i:                ; preds = %if.end.i.i
-  %.pre.i = and i16 %24, 255
-  %.pre803.i = zext nneg i16 %.pre.i to i32
-  %.pre804.i = ptrtoint ptr %add.ptr64.i to i64
-  %.pre805.i = add i64 %add.i, 1
-  %.pre806.i = sub i64 %.pre805.i, %.pre804.i
+  %.pre.i.reass = add i64 %sp.i.0, %invariant.op
+  %.pre803.i = and i16 %24, 255
+  %.pre804.i = zext nneg i16 %.pre803.i to i32
+  %.pre805.i = ptrtoint ptr %add.ptr64.i to i64
+  %.pre806.i = sub i64 %.pre.i.reass, %.pre805.i
   br label %with_accel.i.i
 
 without_accel.i.i:                                ; preds = %if.then86.i.i, %if.then73.i.i, %if.end.i.i
@@ -200,6 +200,7 @@ without_accel.i.i:                                ; preds = %if.then86.i.i, %if.
   %c.i.0.i = phi ptr [ %call.i371.i, %if.then73.i.i ], [ %call.i393.i, %if.then86.i.i ], [ %add.ptr64.i, %if.end.i.i ]
   %min_accel_offset.i.0.i = phi ptr [ %min_accel_offset.i.3.i, %if.then73.i.i ], [ %min_accel_offset.i.5.i, %if.then86.i.i ], [ %add.ptr.i.i, %if.end.i.i ]
   %s.i.0.i = phi i32 [ %s.i.4.i, %if.then73.i.i ], [ %s.i.4.i, %if.then86.i.i ], [ %s.i.0, %if.end.i.i ]
+  %invariant.op.i.reass = add i64 %sp.i.0, %invariant.op
   %conv.i.mask.i = and i16 %24, 255
   %conv14.i.i = zext nneg i16 %conv.i.mask.i to i32
   %add.ptr1.i.i129 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -7
@@ -207,8 +208,7 @@ without_accel.i.i:                                ; preds = %if.then86.i.i, %if.
   %cond.i.i = select i1 %cmp.i12.i, ptr %min_accel_offset.i.0.i, ptr %add.ptr1.i.i129
   %sub.ptr.lhs.cast.i17.i = ptrtoint ptr %min_accel_offset.i.0.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr64.i to i64
-  %reass.sub.i = sub i64 %add.i, %sub.ptr.rhs.cast.i.i
-  %add.i.i = add i64 %reass.sub.i, 1
+  %add.i.reass.i = sub i64 %invariant.op.i.reass, %sub.ptr.rhs.cast.i.i
   br label %do.body11.i.i
 
 do.body11.i.i:                                    ; preds = %if.end53.i.i, %without_accel.i.i
@@ -573,7 +573,7 @@ land.lhs.true.i.i:                                ; preds = %while.body.i338.i, 
 if.end33.i.i:                                     ; preds = %land.lhs.true.i.i
   %add.ptr34.i.i = getelementptr inbounds i8, ptr %c.i.2.i, i64 -1
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr34.i.i to i64
-  %add35.i.i = add i64 %add.i.i, %sub.ptr.lhs.cast.i.i
+  %add35.i.i = add i64 %add.i.reass.i, %sub.ptr.lhs.cast.i.i
   br i1 %tobool36.i.not.i, label %land.lhs.true.i160.i.i, label %if.then37.i.i
 
 if.then37.i.i:                                    ; preds = %if.end33.i.i
@@ -643,8 +643,8 @@ do.end56.i.i:                                     ; preds = %if.end53.i.i
   br i1 %cmp57.i.i, label %land.lhs.true102.i, label %with_accel.i.i
 
 with_accel.i.i:                                   ; preds = %do.end56.i.i, %if.end.i.with_accel.i_crit_edge.i
-  %add115.i.pre-phi.i = phi i64 [ %.pre806.i, %if.end.i.with_accel.i_crit_edge.i ], [ %add.i.i, %do.end56.i.i ]
-  %conv66.i.pre-phi.i = phi i32 [ %.pre803.i, %if.end.i.with_accel.i_crit_edge.i ], [ %conv14.i.i, %do.end56.i.i ]
+  %add115.i.reass.pre-phi.i = phi i64 [ %.pre806.i, %if.end.i.with_accel.i_crit_edge.i ], [ %add.i.reass.i, %do.end56.i.i ]
+  %conv66.i.pre-phi.i = phi i32 [ %.pre804.i, %if.end.i.with_accel.i_crit_edge.i ], [ %conv14.i.i, %do.end56.i.i ]
   %cached_accept_id.i.4.i = phi i32 [ 0, %if.end.i.with_accel.i_crit_edge.i ], [ %cached_accept_id.i.3.i, %do.end56.i.i ]
   %cached_accept_state.i.4.i = phi i32 [ 0, %if.end.i.with_accel.i_crit_edge.i ], [ %cached_accept_state.i.3.i, %do.end56.i.i ]
   %c.i.3.i = phi ptr [ %add.ptr64.i, %if.end.i.with_accel.i_crit_edge.i ], [ %c.i.2.i, %do.end56.i.i ]
@@ -1068,7 +1068,7 @@ land.lhs.true98.i.i:                              ; preds = %while.body.i296.i, 
 if.end109.i.i:                                    ; preds = %land.lhs.true98.i.i
   %add.ptr111.i.i = getelementptr inbounds i8, ptr %c.i.5.i, i64 -1
   %sub.ptr.lhs.cast112.i.i = ptrtoint ptr %add.ptr111.i.i to i64
-  %add116.i.i = add i64 %add115.i.pre-phi.i, %sub.ptr.lhs.cast112.i.i
+  %add116.i.i = add i64 %add115.i.reass.pre-phi.i, %sub.ptr.lhs.cast112.i.i
   br i1 %tobool36.i.not.i, label %land.lhs.true.i.i.i, label %if.then118.i.i
 
 if.then118.i.i:                                   ; preds = %if.end109.i.i
@@ -1344,6 +1344,7 @@ if.end11.i:                                       ; preds = %if.end.i.thread138,
 while.body.i.preheader:                           ; preds = %if.end11.i
   %cmp13.i = icmp slt i64 %20, 0
   %cond.i = select i1 %cmp13.i, ptr %add.ptr5, ptr %1
+  %invariant.op = add i64 %0, 1
   %sheng_end3.i.i = getelementptr inbounds i8, ptr %n, i64 88
   %aux_offset.i.i127 = getelementptr inbounds i8, ptr %n, i64 76
   %has_accel.i.i = getelementptr inbounds i8, ptr %n, i64 100
@@ -1381,7 +1382,6 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %cmp51.i = icmp slt i64 %sp.i.0, 0
   %cond59.i = tail call i64 @llvm.smin.i64(i64 %cond49.i, i64 0)
   %local_ep.i.0 = select i1 %cmp51.i, i64 %cond59.i, i64 %cond49.i
-  %add.i = add i64 %sp.i.0, %0
   %add.ptr62.i = getelementptr inbounds i8, ptr %cur_buf.i.0, i64 %sp.i.0
   %tobool.i.not.i = icmp eq i64 %local_ep.i.0, %sp.i.0
   br i1 %tobool.i.not.i, label %land.lhs.true100.i, label %if.end2.i.i
@@ -1406,6 +1406,7 @@ without_accel.i.i:                                ; preds = %if.then100.i.i, %if
   %c.i.0.i = phi ptr [ %call.i550.i.i, %if.then81.i.i ], [ %call.i528.i.i, %if.then100.i.i ], [ %add.ptr62.i, %if.end2.i.i ]
   %min_accel_offset.i.0.i = phi ptr [ %min_accel_offset.i.3.i, %if.then81.i.i ], [ %min_accel_offset.i.5.i, %if.then100.i.i ], [ %add.ptr.i.i, %if.end2.i.i ]
   %s.i.0.i = phi i32 [ %s.i.3.i, %if.then81.i.i ], [ %and104.i.i, %if.then100.i.i ], [ %and.i.i, %if.end2.i.i ]
+  %invariant.op.i.reass = add i64 %sp.i.0, %invariant.op
   %conv.i.mask.i = and i16 %24, 255
   %conv14.i.i = zext nneg i16 %conv.i.mask.i to i32
   %add.ptr1.i323.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -7
@@ -1413,8 +1414,7 @@ without_accel.i.i:                                ; preds = %if.then100.i.i, %if
   %cond.i333.i.i = select i1 %cmp.i328.i.i, ptr %min_accel_offset.i.0.i, ptr %add.ptr1.i323.i.i
   %sub.ptr.lhs.cast.i370.i.i = ptrtoint ptr %min_accel_offset.i.0.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr62.i to i64
-  %reass.sub.i = sub i64 %add.i, %sub.ptr.rhs.cast.i.i
-  %add.i.i = add i64 %reass.sub.i, 1
+  %add.i.reass.i = sub i64 %invariant.op.i.reass, %sub.ptr.rhs.cast.i.i
   br label %do.body11.i.i
 
 do.body11.i.i:                                    ; preds = %if.end61.i.i, %without_accel.i.i
@@ -1848,7 +1848,7 @@ if.end40.i.i:                                     ; preds = %if.end.i59.i, %exit
   %c.i.21.i = phi ptr [ %c.i282.i.8.i, %exit.i356.i.i ], [ %incdec.ptr.i60.i, %if.end.i59.i ]
   %add.ptr41.i.i = getelementptr inbounds i8, ptr %c.i.21.i, i64 -1
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr41.i.i to i64
-  %add42.i.i = add i64 %add.i.i, %sub.ptr.lhs.cast.i.i
+  %add42.i.i = add i64 %add.i.reass.i, %sub.ptr.lhs.cast.i.i
   br i1 %tobool43.i.not.i, label %if.else52.i.i, label %if.then44.i.i
 
 if.then44.i.i:                                    ; preds = %if.end40.i.i
@@ -1929,13 +1929,13 @@ with_accel.i.i:                                   ; preds = %if.end2.i.i
 with_accel.i.if.else73.i.preheader_crit_edge.i:   ; preds = %with_accel.i.i
   %.pre381.i = and i16 %24, 255
   %.pre382.i = zext nneg i16 %.pre381.i to i32
-  %.pre383.i = ptrtoint ptr %add.ptr62.i to i64
-  %.pre384.i = add i64 %add.i, 1
-  %.pre385.i = sub i64 %.pre384.i, %.pre383.i
+  %.pre383.i.reass = add i64 %sp.i.0, %invariant.op
+  %.pre384.i = ptrtoint ptr %add.ptr62.i to i64
+  %.pre385.i = sub i64 %.pre383.i.reass, %.pre384.i
   br label %if.else73.i.preheader.i
 
 if.else73.i.preheader.i:                          ; preds = %with_accel.i.if.else73.i.preheader_crit_edge.i, %do.end64.i.i
-  %add134.i.pre-phi.i = phi i64 [ %.pre385.i, %with_accel.i.if.else73.i.preheader_crit_edge.i ], [ %add.i.i, %do.end64.i.i ]
+  %add134.i.reass.pre-phi.i = phi i64 [ %.pre385.i, %with_accel.i.if.else73.i.preheader_crit_edge.i ], [ %add.i.reass.i, %do.end64.i.i ]
   %conv74.i.pre-phi.i = phi i32 [ %.pre382.i, %with_accel.i.if.else73.i.preheader_crit_edge.i ], [ %conv14.i.i, %do.end64.i.i ]
   %cached_accept_id.i.4.ph.i = phi i32 [ 0, %with_accel.i.if.else73.i.preheader_crit_edge.i ], [ %cached_accept_id.i.3.i, %do.end64.i.i ]
   %cached_accept_state.i.4.ph.i = phi i32 [ 0, %with_accel.i.if.else73.i.preheader_crit_edge.i ], [ %cached_accept_state.i.3.i, %do.end64.i.i ]
@@ -2429,7 +2429,7 @@ if.end128.i.i:                                    ; preds = %if.end119.i.i, %exi
   %c.i.415.i = phi ptr [ %c.i.i.8.i, %exit.i.i.i ], [ %incdec.ptr.i.i, %if.end119.i.i ]
   %add.ptr130.i.i = getelementptr inbounds i8, ptr %c.i.415.i, i64 -1
   %sub.ptr.lhs.cast131.i.i = ptrtoint ptr %add.ptr130.i.i to i64
-  %add135.i.i = add i64 %add134.i.pre-phi.i, %sub.ptr.lhs.cast131.i.i
+  %add135.i.i = add i64 %add134.i.reass.pre-phi.i, %sub.ptr.lhs.cast131.i.i
   br i1 %tobool43.i.not.i, label %if.else147.i.i, label %if.then137.i.i
 
 if.then137.i.i:                                   ; preds = %if.end128.i.i
@@ -2503,9 +2503,9 @@ if.end165.i.i:                                    ; preds = %do.body11.i.i, %if.
   %s.i.5.i = phi i32 [ %s.i.3.i, %if.then81.i.i ], [ %and104.i.i, %if.then100.i.i ], [ %s.i.23.i, %do.end64.i.i ], [ 0, %with_accel.i.i ], [ %s.i.417.i, %if.end156.i.i ], [ 0, %do.body11.i.i ]
   %and161.i.i = and i32 %s.i.5.i, 16383
   %.pre = load i32, ptr %cur.i48, align 8
-  %.pre491 = zext i32 %.pre to i64
-  %location105.i.phi.trans.insert = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %.pre491, i32 1
-  %.pre492 = load i64, ptr %location105.i.phi.trans.insert, align 8
+  %.pre492 = zext i32 %.pre to i64
+  %location105.i.phi.trans.insert = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %.pre492, i32 1
+  %.pre493 = load i64, ptr %location105.i.phi.trans.insert, align 8
   br label %land.lhs.true100.i
 
 if.then68.i:                                      ; preds = %if.then44.i.i, %doComplexReport.exit223.i.i, %if.then.i218.i.i, %if.then137.i.i, %doComplexReport.exit.i.i, %if.then.i.i.i, %for.body.i200.i.i, %for.body.i.i.i
@@ -2514,8 +2514,8 @@ if.then68.i:                                      ; preds = %if.then44.i.i, %doC
   br label %nfaExecMcSheng16_Q2i.exit
 
 land.lhs.true100.i:                               ; preds = %if.end165.i.i, %while.body.i
-  %218 = phi i64 [ %.pre492, %if.end165.i.i ], [ %23, %while.body.i ]
-  %idxprom103.i.pre-phi = phi i64 [ %.pre491, %if.end165.i.i ], [ %idxprom38.i, %while.body.i ]
+  %218 = phi i64 [ %.pre493, %if.end165.i.i ], [ %23, %while.body.i ]
+  %idxprom103.i.pre-phi = phi i64 [ %.pre492, %if.end165.i.i ], [ %idxprom38.i, %while.body.i ]
   %219 = phi i32 [ %.pre, %if.end165.i.i ], [ %22, %while.body.i ]
   %s.i.1 = phi i32 [ %and161.i.i, %if.end165.i.i ], [ %s.i.0, %while.body.i ]
   %cmp106.i = icmp sgt i64 %218, %end

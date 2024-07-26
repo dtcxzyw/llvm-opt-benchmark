@@ -947,6 +947,7 @@ _ZNK6icu_7517UCharsTrieElement15getStringLengthERKNS_13UnicodeStringE.exit: ; pr
   %.pre-phi = phi i16 [ %.pre38, %entry._ZNK6icu_7517UCharsTrieElement15getStringLengthERKNS_13UnicodeStringE.exit_crit_edge ], [ %5, %if.then.i.i.i ]
   %9 = phi ptr [ %.pre, %entry._ZNK6icu_7517UCharsTrieElement15getStringLengthERKNS_13UnicodeStringE.exit_crit_edge ], [ %6, %if.then.i.i.i ]
   %retval.0.i.i.i = phi i32 [ 65535, %entry._ZNK6icu_7517UCharsTrieElement15getStringLengthERKNS_13UnicodeStringE.exit_crit_edge ], [ %8, %if.then.i.i.i ]
+  %invariant.op = add i32 %1, 2
   %tobool.not.i.i.i.i13 = icmp eq i16 %.pre-phi, 0
   %fBuffer.i.i.i.i14 = getelementptr inbounds i8, ptr %this, i64 26
   %cond.i2.i.i.i16 = select i1 %tobool.not.i.i.i.i13, ptr %9, ptr %fBuffer.i.i.i.i14
@@ -963,42 +964,43 @@ while.cond:                                       ; preds = %_ZNK6icu_7517UChars
   br i1 %cmp, label %land.rhs, label %while.end
 
 land.rhs:                                         ; preds = %while.cond
-  %13 = trunc i64 %indvars.iv to i32
-  %14 = add i32 %13, 2
-  %add2.i = add i32 %14, %1
-  %cmp.i.i.i10 = icmp ugt i32 %cond.i.i.i.i, %add2.i
+  %13 = trunc nsw i64 %indvars.iv to i32
+  %add2.i.reass = add i32 %invariant.op, %13
+  %cmp.i.i.i10 = icmp ugt i32 %cond.i.i.i.i, %add2.i.reass
   br i1 %cmp.i.i.i10, label %if.then.i.i.i12, label %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit
 
 if.then.i.i.i12:                                  ; preds = %land.rhs
-  %idxprom.i.i.i17 = sext i32 %add2.i to i64
+  %idxprom.i.i.i17 = sext i32 %add2.i.reass to i64
   %arrayidx.i.i.i18 = getelementptr inbounds i16, ptr %cond.i2.i.i.i16, i64 %idxprom.i.i.i17
-  %15 = load i16, ptr %arrayidx.i.i.i18, align 2
+  %14 = load i16, ptr %arrayidx.i.i.i18, align 2
   br label %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit
 
 _ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit: ; preds = %land.rhs, %if.then.i.i.i12
-  %retval.0.i.i.i11 = phi i16 [ %15, %if.then.i.i.i12 ], [ -1, %land.rhs ]
-  %16 = load i32, ptr %arrayidx4, align 4
-  %add2.i20 = add i32 %16, %14
+  %retval.0.i.i.i11 = phi i16 [ %14, %if.then.i.i.i12 ], [ -1, %land.rhs ]
+  %15 = load i32, ptr %arrayidx4, align 4
+  %16 = trunc i64 %indvars.iv to i32
+  %17 = add i32 %16, 2
+  %add2.i20 = add i32 %15, %17
   %cmp.i.i.i26 = icmp ugt i32 %cond.i.i.i.i, %add2.i20
   br i1 %cmp.i.i.i26, label %if.then.i.i.i28, label %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit35
 
 if.then.i.i.i28:                                  ; preds = %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit
   %idxprom.i.i.i33 = sext i32 %add2.i20 to i64
   %arrayidx.i.i.i34 = getelementptr inbounds i16, ptr %cond.i2.i.i.i16, i64 %idxprom.i.i.i33
-  %17 = load i16, ptr %arrayidx.i.i.i34, align 2
+  %18 = load i16, ptr %arrayidx.i.i.i34, align 2
   br label %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit35
 
 _ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit35: ; preds = %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit, %if.then.i.i.i28
-  %retval.0.i.i.i27 = phi i16 [ %17, %if.then.i.i.i28 ], [ -1, %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit ]
+  %retval.0.i.i.i27 = phi i16 [ %18, %if.then.i.i.i28 ], [ -1, %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit ]
   %cmp10 = icmp eq i16 %retval.0.i.i.i11, %retval.0.i.i.i27
   br i1 %cmp10, label %while.cond, label %while.end.split.loop.exit39, !llvm.loop !16
 
 while.end.split.loop.exit39:                      ; preds = %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit35
-  %18 = trunc nsw i64 %indvars.iv.next to i32
+  %19 = trunc nsw i64 %indvars.iv.next to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.cond, %while.end.split.loop.exit39
-  %inc.lcssa = phi i32 [ %18, %while.end.split.loop.exit39 ], [ %smax, %while.cond ]
+  %inc.lcssa = phi i32 [ %19, %while.end.split.loop.exit39 ], [ %smax, %while.cond ]
   ret i32 %inc.lcssa
 }
 

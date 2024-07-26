@@ -7503,6 +7503,7 @@ define internal fastcc noundef i32 @dissect_mq_or(ptr noundef %0, ptr noundef %1
   br i1 %.not26, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %7
+  %invariant.op = add i32 %2, 48
   %10 = icmp sgt i32 %3, 0
   br i1 %10, label %.lr.ph, label %.loopexit
 
@@ -7511,8 +7512,8 @@ define internal fastcc noundef i32 @dissect_mq_or(ptr noundef %0, ptr noundef %1
   br label %12
 
 12:                                               ; preds = %.lr.ph, %12
-  %.02328 = phi i32 [ 0, %.lr.ph ], [ %24, %12 ]
-  %.02427 = phi i32 [ 0, %.lr.ph ], [ %23, %12 ]
+  %.02328 = phi i32 [ 0, %.lr.ph ], [ %23, %12 ]
+  %.02427 = phi i32 [ 0, %.lr.ph ], [ %22, %12 ]
   %13 = add i32 %.02427, %2
   %14 = load i32, ptr @ett_mq_or, align 4
   %15 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %13, i32 noundef 96, i32 noundef %14, ptr noundef null, ptr noundef nonnull @.str.1816) #7
@@ -7520,12 +7521,12 @@ define internal fastcc noundef i32 @dissect_mq_or(ptr noundef %0, ptr noundef %1
   %17 = load i32, ptr %11, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %16, ptr noundef %0, i32 noundef %13, i32 noundef 48, i32 noundef %17) #7
   %19 = load i32, ptr @hf_mq_or_objqmgrname, align 4
-  %20 = add i32 %13, 48
-  %21 = load i32, ptr %11, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %19, ptr noundef %0, i32 noundef %20, i32 noundef 48, i32 noundef %21) #7
-  %23 = add i32 %.02427, 96
-  %24 = add nuw nsw i32 %.02328, 1
-  %exitcond.not = icmp eq i32 %24, %3
+  %.reass = add i32 %.02427, %invariant.op
+  %20 = load i32, ptr %11, align 4
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %19, ptr noundef %0, i32 noundef %.reass, i32 noundef 48, i32 noundef %20) #7
+  %22 = add i32 %.02427, 96
+  %23 = add nuw nsw i32 %.02328, 1
+  %exitcond.not = icmp eq i32 %23, %3
   br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !11
 
 .loopexit:                                        ; preds = %12, %.preheader, %7, %6
@@ -7545,6 +7546,7 @@ define internal fastcc noundef i32 @dissect_mq_rr(ptr noundef %0, ptr noundef %1
   br i1 %.not26, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %7
+  %invariant.op = add i32 %2, 4
   %10 = icmp sgt i32 %3, 0
   br i1 %10, label %.lr.ph, label %.loopexit
 
@@ -7553,8 +7555,8 @@ define internal fastcc noundef i32 @dissect_mq_rr(ptr noundef %0, ptr noundef %1
   br label %12
 
 12:                                               ; preds = %.lr.ph, %12
-  %.02328 = phi i32 [ 0, %.lr.ph ], [ %24, %12 ]
-  %.02427 = phi i32 [ 0, %.lr.ph ], [ %23, %12 ]
+  %.02328 = phi i32 [ 0, %.lr.ph ], [ %23, %12 ]
+  %.02427 = phi i32 [ 0, %.lr.ph ], [ %22, %12 ]
   %13 = add i32 %.02427, %2
   %14 = load i32, ptr @ett_mq_rr, align 4
   %15 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %13, i32 noundef 8, i32 noundef %14, ptr noundef null, ptr noundef nonnull @.str.1817) #7
@@ -7562,12 +7564,12 @@ define internal fastcc noundef i32 @dissect_mq_rr(ptr noundef %0, ptr noundef %1
   %17 = load i32, ptr %11, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %16, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef %17) #7
   %19 = load i32, ptr @hf_mq_rr_reascode, align 4
-  %20 = add i32 %13, 4
-  %21 = load i32, ptr %11, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %19, ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef %21) #7
-  %23 = add i32 %.02427, 8
-  %24 = add nuw nsw i32 %.02328, 1
-  %exitcond.not = icmp eq i32 %24, %3
+  %.reass = add i32 %.02427, %invariant.op
+  %20 = load i32, ptr %11, align 4
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %19, ptr noundef %0, i32 noundef %.reass, i32 noundef 4, i32 noundef %20) #7
+  %22 = add i32 %.02427, 8
+  %23 = add nuw nsw i32 %.02328, 1
+  %exitcond.not = icmp eq i32 %23, %3
   br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !12
 
 .loopexit:                                        ; preds = %12, %.preheader, %7, %6

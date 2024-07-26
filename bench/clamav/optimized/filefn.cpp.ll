@@ -336,28 +336,32 @@ define noundef ptr @_Z6MkTempPwm(ptr noundef %0, i64 noundef %1) local_unnamed_a
   %15 = call i64 @wcslen(ptr noundef nonnull %5) #16
   %16 = add i64 %15, %6
   %.not = icmp ult i64 %16, %1
-  br i1 %.not, label %.lr.ph, label %._crit_edge
+  br i1 %.not, label %.lr.ph.preheader, label %._crit_edge
+
+.lr.ph.preheader:                                 ; preds = %2
+  %invariant.op = add nuw nsw i32 %13, 1
+  br label %.lr.ph
 
 17:                                               ; preds = %.lr.ph
   %18 = add nuw nsw i32 %.01618, 1
-  %19 = add nuw i32 %18, %13
-  %20 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %5, i64 noundef 50, ptr noundef nonnull @.str.3, i32 noundef %10, i32 noundef %19) #14
-  %21 = call i64 @wcslen(ptr noundef nonnull %5) #16
-  %22 = add i64 %21, %6
-  %23 = icmp uge i64 %22, %1
-  %24 = icmp eq i32 %18, 1000
-  %or.cond = or i1 %24, %23
+  %.reass = add nuw i32 %.01618, %invariant.op
+  %19 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %5, i64 noundef 50, ptr noundef nonnull @.str.3, i32 noundef %10, i32 noundef %.reass) #14
+  %20 = call i64 @wcslen(ptr noundef nonnull %5) #16
+  %21 = add i64 %20, %6
+  %22 = icmp uge i64 %21, %1
+  %23 = icmp eq i32 %18, 1000
+  %or.cond = or i1 %23, %22
   br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-.lr.ph:                                           ; preds = %2, %17
-  %.01618 = phi i32 [ %18, %17 ], [ 0, %2 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %17
+  %.01618 = phi i32 [ %18, %17 ], [ 0, %.lr.ph.preheader ]
   call void @_Z8wcsncpyzPwPKwm(ptr noundef %11, ptr noundef nonnull %5, i64 noundef %12)
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %3)
-  %25 = call noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 2048)
-  %26 = call i32 @access(ptr noundef nonnull %3, i32 noundef 0) #14
-  %27 = icmp eq i32 %26, 0
+  %24 = call noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 2048)
+  %25 = call i32 @access(ptr noundef nonnull %3, i32 noundef 0) #14
+  %26 = icmp eq i32 %25, 0
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %3)
-  br i1 %27, label %17, label %._crit_edge
+  br i1 %26, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %17, %.lr.ph, %2
   %.0 = phi ptr [ null, %2 ], [ %0, %.lr.ph ], [ null, %17 ]

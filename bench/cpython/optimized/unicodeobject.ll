@@ -32362,13 +32362,13 @@ PyUnicode_DATA.exit318:                           ; preds = %if.then.i311, %if.e
   %add.ptr = getelementptr i8, ptr %retval.0.i315, i64 %mul89
   %mul91 = mul i64 %str1.val, %conv
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %buf2.0, i64 %mul91, i1 false)
-  %cmp92404 = icmp ugt i64 %maxcount.addr.0, 1
-  br i1 %cmp92404, label %while.body, label %if.end271
+  %cmp92406 = icmp ugt i64 %maxcount.addr.0, 1
+  br i1 %cmp92406, label %while.body, label %if.end271
 
 while.body:                                       ; preds = %PyUnicode_DATA.exit318, %if.end101
-  %dec406.in = phi i64 [ %dec406, %if.end101 ], [ %maxcount.addr.0, %PyUnicode_DATA.exit318 ]
-  %call56.pn405 = phi i64 [ %call97, %if.end101 ], [ %call56, %PyUnicode_DATA.exit318 ]
-  %i.0 = add i64 %call56.pn405, %str1.val
+  %dec408.in = phi i64 [ %dec408, %if.end101 ], [ %maxcount.addr.0, %PyUnicode_DATA.exit318 ]
+  %call56.pn407 = phi i64 [ %call97, %if.end101 ], [ %call56, %PyUnicode_DATA.exit318 ]
+  %i.0 = add i64 %call56.pn407, %str1.val
   %mul95 = mul i64 %i.0, %conv
   %add.ptr96 = getelementptr i8, ptr %sbuf.0, i64 %mul95
   %sub = sub i64 %self.val, %i.0
@@ -32377,11 +32377,11 @@ while.body:                                       ; preds = %PyUnicode_DATA.exit
   br i1 %cmp98, label %if.end271, label %if.end101
 
 if.end101:                                        ; preds = %while.body
-  %dec406 = add nsw i64 %dec406.in, -1
+  %dec408 = add nsw i64 %dec408.in, -1
   %mul103 = mul i64 %call97, %conv
   %add.ptr104 = getelementptr i8, ptr %retval.0.i315, i64 %mul103
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr104, ptr align 1 %buf2.0, i64 %mul91, i1 false)
-  %cmp92 = icmp sgt i64 %dec406.in, 2
+  %cmp92 = icmp sgt i64 %dec408.in, 2
   br i1 %cmp92, label %while.body, label %if.end271, !llvm.loop !185
 
 if.else109:                                       ; preds = %if.end27
@@ -32572,85 +32572,90 @@ PyUnicode_DATA.exit339:                           ; preds = %if.then.i332, %if.e
 
 while.body240.preheader:                          ; preds = %PyUnicode_DATA.exit339
   %mul245 = mul i64 %str2.val.fr, %conv167
+  %invariant.op = add i64 %str2.val.fr, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i336, ptr align 1 %buf2.1, i64 %mul245, i1 false)
   %cmp248386 = icmp eq i64 %retval.0.i319346, 1
-  br i1 %cmp248386, label %while.end260, label %if.end251
+  br i1 %cmp248386, label %while.end260, label %if.end251.lr.ph
+
+if.end251.lr.ph:                                  ; preds = %while.body240.preheader
+  %invariant.op392 = add i64 %invariant.op, %str2.val.fr
+  br label %if.end251
 
 while.body185.lr.ph:                              ; preds = %PyUnicode_DATA.exit339
-  %dec182391 = add nsw i64 %retval.0.i319346, -1
+  %dec182393 = add nsw i64 %retval.0.i319346, -1
   %cmp211 = icmp sgt i64 %str2.val.fr, 0
   %mul218 = mul i64 %str2.val.fr, %conv167
   br i1 %cmp211, label %while.body185.us, label %while.body185
 
 while.body185.us:                                 ; preds = %while.body185.lr.ph, %if.end210.us
-  %dec182395.us = phi i64 [ %dec182.us, %if.end210.us ], [ %dec182391, %while.body185.lr.ph ]
-  %ires.0394.us = phi i64 [ %add219.us, %if.end210.us ], [ 0, %while.body185.lr.ph ]
-  %i110.0393.us = phi i64 [ %add221.us, %if.end210.us ], [ 0, %while.body185.lr.ph ]
-  %mul187.us = mul i64 %i110.0393.us, %conv167
+  %dec182397.us = phi i64 [ %dec182.us, %if.end210.us ], [ %dec182393, %while.body185.lr.ph ]
+  %ires.0396.us = phi i64 [ %add219.us, %if.end210.us ], [ 0, %while.body185.lr.ph ]
+  %i110.0395.us = phi i64 [ %add221.us, %if.end210.us ], [ 0, %while.body185.lr.ph ]
+  %mul187.us = mul i64 %i110.0395.us, %conv167
   %add.ptr188.us = getelementptr i8, ptr %sbuf.1, i64 %mul187.us
-  %sub189.us = sub i64 %self.val, %i110.0393.us
-  %call190.us = tail call fastcc i64 @anylib_find(i32 noundef %rkind111.0, ptr noundef %self, ptr noundef %add.ptr188.us, i64 noundef %sub189.us, ptr noundef %str1, ptr noundef %buf1.5, i64 noundef %str1.val, i64 noundef %i110.0393.us)
+  %sub189.us = sub i64 %self.val, %i110.0395.us
+  %call190.us = tail call fastcc i64 @anylib_find(i32 noundef %rkind111.0, ptr noundef %self, ptr noundef %add.ptr188.us, i64 noundef %sub189.us, ptr noundef %str1, ptr noundef %buf1.5, i64 noundef %str1.val, i64 noundef %i110.0395.us)
   %cmp191.us = icmp eq i64 %call190.us, -1
   br i1 %cmp191.us, label %while.end222, label %if.else194.us
 
 if.else194.us:                                    ; preds = %while.body185.us
-  %cmp195.us = icmp sgt i64 %call190.us, %i110.0393.us
+  %cmp195.us = icmp sgt i64 %call190.us, %i110.0395.us
   br i1 %cmp195.us, label %if.then197.us, label %if.end210.us
 
 if.then197.us:                                    ; preds = %if.else194.us
-  %mul199.us = mul i64 %ires.0394.us, %conv167
+  %mul199.us = mul i64 %ires.0396.us, %conv167
   %add.ptr200.us = getelementptr i8, ptr %retval.0.i336, i64 %mul199.us
-  %sub205.us = sub i64 %call190.us, %i110.0393.us
+  %sub205.us = sub i64 %call190.us, %i110.0395.us
   %mul206.us = mul i64 %sub205.us, %conv167
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr200.us, ptr align 1 %add.ptr188.us, i64 %mul206.us, i1 false)
-  %add208.us = add i64 %sub205.us, %ires.0394.us
+  %add208.us = add i64 %sub205.us, %ires.0396.us
   br label %if.end210.us
 
 if.end210.us:                                     ; preds = %if.then197.us, %if.else194.us
-  %ires.1.us = phi i64 [ %add208.us, %if.then197.us ], [ %ires.0394.us, %if.else194.us ]
+  %ires.1.us = phi i64 [ %add208.us, %if.then197.us ], [ %ires.0396.us, %if.else194.us ]
   %mul215.us = mul i64 %ires.1.us, %conv167
   %add.ptr216.us = getelementptr i8, ptr %retval.0.i336, i64 %mul215.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr216.us, ptr align 1 %buf2.1, i64 %mul218, i1 false)
   %add219.us = add i64 %ires.1.us, %str2.val.fr
   %add221.us = add i64 %call190.us, %str1.val
-  %dec182.us = add nsw i64 %dec182395.us, -1
-  %cmp183.us = icmp sgt i64 %dec182395.us, 0
+  %dec182.us = add nsw i64 %dec182397.us, -1
+  %cmp183.us = icmp sgt i64 %dec182397.us, 0
   br i1 %cmp183.us, label %while.body185.us, label %while.end222, !llvm.loop !186
 
 while.body185:                                    ; preds = %while.body185.lr.ph, %if.end210
-  %dec182395 = phi i64 [ %dec182, %if.end210 ], [ %dec182391, %while.body185.lr.ph ]
-  %ires.0394 = phi i64 [ %ires.1, %if.end210 ], [ 0, %while.body185.lr.ph ]
-  %i110.0393 = phi i64 [ %add221, %if.end210 ], [ 0, %while.body185.lr.ph ]
-  %mul187 = mul i64 %i110.0393, %conv167
+  %dec182397 = phi i64 [ %dec182, %if.end210 ], [ %dec182393, %while.body185.lr.ph ]
+  %ires.0396 = phi i64 [ %ires.1, %if.end210 ], [ 0, %while.body185.lr.ph ]
+  %i110.0395 = phi i64 [ %add221, %if.end210 ], [ 0, %while.body185.lr.ph ]
+  %mul187 = mul i64 %i110.0395, %conv167
   %add.ptr188 = getelementptr i8, ptr %sbuf.1, i64 %mul187
-  %sub189 = sub i64 %self.val, %i110.0393
-  %call190 = tail call fastcc i64 @anylib_find(i32 noundef %rkind111.0, ptr noundef %self, ptr noundef %add.ptr188, i64 noundef %sub189, ptr noundef %str1, ptr noundef %buf1.5, i64 noundef %str1.val, i64 noundef %i110.0393)
+  %sub189 = sub i64 %self.val, %i110.0395
+  %call190 = tail call fastcc i64 @anylib_find(i32 noundef %rkind111.0, ptr noundef %self, ptr noundef %add.ptr188, i64 noundef %sub189, ptr noundef %str1, ptr noundef %buf1.5, i64 noundef %str1.val, i64 noundef %i110.0395)
   %cmp191 = icmp eq i64 %call190, -1
   br i1 %cmp191, label %while.end222, label %if.else194
 
 if.else194:                                       ; preds = %while.body185
-  %cmp195 = icmp sgt i64 %call190, %i110.0393
+  %cmp195 = icmp sgt i64 %call190, %i110.0395
   br i1 %cmp195, label %if.then197, label %if.end210
 
 if.then197:                                       ; preds = %if.else194
-  %mul199 = mul i64 %ires.0394, %conv167
+  %mul199 = mul i64 %ires.0396, %conv167
   %add.ptr200 = getelementptr i8, ptr %retval.0.i336, i64 %mul199
-  %sub205 = sub i64 %call190, %i110.0393
+  %sub205 = sub i64 %call190, %i110.0395
   %mul206 = mul i64 %sub205, %conv167
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr200, ptr align 1 %add.ptr188, i64 %mul206, i1 false)
-  %add208 = add i64 %sub205, %ires.0394
+  %add208 = add i64 %sub205, %ires.0396
   br label %if.end210
 
 if.end210:                                        ; preds = %if.else194, %if.then197
-  %ires.1 = phi i64 [ %add208, %if.then197 ], [ %ires.0394, %if.else194 ]
+  %ires.1 = phi i64 [ %add208, %if.then197 ], [ %ires.0396, %if.else194 ]
   %add221 = add i64 %call190, %str1.val
-  %dec182 = add nsw i64 %dec182395, -1
-  %cmp183 = icmp sgt i64 %dec182395, 0
+  %dec182 = add nsw i64 %dec182397, -1
+  %cmp183 = icmp sgt i64 %dec182397, 0
   br i1 %cmp183, label %while.body185, label %while.end222, !llvm.loop !186
 
 while.end222:                                     ; preds = %if.end210, %while.body185, %if.end210.us, %while.body185.us
-  %i110.0.lcssa = phi i64 [ %i110.0393.us, %while.body185.us ], [ %add221.us, %if.end210.us ], [ %i110.0393, %while.body185 ], [ %add221, %if.end210 ]
-  %ires.0.lcssa = phi i64 [ %ires.0394.us, %while.body185.us ], [ %add219.us, %if.end210.us ], [ %ires.0394, %while.body185 ], [ %ires.1, %if.end210 ]
+  %i110.0.lcssa = phi i64 [ %i110.0395.us, %while.body185.us ], [ %add221.us, %if.end210.us ], [ %i110.0395, %while.body185 ], [ %add221, %if.end210 ]
+  %ires.0.lcssa = phi i64 [ %ires.0396.us, %while.body185.us ], [ %add219.us, %if.end210.us ], [ %ires.0396, %while.body185 ], [ %ires.1, %if.end210 ]
   %cmp223 = icmp slt i64 %i110.0.lcssa, %self.val
   br i1 %cmp223, label %if.then225, label %if.end271
 
@@ -32664,27 +32669,28 @@ if.then225:                                       ; preds = %while.end222
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr228, ptr align 1 %add.ptr231, i64 %mul234, i1 false)
   br label %if.end271
 
-if.end251:                                        ; preds = %while.body240.preheader, %if.end251
-  %add246389 = phi i64 [ %add246, %if.end251 ], [ %str2.val.fr, %while.body240.preheader ]
-  %i110.1388 = phi i64 [ %inc259, %if.end251 ], [ 0, %while.body240.preheader ]
-  %n.1387 = phi i64 [ %dec247, %if.end251 ], [ %retval.0.i319346, %while.body240.preheader ]
+if.end251:                                        ; preds = %if.end251.lr.ph, %if.end251
+  %add246390 = phi i64 [ %str2.val.fr, %if.end251.lr.ph ], [ %add246.reass, %if.end251 ]
+  %ires.3389 = phi i64 [ 0, %if.end251.lr.ph ], [ %inc.reass, %if.end251 ]
+  %i110.1388 = phi i64 [ 0, %if.end251.lr.ph ], [ %inc259, %if.end251 ]
+  %n.1387 = phi i64 [ %retval.0.i319346, %if.end251.lr.ph ], [ %dec247, %if.end251 ]
   %dec247 = add nsw i64 %n.1387, -1
-  %mul253 = mul i64 %add246389, %conv167
+  %mul253 = mul i64 %add246390, %conv167
   %add.ptr254 = getelementptr i8, ptr %retval.0.i336, i64 %mul253
   %mul256 = mul i64 %i110.1388, %conv167
   %add.ptr257 = getelementptr i8, ptr %sbuf.1, i64 %mul256
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr254, ptr align 1 %add.ptr257, i64 %conv167, i1 false)
-  %inc = add i64 %add246389, 1
+  %inc.reass = add i64 %ires.3389, %invariant.op
   %inc259 = add nuw i64 %i110.1388, 1
-  %mul242 = mul i64 %inc, %conv167
+  %mul242 = mul i64 %inc.reass, %conv167
   %add.ptr243 = getelementptr i8, ptr %retval.0.i336, i64 %mul242
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr243, ptr align 1 %buf2.1, i64 %mul245, i1 false)
-  %add246 = add i64 %inc, %str2.val.fr
+  %add246.reass = add i64 %ires.3389, %invariant.op392
   %cmp248 = icmp eq i64 %dec247, 1
   br i1 %cmp248, label %while.end260.loopexit, label %if.end251, !llvm.loop !187
 
 while.end260.loopexit:                            ; preds = %if.end251
-  %.pre = mul i64 %add246, %conv167
+  %.pre = mul i64 %add246.reass, %conv167
   br label %while.end260
 
 while.end260:                                     ; preds = %while.end260.loopexit, %while.body240.preheader

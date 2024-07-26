@@ -887,7 +887,7 @@ _Z4itoalPwm.exit:                                 ; preds = %.lr.ph.i, %25
   br label %41
 
 41:                                               ; preds = %.lr.ph, %51
-  %42 = phi i32 [ 1, %.lr.ph ], [ %60, %51 ]
+  %42 = phi i32 [ 1, %.lr.ph ], [ %.reass, %51 ]
   %43 = phi i32 [ %33, %.lr.ph ], [ %58, %51 ]
   %.015 = phi i32 [ 0, %.lr.ph ], [ %52, %51 ]
   %.01314 = phi i32 [ 0, %.lr.ph ], [ %53, %51 ]
@@ -917,20 +917,20 @@ _Z4itoalPwm.exit:                                 ; preds = %.lr.ph.i, %25
   %57 = getelementptr inbounds [30 x i32], ptr %5, i64 0, i64 %56
   %58 = load i32, ptr %57, align 4
   %59 = icmp ne i32 %58, 0
-  %60 = add i32 %.1, 2
-  %61 = zext i32 %60 to i64
-  %62 = icmp ult i64 %61, %2
-  %63 = and i1 %59, %62
-  br i1 %63, label %41, label %._crit_edge.loopexit, !llvm.loop !19
+  %.reass = add i32 %.1, 2
+  %60 = zext i32 %.reass to i64
+  %61 = icmp ult i64 %60, %2
+  %62 = and i1 %59, %61
+  br i1 %62, label %41, label %._crit_edge.loopexit, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %51
-  %64 = zext i32 %53 to i64
+  %63 = zext i32 %53 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_Z4itoalPwm.exit
-  %.013.lcssa = phi i64 [ 0, %_Z4itoalPwm.exit ], [ %64, %._crit_edge.loopexit ]
-  %65 = getelementptr inbounds i32, ptr %1, i64 %.013.lcssa
-  store i32 0, ptr %65, align 4
+  %.013.lcssa = phi i64 [ 0, %_Z4itoalPwm.exit ], [ %63, %._crit_edge.loopexit ]
+  %64 = getelementptr inbounds i32, ptr %1, i64 %.013.lcssa
+  store i32 0, ptr %64, align 4
   ret void
 }
 

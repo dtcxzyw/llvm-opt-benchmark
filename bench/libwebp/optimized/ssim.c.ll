@@ -207,7 +207,7 @@ define internal double @SSIMGetClipped_C(ptr nocapture noundef readonly %0, i32 
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
-  %indvars.iv111 = phi i64 [ %31, %.preheader.preheader ], [ %indvars.iv.next112, %._crit_edge ]
+  %indvars.iv110 = phi i64 [ %31, %.preheader.preheader ], [ %indvars.iv.next111, %._crit_edge ]
   %.090 = phi ptr [ %23, %.preheader.preheader ], [ %62, %._crit_edge ]
   %.05189 = phi ptr [ %26, %.preheader.preheader ], [ %63, %._crit_edge ]
   %.sroa.16.087 = phi i32 [ 0, %.preheader.preheader ], [ %61, %._crit_edge ]
@@ -216,10 +216,10 @@ define internal double @SSIMGetClipped_C(ptr nocapture noundef readonly %0, i32 
   %.sroa.7.084 = phi i32 [ 0, %.preheader.preheader ], [ %55, %._crit_edge ]
   %.sroa.4.083 = phi i32 [ 0, %.preheader.preheader ], [ %53, %._crit_edge ]
   %.sroa.0.082 = phi i32 [ 0, %.preheader.preheader ], [ %51, %._crit_edge ]
-  %33 = trunc nuw nsw i64 %indvars.iv111 to i32
-  %reass.sub = sub i32 %33, %5
-  %34 = add i32 %reass.sub, 3
-  %35 = sext i32 %34 to i64
+  %33 = trunc i64 %indvars.iv110 to i32
+  %34 = add i32 %33, 3
+  %.reass = sub i32 %34, %5
+  %35 = sext i32 %.reass to i64
   %36 = getelementptr inbounds [7 x i32], ptr @kWeight, i64 0, i64 %35
   %37 = load i32, ptr %36, align 4
   br label %38
@@ -233,8 +233,8 @@ define internal double @SSIMGetClipped_C(ptr nocapture noundef readonly %0, i32 
   %.sroa.4.170 = phi i32 [ %.sroa.4.083, %.preheader ], [ %53, %38 ]
   %.sroa.0.169 = phi i32 [ %.sroa.0.082, %.preheader ], [ %51, %38 ]
   %39 = trunc nuw nsw i64 %indvars.iv to i32
-  %reass.sub103 = sub i32 %39, %4
-  %40 = add i32 %reass.sub103, 3
+  %reass.sub = sub i32 %39, %4
+  %40 = add i32 %reass.sub, 3
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds [7 x i32], ptr @kWeight, i64 0, i64 %41
   %43 = load i32, ptr %42, align 4
@@ -262,13 +262,13 @@ define internal double @SSIMGetClipped_C(ptr nocapture noundef readonly %0, i32 
   br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %38
-  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
+  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %62 = getelementptr inbounds i8, ptr %.090, i64 %19
   %63 = getelementptr inbounds i8, ptr %.05189, i64 %20
-  %.not.not = icmp slt i64 %indvars.iv111, %32
-  br i1 %.not.not, label %.preheader, label %._crit_edge91.loopexit104, !llvm.loop !6
+  %.not.not = icmp slt i64 %indvars.iv110, %32
+  br i1 %.not.not, label %.preheader, label %._crit_edge91.loopexit103, !llvm.loop !6
 
-._crit_edge91.loopexit104:                        ; preds = %._crit_edge
+._crit_edge91.loopexit103:                        ; preds = %._crit_edge
   %64 = zext i32 %53 to i64
   %65 = zext i32 %55 to i64
   %66 = zext i32 %59 to i64
@@ -276,13 +276,13 @@ define internal double @SSIMGetClipped_C(ptr nocapture noundef readonly %0, i32 
   %68 = zext i32 %61 to i64
   br label %._crit_edge91
 
-._crit_edge91:                                    ; preds = %.preheader.lr.ph, %._crit_edge91.loopexit104, %8
-  %.sroa.0.0.lcssa = phi i32 [ 0, %8 ], [ %51, %._crit_edge91.loopexit104 ], [ 0, %.preheader.lr.ph ]
-  %.sroa.4.0.lcssa = phi i64 [ 0, %8 ], [ %64, %._crit_edge91.loopexit104 ], [ 0, %.preheader.lr.ph ]
-  %.sroa.7.0.lcssa = phi i64 [ 0, %8 ], [ %65, %._crit_edge91.loopexit104 ], [ 0, %.preheader.lr.ph ]
-  %.sroa.10.0.lcssa = phi i64 [ 0, %8 ], [ %67, %._crit_edge91.loopexit104 ], [ 0, %.preheader.lr.ph ]
-  %.sroa.13.0.lcssa = phi i64 [ 0, %8 ], [ %66, %._crit_edge91.loopexit104 ], [ 0, %.preheader.lr.ph ]
-  %.sroa.16.0.lcssa = phi i64 [ 0, %8 ], [ %68, %._crit_edge91.loopexit104 ], [ 0, %.preheader.lr.ph ]
+._crit_edge91:                                    ; preds = %.preheader.lr.ph, %._crit_edge91.loopexit103, %8
+  %.sroa.0.0.lcssa = phi i32 [ 0, %8 ], [ %51, %._crit_edge91.loopexit103 ], [ 0, %.preheader.lr.ph ]
+  %.sroa.4.0.lcssa = phi i64 [ 0, %8 ], [ %64, %._crit_edge91.loopexit103 ], [ 0, %.preheader.lr.ph ]
+  %.sroa.7.0.lcssa = phi i64 [ 0, %8 ], [ %65, %._crit_edge91.loopexit103 ], [ 0, %.preheader.lr.ph ]
+  %.sroa.10.0.lcssa = phi i64 [ 0, %8 ], [ %67, %._crit_edge91.loopexit103 ], [ 0, %.preheader.lr.ph ]
+  %.sroa.13.0.lcssa = phi i64 [ 0, %8 ], [ %66, %._crit_edge91.loopexit103 ], [ 0, %.preheader.lr.ph ]
+  %.sroa.16.0.lcssa = phi i64 [ 0, %8 ], [ %68, %._crit_edge91.loopexit103 ], [ 0, %.preheader.lr.ph ]
   %69 = mul i32 %.sroa.0.0.lcssa, %.sroa.0.0.lcssa
   %70 = shl i32 %69, 6
   %71 = mul nuw i64 %.sroa.4.0.lcssa, %.sroa.4.0.lcssa

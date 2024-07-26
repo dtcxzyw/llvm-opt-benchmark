@@ -171,19 +171,19 @@ define void @rgb2spec_fetch(ptr nocapture noundef readonly %0, ptr nocapture nou
   br label %.loopexit
 
 .preheader:                                       ; preds = %15, %.preheader
-  %indvars.iv132 = phi i64 [ %indvars.iv.next133, %.preheader ], [ 1, %15 ]
+  %indvars.iv138 = phi i64 [ %indvars.iv.next139, %.preheader ], [ 1, %15 ]
   %.0114128 = phi i32 [ %.1, %.preheader ], [ 0, %15 ]
-  %35 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %indvars.iv132
+  %35 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %indvars.iv138
   %36 = load float, ptr %35, align 4
   %37 = sext i32 %.0114128 to i64
   %38 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %37
   %39 = load float, ptr %38, align 4
   %40 = fcmp contract ult float %36, %39
-  %41 = trunc nuw nsw i64 %indvars.iv132 to i32
+  %41 = trunc nuw nsw i64 %indvars.iv138 to i32
   %.1 = select i1 %40, i32 %.0114128, i32 %41
-  %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
-  %exitcond135.not = icmp eq i64 %indvars.iv.next133, 3
-  br i1 %exitcond135.not, label %42, label %.preheader, !llvm.loop !6
+  %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
+  %exitcond141.not = icmp eq i64 %indvars.iv.next139, 3
+  br i1 %exitcond141.not, label %42, label %.preheader, !llvm.loop !6
 
 42:                                               ; preds = %.preheader
   %43 = sext i32 %.1 to i64
@@ -261,70 +261,74 @@ rgb2spec_find_interval.exit:                      ; preds = %.lr.ph.i, %42
   %103 = fdiv contract float %97, %102
   %104 = fsub contract float 1.000000e+00, %103
   %105 = getelementptr inbounds i8, ptr %0, i64 16
+  %invariant.op = add i32 %86, 3
+  %invariant.op129 = add i32 %87, 3
+  %invariant.op131 = add i32 %87, %86
+  %invariant.op133 = add i32 %invariant.op131, 3
   br label %106
 
 106:                                              ; preds = %rgb2spec_find_interval.exit, %106
-  %indvars.iv136 = phi i64 [ 0, %rgb2spec_find_interval.exit ], [ %indvars.iv.next137, %106 ]
-  %.0118129 = phi i32 [ %85, %rgb2spec_find_interval.exit ], [ %161, %106 ]
+  %indvars.iv142 = phi i64 [ 0, %rgb2spec_find_interval.exit ], [ %indvars.iv.next143, %106 ]
+  %.0118135 = phi i32 [ %85, %rgb2spec_find_interval.exit ], [ %157, %106 ]
   %107 = load ptr, ptr %105, align 8
-  %108 = zext i32 %.0118129 to i64
+  %108 = zext i32 %.0118135 to i64
   %109 = getelementptr inbounds float, ptr %107, i64 %108
   %110 = load float, ptr %109, align 4
   %111 = fmul contract float %90, %110
-  %112 = add i32 %.0118129, 3
+  %112 = add i32 %.0118135, 3
   %113 = zext i32 %112 to i64
   %114 = getelementptr inbounds float, ptr %107, i64 %113
   %115 = load float, ptr %114, align 4
   %116 = fmul contract float %89, %115
   %117 = fadd contract float %111, %116
   %118 = fmul contract float %93, %117
-  %119 = add i32 %.0118129, %86
+  %119 = add i32 %.0118135, %86
   %120 = zext i32 %119 to i64
   %121 = getelementptr inbounds float, ptr %107, i64 %120
   %122 = load float, ptr %121, align 4
   %123 = fmul contract float %90, %122
-  %124 = add i32 %119, 3
-  %125 = zext i32 %124 to i64
-  %126 = getelementptr inbounds float, ptr %107, i64 %125
-  %127 = load float, ptr %126, align 4
-  %128 = fmul contract float %89, %127
-  %129 = fadd contract float %123, %128
-  %130 = fmul contract float %92, %129
-  %131 = fadd contract float %118, %130
-  %132 = fmul contract float %104, %131
-  %133 = add i32 %.0118129, %87
-  %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds float, ptr %107, i64 %134
-  %136 = load float, ptr %135, align 4
-  %137 = fmul contract float %90, %136
-  %138 = add i32 %133, 3
-  %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds float, ptr %107, i64 %139
-  %141 = load float, ptr %140, align 4
-  %142 = fmul contract float %89, %141
-  %143 = fadd contract float %137, %142
-  %144 = fmul contract float %93, %143
-  %145 = add i32 %133, %86
-  %146 = zext i32 %145 to i64
-  %147 = getelementptr inbounds float, ptr %107, i64 %146
-  %148 = load float, ptr %147, align 4
-  %149 = fmul contract float %90, %148
-  %150 = add i32 %145, 3
-  %151 = zext i32 %150 to i64
-  %152 = getelementptr inbounds float, ptr %107, i64 %151
-  %153 = load float, ptr %152, align 4
-  %154 = fmul contract float %89, %153
-  %155 = fadd contract float %149, %154
-  %156 = fmul contract float %92, %155
-  %157 = fadd contract float %144, %156
-  %158 = fmul contract float %103, %157
-  %159 = fadd contract float %132, %158
-  %160 = getelementptr inbounds float, ptr %2, i64 %indvars.iv136
-  store float %159, ptr %160, align 4
-  %161 = add i32 %.0118129, 1
-  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
-  %exitcond139.not = icmp eq i64 %indvars.iv.next137, 3
-  br i1 %exitcond139.not, label %.loopexit, label %106, !llvm.loop !8
+  %.reass = add i32 %.0118135, %invariant.op
+  %124 = zext i32 %.reass to i64
+  %125 = getelementptr inbounds float, ptr %107, i64 %124
+  %126 = load float, ptr %125, align 4
+  %127 = fmul contract float %89, %126
+  %128 = fadd contract float %123, %127
+  %129 = fmul contract float %92, %128
+  %130 = fadd contract float %118, %129
+  %131 = fmul contract float %104, %130
+  %132 = add i32 %.0118135, %87
+  %133 = zext i32 %132 to i64
+  %134 = getelementptr inbounds float, ptr %107, i64 %133
+  %135 = load float, ptr %134, align 4
+  %136 = fmul contract float %90, %135
+  %.reass130 = add i32 %.0118135, %invariant.op129
+  %137 = zext i32 %.reass130 to i64
+  %138 = getelementptr inbounds float, ptr %107, i64 %137
+  %139 = load float, ptr %138, align 4
+  %140 = fmul contract float %89, %139
+  %141 = fadd contract float %136, %140
+  %142 = fmul contract float %93, %141
+  %.reass132 = add i32 %.0118135, %invariant.op131
+  %143 = zext i32 %.reass132 to i64
+  %144 = getelementptr inbounds float, ptr %107, i64 %143
+  %145 = load float, ptr %144, align 4
+  %146 = fmul contract float %90, %145
+  %.reass134 = add i32 %.0118135, %invariant.op133
+  %147 = zext i32 %.reass134 to i64
+  %148 = getelementptr inbounds float, ptr %107, i64 %147
+  %149 = load float, ptr %148, align 4
+  %150 = fmul contract float %89, %149
+  %151 = fadd contract float %146, %150
+  %152 = fmul contract float %92, %151
+  %153 = fadd contract float %142, %152
+  %154 = fmul contract float %103, %153
+  %155 = fadd contract float %131, %154
+  %156 = getelementptr inbounds float, ptr %2, i64 %indvars.iv142
+  store float %155, ptr %156, align 4
+  %157 = add i32 %.0118135, 1
+  %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
+  %exitcond145.not = icmp eq i64 %indvars.iv.next143, 3
+  br i1 %exitcond145.not, label %.loopexit, label %106, !llvm.loop !8
 
 .loopexit:                                        ; preds = %106, %33
   ret void

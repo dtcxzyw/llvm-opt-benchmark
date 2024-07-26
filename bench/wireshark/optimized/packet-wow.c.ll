@@ -353,7 +353,7 @@ define internal i32 @dissect_wow_pdu(ptr noundef %0, ptr nocapture noundef reado
 
 13:                                               ; preds = %4
   %14 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %281
+  br label %280
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @proto_wow, align 4
@@ -682,6 +682,7 @@ version_is_at_or_above.exit.i:                    ; preds = %195
   %200 = load i32, ptr @hf_wow_num_realms, align 4
   %201 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %200, ptr noundef %0, i32 noundef 7, i32 noundef %199, i32 noundef -2147483648) #3
   %202 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #3
+  %invariant.op.i = add nuw nsw i32 %198, 1
   %.not119.i = icmp eq i8 %202, 0
   br i1 %.not119.i, label %parse_realm_list_server_to_client.exit, label %.lr.ph.i
 
@@ -692,7 +693,7 @@ version_is_at_or_above.exit.i:                    ; preds = %195
 
 205:                                              ; preds = %version_is_at_or_above.exit99.thread.i, %.lr.ph.i
   %.0118.i = phi i32 [ %203, %.lr.ph.i ], [ %.2.i, %version_is_at_or_above.exit99.thread.i ]
-  %.085117.i = phi i8 [ 0, %.lr.ph.i ], [ %279, %version_is_at_or_above.exit99.thread.i ]
+  %.085117.i = phi i8 [ 0, %.lr.ph.i ], [ %278, %version_is_at_or_above.exit99.thread.i ]
   %206 = load ptr, ptr %204, align 8
   %207 = add i32 %.0118.i, %197
   %208 = call ptr @tvb_get_stringz_enc(ptr noundef %206, ptr noundef %0, i32 noundef %207, ptr noundef nonnull %5, i32 noundef 2) #3
@@ -724,93 +725,93 @@ version_is_at_or_above.exit.i:                    ; preds = %195
 version_is_at_or_above.exit96.thread.i:           ; preds = %220, %217, %205
   %222 = load i32, ptr @hf_wow_realm_locked, align 4
   %223 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %222, ptr noundef %0, i32 noundef %213, i32 noundef 1, i32 noundef 0) #3
-  %224 = add i32 %213, 1
+  %.reass.i = add i32 %invariant.op.i, %.0118.i
   br label %version_is_at_or_above.exit96.thread103.i
 
 version_is_at_or_above.exit96.thread103.i:        ; preds = %version_is_at_or_above.exit96.thread.i, %220, %216
-  %.1.i = phi i32 [ %224, %version_is_at_or_above.exit96.thread.i ], [ %213, %216 ], [ %213, %220 ]
-  %225 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1.i) #3
-  %226 = load i32, ptr @hf_wow_realm_flags, align 4
-  %227 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %226, ptr noundef %0, i32 noundef %.1.i, i32 noundef 1, i32 noundef -2147483648) #3
-  %228 = add i32 %.1.i, 1
-  %229 = load i32, ptr @hf_wow_realm_name, align 4
-  %230 = load i32, ptr %5, align 4
-  %231 = call ptr @proto_tree_add_string(ptr noundef %210, i32 noundef %229, ptr noundef %0, i32 noundef %228, i32 noundef %230, ptr noundef %208) #3
-  %232 = load i32, ptr %5, align 4
-  %233 = add i32 %232, %228
-  %234 = load ptr, ptr %204, align 8
-  %235 = call ptr @tvb_get_stringz_enc(ptr noundef %234, ptr noundef %0, i32 noundef %233, ptr noundef nonnull %5, i32 noundef 2) #3
-  %236 = load i32, ptr @hf_wow_realm_socket, align 4
-  %237 = load i32, ptr %5, align 4
-  %238 = call ptr @proto_tree_add_string(ptr noundef %210, i32 noundef %236, ptr noundef %0, i32 noundef %233, i32 noundef %237, ptr noundef %235) #3
-  %239 = load i32, ptr %5, align 4
-  %240 = add i32 %239, %233
-  %241 = load i32, ptr @hf_wow_realm_population_level, align 4
-  %242 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %241, ptr noundef %0, i32 noundef %240, i32 noundef 4, i32 noundef -2147483648) #3
-  %243 = add i32 %240, 4
-  %244 = load i32, ptr @hf_wow_realm_num_characters, align 4
-  %245 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %244, ptr noundef %0, i32 noundef %243, i32 noundef 1, i32 noundef -2147483648) #3
-  %246 = add i32 %240, 5
-  %247 = load i32, ptr @hf_wow_realm_category, align 4
-  %248 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %247, ptr noundef %0, i32 noundef %246, i32 noundef 1, i32 noundef -2147483648) #3
-  %249 = add i32 %240, 6
-  %250 = load i32, ptr @hf_wow_realm_id, align 4
-  %251 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %250, ptr noundef %0, i32 noundef %249, i32 noundef 1, i32 noundef -2147483648) #3
-  %252 = add i32 %240, 7
-  %253 = load i8, ptr @client_game_version.0, align 2
-  %254 = icmp sgt i8 %253, 2
-  br i1 %254, label %version_is_at_or_above.exit99.i, label %255
+  %.1.i = phi i32 [ %.reass.i, %version_is_at_or_above.exit96.thread.i ], [ %213, %216 ], [ %213, %220 ]
+  %224 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1.i) #3
+  %225 = load i32, ptr @hf_wow_realm_flags, align 4
+  %226 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %225, ptr noundef %0, i32 noundef %.1.i, i32 noundef 1, i32 noundef -2147483648) #3
+  %227 = add i32 %.1.i, 1
+  %228 = load i32, ptr @hf_wow_realm_name, align 4
+  %229 = load i32, ptr %5, align 4
+  %230 = call ptr @proto_tree_add_string(ptr noundef %210, i32 noundef %228, ptr noundef %0, i32 noundef %227, i32 noundef %229, ptr noundef %208) #3
+  %231 = load i32, ptr %5, align 4
+  %232 = add i32 %231, %227
+  %233 = load ptr, ptr %204, align 8
+  %234 = call ptr @tvb_get_stringz_enc(ptr noundef %233, ptr noundef %0, i32 noundef %232, ptr noundef nonnull %5, i32 noundef 2) #3
+  %235 = load i32, ptr @hf_wow_realm_socket, align 4
+  %236 = load i32, ptr %5, align 4
+  %237 = call ptr @proto_tree_add_string(ptr noundef %210, i32 noundef %235, ptr noundef %0, i32 noundef %232, i32 noundef %236, ptr noundef %234) #3
+  %238 = load i32, ptr %5, align 4
+  %239 = add i32 %238, %232
+  %240 = load i32, ptr @hf_wow_realm_population_level, align 4
+  %241 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %240, ptr noundef %0, i32 noundef %239, i32 noundef 4, i32 noundef -2147483648) #3
+  %242 = add i32 %239, 4
+  %243 = load i32, ptr @hf_wow_realm_num_characters, align 4
+  %244 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %243, ptr noundef %0, i32 noundef %242, i32 noundef 1, i32 noundef -2147483648) #3
+  %245 = add i32 %239, 5
+  %246 = load i32, ptr @hf_wow_realm_category, align 4
+  %247 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %246, ptr noundef %0, i32 noundef %245, i32 noundef 1, i32 noundef -2147483648) #3
+  %248 = add i32 %239, 6
+  %249 = load i32, ptr @hf_wow_realm_id, align 4
+  %250 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %249, ptr noundef %0, i32 noundef %248, i32 noundef 1, i32 noundef -2147483648) #3
+  %251 = add i32 %239, 7
+  %252 = load i8, ptr @client_game_version.0, align 2
+  %253 = icmp sgt i8 %252, 2
+  br i1 %253, label %version_is_at_or_above.exit99.i, label %254
 
-255:                                              ; preds = %version_is_at_or_above.exit96.thread103.i
-  %.not114.i = icmp eq i8 %253, 2
-  br i1 %.not114.i, label %256, label %version_is_at_or_above.exit99.thread.i
+254:                                              ; preds = %version_is_at_or_above.exit96.thread103.i
+  %.not114.i = icmp eq i8 %252, 2
+  br i1 %.not114.i, label %255, label %version_is_at_or_above.exit99.thread.i
 
-256:                                              ; preds = %255
-  %257 = load i8, ptr @client_game_version.1, align 2
-  %258 = icmp sgt i8 %257, 4
-  br i1 %258, label %version_is_at_or_above.exit99.i, label %259
+255:                                              ; preds = %254
+  %256 = load i8, ptr @client_game_version.1, align 2
+  %257 = icmp sgt i8 %256, 4
+  br i1 %257, label %version_is_at_or_above.exit99.i, label %258
 
-259:                                              ; preds = %256
-  %.not115.i = icmp eq i8 %257, 4
-  br i1 %.not115.i, label %260, label %version_is_at_or_above.exit99.thread.i
+258:                                              ; preds = %255
+  %.not115.i = icmp eq i8 %256, 4
+  br i1 %.not115.i, label %259, label %version_is_at_or_above.exit99.thread.i
 
-260:                                              ; preds = %259
-  %261 = load i8, ptr @client_game_version.2, align 2
-  %262 = icmp sgt i8 %261, 3
-  br i1 %262, label %version_is_at_or_above.exit99.i, label %263
+259:                                              ; preds = %258
+  %260 = load i8, ptr @client_game_version.2, align 2
+  %261 = icmp sgt i8 %260, 3
+  br i1 %261, label %version_is_at_or_above.exit99.i, label %262
 
-263:                                              ; preds = %260
-  %264 = icmp eq i8 %261, 3
-  %..i97.i = zext i1 %264 to i32
+262:                                              ; preds = %259
+  %263 = icmp eq i8 %260, 3
+  %..i97.i = zext i1 %263 to i32
   br label %version_is_at_or_above.exit99.i
 
-version_is_at_or_above.exit99.i:                  ; preds = %263, %260, %256, %version_is_at_or_above.exit96.thread103.i
-  %.0.i98.i = phi i32 [ 1, %version_is_at_or_above.exit96.thread103.i ], [ 1, %256 ], [ 1, %260 ], [ %..i97.i, %263 ]
+version_is_at_or_above.exit99.i:                  ; preds = %262, %259, %255, %version_is_at_or_above.exit96.thread103.i
+  %.0.i98.i = phi i32 [ 1, %version_is_at_or_above.exit96.thread103.i ], [ 1, %255 ], [ 1, %259 ], [ %..i97.i, %262 ]
   %.not90.i = icmp eq i32 %.0.i98.i, 0
-  %265 = and i8 %225, 4
-  %.not91.i = icmp eq i8 %265, 0
+  %264 = and i8 %224, 4
+  %.not91.i = icmp eq i8 %264, 0
   %or.cond.i61 = select i1 %.not90.i, i1 true, i1 %.not91.i
-  br i1 %or.cond.i61, label %version_is_at_or_above.exit99.thread.i, label %266
+  br i1 %or.cond.i61, label %version_is_at_or_above.exit99.thread.i, label %265
 
-266:                                              ; preds = %version_is_at_or_above.exit99.i
-  %267 = load i32, ptr @hf_wow_version1, align 4
-  %268 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %267, ptr noundef %0, i32 noundef %252, i32 noundef 1, i32 noundef -2147483648) #3
-  %269 = add i32 %240, 8
-  %270 = load i32, ptr @hf_wow_version2, align 4
-  %271 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %270, ptr noundef %0, i32 noundef %269, i32 noundef 1, i32 noundef -2147483648) #3
-  %272 = add i32 %240, 9
-  %273 = load i32, ptr @hf_wow_version3, align 4
-  %274 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %273, ptr noundef %0, i32 noundef %272, i32 noundef 1, i32 noundef -2147483648) #3
-  %275 = add i32 %240, 10
-  %276 = load i32, ptr @hf_wow_build, align 4
-  %277 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %276, ptr noundef %0, i32 noundef %275, i32 noundef 2, i32 noundef -2147483648) #3
-  %278 = add i32 %240, 12
+265:                                              ; preds = %version_is_at_or_above.exit99.i
+  %266 = load i32, ptr @hf_wow_version1, align 4
+  %267 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %266, ptr noundef %0, i32 noundef %251, i32 noundef 1, i32 noundef -2147483648) #3
+  %268 = add i32 %239, 8
+  %269 = load i32, ptr @hf_wow_version2, align 4
+  %270 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %269, ptr noundef %0, i32 noundef %268, i32 noundef 1, i32 noundef -2147483648) #3
+  %271 = add i32 %239, 9
+  %272 = load i32, ptr @hf_wow_version3, align 4
+  %273 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %272, ptr noundef %0, i32 noundef %271, i32 noundef 1, i32 noundef -2147483648) #3
+  %274 = add i32 %239, 10
+  %275 = load i32, ptr @hf_wow_build, align 4
+  %276 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %275, ptr noundef %0, i32 noundef %274, i32 noundef 2, i32 noundef -2147483648) #3
+  %277 = add i32 %239, 12
   br label %version_is_at_or_above.exit99.thread.i
 
-version_is_at_or_above.exit99.thread.i:           ; preds = %266, %version_is_at_or_above.exit99.i, %259, %255
-  %.2.i = phi i32 [ %278, %266 ], [ %252, %version_is_at_or_above.exit99.i ], [ %252, %255 ], [ %252, %259 ]
-  %279 = add nuw i8 %.085117.i, 1
-  %exitcond.not.i = icmp eq i8 %279, %202
+version_is_at_or_above.exit99.thread.i:           ; preds = %265, %version_is_at_or_above.exit99.i, %258, %254
+  %.2.i = phi i32 [ %277, %265 ], [ %251, %version_is_at_or_above.exit99.i ], [ %251, %254 ], [ %251, %258 ]
+  %278 = add nuw i8 %.085117.i, 1
+  %exitcond.not.i = icmp eq i8 %278, %202
   br i1 %exitcond.not.i, label %parse_realm_list_server_to_client.exit, label %205, !llvm.loop !4
 
 parse_realm_list_server_to_client.exit:           ; preds = %version_is_at_or_above.exit99.thread.i, %.thread138.i
@@ -818,11 +819,11 @@ parse_realm_list_server_to_client.exit:           ; preds = %version_is_at_or_ab
   br label %parse_logon_reconnect_proof.exit
 
 parse_logon_reconnect_proof.exit:                 ; preds = %version_is_at_or_above.exit25.thread.i, %172, %168, %147, %138, %version_is_at_or_above.exit.thread.i56, %133, %129, %107, %version_is_at_or_above.exit.thread.i, %101, %97, %66, %47, %43, %.sink.split.i, %33, %178, %parse_realm_list_server_to_client.exit, %182, %143, %61, %62, %56, %52, %15
-  %280 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %281
+  %279 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  br label %280
 
-281:                                              ; preds = %parse_logon_reconnect_proof.exit, %13
-  %.0 = phi i32 [ %280, %parse_logon_reconnect_proof.exit ], [ %14, %13 ]
+280:                                              ; preds = %parse_logon_reconnect_proof.exit, %13
+  %.0 = phi i32 [ %279, %parse_logon_reconnect_proof.exit ], [ %14, %13 ]
   ret i32 %.0
 }
 

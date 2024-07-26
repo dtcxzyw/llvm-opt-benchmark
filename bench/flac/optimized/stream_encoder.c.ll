@@ -9316,8 +9316,8 @@ entry:
   %tobool.not = icmp ne i32 %5, 0
   %.pre = load i32, ptr %frame_header, align 8
   %cmp1 = icmp ugt i32 %.pre, 3
-  %or.cond298 = select i1 %tobool.not, i1 %cmp1, i1 false
-  br i1 %or.cond298, label %if.end, label %if.else
+  %or.cond300 = select i1 %tobool.not, i1 %cmp1, i1 false
+  br i1 %or.cond300, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
   %6 = load ptr, ptr %subframe, align 8
@@ -9424,17 +9424,17 @@ for.cond.preheader:                               ; preds = %if.then47
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %25 = load i32, ptr %integer_signal, align 4
-  %wide.trip.count276 = zext i32 %23 to i64
+  %wide.trip.count278 = zext i32 %23 to i64
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 1
-  %exitcond277.not = icmp eq i64 %indvars.iv.next274, %wide.trip.count276
-  br i1 %exitcond277.not, label %if.then81, label %for.body, !llvm.loop !109
+  %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 1
+  %exitcond279.not = icmp eq i64 %indvars.iv.next276, %wide.trip.count278
+  br i1 %exitcond279.not, label %if.then81, label %for.body, !llvm.loop !109
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %indvars.iv273 = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next274, %for.cond ]
-  %arrayidx56 = getelementptr inbounds i32, ptr %integer_signal, i64 %indvars.iv273
+  %indvars.iv275 = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next276, %for.cond ]
+  %arrayidx56 = getelementptr inbounds i32, ptr %integer_signal, i64 %indvars.iv275
   %26 = load i32, ptr %arrayidx56, align 4
   %cmp57.not = icmp eq i32 %25, %26
   br i1 %cmp57.not, label %for.cond, label %if.else109
@@ -9464,12 +9464,12 @@ if.else92:                                        ; preds = %for.cond63.preheade
   br label %if.end101
 
 if.end101:                                        ; preds = %if.else92, %if.then84
-  %.sink302 = phi i64 [ %29, %if.else92 ], [ %conv86, %if.then84 ]
+  %.sink304 = phi i64 [ %29, %if.else92 ], [ %conv86, %if.then84 ]
   %arrayidx99 = getelementptr inbounds i8, ptr %subframe, i64 8
   %30 = load ptr, ptr %arrayidx99, align 8
   store i32 0, ptr %30, align 8
   %data.i154 = getelementptr inbounds i8, ptr %30, i64 8
-  store i64 %.sink302, ptr %data.i154, align 8
+  store i64 %.sink304, ptr %data.i154, align 8
   %31 = load i32, ptr @FLAC__SUBFRAME_ZERO_PAD_LEN, align 4
   %32 = load i32, ptr @FLAC__SUBFRAME_TYPE_LEN, align 4
   %33 = load i32, ptr @FLAC__SUBFRAME_WASTED_BITS_FLAG_LEN, align 4
@@ -9489,11 +9489,11 @@ if.else109:                                       ; preds = %for.body67, %for.bo
   %disable_fixed_subframes = getelementptr inbounds i8, ptr %35, i64 2544
   %36 = load i32, ptr %disable_fixed_subframes, align 8
   %tobool111.not = icmp eq i32 %36, 0
-  %.pre280 = load ptr, ptr %encoder, align 8
+  %.pre282 = load ptr, ptr %encoder, align 8
   br i1 %tobool111.not, label %if.then118, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else109
-  %max_lpc_order112 = getelementptr inbounds i8, ptr %.pre280, i64 556
+  %max_lpc_order112 = getelementptr inbounds i8, ptr %.pre282, i64 556
   %37 = load i32, ptr %max_lpc_order112, align 4
   %cmp113 = icmp eq i32 %37, 0
   %cmp116 = icmp eq i32 %_best_bits.0, -1
@@ -9501,7 +9501,7 @@ lor.lhs.false:                                    ; preds = %if.else109
   br i1 %or.cond, label %if.then118, label %if.end171
 
 if.then118:                                       ; preds = %lor.lhs.false, %if.else109
-  %do_exhaustive_model_search = getelementptr inbounds i8, ptr %.pre280, i64 568
+  %do_exhaustive_model_search = getelementptr inbounds i8, ptr %.pre282, i64 568
   %38 = load i32, ptr %do_exhaustive_model_search, align 8
   %tobool120.not = icmp eq i32 %38, 0
   %guess_fixed_order.0. = select i1 %tobool120.not, i32 %guess_fixed_order.0, i32 0
@@ -9521,6 +9521,7 @@ for.body134.lr.ph:                                ; preds = %if.then118
   %40 = load i32, ptr @FLAC__SUBFRAME_ZERO_PAD_LEN, align 4
   %41 = load i32, ptr @FLAC__SUBFRAME_TYPE_LEN, align 4
   %42 = load i32, ptr @FLAC__SUBFRAME_WASTED_BITS_FLAG_LEN, align 4
+  %invariant.op = add i32 %41, %42
   br label %for.body134
 
 for.body134:                                      ; preds = %for.body134.lr.ph, %for.inc168
@@ -9626,9 +9627,8 @@ evaluate_fixed_subframe_.exit:                    ; preds = %for.body29.i, %for.
   %55 = load i32, ptr %wasted_bits.i163, align 8
   %mul.i164 = mul i32 %fixed_order.0234, %subframe_bps
   %add40.i = add i32 %40, %mul.i164
-  %add41.i = add i32 %add40.i, %41
-  %add42.i = add i32 %add41.i, %42
-  %add43.i = add i32 %add42.i, %55
+  %add42.i.reass = add i32 %add40.i, %invariant.op
+  %add43.i = add i32 %add42.i.reass, %55
   %estimate.0.i = call i32 @llvm.uadd.sat.i32(i32 %add43.i, i32 %call.i)
   %cmp161 = icmp ult i32 %estimate.0.i, %_best_bits.1235
   %lnot.ext144 = zext i1 %tobool142.not to i32
@@ -9644,11 +9644,11 @@ for.inc168:                                       ; preds = %evaluate_fixed_subf
   br i1 %cmp132.not, label %if.end171.loopexit, label %for.body134, !llvm.loop !113
 
 if.end171.loopexit:                               ; preds = %for.inc168
-  %.pre281 = load ptr, ptr %encoder, align 8
+  %.pre283 = load ptr, ptr %encoder, align 8
   br label %if.end171
 
 if.end171:                                        ; preds = %if.end171.loopexit, %if.then118, %lor.lhs.false
-  %56 = phi ptr [ %.pre280, %lor.lhs.false ], [ %.pre280, %if.then118 ], [ %.pre281, %if.end171.loopexit ]
+  %56 = phi ptr [ %.pre282, %lor.lhs.false ], [ %.pre282, %if.then118 ], [ %.pre283, %if.end171.loopexit ]
   %_best_bits.3 = phi i32 [ %_best_bits.0, %lor.lhs.false ], [ %_best_bits.0, %if.then118 ], [ %_best_bits.2, %if.end171.loopexit ]
   %_best_subframe.2 = phi i32 [ 0, %lor.lhs.false ], [ 0, %if.then118 ], [ %_best_subframe.1, %if.end171.loopexit ]
   %max_lpc_order173 = getelementptr inbounds i8, ptr %56, i64 556
@@ -9670,10 +9670,10 @@ if.then191:                                       ; preds = %if.then176
   store i32 1, ptr %b, align 4
   %c = getelementptr inbounds i8, ptr %apply_apodization_state, i64 8
   store i32 0, ptr %c, align 8
-  %num_apodizations238257 = getelementptr inbounds i8, ptr %56, i64 40
-  %59 = load i32, ptr %num_apodizations238257, align 8
-  %cmp194239258.not = icmp eq i32 %59, 0
-  br i1 %cmp194239258.not, label %if.end304, label %while.body.lr.ph.lr.ph
+  %num_apodizations238259 = getelementptr inbounds i8, ptr %56, i64 40
+  %59 = load i32, ptr %num_apodizations238259, align 8
+  %cmp194239260.not = icmp eq i32 %59, 0
+  br i1 %cmp194239260.not, label %if.end304, label %while.body.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph:                           ; preds = %if.then191
   %current_apodization.i = getelementptr inbounds i8, ptr %apply_apodization_state, i64 16
@@ -9693,16 +9693,18 @@ while.body.lr.ph.lr.ph:                           ; preds = %if.then191
   %63 = load i32, ptr @FLAC__SUBFRAME_WASTED_BITS_FLAG_LEN, align 4
   %64 = load i32, ptr @FLAC__SUBFRAME_LPC_QLP_COEFF_PRECISION_LEN, align 4
   %65 = load i32, ptr @FLAC__SUBFRAME_LPC_QLP_SHIFT_LEN, align 4
+  %invariant.op250 = add i32 %62, %63
+  %invariant.op251 = add i32 %64, %65
   br label %while.body.lr.ph
 
 while.cond.loopexit.loopexit:                     ; preds = %for.inc298
-  %.pre283 = load ptr, ptr %encoder, align 8
+  %.pre285 = load ptr, ptr %encoder, align 8
   br label %while.cond.loopexit
 
 while.cond.loopexit:                              ; preds = %while.cond.loopexit.loopexit, %if.end207
-  %66 = phi ptr [ %115, %if.end207 ], [ %.pre283, %while.cond.loopexit.loopexit ]
-  %_best_bits.5.lcssa = phi i32 [ %_best_bits.4.ph259, %if.end207 ], [ %_best_bits.8, %while.cond.loopexit.loopexit ]
-  %_best_subframe.4.lcssa = phi i32 [ %_best_subframe.3.ph260, %if.end207 ], [ %_best_subframe.7, %while.cond.loopexit.loopexit ]
+  %66 = phi ptr [ %115, %if.end207 ], [ %.pre285, %while.cond.loopexit.loopexit ]
+  %_best_bits.5.lcssa = phi i32 [ %_best_bits.4.ph261, %if.end207 ], [ %_best_bits.8, %while.cond.loopexit.loopexit ]
+  %_best_subframe.4.lcssa = phi i32 [ %_best_subframe.3.ph262, %if.end207 ], [ %_best_subframe.7, %while.cond.loopexit.loopexit ]
   %67 = load i32, ptr %apply_apodization_state, align 8
   %num_apodizations238 = getelementptr inbounds i8, ptr %66, i64 40
   %68 = load i32, ptr %num_apodizations238, align 8
@@ -9712,8 +9714,8 @@ while.cond.loopexit:                              ; preds = %while.cond.loopexit
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %while.cond.loopexit
   %69 = phi ptr [ %56, %while.body.lr.ph.lr.ph ], [ %66, %while.cond.loopexit ]
   %70 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %67, %while.cond.loopexit ]
-  %_best_subframe.3.ph260 = phi i32 [ %_best_subframe.2, %while.body.lr.ph.lr.ph ], [ %_best_subframe.4.lcssa, %while.cond.loopexit ]
-  %_best_bits.4.ph259 = phi i32 [ %_best_bits.3, %while.body.lr.ph.lr.ph ], [ %_best_bits.5.lcssa, %while.cond.loopexit ]
+  %_best_subframe.3.ph262 = phi i32 [ %_best_subframe.2, %while.body.lr.ph.lr.ph ], [ %_best_subframe.4.lcssa, %while.cond.loopexit ]
+  %_best_bits.4.ph261 = phi i32 [ %_best_bits.3, %while.body.lr.ph.lr.ph ], [ %_best_bits.5.lcssa, %while.cond.loopexit ]
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %apply_apodization_.exit
@@ -9772,8 +9774,8 @@ for.body.i178:                                    ; preds = %for.body.i178, %for
   %i.0105.i = phi i32 [ 0, %for.body.lr.ph.i177 ], [ %inc.i, %for.body.i178 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %autoc_root85.i, ptr nonnull align 8 %autoc88.i, i64 %mul.i180, i1 false)
   %inc.i = add nuw i32 %i.0105.i, 1
-  %exitcond279.not = icmp eq i32 %inc.i, %84
-  br i1 %exitcond279.not, label %for.end.i, label %for.body.i178, !llvm.loop !114
+  %exitcond281.not = icmp eq i32 %inc.i, %84
+  br i1 %exitcond281.not, label %for.end.i, label %for.body.i178, !llvm.loop !114
 
 for.end.i:                                        ; preds = %for.body.i178, %for.cond.preheader.i176
   %85 = load i32, ptr %b, align 4
@@ -9891,8 +9893,8 @@ for.body84.i:                                     ; preds = %if.end35.i, %for.bo
   %sub.i168 = fsub reassoc nsz arcp double %99, %100
   store double %sub.i168, ptr %arrayidx90.i, align 8
   %indvars.iv.next.i169 = add nuw nsw i64 %indvars.iv.i167, 1
-  %exitcond278.not = icmp eq i64 %indvars.iv.next.i169, %60
-  br i1 %exitcond278.not, label %if.end97.i, label %for.body84.i, !llvm.loop !115
+  %exitcond280.not = icmp eq i64 %indvars.iv.next.i169, %60
+  br i1 %exitcond280.not, label %if.end97.i, label %for.body84.i, !llvm.loop !115
 
 if.end97.i:                                       ; preds = %for.body84.i, %if.end70.i
   %101 = phi i32 [ %.pre108.i, %if.end70.i ], [ %90, %for.body84.i ]
@@ -9952,8 +9954,8 @@ if.end104.i:                                      ; preds = %if.then12.i92.i, %i
   br i1 %cmp107.i, label %if.end104.i.apply_apodization_.exit_crit_edge, label %if.end110.i
 
 if.end104.i.apply_apodization_.exit_crit_edge:    ; preds = %if.end104.i
-  %.pre284 = load i32, ptr %apply_apodization_state, align 8
-  %.pre285 = load ptr, ptr %encoder, align 8
+  %.pre286 = load i32, ptr %apply_apodization_state, align 8
+  %.pre287 = load ptr, ptr %encoder, align 8
   br label %apply_apodization_.exit
 
 if.end110.i:                                      ; preds = %if.end104.i
@@ -9971,8 +9973,8 @@ cond.false.i:                                     ; preds = %if.end110.i
   br label %if.end201
 
 apply_apodization_.exit:                          ; preds = %if.end104.i.apply_apodization_.exit_crit_edge, %if.end10.i.i, %if.then12.i.i
-  %112 = phi ptr [ %.pre285, %if.end104.i.apply_apodization_.exit_crit_edge ], [ %71, %if.end10.i.i ], [ %71, %if.then12.i.i ]
-  %113 = phi i32 [ %.pre284, %if.end104.i.apply_apodization_.exit_crit_edge ], [ %72, %if.end10.i.i ], [ %inc13.i.i, %if.then12.i.i ]
+  %112 = phi ptr [ %.pre287, %if.end104.i.apply_apodization_.exit_crit_edge ], [ %71, %if.end10.i.i ], [ %71, %if.then12.i.i ]
+  %113 = phi i32 [ %.pre286, %if.end104.i.apply_apodization_.exit_crit_edge ], [ %72, %if.end10.i.i ], [ %inc13.i.i, %if.then12.i.i ]
   %num_apodizations = getelementptr inbounds i8, ptr %112, i64 40
   %114 = load i32, ptr %num_apodizations, align 8
   %cmp194 = icmp ult i32 %113, %114
@@ -9993,24 +9995,24 @@ if.end207.thread:                                 ; preds = %if.end201
   br label %for.body211.preheader
 
 if.end207:                                        ; preds = %if.end201
-  %.pre282 = load i32, ptr %max_lpc_order_this_apodization, align 4
-  %cmp209.not250 = icmp eq i32 %.pre282, 0
-  br i1 %cmp209.not250, label %while.cond.loopexit, label %for.body211.preheader, !llvm.loop !116
+  %.pre284 = load i32, ptr %max_lpc_order_this_apodization, align 4
+  %cmp209.not252 = icmp eq i32 %.pre284, 0
+  br i1 %cmp209.not252, label %while.cond.loopexit, label %for.body211.preheader, !llvm.loop !116
 
 for.body211.preheader:                            ; preds = %if.end207.thread, %if.end207
-  %lpc_order.0253.ph = phi i32 [ 1, %if.end207 ], [ %call.i170, %if.end207.thread ]
+  %lpc_order.0255.ph = phi i32 [ 1, %if.end207 ], [ %call.i170, %if.end207.thread ]
   br label %for.body211
 
 for.body211:                                      ; preds = %for.body211.preheader, %for.inc298
-  %lpc_order.0253 = phi i32 [ %inc299, %for.inc298 ], [ %lpc_order.0253.ph, %for.body211.preheader ]
-  %_best_subframe.4252 = phi i32 [ %_best_subframe.7, %for.inc298 ], [ %_best_subframe.3.ph260, %for.body211.preheader ]
-  %_best_bits.5251 = phi i32 [ %_best_bits.8, %for.inc298 ], [ %_best_bits.4.ph259, %for.body211.preheader ]
-  %sub212 = add i32 %lpc_order.0253, -1
+  %lpc_order.0255 = phi i32 [ %inc299, %for.inc298 ], [ %lpc_order.0255.ph, %for.body211.preheader ]
+  %_best_subframe.4254 = phi i32 [ %_best_subframe.7, %for.inc298 ], [ %_best_subframe.3.ph262, %for.body211.preheader ]
+  %_best_bits.5253 = phi i32 [ %_best_bits.8, %for.inc298 ], [ %_best_bits.4.ph261, %for.body211.preheader ]
+  %sub212 = add i32 %lpc_order.0255, -1
   %idxprom213 = zext i32 %sub212 to i64
   %arrayidx214 = getelementptr inbounds [32 x double], ptr %lpc_error, i64 0, i64 %idxprom213
   %117 = load double, ptr %arrayidx214, align 8
   %118 = load i32, ptr %frame_header, align 8
-  %sub216 = sub i32 %118, %lpc_order.0253
+  %sub216 = sub i32 %118, %lpc_order.0255
   %call217 = call reassoc nsz arcp double @FLAC__lpc_compute_expected_bits_per_residual_sample(double noundef %117, i32 noundef %sub216) #24
   %cmp219 = fcmp reassoc nsz arcp ult double %call217, %conv218
   br i1 %cmp219, label %if.end222, label %for.inc298
@@ -10026,7 +10028,7 @@ if.then225:                                       ; preds = %if.end222
   br i1 %cmp226, label %if.then228, label %for.body256.lr.ph
 
 if.then228:                                       ; preds = %if.then225
-  %121 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %lpc_order.0253, i1 true)
+  %121 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %lpc_order.0255, i1 true)
   %122 = sub nsw i32 %121, %subframe_bps
   %sub231 = add nsw i32 %122, 1
   %spec.select224 = call i32 @llvm.umin.i32(i32 %sub231, i32 15)
@@ -10042,18 +10044,18 @@ for.body256.lr.ph:                                ; preds = %if.else249, %if.the
   %min_qlp_coeff_precision.0 = phi i32 [ 5, %if.then228 ], [ %123, %if.else249 ], [ 5, %if.then225 ]
   %max_qlp_coeff_precision.0 = phi i32 [ %cond246, %if.then228 ], [ %123, %if.else249 ], [ 15, %if.then225 ]
   %arrayidx266 = getelementptr inbounds [32 x [32 x float]], ptr %lp_coeff.i, i64 0, i64 %idxprom213
-  %124 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %lpc_order.0253, i1 true)
+  %124 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %lpc_order.0255, i1 true)
   %reass.sub = sub i32 %124, %subframe_bps
   %sub2.i = add i32 %reass.sub, 1
-  %idx.ext48.i = zext i32 %lpc_order.0253 to i64
+  %idx.ext48.i = zext i32 %lpc_order.0255 to i64
   %add.ptr49.i = getelementptr inbounds i32, ptr %integer_signal, i64 %idx.ext48.i
   %add.ptr22.i = getelementptr inbounds i64, ptr %integer_signal, i64 %idx.ext48.i
-  %cmp7480.not.i = icmp eq i32 %lpc_order.0253, 0
+  %cmp7480.not.i = icmp eq i32 %lpc_order.0255, 0
   br label %for.body256
 
 for.body256:                                      ; preds = %for.body256.lr.ph, %evaluate_lpc_subframe_.exit
-  %_best_subframe.5247 = phi i32 [ %_best_subframe.4252, %for.body256.lr.ph ], [ %_best_subframe.6, %evaluate_lpc_subframe_.exit ]
-  %_best_bits.6246 = phi i32 [ %_best_bits.5251, %for.body256.lr.ph ], [ %_best_bits.7, %evaluate_lpc_subframe_.exit ]
+  %_best_subframe.5247 = phi i32 [ %_best_subframe.4254, %for.body256.lr.ph ], [ %_best_subframe.6, %evaluate_lpc_subframe_.exit ]
+  %_best_bits.6246 = phi i32 [ %_best_bits.5253, %for.body256.lr.ph ], [ %_best_bits.7, %evaluate_lpc_subframe_.exit ]
   %qlp_coeff_precision.0245 = phi i32 [ %min_qlp_coeff_precision.0, %for.body256.lr.ph ], [ %inc296, %evaluate_lpc_subframe_.exit ]
   %tobool257.not = icmp eq i32 %_best_subframe.5247, 0
   %lnot.ext259 = zext i1 %tobool257.not to i32
@@ -10072,16 +10074,16 @@ for.body256:                                      ; preds = %for.body256.lr.ph, 
   %132 = load ptr, ptr %arrayidx282, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %qlp_coeff.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %quantization.i)
-  %sub.i184 = sub i32 %128, %lpc_order.0253
+  %sub.i184 = sub i32 %128, %lpc_order.0255
   %spec.select.i211 = call i32 @llvm.umin.i32(i32 %sub2.i, i32 %qlp_coeff_precision.0245)
   %qlp_coeff_precision.addr.0.i = select i1 %cmp226, i32 %spec.select.i211, i32 %qlp_coeff_precision.0245
-  %call7.i = call i32 @FLAC__lpc_quantize_coefficients(ptr noundef nonnull %arrayidx266, i32 noundef %lpc_order.0253, i32 noundef %qlp_coeff_precision.addr.0.i, ptr noundef nonnull %qlp_coeff.i, ptr noundef nonnull %quantization.i) #24
+  %call7.i = call i32 @FLAC__lpc_quantize_coefficients(ptr noundef nonnull %arrayidx266, i32 noundef %lpc_order.0255, i32 noundef %qlp_coeff_precision.addr.0.i, ptr noundef nonnull %qlp_coeff.i, ptr noundef nonnull %quantization.i) #24
   %cmp8.not.i = icmp eq i32 %call7.i, 0
   br i1 %cmp8.not.i, label %if.end10.i, label %evaluate_lpc_subframe_.exit
 
 if.end10.i:                                       ; preds = %for.body256
   %133 = load i32, ptr %quantization.i, align 4
-  %call12.i = call i32 @FLAC__lpc_max_residual_bps(i32 noundef %subframe_bps, ptr noundef nonnull %qlp_coeff.i, i32 noundef %lpc_order.0253, i32 noundef %133) #24
+  %call12.i = call i32 @FLAC__lpc_max_residual_bps(i32 noundef %subframe_bps, ptr noundef nonnull %qlp_coeff.i, i32 noundef %lpc_order.0255, i32 noundef %133) #24
   %cmp13.i = icmp ugt i32 %call12.i, 32
   br i1 %cmp13.i, label %if.then14.i, label %if.else29.i
 
@@ -10090,17 +10092,17 @@ if.then14.i:                                      ; preds = %if.end10.i
   br i1 %cmp38.i, label %if.then16.i, label %if.else.i207
 
 if.then16.i:                                      ; preds = %if.then14.i
-  %call18.i = call i32 @FLAC__lpc_compute_residual_from_qlp_coefficients_limit_residual(ptr noundef %add.ptr49.i, i32 noundef %sub.i184, ptr noundef nonnull %qlp_coeff.i, i32 noundef %lpc_order.0253, i32 noundef %134, ptr noundef %125) #24
+  %call18.i = call i32 @FLAC__lpc_compute_residual_from_qlp_coefficients_limit_residual(ptr noundef %add.ptr49.i, i32 noundef %sub.i184, ptr noundef nonnull %qlp_coeff.i, i32 noundef %lpc_order.0255, i32 noundef %134, ptr noundef %125) #24
   %tobool.not.i209 = icmp eq i32 %call18.i, 0
   br i1 %tobool.not.i209, label %evaluate_lpc_subframe_.exit, label %if.end52.i
 
 if.else.i207:                                     ; preds = %if.then14.i
-  %call24.i = call i32 @FLAC__lpc_compute_residual_from_qlp_coefficients_limit_residual_33bit(ptr noundef %add.ptr22.i, i32 noundef %sub.i184, ptr noundef nonnull %qlp_coeff.i, i32 noundef %lpc_order.0253, i32 noundef %134, ptr noundef %125) #24
+  %call24.i = call i32 @FLAC__lpc_compute_residual_from_qlp_coefficients_limit_residual_33bit(ptr noundef %add.ptr22.i, i32 noundef %sub.i184, ptr noundef nonnull %qlp_coeff.i, i32 noundef %lpc_order.0255, i32 noundef %134, ptr noundef %125) #24
   %tobool25.not.i = icmp eq i32 %call24.i, 0
   br i1 %tobool25.not.i, label %evaluate_lpc_subframe_.exit, label %if.end52.i
 
 if.else29.i:                                      ; preds = %if.end10.i
-  %call31.i = call i32 @FLAC__lpc_max_prediction_before_shift_bps(i32 noundef %subframe_bps, ptr noundef nonnull %qlp_coeff.i, i32 noundef %lpc_order.0253) #24
+  %call31.i = call i32 @FLAC__lpc_max_prediction_before_shift_bps(i32 noundef %subframe_bps, ptr noundef nonnull %qlp_coeff.i, i32 noundef %lpc_order.0255) #24
   %cmp32.i = icmp ult i32 %call31.i, 33
   %135 = load i32, ptr %quantization.i, align 4
   br i1 %cmp32.i, label %if.then33.i, label %if.else46.i
@@ -10127,7 +10129,7 @@ if.else46.i:                                      ; preds = %if.else29.i
 if.end52.i.sink.split:                            ; preds = %if.then36.i, %if.else40.i, %if.else46.i
   %local_lpc_compute_residual_from_qlp_coefficients_64bit.i.sink = phi ptr [ %local_lpc_compute_residual_from_qlp_coefficients_64bit.i, %if.else46.i ], [ %local_lpc_compute_residual_from_qlp_coefficients.i, %if.else40.i ], [ %local_lpc_compute_residual_from_qlp_coefficients_16bit.i, %if.then36.i ]
   %138 = load ptr, ptr %local_lpc_compute_residual_from_qlp_coefficients_64bit.i.sink, align 8
-  call void %138(ptr noundef %add.ptr49.i, i32 noundef %sub.i184, ptr noundef nonnull %qlp_coeff.i, i32 noundef %lpc_order.0253, i32 noundef %135, ptr noundef %125) #24
+  call void %138(ptr noundef %add.ptr49.i, i32 noundef %sub.i184, ptr noundef nonnull %qlp_coeff.i, i32 noundef %lpc_order.0255, i32 noundef %135, ptr noundef %125) #24
   br label %if.end52.i
 
 if.end52.i:                                       ; preds = %if.end52.i.sink.split, %if.else.i207, %if.then16.i
@@ -10139,9 +10141,9 @@ if.end52.i:                                       ; preds = %if.end52.i.sink.spl
   %residual58.i = getelementptr inbounds i8, ptr %131, i64 432
   store ptr %125, ptr %residual58.i, align 8
   %139 = load ptr, ptr %private_, align 8
-  %call62.i = call fastcc i32 @find_best_partition_order_(ptr noundef %139, ptr noundef nonnull readonly %threadtask, ptr noundef %125, ptr noundef %126, ptr noundef %127, i32 noundef %sub.i184, i32 noundef %lpc_order.0253, i32 noundef %cond, i32 noundef %min_partition_order, i32 noundef %max_partition_order, i32 noundef %subframe_bps, i32 noundef %130, ptr noundef nonnull %data.i188)
+  %call62.i = call fastcc i32 @find_best_partition_order_(ptr noundef %139, ptr noundef nonnull readonly %threadtask, ptr noundef %125, ptr noundef %126, ptr noundef %127, i32 noundef %sub.i184, i32 noundef %lpc_order.0255, i32 noundef %cond, i32 noundef %min_partition_order, i32 noundef %max_partition_order, i32 noundef %subframe_bps, i32 noundef %130, ptr noundef nonnull %data.i188)
   %order64.i = getelementptr inbounds i8, ptr %131, i64 32
-  store i32 %lpc_order.0253, ptr %order64.i, align 8
+  store i32 %lpc_order.0255, ptr %order64.i, align 8
   %qlp_coeff_precision66.i = getelementptr inbounds i8, ptr %131, i64 36
   store i32 %qlp_coeff_precision.addr.0.i, ptr %qlp_coeff_precision66.i, align 4
   %140 = load i32, ptr %quantization.i, align 4
@@ -10190,14 +10192,12 @@ if.end92.i:                                       ; preds = %for.body82.i, %for.
   %wasted_bits.i194 = getelementptr inbounds i8, ptr %131, i64 440
   %143 = load i32, ptr %wasted_bits.i194, align 8
   %add97.i = add i32 %qlp_coeff_precision.addr.0.i, %subframe_bps
-  %mul.i195 = mul i32 %add97.i, %lpc_order.0253
+  %mul.i195 = mul i32 %add97.i, %lpc_order.0255
   %add.i196 = add i32 %61, %mul.i195
-  %add93.i = add i32 %add.i196, %62
-  %add94.i = add i32 %add93.i, %63
-  %add95.i = add i32 %add94.i, %143
-  %add96.i = add i32 %add95.i, %64
-  %add98.i = add i32 %add96.i, %65
-  %estimate.0.i197 = call i32 @llvm.uadd.sat.i32(i32 %add98.i, i32 %call62.i)
+  %add94.i.reass = add i32 %add.i196, %invariant.op250
+  %add95.i = add i32 %add94.i.reass, %143
+  %add98.i.reass = add i32 %add95.i, %invariant.op251
+  %estimate.0.i197 = call i32 @llvm.uadd.sat.i32(i32 %add98.i.reass, i32 %call62.i)
   br label %evaluate_lpc_subframe_.exit
 
 evaluate_lpc_subframe_.exit:                      ; preds = %for.body256, %if.then16.i, %if.else.i207, %if.end92.i
@@ -10214,16 +10214,16 @@ evaluate_lpc_subframe_.exit:                      ; preds = %for.body256, %if.th
   br i1 %cmp254.not, label %for.inc298, label %for.body256, !llvm.loop !119
 
 for.inc298:                                       ; preds = %evaluate_lpc_subframe_.exit, %for.body211
-  %_best_bits.8 = phi i32 [ %_best_bits.5251, %for.body211 ], [ %_best_bits.7, %evaluate_lpc_subframe_.exit ]
-  %_best_subframe.7 = phi i32 [ %_best_subframe.4252, %for.body211 ], [ %_best_subframe.6, %evaluate_lpc_subframe_.exit ]
-  %inc299 = add i32 %lpc_order.0253, 1
+  %_best_bits.8 = phi i32 [ %_best_bits.5253, %for.body211 ], [ %_best_bits.7, %evaluate_lpc_subframe_.exit ]
+  %_best_subframe.7 = phi i32 [ %_best_subframe.4254, %for.body211 ], [ %_best_subframe.6, %evaluate_lpc_subframe_.exit ]
+  %inc299 = add i32 %lpc_order.0255, 1
   %144 = load i32, ptr %max_lpc_order_this_apodization, align 4
   %cmp209.not = icmp ugt i32 %inc299, %144
   br i1 %cmp209.not, label %while.cond.loopexit.loopexit, label %for.body211, !llvm.loop !120
 
 if.end304:                                        ; preds = %while.cond.loopexit, %apply_apodization_.exit, %if.then191, %if.end101, %if.then176, %if.end171, %if.end
-  %_best_bits.9 = phi i32 [ %_best_bits.3, %if.then176 ], [ %_best_bits.3, %if.end171 ], [ %_best_bits.0, %if.end ], [ %spec.select, %if.end101 ], [ %_best_bits.3, %if.then191 ], [ %_best_bits.4.ph259, %apply_apodization_.exit ], [ %_best_bits.5.lcssa, %while.cond.loopexit ]
-  %_best_subframe.8 = phi i32 [ %_best_subframe.2, %if.then176 ], [ %_best_subframe.2, %if.end171 ], [ 0, %if.end ], [ %spec.select147, %if.end101 ], [ %_best_subframe.2, %if.then191 ], [ %_best_subframe.3.ph260, %apply_apodization_.exit ], [ %_best_subframe.4.lcssa, %while.cond.loopexit ]
+  %_best_bits.9 = phi i32 [ %_best_bits.3, %if.then176 ], [ %_best_bits.3, %if.end171 ], [ %_best_bits.0, %if.end ], [ %spec.select, %if.end101 ], [ %_best_bits.3, %if.then191 ], [ %_best_bits.4.ph261, %apply_apodization_.exit ], [ %_best_bits.5.lcssa, %while.cond.loopexit ]
+  %_best_subframe.8 = phi i32 [ %_best_subframe.2, %if.then176 ], [ %_best_subframe.2, %if.end171 ], [ 0, %if.end ], [ %spec.select147, %if.end101 ], [ %_best_subframe.2, %if.then191 ], [ %_best_subframe.3.ph262, %apply_apodization_.exit ], [ %_best_subframe.4.lcssa, %while.cond.loopexit ]
   %cmp305 = icmp eq i32 %_best_bits.9, -1
   br i1 %cmp305, label %if.then307, label %if.end312
 

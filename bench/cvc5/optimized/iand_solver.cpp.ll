@@ -5652,6 +5652,7 @@ lpad.i.i129:                                      ; preds = %init.i.i127
 _ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit134: ; preds = %invoke.cont46, %init.check.i.i125, %invoke.cont.i.i130
   %47 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   store ptr %47, ptr %bitIAnd, align 8
+  %invariant.op = add i32 %conv, -1
   %cmp396.not = icmp eq i32 %7, 0
   br i1 %cmp396.not, label %for.end, label %for.body.lr.ph
 
@@ -5665,9 +5666,9 @@ for.body.lr.ph:                                   ; preds = %_ZN4cvc58internal12
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %j.0397 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %for.inc ]
   %add = add i32 %j.0397, %conv
-  %sub = add i32 %add, -1
-  %cmp49.not = icmp ult i32 %sub, %7
-  %spec.select = select i1 %cmp49.not, i32 %sub, i32 %sub50
+  %sub.reass = add i32 %j.0397, %invariant.op
+  %cmp49.not = icmp ult i32 %sub.reass, %7
+  %spec.select = select i1 %cmp49.not, i32 %sub.reass, i32 %sub50
   invoke void @_ZNK4cvc58internal9BitVector7extractEjj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(24) %bvAbsI, i32 noundef %spec.select, i32 noundef %j.0397)
           to label %invoke.cont53 unwind label %lpad52
 

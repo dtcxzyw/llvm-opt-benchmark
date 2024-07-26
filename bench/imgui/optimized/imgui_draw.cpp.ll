@@ -26457,15 +26457,15 @@ if.then.i:                                        ; preds = %_ZL15stbtt__buf_get
   br i1 %cmp.not.i25.i, label %if.end.i27.i, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit31.i
 
 if.end.i27.i:                                     ; preds = %if.then.i
-  %inc.i28.i = add nsw i32 %inc.i.i7075.i, 2
-  store i32 %inc.i28.i, ptr %cursor.i.i, align 8
+  %inc.i28.reass.i = add nsw i32 %inc.i.i7075.i, 2
+  store i32 %inc.i28.reass.i, ptr %cursor.i.i, align 8
   %idxprom.i29.i = sext i32 %inc.i.i to i64
   %arrayidx.i30.i = getelementptr inbounds i8, ptr %2, i64 %idxprom.i29.i
   %11 = load i8, ptr %arrayidx.i30.i, align 1
   br label %_ZL15stbtt__buf_get8P10stbtt__buf.exit31.i
 
 _ZL15stbtt__buf_get8P10stbtt__buf.exit31.i:       ; preds = %if.end.i27.i, %if.then.i
-  %cursor.i.promoted80.i = phi i32 [ %inc.i28.i, %if.end.i27.i ], [ %inc.i.i, %if.then.i ]
+  %cursor.i.promoted80.i = phi i32 [ %inc.i28.reass.i, %if.end.i27.i ], [ %inc.i.i, %if.then.i ]
   %retval.0.i26.i = phi i8 [ %11, %if.end.i27.i ], [ 0, %if.then.i ]
   %conv10.i = zext i8 %retval.0.i26.i to i32
   %or.i = or disjoint i32 %conv10.i, 256
@@ -26854,8 +26854,8 @@ entry:
   %3 = trunc i64 %2 to i32
   %4 = lshr i64 %2, 32
   %5 = trunc nuw i64 %4 to i32
-  %cmp255 = icmp slt i32 %3, %5
-  br i1 %cmp255, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph, label %return
+  %cmp257 = icmp slt i32 %3, %5
+  br i1 %cmp257, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph, label %return
 
 _ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph:     ; preds = %entry
   %arrayidx358 = getelementptr inbounds i8, ptr %s, i64 4
@@ -26880,14 +26880,14 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph:     ; preds = %entry
   br label %_ZL15stbtt__buf_get8P10stbtt__buf.exit
 
 _ZL15stbtt__buf_get8P10stbtt__buf.exit:           ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph, %sw.epilog405
-  %6 = phi i32 [ %5, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %159, %sw.epilog405 ]
-  %7 = phi i32 [ %3, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %158, %sw.epilog405 ]
-  %in_header.0263 = phi i32 [ 1, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %in_header.1232, %sw.epilog405 ]
-  %maskbits.0262 = phi i32 [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %maskbits.2231, %sw.epilog405 ]
-  %subr_stack_height.0261 = phi i32 [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %subr_stack_height.1230, %sw.epilog405 ]
-  %sp.0258 = phi i32 [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %157, %sw.epilog405 ]
-  %has_subrs.0257 = phi i32 [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %has_subrs.2229, %sw.epilog405 ]
-  %subrs.sroa.0.0256 = phi ptr [ %subrs.sroa.0.0.copyload, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %subrs.sroa.0.3228, %sw.epilog405 ]
+  %6 = phi i32 [ %5, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %158, %sw.epilog405 ]
+  %7 = phi i32 [ %3, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %157, %sw.epilog405 ]
+  %in_header.0265 = phi i32 [ 1, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %in_header.1232, %sw.epilog405 ]
+  %maskbits.0264 = phi i32 [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %maskbits.2231, %sw.epilog405 ]
+  %subr_stack_height.0263 = phi i32 [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %subr_stack_height.1230, %sw.epilog405 ]
+  %sp.0260 = phi i32 [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %156, %sw.epilog405 ]
+  %has_subrs.0259 = phi i32 [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %has_subrs.2229, %sw.epilog405 ]
+  %subrs.sroa.0.0258 = phi ptr [ %subrs.sroa.0.0.copyload, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %subrs.sroa.0.3228, %sw.epilog405 ]
   %8 = load ptr, ptr %b, align 8
   %inc.i = add nsw i32 %7, 1
   store i32 %inc.i, ptr %ref.tmp.sroa.2.0.b.sroa_idx, align 8
@@ -26922,16 +26922,16 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit:           ; preds = %_ZL15stbtt__buf_get
   ]
 
 sw.bb:                                            ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit, %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %tobool.not = icmp eq i32 %in_header.0263, 0
+  %tobool.not = icmp eq i32 %in_header.0265, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sw.bb
-  %div = sdiv i32 %sp.0258, 2
-  %add = add nsw i32 %maskbits.0262, %div
+  %div = sdiv i32 %sp.0260, 2
+  %add = add nsw i32 %maskbits.0264, %div
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %sw.bb
-  %maskbits.1 = phi i32 [ %add, %if.then ], [ %maskbits.0262, %sw.bb ]
+  %maskbits.1 = phi i32 [ %add, %if.then ], [ %maskbits.0264, %sw.bb ]
   %add3 = add nsw i32 %maskbits.1, 7
   %div4 = sdiv i32 %add3, 8
   %add.i = add nsw i32 %div4, %inc.i
@@ -26942,20 +26942,20 @@ if.end:                                           ; preds = %if.then, %sw.bb
   br label %sw.epilog405
 
 sw.bb5:                                           ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit, %_ZL15stbtt__buf_get8P10stbtt__buf.exit, %_ZL15stbtt__buf_get8P10stbtt__buf.exit, %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %div6 = sdiv i32 %sp.0258, 2
-  %add7 = add nsw i32 %maskbits.0262, %div6
+  %div6 = sdiv i32 %sp.0260, 2
+  %add7 = add nsw i32 %maskbits.0264, %div6
   br label %sw.epilog405
 
 sw.bb8:                                           ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %cmp9 = icmp slt i32 %sp.0258, 2
+  %cmp9 = icmp slt i32 %sp.0260, 2
   br i1 %cmp9, label %return, label %if.end11
 
 if.end11:                                         ; preds = %sw.bb8
-  %sub = add nsw i32 %sp.0258, -2
+  %sub = add nsw i32 %sp.0260, -2
   %idxprom = zext nneg i32 %sub to i64
   %arrayidx = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom
   %11 = load float, ptr %arrayidx, align 4
-  %sub12 = add nsw i32 %sp.0258, -1
+  %sub12 = add nsw i32 %sp.0260, -1
   %idxprom13 = zext nneg i32 %sub12 to i64
   %arrayidx14 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom13
   %12 = load float, ptr %arrayidx14, align 4
@@ -26963,11 +26963,11 @@ if.end11:                                         ; preds = %sw.bb8
   br label %sw.epilog405
 
 sw.bb15:                                          ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %cmp16 = icmp slt i32 %sp.0258, 1
+  %cmp16 = icmp slt i32 %sp.0260, 1
   br i1 %cmp16, label %return, label %if.end18
 
 if.end18:                                         ; preds = %sw.bb15
-  %sub19 = add nsw i32 %sp.0258, -1
+  %sub19 = add nsw i32 %sp.0260, -1
   %idxprom20 = zext nneg i32 %sub19 to i64
   %arrayidx21 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom20
   %13 = load float, ptr %arrayidx21, align 4
@@ -26975,11 +26975,11 @@ if.end18:                                         ; preds = %sw.bb15
   br label %sw.epilog405
 
 sw.bb22:                                          ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %cmp23 = icmp slt i32 %sp.0258, 1
+  %cmp23 = icmp slt i32 %sp.0260, 1
   br i1 %cmp23, label %return, label %if.end25
 
 if.end25:                                         ; preds = %sw.bb22
-  %sub26 = add nsw i32 %sp.0258, -1
+  %sub26 = add nsw i32 %sp.0260, -1
   %idxprom27 = zext nneg i32 %sub26 to i64
   %arrayidx28 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom27
   %14 = load float, ptr %arrayidx28, align 4
@@ -26987,37 +26987,37 @@ if.end25:                                         ; preds = %sw.bb22
   br label %sw.epilog405
 
 sw.bb29:                                          ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %cmp30 = icmp slt i32 %sp.0258, 2
+  %cmp30 = icmp slt i32 %sp.0260, 2
   br i1 %cmp30, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %sw.bb29
-  %15 = zext nneg i32 %sp.0258 to i64
+  %15 = zext nneg i32 %sp.0260 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv297 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next298, %for.body ]
-  %16 = or disjoint i64 %indvars.iv297, 1
-  %arrayidx36 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %indvars.iv297
+  %indvars.iv305 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next306, %for.body ]
+  %16 = or disjoint i64 %indvars.iv305, 1
+  %arrayidx36 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %indvars.iv305
   %17 = load float, ptr %arrayidx36, align 8
   %arrayidx39 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %16
   %18 = load float, ptr %arrayidx39, align 4
   tail call fastcc void @_ZL21stbtt__csctx_rline_toP12stbtt__csctxff(ptr noundef %c, float noundef %17, float noundef %18)
-  %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 2
-  %19 = or disjoint i64 %indvars.iv.next298, 1
+  %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 2
+  %19 = or disjoint i64 %indvars.iv.next306, 1
   %cmp34 = icmp ult i64 %19, %15
   br i1 %cmp34, label %for.body, label %sw.epilog405, !llvm.loop !147
 
 sw.bb41:                                          ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %cmp42 = icmp slt i32 %sp.0258, 1
+  %cmp42 = icmp slt i32 %sp.0260, 1
   br i1 %cmp42, label %return, label %vlineto
 
 sw.bb45:                                          ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %cmp46 = icmp slt i32 %sp.0258, 1
+  %cmp46 = icmp slt i32 %sp.0260, 1
   br i1 %cmp46, label %return, label %for.cond49
 
 for.cond49:                                       ; preds = %sw.bb45, %if.end57
   %i.1 = phi i32 [ 0, %sw.bb45 ], [ %inc60, %if.end57 ]
-  %cmp50.not = icmp slt i32 %i.1, %sp.0258
+  %cmp50.not = icmp slt i32 %i.1, %sp.0260
   br i1 %cmp50.not, label %if.end52, label %sw.epilog405
 
 if.end52:                                         ; preds = %for.cond49
@@ -27030,7 +27030,7 @@ if.end52:                                         ; preds = %for.cond49
 
 vlineto:                                          ; preds = %sw.bb41, %if.end52
   %i.2 = phi i32 [ %inc, %if.end52 ], [ 0, %sw.bb41 ]
-  %cmp55.not = icmp slt i32 %i.2, %sp.0258
+  %cmp55.not = icmp slt i32 %i.2, %sp.0260
   br i1 %cmp55.not, label %if.end57, label %sw.epilog405
 
 if.end57:                                         ; preds = %vlineto
@@ -27042,17 +27042,17 @@ if.end57:                                         ; preds = %vlineto
   br label %for.cond49, !llvm.loop !148
 
 sw.bb62:                                          ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %cmp63 = icmp slt i32 %sp.0258, 4
+  %cmp63 = icmp slt i32 %sp.0260, 4
   br i1 %cmp63, label %return, label %hvcurveto
 
 sw.bb66:                                          ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %cmp67 = icmp slt i32 %sp.0258, 4
+  %cmp67 = icmp slt i32 %sp.0260, 4
   br i1 %cmp67, label %return, label %for.cond70
 
 for.cond70:                                       ; preds = %sw.bb66, %cond.end111
   %i.3 = phi i32 [ 0, %sw.bb66 ], [ %add107, %cond.end111 ]
   %add71 = add nsw i32 %i.3, 3
-  %cmp72.not = icmp slt i32 %add71, %sp.0258
+  %cmp72.not = icmp slt i32 %add71, %sp.0260
   br i1 %cmp72.not, label %if.end74, label %sw.epilog405
 
 if.end74:                                         ; preds = %for.cond70
@@ -27070,7 +27070,7 @@ if.end74:                                         ; preds = %for.cond70
   %idxprom84 = sext i32 %add71 to i64
   %arrayidx85 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom84
   %25 = load float, ptr %arrayidx85, align 4
-  %sub86 = sub nsw i32 %sp.0258, %i.3
+  %sub86 = sub nsw i32 %sp.0260, %i.3
   %cmp87 = icmp eq i32 %sub86, 5
   %add88 = add nsw i32 %i.3, 4
   br i1 %cmp87, label %cond.true, label %cond.end
@@ -27089,7 +27089,7 @@ cond.end:                                         ; preds = %if.end74, %cond.tru
 hvcurveto:                                        ; preds = %sw.bb62, %cond.end
   %i.4 = phi i32 [ %add88, %cond.end ], [ 0, %sw.bb62 ]
   %add92 = add nsw i32 %i.4, 3
-  %cmp93.not = icmp slt i32 %add92, %sp.0258
+  %cmp93.not = icmp slt i32 %add92, %sp.0260
   br i1 %cmp93.not, label %if.end95, label %sw.epilog405
 
 if.end95:                                         ; preds = %hvcurveto
@@ -27104,7 +27104,7 @@ if.end95:                                         ; preds = %hvcurveto
   %idxprom102 = sext i32 %add101 to i64
   %arrayidx103 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom102
   %29 = load float, ptr %arrayidx103, align 4
-  %sub104 = sub nsw i32 %sp.0258, %i.4
+  %sub104 = sub nsw i32 %sp.0260, %i.4
   %cmp105 = icmp eq i32 %sub104, 5
   %add107 = add nsw i32 %i.4, 4
   br i1 %cmp105, label %cond.true106, label %cond.end111
@@ -27124,228 +27124,228 @@ cond.end111:                                      ; preds = %if.end95, %cond.tru
   br label %for.cond70, !llvm.loop !149
 
 sw.bb118:                                         ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %cmp119 = icmp slt i32 %sp.0258, 6
-  br i1 %cmp119, label %return, label %for.body125.preheader
+  %cmp119 = icmp slt i32 %sp.0260, 6
+  br i1 %cmp119, label %return, label %for.body125
 
-for.body125.preheader:                            ; preds = %sw.bb118
-  %32 = zext nneg i32 %sp.0258 to i64
-  br label %for.body125
-
-for.body125:                                      ; preds = %for.body125.preheader, %for.body125
-  %indvars.iv288 = phi i64 [ 0, %for.body125.preheader ], [ %indvars.iv.next289, %for.body125 ]
-  %33 = add nuw nsw i64 %indvars.iv288, 5
-  %arrayidx127 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %indvars.iv288
-  %34 = load float, ptr %arrayidx127, align 8
-  %35 = or disjoint i64 %indvars.iv288, 1
-  %arrayidx130 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %35
-  %36 = load float, ptr %arrayidx130, align 4
-  %37 = add nuw nsw i64 %indvars.iv288, 2
-  %arrayidx133 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %37
-  %38 = load float, ptr %arrayidx133, align 8
-  %39 = add nuw nsw i64 %indvars.iv288, 3
-  %arrayidx136 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %39
-  %40 = load float, ptr %arrayidx136, align 4
-  %41 = add nuw nsw i64 %indvars.iv288, 4
-  %arrayidx139 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %41
-  %42 = load float, ptr %arrayidx139, align 8
-  %arrayidx142 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %33
-  %43 = load float, ptr %arrayidx142, align 4
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %34, float noundef %36, float noundef %38, float noundef %40, float noundef %42, float noundef %43)
-  %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 6
-  %44 = add nuw nsw i64 %indvars.iv288, 11
-  %cmp124 = icmp ult i64 %44, %32
+for.body125:                                      ; preds = %sw.bb118, %for.body125
+  %indvars.iv295 = phi i64 [ %indvars.iv.next296, %for.body125 ], [ 0, %sw.bb118 ]
+  %indvars.iv293 = phi i64 [ %indvars.iv.next294, %for.body125 ], [ 5, %sw.bb118 ]
+  %arrayidx127 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %indvars.iv295
+  %32 = load float, ptr %arrayidx127, align 8
+  %33 = or disjoint i64 %indvars.iv295, 1
+  %arrayidx130 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %33
+  %34 = load float, ptr %arrayidx130, align 4
+  %35 = add nuw nsw i64 %indvars.iv295, 2
+  %arrayidx133 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %35
+  %36 = load float, ptr %arrayidx133, align 8
+  %37 = add nuw nsw i64 %indvars.iv295, 3
+  %arrayidx136 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %37
+  %38 = load float, ptr %arrayidx136, align 4
+  %39 = add nuw nsw i64 %indvars.iv295, 4
+  %arrayidx139 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %39
+  %40 = load float, ptr %arrayidx139, align 8
+  %arrayidx142 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %indvars.iv293
+  %41 = load float, ptr %arrayidx142, align 4
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %32, float noundef %34, float noundef %36, float noundef %38, float noundef %40, float noundef %41)
+  %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 6
+  %42 = trunc i64 %indvars.iv295 to i32
+  %43 = add i32 %42, 11
+  %cmp124 = icmp slt i32 %43, %sp.0260
+  %indvars.iv.next294 = add nuw i64 %indvars.iv293, 6
   br i1 %cmp124, label %for.body125, label %sw.epilog405, !llvm.loop !150
 
 sw.bb146:                                         ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %cmp147 = icmp slt i32 %sp.0258, 8
+  %cmp147 = icmp slt i32 %sp.0260, 8
   br i1 %cmp147, label %return, label %for.body154.preheader
 
 for.body154.preheader:                            ; preds = %sw.bb146
-  %45 = zext nneg i32 %sp.0258 to i64
-  %invariant.op = add nsw i64 %45, -13
+  %sub152 = add nsw i32 %sp.0260, -2
   br label %for.body154
 
 for.body154:                                      ; preds = %for.body154.preheader, %for.body154
-  %indvars.iv279 = phi i64 [ 0, %for.body154.preheader ], [ %indvars.iv.next280, %for.body154 ]
-  %46 = add nuw nsw i64 %indvars.iv279, 5
-  %arrayidx156 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %indvars.iv279
-  %47 = load float, ptr %arrayidx156, align 8
-  %48 = or disjoint i64 %indvars.iv279, 1
-  %arrayidx159 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %48
-  %49 = load float, ptr %arrayidx159, align 4
-  %50 = add nuw nsw i64 %indvars.iv279, 2
-  %arrayidx162 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %50
-  %51 = load float, ptr %arrayidx162, align 8
-  %52 = add nuw nsw i64 %indvars.iv279, 3
-  %arrayidx165 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %52
-  %53 = load float, ptr %arrayidx165, align 4
-  %54 = add nuw nsw i64 %indvars.iv279, 4
-  %arrayidx168 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %54
-  %55 = load float, ptr %arrayidx168, align 8
-  %arrayidx171 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %46
-  %56 = load float, ptr %arrayidx171, align 4
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %47, float noundef %49, float noundef %51, float noundef %53, float noundef %55, float noundef %56)
-  %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 6
-  %cmp153 = icmp slt i64 %indvars.iv279, %invariant.op
+  %indvars.iv283 = phi i64 [ 0, %for.body154.preheader ], [ %indvars.iv.next284, %for.body154 ]
+  %indvars.iv281 = phi i64 [ 5, %for.body154.preheader ], [ %indvars.iv.next282, %for.body154 ]
+  %arrayidx156 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %indvars.iv283
+  %44 = load float, ptr %arrayidx156, align 8
+  %45 = or disjoint i64 %indvars.iv283, 1
+  %arrayidx159 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %45
+  %46 = load float, ptr %arrayidx159, align 4
+  %47 = add nuw nsw i64 %indvars.iv283, 2
+  %arrayidx162 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %47
+  %48 = load float, ptr %arrayidx162, align 8
+  %49 = add nuw nsw i64 %indvars.iv283, 3
+  %arrayidx165 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %49
+  %50 = load float, ptr %arrayidx165, align 4
+  %51 = add nuw nsw i64 %indvars.iv283, 4
+  %arrayidx168 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %51
+  %52 = load float, ptr %arrayidx168, align 8
+  %arrayidx171 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %indvars.iv281
+  %53 = load float, ptr %arrayidx171, align 4
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %44, float noundef %46, float noundef %48, float noundef %50, float noundef %52, float noundef %53)
+  %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 6
+  %54 = trunc i64 %indvars.iv283 to i32
+  %55 = add i32 %54, 11
+  %cmp153 = icmp slt i32 %55, %sub152
+  %indvars.iv.next282 = add nuw i64 %indvars.iv281, 6
   br i1 %cmp153, label %for.body154, label %for.end174, !llvm.loop !151
 
 for.end174:                                       ; preds = %for.body154
-  %57 = trunc nuw nsw i64 %indvars.iv.next280 to i32
-  %add175 = or disjoint i32 %57, 1
-  %cmp176.not = icmp slt i32 %add175, %sp.0258
+  %56 = trunc nuw i64 %indvars.iv.next284 to i32
+  %add175 = or disjoint i32 %56, 1
+  %cmp176.not = icmp slt i32 %add175, %sp.0260
   br i1 %cmp176.not, label %if.end178, label %return
 
 if.end178:                                        ; preds = %for.end174
-  %idxprom179 = and i64 %indvars.iv.next280, 4294967294
+  %idxprom179 = and i64 %indvars.iv.next284, 4294967294
   %arrayidx180 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom179
-  %58 = load float, ptr %arrayidx180, align 8
+  %57 = load float, ptr %arrayidx180, align 8
   %idxprom182 = zext nneg i32 %add175 to i64
   %arrayidx183 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom182
-  %59 = load float, ptr %arrayidx183, align 4
-  tail call fastcc void @_ZL21stbtt__csctx_rline_toP12stbtt__csctxff(ptr noundef %c, float noundef %58, float noundef %59)
+  %58 = load float, ptr %arrayidx183, align 4
+  tail call fastcc void @_ZL21stbtt__csctx_rline_toP12stbtt__csctxff(ptr noundef %c, float noundef %57, float noundef %58)
   br label %sw.epilog405
 
 sw.bb184:                                         ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %cmp185 = icmp slt i32 %sp.0258, 8
+  %cmp185 = icmp slt i32 %sp.0260, 8
   br i1 %cmp185, label %return, label %for.body192.preheader
 
 for.body192.preheader:                            ; preds = %sw.bb184
-  %sub190 = add nsw i32 %sp.0258, -6
-  %60 = zext nneg i32 %sub190 to i64
+  %sub190 = add nsw i32 %sp.0260, -6
+  %59 = zext nneg i32 %sub190 to i64
   br label %for.body192
 
 for.body192:                                      ; preds = %for.body192.preheader, %for.body192
-  %indvars.iv274 = phi i64 [ 0, %for.body192.preheader ], [ %indvars.iv.next275, %for.body192 ]
-  %61 = or disjoint i64 %indvars.iv274, 1
-  %arrayidx194 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %indvars.iv274
-  %62 = load float, ptr %arrayidx194, align 8
-  %arrayidx197 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %61
-  %63 = load float, ptr %arrayidx197, align 4
-  tail call fastcc void @_ZL21stbtt__csctx_rline_toP12stbtt__csctxff(ptr noundef %c, float noundef %62, float noundef %63)
-  %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 2
-  %64 = or disjoint i64 %indvars.iv.next275, 1
-  %cmp191 = icmp ult i64 %64, %60
+  %indvars.iv276 = phi i64 [ 0, %for.body192.preheader ], [ %indvars.iv.next277, %for.body192 ]
+  %60 = or disjoint i64 %indvars.iv276, 1
+  %arrayidx194 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %indvars.iv276
+  %61 = load float, ptr %arrayidx194, align 8
+  %arrayidx197 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %60
+  %62 = load float, ptr %arrayidx197, align 4
+  tail call fastcc void @_ZL21stbtt__csctx_rline_toP12stbtt__csctxff(ptr noundef %c, float noundef %61, float noundef %62)
+  %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 2
+  %63 = or disjoint i64 %indvars.iv.next277, 1
+  %cmp191 = icmp ult i64 %63, %59
   br i1 %cmp191, label %for.body192, label %for.end200, !llvm.loop !152
 
 for.end200:                                       ; preds = %for.body192
-  %65 = trunc nuw nsw i64 %indvars.iv.next275 to i32
-  %add201 = add nuw nsw i32 %65, 5
-  %cmp202.not = icmp slt i32 %add201, %sp.0258
+  %64 = trunc nuw nsw i64 %indvars.iv.next277 to i32
+  %add201 = add nuw nsw i32 %64, 5
+  %cmp202.not = icmp slt i32 %add201, %sp.0260
   br i1 %cmp202.not, label %if.end204, label %return
 
 if.end204:                                        ; preds = %for.end200
-  %idxprom205 = and i64 %indvars.iv.next275, 4294967294
+  %idxprom205 = and i64 %indvars.iv.next277, 4294967294
   %arrayidx206 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom205
-  %66 = load float, ptr %arrayidx206, align 8
-  %idxprom208 = and i64 %64, 4294967295
+  %65 = load float, ptr %arrayidx206, align 8
+  %idxprom208 = and i64 %63, 4294967295
   %arrayidx209 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom208
-  %67 = load float, ptr %arrayidx209, align 4
-  %add210 = add nuw i64 %indvars.iv274, 4
+  %66 = load float, ptr %arrayidx209, align 4
+  %add210 = add nuw i64 %indvars.iv276, 4
   %idxprom211 = and i64 %add210, 4294967294
   %arrayidx212 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom211
-  %68 = load float, ptr %arrayidx212, align 8
-  %add213 = add nuw i64 %indvars.iv274, 5
+  %67 = load float, ptr %arrayidx212, align 8
+  %add213 = add nuw i64 %indvars.iv276, 5
   %idxprom214 = and i64 %add213, 4294967295
   %arrayidx215 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom214
-  %69 = load float, ptr %arrayidx215, align 4
-  %add216 = add nuw i64 %indvars.iv274, 6
+  %68 = load float, ptr %arrayidx215, align 4
+  %add216 = add nuw i64 %indvars.iv276, 6
   %idxprom217 = and i64 %add216, 4294967294
   %arrayidx218 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom217
-  %70 = load float, ptr %arrayidx218, align 8
+  %69 = load float, ptr %arrayidx218, align 8
   %idxprom220 = zext nneg i32 %add201 to i64
   %arrayidx221 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom220
-  %71 = load float, ptr %arrayidx221, align 4
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %66, float noundef %67, float noundef %68, float noundef %69, float noundef %70, float noundef %71)
+  %70 = load float, ptr %arrayidx221, align 4
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %65, float noundef %66, float noundef %67, float noundef %68, float noundef %69, float noundef %70)
   br label %sw.epilog405
 
 sw.bb222:                                         ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit, %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %cmp223 = icmp slt i32 %sp.0258, 4
+  %cmp223 = icmp slt i32 %sp.0260, 4
   br i1 %cmp223, label %return, label %if.end225
 
 if.end225:                                        ; preds = %sw.bb222
-  %and = and i32 %sp.0258, 1
+  %and = and i32 %sp.0260, 1
   %add233236 = add nuw nsw i32 %and, 3
-  %cmp234237 = icmp ult i32 %add233236, %sp.0258
+  %cmp234237 = icmp ult i32 %add233236, %sp.0260
   br i1 %cmp234237, label %for.body235.lr.ph, label %sw.epilog405
 
 for.body235.lr.ph:                                ; preds = %if.end225
   %tobool226.not.not = icmp eq i32 %and, 0
-  %72 = load float, ptr %s, align 16
-  %f.0 = select i1 %tobool226.not.not, float 0.000000e+00, float %72
+  %71 = load float, ptr %s, align 16
+  %f.0 = select i1 %tobool226.not.not, float 0.000000e+00, float %71
   %cmp236 = icmp eq i8 %9, 27
-  %73 = and i32 %sp.0258, 1
-  %74 = zext nneg i32 %73 to i64
+  %72 = and i32 %sp.0260, 1
+  %73 = zext nneg i32 %72 to i64
   br label %for.body235
 
 for.body235:                                      ; preds = %for.body235.lr.ph, %if.end260
-  %indvars.iv = phi i64 [ %74, %for.body235.lr.ph ], [ %indvars.iv.next, %if.end260 ]
-  %add233240 = phi i32 [ %add233236, %for.body235.lr.ph ], [ %82, %if.end260 ]
+  %indvars.iv = phi i64 [ %73, %for.body235.lr.ph ], [ %indvars.iv.next, %if.end260 ]
+  %add233240 = phi i32 [ %add233236, %for.body235.lr.ph ], [ %81, %if.end260 ]
   %f.1238 = phi float [ %f.0, %for.body235.lr.ph ], [ 0.000000e+00, %if.end260 ]
   %arrayidx239 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %indvars.iv
-  %75 = load float, ptr %arrayidx239, align 4
-  %76 = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx242 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %76
-  %77 = load float, ptr %arrayidx242, align 4
-  %78 = add nuw nsw i64 %indvars.iv, 2
-  %arrayidx245 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %78
-  %79 = load float, ptr %arrayidx245, align 4
+  %74 = load float, ptr %arrayidx239, align 4
+  %75 = add nuw nsw i64 %indvars.iv, 1
+  %arrayidx242 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %75
+  %76 = load float, ptr %arrayidx242, align 4
+  %77 = add nuw nsw i64 %indvars.iv, 2
+  %arrayidx245 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %77
+  %78 = load float, ptr %arrayidx245, align 4
   %idxprom247 = zext nneg i32 %add233240 to i64
   %arrayidx248 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom247
-  %80 = load float, ptr %arrayidx248, align 4
+  %79 = load float, ptr %arrayidx248, align 4
   br i1 %cmp236, label %if.then237, label %if.else
 
 if.then237:                                       ; preds = %for.body235
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %75, float noundef %f.1238, float noundef %77, float noundef %79, float noundef %80, float noundef 0.000000e+00)
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %74, float noundef %f.1238, float noundef %76, float noundef %78, float noundef %79, float noundef 0.000000e+00)
   br label %if.end260
 
 if.else:                                          ; preds = %for.body235
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %f.1238, float noundef %75, float noundef %77, float noundef %79, float noundef 0.000000e+00, float noundef %80)
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %f.1238, float noundef %74, float noundef %76, float noundef %78, float noundef 0.000000e+00, float noundef %79)
   br label %if.end260
 
 if.end260:                                        ; preds = %if.else, %if.then237
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %81 = trunc i64 %indvars.iv to i32
-  %82 = add i32 %81, 7
-  %cmp234 = icmp slt i32 %82, %sp.0258
+  %80 = trunc i64 %indvars.iv to i32
+  %81 = add i32 %80, 7
+  %cmp234 = icmp slt i32 %81, %sp.0260
   br i1 %cmp234, label %for.body235, label %sw.epilog405, !llvm.loop !153
 
 sw.bb264:                                         ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %tobool265.not = icmp eq i32 %has_subrs.0257, 0
+  %tobool265.not = icmp eq i32 %has_subrs.0259, 0
   br i1 %tobool265.not, label %if.then266, label %sw.bb274
 
 if.then266:                                       ; preds = %sw.bb264
-  %83 = load i32, ptr %size267, align 4
-  %tobool268.not = icmp eq i32 %83, 0
+  %82 = load i32, ptr %size267, align 4
+  %tobool268.not = icmp eq i32 %82, 0
   br i1 %tobool268.not, label %sw.bb274, label %if.then269
 
 if.then269:                                       ; preds = %if.then266
   %fdselect.sroa.0.0.copyload.i = load ptr, ptr %fdselect1.i, align 8
-  %84 = tail call i32 @llvm.smin.i32(i32 %83, i32 0)
-  %cmp.not.i.i = icmp sgt i32 %83, 0
+  %83 = tail call i32 @llvm.smin.i32(i32 %82, i32 0)
+  %cmp.not.i.i = icmp sgt i32 %82, 0
   br i1 %cmp.not.i.i, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i, label %if.then.i
 
 _ZL15stbtt__buf_get8P10stbtt__buf.exit.i:         ; preds = %if.then269
-  %idxprom.i.i = zext nneg i32 %84 to i64
+  %idxprom.i.i = zext nneg i32 %83 to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %fdselect.sroa.0.0.copyload.i, i64 %idxprom.i.i
-  %85 = load i8, ptr %arrayidx.i.i, align 1
-  switch i8 %85, label %_ZL26stbtt__cid_get_glyph_subrsPK14stbtt_fontinfoi.exit [
+  %84 = load i8, ptr %arrayidx.i.i, align 1
+  switch i8 %84, label %_ZL26stbtt__cid_get_glyph_subrsPK14stbtt_fontinfoi.exit [
     i8 0, label %if.then.i
     i8 3, label %for.body.i.i
   ]
 
 if.then.i:                                        ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i, %if.then269
-  %fdselect.sroa.7.092.i = phi i32 [ 1, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i ], [ %84, %if.then269 ]
+  %fdselect.sroa.7.092.i = phi i32 [ 1, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i ], [ %83, %if.then269 ]
   %add.i.i = add nsw i32 %fdselect.sroa.7.092.i, %glyph_index
   %cmp1.i.i.i = icmp slt i32 %add.i.i, 0
-  %86 = tail call i32 @llvm.smin.i32(i32 %83, i32 %add.i.i)
-  %.o.i.i.i = select i1 %cmp1.i.i.i, i32 %83, i32 %86
-  %cmp.not.i15.i = icmp slt i32 %.o.i.i.i, %83
+  %85 = tail call i32 @llvm.smin.i32(i32 %82, i32 %add.i.i)
+  %.o.i.i.i = select i1 %cmp1.i.i.i, i32 %82, i32 %85
+  %cmp.not.i15.i = icmp slt i32 %.o.i.i.i, %82
   br i1 %cmp.not.i15.i, label %if.end.i17.i, label %if.end20.i
 
 if.end.i17.i:                                     ; preds = %if.then.i
   %idxprom.i19.i = sext i32 %.o.i.i.i to i64
   %arrayidx.i20.i = getelementptr inbounds i8, ptr %fdselect.sroa.0.0.copyload.i, i64 %idxprom.i19.i
-  %87 = load i8, ptr %arrayidx.i20.i, align 1
+  %86 = load i8, ptr %arrayidx.i20.i, align 1
   br label %if.end20.i
 
 for.body.i.i:                                     ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i
@@ -27354,20 +27354,20 @@ for.body.i.i:                                     ; preds = %_ZL15stbtt__buf_get
   %i.05.i.i = phi i32 [ %inc.i23.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i ], [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i ]
   %v.04.i.i = phi i32 [ %or.i.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i ], [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i ]
   %shl.i.i = shl i32 %v.04.i.i, 8
-  %cmp.not.i.i.i = icmp slt i32 %inc.i7.i.i, %83
+  %cmp.not.i.i.i = icmp slt i32 %inc.i7.i.i, %82
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i
   %inc.i.i.i = add nsw i32 %inc.i7.i.i, 1
   %idxprom.i.i.i = sext i32 %inc.i7.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %fdselect.sroa.0.0.copyload.i, i64 %idxprom.i.i.i
-  %88 = load i8, ptr %arrayidx.i.i.i, align 1
+  %87 = load i8, ptr %arrayidx.i.i.i, align 1
   br label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i
 
 _ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i:       ; preds = %if.end.i.i.i, %for.body.i.i
   %fdselect.sroa.7.2.i = phi i32 [ %inc.i.i.i, %if.end.i.i.i ], [ %fdselect.sroa.7.1.i, %for.body.i.i ]
   %inc.i6.i.i = phi i32 [ %inc.i.i.i, %if.end.i.i.i ], [ %inc.i7.i.i, %for.body.i.i ]
-  %retval.0.i.i.i = phi i8 [ %88, %if.end.i.i.i ], [ 0, %for.body.i.i ]
+  %retval.0.i.i.i = phi i8 [ %87, %if.end.i.i.i ], [ 0, %for.body.i.i ]
   %conv.i.i = zext i8 %retval.0.i.i.i to i32
   %or.i.i = or disjoint i32 %shl.i.i, %conv.i.i
   %inc.i23.i = add nuw nsw i32 %i.05.i.i, 1
@@ -27380,20 +27380,20 @@ for.body.i27.i:                                   ; preds = %_ZL15stbtt__buf_get
   %i.05.i29.i = phi i32 [ %inc.i38.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i33.i ], [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i ]
   %v.04.i30.i = phi i32 [ %or.i37.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i33.i ], [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i ]
   %shl.i31.i = shl i32 %v.04.i30.i, 8
-  %cmp.not.i.i32.i = icmp slt i32 %inc.i7.i28.i, %83
+  %cmp.not.i.i32.i = icmp slt i32 %inc.i7.i28.i, %82
   br i1 %cmp.not.i.i32.i, label %if.end.i.i40.i, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i33.i
 
 if.end.i.i40.i:                                   ; preds = %for.body.i27.i
   %inc.i.i41.i = add nsw i32 %inc.i7.i28.i, 1
   %idxprom.i.i42.i = sext i32 %inc.i7.i28.i to i64
   %arrayidx.i.i43.i = getelementptr inbounds i8, ptr %fdselect.sroa.0.0.copyload.i, i64 %idxprom.i.i42.i
-  %89 = load i8, ptr %arrayidx.i.i43.i, align 1
+  %88 = load i8, ptr %arrayidx.i.i43.i, align 1
   br label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i33.i
 
 _ZL15stbtt__buf_get8P10stbtt__buf.exit.i33.i:     ; preds = %if.end.i.i40.i, %for.body.i27.i
   %fdselect.sroa.7.4.i = phi i32 [ %inc.i.i41.i, %if.end.i.i40.i ], [ %fdselect.sroa.7.3.i, %for.body.i27.i ]
   %inc.i6.i34.i = phi i32 [ %inc.i.i41.i, %if.end.i.i40.i ], [ %inc.i7.i28.i, %for.body.i27.i ]
-  %retval.0.i.i35.i = phi i8 [ %89, %if.end.i.i40.i ], [ 0, %for.body.i27.i ]
+  %retval.0.i.i35.i = phi i8 [ %88, %if.end.i.i40.i ], [ 0, %for.body.i27.i ]
   %conv.i36.i = zext i8 %retval.0.i.i35.i to i32
   %or.i37.i = or disjoint i32 %shl.i31.i, %conv.i36.i
   %inc.i38.i = add nuw nsw i32 %i.05.i29.i, 1
@@ -27413,19 +27413,19 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %start.098.i = phi i32 [ %or.i67.i, %for.cond.i ], [ %or.i37.i, %for.cond.preheader.i ]
   %i.097.i = phi i32 [ %inc.i194, %for.cond.i ], [ 0, %for.cond.preheader.i ]
   %fdselect.sroa.7.596.i = phi i32 [ %fdselect.sroa.7.8.i, %for.cond.i ], [ %fdselect.sroa.7.4.i, %for.cond.preheader.i ]
-  %cmp.not.i47.i = icmp slt i32 %fdselect.sroa.7.596.i, %83
+  %cmp.not.i47.i = icmp slt i32 %fdselect.sroa.7.596.i, %82
   br i1 %cmp.not.i47.i, label %if.end.i49.i, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit53.i
 
 if.end.i49.i:                                     ; preds = %for.body.i
   %inc.i50.i = add nsw i32 %fdselect.sroa.7.596.i, 1
   %idxprom.i51.i = sext i32 %fdselect.sroa.7.596.i to i64
   %arrayidx.i52.i = getelementptr inbounds i8, ptr %fdselect.sroa.0.0.copyload.i, i64 %idxprom.i51.i
-  %90 = load i8, ptr %arrayidx.i52.i, align 1
+  %89 = load i8, ptr %arrayidx.i52.i, align 1
   br label %_ZL15stbtt__buf_get8P10stbtt__buf.exit53.i
 
 _ZL15stbtt__buf_get8P10stbtt__buf.exit53.i:       ; preds = %if.end.i49.i, %for.body.i
   %fdselect.sroa.7.6.i = phi i32 [ %inc.i50.i, %if.end.i49.i ], [ %fdselect.sroa.7.596.i, %for.body.i ]
-  %retval.0.i48.i = phi i8 [ %90, %if.end.i49.i ], [ 0, %for.body.i ]
+  %retval.0.i48.i = phi i8 [ %89, %if.end.i49.i ], [ 0, %for.body.i ]
   br label %for.body.i57.i
 
 for.body.i57.i:                                   ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i63.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit53.i
@@ -27434,20 +27434,20 @@ for.body.i57.i:                                   ; preds = %_ZL15stbtt__buf_get
   %i.05.i59.i = phi i32 [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit53.i ], [ %inc.i68.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i63.i ]
   %v.04.i60.i = phi i32 [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit53.i ], [ %or.i67.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i63.i ]
   %shl.i61.i = shl i32 %v.04.i60.i, 8
-  %cmp.not.i.i62.i = icmp slt i32 %inc.i7.i58.i, %83
+  %cmp.not.i.i62.i = icmp slt i32 %inc.i7.i58.i, %82
   br i1 %cmp.not.i.i62.i, label %if.end.i.i70.i, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i63.i
 
 if.end.i.i70.i:                                   ; preds = %for.body.i57.i
   %inc.i.i71.i = add nsw i32 %inc.i7.i58.i, 1
   %idxprom.i.i72.i = sext i32 %inc.i7.i58.i to i64
   %arrayidx.i.i73.i = getelementptr inbounds i8, ptr %fdselect.sroa.0.0.copyload.i, i64 %idxprom.i.i72.i
-  %91 = load i8, ptr %arrayidx.i.i73.i, align 1
+  %90 = load i8, ptr %arrayidx.i.i73.i, align 1
   br label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i63.i
 
 _ZL15stbtt__buf_get8P10stbtt__buf.exit.i63.i:     ; preds = %if.end.i.i70.i, %for.body.i57.i
   %fdselect.sroa.7.8.i = phi i32 [ %inc.i.i71.i, %if.end.i.i70.i ], [ %fdselect.sroa.7.7.i, %for.body.i57.i ]
   %inc.i6.i64.i = phi i32 [ %inc.i.i71.i, %if.end.i.i70.i ], [ %inc.i7.i58.i, %for.body.i57.i ]
-  %retval.0.i.i65.i = phi i8 [ %91, %if.end.i.i70.i ], [ 0, %for.body.i57.i ]
+  %retval.0.i.i65.i = phi i8 [ %90, %if.end.i.i70.i ], [ 0, %for.body.i57.i ]
   %conv.i66.i = zext i8 %retval.0.i.i65.i to i32
   %or.i67.i = or disjoint i32 %shl.i61.i, %conv.i66.i
   %inc.i68.i = add nuw nsw i32 %i.05.i59.i, 1
@@ -27461,43 +27461,43 @@ _ZL14stbtt__buf_getP10stbtt__bufi.exit74.i:       ; preds = %_ZL15stbtt__buf_get
   br i1 %or.cond.i, label %if.end20.i, label %for.cond.i
 
 if.end20.i:                                       ; preds = %_ZL14stbtt__buf_getP10stbtt__bufi.exit74.i, %if.end.i17.i, %if.then.i
-  %fdselector.0.shrunk.i = phi i8 [ %87, %if.end.i17.i ], [ 0, %if.then.i ], [ %retval.0.i48.i, %_ZL14stbtt__buf_getP10stbtt__bufi.exit74.i ]
+  %fdselector.0.shrunk.i = phi i8 [ %86, %if.end.i17.i ], [ 0, %if.then.i ], [ %retval.0.i48.i, %_ZL14stbtt__buf_getP10stbtt__bufi.exit74.i ]
   %fdselector.0.i = zext i8 %fdselector.0.shrunk.i to i32
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %cff.i, align 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.cff.sroa_idx.i, align 8
   %agg.tmp22.sroa.0.0.copyload.i = load ptr, ptr %fontdicts.i, align 8
   %agg.tmp22.sroa.2.0.copyload.i = load i64, ptr %agg.tmp22.sroa.2.0.fontdicts.sroa_idx.i, align 8
   %call23.i = tail call fastcc { ptr, i64 } @_ZL20stbtt__cff_index_get10stbtt__bufi(ptr %agg.tmp22.sroa.0.0.copyload.i, i64 %agg.tmp22.sroa.2.0.copyload.i, i32 noundef %fdselector.0.i)
-  %92 = extractvalue { ptr, i64 } %call23.i, 0
-  %93 = extractvalue { ptr, i64 } %call23.i, 1
-  %call24.i = tail call fastcc { ptr, i64 } @_ZL16stbtt__get_subrs10stbtt__bufS_(ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i, ptr %92, i64 %93)
+  %91 = extractvalue { ptr, i64 } %call23.i, 0
+  %92 = extractvalue { ptr, i64 } %call23.i, 1
+  %call24.i = tail call fastcc { ptr, i64 } @_ZL16stbtt__get_subrs10stbtt__bufS_(ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i, ptr %91, i64 %92)
   br label %_ZL26stbtt__cid_get_glyph_subrsPK14stbtt_fontinfoi.exit
 
 _ZL26stbtt__cid_get_glyph_subrsPK14stbtt_fontinfoi.exit: ; preds = %for.cond.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i, %for.cond.preheader.i, %if.end20.i
   %call19.pn.i = phi { ptr, i64 } [ %call24.i, %if.end20.i ], [ zeroinitializer, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i ], [ zeroinitializer, %for.cond.preheader.i ], [ zeroinitializer, %for.cond.i ]
-  %94 = extractvalue { ptr, i64 } %call19.pn.i, 0
-  %95 = extractvalue { ptr, i64 } %call19.pn.i, 1
-  store i64 %95, ptr %subrs.sroa.3, align 8
+  %93 = extractvalue { ptr, i64 } %call19.pn.i, 0
+  %94 = extractvalue { ptr, i64 } %call19.pn.i, 1
+  store i64 %94, ptr %subrs.sroa.3, align 8
   br label %sw.bb274
 
 sw.bb274:                                         ; preds = %if.then266, %_ZL26stbtt__cid_get_glyph_subrsPK14stbtt_fontinfoi.exit, %sw.bb264, %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %subrs.sroa.0.2 = phi ptr [ %subrs.sroa.0.0256, %_ZL15stbtt__buf_get8P10stbtt__buf.exit ], [ %subrs.sroa.0.0256, %sw.bb264 ], [ %94, %_ZL26stbtt__cid_get_glyph_subrsPK14stbtt_fontinfoi.exit ], [ %subrs.sroa.0.0256, %if.then266 ]
-  %has_subrs.1 = phi i32 [ %has_subrs.0257, %_ZL15stbtt__buf_get8P10stbtt__buf.exit ], [ 1, %sw.bb264 ], [ 1, %_ZL26stbtt__cid_get_glyph_subrsPK14stbtt_fontinfoi.exit ], [ 1, %if.then266 ]
-  %cmp275 = icmp slt i32 %sp.0258, 1
+  %subrs.sroa.0.2 = phi ptr [ %subrs.sroa.0.0258, %_ZL15stbtt__buf_get8P10stbtt__buf.exit ], [ %subrs.sroa.0.0258, %sw.bb264 ], [ %93, %_ZL26stbtt__cid_get_glyph_subrsPK14stbtt_fontinfoi.exit ], [ %subrs.sroa.0.0258, %if.then266 ]
+  %has_subrs.1 = phi i32 [ %has_subrs.0259, %_ZL15stbtt__buf_get8P10stbtt__buf.exit ], [ 1, %sw.bb264 ], [ 1, %_ZL26stbtt__cid_get_glyph_subrsPK14stbtt_fontinfoi.exit ], [ 1, %if.then266 ]
+  %cmp275 = icmp slt i32 %sp.0260, 1
   br i1 %cmp275, label %return, label %if.end277
 
 if.end277:                                        ; preds = %sw.bb274
-  %dec = add nsw i32 %sp.0258, -1
+  %dec = add nsw i32 %sp.0260, -1
   %idxprom278 = zext nneg i32 %dec to i64
   %arrayidx279 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom278
-  %96 = load float, ptr %arrayidx279, align 4
-  %conv280 = fptosi float %96 to i32
-  %cmp281 = icmp sgt i32 %subr_stack_height.0261, 9
+  %95 = load float, ptr %arrayidx279, align 4
+  %conv280 = fptosi float %95 to i32
+  %cmp281 = icmp sgt i32 %subr_stack_height.0263, 9
   br i1 %cmp281, label %return, label %if.end283
 
 if.end283:                                        ; preds = %if.end277
-  %inc284 = add nsw i32 %subr_stack_height.0261, 1
-  %idxprom285 = sext i32 %subr_stack_height.0261 to i64
+  %inc284 = add nsw i32 %subr_stack_height.0263, 1
+  %idxprom285 = sext i32 %subr_stack_height.0263 to i64
   %arrayidx286 = getelementptr inbounds [10 x %struct.stbtt__buf], ptr %subr_stack, i64 0, i64 %idxprom285
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx286, ptr noundef nonnull align 8 dereferenceable(16) %b, i64 16, i1 false)
   %cmp289 = icmp eq i8 %9, 10
@@ -27513,12 +27513,12 @@ if.end283.cont:                                   ; preds = %if.end283, %if.end2
   %agg.tmp288.sroa.2.0.copyload = load i64, ptr %cond-lvalue.sroa.sel, align 8
   %idx.sroa.7.8.extract.shift.i = lshr i64 %agg.tmp288.sroa.2.0.copyload, 32
   %idx.sroa.7.8.extract.trunc.i = trunc nuw i64 %idx.sroa.7.8.extract.shift.i to i32
-  %97 = tail call i32 @llvm.smin.i32(i32 %idx.sroa.7.8.extract.trunc.i, i32 0)
+  %96 = tail call i32 @llvm.smin.i32(i32 %idx.sroa.7.8.extract.trunc.i, i32 0)
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i, %if.end283.cont
-  %idx.sroa.3.0.i = phi i32 [ %97, %if.end283.cont ], [ %idx.sroa.3.1.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i ]
-  %inc.i7.i.i.i = phi i32 [ %97, %if.end283.cont ], [ %inc.i6.i.i.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i ]
+  %idx.sroa.3.0.i = phi i32 [ %96, %if.end283.cont ], [ %idx.sroa.3.1.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i ]
+  %inc.i7.i.i.i = phi i32 [ %96, %if.end283.cont ], [ %inc.i6.i.i.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i ]
   %i.05.i.i.i = phi i32 [ 0, %if.end283.cont ], [ %inc.i.i.i195, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i ]
   %v.04.i.i.i = phi i32 [ 0, %if.end283.cont ], [ %or.i.i.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i ]
   %shl.i.i.i = shl i32 %v.04.i.i.i, 8
@@ -27529,13 +27529,13 @@ if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i
   %inc.i.i.i.i = add nsw i32 %inc.i7.i.i.i, 1
   %idxprom.i.i.i.i = sext i32 %inc.i7.i.i.i to i64
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp288.sroa.0.0.copyload, i64 %idxprom.i.i.i.i
-  %98 = load i8, ptr %arrayidx.i.i.i.i, align 1
+  %97 = load i8, ptr %arrayidx.i.i.i.i, align 1
   br label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i
 
 _ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i:     ; preds = %if.end.i.i.i.i, %for.body.i.i.i
   %idx.sroa.3.1.i = phi i32 [ %inc.i.i.i.i, %if.end.i.i.i.i ], [ %idx.sroa.3.0.i, %for.body.i.i.i ]
   %inc.i6.i.i.i = phi i32 [ %inc.i.i.i.i, %if.end.i.i.i.i ], [ %inc.i7.i.i.i, %for.body.i.i.i ]
-  %retval.0.i.i.i.i = phi i8 [ %98, %if.end.i.i.i.i ], [ 0, %for.body.i.i.i ]
+  %retval.0.i.i.i.i = phi i8 [ %97, %if.end.i.i.i.i ], [ 0, %for.body.i.i.i ]
   %conv.i.i.i = zext i8 %retval.0.i.i.i.i to i32
   %or.i.i.i = or disjoint i32 %shl.i.i.i, %conv.i.i.i
   %inc.i.i.i195 = add nuw nsw i32 %i.05.i.i.i, 1
@@ -27562,11 +27562,11 @@ if.end8.i:                                        ; preds = %_ZL22stbtt__cff_ind
 
 _ZL15stbtt__get_subr10stbtt__bufi.exit:           ; preds = %_ZL22stbtt__cff_index_countP10stbtt__buf.exit.i, %if.end8.i
   %call7.pn.i = phi { ptr, i64 } [ %call9.i, %if.end8.i ], [ zeroinitializer, %_ZL22stbtt__cff_index_countP10stbtt__buf.exit.i ]
-  %99 = extractvalue { ptr, i64 } %call7.pn.i, 0
-  %100 = extractvalue { ptr, i64 } %call7.pn.i, 1
-  store ptr %99, ptr %b, align 8
-  store i64 %100, ptr %ref.tmp.sroa.2.0.b.sroa_idx, align 8
-  %cmp295 = icmp ult i64 %100, 4294967296
+  %98 = extractvalue { ptr, i64 } %call7.pn.i, 0
+  %99 = extractvalue { ptr, i64 } %call7.pn.i, 1
+  store ptr %98, ptr %b, align 8
+  store i64 %99, ptr %ref.tmp.sroa.2.0.b.sroa_idx, align 8
+  %cmp295 = icmp ult i64 %99, 4294967296
   br i1 %cmp295, label %return, label %if.end297
 
 if.end297:                                        ; preds = %_ZL15stbtt__get_subr10stbtt__bufi.exit
@@ -27574,11 +27574,11 @@ if.end297:                                        ; preds = %_ZL15stbtt__get_sub
   br label %sw.epilog405
 
 sw.bb299:                                         ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %cmp300 = icmp slt i32 %subr_stack_height.0261, 1
+  %cmp300 = icmp slt i32 %subr_stack_height.0263, 1
   br i1 %cmp300, label %return, label %if.end302
 
 if.end302:                                        ; preds = %sw.bb299
-  %dec303 = add nsw i32 %subr_stack_height.0261, -1
+  %dec303 = add nsw i32 %subr_stack_height.0263, -1
   %idxprom304 = zext nneg i32 %dec303 to i64
   %arrayidx305 = getelementptr inbounds [10 x %struct.stbtt__buf], ptr %subr_stack, i64 0, i64 %idxprom304
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %b, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx305, i64 16, i1 false)
@@ -27597,8 +27597,8 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit206:        ; preds = %sw.bb307
   store i32 %inc.i203, ptr %ref.tmp.sroa.2.0.b.sroa_idx, align 8
   %idxprom.i204 = sext i32 %inc.i to i64
   %arrayidx.i205 = getelementptr inbounds i8, ptr %8, i64 %idxprom.i204
-  %101 = load i8, ptr %arrayidx.i205, align 1
-  switch i8 %101, label %return [
+  %100 = load i8, ptr %arrayidx.i205, align 1
+  switch i8 %100, label %return [
     i8 34, label %sw.bb310
     i8 35, label %sw.bb321
     i8 36, label %sw.bb337
@@ -27606,101 +27606,101 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit206:        ; preds = %sw.bb307
   ]
 
 sw.bb310:                                         ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit206
-  %cmp311 = icmp slt i32 %sp.0258, 7
+  %cmp311 = icmp slt i32 %sp.0260, 7
   br i1 %cmp311, label %return, label %if.end313
 
 if.end313:                                        ; preds = %sw.bb310
-  %102 = load float, ptr %s, align 16
-  %103 = load float, ptr %arrayidx358, align 4
-  %104 = load float, ptr %arrayidx359, align 8
-  %105 = load float, ptr %arrayidx360, align 4
-  %106 = load float, ptr %arrayidx361, align 16
-  %107 = load float, ptr %arrayidx362, align 4
-  %108 = load float, ptr %arrayidx363, align 8
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %102, float noundef 0.000000e+00, float noundef %103, float noundef %104, float noundef %105, float noundef 0.000000e+00)
-  %fneg = fneg float %104
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %106, float noundef 0.000000e+00, float noundef %107, float noundef %fneg, float noundef %108, float noundef 0.000000e+00)
+  %101 = load float, ptr %s, align 16
+  %102 = load float, ptr %arrayidx358, align 4
+  %103 = load float, ptr %arrayidx359, align 8
+  %104 = load float, ptr %arrayidx360, align 4
+  %105 = load float, ptr %arrayidx361, align 16
+  %106 = load float, ptr %arrayidx362, align 4
+  %107 = load float, ptr %arrayidx363, align 8
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %101, float noundef 0.000000e+00, float noundef %102, float noundef %103, float noundef %104, float noundef 0.000000e+00)
+  %fneg = fneg float %103
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %105, float noundef 0.000000e+00, float noundef %106, float noundef %fneg, float noundef %107, float noundef 0.000000e+00)
   br label %sw.epilog405
 
 sw.bb321:                                         ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit206
-  %cmp322 = icmp slt i32 %sp.0258, 13
+  %cmp322 = icmp slt i32 %sp.0260, 13
   br i1 %cmp322, label %return, label %if.end324
 
 if.end324:                                        ; preds = %sw.bb321
-  %109 = load float, ptr %s, align 16
-  %110 = load float, ptr %arrayidx358, align 4
-  %111 = load float, ptr %arrayidx359, align 8
-  %112 = load float, ptr %arrayidx360, align 4
-  %113 = load float, ptr %arrayidx361, align 16
-  %114 = load float, ptr %arrayidx362, align 4
-  %115 = load float, ptr %arrayidx363, align 8
-  %116 = load float, ptr %arrayidx364, align 4
-  %117 = load float, ptr %arrayidx365, align 16
-  %118 = load float, ptr %arrayidx366, align 4
-  %119 = load float, ptr %arrayidx367, align 8
-  %120 = load float, ptr %arrayidx336, align 4
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %109, float noundef %110, float noundef %111, float noundef %112, float noundef %113, float noundef %114)
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %115, float noundef %116, float noundef %117, float noundef %118, float noundef %119, float noundef %120)
+  %108 = load float, ptr %s, align 16
+  %109 = load float, ptr %arrayidx358, align 4
+  %110 = load float, ptr %arrayidx359, align 8
+  %111 = load float, ptr %arrayidx360, align 4
+  %112 = load float, ptr %arrayidx361, align 16
+  %113 = load float, ptr %arrayidx362, align 4
+  %114 = load float, ptr %arrayidx363, align 8
+  %115 = load float, ptr %arrayidx364, align 4
+  %116 = load float, ptr %arrayidx365, align 16
+  %117 = load float, ptr %arrayidx366, align 4
+  %118 = load float, ptr %arrayidx367, align 8
+  %119 = load float, ptr %arrayidx336, align 4
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %108, float noundef %109, float noundef %110, float noundef %111, float noundef %112, float noundef %113)
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %114, float noundef %115, float noundef %116, float noundef %117, float noundef %118, float noundef %119)
   br label %sw.epilog405
 
 sw.bb337:                                         ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit206
-  %cmp338 = icmp slt i32 %sp.0258, 9
+  %cmp338 = icmp slt i32 %sp.0260, 9
   br i1 %cmp338, label %return, label %if.end340
 
 if.end340:                                        ; preds = %sw.bb337
-  %121 = load float, ptr %s, align 16
-  %122 = load float, ptr %arrayidx358, align 4
-  %123 = load float, ptr %arrayidx359, align 8
-  %124 = load float, ptr %arrayidx360, align 4
-  %125 = load float, ptr %arrayidx361, align 16
-  %126 = load float, ptr %arrayidx362, align 4
-  %127 = load float, ptr %arrayidx363, align 8
-  %128 = load float, ptr %arrayidx364, align 4
-  %129 = load float, ptr %arrayidx365, align 16
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %121, float noundef %122, float noundef %123, float noundef %124, float noundef %125, float noundef 0.000000e+00)
-  %add350 = fadd float %122, %124
-  %add351 = fadd float %add350, %128
+  %120 = load float, ptr %s, align 16
+  %121 = load float, ptr %arrayidx358, align 4
+  %122 = load float, ptr %arrayidx359, align 8
+  %123 = load float, ptr %arrayidx360, align 4
+  %124 = load float, ptr %arrayidx361, align 16
+  %125 = load float, ptr %arrayidx362, align 4
+  %126 = load float, ptr %arrayidx363, align 8
+  %127 = load float, ptr %arrayidx364, align 4
+  %128 = load float, ptr %arrayidx365, align 16
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %120, float noundef %121, float noundef %122, float noundef %123, float noundef %124, float noundef 0.000000e+00)
+  %add350 = fadd float %121, %123
+  %add351 = fadd float %add350, %127
   %fneg352 = fneg float %add351
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %126, float noundef 0.000000e+00, float noundef %127, float noundef %128, float noundef %129, float noundef %fneg352)
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %125, float noundef 0.000000e+00, float noundef %126, float noundef %127, float noundef %128, float noundef %fneg352)
   br label %sw.epilog405
 
 sw.bb353:                                         ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit206
-  %cmp354 = icmp slt i32 %sp.0258, 11
+  %cmp354 = icmp slt i32 %sp.0260, 11
   br i1 %cmp354, label %return, label %if.end356
 
 if.end356:                                        ; preds = %sw.bb353
-  %130 = load float, ptr %arrayidx367, align 8
-  %131 = load <2 x float>, ptr %s, align 16
-  %132 = load <2 x float>, ptr %arrayidx359, align 8
-  %133 = load <2 x float>, ptr %arrayidx361, align 16
-  %134 = load <2 x float>, ptr %arrayidx363, align 8
-  %135 = load <2 x float>, ptr %arrayidx365, align 16
-  %136 = fadd <2 x float> %131, %132
+  %129 = load float, ptr %arrayidx367, align 8
+  %130 = load <2 x float>, ptr %s, align 16
+  %131 = load <2 x float>, ptr %arrayidx359, align 8
+  %132 = load <2 x float>, ptr %arrayidx361, align 16
+  %133 = load <2 x float>, ptr %arrayidx363, align 8
+  %134 = load <2 x float>, ptr %arrayidx365, align 16
+  %135 = fadd <2 x float> %130, %131
+  %136 = fadd <2 x float> %135, %132
   %137 = fadd <2 x float> %136, %133
   %138 = fadd <2 x float> %137, %134
-  %139 = fadd <2 x float> %138, %135
-  %140 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %139)
-  %141 = extractelement <2 x float> %140, i64 0
-  %142 = extractelement <2 x float> %140, i64 1
-  %cmp376 = fcmp ogt float %141, %142
-  %143 = extractelement <2 x float> %139, i64 1
-  %fneg378 = fneg float %143
-  %144 = extractelement <2 x float> %139, i64 0
-  %fneg380 = fneg float %144
-  %dx6.0 = select i1 %cmp376, float %130, float %fneg380
-  %dy6.0 = select i1 %cmp376, float %fneg378, float %130
-  %145 = extractelement <2 x float> %131, i64 0
-  %146 = extractelement <2 x float> %131, i64 1
-  %147 = extractelement <2 x float> %132, i64 0
-  %148 = extractelement <2 x float> %132, i64 1
-  %149 = extractelement <2 x float> %133, i64 0
-  %150 = extractelement <2 x float> %133, i64 1
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %145, float noundef %146, float noundef %147, float noundef %148, float noundef %149, float noundef %150)
-  %151 = extractelement <2 x float> %134, i64 0
-  %152 = extractelement <2 x float> %134, i64 1
-  %153 = extractelement <2 x float> %135, i64 0
-  %154 = extractelement <2 x float> %135, i64 1
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %151, float noundef %152, float noundef %153, float noundef %154, float noundef %dx6.0, float noundef %dy6.0)
+  %139 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %138)
+  %140 = extractelement <2 x float> %139, i64 0
+  %141 = extractelement <2 x float> %139, i64 1
+  %cmp376 = fcmp ogt float %140, %141
+  %142 = extractelement <2 x float> %138, i64 1
+  %fneg378 = fneg float %142
+  %143 = extractelement <2 x float> %138, i64 0
+  %fneg380 = fneg float %143
+  %dx6.0 = select i1 %cmp376, float %129, float %fneg380
+  %dy6.0 = select i1 %cmp376, float %fneg378, float %129
+  %144 = extractelement <2 x float> %130, i64 0
+  %145 = extractelement <2 x float> %130, i64 1
+  %146 = extractelement <2 x float> %131, i64 0
+  %147 = extractelement <2 x float> %131, i64 1
+  %148 = extractelement <2 x float> %132, i64 0
+  %149 = extractelement <2 x float> %132, i64 1
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %144, float noundef %145, float noundef %146, float noundef %147, float noundef %148, float noundef %149)
+  %150 = extractelement <2 x float> %133, i64 0
+  %151 = extractelement <2 x float> %133, i64 1
+  %152 = extractelement <2 x float> %134, i64 0
+  %153 = extractelement <2 x float> %134, i64 1
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %150, float noundef %151, float noundef %152, float noundef %153, float noundef %dx6.0, float noundef %dy6.0)
   br label %sw.epilog405
 
 sw.default382:                                    ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
@@ -27714,7 +27714,7 @@ if.end388:                                        ; preds = %sw.default382
   br i1 %cmp389, label %for.body.i208, label %if.else394
 
 for.body.i208:                                    ; preds = %if.end388, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i210
-  %inc.i.i253 = phi i32 [ %inc.i.i254, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i210 ], [ %inc.i, %if.end388 ]
+  %inc.i.i255 = phi i32 [ %inc.i.i256, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i210 ], [ %inc.i, %if.end388 ]
   %inc.i7.i = phi i32 [ %inc.i6.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i210 ], [ %inc.i, %if.end388 ]
   %i.05.i = phi i32 [ %inc.i211, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i210 ], [ 0, %if.end388 ]
   %v.04.i = phi i32 [ %or.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i210 ], [ 0, %if.end388 ]
@@ -27726,13 +27726,13 @@ if.end.i.i:                                       ; preds = %for.body.i208
   %inc.i.i = add nsw i32 %inc.i7.i, 1
   %idxprom.i.i213 = sext i32 %inc.i7.i to i64
   %arrayidx.i.i214 = getelementptr inbounds i8, ptr %8, i64 %idxprom.i.i213
-  %155 = load i8, ptr %arrayidx.i.i214, align 1
+  %154 = load i8, ptr %arrayidx.i.i214, align 1
   br label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i210
 
 _ZL15stbtt__buf_get8P10stbtt__buf.exit.i210:      ; preds = %if.end.i.i, %for.body.i208
-  %inc.i.i254 = phi i32 [ %inc.i.i, %if.end.i.i ], [ %inc.i.i253, %for.body.i208 ]
+  %inc.i.i256 = phi i32 [ %inc.i.i, %if.end.i.i ], [ %inc.i.i255, %for.body.i208 ]
   %inc.i6.i = phi i32 [ %inc.i.i, %if.end.i.i ], [ %inc.i7.i, %for.body.i208 ]
-  %retval.0.i.i = phi i8 [ %155, %if.end.i.i ], [ 0, %for.body.i208 ]
+  %retval.0.i.i = phi i8 [ %154, %if.end.i.i ], [ 0, %for.body.i208 ]
   %conv.i = zext i8 %retval.0.i.i to i32
   %or.i = or disjoint i32 %shl.i, %conv.i
   %inc.i211 = add nuw nsw i32 %i.05.i, 1
@@ -27740,15 +27740,15 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit.i210:      ; preds = %if.end.i.i, %for.bo
   br i1 %exitcond.not.i212, label %_ZL14stbtt__buf_getP10stbtt__bufi.exit, label %for.body.i208, !llvm.loop !52
 
 _ZL14stbtt__buf_getP10stbtt__bufi.exit:           ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i210
-  store i32 %inc.i.i254, ptr %ref.tmp.sroa.2.0.b.sroa_idx, align 8
+  store i32 %inc.i.i256, ptr %ref.tmp.sroa.2.0.b.sroa_idx, align 8
   %conv392 = sitofp i32 %or.i to float
   %div393 = fmul float %conv392, 0x3EF0000000000000
   br label %if.end398
 
 if.else394:                                       ; preds = %if.end388
   %cmp1.i.i218 = icmp slt i32 %7, 0
-  %156 = tail call i32 @llvm.smin.i32(i32 %6, i32 %7)
-  %.o.i.i219 = select i1 %cmp1.i.i218, i32 %6, i32 %156
+  %155 = tail call i32 @llvm.smin.i32(i32 %6, i32 %7)
+  %.o.i.i219 = select i1 %cmp1.i.i218, i32 %6, i32 %155
   store i32 %.o.i.i219, ptr %ref.tmp.sroa.2.0.b.sroa_idx, align 8
   %call395 = call fastcc noundef i32 @_ZL14stbtt__cff_intP10stbtt__buf(ptr noundef nonnull %b)
   %conv396 = trunc i32 %call395 to i16
@@ -27757,26 +27757,26 @@ if.else394:                                       ; preds = %if.end388
 
 if.end398:                                        ; preds = %if.else394, %_ZL14stbtt__buf_getP10stbtt__bufi.exit
   %f.2 = phi float [ %div393, %_ZL14stbtt__buf_getP10stbtt__bufi.exit ], [ %conv397, %if.else394 ]
-  %cmp399 = icmp sgt i32 %sp.0258, 47
+  %cmp399 = icmp sgt i32 %sp.0260, 47
   br i1 %cmp399, label %return, label %if.end401
 
 if.end401:                                        ; preds = %if.end398
-  %inc402 = add nsw i32 %sp.0258, 1
-  %idxprom403 = sext i32 %sp.0258 to i64
+  %inc402 = add nsw i32 %sp.0260, 1
+  %idxprom403 = sext i32 %sp.0260 to i64
   %arrayidx404 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom403
   store float %f.2, ptr %arrayidx404, align 4
   br label %sw.epilog405
 
 sw.epilog405:                                     ; preds = %if.end260, %for.body125, %for.body, %if.end225, %if.end, %sw.bb5, %if.end11, %if.end18, %if.end25, %vlineto, %for.cond49, %hvcurveto, %for.cond70, %if.end178, %if.end204, %if.end313, %if.end324, %if.end340, %if.end356, %if.end401, %if.end302, %if.end297
-  %in_header.1232 = phi i32 [ %in_header.0263, %if.end401 ], [ %in_header.0263, %if.end302 ], [ %in_header.0263, %if.end297 ], [ 0, %if.end ], [ %in_header.0263, %sw.bb5 ], [ 0, %if.end11 ], [ 0, %if.end18 ], [ 0, %if.end25 ], [ %in_header.0263, %vlineto ], [ %in_header.0263, %for.cond49 ], [ %in_header.0263, %hvcurveto ], [ %in_header.0263, %for.cond70 ], [ %in_header.0263, %if.end178 ], [ %in_header.0263, %if.end204 ], [ %in_header.0263, %if.end313 ], [ %in_header.0263, %if.end324 ], [ %in_header.0263, %if.end340 ], [ %in_header.0263, %if.end356 ], [ %in_header.0263, %if.end225 ], [ %in_header.0263, %for.body ], [ %in_header.0263, %for.body125 ], [ %in_header.0263, %if.end260 ]
-  %maskbits.2231 = phi i32 [ %maskbits.0262, %if.end401 ], [ %maskbits.0262, %if.end302 ], [ %maskbits.0262, %if.end297 ], [ %maskbits.1, %if.end ], [ %add7, %sw.bb5 ], [ %maskbits.0262, %if.end11 ], [ %maskbits.0262, %if.end18 ], [ %maskbits.0262, %if.end25 ], [ %maskbits.0262, %vlineto ], [ %maskbits.0262, %for.cond49 ], [ %maskbits.0262, %hvcurveto ], [ %maskbits.0262, %for.cond70 ], [ %maskbits.0262, %if.end178 ], [ %maskbits.0262, %if.end204 ], [ %maskbits.0262, %if.end313 ], [ %maskbits.0262, %if.end324 ], [ %maskbits.0262, %if.end340 ], [ %maskbits.0262, %if.end356 ], [ %maskbits.0262, %if.end225 ], [ %maskbits.0262, %for.body ], [ %maskbits.0262, %for.body125 ], [ %maskbits.0262, %if.end260 ]
-  %subr_stack_height.1230 = phi i32 [ %subr_stack_height.0261, %if.end401 ], [ %dec303, %if.end302 ], [ %inc284, %if.end297 ], [ %subr_stack_height.0261, %if.end ], [ %subr_stack_height.0261, %sw.bb5 ], [ %subr_stack_height.0261, %if.end11 ], [ %subr_stack_height.0261, %if.end18 ], [ %subr_stack_height.0261, %if.end25 ], [ %subr_stack_height.0261, %vlineto ], [ %subr_stack_height.0261, %for.cond49 ], [ %subr_stack_height.0261, %hvcurveto ], [ %subr_stack_height.0261, %for.cond70 ], [ %subr_stack_height.0261, %if.end178 ], [ %subr_stack_height.0261, %if.end204 ], [ %subr_stack_height.0261, %if.end313 ], [ %subr_stack_height.0261, %if.end324 ], [ %subr_stack_height.0261, %if.end340 ], [ %subr_stack_height.0261, %if.end356 ], [ %subr_stack_height.0261, %if.end225 ], [ %subr_stack_height.0261, %for.body ], [ %subr_stack_height.0261, %for.body125 ], [ %subr_stack_height.0261, %if.end260 ]
-  %has_subrs.2229 = phi i32 [ %has_subrs.0257, %if.end401 ], [ %has_subrs.0257, %if.end302 ], [ %has_subrs.1, %if.end297 ], [ %has_subrs.0257, %if.end ], [ %has_subrs.0257, %sw.bb5 ], [ %has_subrs.0257, %if.end11 ], [ %has_subrs.0257, %if.end18 ], [ %has_subrs.0257, %if.end25 ], [ %has_subrs.0257, %vlineto ], [ %has_subrs.0257, %for.cond49 ], [ %has_subrs.0257, %hvcurveto ], [ %has_subrs.0257, %for.cond70 ], [ %has_subrs.0257, %if.end178 ], [ %has_subrs.0257, %if.end204 ], [ %has_subrs.0257, %if.end313 ], [ %has_subrs.0257, %if.end324 ], [ %has_subrs.0257, %if.end340 ], [ %has_subrs.0257, %if.end356 ], [ %has_subrs.0257, %if.end225 ], [ %has_subrs.0257, %for.body ], [ %has_subrs.0257, %for.body125 ], [ %has_subrs.0257, %if.end260 ]
-  %subrs.sroa.0.3228 = phi ptr [ %subrs.sroa.0.0256, %if.end401 ], [ %subrs.sroa.0.0256, %if.end302 ], [ %subrs.sroa.0.2, %if.end297 ], [ %subrs.sroa.0.0256, %if.end ], [ %subrs.sroa.0.0256, %sw.bb5 ], [ %subrs.sroa.0.0256, %if.end11 ], [ %subrs.sroa.0.0256, %if.end18 ], [ %subrs.sroa.0.0256, %if.end25 ], [ %subrs.sroa.0.0256, %vlineto ], [ %subrs.sroa.0.0256, %for.cond49 ], [ %subrs.sroa.0.0256, %hvcurveto ], [ %subrs.sroa.0.0256, %for.cond70 ], [ %subrs.sroa.0.0256, %if.end178 ], [ %subrs.sroa.0.0256, %if.end204 ], [ %subrs.sroa.0.0256, %if.end313 ], [ %subrs.sroa.0.0256, %if.end324 ], [ %subrs.sroa.0.0256, %if.end340 ], [ %subrs.sroa.0.0256, %if.end356 ], [ %subrs.sroa.0.0256, %if.end225 ], [ %subrs.sroa.0.0256, %for.body ], [ %subrs.sroa.0.0256, %for.body125 ], [ %subrs.sroa.0.0256, %if.end260 ]
-  %157 = phi i32 [ %inc402, %if.end401 ], [ %sp.0258, %if.end302 ], [ %dec, %if.end297 ], [ 0, %if.end ], [ 0, %sw.bb5 ], [ 0, %if.end11 ], [ 0, %if.end18 ], [ 0, %if.end25 ], [ 0, %vlineto ], [ 0, %for.cond49 ], [ 0, %hvcurveto ], [ 0, %for.cond70 ], [ 0, %if.end178 ], [ 0, %if.end204 ], [ 0, %if.end313 ], [ 0, %if.end324 ], [ 0, %if.end340 ], [ 0, %if.end356 ], [ 0, %if.end225 ], [ 0, %for.body ], [ 0, %for.body125 ], [ 0, %if.end260 ]
-  %158 = load i32, ptr %ref.tmp.sroa.2.0.b.sroa_idx, align 8
-  %159 = load i32, ptr %size, align 4
-  %cmp = icmp slt i32 %158, %159
+  %in_header.1232 = phi i32 [ %in_header.0265, %if.end401 ], [ %in_header.0265, %if.end302 ], [ %in_header.0265, %if.end297 ], [ 0, %if.end ], [ %in_header.0265, %sw.bb5 ], [ 0, %if.end11 ], [ 0, %if.end18 ], [ 0, %if.end25 ], [ %in_header.0265, %vlineto ], [ %in_header.0265, %for.cond49 ], [ %in_header.0265, %hvcurveto ], [ %in_header.0265, %for.cond70 ], [ %in_header.0265, %if.end178 ], [ %in_header.0265, %if.end204 ], [ %in_header.0265, %if.end313 ], [ %in_header.0265, %if.end324 ], [ %in_header.0265, %if.end340 ], [ %in_header.0265, %if.end356 ], [ %in_header.0265, %if.end225 ], [ %in_header.0265, %for.body ], [ %in_header.0265, %for.body125 ], [ %in_header.0265, %if.end260 ]
+  %maskbits.2231 = phi i32 [ %maskbits.0264, %if.end401 ], [ %maskbits.0264, %if.end302 ], [ %maskbits.0264, %if.end297 ], [ %maskbits.1, %if.end ], [ %add7, %sw.bb5 ], [ %maskbits.0264, %if.end11 ], [ %maskbits.0264, %if.end18 ], [ %maskbits.0264, %if.end25 ], [ %maskbits.0264, %vlineto ], [ %maskbits.0264, %for.cond49 ], [ %maskbits.0264, %hvcurveto ], [ %maskbits.0264, %for.cond70 ], [ %maskbits.0264, %if.end178 ], [ %maskbits.0264, %if.end204 ], [ %maskbits.0264, %if.end313 ], [ %maskbits.0264, %if.end324 ], [ %maskbits.0264, %if.end340 ], [ %maskbits.0264, %if.end356 ], [ %maskbits.0264, %if.end225 ], [ %maskbits.0264, %for.body ], [ %maskbits.0264, %for.body125 ], [ %maskbits.0264, %if.end260 ]
+  %subr_stack_height.1230 = phi i32 [ %subr_stack_height.0263, %if.end401 ], [ %dec303, %if.end302 ], [ %inc284, %if.end297 ], [ %subr_stack_height.0263, %if.end ], [ %subr_stack_height.0263, %sw.bb5 ], [ %subr_stack_height.0263, %if.end11 ], [ %subr_stack_height.0263, %if.end18 ], [ %subr_stack_height.0263, %if.end25 ], [ %subr_stack_height.0263, %vlineto ], [ %subr_stack_height.0263, %for.cond49 ], [ %subr_stack_height.0263, %hvcurveto ], [ %subr_stack_height.0263, %for.cond70 ], [ %subr_stack_height.0263, %if.end178 ], [ %subr_stack_height.0263, %if.end204 ], [ %subr_stack_height.0263, %if.end313 ], [ %subr_stack_height.0263, %if.end324 ], [ %subr_stack_height.0263, %if.end340 ], [ %subr_stack_height.0263, %if.end356 ], [ %subr_stack_height.0263, %if.end225 ], [ %subr_stack_height.0263, %for.body ], [ %subr_stack_height.0263, %for.body125 ], [ %subr_stack_height.0263, %if.end260 ]
+  %has_subrs.2229 = phi i32 [ %has_subrs.0259, %if.end401 ], [ %has_subrs.0259, %if.end302 ], [ %has_subrs.1, %if.end297 ], [ %has_subrs.0259, %if.end ], [ %has_subrs.0259, %sw.bb5 ], [ %has_subrs.0259, %if.end11 ], [ %has_subrs.0259, %if.end18 ], [ %has_subrs.0259, %if.end25 ], [ %has_subrs.0259, %vlineto ], [ %has_subrs.0259, %for.cond49 ], [ %has_subrs.0259, %hvcurveto ], [ %has_subrs.0259, %for.cond70 ], [ %has_subrs.0259, %if.end178 ], [ %has_subrs.0259, %if.end204 ], [ %has_subrs.0259, %if.end313 ], [ %has_subrs.0259, %if.end324 ], [ %has_subrs.0259, %if.end340 ], [ %has_subrs.0259, %if.end356 ], [ %has_subrs.0259, %if.end225 ], [ %has_subrs.0259, %for.body ], [ %has_subrs.0259, %for.body125 ], [ %has_subrs.0259, %if.end260 ]
+  %subrs.sroa.0.3228 = phi ptr [ %subrs.sroa.0.0258, %if.end401 ], [ %subrs.sroa.0.0258, %if.end302 ], [ %subrs.sroa.0.2, %if.end297 ], [ %subrs.sroa.0.0258, %if.end ], [ %subrs.sroa.0.0258, %sw.bb5 ], [ %subrs.sroa.0.0258, %if.end11 ], [ %subrs.sroa.0.0258, %if.end18 ], [ %subrs.sroa.0.0258, %if.end25 ], [ %subrs.sroa.0.0258, %vlineto ], [ %subrs.sroa.0.0258, %for.cond49 ], [ %subrs.sroa.0.0258, %hvcurveto ], [ %subrs.sroa.0.0258, %for.cond70 ], [ %subrs.sroa.0.0258, %if.end178 ], [ %subrs.sroa.0.0258, %if.end204 ], [ %subrs.sroa.0.0258, %if.end313 ], [ %subrs.sroa.0.0258, %if.end324 ], [ %subrs.sroa.0.0258, %if.end340 ], [ %subrs.sroa.0.0258, %if.end356 ], [ %subrs.sroa.0.0258, %if.end225 ], [ %subrs.sroa.0.0258, %for.body ], [ %subrs.sroa.0.0258, %for.body125 ], [ %subrs.sroa.0.0258, %if.end260 ]
+  %156 = phi i32 [ %inc402, %if.end401 ], [ %sp.0260, %if.end302 ], [ %dec, %if.end297 ], [ 0, %if.end ], [ 0, %sw.bb5 ], [ 0, %if.end11 ], [ 0, %if.end18 ], [ 0, %if.end25 ], [ 0, %vlineto ], [ 0, %for.cond49 ], [ 0, %hvcurveto ], [ 0, %for.cond70 ], [ 0, %if.end178 ], [ 0, %if.end204 ], [ 0, %if.end313 ], [ 0, %if.end324 ], [ 0, %if.end340 ], [ 0, %if.end356 ], [ 0, %if.end225 ], [ 0, %for.body ], [ 0, %for.body125 ], [ 0, %if.end260 ]
+  %157 = load i32, ptr %ref.tmp.sroa.2.0.b.sroa_idx, align 8
+  %158 = load i32, ptr %size, align 4
+  %cmp = icmp slt i32 %157, %158
   br i1 %cmp, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit, label %return, !llvm.loop !155
 
 return:                                           ; preds = %sw.bb8, %sw.bb15, %sw.bb22, %sw.bb29, %sw.bb41, %sw.bb45, %sw.bb62, %sw.bb66, %sw.bb118, %sw.bb146, %for.end174, %sw.bb184, %for.end200, %sw.bb222, %sw.bb274, %if.end277, %_ZL15stbtt__get_subr10stbtt__bufi.exit, %sw.bb299, %sw.bb310, %sw.bb321, %sw.bb337, %sw.bb353, %_ZL15stbtt__buf_get8P10stbtt__buf.exit206, %sw.default382, %if.end398, %sw.epilog405, %sw.bb307, %entry, %sw.bb306

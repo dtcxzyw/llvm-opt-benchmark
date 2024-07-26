@@ -82717,20 +82717,22 @@ for.cond.preheader:                               ; preds = %entry
   br label %for.cond9.preheader
 
 for.cond9.preheader:                              ; preds = %for.cond.preheader, %for.cond9.for.inc65_crit_edge.split
-  %x.0152 = phi i32 [ %add67, %for.cond9.for.inc65_crit_edge.split ], [ %4, %for.cond.preheader ]
-  %15 = shl i32 %x.0152, 5
+  %x.0153 = phi i32 [ %add67, %for.cond9.for.inc65_crit_edge.split ], [ %4, %for.cond.preheader ]
+  %15 = shl i32 %x.0153, 5
   %shl.i = and i32 %15, 3840
   %16 = lshr exact i32 %shl.i, 5
-  %and.i.i46 = and i32 %x.0152, -8
+  %invariant.op = or disjoint i32 %16, 7
+  %and.i.i46 = and i32 %x.0153, -8
   %retval.sroa.0.0.insert.ext.i.i51 = zext i32 %and.i.i46 to i64
   br label %for.cond17.preheader
 
 for.cond17.preheader:                             ; preds = %for.cond9.preheader, %for.cond17.for.inc61_crit_edge
-  %y.0146 = phi i32 [ %6, %for.cond9.preheader ], [ %add63, %for.cond17.for.inc61_crit_edge ]
-  %17 = shl i32 %y.0146, 1
+  %y.0147 = phi i32 [ %6, %for.cond9.preheader ], [ %add63, %for.cond17.for.inc61_crit_edge ]
+  %17 = shl i32 %y.0147, 1
   %shl4.i = and i32 %17, 240
-  %shl5.i.i = and i32 %y.0146, 120
-  %and4.i.i = and i32 %y.0146, -8
+  %shl5.i.i = and i32 %y.0147, 120
+  %invariant.op143 = or disjoint i32 %shl5.i.i, 7
+  %and4.i.i = and i32 %y.0147, -8
   %retval.sroa.2.0.insert.ext.i.i49 = zext i32 %and4.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i50 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i49, 32
   %retval.sroa.0.0.insert.insert.i.i52 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i50, %retval.sroa.0.0.insert.ext.i.i51
@@ -82749,17 +82751,17 @@ for.body21:                                       ; preds = %for.cond17.preheade
   %add6.i.i = add nsw i32 %20, %shl5.i.i
   %21 = load i32, ptr %arrayidx.i.i1.i.i.i.i, align 8
   %add10.i.i = add nsw i32 %21, %and3.i.i
-  %add.i.i29 = add nsw i32 %add.i.i, 7
-  %add4.i.i = add nsw i32 %add6.i.i, 7
+  %add.i.i29.reass = add i32 %19, %invariant.op
+  %add4.i.i.reass = add i32 %20, %invariant.op143
   %add7.i.i = add nsw i32 %add10.i.i, 7
-  %cmp.i.i37 = icmp ne i32 %x.0152, %add.i.i
-  %cmp8.i.i = icmp ne i32 %y.0146, %add6.i.i
+  %cmp.i.i37 = icmp ne i32 %x.0153, %add.i.i
+  %cmp8.i.i = icmp ne i32 %y.0147, %add6.i.i
   %or.cond132.not138 = or i1 %cmp.i.i37, %cmp8.i.i
   %cmp13.i.i = icmp ne i32 %z.0141, %add10.i.i
   %or.cond133 = select i1 %or.cond132.not138, i1 true, i1 %cmp13.i.i
-  %cmp.i = icmp slt i32 %10, %add.i.i29
+  %cmp.i = icmp slt i32 %10, %add.i.i29.reass
   %or.cond134 = select i1 %or.cond133, i1 true, i1 %cmp.i
-  %cmp4.i = icmp slt i32 %12, %add4.i.i
+  %cmp4.i = icmp slt i32 %12, %add4.i.i.reass
   %or.cond135 = select i1 %or.cond134, i1 true, i1 %cmp4.i
   %cmp7.i = icmp slt i32 %14, %add7.i.i
   %or.cond136 = select i1 %or.cond135, i1 true, i1 %cmp7.i
@@ -82827,23 +82829,23 @@ if.end45.if.then47_crit_edge:                     ; preds = %if.end45
   %mOrigin.i.i67.phi.trans.insert = getelementptr inbounds i8, ptr %26, i64 64
   %.pre = load i32, ptr %mOrigin.i.i67.phi.trans.insert, align 4
   %arrayidx.i.i1.i.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %26, i64 72
-  %.pre160 = load i32, ptr %arrayidx.i.i1.i.i.i.i.i.phi.trans.insert, align 4
+  %.pre161 = load i32, ptr %arrayidx.i.i1.i.i.i.i.i.phi.trans.insert, align 4
   br label %if.then47
 
 if.then47:                                        ; preds = %if.end45.if.then47_crit_edge, %if.end45.thread
-  %27 = phi i32 [ %and7.i.i, %if.end45.thread ], [ %.pre160, %if.end45.if.then47_crit_edge ]
+  %27 = phi i32 [ %and7.i.i, %if.end45.thread ], [ %.pre161, %if.end45.if.then47_crit_edge ]
   %28 = phi i32 [ %and.i.i46, %if.end45.thread ], [ %.pre, %if.end45.if.then47_crit_edge ]
   %child.0130 = phi ptr [ %call37, %if.end45.thread ], [ %26, %if.end45.if.then47_crit_edge ]
-  %.sroa.speculated17.i = tail call i32 @llvm.smin.i32(i32 %add.i.i29, i32 %10)
-  %.sroa.speculated14.i = tail call i32 @llvm.smin.i32(i32 %add4.i.i, i32 %12)
+  %.sroa.speculated17.i = tail call i32 @llvm.smin.i32(i32 %add.i.i29.reass, i32 %10)
+  %.sroa.speculated14.i = tail call i32 @llvm.smin.i32(i32 %add4.i.i.reass, i32 %12)
   %.sroa.speculated.i = tail call i32 @llvm.smin.i32(i32 %add7.i.i, i32 %14)
   %add.i.i.i.i.i = add nsw i32 %28, 7
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %child.0130, i64 68
   %29 = load i32, ptr %arrayidx.i.i.i.i.i.i.i, align 4
   %add4.i.i.i.i.i = add i32 %29, 7
   %add7.i.i.i.i.i = add i32 %27, 7
-  %30 = tail call i32 @llvm.smax.i32(i32 %28, i32 %x.0152)
-  %31 = tail call i32 @llvm.smax.i32(i32 %29, i32 %y.0146)
+  %30 = tail call i32 @llvm.smax.i32(i32 %28, i32 %x.0153)
+  %31 = tail call i32 @llvm.smax.i32(i32 %29, i32 %y.0147)
   %32 = tail call i32 @llvm.smax.i32(i32 %27, i32 %z.0141)
   %33 = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated17.i, i32 %add.i.i.i.i.i)
   %34 = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated14.i, i32 %add4.i.i.i.i.i)
@@ -82987,14 +82989,14 @@ for.inc:                                          ; preds = %for.cond9.for.inc28
   br i1 %cmp20.not, label %for.cond17.for.inc61_crit_edge, label %for.body21, !llvm.loop !992
 
 for.cond17.for.inc61_crit_edge:                   ; preds = %for.inc
-  %add63 = add nsw i32 %add6.i.i, 8
-  %cmp12.not = icmp sgt i32 %add63, %12
-  br i1 %cmp12.not, label %for.cond9.for.inc65_crit_edge.split, label %for.cond17.preheader, !llvm.loop !993
+  %add63 = add nsw i32 %add4.i.i.reass, 1
+  %cmp12.not.not = icmp slt i32 %add4.i.i.reass, %12
+  br i1 %cmp12.not.not, label %for.cond17.preheader, label %for.cond9.for.inc65_crit_edge.split, !llvm.loop !993
 
 for.cond9.for.inc65_crit_edge.split:              ; preds = %for.cond17.for.inc61_crit_edge
-  %add67 = add nsw i32 %add.i.i, 8
-  %cmp.not = icmp sgt i32 %add67, %10
-  br i1 %cmp.not, label %for.end68, label %for.cond9.preheader, !llvm.loop !994
+  %add67 = add nsw i32 %add.i.i29.reass, 1
+  %cmp.not.not = icmp slt i32 %add.i.i29.reass, %10
+  br i1 %cmp.not.not, label %for.cond9.preheader, label %for.end68, !llvm.loop !994
 
 for.end68:                                        ; preds = %for.cond9.for.inc65_crit_edge.split, %entry
   ret void
@@ -83047,19 +83049,21 @@ for.cond.preheader:                               ; preds = %entry
   br label %for.cond9.preheader
 
 for.cond9.preheader:                              ; preds = %for.cond.preheader, %for.cond9.for.inc63_crit_edge.split
-  %x.0143 = phi i32 [ %add65, %for.cond9.for.inc63_crit_edge.split ], [ %4, %for.cond.preheader ]
-  %15 = shl i32 %x.0143, 3
+  %x.0144 = phi i32 [ %add65, %for.cond9.for.inc63_crit_edge.split ], [ %4, %for.cond.preheader ]
+  %15 = shl i32 %x.0144, 3
   %shl.i = and i32 %15, 31744
   %16 = lshr exact i32 %shl.i, 3
-  %and.i = and i32 %x.0143, -128
+  %invariant.op = or disjoint i32 %16, 127
+  %and.i = and i32 %x.0144, -128
   br label %for.cond17.preheader
 
 for.cond17.preheader:                             ; preds = %for.cond9.preheader, %for.cond17.for.inc59_crit_edge
-  %y.0137 = phi i32 [ %6, %for.cond9.preheader ], [ %add61, %for.cond17.for.inc59_crit_edge ]
-  %17 = lshr i32 %y.0137, 2
+  %y.0138 = phi i32 [ %6, %for.cond9.preheader ], [ %add61, %for.cond17.for.inc59_crit_edge ]
+  %17 = lshr i32 %y.0138, 2
   %shl4.i = and i32 %17, 992
   %18 = shl nuw nsw i32 %shl4.i, 2
-  %and3.i = and i32 %y.0137, -128
+  %invariant.op134 = or disjoint i32 %18, 127
+  %and3.i = and i32 %y.0138, -128
   br label %for.body21
 
 for.body21:                                       ; preds = %for.cond17.preheader, %for.inc
@@ -83075,17 +83079,17 @@ for.body21:                                       ; preds = %for.cond17.preheade
   %add6.i.i = add nsw i32 %21, %18
   %22 = load i32, ptr %arrayidx.i.i1.i.i.i.i, align 8
   %add10.i.i = add nsw i32 %22, %and3.i.i
-  %add.i.i29 = add nsw i32 %add.i.i, 127
-  %add4.i.i = add nsw i32 %add6.i.i, 127
+  %add.i.i29.reass = add i32 %20, %invariant.op
+  %add4.i.i.reass = add i32 %21, %invariant.op134
   %add7.i.i = add nsw i32 %add10.i.i, 127
-  %cmp.i.i37 = icmp ne i32 %x.0143, %add.i.i
-  %cmp8.i.i = icmp ne i32 %y.0137, %add6.i.i
+  %cmp.i.i37 = icmp ne i32 %x.0144, %add.i.i
+  %cmp8.i.i = icmp ne i32 %y.0138, %add6.i.i
   %or.cond119.not125 = or i1 %cmp.i.i37, %cmp8.i.i
   %cmp13.i.i = icmp ne i32 %z.0132, %add10.i.i
   %or.cond120 = select i1 %or.cond119.not125, i1 true, i1 %cmp13.i.i
-  %cmp.i = icmp slt i32 %10, %add.i.i29
+  %cmp.i = icmp slt i32 %10, %add.i.i29.reass
   %or.cond121 = select i1 %or.cond120, i1 true, i1 %cmp.i
-  %cmp4.i = icmp slt i32 %12, %add4.i.i
+  %cmp4.i = icmp slt i32 %12, %add4.i.i.reass
   %or.cond122 = select i1 %or.cond121, i1 true, i1 %cmp4.i
   %cmp7.i = icmp slt i32 %14, %add7.i.i
   %or.cond123 = select i1 %or.cond122, i1 true, i1 %cmp7.i
@@ -83159,15 +83163,15 @@ if.end45:                                         ; preds = %if.then34
 
 if.then46:                                        ; preds = %if.end45.thread, %if.end45
   %child.0117 = phi ptr [ %call37, %if.end45.thread ], [ %26, %if.end45 ]
-  %.sroa.speculated17.i = call i32 @llvm.smin.i32(i32 %add.i.i29, i32 %10)
-  %.sroa.speculated14.i = call i32 @llvm.smin.i32(i32 %add4.i.i, i32 %12)
+  %.sroa.speculated17.i = call i32 @llvm.smin.i32(i32 %add.i.i29.reass, i32 %10)
+  %.sroa.speculated14.i = call i32 @llvm.smin.i32(i32 %add4.i.i.reass, i32 %12)
   %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %add7.i.i, i32 %14)
   %retval.sroa.2.0.insert.ext.i = zext i32 %.sroa.speculated14.i to i64
   %retval.sroa.2.0.insert.shift.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i, 32
   %retval.sroa.0.0.insert.ext.i = zext i32 %.sroa.speculated17.i to i64
   %retval.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i, %retval.sroa.0.0.insert.ext.i
-  store i32 %x.0143, ptr %ref.tmp52, align 4
-  store i32 %y.0137, ptr %xyz.sroa.6.0.ref.tmp52.sroa_idx, align 4
+  store i32 %x.0144, ptr %ref.tmp52, align 4
+  store i32 %y.0138, ptr %xyz.sroa.6.0.ref.tmp52.sroa_idx, align 4
   store i32 %z.0132, ptr %xyz.sroa.11.0.ref.tmp52.sroa_idx, align 4
   store i64 %retval.sroa.0.0.insert.insert.i, ptr %mMax.i63, align 4
   store i32 %.sroa.speculated.i, ptr %tmp.sroa.2.0.mMax.i63.sroa_idx, align 4
@@ -83314,14 +83318,14 @@ for.inc:                                          ; preds = %cond.false.i, %cond
   br i1 %cmp20.not, label %for.cond17.for.inc59_crit_edge, label %for.body21, !llvm.loop !999
 
 for.cond17.for.inc59_crit_edge:                   ; preds = %for.inc
-  %add61 = add nsw i32 %add6.i.i, 128
-  %cmp12.not = icmp sgt i32 %add61, %12
-  br i1 %cmp12.not, label %for.cond9.for.inc63_crit_edge.split, label %for.cond17.preheader, !llvm.loop !1000
+  %add61 = add nsw i32 %add4.i.i.reass, 1
+  %cmp12.not.not = icmp slt i32 %add4.i.i.reass, %12
+  br i1 %cmp12.not.not, label %for.cond17.preheader, label %for.cond9.for.inc63_crit_edge.split, !llvm.loop !1000
 
 for.cond9.for.inc63_crit_edge.split:              ; preds = %for.cond17.for.inc59_crit_edge
-  %add65 = add nsw i32 %add.i.i, 128
-  %cmp.not = icmp sgt i32 %add65, %10
-  br i1 %cmp.not, label %for.end66, label %for.cond9.preheader, !llvm.loop !1001
+  %add65 = add nsw i32 %add.i.i29.reass, 1
+  %cmp.not.not = icmp slt i32 %add.i.i29.reass, %10
+  br i1 %cmp.not.not, label %for.cond9.preheader, label %for.end66, !llvm.loop !1001
 
 for.end66:                                        ; preds = %for.cond9.for.inc63_crit_edge.split, %entry
   ret void

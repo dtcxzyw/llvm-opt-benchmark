@@ -1849,18 +1849,19 @@ for.cond2.preheader.lr.ph:                        ; preds = %entry
 
 for.cond2.preheader:                              ; preds = %for.cond2.preheader.lr.ph, %for.inc16
   %.pre = phi i32 [ %.pre.pre, %for.cond2.preheader.lr.ph ], [ %inc.i, %for.inc16 ]
-  %i.016 = phi i32 [ 0, %for.cond2.preheader.lr.ph ], [ %inc17, %for.inc16 ]
+  %i.016 = phi i32 [ 0, %for.cond2.preheader.lr.ph ], [ %invariant.op, %for.inc16 ]
   %conv = uitofp nneg i32 %i.016 to float
   %div = fdiv float %conv, %conv6
+  %invariant.op = add nuw i32 %i.016, 1
   br label %for.body4
 
 for.body4:                                        ; preds = %for.cond2.preheader, %_ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit
   %0 = phi i32 [ %.pre, %for.cond2.preheader ], [ %inc.i, %_ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit ]
+  %add14 = phi i32 [ %i.016, %for.cond2.preheader ], [ %add.reass, %_ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit ]
   %j.013 = phi i32 [ 0, %for.cond2.preheader ], [ %inc, %_ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit ]
-  %add14 = add nuw nsw i32 %j.013, %i.016
   %conv8 = uitofp nneg i32 %j.013 to float
   %div10 = fdiv float %conv8, %conv6
-  %sub12 = sub nsw i32 %N, %add14
+  %sub12 = sub i32 %N, %add14
   %conv13 = sitofp i32 %sub12 to float
   %div15 = fdiv float %conv13, %conv6
   %1 = load i32, ptr %m_capacity.i.i, align 8
@@ -1942,12 +1943,11 @@ _ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit: ; preds = %for.body4
   %inc.i = add nsw i32 %8, 1
   store i32 %inc.i, ptr %m_size.i.i, align 4
   %inc = add nuw nsw i32 %j.013, 1
-  %add = add nuw nsw i32 %inc, %i.016
-  %cmp3.not = icmp sgt i32 %add, %N
+  %add.reass = add nuw i32 %j.013, %invariant.op
+  %cmp3.not = icmp sgt i32 %add.reass, %N
   br i1 %cmp3.not, label %for.inc16, label %for.body4, !llvm.loop !18
 
 for.inc16:                                        ; preds = %_ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit
-  %inc17 = add nuw i32 %i.016, 1
   %exitcond.not = icmp eq i32 %i.016, %N
   br i1 %exitcond.not, label %for.end18, label %for.cond2.preheader, !llvm.loop !19
 

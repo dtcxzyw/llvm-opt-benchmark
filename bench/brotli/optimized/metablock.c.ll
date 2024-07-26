@@ -121,18 +121,20 @@ entry:
 
 for.cond2.preheader:                              ; preds = %entry, %for.end
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.end ]
-  %best_dist_cost.0374 = phi double [ 0x547D42AEA2879F2E, %entry ], [ %best_dist_cost.1353, %for.end ]
-  %check_orig.0373 = phi i32 [ 1, %entry ], [ %check_orig.3, %for.end ]
-  %ndirect_msb.0372 = phi i32 [ 0, %entry ], [ %div133, %for.end ]
-  %cmp3357 = icmp ult i32 %ndirect_msb.0372, 16
+  %best_dist_cost.0375 = phi double [ 0x547D42AEA2879F2E, %entry ], [ %best_dist_cost.1353, %for.end ]
+  %check_orig.0374 = phi i32 [ 1, %entry ], [ %check_orig.3, %for.end ]
+  %ndirect_msb.0373 = phi i32 [ 0, %entry ], [ %div133, %for.end ]
+  %cmp3357 = icmp ult i32 %ndirect_msb.0373, 16
   br i1 %cmp3357, label %for.body4.lr.ph, label %for.end
 
 for.body4.lr.ph:                                  ; preds = %for.cond2.preheader
   %2 = trunc nuw nsw i64 %indvars.iv to i32
   %shl.i = shl nuw nsw i32 48, %2
+  %invariant.op = add nuw nsw i32 %shl.i, 16
   %notmask.i = shl nsw i32 -1, %2
   %sub4.i.i = xor i32 %notmask.i, -1
   %shl11.i = shl nuw nsw i32 124, %2
+  %invariant.op369 = add nuw nsw i32 %shl11.i, 16
   %cmp5 = icmp eq i64 %indvars.iv, %1
   %shl.i39.us.i = shl nuw nsw i64 4, %indvars.iv
   %sub.i40.us.i = add nsw i64 %shl.i39.us.i, -16
@@ -140,13 +142,13 @@ for.body4.lr.ph:                                  ; preds = %for.cond2.preheader
   br label %for.body4
 
 for.body4:                                        ; preds = %for.body4.lr.ph, %if.end11
-  %best_dist_cost.1361 = phi double [ %best_dist_cost.0374, %for.body4.lr.ph ], [ %add29.i, %if.end11 ]
-  %check_orig.1360 = phi i32 [ %check_orig.0373, %for.body4.lr.ph ], [ %check_orig.2, %if.end11 ]
-  %ndirect_msb.1359 = phi i32 [ %ndirect_msb.0372, %for.body4.lr.ph ], [ %inc, %if.end11 ]
+  %best_dist_cost.1361 = phi double [ %best_dist_cost.0375, %for.body4.lr.ph ], [ %add29.i, %if.end11 ]
+  %check_orig.1360 = phi i32 [ %check_orig.0374, %for.body4.lr.ph ], [ %check_orig.2, %if.end11 ]
+  %ndirect_msb.1359 = phi i32 [ %ndirect_msb.0373, %for.body4.lr.ph ], [ %inc, %if.end11 ]
   %shl = shl nuw nsw i32 %ndirect_msb.1359, %2
   %3 = load i32, ptr %large_window, align 4
   %add.i = add nuw nsw i32 %shl, 16
-  %add2.i = add nuw nsw i32 %add.i, %shl.i
+  %add2.i.reass = add nuw i32 %shl, %invariant.op
   %4 = add nuw nsw i32 %ndirect_msb.1359, 67108860
   %sub.i = shl nuw nsw i32 %4, %2
   %tobool.not.i = icmp eq i32 %3, 0
@@ -200,12 +202,12 @@ if.end.i.i:                                       ; preds = %while.end.i.i
 BrotliCalculateDistanceCodeLimit.exit.i:          ; preds = %if.end.i.i, %while.end.i.i, %if.then.i
   %retval.i.sroa.0.0.i = phi i32 [ %add31.i.i, %if.end.i.i ], [ -2147483636, %if.then.i ], [ %add.i, %while.end.i.i ]
   %retval.i.sroa.4.0.i = phi i32 [ %add37.i.i, %if.end.i.i ], [ 2147483644, %if.then.i ], [ %shl, %while.end.i.i ]
-  %add12.i = add nuw nsw i32 %add.i, %shl11.i
+  %add12.i.reass = add nuw i32 %shl, %invariant.op369
   br label %BrotliInitDistanceParams.exit
 
 BrotliInitDistanceParams.exit:                    ; preds = %for.body4, %BrotliCalculateDistanceCodeLimit.exit.i
-  %alphabet_size_max.0.i = phi i32 [ %add12.i, %BrotliCalculateDistanceCodeLimit.exit.i ], [ %add2.i, %for.body4 ]
-  %alphabet_size_limit.0.i = phi i32 [ %retval.i.sroa.0.0.i, %BrotliCalculateDistanceCodeLimit.exit.i ], [ %add2.i, %for.body4 ]
+  %alphabet_size_max.0.i = phi i32 [ %add12.i.reass, %BrotliCalculateDistanceCodeLimit.exit.i ], [ %add2.i.reass, %for.body4 ]
+  %alphabet_size_limit.0.i = phi i32 [ %retval.i.sroa.0.0.i, %BrotliCalculateDistanceCodeLimit.exit.i ], [ %add2.i.reass, %for.body4 ]
   %max_distance.0.i = phi i32 [ %retval.i.sroa.4.0.i, %BrotliCalculateDistanceCodeLimit.exit.i ], [ %sub.i, %for.body4 ]
   %conv.i = zext i32 %max_distance.0.i to i64
   %cmp6 = icmp eq i32 %shl, %orig_params.sroa.11.0.copyload
@@ -386,14 +388,14 @@ if.end11:                                         ; preds = %lor.lhs.false
   br i1 %exitcond.not, label %for.end, label %for.body4, !llvm.loop !7
 
 for.end:                                          ; preds = %if.end11, %lor.lhs.false, %CommandRestoreDistanceCode.exit.us.i, %for.cond2.preheader
-  %ndirect_msb.1355 = phi i32 [ %ndirect_msb.0372, %for.cond2.preheader ], [ %ndirect_msb.1359, %CommandRestoreDistanceCode.exit.us.i ], [ 16, %if.end11 ], [ %ndirect_msb.1359, %lor.lhs.false ]
-  %best_dist_cost.1353 = phi double [ %best_dist_cost.0374, %for.cond2.preheader ], [ %best_dist_cost.1361, %CommandRestoreDistanceCode.exit.us.i ], [ %add29.i, %if.end11 ], [ %best_dist_cost.1361, %lor.lhs.false ]
-  %check_orig.3 = phi i32 [ %check_orig.0373, %for.cond2.preheader ], [ %check_orig.2, %CommandRestoreDistanceCode.exit.us.i ], [ %check_orig.2, %lor.lhs.false ], [ %check_orig.2, %if.end11 ]
+  %ndirect_msb.1355 = phi i32 [ %ndirect_msb.0373, %for.cond2.preheader ], [ %ndirect_msb.1359, %CommandRestoreDistanceCode.exit.us.i ], [ 16, %if.end11 ], [ %ndirect_msb.1359, %lor.lhs.false ]
+  %best_dist_cost.1353 = phi double [ %best_dist_cost.0375, %for.cond2.preheader ], [ %best_dist_cost.1361, %CommandRestoreDistanceCode.exit.us.i ], [ %add29.i, %if.end11 ], [ %best_dist_cost.1361, %lor.lhs.false ]
+  %check_orig.3 = phi i32 [ %check_orig.0374, %for.cond2.preheader ], [ %check_orig.2, %CommandRestoreDistanceCode.exit.us.i ], [ %check_orig.2, %lor.lhs.false ], [ %check_orig.2, %if.end11 ]
   %spec.select = tail call i32 @llvm.usub.sat.i32(i32 %ndirect_msb.1355, i32 1)
   %div133 = lshr i32 %spec.select, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond393.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond393.not, label %for.end18, label %for.cond2.preheader, !llvm.loop !8
+  %exitcond394.not = icmp eq i64 %indvars.iv.next, 4
+  br i1 %exitcond394.not, label %for.end18, label %for.cond2.preheader, !llvm.loop !8
 
 for.end18:                                        ; preds = %for.end
   %tobool19.not = icmp eq i32 %check_orig.3, 0
@@ -584,31 +586,31 @@ RecomputeDistancePrefixes.exit:                   ; preds = %for.inc.i281, %land
   %disable_literal_context_modeling = getelementptr inbounds i8, ptr %params, i64 32
   %33 = load i32, ptr %disable_literal_context_modeling, align 8
   %tobool29.not = icmp eq i32 %33, 0
-  %.pre398 = load i64, ptr %mb, align 8
+  %.pre399 = load i64, ptr %mb, align 8
   br i1 %tobool29.not, label %if.then30, label %if.end44
 
 if.then30:                                        ; preds = %RecomputeDistancePrefixes.exit
-  %cmp32.not = icmp eq i64 %.pre398, 0
+  %cmp32.not = icmp eq i64 %.pre399, 0
   br i1 %cmp32.not, label %if.end44, label %cond.end
 
 cond.end:                                         ; preds = %if.then30
-  %mul = shl i64 %.pre398, 2
+  %mul = shl i64 %.pre399, 2
   %call35 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul) #9
   %.pre = load i64, ptr %mb, align 8
-  %cmp39375.not = icmp eq i64 %.pre, 0
-  br i1 %cmp39375.not, label %if.end44, label %for.body40
+  %cmp39376.not = icmp eq i64 %.pre, 0
+  br i1 %cmp39376.not, label %if.end44, label %for.body40
 
 for.body40:                                       ; preds = %cond.end, %for.body40
-  %i.0376 = phi i64 [ %inc42, %for.body40 ], [ 0, %cond.end ]
-  %arrayidx = getelementptr inbounds i32, ptr %call35, i64 %i.0376
+  %i.0377 = phi i64 [ %inc42, %for.body40 ], [ 0, %cond.end ]
+  %arrayidx = getelementptr inbounds i32, ptr %call35, i64 %i.0377
   store i32 %literal_context_mode, ptr %arrayidx, align 4
-  %inc42 = add nuw i64 %i.0376, 1
+  %inc42 = add nuw i64 %i.0377, 1
   %34 = load i64, ptr %mb, align 8
   %cmp39 = icmp ult i64 %inc42, %34
   br i1 %cmp39, label %for.body40, label %if.end44, !llvm.loop !10
 
 if.end44:                                         ; preds = %for.body40, %if.then30, %cond.end, %RecomputeDistancePrefixes.exit
-  %35 = phi i64 [ %.pre398, %RecomputeDistancePrefixes.exit ], [ 0, %cond.end ], [ 0, %if.then30 ], [ %34, %for.body40 ]
+  %35 = phi i64 [ %.pre399, %RecomputeDistancePrefixes.exit ], [ 0, %cond.end ], [ 0, %if.then30 ], [ %34, %for.body40 ]
   %literal_context_modes.0 = phi ptr [ null, %RecomputeDistancePrefixes.exit ], [ %call35, %cond.end ], [ null, %if.then30 ], [ %call35, %for.body40 ]
   %literal_context_multiplier.0 = phi i64 [ 1, %RecomputeDistancePrefixes.exit ], [ 64, %cond.end ], [ 64, %if.then30 ], [ 64, %for.body40 ]
   %mul47 = mul i64 %35, %literal_context_multiplier.0
@@ -621,17 +623,17 @@ for.body.i.preheader:                             ; preds = %if.end44
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
-  %i.i.0378 = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.body.i.preheader ]
-  %add.ptr.i = getelementptr inbounds %struct.HistogramLiteral, ptr %call51, i64 %i.i.0378
+  %i.i.0379 = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.body.i.preheader ]
+  %add.ptr.i = getelementptr inbounds %struct.HistogramLiteral, ptr %call51, i64 %i.i.0379
   %bit_cost_.i177 = getelementptr inbounds i8, ptr %add.ptr.i, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %add.ptr.i, i8 0, i64 1032, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i177, align 8
-  %inc.i = add nuw i64 %i.i.0378, 1
-  %exitcond394.not = icmp eq i64 %inc.i, %mul47
-  br i1 %exitcond394.not, label %ClearHistogramsLiteral.exit, label %for.body.i, !llvm.loop !11
+  %inc.i = add nuw i64 %i.i.0379, 1
+  %exitcond395.not = icmp eq i64 %inc.i, %mul47
+  br i1 %exitcond395.not, label %ClearHistogramsLiteral.exit, label %for.body.i, !llvm.loop !11
 
 ClearHistogramsLiteral.exit:                      ; preds = %for.body.i, %if.end44
-  %cond54407 = phi ptr [ null, %if.end44 ], [ %call51, %for.body.i ]
+  %cond54408 = phi ptr [ null, %if.end44 ], [ %call51, %for.body.i ]
   %36 = load i64, ptr %distance_split, align 8
   %shl57 = shl i64 %36, 2
   %cmp58.not = icmp eq i64 %shl57, 0
@@ -643,17 +645,17 @@ for.body.i164.preheader:                          ; preds = %ClearHistogramsLite
   br label %for.body.i164
 
 for.body.i164:                                    ; preds = %for.body.i164.preheader, %for.body.i164
-  %i.i161.0380 = phi i64 [ %inc.i166, %for.body.i164 ], [ 0, %for.body.i164.preheader ]
-  %add.ptr.i165 = getelementptr inbounds %struct.HistogramDistance, ptr %call61, i64 %i.i161.0380
+  %i.i161.0381 = phi i64 [ %inc.i166, %for.body.i164 ], [ 0, %for.body.i164.preheader ]
+  %add.ptr.i165 = getelementptr inbounds %struct.HistogramDistance, ptr %call61, i64 %i.i161.0381
   %bit_cost_.i = getelementptr inbounds i8, ptr %add.ptr.i165, i64 2184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %add.ptr.i165, i8 0, i64 2184, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i, align 8
-  %inc.i166 = add nuw i64 %i.i161.0380, 1
-  %exitcond395.not = icmp eq i64 %inc.i166, %shl57
-  br i1 %exitcond395.not, label %ClearHistogramsDistance.exit, label %for.body.i164, !llvm.loop !12
+  %inc.i166 = add nuw i64 %i.i161.0381, 1
+  %exitcond396.not = icmp eq i64 %inc.i166, %shl57
+  br i1 %exitcond396.not, label %ClearHistogramsDistance.exit, label %for.body.i164, !llvm.loop !12
 
 ClearHistogramsDistance.exit:                     ; preds = %for.body.i164, %ClearHistogramsLiteral.exit
-  %cond64409 = phi ptr [ null, %ClearHistogramsLiteral.exit ], [ %call61, %for.body.i164 ]
+  %cond64410 = phi ptr [ null, %ClearHistogramsLiteral.exit ], [ %call61, %for.body.i164 ]
   %37 = load i64, ptr %command_split, align 8
   %command_histograms_size = getelementptr inbounds i8, ptr %mb, i64 200
   store i64 %37, ptr %command_histograms_size, align 8
@@ -661,36 +663,36 @@ ClearHistogramsDistance.exit:                     ; preds = %for.body.i164, %Cle
   br i1 %cmp68.not, label %cond.end74.thread, label %cond.end74
 
 cond.end74.thread:                                ; preds = %ClearHistogramsDistance.exit
-  %command_histograms411 = getelementptr inbounds i8, ptr %mb, i64 192
-  store ptr null, ptr %command_histograms411, align 8
+  %command_histograms412 = getelementptr inbounds i8, ptr %mb, i64 192
+  store ptr null, ptr %command_histograms412, align 8
   br label %ClearHistogramsCommand.exit
 
 cond.end74:                                       ; preds = %ClearHistogramsDistance.exit
   %mul71 = mul i64 %37, 2832
   %call72 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul71) #9
-  %.pre399 = load i64, ptr %command_histograms_size, align 8
+  %.pre400 = load i64, ptr %command_histograms_size, align 8
   %command_histograms = getelementptr inbounds i8, ptr %mb, i64 192
   store ptr %call72, ptr %command_histograms, align 8
-  %cmp.i171381.not = icmp eq i64 %.pre399, 0
-  br i1 %cmp.i171381.not, label %ClearHistogramsCommand.exit, label %for.body.i172
+  %cmp.i171382.not = icmp eq i64 %.pre400, 0
+  br i1 %cmp.i171382.not, label %ClearHistogramsCommand.exit, label %for.body.i172
 
 for.body.i172:                                    ; preds = %cond.end74, %for.body.i172
-  %i.i169.0382 = phi i64 [ %inc.i174, %for.body.i172 ], [ 0, %cond.end74 ]
-  %add.ptr.i173 = getelementptr inbounds %struct.HistogramCommand, ptr %call72, i64 %i.i169.0382
+  %i.i169.0383 = phi i64 [ %inc.i174, %for.body.i172 ], [ 0, %cond.end74 ]
+  %add.ptr.i173 = getelementptr inbounds %struct.HistogramCommand, ptr %call72, i64 %i.i169.0383
   %bit_cost_.i180 = getelementptr inbounds i8, ptr %add.ptr.i173, i64 2824
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %add.ptr.i173, i8 0, i64 2824, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i180, align 8
-  %inc.i174 = add nuw i64 %i.i169.0382, 1
-  %exitcond396.not = icmp eq i64 %inc.i174, %.pre399
-  br i1 %exitcond396.not, label %ClearHistogramsCommand.exit.loopexit, label %for.body.i172, !llvm.loop !13
+  %inc.i174 = add nuw i64 %i.i169.0383, 1
+  %exitcond397.not = icmp eq i64 %inc.i174, %.pre400
+  br i1 %exitcond397.not, label %ClearHistogramsCommand.exit.loopexit, label %for.body.i172, !llvm.loop !13
 
 ClearHistogramsCommand.exit.loopexit:             ; preds = %for.body.i172
-  %.pre400 = load ptr, ptr %command_histograms, align 8
+  %.pre401 = load ptr, ptr %command_histograms, align 8
   br label %ClearHistogramsCommand.exit
 
 ClearHistogramsCommand.exit:                      ; preds = %cond.end74.thread, %ClearHistogramsCommand.exit.loopexit, %cond.end74
-  %38 = phi ptr [ %.pre400, %ClearHistogramsCommand.exit.loopexit ], [ %call72, %cond.end74 ], [ null, %cond.end74.thread ]
-  tail call void @BrotliBuildHistogramsWithContext(ptr noundef %cmds, i64 noundef %num_commands, ptr noundef nonnull %mb, ptr noundef nonnull %command_split, ptr noundef nonnull %distance_split, ptr noundef %ringbuffer, i64 noundef %pos, i64 noundef %mask, i8 noundef zeroext %prev_byte, i8 noundef zeroext %prev_byte2, ptr noundef %literal_context_modes.0, ptr noundef %cond54407, ptr noundef %38, ptr noundef %cond64409) #9
+  %38 = phi ptr [ %.pre401, %ClearHistogramsCommand.exit.loopexit ], [ %call72, %cond.end74 ], [ null, %cond.end74.thread ]
+  tail call void @BrotliBuildHistogramsWithContext(ptr noundef %cmds, i64 noundef %num_commands, ptr noundef nonnull %mb, ptr noundef nonnull %command_split, ptr noundef nonnull %distance_split, ptr noundef %ringbuffer, i64 noundef %pos, i64 noundef %mask, i8 noundef zeroext %prev_byte, i8 noundef zeroext %prev_byte2, ptr noundef %literal_context_modes.0, ptr noundef %cond54408, ptr noundef %38, ptr noundef %cond64410) #9
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %literal_context_modes.0) #9
   %39 = load i64, ptr %mb, align 8
   %shl84 = shl i64 %39, 6
@@ -720,48 +722,48 @@ cond.end92:                                       ; preds = %ClearHistogramsComm
 cond.true98:                                      ; preds = %cond.end92
   %mul100 = mul i64 %.pr, 1040
   %call101 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul100) #9
-  %.pre401 = load ptr, ptr %literal_context_map, align 8
+  %.pre402 = load ptr, ptr %literal_context_map, align 8
   br label %cond.end103
 
 cond.end103:                                      ; preds = %cond.end92.thread, %cond.end92, %cond.true98
-  %40 = phi ptr [ %.pre401, %cond.true98 ], [ %call90, %cond.end92 ], [ null, %cond.end92.thread ]
+  %40 = phi ptr [ %.pre402, %cond.true98 ], [ %call90, %cond.end92 ], [ null, %cond.end92.thread ]
   %literal_histograms_size95342 = phi ptr [ %literal_histograms_size95, %cond.true98 ], [ %literal_histograms_size95, %cond.end92 ], [ %literal_histograms_size95339, %cond.end92.thread ]
   %literal_context_map341 = phi ptr [ %literal_context_map, %cond.true98 ], [ %literal_context_map, %cond.end92 ], [ %literal_context_map338, %cond.end92.thread ]
   %cond104 = phi ptr [ %call101, %cond.true98 ], [ null, %cond.end92 ], [ null, %cond.end92.thread ]
   %literal_histograms105 = getelementptr inbounds i8, ptr %mb, i64 176
   store ptr %cond104, ptr %literal_histograms105, align 8
-  tail call void @BrotliClusterHistogramsLiteral(ptr noundef %m, ptr noundef %cond54407, i64 noundef %mul47, i64 noundef 256, ptr noundef %cond104, ptr noundef nonnull %literal_histograms_size95342, ptr noundef %40) #9
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond54407) #9
+  tail call void @BrotliClusterHistogramsLiteral(ptr noundef %m, ptr noundef %cond54408, i64 noundef %mul47, i64 noundef 256, ptr noundef %cond104, ptr noundef nonnull %literal_histograms_size95342, ptr noundef %40) #9
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond54408) #9
   %41 = load i32, ptr %disable_literal_context_modeling, align 8
   %tobool110.not = icmp eq i32 %41, 0
   br i1 %tobool110.not, label %if.end130, label %if.then111
 
 if.then111:                                       ; preds = %cond.end103
   %42 = load i64, ptr %mb, align 8
-  %cmp115.not384 = icmp eq i64 %42, 0
-  br i1 %cmp115.not384, label %if.end130, label %for.body116
+  %cmp115.not385 = icmp eq i64 %42, 0
+  br i1 %cmp115.not385, label %if.end130, label %for.body116
 
 for.cond114.loopexit:                             ; preds = %for.body120
   %cmp115.not = icmp eq i64 %dec117, 0
   br i1 %cmp115.not, label %if.end130, label %for.body116, !llvm.loop !14
 
 for.body116:                                      ; preds = %if.then111, %for.cond114.loopexit
-  %i.1385 = phi i64 [ %dec117, %for.cond114.loopexit ], [ %42, %if.then111 ]
-  %dec117 = add i64 %i.1385, -1
+  %i.1386 = phi i64 [ %dec117, %for.cond114.loopexit ], [ %42, %if.then111 ]
+  %dec117 = add i64 %i.1386, -1
   %arrayidx125.idx = shl i64 %dec117, 8
   br label %for.body120
 
 for.body120:                                      ; preds = %for.body116, %for.body120
-  %j.0383 = phi i64 [ 0, %for.body116 ], [ %inc127, %for.body120 ]
+  %j.0384 = phi i64 [ 0, %for.body116 ], [ %inc127, %for.body120 ]
   %43 = load ptr, ptr %literal_context_map341, align 8
   %arrayidx122 = getelementptr inbounds i32, ptr %43, i64 %dec117
   %44 = load i32, ptr %arrayidx122, align 4
-  %45 = getelementptr i32, ptr %43, i64 %j.0383
+  %45 = getelementptr i32, ptr %43, i64 %j.0384
   %arrayidx125 = getelementptr i8, ptr %45, i64 %arrayidx125.idx
   store i32 %44, ptr %arrayidx125, align 4
-  %inc127 = add nuw nsw i64 %j.0383, 1
-  %exitcond397.not = icmp eq i64 %inc127, 64
-  br i1 %exitcond397.not, label %for.cond114.loopexit, label %for.body120, !llvm.loop !15
+  %inc127 = add nuw nsw i64 %j.0384, 1
+  %exitcond398.not = icmp eq i64 %inc127, 64
+  br i1 %exitcond398.not, label %for.cond114.loopexit, label %for.body120, !llvm.loop !15
 
 if.end130:                                        ; preds = %for.cond114.loopexit, %if.then111, %cond.end103
   %46 = load i64, ptr %distance_split, align 8
@@ -792,19 +794,19 @@ cond.end141:                                      ; preds = %if.end130
 cond.true147:                                     ; preds = %cond.end141
   %mul149 = mul i64 %.pr343, 2192
   %call150 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul149) #9
-  %.pre402 = load i64, ptr %distance_context_map_size, align 8
-  %.pre403 = load ptr, ptr %distance_context_map, align 8
+  %.pre403 = load i64, ptr %distance_context_map_size, align 8
+  %.pre404 = load ptr, ptr %distance_context_map, align 8
   br label %cond.end152
 
 cond.end152:                                      ; preds = %cond.end141.thread, %cond.end141, %cond.true147
-  %47 = phi ptr [ %.pre403, %cond.true147 ], [ %call139, %cond.end141 ], [ null, %cond.end141.thread ]
-  %48 = phi i64 [ %.pre402, %cond.true147 ], [ 0, %cond.end141 ], [ 0, %cond.end141.thread ]
+  %47 = phi ptr [ %.pre404, %cond.true147 ], [ %call139, %cond.end141 ], [ null, %cond.end141.thread ]
+  %48 = phi i64 [ %.pre403, %cond.true147 ], [ 0, %cond.end141 ], [ 0, %cond.end141.thread ]
   %distance_histograms_size144349 = phi ptr [ %distance_histograms_size144, %cond.true147 ], [ %distance_histograms_size144, %cond.end141 ], [ %distance_histograms_size144346, %cond.end141.thread ]
   %cond153 = phi ptr [ %call150, %cond.true147 ], [ null, %cond.end141 ], [ null, %cond.end141.thread ]
   %distance_histograms154 = getelementptr inbounds i8, ptr %mb, i64 208
   store ptr %cond153, ptr %distance_histograms154, align 8
-  tail call void @BrotliClusterHistogramsDistance(ptr noundef %m, ptr noundef %cond64409, i64 noundef %48, i64 noundef 256, ptr noundef %cond153, ptr noundef nonnull %distance_histograms_size144349, ptr noundef %47) #9
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond64409) #9
+  tail call void @BrotliClusterHistogramsDistance(ptr noundef %m, ptr noundef %cond64410, i64 noundef %48, i64 noundef 256, ptr noundef %cond153, ptr noundef nonnull %distance_histograms_size144349, ptr noundef %47) #9
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond64410) #9
   ret void
 }
 

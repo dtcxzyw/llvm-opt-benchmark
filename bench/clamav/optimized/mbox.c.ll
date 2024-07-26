@@ -4945,28 +4945,32 @@ define internal fastcc void @checkURLs(ptr noundef %0, ptr nocapture noundef rea
   %64 = icmp ult i64 %63, %28
   br i1 %64, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-.lr.ph.i.i:                                       ; preds = %62, %68
-  %65 = phi i64 [ %70, %68 ], [ %63, %62 ]
-  %.04145.i.i = phi i64 [ %69, %68 ], [ 4, %62 ]
-  %66 = getelementptr inbounds i8, ptr %35, i64 %65
-  %67 = load i8, ptr %66, align 1
-  switch i8 %67, label %68 [
+.lr.ph.i.i:                                       ; preds = %62
+  %invariant.op.i.i = add i64 %.056.i.i, 1
+  br label %65
+
+65:                                               ; preds = %69, %.lr.ph.i.i
+  %66 = phi i64 [ %63, %.lr.ph.i.i ], [ %.reass.i.i, %69 ]
+  %.04145.i.i = phi i64 [ 4, %.lr.ph.i.i ], [ %70, %69 ]
+  %67 = getelementptr inbounds i8, ptr %35, i64 %66
+  %68 = load i8, ptr %67, align 1
+  switch i8 %68, label %69 [
     i8 32, label %._crit_edge.i.i
     i8 10, label %._crit_edge.i.i
     i8 9, label %._crit_edge.i.i
   ]
 
-68:                                               ; preds = %.lr.ph.i.i
-  %69 = add nuw nsw i64 %.04145.i.i, 1
-  %70 = add i64 %69, %.056.i.i
-  %71 = icmp ult i64 %70, %28
+69:                                               ; preds = %65
+  %70 = add nuw nsw i64 %.04145.i.i, 1
+  %.reass.i.i = add i64 %invariant.op.i.i, %.04145.i.i
+  %71 = icmp ult i64 %.reass.i.i, %28
   %72 = icmp ult i64 %.04145.i.i, 1022
   %73 = and i1 %72, %71
-  br i1 %73, label %.lr.ph.i.i, label %._crit_edge.i.i
+  br i1 %73, label %65, label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %68, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %62
-  %.041.lcssa.i.i = phi i64 [ 4, %62 ], [ %.04145.i.i, %.lr.ph.i.i ], [ %.04145.i.i, %.lr.ph.i.i ], [ %.04145.i.i, %.lr.ph.i.i ], [ %69, %68 ]
-  %.lcssa.i.i = phi i64 [ %63, %62 ], [ %65, %.lr.ph.i.i ], [ %65, %.lr.ph.i.i ], [ %65, %.lr.ph.i.i ], [ %70, %68 ]
+._crit_edge.i.i:                                  ; preds = %69, %65, %65, %65, %62
+  %.041.lcssa.i.i = phi i64 [ 4, %62 ], [ %.04145.i.i, %65 ], [ %.04145.i.i, %65 ], [ %.04145.i.i, %65 ], [ %70, %69 ]
+  %.lcssa.i.i = phi i64 [ %63, %62 ], [ %66, %65 ], [ %66, %65 ], [ %66, %65 ], [ %.reass.i.i, %69 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %4, ptr noundef nonnull readonly align 1 dereferenceable(1) %47, i64 %.041.lcssa.i.i, i1 false)
   %74 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 %.041.lcssa.i.i
   store i8 0, ptr %74, align 1
@@ -4976,9 +4980,9 @@ define internal fastcc void @checkURLs(ptr noundef %0, ptr nocapture noundef rea
 75:                                               ; preds = %._crit_edge.i.i, %58, %54, %.lr.ph58.i.i
   %.1.i.i = phi i64 [ %.lcssa.i.i, %._crit_edge.i.i ], [ %.056.i.i, %58 ], [ %.056.i.i, %.lr.ph58.i.i ], [ %.056.i.i, %54 ]
   %76 = add i64 %.1.i.i, 1
-  %77 = add i64 %.1.i.i, 11
-  %78 = icmp ult i64 %77, %28
-  br i1 %78, label %.lr.ph58.i.i, label %extract_text_urls.exit.i.loopexit
+  %.reass61.i.i = add i64 %.1.i.i, 11
+  %77 = icmp ult i64 %.reass61.i.i, %28
+  br i1 %77, label %.lr.ph58.i.i, label %extract_text_urls.exit.i.loopexit
 
 extract_text_urls.exit.i.loopexit:                ; preds = %75
   %.pre.pre = load i32, ptr %22, align 4
@@ -4990,26 +4994,26 @@ extract_text_urls.exit.i:                         ; preds = %extract_text_urls.e
   br label %getHrefs.exit
 
 getHrefs.exit:                                    ; preds = %42, %extract_text_urls.exit.i
-  %79 = phi i32 [ %44, %42 ], [ %.pre, %extract_text_urls.exit.i ]
-  %.not25 = icmp eq i32 %79, 0
-  br i1 %.not25, label %.thread16, label %80
+  %78 = phi i32 [ %44, %42 ], [ %.pre, %extract_text_urls.exit.i ]
+  %.not25 = icmp eq i32 %78, 0
+  br i1 %.not25, label %.thread16, label %79
 
-80:                                               ; preds = %getHrefs.exit
-  %81 = load ptr, ptr %9, align 8
-  %82 = call i32 @phishingScan(ptr noundef %81, ptr noundef nonnull %5) #19
-  %83 = icmp eq i32 %82, 1
-  br i1 %83, label %84, label %.thread16
+79:                                               ; preds = %getHrefs.exit
+  %80 = load ptr, ptr %9, align 8
+  %81 = call i32 @phishingScan(ptr noundef %80, ptr noundef nonnull %5) #19
+  %82 = icmp eq i32 %81, 1
+  br i1 %82, label %83, label %.thread16
 
-84:                                               ; preds = %80
-  %85 = getelementptr inbounds i8, ptr %0, i64 123
-  %86 = load i8, ptr %85, align 1
-  %87 = or i8 %86, 1
-  store i8 %87, ptr %85, align 1
+83:                                               ; preds = %79
+  %84 = getelementptr inbounds i8, ptr %0, i64 123
+  %85 = load i8, ptr %84, align 1
+  %86 = or i8 %85, 1
+  store i8 %86, ptr %84, align 1
   store i32 3, ptr %2, align 4
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.177) #19
   br label %.thread16
 
-.thread16:                                        ; preds = %getHrefs.exit, %80, %84
+.thread16:                                        ; preds = %getHrefs.exit, %79, %83
   call void @blobDestroy(ptr noundef nonnull %25) #19
   br label %hrefs_done.exit
 

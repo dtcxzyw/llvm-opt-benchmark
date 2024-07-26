@@ -3858,7 +3858,7 @@ for.body.lr.ph:                                   ; preds = %mark_all_ce_unused.
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %cache_nr52 = phi ptr [ %cache_nr48, %for.body.lr.ph ], [ %cache_nr, %for.inc ]
-  %22 = phi ptr [ %20, %for.body.lr.ph ], [ %37, %for.inc ]
+  %22 = phi ptr [ %20, %for.body.lr.ph ], [ %40, %for.inc ]
   %ret.051 = phi i32 [ 0, %for.body.lr.ph ], [ %ret.1, %for.inc ]
   %i.050 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %23 = load ptr, ptr %22, align 8
@@ -3896,30 +3896,40 @@ if.end14.i.i:                                     ; preds = %if.end.i.i
   br label %add_rejected_path.exit.i
 
 add_rejected_path.exit.i:                         ; preds = %if.end14.i.i, %land.lhs.true.i.i, %if.then29
+  %invariant.op.i = add nuw i32 %i.050, 1
   %31 = load i32, ptr %cache_nr52, align 4
+  %32 = zext i32 %invariant.op.i to i64
+  %33 = zext i32 %31 to i64
+  %umax.i = tail call i32 @llvm.umax.i32(i32 %31, i32 %invariant.op.i)
+  %34 = sub i32 %umax.i, %i.050
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %land.rhs.i, %add_rejected_path.exit.i
-  %indvars.iv.i43 = phi i64 [ %indvars.iv.next.i44, %land.rhs.i ], [ 0, %add_rejected_path.exit.i ]
-  %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i43, 1
-  %32 = add nsw i64 %indvars.iv.next.i44, %idxprom
-  %33 = trunc nsw i64 %32 to i32
-  %cmp.i45 = icmp ugt i32 %31, %33
-  br i1 %cmp.i45, label %land.rhs.i, label %warn_conflicted_path.exit
+  %indvars.iv.i43 = phi i64 [ %indvars.iv.next.i45, %land.rhs.i ], [ 0, %add_rejected_path.exit.i ]
+  %35 = add nuw nsw i64 %indvars.iv.i43, %32
+  %cmp.i44 = icmp ult i64 %35, %33
+  br i1 %cmp.i44, label %land.rhs.i, label %warn_conflicted_path.exit
 
 land.rhs.i:                                       ; preds = %while.cond.i
-  %34 = load ptr, ptr %22, align 8
-  %arrayidx4.i = getelementptr inbounds ptr, ptr %34, i64 %32
-  %35 = load ptr, ptr %arrayidx4.i, align 8
-  %name5.i = getelementptr inbounds i8, ptr %35, i64 108
+  %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i43, 1
+  %36 = load ptr, ptr %22, align 8
+  %sext.i = shl i64 %35, 32
+  %37 = ashr exact i64 %sext.i, 29
+  %arrayidx4.i = getelementptr inbounds i8, ptr %36, i64 %37
+  %38 = load ptr, ptr %arrayidx4.i, align 8
+  %name5.i = getelementptr inbounds i8, ptr %38, i64 108
   %call7.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull dereferenceable(1) %name5.i) #18
   %tobool.not.i = icmp eq i32 %call7.i, 0
-  br i1 %tobool.not.i, label %while.cond.i, label %warn_conflicted_path.exit, !llvm.loop !35
+  br i1 %tobool.not.i, label %while.cond.i, label %while.end.split.loop.exit10.i, !llvm.loop !35
 
-warn_conflicted_path.exit:                        ; preds = %while.cond.i, %land.rhs.i
-  %36 = trunc nuw nsw i64 %indvars.iv.next.i44 to i32
+while.end.split.loop.exit10.i:                    ; preds = %land.rhs.i
+  %39 = trunc nsw i64 %indvars.iv.next.i45 to i32
+  br label %warn_conflicted_path.exit
+
+warn_conflicted_path.exit:                        ; preds = %while.cond.i, %while.end.split.loop.exit10.i
+  %inc.lcssa.i = phi i32 [ %39, %while.end.split.loop.exit10.i ], [ %34, %while.cond.i ]
   %sub = add nsw i32 %i.050, -1
-  %add = add i32 %sub, %36
+  %add = add i32 %sub, %inc.lcssa.i
   br label %for.inc
 
 if.end32:                                         ; preds = %for.body
@@ -3932,15 +3942,15 @@ for.inc:                                          ; preds = %if.end32, %warn_con
   %i.1 = phi i32 [ %add, %warn_conflicted_path.exit ], [ %i.050, %if.end32 ]
   %ret.1 = phi i32 [ 1, %warn_conflicted_path.exit ], [ %spec.select, %if.end32 ]
   %inc = add nsw i32 %i.1, 1
-  %37 = load ptr, ptr %src_index, align 8
-  %cache_nr = getelementptr inbounds i8, ptr %37, i64 12
-  %38 = load i32, ptr %cache_nr, align 4
-  %cmp26 = icmp ult i32 %inc, %38
+  %40 = load ptr, ptr %src_index, align 8
+  %cache_nr = getelementptr inbounds i8, ptr %40, i64 12
+  %41 = load i32, ptr %cache_nr, align 4
+  %cmp26 = icmp ult i32 %inc, %41
   br i1 %cmp26, label %for.body, label %for.end, !llvm.loop !36
 
 for.end:                                          ; preds = %for.inc, %mark_all_ce_unused.exit
   %ret.0.lcssa = phi i32 [ 0, %mark_all_ce_unused.exit ], [ %ret.1, %for.inc ]
-  %.lcssa = phi ptr [ %20, %mark_all_ce_unused.exit ], [ %37, %for.inc ]
+  %.lcssa = phi ptr [ %20, %mark_all_ce_unused.exit ], [ %40, %for.inc ]
   %call39 = tail call fastcc i32 @check_updates(ptr noundef nonnull %o, ptr noundef nonnull %.lcssa)
   tail call fastcc void @display_warning_msgs(ptr noundef nonnull %o)
   store i32 %0, ptr %show_all_errors, align 4
@@ -8380,6 +8390,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

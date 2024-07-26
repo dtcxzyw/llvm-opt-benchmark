@@ -6478,7 +6478,7 @@ for.body.lr.ph.i210.i:                            ; preds = %if.end.i.i144
   %388 = load i16, ptr %impl_alpha_size.i, align 8, !noalias !215
   %conv.i211.i = zext i16 %388 to i64
   %add10.i.i = shl nuw nsw i64 %conv.i211.i, 1
-  %add13.i.i = add nuw nsw i64 %add10.i.i, 4
+  %invariant.op.i.i = add nuw nsw i64 %add10.i.i, 4
   br label %for.body.i212.i
 
 for.body.i212.i:                                  ; preds = %for.body.i212.i, %for.body.lr.ph.i210.i
@@ -6493,8 +6493,8 @@ for.body.i212.i:                                  ; preds = %for.body.i212.i, %f
   %sub.ptr.div.i11.i.i = ashr exact i64 %sub.ptr.sub.i10.i.i, 1
   %add9.i.i = add nsw i64 %sub.ptr.div.i11.i.i, 1
   %and.i.i = and i64 %add9.i.i, -2
-  %add14.i.i = add i64 %add13.i.i, %rv.016.i.i
-  %add15.i.i = add i64 %add14.i.i, %and.i.i
+  %add14.reass.i.i = add i64 %invariant.op.i.i, %rv.016.i.i
+  %add15.i.i = add i64 %add14.reass.i.i, %and.i.i
   %incdec.ptr.i.i213.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.015.i.i, i64 24
   %cmp.i.not.i214.i = icmp eq ptr %incdec.ptr.i.i213.i, %386
   br i1 %cmp.i.not.i214.i, label %for.end.i.i152, label %for.body.i212.i

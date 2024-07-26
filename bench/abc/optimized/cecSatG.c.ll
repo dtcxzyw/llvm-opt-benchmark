@@ -1799,13 +1799,14 @@ Abc_Clock.exit67:                                 ; preds = %.critedge, %93
   br label %114
 
 114:                                              ; preds = %.lr.ph86, %114
-  %indvars.iv94 = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next95, %114 ]
+  %indvars.iv96 = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next97, %114 ]
+  %indvars.iv94 = phi i64 [ 2, %.lr.ph86 ], [ %indvars.iv.next95, %114 ]
   %.04684 = phi i32 [ 0, %.lr.ph86 ], [ %spec.select, %114 ]
-  %115 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv94
+  %115 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv96
   %116 = load i32, ptr %115, align 4
-  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv94
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv96
   %117 = load i32, ptr %gep, align 4
-  %118 = getelementptr inbounds i8, ptr %115, i64 8
+  %118 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv94
   %119 = load i32, ptr %118, align 4
   %120 = mul nsw i32 %.val62, %116
   %121 = sext i32 %120 to i64
@@ -1827,10 +1828,11 @@ Abc_Clock.exit67:                                 ; preds = %.critedge, %93
   %137 = and i32 %136, 1
   %138 = xor i32 %137, 1
   %spec.select = add i32 %138, %.04684
-  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 3
-  %139 = trunc i64 %indvars.iv94 to i32
+  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 3
+  %139 = trunc i64 %indvars.iv96 to i32
   %140 = add i32 %139, 5
   %141 = icmp slt i32 %140, %.val59
+  %indvars.iv.next95 = add nuw i64 %indvars.iv94, 3
   br i1 %141, label %114, label %.critedge2, !llvm.loop !28
 
 .critedge2:                                       ; preds = %114, %.preheader, %107
@@ -1861,10 +1863,10 @@ Abc_Clock.exit69:                                 ; preds = %.critedge2, %144
   br label %150
 
 150:                                              ; preds = %.lr.ph89, %Gia_ObjIsHead.exit.thread
-  %.val64100 = phi i32 [ %.val6487, %.lr.ph89 ], [ %.val64, %Gia_ObjIsHead.exit.thread ]
-  %indvars.iv97 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next98, %Gia_ObjIsHead.exit.thread ]
+  %.val64105 = phi i32 [ %.val6487, %.lr.ph89 ], [ %.val64, %Gia_ObjIsHead.exit.thread ]
+  %indvars.iv102 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next103, %Gia_ObjIsHead.exit.thread ]
   %.val.i = load ptr, ptr %104, align 8
-  %151 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val.i, i64 %indvars.iv97
+  %151 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val.i, i64 %indvars.iv102
   %152 = load i32, ptr %151, align 4
   %153 = and i32 %152, 268435455
   %154 = icmp eq i32 %153, 268435455
@@ -1872,22 +1874,22 @@ Abc_Clock.exit69:                                 ; preds = %.critedge2, %144
 
 Gia_ObjIsHead.exit:                               ; preds = %150
   %.val3.i = load ptr, ptr %149, align 8
-  %155 = getelementptr inbounds i32, ptr %.val3.i, i64 %indvars.iv97
+  %155 = getelementptr inbounds i32, ptr %.val3.i, i64 %indvars.iv102
   %156 = load i32, ptr %155, align 4
   %157 = icmp slt i32 %156, 1
   br i1 %157, label %Gia_ObjIsHead.exit.thread, label %158
 
 158:                                              ; preds = %Gia_ObjIsHead.exit
-  %159 = trunc nuw nsw i64 %indvars.iv97 to i32
+  %159 = trunc nuw nsw i64 %indvars.iv102 to i32
   call void @Cec3_ManSimClassRefineOne(ptr noundef nonnull %0, i32 noundef %159)
   %.val64.pre = load i32, ptr %15, align 8
   br label %Gia_ObjIsHead.exit.thread
 
 Gia_ObjIsHead.exit.thread:                        ; preds = %150, %158, %Gia_ObjIsHead.exit
-  %.val64 = phi i32 [ %.val64100, %150 ], [ %.val64.pre, %158 ], [ %.val64100, %Gia_ObjIsHead.exit ]
-  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %.val64 = phi i32 [ %.val64105, %150 ], [ %.val64.pre, %158 ], [ %.val64105, %Gia_ObjIsHead.exit ]
+  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %160 = sext i32 %.val64 to i64
-  %161 = icmp slt i64 %indvars.iv.next98, %160
+  %161 = icmp slt i64 %indvars.iv.next103, %160
   br i1 %161, label %150, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %Gia_ObjIsHead.exit.thread, %Abc_Clock.exit69

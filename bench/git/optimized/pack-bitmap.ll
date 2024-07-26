@@ -5083,6 +5083,7 @@ for.body:                                         ; preds = %land.rhs
 for.cond3.preheader:                              ; preds = %for.body
   %i.037.tr = trunc i64 %i.037 to i32
   %7 = shl i32 %i.037.tr, 6
+  %invariant.op = or disjoint i32 %7, 1
   br label %for.body6
 
 for.body6:                                        ; preds = %for.cond3.preheader, %for.inc
@@ -5137,8 +5138,8 @@ if.end35:                                         ; preds = %if.then15
 if.else:                                          ; preds = %if.end10
   %17 = load ptr, ptr %bitmap_git, align 8
   %18 = add i32 %add, %7
-  %conv43 = add i32 %18, 1
-  %call44 = call i64 @pack_pos_to_offset(ptr noundef %17, i32 noundef %conv43) #18
+  %conv43.reass = add i32 %add, %invariant.op
+  %call44 = call i64 @pack_pos_to_offset(ptr noundef %17, i32 noundef %conv43.reass) #18
   %19 = load ptr, ptr %bitmap_git, align 8
   %call47 = call i64 @pack_pos_to_offset(ptr noundef %19, i32 noundef %18) #18
   %sub48 = sub nsw i64 %call44, %call47
