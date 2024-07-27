@@ -5196,17 +5196,12 @@ common.resume:                                    ; preds = %39, %47, %27, %15
 
 56:                                               ; preds = %3
   %57 = call { ptr, ptr } @"_ZN6uucore4mods5error139_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h5f3f9db19071e545E"(ptr noundef nonnull %10)
-  %58 = extractvalue { ptr, ptr } %57, 0
-  %59 = extractvalue { ptr, ptr } %57, 1
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   br label %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..BufRead$GT$$GT$$GT$17h90a0454564d37616E.llvm.14531926216617506853.exit"
 
 "_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..BufRead$GT$$GT$$GT$17h90a0454564d37616E.llvm.14531926216617506853.exit": ; preds = %55, %48, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hba157fcfb40e04c0E.llvm.14531926216617506853.exit", %56
-  %.sroa.3.0 = phi ptr [ %59, %56 ], [ undef, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hba157fcfb40e04c0E.llvm.14531926216617506853.exit" ], [ undef, %48 ], [ undef, %55 ]
-  %.sroa.0.0 = phi ptr [ %58, %56 ], [ null, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hba157fcfb40e04c0E.llvm.14531926216617506853.exit" ], [ null, %48 ], [ null, %55 ]
-  %60 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %61 = insertvalue { ptr, ptr } %60, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %61
+  %.merged = phi { ptr, ptr } [ %57, %56 ], [ { ptr null, ptr undef }, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hba157fcfb40e04c0E.llvm.14531926216617506853.exit" ], [ { ptr null, ptr undef }, %48 ], [ { ptr null, ptr undef }, %55 ]
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -89,20 +89,17 @@ if.then:                                          ; preds = %_ZNK6hermes2vm10Nat
   %5 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 3, ptr %5, align 8
   %call3 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #2
+  %6 = insertvalue { i32, i64 } poison, i32 %call3, 0
+  %7 = insertvalue { i32, i64 } %6, i64 undef, 1
   br label %return
 
 if.end:                                           ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_15JSArrayIteratorEEENS0_6HandleIT_EEv.exit
   %call6 = tail call { i32, i64 } @_ZN6hermes2vm15JSArrayIterator11nextElementENS0_6HandleIS1_EERNS0_7RuntimeE(ptr nonnull %retval.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #2
-  %6 = extractvalue { i32, i64 } %call6, 0
-  %7 = extractvalue { i32, i64 } %call6, 1
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %retval.sroa.0.0 = phi i32 [ %6, %if.end ], [ %call3, %if.then ]
-  %retval.sroa.3.0 = phi i64 [ %7, %if.end ], [ undef, %if.then ]
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
-  ret { i32, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { i32, i64 } [ %call6, %if.end ], [ %7, %if.then ]
+  ret { i32, i64 } %.fca.1.insert.merged
 }
 
 declare void @_ZN6hermes2vm14definePropertyERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDENS3_INS0_11HermesValueEEENS0_19DefinePropertyFlagsE(ptr noundef nonnull align 8 dereferenceable(9832), ptr, i32, ptr, i32) local_unnamed_addr #1

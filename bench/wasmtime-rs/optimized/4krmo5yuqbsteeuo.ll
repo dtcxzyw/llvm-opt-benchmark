@@ -504,11 +504,8 @@ define hidden { i64, i32 } @_ZN14cap_primitives4time11system_time10SystemTime11c
   %4 = tail call { i64, i32 } @_ZN3std4time10SystemTime11checked_add17h8a1038a61aacc903E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i32 noundef %2)
   %5 = extractvalue { i64, i32 } %4, 1
   %6 = icmp eq i32 %5, 1000000000
-  %7 = extractvalue { i64, i32 } %4, 0
-  %spec.select = select i1 %6, i64 undef, i64 %7
-  %8 = insertvalue { i64, i32 } poison, i64 %spec.select, 0
-  %9 = insertvalue { i64, i32 } %8, i32 %5, 1
-  ret { i64, i32 } %9
+  %spec.select = select i1 %6, { i64, i32 } { i64 undef, i32 1000000000 }, { i64, i32 } %4
+  ret { i64, i32 } %spec.select
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -552,8 +549,8 @@ define hidden void @_ZN3std2io21default_read_vectored17h1e7f3f9e60530f72E(ptr no
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h4c754ef235e2d1b1E.llvm.10561276912860805957.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h4c754ef235e2d1b1E.llvm.10561276912860805957.exit": ; preds = %6, %13
-  %.sroa.0.0.i = phi i1 [ %15, %13 ], [ true, %6 ]
-  tail call void @llvm.assume(i1 %.sroa.0.0.i)
+  %.pn6.i = phi i1 [ %15, %13 ], [ true, %6 ]
+  tail call void @llvm.assume(i1 %.pn6.i)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !17
   ret void
 }
@@ -1926,11 +1923,11 @@ define hidden { ptr, i64 } @"_ZN4core6option15Option$LT$T$GT$6map_or17h4c754ef23
   br label %9
 
 9:                                                ; preds = %3, %5
-  %.sroa.3.0 = phi i64 [ %8, %5 ], [ %2, %3 ]
-  %.sroa.0.0 = phi ptr [ %6, %5 ], [ %1, %3 ]
-  %10 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %11 = insertvalue { ptr, i64 } %10, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %11
+  %.pn6 = phi ptr [ %6, %5 ], [ %1, %3 ]
+  %.pn4 = phi i64 [ %8, %5 ], [ %2, %3 ]
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.pn6, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn4, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable

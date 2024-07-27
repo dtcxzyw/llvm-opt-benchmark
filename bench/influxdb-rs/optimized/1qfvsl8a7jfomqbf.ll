@@ -10252,7 +10252,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 
 7:                                                ; preds = %1
   %8 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h6227c18fb3072141E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %5)
-          to label %.noexc unwind label %13
+          to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %7
   %9 = extractvalue { i64, i64 } %8, 0
@@ -10267,37 +10267,39 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 
 10:                                               ; preds = %.noexc
   invoke void @_ZN5alloc7raw_vec17capacity_overflow17ha5d418fbc836d11cE() #32
-          to label %.noexc29 unwind label %13
+          to label %.noexc29 unwind label %14
 
 .noexc29:                                         ; preds = %10
   unreachable
 
 11:                                               ; preds = %.noexc
   %12 = extractvalue { i64, i64 } %8, 1
-  invoke void @_ZN5alloc5alloc18handle_alloc_error17h7d585e222775d2b3E(i64 noundef %9, i64 noundef %12) #32
-          to label %.noexc30 unwind label %13
+  %13 = icmp eq i64 %9, -9223372036854775807
+  %.fca.1.extract.i.i = select i1 %13, i64 undef, i64 %12
+  invoke void @_ZN5alloc5alloc18handle_alloc_error17h7d585e222775d2b3E(i64 noundef %9, i64 noundef %.fca.1.extract.i.i) #32
+          to label %.noexc30 unwind label %14
 
 .noexc30:                                         ; preds = %11
   unreachable
 
-13:                                               ; preds = %11, %10, %7
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %11, %10, %7
+  %15 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr180drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..flavors..array..Slot$LT$core..result..Result$LT$influxdb3_write..SequenceNumber$C$influxdb3_write..wal..Error$GT$$GT$$GT$$GT$17hc9b53d531b6ee7cbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #29
-          to label %17 unwind label %18
+          to label %18 unwind label %19
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17h7fa74a473cdd73cbE.exit": ; preds = %".noexc._ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17h7fa74a473cdd73cbE.exit_crit_edge", %1
   %.sroa.54.0.copyload = phi i64 [ %.sroa.54.0.copyload.pre, %".noexc._ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17h7fa74a473cdd73cbE.exit_crit_edge" ], [ %5, %1 ]
   %.sroa.02.0.copyload = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %15 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0.copyload, 0
-  %16 = insertvalue { ptr, i64 } %15, i64 %.sroa.54.0.copyload, 1
-  ret { ptr, i64 } %16
+  %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0.copyload, 0
+  %17 = insertvalue { ptr, i64 } %16, i64 %.sroa.54.0.copyload, 1
+  ret { ptr, i64 } %17
 
-17:                                               ; preds = %13
-  resume { ptr, i32 } %14
+18:                                               ; preds = %14
+  resume { ptr, i32 } %15
 
-18:                                               ; preds = %13
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %14
+  %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #30
   unreachable
@@ -10314,7 +10316,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 
 7:                                                ; preds = %1
   %8 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h97ae0aa77ef606e3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %5)
-          to label %.noexc unwind label %13
+          to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %7
   %9 = extractvalue { i64, i64 } %8, 0
@@ -10329,37 +10331,39 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 
 10:                                               ; preds = %.noexc
   invoke void @_ZN5alloc7raw_vec17capacity_overflow17ha5d418fbc836d11cE() #32
-          to label %.noexc29 unwind label %13
+          to label %.noexc29 unwind label %14
 
 .noexc29:                                         ; preds = %10
   unreachable
 
 11:                                               ; preds = %.noexc
   %12 = extractvalue { i64, i64 } %8, 1
-  invoke void @_ZN5alloc5alloc18handle_alloc_error17h7d585e222775d2b3E(i64 noundef %9, i64 noundef %12) #32
-          to label %.noexc30 unwind label %13
+  %13 = icmp eq i64 %9, -9223372036854775807
+  %.fca.1.extract.i.i = select i1 %13, i64 undef, i64 %12
+  invoke void @_ZN5alloc5alloc18handle_alloc_error17h7d585e222775d2b3E(i64 noundef %9, i64 noundef %.fca.1.extract.i.i) #32
+          to label %.noexc30 unwind label %14
 
 .noexc30:                                         ; preds = %11
   unreachable
 
-13:                                               ; preds = %11, %10, %7
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %11, %10, %7
+  %15 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr136drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..flavors..array..Slot$LT$alloc..vec..Vec$LT$influxdb3_write..WalOp$GT$$GT$$GT$$GT$17hd2caea18ceb26263E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #29
-          to label %17 unwind label %18
+          to label %18 unwind label %19
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17he6c4543a95dd40cfE.exit": ; preds = %".noexc._ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17he6c4543a95dd40cfE.exit_crit_edge", %1
   %.sroa.54.0.copyload = phi i64 [ %.sroa.54.0.copyload.pre, %".noexc._ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17he6c4543a95dd40cfE.exit_crit_edge" ], [ %5, %1 ]
   %.sroa.02.0.copyload = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %15 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0.copyload, 0
-  %16 = insertvalue { ptr, i64 } %15, i64 %.sroa.54.0.copyload, 1
-  ret { ptr, i64 } %16
+  %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0.copyload, 0
+  %17 = insertvalue { ptr, i64 } %16, i64 %.sroa.54.0.copyload, 1
+  ret { ptr, i64 } %17
 
-17:                                               ; preds = %13
-  resume { ptr, i32 } %14
+18:                                               ; preds = %14
+  resume { ptr, i32 } %15
 
-18:                                               ; preds = %13
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %14
+  %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #30
   unreachable

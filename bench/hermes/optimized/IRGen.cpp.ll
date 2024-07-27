@@ -476,31 +476,33 @@ _ZN6hermes9ScopeDesc16createInnerScopeEv.exit:    ; preds = %do.end, %if.then.i.
   store i64 %call2.i, ptr %Length.i, align 8
   %call19 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen22genSyntaxErrorFunctionEPNS_6ModuleEPNS_9ScopeDescENS_10IdentifierEN4llvh7SMRangeENS7_9StringRefE(ptr noundef nonnull %M, ptr noundef nonnull %call.i17, ptr %agg.tmp14.sroa.0.0.copyload, ptr %agg.tmp15.sroa.0.0.copyload, ptr %agg.tmp15.sroa.2.0.copyload, ptr noundef nonnull byval(%"class.llvh::StringRef") align 8 %agg.tmp17) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #7
+  %19 = insertvalue { ptr, ptr } poison, ptr %call19, 0
+  %20 = insertvalue { ptr, ptr } %19, ptr %call19, 1
   br label %cleanup
 
 if.end:                                           ; preds = %lor.lhs.false
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp21, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp22, i8 0, i64 24, i1 false)
   call void @_ZN6hermes5irgen11ESTreeIRGenC1EPNS_6ESTree4NodeERKSt6vectorIPNS2_11ProgramNodeESaIS7_EEPNS_6ModuleERKNS_10ScopeChainE(ptr noundef nonnull align 8 dereferenceable(200) %generator, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp21, ptr noundef nonnull %M, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp22) #7
-  %19 = load ptr, ptr %ref.tmp22, align 8
+  %21 = load ptr, ptr %ref.tmp22, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp22, i64 8
-  %20 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.not3.i.i.i.i.i = icmp eq ptr %19, %20
+  %22 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.not3.i.i.i.i.i = icmp eq ptr %21, %22
   br i1 %cmp.not3.i.i.i.i.i, label %_ZSt8_DestroyIPN6hermes14ScopeChainItemES1_EvT_S3_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.end, %_ZSt8_DestroyIN6hermes14ScopeChainItemEEvPT_.exit.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyIN6hermes14ScopeChainItemEEvPT_.exit.i.i.i.i.i ], [ %19, %if.end ]
-  %21 = load ptr, ptr %__first.addr.04.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %21, null
+  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyIN6hermes14ScopeChainItemEEvPT_.exit.i.i.i.i.i ], [ %21, %if.end ]
+  %23 = load ptr, ptr %__first.addr.04.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN6hermes14ScopeChainItemEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %21) #8
+  call void @_ZdlPv(ptr noundef nonnull %23) #8
   br label %_ZSt8_DestroyIN6hermes14ScopeChainItemEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN6hermes14ScopeChainItemEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 24
-  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %20
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %22
   br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN6hermes14ScopeChainItemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !4
 
 _ZSt8_DestroyIPN6hermes14ScopeChainItemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN6hermes14ScopeChainItemEEvPT_.exit.i.i.i.i.i
@@ -508,27 +510,25 @@ _ZSt8_DestroyIPN6hermes14ScopeChainItemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.
   br label %_ZSt8_DestroyIPN6hermes14ScopeChainItemES1_EvT_S3_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN6hermes14ScopeChainItemES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN6hermes14ScopeChainItemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %if.end
-  %22 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN6hermes14ScopeChainItemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %19, %if.end ]
-  %tobool.not.i.i.i.i = icmp eq ptr %22, null
+  %24 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN6hermes14ScopeChainItemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %21, %if.end ]
+  %tobool.not.i.i.i.i = icmp eq ptr %24, null
   br i1 %tobool.not.i.i.i.i, label %_ZN6hermes10ScopeChainD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZSt8_DestroyIPN6hermes14ScopeChainItemES1_EvT_S3_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %22) #8
+  call void @_ZdlPv(ptr noundef nonnull %24) #8
   br label %_ZN6hermes10ScopeChainD2Ev.exit
 
 _ZN6hermes10ScopeChainD2Ev.exit:                  ; preds = %_ZSt8_DestroyIPN6hermes14ScopeChainItemES1_EvT_S3_RSaIT0_E.exit.i.i, %if.then.i.i.i.i
-  %23 = load ptr, ptr %ref.tmp21, align 8
-  %tobool.not.i.i.i = icmp eq ptr %23, null
+  %25 = load ptr, ptr %ref.tmp21, align 8
+  %tobool.not.i.i.i = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN6hermes6ESTree11ProgramNodeESaIS3_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6hermes10ScopeChainD2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %23) #8
+  call void @_ZdlPv(ptr noundef nonnull %25) #8
   br label %_ZNSt6vectorIPN6hermes6ESTree11ProgramNodeESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIPN6hermes6ESTree11ProgramNodeESaIS3_EED2Ev.exit: ; preds = %_ZN6hermes10ScopeChainD2Ev.exit, %if.then.i.i.i
   %call23 = call { ptr, ptr } @_ZN6hermes5irgen11ESTreeIRGen14doLazyFunctionEPNS_3hbc19LazyCompilationDataE(ptr noundef nonnull align 8 dereferenceable(200) %generator, ptr noundef %lazyData) #7
-  %24 = extractvalue { ptr, ptr } %call23, 0
-  %25 = extractvalue { ptr, ptr } %call23, 1
   %functionForDecl.i = getelementptr inbounds i8, ptr %generator, i64 176
   %26 = load ptr, ptr %functionForDecl.i, align 8
   call void @_ZdlPv(ptr noundef %26) #7
@@ -612,8 +612,7 @@ _ZN6hermes5irgen11ESTreeIRGenD2Ev.exit:           ; preds = %_ZNSt6vectorIPN6her
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN6hermes5irgen11ESTreeIRGenD2Ev.exit, %_ZN6hermes9ScopeDesc16createInnerScopeEv.exit
-  %retval.sroa.0.0 = phi ptr [ %24, %_ZN6hermes5irgen11ESTreeIRGenD2Ev.exit ], [ %call19, %_ZN6hermes9ScopeDesc16createInnerScopeEv.exit ]
-  %retval.sroa.3.0 = phi ptr [ %25, %_ZN6hermes5irgen11ESTreeIRGenD2Ev.exit ], [ %call19, %_ZN6hermes9ScopeDesc16createInnerScopeEv.exit ]
+  %.fca.1.insert.merged = phi { ptr, ptr } [ %call23, %_ZN6hermes5irgen11ESTreeIRGenD2Ev.exit ], [ %20, %_ZN6hermes9ScopeDesc16createInnerScopeEv.exit ]
   call void @_ZN6hermes6parser8JSParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %parser) #7
   call void @_ZNSt5dequeIN6hermes3sem12FunctionInfoESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %semCtx) #7
   %39 = load ptr, ptr %state_.i.i, align 8
@@ -666,9 +665,7 @@ if.then.i.i.i.i.i30:                              ; preds = %_ZN4llvh23SmallVect
 _ZN6hermes15AllocationScopeD2Ev.exit:             ; preds = %_ZN4llvh23SmallVectorTemplateBaseISt10unique_ptrIvPDoFvPvEELb0EE13destroy_rangeEPS5_S7_.exit.i.i.i.i, %if.then.i.i.i.i.i30
   call void @_ZdlPv(ptr noundef nonnull %39) #8
   call void @_ZN6hermes21SimpleDiagHandlerRAIID1Ev(ptr noundef nonnull align 8 dereferenceable(388) %diagHandler) #7
-  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.3.0, 1
-  ret { ptr, ptr } %.fca.1.insert
+  ret { ptr, ptr } %.fca.1.insert.merged
 }
 
 declare void @_ZN6hermes21SimpleDiagHandlerRAIIC1ERNS_18SourceErrorManagerE(ptr noundef nonnull align 8 dereferenceable(388), ptr noundef nonnull align 8 dereferenceable(464)) unnamed_addr #1

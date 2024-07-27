@@ -448,16 +448,15 @@ define hidden void @"_ZN6object4read4coff7section48_$LT$impl$u20$object..pe..Ima
   %27 = getelementptr inbounds i8, ptr %2, i64 24
   %28 = load i64, ptr %27, align 8, !alias.scope !49, !noundef !4
   %29 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$19read_bytes_at_until17hfe8f3bbd18c1bce5E"(ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %26, i64 noundef %24, i64 noundef %28, i8 noundef 0), !noalias !49
-  %30 = extractvalue { ptr, i64 } %29, 0
-  %31 = extractvalue { ptr, i64 } %29, 1
   br label %"_ZN6object4read4util20StringTable$LT$R$GT$3get17h329f0992bec9c315E.exit"
 
 "_ZN6object4read4util20StringTable$LT$R$GT$3get17h329f0992bec9c315E.exit": ; preds = %14, %17, %23
-  %.sroa.4.0.i = phi i64 [ %31, %23 ], [ undef, %14 ], [ undef, %17 ]
-  %.sroa.0.0.i = phi ptr [ %30, %23 ], [ null, %14 ], [ null, %17 ]
-  %32 = icmp eq ptr %.sroa.0.0.i, null
-  %.sink2.i = select i1 %32, ptr @anon.d93180882ff7a1921298da0e7de554a2.13, ptr %.sroa.0.0.i
-  %.sink.i = select i1 %32, i64 32, i64 %.sroa.4.0.i
+  %.merged.i = phi { ptr, i64 } [ %29, %23 ], [ { ptr null, i64 undef }, %14 ], [ { ptr null, i64 undef }, %17 ]
+  %30 = extractvalue { ptr, i64 } %.merged.i, 0
+  %31 = extractvalue { ptr, i64 } %.merged.i, 1
+  %32 = icmp eq ptr %30, null
+  %.sink2.i = select i1 %32, ptr @anon.d93180882ff7a1921298da0e7de554a2.13, ptr %30
+  %.sink.i = select i1 %32, i64 32, i64 %31
   %storemerge.i = zext i1 %32 to i64
   br label %37
 
@@ -485,7 +484,7 @@ define hidden { ptr, i64 } @"_ZN6object4read4coff7section48_$LT$impl$u20$object.
   %5 = load i32, ptr %4, align 4, !noundef !4
   %6 = and i32 %5, 128
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %18
+  br i1 %7, label %8, label %16
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 16
@@ -495,16 +494,11 @@ define hidden { ptr, i64 } @"_ZN6object4read4coff7section48_$LT$impl$u20$object.
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   %15 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %14, i64 noundef %11)
-  %16 = extractvalue { ptr, i64 } %15, 0
-  %17 = extractvalue { ptr, i64 } %15, 1
-  br label %18
+  br label %16
 
-18:                                               ; preds = %3, %8
-  %.sroa.3.0 = phi i64 [ %17, %8 ], [ 0, %3 ]
-  %.sroa.0.0 = phi ptr [ %16, %8 ], [ @anon.d93180882ff7a1921298da0e7de554a2.14.llvm.1655692584469633042, %3 ]
-  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %20 = insertvalue { ptr, i64 } %19, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %20
+16:                                               ; preds = %3, %8
+  %.merged = phi { ptr, i64 } [ %15, %8 ], [ { ptr @anon.d93180882ff7a1921298da0e7de554a2.14.llvm.1655692584469633042, i64 0 }, %3 ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -519,24 +513,19 @@ define hidden { ptr, i64 } @"_ZN6object4read4util20StringTable$LT$R$GT$3get17h32
   %8 = zext i32 %1 to i64
   %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %7, i64 %8)
   %10 = extractvalue { i64, i1 } %9, 1
-  br i1 %10, label %11, label %14
+  br i1 %10, label %11, label %12
 
-11:                                               ; preds = %5, %2, %14
-  %.sroa.4.0 = phi i64 [ %22, %14 ], [ undef, %2 ], [ undef, %5 ]
-  %.sroa.0.0 = phi ptr [ %21, %14 ], [ null, %2 ], [ null, %5 ]
-  %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %13 = insertvalue { ptr, i64 } %12, i64 %.sroa.4.0, 1
-  ret { ptr, i64 } %13
+11:                                               ; preds = %5, %2, %12
+  %.merged = phi { ptr, i64 } [ %18, %12 ], [ { ptr null, i64 undef }, %2 ], [ { ptr null, i64 undef }, %5 ]
+  ret { ptr, i64 } %.merged
 
-14:                                               ; preds = %5
-  %15 = extractvalue { i64, i1 } %9, 0
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+12:                                               ; preds = %5
+  %13 = extractvalue { i64, i1 } %9, 0
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = load i64, ptr %14, align 8, !noundef !4
+  %16 = getelementptr inbounds i8, ptr %0, i64 24
   %17 = load i64, ptr %16, align 8, !noundef !4
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
-  %19 = load i64, ptr %18, align 8, !noundef !4
-  %20 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$19read_bytes_at_until17hfe8f3bbd18c1bce5E"(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %17, i64 noundef %15, i64 noundef %19, i8 noundef 0)
-  %21 = extractvalue { ptr, i64 } %20, 0
-  %22 = extractvalue { ptr, i64 } %20, 1
+  %18 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$19read_bytes_at_until17hfe8f3bbd18c1bce5E"(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %15, i64 noundef %13, i64 noundef %17, i8 noundef 0)
   br label %11
 }
 

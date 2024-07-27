@@ -1863,6 +1863,8 @@ _ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit: ; preds = 
   store i32 %sub20.i, ptr %current_num_bits_, align 8
   %sub23.i = sub nsw i64 %sub12.i, %5
   store i64 %sub23.i, ptr %remaining_11.i, align 8
+  %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %sub.i.i, 0
+  %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %5, 1
   %tobool2.not = icmp eq i64 %5, 0
   %tobool4.not = icmp eq i32 %0, %6
   %or.cond = select i1 %tobool2.not, i1 true, i1 %tobool4.not
@@ -1957,6 +1959,7 @@ if.end14:                                         ; preds = %_ZN5arrow8internal1
   %length_.i = getelementptr inbounds i8, ptr %this, i64 8
   %12 = load i64, ptr %length_.i, align 8
   %sub.i23 = sub nsw i64 %12, %11
+  %.pre = insertvalue { i64, i64 } poison, i64 %sub.i23, 0
   br label %if.end50
 
 if.else:                                          ; preds = %if.end8
@@ -2009,18 +2012,16 @@ if.end40:                                         ; preds = %if.then28, %if.then
   br i1 %tobool42.not, label %return, label %if.end50
 
 if.end50:                                         ; preds = %if.else, %if.end40, %if.end14
+  %.fca.0.insert.i32.pre-phi = phi { i64, i64 } [ %.fca.0.insert.i, %if.else ], [ %.fca.0.insert.i, %if.end40 ], [ %.pre, %if.end14 ]
   %len.044 = phi i64 [ %5, %if.else ], [ %5, %if.end40 ], [ 0, %if.end14 ]
-  %pos.1 = phi i64 [ %sub.i.i, %if.else ], [ %sub.i.i, %if.end40 ], [ %sub.i23, %if.end14 ]
   %call51 = tail call noundef i64 @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13CountNextOnesEv(ptr noundef nonnull align 8 dereferenceable(36) %this)
   %add = add nsw i64 %call51, %len.044
+  %.fca.1.insert.i33 = insertvalue { i64, i64 } %.fca.0.insert.i32.pre-phi, i64 %add, 1
   br label %return
 
 return:                                           ; preds = %if.end40, %if.else25, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit, %if.end50
-  %retval.sroa.0.0 = phi i64 [ %pos.1, %if.end50 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit ], [ %sub.i.i, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit ], [ %sub.i.i, %if.else25 ], [ %sub.i.i, %if.end40 ]
-  %retval.sroa.6.0 = phi i64 [ %add, %if.end50 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit ], [ %5, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit ], [ %5, %if.else25 ], [ %5, %if.end40 ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
-  ret { i64, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { i64, i64 } [ %.fca.1.insert.i33, %if.end50 ], [ zeroinitializer, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit ], [ %.fca.1.insert.i, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit ], [ %.fca.1.insert.i, %if.else25 ], [ %.fca.1.insert.i, %if.end40 ]
+  ret { i64, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2185,7 +2186,12 @@ _ZN5arrow8internal19BaseSetBitRunReaderILb1EE14FindCurrentRunEv.exit: ; preds = 
   %tobool2.not = icmp eq i64 %4, 0
   %tobool4.not = icmp eq i32 %0, %5
   %or.cond = select i1 %tobool2.not, i1 true, i1 %tobool4.not
-  br i1 %or.cond, label %if.end8, label %return
+  br i1 %or.cond, label %if.end8, label %if.then5
+
+if.then5:                                         ; preds = %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE14FindCurrentRunEv.exit
+  %.fca.0.insert.i12 = insertvalue { i64, i64 } poison, i64 %sub23.i, 0
+  %.fca.1.insert.i13 = insertvalue { i64, i64 } %.fca.0.insert.i12, i64 %4, 1
+  br label %return
 
 if.end8:                                          ; preds = %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE14FindCurrentRunEv.exit
   br i1 %tobool2.not, label %if.then10, label %if.else
@@ -2293,7 +2299,7 @@ if.then22:                                        ; preds = %if.then18
 
 if.else25:                                        ; preds = %if.then18
   %cmp27 = icmp sgt i64 %sub23.i, 0
-  br i1 %cmp27, label %if.then28, label %return
+  br i1 %cmp27, label %if.then28, label %if.else34
 
 if.then28:                                        ; preds = %if.else25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %word.i)
@@ -2319,12 +2325,22 @@ if.then28:                                        ; preds = %if.else25
   %conv = trunc i64 %sub23.i to i32
   br label %if.end40
 
+if.else34:                                        ; preds = %if.else25
+  %.fca.0.insert.i28 = insertvalue { i64, i64 } poison, i64 %sub23.i, 0
+  %.fca.1.insert.i29 = insertvalue { i64, i64 } %.fca.0.insert.i28, i64 %4, 1
+  br label %return
+
 if.end40:                                         ; preds = %if.then28, %if.then22
   %15 = phi i64 [ %and.i, %if.then28 ], [ %word.0.copyload.i, %if.then22 ]
   %storemerge = phi i32 [ %conv, %if.then28 ], [ 64, %if.then22 ]
   store i32 %storemerge, ptr %current_num_bits_, align 8
   %tobool42.not = icmp sgt i64 %15, -1
-  br i1 %tobool42.not, label %return, label %if.end50
+  br i1 %tobool42.not, label %if.then43, label %if.end50
+
+if.then43:                                        ; preds = %if.end40
+  %.fca.0.insert.i31 = insertvalue { i64, i64 } poison, i64 %sub23.i, 0
+  %.fca.1.insert.i32 = insertvalue { i64, i64 } %.fca.0.insert.i31, i64 %4, 1
+  br label %return
 
 if.end50:                                         ; preds = %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit, %if.else, %if.end40
   %len.046 = phi i64 [ %4, %if.else ], [ %4, %if.end40 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit ]
@@ -2332,14 +2348,13 @@ if.end50:                                         ; preds = %_ZN5arrow8internal1
   %call51 = tail call noundef i64 @_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13CountNextOnesEv(ptr noundef nonnull align 8 dereferenceable(36) %this)
   %add = add nsw i64 %call51, %len.046
   %sub.i33 = sub nsw i64 %pos.1, %add
+  %.fca.0.insert.i34 = insertvalue { i64, i64 } poison, i64 %sub.i33, 0
+  %.fca.1.insert.i35 = insertvalue { i64, i64 } %.fca.0.insert.i34, i64 %add, 1
   br label %return
 
-return:                                           ; preds = %if.end40, %if.else25, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE14FindCurrentRunEv.exit, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit, %if.end50
-  %retval.sroa.0.0 = phi i64 [ %sub.i33, %if.end50 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit ], [ %sub23.i, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE14FindCurrentRunEv.exit ], [ %sub23.i, %if.else25 ], [ %sub23.i, %if.end40 ]
-  %retval.sroa.6.0 = phi i64 [ %add, %if.end50 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit ], [ %4, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE14FindCurrentRunEv.exit ], [ %4, %if.else25 ], [ %4, %if.end40 ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
-  ret { i64, i64 } %.fca.1.insert
+return:                                           ; preds = %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit, %if.end50, %if.then43, %if.else34, %if.then5
+  %.fca.1.insert.merged = phi { i64, i64 } [ %.fca.1.insert.i13, %if.then5 ], [ %.fca.1.insert.i35, %if.end50 ], [ %.fca.1.insert.i32, %if.then43 ], [ %.fca.1.insert.i29, %if.else34 ], [ zeroinitializer, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit ]
+  ret { i64, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable

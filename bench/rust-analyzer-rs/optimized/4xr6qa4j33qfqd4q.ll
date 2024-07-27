@@ -2689,7 +2689,7 @@ define hidden void @"_ZN6object4read5macho12load_command28LoadCommandIterator$LT
   %15 = and i1 %11, %14
   br i1 %15, label %17, label %27
 
-16:                                               ; preds = %40, %37, %34, %27, %6
+16:                                               ; preds = %46, %42, %39, %27, %6
   ret void
 
 17:                                               ; preds = %7
@@ -2704,7 +2704,7 @@ define hidden void @"_ZN6object4read5macho12load_command28LoadCommandIterator$LT
   %25 = tail call i32 @llvm.bswap.i32(i32 %24)
   %.0.i29 = select i1 %21, i32 %25, i32 %24
   %26 = icmp ult i32 %.0.i29, 8
-  br i1 %26, label %34, label %30
+  br i1 %26, label %39, label %30
 
 27:                                               ; preds = %7
   %28 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2717,38 +2717,46 @@ define hidden void @"_ZN6object4read5macho12load_command28LoadCommandIterator$LT
 30:                                               ; preds = %17
   %31 = zext i32 %.0.i29 to i64
   %32 = icmp ult i64 %10, %31
-  %33 = getelementptr inbounds i8, ptr %8, i64 %31
-  %storemerge13.i = select i1 %32, ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, ptr %33
+  %.sroa.0.0.i.i = select i1 %32, ptr null, ptr %8
+  %33 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.i, 0
+  %34 = insertvalue { ptr, i64 } %33, i64 %31, 1
+  %35 = getelementptr inbounds i8, ptr %8, i64 %31
+  %36 = insertvalue { ptr, i64 } { ptr null, i64 poison }, i64 %31, 1
+  %storemerge13.i = select i1 %32, ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, ptr %35
   %storemerge.i = tail call i64 @llvm.usub.sat.i64(i64 %10, i64 %31)
+  %.merged.i = select i1 %32, { ptr, i64 } %36, { ptr, i64 } %34
   store ptr %storemerge13.i, ptr %1, align 8, !alias.scope !473
   store i64 %storemerge.i, ptr %9, align 8, !alias.scope !473
-  br i1 %32, label %40, label %37
+  %37 = extractvalue { ptr, i64 } %.merged.i, 0
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %46, label %42
 
-34:                                               ; preds = %17
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.54, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 32, ptr %36, align 8
+39:                                               ; preds = %17
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.54, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 32, ptr %41, align 8
   store i64 1, ptr %0, align 8
   br label %16
 
-37:                                               ; preds = %30
-  %38 = add i32 %4, -1
-  store i32 %38, ptr %3, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %8, ptr %39, align 8
+42:                                               ; preds = %30
+  %43 = extractvalue { ptr, i64 } %.merged.i, 1
+  %44 = add i32 %4, -1
+  store i32 %44, ptr %3, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %37, ptr %45, align 8
   %.sroa.415.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %31, ptr %.sroa.415.0..sroa_idx, align 8
+  store i64 %43, ptr %.sroa.415.0..sroa_idx, align 8
   %.sroa.516.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %.0.i, ptr %.sroa.516.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   br label %16
 
-40:                                               ; preds = %30
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.54, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 32, ptr %42, align 8
+46:                                               ; preds = %30
+  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.54, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 32, ptr %48, align 8
   store i64 1, ptr %0, align 8
   br label %16
 }
@@ -3209,16 +3217,11 @@ define hidden { ptr, i64 } @_ZN6object4read5macho7section7Section4data17h065fc7b
   %.0.i.i2.i = select i1 %1, i32 %15, i32 %14
   %16 = zext i32 %.0.i.i2.i to i64
   %17 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %12, i64 noundef %16)
-  %18 = extractvalue { ptr, i64 } %17, 0
-  %19 = extractvalue { ptr, i64 } %17, 1
   br label %_ZN6object4read5macho7section7Section10file_range17h064bd237ef2c95c8E.llvm.14695038267805529467.exit.thread
 
 _ZN6object4read5macho7section7Section10file_range17h064bd237ef2c95c8E.llvm.14695038267805529467.exit.thread: ; preds = %4, %4, %4, %8
-  %.sroa.3.0 = phi i64 [ %19, %8 ], [ 0, %4 ], [ 0, %4 ], [ 0, %4 ]
-  %.sroa.0.0 = phi ptr [ %18, %8 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %4 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %4 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %4 ]
-  %20 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %21
+  %.merged = phi { ptr, i64 } [ %17, %8 ], [ { ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, i64 0 }, %4 ], [ { ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, i64 0 }, %4 ], [ { ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, i64 0 }, %4 ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3245,16 +3248,11 @@ define hidden { ptr, i64 } @_ZN6object4read5macho7section7Section4data17h96143ef
   %15 = tail call i64 @llvm.bswap.i64(i64 %14)
   %.0.i.i2.i = select i1 %1, i64 %15, i64 %14
   %16 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %12, i64 noundef %.0.i.i2.i)
-  %17 = extractvalue { ptr, i64 } %16, 0
-  %18 = extractvalue { ptr, i64 } %16, 1
   br label %_ZN6object4read5macho7section7Section10file_range17h16898021aa8ec48eE.llvm.14695038267805529467.exit.thread
 
 _ZN6object4read5macho7section7Section10file_range17h16898021aa8ec48eE.llvm.14695038267805529467.exit.thread: ; preds = %4, %4, %4, %8
-  %.sroa.3.0 = phi i64 [ %18, %8 ], [ 0, %4 ], [ 0, %4 ], [ 0, %4 ]
-  %.sroa.0.0 = phi ptr [ %17, %8 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %4 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %4 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %4 ]
-  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %20 = insertvalue { ptr, i64 } %19, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %20
+  %.merged = phi { ptr, i64 } [ %16, %8 ], [ { ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, i64 0 }, %4 ], [ { ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, i64 0 }, %4 ], [ { ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, i64 0 }, %4 ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

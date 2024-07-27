@@ -572,7 +572,7 @@ _ZL8in_imageddiii.exit:                           ; preds = %53
 56:                                               ; preds = %_ZL8in_imageddiii.exit
   %57 = load ptr, ptr %2, align 8
   tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %57, i32 noundef 2050)
-  br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
+  br label %93
 
 _ZL8in_imageddiii.exit.thread:                    ; preds = %20, %_ZL8in_imageddiii.exit
   %58 = tail call double @llvm.fabs.f64(double %16)
@@ -622,12 +622,16 @@ _ZL8in_imageddiii.exit.thread:                    ; preds = %20, %_ZL8in_imagedd
   %92 = select i1 %88, double 0x3FF921FB54442D18, double %91
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
-_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %87, %66, %60, %56
-  %.sroa.08.0 = phi double [ 0x7FF0000000000000, %56 ], [ %12, %60 ], [ %78, %66 ], [ 0xC00921FB54442D18, %87 ]
-  %.sroa.3.0 = phi double [ 0x7FF0000000000000, %56 ], [ %63, %60 ], [ %86, %66 ], [ %92, %87 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.08.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.3.0, 1
-  ret { double, double } %.fca.1.insert
+_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %60, %66, %87
+  %.sroa.016.0.i = phi double [ %12, %60 ], [ %78, %66 ], [ 0xC00921FB54442D18, %87 ]
+  %.sroa.4.0.i = phi double [ %63, %60 ], [ %86, %66 ], [ %92, %87 ]
+  %.fca.0.insert.i9 = insertvalue { double, double } poison, double %.sroa.016.0.i, 0
+  %.fca.1.insert.i10 = insertvalue { double, double } %.fca.0.insert.i9, double %.sroa.4.0.i, 1
+  br label %93
+
+93:                                               ; preds = %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit, %56
+  %.fca.1.insert.merged = phi { double, double } [ { double 0x7FF0000000000000, double 0x7FF0000000000000 }, %56 ], [ %.fca.1.insert.i10, %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit ]
+  ret { double, double } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1284,7 +1288,7 @@ define internal { double, double } @_ZL18s_rhealpix_inverse5PJ_XYP8PJconsts(doub
 11:                                               ; preds = %3
   %12 = load ptr, ptr %2, align 8
   tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %12, i32 noundef 2050)
-  br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
+  br label %52
 
 13:                                               ; preds = %3
   %14 = tail call fastcc { double, double } @_ZL12combine_capsddiii(double noundef %0, double noundef %1, i32 noundef %6, i32 noundef %8, i32 noundef 1)
@@ -1337,12 +1341,16 @@ define internal { double, double } @_ZL18s_rhealpix_inverse5PJ_XYP8PJconsts(doub
   %51 = select i1 %47, double 0x3FF921FB54442D18, double %50
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
-_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %46, %25, %19, %11
-  %.sroa.011.0 = phi double [ 0x7FF0000000000000, %11 ], [ %15, %19 ], [ %37, %25 ], [ 0xC00921FB54442D18, %46 ]
-  %.sroa.3.0 = phi double [ 0x7FF0000000000000, %11 ], [ %22, %19 ], [ %45, %25 ], [ %51, %46 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.011.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.3.0, 1
-  ret { double, double } %.fca.1.insert
+_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %19, %25, %46
+  %.sroa.016.0.i = phi double [ %15, %19 ], [ %37, %25 ], [ 0xC00921FB54442D18, %46 ]
+  %.sroa.4.0.i = phi double [ %22, %19 ], [ %45, %25 ], [ %51, %46 ]
+  %.fca.0.insert.i = insertvalue { double, double } poison, double %.sroa.016.0.i, 0
+  %.fca.1.insert.i = insertvalue { double, double } %.fca.0.insert.i, double %.sroa.4.0.i, 1
+  br label %52
+
+52:                                               ; preds = %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit, %11
+  %.fca.1.insert.merged = phi { double, double } [ { double 0x7FF0000000000000, double 0x7FF0000000000000 }, %11 ], [ %.fca.1.insert.i, %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit ]
+  ret { double, double } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)

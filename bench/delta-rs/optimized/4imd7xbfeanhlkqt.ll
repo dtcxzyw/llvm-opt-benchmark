@@ -3592,7 +3592,7 @@ define hidden void @_ZN15deltalake_mount4file23MountFileStorageBackend7try_new17
 define { ptr, ptr } @"_ZN68_$LT$deltalake_mount..error..Error$u20$as$u20$core..error..Error$GT$6source17hcd418eb44e180285E"(ptr noalias noundef readonly align 8 dereferenceable(80) %0) unnamed_addr #13 {
   %2 = load i64, ptr %0, align 8, !range !58, !noundef !38
   %switch.not = icmp ult i64 %2, 16
-  br i1 %switch.not, label %3, label %"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit"
+  br i1 %switch.not, label %3, label %44
 
 3:                                                ; preds = %1
   %4 = add nsw i64 %2, -6
@@ -3666,12 +3666,16 @@ define { ptr, ptr } @"_ZN68_$LT$deltalake_mount..error..Error$u20$as$u20$core..e
 41:                                               ; preds = %3
   br label %"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit"
 
-"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit": ; preds = %41, %40, %35, %30, %25, %20, %18, %13, %8, %3, %1
-  %.sroa.5.0 = phi ptr [ undef, %1 ], [ undef, %41 ], [ undef, %40 ], [ %39, %35 ], [ %34, %30 ], [ %29, %25 ], [ %24, %20 ], [ @anon.b197a4c86746c65d6887cae8be7ec8a4.59, %18 ], [ %17, %13 ], [ %12, %8 ], [ @anon.b197a4c86746c65d6887cae8be7ec8a4.57, %3 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ null, %41 ], [ null, %40 ], [ %37, %35 ], [ %32, %30 ], [ %27, %25 ], [ %22, %20 ], [ %19, %18 ], [ %15, %13 ], [ %10, %8 ], [ %0, %3 ]
-  %42 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %43 = insertvalue { ptr, ptr } %42, ptr %.sroa.5.0, 1
-  ret { ptr, ptr } %43
+"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit": ; preds = %3, %8, %13, %18, %20, %25, %30, %35, %40, %41
+  %.sroa.11.0.i = phi ptr [ undef, %41 ], [ undef, %40 ], [ %39, %35 ], [ %34, %30 ], [ %29, %25 ], [ %24, %20 ], [ @anon.b197a4c86746c65d6887cae8be7ec8a4.59, %18 ], [ %17, %13 ], [ %12, %8 ], [ @anon.b197a4c86746c65d6887cae8be7ec8a4.57, %3 ]
+  %.sroa.0.0.i = phi ptr [ null, %41 ], [ null, %40 ], [ %37, %35 ], [ %32, %30 ], [ %27, %25 ], [ %22, %20 ], [ %19, %18 ], [ %15, %13 ], [ %10, %8 ], [ %0, %3 ]
+  %42 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
+  %43 = insertvalue { ptr, ptr } %42, ptr %.sroa.11.0.i, 1
+  br label %44
+
+44:                                               ; preds = %1, %"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit"
+  %.merged = phi { ptr, ptr } [ %43, %"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit" ], [ { ptr null, ptr undef }, %1 ]
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

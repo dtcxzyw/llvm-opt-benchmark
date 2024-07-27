@@ -827,21 +827,27 @@ define { ptr, i64 } @_ZN4ring2io3der16positive_integer17h0412890f1706fadfE(ptr n
   %.fca.0.extract3 = extractvalue { ptr, i64 } %2, 0
   %.fca.1.extract4 = extractvalue { ptr, i64 } %2, 1
   %3 = icmp eq ptr %.fca.0.extract3, null
-  %.not.i = icmp eq i64 %.fca.1.extract4, 0
-  %or.cond = select i1 %3, i1 true, i1 %.not.i
-  br i1 %or.cond, label %_ZN4ring2io8positive8Positive13from_be_bytes17h245754108107dbf5E.llvm.6801758991666044160.exit, label %4
+  br i1 %3, label %10, label %4
 
 4:                                                ; preds = %1
-  %5 = load i8, ptr %.fca.0.extract3, align 1, !alias.scope !114, !noundef !33
-  %6 = icmp eq i8 %5, 0
-  %.13.i = select i1 %6, ptr null, ptr %.fca.0.extract3
+  %.not.i = icmp eq i64 %.fca.1.extract4, 0
+  br i1 %.not.i, label %_ZN4ring2io8positive8Positive13from_be_bytes17h245754108107dbf5E.llvm.6801758991666044160.exit, label %5
+
+5:                                                ; preds = %4
+  %6 = load i8, ptr %.fca.0.extract3, align 1, !alias.scope !114, !noundef !33
+  %7 = icmp eq i8 %6, 0
+  %.13.i = select i1 %7, ptr null, ptr %.fca.0.extract3
   br label %_ZN4ring2io8positive8Positive13from_be_bytes17h245754108107dbf5E.llvm.6801758991666044160.exit
 
-_ZN4ring2io8positive8Positive13from_be_bytes17h245754108107dbf5E.llvm.6801758991666044160.exit: ; preds = %4, %1
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %.13.i, %4 ]
-  %7 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %8 = insertvalue { ptr, i64 } %7, i64 %.fca.1.extract4, 1
-  ret { ptr, i64 } %8
+_ZN4ring2io8positive8Positive13from_be_bytes17h245754108107dbf5E.llvm.6801758991666044160.exit: ; preds = %4, %5
+  %.sroa.03.0.i = phi ptr [ %.13.i, %5 ], [ null, %4 ]
+  %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.03.0.i, 0
+  %9 = insertvalue { ptr, i64 } %8, i64 %.fca.1.extract4, 1
+  br label %10
+
+10:                                               ; preds = %1, %_ZN4ring2io8positive8Positive13from_be_bytes17h245754108107dbf5E.llvm.6801758991666044160.exit
+  %.merged = phi { ptr, i64 } [ %9, %_ZN4ring2io8positive8Positive13from_be_bytes17h245754108107dbf5E.llvm.6801758991666044160.exit ], [ { ptr null, i64 undef }, %1 ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

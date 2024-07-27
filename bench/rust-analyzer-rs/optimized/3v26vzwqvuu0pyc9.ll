@@ -1657,7 +1657,7 @@ _ZN8lz4_flex5block8compress9init_dict17h17cfb7df0eb34f5cE.exit.i: ; preds = %105
 .body:                                            ; preds = %56, %59, %91, %94, %113, %119, %125
   %eh.lpad-body = phi { ptr, i32 } [ %126, %125 ], [ %57, %59 ], [ %57, %56 ], [ %92, %94 ], [ %92, %91 ], [ %120, %119 ], [ %114, %113 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h0cc67ae7d2ab5255E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #26
-          to label %152 unwind label %150
+          to label %154 unwind label %152
 
 127:                                              ; preds = %.noexc9, %28
   %128 = phi ptr [ %25, %28 ], [ %.pre, %.noexc9 ]
@@ -1701,7 +1701,7 @@ _ZN8lz4_flex5block8compress28compress_into_sink_with_dict17ha089bbb7c1ddbc27E.ex
 
 142:                                              ; preds = %135
   %143 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h9ef9d2acafad043bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %16, i64 noundef %140)
-          to label %.noexc14 unwind label %148
+          to label %.noexc14 unwind label %150
 
 .noexc14:                                         ; preds = %142
   %144 = extractvalue { i64, i64 } %143, 0
@@ -1712,38 +1712,40 @@ _ZN8lz4_flex5block8compress28compress_into_sink_with_dict17ha089bbb7c1ddbc27E.ex
 
 145:                                              ; preds = %.noexc14
   invoke void @_ZN5alloc7raw_vec17capacity_overflow17hbca7785f3bc15d50E() #24
-          to label %.noexc15 unwind label %148
+          to label %.noexc15 unwind label %150
 
 .noexc15:                                         ; preds = %145
   unreachable
 
 146:                                              ; preds = %.noexc14
   %147 = extractvalue { i64, i64 } %143, 1
-  invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef %144, i64 noundef %147) #24
-          to label %.noexc16 unwind label %148
+  %148 = icmp eq i64 %144, -9223372036854775807
+  %149 = select i1 %148, i64 undef, i64 %147
+  invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef %144, i64 noundef %149) #24
+          to label %.noexc16 unwind label %150
 
 .noexc16:                                         ; preds = %146
   unreachable
 
-148:                                              ; preds = %146, %145, %142
-  %149 = landingpad { ptr, i32 }
+150:                                              ; preds = %146, %145, %142
+  %151 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h0cc67ae7d2ab5255E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #26
-          to label %152 unwind label %150
+          to label %154 unwind label %152
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17h3ff398bff861332fE.exit": ; preds = %.noexc14, %135
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   ret void
 
-150:                                              ; preds = %148, %.body
-  %151 = landingpad { ptr, i32 }
+152:                                              ; preds = %150, %.body
+  %153 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #25
   unreachable
 
-152:                                              ; preds = %148, %.body
-  %.pn = phi { ptr, i32 } [ %149, %148 ], [ %eh.lpad-body, %.body ]
+154:                                              ; preds = %150, %.body
+  %.pn = phi { ptr, i32 } [ %151, %150 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn
 }
 

@@ -4869,23 +4869,25 @@ invoke.cont10:                                    ; preds = %if.then
   %retval.sroa.0.0.copyload = load <2 x float>, ptr %wield_scale, align 4, !tbaa.struct !117
   %retval.sroa.3.0.wield_scale.sroa_idx = getelementptr inbounds i8, ptr %call.i36, i64 276
   %retval.sroa.3.0.copyload = load float, ptr %retval.sroa.3.0.wield_scale.sroa_idx, align 4, !tbaa !71
+  %13 = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.0.copyload, 0
+  %14 = insertvalue { <2 x float>, float } %13, float %retval.sroa.3.0.copyload, 1
   br label %cleanup
 
 lpad3:                                            ; preds = %if.then.i.i31, %entry
-  %13 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %14 = load ptr, ptr %ref.tmp, align 8, !tbaa !11
-  %cmp.i.i.i37 = icmp eq ptr %14, %0
+  %16 = load ptr, ptr %ref.tmp, align 8, !tbaa !11
+  %cmp.i.i.i37 = icmp eq ptr %16, %0
   br i1 %cmp.i.i.i37, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i39, label %if.then.i.i38
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i39: ; preds = %lpad3
-  %15 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !14
-  %cmp3.i.i.i41 = icmp ult i64 %15, 16
+  %17 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !14
+  %cmp3.i.i.i41 = icmp ult i64 %17, 16
   call void @llvm.assume(i1 %cmp3.i.i.i41)
   br label %ehcleanup
 
 if.then.i.i38:                                    ; preds = %lpad3
-  call void @_ZdlPv(ptr noundef %14) #28
+  call void @_ZdlPv(ptr noundef %16) #28
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %if.then.i.i38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i39
@@ -4893,57 +4895,49 @@ ehcleanup:                                        ; preds = %if.then.i.i38, %_ZN
   br label %ehcleanup17
 
 lpad9:                                            ; preds = %if.end, %if.then
-  %16 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %17 = load ptr, ptr %scale, align 8, !tbaa !11
-  %cmp.i.i.i43 = icmp eq ptr %17, %1
+  %19 = load ptr, ptr %scale, align 8, !tbaa !11
+  %cmp.i.i.i43 = icmp eq ptr %19, %1
   br i1 %cmp.i.i.i43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45, label %if.then.i.i44
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45: ; preds = %lpad9
-  %18 = load i64, ptr %_M_string_length.i.i.i.i27, align 8, !tbaa !14
-  %cmp3.i.i.i47 = icmp ult i64 %18, 16
+  %20 = load i64, ptr %_M_string_length.i.i.i.i27, align 8, !tbaa !14
+  %cmp3.i.i.i47 = icmp ult i64 %20, 16
   call void @llvm.assume(i1 %cmp3.i.i.i47)
   br label %ehcleanup17
 
 if.then.i.i44:                                    ; preds = %lpad9
-  call void @_ZdlPv(ptr noundef %17) #28
+  call void @_ZdlPv(ptr noundef %19) #28
   br label %ehcleanup17
 
 if.end:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %19 = load ptr, ptr %scale, align 8, !tbaa !11
-  %call14 = invoke { <2 x float>, float } @_Z10str_to_v3fSt17basic_string_viewIcSt11char_traitsIcEE(i64 %11, ptr %19)
-          to label %invoke.cont13 unwind label %lpad9
+  %21 = load ptr, ptr %scale, align 8, !tbaa !11
+  %call14 = invoke { <2 x float>, float } @_Z10str_to_v3fSt17basic_string_viewIcSt11char_traitsIcEE(i64 %11, ptr %21)
+          to label %cleanup unwind label %lpad9
 
-invoke.cont13:                                    ; preds = %if.end
-  %call14.fca.0.extract = extractvalue { <2 x float>, float } %call14, 0
-  %call14.fca.1.extract = extractvalue { <2 x float>, float } %call14, 1
-  br label %cleanup
-
-cleanup:                                          ; preds = %invoke.cont13, %invoke.cont10
-  %retval.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.0.copyload, %invoke.cont10 ], [ %call14.fca.0.extract, %invoke.cont13 ]
-  %retval.sroa.3.0 = phi float [ %retval.sroa.3.0.copyload, %invoke.cont10 ], [ %call14.fca.1.extract, %invoke.cont13 ]
-  %20 = load ptr, ptr %scale, align 8, !tbaa !11
-  %cmp.i.i.i50 = icmp eq ptr %20, %1
+cleanup:                                          ; preds = %if.end, %invoke.cont10
+  %.fca.1.insert.merged = phi { <2 x float>, float } [ %14, %invoke.cont10 ], [ %call14, %if.end ]
+  %22 = load ptr, ptr %scale, align 8, !tbaa !11
+  %cmp.i.i.i50 = icmp eq ptr %22, %1
   br i1 %cmp.i.i.i50, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i52, label %if.then.i.i51
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i52: ; preds = %cleanup
-  %21 = load i64, ptr %_M_string_length.i.i.i.i27, align 8, !tbaa !14
-  %cmp3.i.i.i54 = icmp ult i64 %21, 16
+  %23 = load i64, ptr %_M_string_length.i.i.i.i27, align 8, !tbaa !14
+  %cmp3.i.i.i54 = icmp ult i64 %23, 16
   call void @llvm.assume(i1 %cmp3.i.i.i54)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55
 
 if.then.i.i51:                                    ; preds = %cleanup
-  call void @_ZdlPv(ptr noundef %20) #28
+  call void @_ZdlPv(ptr noundef %22) #28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %if.then.i.i51, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i52
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %scale) #27
-  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %retval.sroa.3.0, 1
-  ret { <2 x float>, float } %.fca.1.insert
+  ret { <2 x float>, float } %.fca.1.insert.merged
 
 ehcleanup17:                                      ; preds = %if.then.i.i44, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45, %ehcleanup
-  %.pn20 = phi { ptr, i32 } [ %13, %ehcleanup ], [ %16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45 ], [ %16, %if.then.i.i44 ]
+  %.pn20 = phi { ptr, i32 } [ %15, %ehcleanup ], [ %18, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45 ], [ %18, %if.then.i.i44 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %scale) #27
   resume { ptr, i32 } %.pn20
 }

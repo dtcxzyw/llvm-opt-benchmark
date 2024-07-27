@@ -379,7 +379,7 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
   %183 = load i32, ptr %6, align 4
   %.not82.i = icmp ne i32 %183, 0
   %brmerge.not.i = and i1 %.not82.i, %138
-  br i1 %brmerge.not.i, label %184, label %308
+  br i1 %brmerge.not.i, label %184, label %310
 
 184:                                              ; preds = %._crit_edge.i
   %185 = call ptr @relation_open(i32 noundef %183, i32 noundef 0) #6
@@ -612,44 +612,42 @@ list_length.exit.thread.i:                        ; preds = %checkViewTupleDesc.
   call void @relation_close(ptr noundef %185, i32 noundef 0) #6
   %.sroa.0.0.copyload.pre.i = load i64, ptr %5, align 8
   %.sroa.2.0.copyload.pre.i = load i32, ptr %307, align 8
+  %308 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.copyload.pre.i, 0
+  %309 = insertvalue { i64, i32 } %308, i32 %.sroa.2.0.copyload.pre.i, 1
   br label %DefineVirtualRelation.exit
 
-308:                                              ; preds = %._crit_edge.i
-  %309 = getelementptr inbounds i8, ptr %140, i64 8
-  store ptr %121, ptr %309, align 8
-  %310 = getelementptr inbounds i8, ptr %140, i64 16
-  store ptr %.0.lcssa.i, ptr %310, align 8
-  %311 = getelementptr inbounds i8, ptr %140, i64 24
-  store ptr null, ptr %311, align 8
-  %312 = getelementptr inbounds i8, ptr %140, i64 56
-  store ptr null, ptr %312, align 8
-  %313 = getelementptr inbounds i8, ptr %140, i64 72
-  store ptr %139, ptr %313, align 8
-  %314 = getelementptr inbounds i8, ptr %140, i64 80
-  store i32 0, ptr %314, align 8
-  %315 = getelementptr inbounds i8, ptr %140, i64 88
-  store ptr null, ptr %315, align 8
-  %316 = getelementptr inbounds i8, ptr %140, i64 104
-  store i8 0, ptr %316, align 8
-  %317 = call { i64, i32 } @DefineRelation(ptr noundef nonnull %140, i8 noundef signext 118, i32 noundef 0, ptr noundef null, ptr noundef null) #6
-  %.fca.0.extract.i = extractvalue { i64, i32 } %317, 0
-  %.fca.1.extract.i = extractvalue { i64, i32 } %317, 1
+310:                                              ; preds = %._crit_edge.i
+  %311 = getelementptr inbounds i8, ptr %140, i64 8
+  store ptr %121, ptr %311, align 8
+  %312 = getelementptr inbounds i8, ptr %140, i64 16
+  store ptr %.0.lcssa.i, ptr %312, align 8
+  %313 = getelementptr inbounds i8, ptr %140, i64 24
+  store ptr null, ptr %313, align 8
+  %314 = getelementptr inbounds i8, ptr %140, i64 56
+  store ptr null, ptr %314, align 8
+  %315 = getelementptr inbounds i8, ptr %140, i64 72
+  store ptr %139, ptr %315, align 8
+  %316 = getelementptr inbounds i8, ptr %140, i64 80
+  store i32 0, ptr %316, align 8
+  %317 = getelementptr inbounds i8, ptr %140, i64 88
+  store ptr null, ptr %317, align 8
+  %318 = getelementptr inbounds i8, ptr %140, i64 104
+  store i8 0, ptr %318, align 8
+  %319 = call { i64, i32 } @DefineRelation(ptr noundef nonnull %140, i8 noundef signext 118, i32 noundef 0, ptr noundef null, ptr noundef null) #6
+  %.fca.0.extract.i = extractvalue { i64, i32 } %319, 0
   call void @CommandCounterIncrement() #6
-  %318 = lshr i64 %.fca.0.extract.i, 32
-  %319 = trunc nuw i64 %318 to i32
-  %320 = call ptr @pstrdup(ptr noundef nonnull @.str.21) #6
-  %321 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %13) #6
-  %322 = call { i64, i32 } @DefineQueryRewrite(ptr noundef %320, i32 noundef %319, ptr noundef null, i32 noundef 1, i1 noundef zeroext true, i1 noundef zeroext %138, ptr noundef %321) #6
+  %320 = lshr i64 %.fca.0.extract.i, 32
+  %321 = trunc nuw i64 %320 to i32
+  %322 = call ptr @pstrdup(ptr noundef nonnull @.str.21) #6
+  %323 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %13) #6
+  %324 = call { i64, i32 } @DefineQueryRewrite(ptr noundef %322, i32 noundef %321, ptr noundef null, i32 noundef 1, i1 noundef zeroext true, i1 noundef zeroext %138, ptr noundef %323) #6
   br label %DefineVirtualRelation.exit
 
-DefineVirtualRelation.exit:                       ; preds = %295, %308
-  %.sroa.2.0.copyload.i = phi i32 [ %.fca.1.extract.i, %308 ], [ %.sroa.2.0.copyload.pre.i, %295 ]
-  %.sroa.0.0.copyload.i = phi i64 [ %.fca.0.extract.i, %308 ], [ %.sroa.0.0.copyload.pre.i, %295 ]
-  %.fca.0.insert.i = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.copyload.i, 0
-  %.fca.1.insert.i = insertvalue { i64, i32 } %.fca.0.insert.i, i32 %.sroa.2.0.copyload.i, 1
+DefineVirtualRelation.exit:                       ; preds = %295, %310
+  %.fca.1.insert.merged.i = phi { i64, i32 } [ %319, %310 ], [ %309, %295 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  ret { i64, i32 } %.fca.1.insert.i
+  ret { i64, i32 } %.fca.1.insert.merged.i
 }
 
 declare ptr @parse_analyze_fixedparams(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

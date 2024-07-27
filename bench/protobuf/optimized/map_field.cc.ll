@@ -7770,34 +7770,38 @@ if.then:                                          ; preds = %_ZNK6google8protobu
   br label %do.body
 
 do.body:                                          ; preds = %if.else, %if.then
-  %node.0 = phi ptr [ %8, %if.then ], [ %9, %if.else ]
+  %node.0 = phi ptr [ %8, %if.then ], [ %11, %if.else ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %node.0, i64 8
   %call.i = tail call noundef zeroext i1 @_ZNK6google8protobuf6MapKeyeqERKS1_(ptr noundef nonnull align 8 dereferenceable(36) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(36) %k)
-  br i1 %call.i, label %return, label %if.else
+  br i1 %call.i, label %if.then6, label %if.else
+
+if.then6:                                         ; preds = %do.body
+  %9 = insertvalue { ptr, i32 } poison, ptr %node.0, 0
+  %10 = insertvalue { ptr, i32 } %9, i32 %conv3.i.i, 1
+  br label %return
 
 if.else:                                          ; preds = %do.body
-  %9 = load ptr, ptr %node.0, align 8
-  %cmp.not = icmp eq ptr %9, null
-  br i1 %cmp.not, label %return, label %do.body, !llvm.loop !48
+  %11 = load ptr, ptr %node.0, align 8
+  %cmp.not = icmp eq ptr %11, null
+  br i1 %cmp.not, label %if.end14, label %do.body, !llvm.loop !48
 
 if.else8:                                         ; preds = %_ZNK6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE12BucketNumberERKS3_.exit
-  br i1 %cmp.i.not.i.i.i, label %return, label %if.then10
+  br i1 %cmp.i.not.i.i.i, label %if.end14, label %if.then10
 
 if.then10:                                        ; preds = %if.else8
   %call11 = tail call { ptr, i64 } @_ZNK6google8protobuf8internal19RealKeyToVariantKeyINS0_6MapKeyEEclERKS3_(ptr nonnull align 1 poison, ptr noundef nonnull align 8 dereferenceable(36) %k)
-  %10 = extractvalue { ptr, i64 } %call11, 0
-  %11 = extractvalue { ptr, i64 } %call11, 1
-  %call12 = tail call { ptr, i32 } @_ZNK6google8protobuf8internal14UntypedMapBase12FindFromTreeEjNS1_10VariantKeyEPN4absl12lts_2023080218container_internal14btree_iteratorINS6_10btree_nodeINS6_10map_paramsIS3_PNS1_8NodeBaseESt4lessIS3_ENS1_12MapAllocatorISt4pairIKS3_SB_EEELi256ELb0EEEEERSH_PSH_EE(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %conv3.i.i, ptr %10, i64 %11, ptr noundef %it)
-  %12 = extractvalue { ptr, i32 } %call12, 0
-  %13 = extractvalue { ptr, i32 } %call12, 1
+  %12 = extractvalue { ptr, i64 } %call11, 0
+  %13 = extractvalue { ptr, i64 } %call11, 1
+  %call12 = tail call { ptr, i32 } @_ZNK6google8protobuf8internal14UntypedMapBase12FindFromTreeEjNS1_10VariantKeyEPN4absl12lts_2023080218container_internal14btree_iteratorINS6_10btree_nodeINS6_10map_paramsIS3_PNS1_8NodeBaseESt4lessIS3_ENS1_12MapAllocatorISt4pairIKS3_SB_EEELi256ELb0EEEEERSH_PSH_EE(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %conv3.i.i, ptr %12, i64 %13, ptr noundef %it)
   br label %return
 
-return:                                           ; preds = %if.else, %do.body, %if.else8, %if.then10
-  %retval.sroa.0.0 = phi ptr [ %12, %if.then10 ], [ null, %if.else8 ], [ null, %if.else ], [ %node.0, %do.body ]
-  %retval.sroa.4.0 = phi i32 [ %13, %if.then10 ], [ %conv3.i.i, %if.else8 ], [ %conv3.i.i, %do.body ], [ %conv3.i.i, %if.else ]
-  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %retval.sroa.4.0, 1
-  ret { ptr, i32 } %.fca.1.insert
+if.end14:                                         ; preds = %if.else, %if.else8
+  %14 = insertvalue { ptr, i32 } { ptr null, i32 poison }, i32 %conv3.i.i, 1
+  br label %return
+
+return:                                           ; preds = %if.end14, %if.then10, %if.then6
+  %.fca.1.insert.merged = phi { ptr, i32 } [ %10, %if.then6 ], [ %14, %if.end14 ], [ %call12, %if.then10 ]
+  ret { ptr, i32 } %.fca.1.insert.merged
 }
 
 declare { ptr, i32 } @_ZNK6google8protobuf8internal14UntypedMapBase12FindFromTreeEjNS1_10VariantKeyEPN4absl12lts_2023080218container_internal14btree_iteratorINS6_10btree_nodeINS6_10map_paramsIS3_PNS1_8NodeBaseESt4lessIS3_ENS1_12MapAllocatorISt4pairIKS3_SB_EEELi256ELb0EEEEERSH_PSH_EE(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, ptr, i64, ptr noundef) local_unnamed_addr #0

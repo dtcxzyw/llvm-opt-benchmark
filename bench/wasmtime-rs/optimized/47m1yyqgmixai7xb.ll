@@ -18,23 +18,18 @@ define { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$G
   store i64 %6, ptr %2, align 8
   %7 = tail call align 8 ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h2c20fbfcb3a398ecE"(ptr nonnull align 8 %0)
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %12, label %13
+  br i1 %8, label %10, label %11
 
-9:                                                ; preds = %1, %13
-  %.sroa.3.0 = phi ptr [ %16, %13 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %15, %13 ], [ null, %1 ]
-  %10 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %11 = insertvalue { ptr, ptr } %10, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %11
+9:                                                ; preds = %1, %11
+  %.merged = phi { ptr, ptr } [ %12, %11 ], [ { ptr null, ptr undef }, %1 ]
+  ret { ptr, ptr } %.merged
 
-12:                                               ; preds = %5
+10:                                               ; preds = %5
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.9c9492d4a01b6b0f7241848e777ba71a.2) #8
   unreachable
 
-13:                                               ; preds = %5
-  %14 = tail call { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17h705e8c97751ac528E(ptr nonnull align 8 %7)
-  %15 = extractvalue { ptr, ptr } %14, 0
-  %16 = extractvalue { ptr, ptr } %14, 1
+11:                                               ; preds = %5
+  %12 = tail call { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17h705e8c97751ac528E(ptr nonnull align 8 %7)
   br label %9
 }
 
@@ -50,23 +45,18 @@ define { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$G
   store i64 %6, ptr %2, align 8
   %7 = tail call align 8 ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17he47161651395d903E"(ptr nonnull align 8 %0)
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %12, label %13
+  br i1 %8, label %10, label %11
 
-9:                                                ; preds = %1, %13
-  %.sroa.3.0 = phi ptr [ %16, %13 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %15, %13 ], [ null, %1 ]
-  %10 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %11 = insertvalue { ptr, ptr } %10, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %11
+9:                                                ; preds = %1, %11
+  %.merged = phi { ptr, ptr } [ %12, %11 ], [ { ptr null, ptr undef }, %1 ]
+  ret { ptr, ptr } %.merged
 
-12:                                               ; preds = %5
+10:                                               ; preds = %5
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.9c9492d4a01b6b0f7241848e777ba71a.2) #8
   unreachable
 
-13:                                               ; preds = %5
-  %14 = tail call { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17h350f3137582de6e1E(ptr nonnull align 8 %7)
-  %15 = extractvalue { ptr, ptr } %14, 0
-  %16 = extractvalue { ptr, ptr } %14, 1
+11:                                               ; preds = %5
+  %12 = tail call { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17h350f3137582de6e1E(ptr nonnull align 8 %7)
   br label %9
 }
 
@@ -94,8 +84,8 @@ define align 8 ptr @"_ZN108_$LT$alloc..collections..btree..map..Keys$LT$K$C$V$GT
   br label %"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd679fa4e30b4a290E.exit"
 
 "_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd679fa4e30b4a290E.exit": ; preds = %1, %10
-  %.sroa.0.0.i = phi ptr [ %12, %10 ], [ null, %1 ]
-  ret ptr %.sroa.0.0.i
+  %.merged.i = phi ptr [ %12, %10 ], [ null, %1 ]
+  ret ptr %.merged.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -122,8 +112,8 @@ define align 8 ptr @"_ZN108_$LT$alloc..collections..btree..map..Keys$LT$K$C$V$GT
   br label %"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h83e951f30c100b66E.exit"
 
 "_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h83e951f30c100b66E.exit": ; preds = %1, %10
-  %.sroa.0.0.i = phi ptr [ %12, %10 ], [ null, %1 ]
-  ret ptr %.sroa.0.0.i
+  %.merged.i = phi ptr [ %12, %10 ], [ null, %1 ]
+  ret ptr %.merged.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

@@ -3916,7 +3916,7 @@ if.then:                                          ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %if.else, %if.then
-  %node.0 = phi ptr [ %6, %if.then ], [ %9, %if.else ]
+  %node.0 = phi ptr [ %6, %if.then ], [ %11, %if.else ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %node.0, i64 8
   %call.i.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #23
   %7 = extractvalue { i64, ptr } %call.i.i.i, 0
@@ -3925,35 +3925,39 @@ do.body:                                          ; preds = %if.else, %if.then
   br i1 %cmp.i.i, label %land.rhs.i.i, label %if.else
 
 land.rhs.i.i:                                     ; preds = %do.body
-  br i1 %cmp.i2.i.i.i, label %return, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  br i1 %cmp.i2.i.i.i, label %if.then6, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %land.rhs.i.i
   %bcmp.i.i = tail call i32 @bcmp(ptr %8, ptr %k.coerce1, i64 %k.coerce0)
   %cmp.i.i.i9 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %cmp.i.i.i9, label %return, label %if.else
+  br i1 %cmp.i.i.i9, label %if.then6, label %if.else
+
+if.then6:                                         ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %land.rhs.i.i
+  %9 = insertvalue { ptr, i32 } poison, ptr %node.0, 0
+  %10 = insertvalue { ptr, i32 } %9, i32 %conv3.i.i, 1
+  br label %return
 
 if.else:                                          ; preds = %do.body, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-  %9 = load ptr, ptr %node.0, align 8
-  %cmp.not = icmp eq ptr %9, null
-  br i1 %cmp.not, label %return, label %do.body, !llvm.loop !25
+  %11 = load ptr, ptr %node.0, align 8
+  %cmp.not = icmp eq ptr %11, null
+  br i1 %cmp.not, label %if.end15, label %do.body, !llvm.loop !25
 
 if.else8:                                         ; preds = %entry
-  br i1 %cmp.i.not.i.i.i, label %return, label %if.then10
+  br i1 %cmp.i.not.i.i.i, label %if.end15, label %if.then10
 
 if.then10:                                        ; preds = %if.else8
   %cmp.i.i17 = icmp eq ptr %k.coerce1, null
   %spec.select.i = select i1 %cmp.i.i17, ptr @.str.8, ptr %k.coerce1
   %call13 = tail call { ptr, i32 } @_ZNK6google8protobuf8internal14UntypedMapBase12FindFromTreeEjNS1_10VariantKeyEPN4absl12lts_2023080218container_internal14btree_iteratorINS6_10btree_nodeINS6_10map_paramsIS3_PNS1_8NodeBaseESt4lessIS3_ENS1_12MapAllocatorISt4pairIKS3_SB_EEELi256ELb0EEEEERSH_PSH_EE(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %conv3.i.i, ptr nonnull %spec.select.i, i64 %k.coerce0, ptr noundef %it)
-  %10 = extractvalue { ptr, i32 } %call13, 0
-  %11 = extractvalue { ptr, i32 } %call13, 1
   br label %return
 
-return:                                           ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %land.rhs.i.i, %if.else, %if.else8, %if.then10
-  %retval.sroa.0.0 = phi ptr [ %10, %if.then10 ], [ null, %if.else8 ], [ %node.0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ %node.0, %land.rhs.i.i ], [ null, %if.else ]
-  %retval.sroa.4.0 = phi i32 [ %11, %if.then10 ], [ %conv3.i.i, %if.else8 ], [ %conv3.i.i, %if.else ], [ %conv3.i.i, %land.rhs.i.i ], [ %conv3.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
-  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %retval.sroa.4.0, 1
-  ret { ptr, i32 } %.fca.1.insert
+if.end15:                                         ; preds = %if.else, %if.else8
+  %12 = insertvalue { ptr, i32 } { ptr null, i32 poison }, i32 %conv3.i.i, 1
+  br label %return
+
+return:                                           ; preds = %if.end15, %if.then10, %if.then6
+  %.fca.1.insert.merged = phi { ptr, i32 } [ %10, %if.then6 ], [ %12, %if.end15 ], [ %call13, %if.then10 ]
+  ret { ptr, i32 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

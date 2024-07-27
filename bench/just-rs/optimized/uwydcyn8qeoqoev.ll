@@ -20518,7 +20518,7 @@ _ZN4just6parser6Parser8next_are17h904c44e2a49215cdE.exit718: ; preds = %781
 define internal fastcc { ptr, i64 } @_ZN4just6parser6Parser9parse_ast15pop_doc_comment17hbe5acf5ad436b38dE(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, i1 noundef zeroext %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { ptr, i64 }, { { { ptr, ptr, {} } }, i64 }, {} } }, align 8
   %4 = alloca { i64, [33 x i64] }, align 8
-  br i1 %1, label %48, label %5
+  br i1 %1, label %50, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -20528,12 +20528,12 @@ define internal fastcc { ptr, i64 } @_ZN4just6parser6Parser9parse_ast15pop_doc_c
   %9 = load ptr, ptr %8, align 8, !nonnull !4
   %10 = add i64 %7, -1
   %11 = getelementptr inbounds [0 x { i64, [33 x i64] }], ptr %9, i64 0, i64 %10
-  br i1 %.not, label %48, label %12
+  br i1 %.not, label %50, label %12
 
 12:                                               ; preds = %5
   %13 = load i64, ptr %11, align 8, !range !84, !noundef !4
   %14 = icmp eq i64 %13, -9223372036854775806
-  br i1 %14, label %15, label %48
+  br i1 %14, label %15, label %50
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %11, i64 8
@@ -20612,31 +20612,30 @@ define internal fastcc { ptr, i64 } @_ZN4just6parser6Parser9parse_ast15pop_doc_c
   %41 = getelementptr inbounds i8, ptr %.sroa.0.0.i13, i64 %40
   %42 = sub i64 %28, %40
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !3398
+  %43 = insertvalue { ptr, i64 } poison, ptr %41, 0
+  %44 = insertvalue { ptr, i64 } %43, i64 %42, 1
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !3411)
   store i64 %10, ptr %6, align 8, !alias.scope !3411, !noalias !3414
-  %43 = load i64, ptr %0, align 8, !alias.scope !3411, !noalias !3414, !noundef !4
-  %44 = icmp ult i64 %10, %43
-  call void @llvm.assume(i1 %44)
+  %45 = load i64, ptr %0, align 8, !alias.scope !3411, !noalias !3414, !noundef !4
+  %46 = icmp ult i64 %10, %45
+  call void @llvm.assume(i1 %46)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %4, ptr noundef nonnull align 8 dereferenceable(272) %11, i64 272, i1 false), !noalias !3411
-  %45 = load i64, ptr %4, align 8, !range !3416, !alias.scope !3417, !noundef !4
-  %46 = icmp eq i64 %45, -9223372036854775801
-  br i1 %46, label %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$just..item..Item$GT$$GT$17hfa16ec86cb917894E.exit", label %47
+  %47 = load i64, ptr %4, align 8, !range !3416, !alias.scope !3417, !noundef !4
+  %48 = icmp eq i64 %47, -9223372036854775801
+  br i1 %48, label %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$just..item..Item$GT$$GT$17hfa16ec86cb917894E.exit", label %49
 
-47:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hdf5bbea022a3e77dE.exit"
+49:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hdf5bbea022a3e77dE.exit"
   call fastcc void @"_ZN4core3ptr37drop_in_place$LT$just..item..Item$GT$17h24c6778d35488ec8E"(ptr noalias noundef nonnull align 8 dereferenceable(272) %4)
   br label %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$just..item..Item$GT$$GT$17hfa16ec86cb917894E.exit"
 
-"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$just..item..Item$GT$$GT$17hfa16ec86cb917894E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hdf5bbea022a3e77dE.exit", %47
+"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$just..item..Item$GT$$GT$17hfa16ec86cb917894E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hdf5bbea022a3e77dE.exit", %49
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %4)
-  br label %48
+  br label %50
 
-48:                                               ; preds = %5, %12, %2, %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$just..item..Item$GT$$GT$17hfa16ec86cb917894E.exit"
-  %.sroa.3.0 = phi i64 [ %42, %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$just..item..Item$GT$$GT$17hfa16ec86cb917894E.exit" ], [ undef, %2 ], [ undef, %12 ], [ undef, %5 ]
-  %.sroa.0.0 = phi ptr [ %41, %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$just..item..Item$GT$$GT$17hfa16ec86cb917894E.exit" ], [ null, %2 ], [ null, %12 ], [ null, %5 ]
-  %49 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %50 = insertvalue { ptr, i64 } %49, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %50
+50:                                               ; preds = %5, %12, %2, %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$just..item..Item$GT$$GT$17hfa16ec86cb917894E.exit"
+  %.merged = phi { ptr, i64 } [ %44, %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$just..item..Item$GT$$GT$17hfa16ec86cb917894E.exit" ], [ { ptr null, i64 undef }, %2 ], [ { ptr null, i64 undef }, %12 ], [ { ptr null, i64 undef }, %5 ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

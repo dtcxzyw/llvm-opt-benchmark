@@ -2723,15 +2723,13 @@ define hidden { ptr, i32 } @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$8fork_of
   %16 = extractvalue { ptr, i32 } %15, 0
   %17 = extractvalue { ptr, i32 } %15, 1
   %18 = tail call { ptr, i32 } @_ZN13logos_codegen5graph4fork4Fork4miss17ha474bec5964925b1E(ptr align 4 %16, i32 %17, i32 %1)
-  %19 = extractvalue { ptr, i32 } %18, 0
-  %20 = extractvalue { ptr, i32 } %18, 1
-  br label %39
+  br label %37
 
 "_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit": ; preds = %12
-  %21 = add i64 %13, 9223372036854775806
-  %22 = tail call i64 @llvm.umin.i64(i64 %21, i64 2)
-  switch i64 %22, label %default.unreachable [
-    i64 0, label %23
+  %19 = add i64 %13, 9223372036854775806
+  %20 = tail call i64 @llvm.umin.i64(i64 %19, i64 2)
+  switch i64 %20, label %default.unreachable [
+    i64 0, label %21
     i64 1, label %28
     i64 2, label %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit.thread"
   ]
@@ -2739,12 +2737,14 @@ define hidden { ptr, i32 } @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$8fork_of
 default.unreachable:                              ; preds = %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit"
   unreachable
 
-23:                                               ; preds = %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit"
-  %24 = getelementptr inbounds i8, ptr %10, i64 8
-  %25 = tail call align 4 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h704df7b15f25d3e2E"(ptr nonnull align 8 %24)
-  %26 = getelementptr inbounds i8, ptr %10, i64 16
-  %27 = load i32, ptr %26, align 8
-  br label %39
+21:                                               ; preds = %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit"
+  %22 = getelementptr inbounds i8, ptr %10, i64 8
+  %23 = tail call align 4 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h704df7b15f25d3e2E"(ptr nonnull align 8 %22)
+  %24 = getelementptr inbounds i8, ptr %10, i64 16
+  %25 = load i32, ptr %24, align 8
+  %26 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
+  br label %37
 
 28:                                               ; preds = %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit"
   %29 = getelementptr inbounds i8, ptr %10, i64 8
@@ -2759,16 +2759,11 @@ default.unreachable:                              ; preds = %"_ZN13logos_codegen
   store i32 %31, ptr %33, align 8
   store <2 x i32> %35, ptr %34, align 8
   %36 = call { ptr, i32 } @_ZN13logos_codegen5graph4rope4Rope9into_fork17h959f04f9ad79d04dE(ptr nonnull align 8 %4, ptr nonnull align 8 %0)
-  %37 = extractvalue { ptr, i32 } %36, 0
-  %38 = extractvalue { ptr, i32 } %36, 1
-  br label %39
+  br label %37
 
-39:                                               ; preds = %23, %28, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit.thread"
-  %.sroa.4.0 = phi i32 [ %20, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit.thread" ], [ %38, %28 ], [ %27, %23 ]
-  %.sroa.0.0 = phi ptr [ %19, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit.thread" ], [ %37, %28 ], [ %25, %23 ]
-  %40 = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0, 0
-  %41 = insertvalue { ptr, i32 } %40, i32 %.sroa.4.0, 1
-  ret { ptr, i32 } %41
+37:                                               ; preds = %21, %28, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit.thread"
+  %.merged = phi { ptr, i32 } [ %18, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit.thread" ], [ %36, %28 ], [ %27, %21 ]
+  ret { ptr, i32 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

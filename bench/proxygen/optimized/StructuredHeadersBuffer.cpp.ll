@@ -4826,14 +4826,14 @@ entry:
   invoke void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %buf, ptr noundef null, ptr noundef null, ptr noundef null)
           to label %_ZN5boost6detail17basic_unlockedbufISt15basic_streambufIcSt11char_traitsIcEEcEC2Ev.exit unwind label %lpad.i.i
 
-common.resume:                                    ; preds = %ehcleanup30, %lpad.i.i
-  %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i.i ], [ %lpad.val33, %ehcleanup30 ]
+common.resume:                                    ; preds = %lpad, %ehcleanup, %lpad.i.i
+  %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i.i ], [ %.merged, %ehcleanup ], [ %4, %lpad ]
+  call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %buf) #27
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %buf) #27
   br label %common.resume
 
 _ZN5boost6detail17basic_unlockedbufISt15basic_streambufIcSt11char_traitsIcEEcEC2Ev.exit: ; preds = %entry
@@ -4900,29 +4900,25 @@ invoke.cont25:                                    ; preds = %land.rhs
 lpad:                                             ; preds = %_ZN5boost6detail17basic_unlockedbufISt15basic_streambufIcSt11char_traitsIcEEcEC2Ev.exit, %invoke.cont
   %4 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  %6 = extractvalue { ptr, i32 } %4, 1
-  br label %ehcleanup30
+  br label %common.resume
 
 lpad4:                                            ; preds = %catch, %invoke.cont3
-  %7 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  %9 = extractvalue { ptr, i32 } %7, 1
   br label %ehcleanup
 
 lpad10:                                           ; preds = %land.rhs, %invoke.cont17, %invoke.cont16
-  %10 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTINSt8ios_base7failureB5cxx11E
-  %11 = extractvalue { ptr, i32 } %10, 0
-  %12 = extractvalue { ptr, i32 } %10, 1
-  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTINSt8ios_base7failureB5cxx11E) #27
-  %matches = icmp eq i32 %12, %13
+  %7 = extractvalue { ptr, i32 } %6, 1
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTINSt8ios_base7failureB5cxx11E) #27
+  %matches = icmp eq i32 %7, %8
   br i1 %matches, label %catch, label %ehcleanup
 
 catch:                                            ; preds = %lpad10
-  %14 = call ptr @__cxa_begin_catch(ptr %11) #27
+  %9 = extractvalue { ptr, i32 } %6, 0
+  %10 = call ptr @__cxa_begin_catch(ptr %9) #27
   invoke void @__cxa_end_catch()
           to label %cleanup unwind label %lpad4
 
@@ -4933,17 +4929,8 @@ cleanup:                                          ; preds = %invoke.cont23, %inv
   ret i1 %retval.0
 
 ehcleanup:                                        ; preds = %lpad10, %lpad4
-  %exn.slot.0 = phi ptr [ %8, %lpad4 ], [ %11, %lpad10 ]
-  %ehselector.slot.0 = phi i32 [ %9, %lpad4 ], [ %12, %lpad10 ]
+  %.merged = phi { ptr, i32 } [ %5, %lpad4 ], [ %6, %lpad10 ]
   call void @_ZNSiD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %stream) #27
-  br label %ehcleanup30
-
-ehcleanup30:                                      ; preds = %ehcleanup, %lpad
-  %exn.slot.1 = phi ptr [ %exn.slot.0, %ehcleanup ], [ %5, %lpad ]
-  %ehselector.slot.1 = phi i32 [ %ehselector.slot.0, %ehcleanup ], [ %6, %lpad ]
-  call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %buf) #27
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.1, 0
-  %lpad.val33 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.1, 1
   br label %common.resume
 }
 

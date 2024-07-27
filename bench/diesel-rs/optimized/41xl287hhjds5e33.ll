@@ -67,7 +67,6 @@ define { i64, ptr } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$
 5:                                                ; preds = %1
   %6 = tail call { i64, ptr } @_ZN4core3ops8function6FnOnce9call_once17hfc437c6642ee9839E(ptr nonnull align 8 %2)
   %.fca.0.extract.i = extractvalue { i64, ptr } %6, 0
-  %.fca.1.extract.i = extractvalue { i64, ptr } %6, 1
   %.not15.i = icmp eq i64 %.fca.0.extract.i, 1
   br i1 %.not15.i, label %_ZN4core4iter8adapters5chain17and_then_or_clear17h916b2c8727918f7dE.exit, label %7
 
@@ -86,10 +85,11 @@ define { i64, ptr } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$
   br label %_ZN4core4iter8adapters5chain17and_then_or_clear17h916b2c8727918f7dE.exit
 
 _ZN4core4iter8adapters5chain17and_then_or_clear17h916b2c8727918f7dE.exit: ; preds = %1, %5, %10
-  %.sroa.3.0.i = phi ptr [ undef, %1 ], [ %.fca.1.extract.i, %5 ], [ %.fca.1.extract.i, %10 ]
-  %.sroa.0.0.i = phi i64 [ 0, %1 ], [ 1, %5 ], [ %.fca.0.extract.i, %10 ]
-  %11 = tail call { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$7or_else17he5e22d1b22721dd5E"(i64 %.sroa.0.0.i, ptr %.sroa.3.0.i, ptr nonnull align 4 %0)
-  ret { i64, ptr } %11
+  %.merged.i = phi { i64, ptr } [ %6, %5 ], [ %6, %10 ], [ { i64 0, ptr undef }, %1 ]
+  %11 = extractvalue { i64, ptr } %.merged.i, 0
+  %12 = extractvalue { i64, ptr } %.merged.i, 1
+  %13 = tail call { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$7or_else17he5e22d1b22721dd5E"(i64 %11, ptr %12, ptr nonnull align 4 %0)
+  ret { i64, ptr } %13
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -157,16 +157,11 @@ define { i64, ptr } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = tail call { i64, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0db2f195dff8c13eE"(ptr nonnull align 4 %6)
-  %.fca.0.extract = extractvalue { i64, ptr } %7, 0
-  %.fca.1.extract = extractvalue { i64, ptr } %7, 1
   br label %8
 
 8:                                                ; preds = %1, %5
-  %.sroa.3.0 = phi ptr [ %.fca.1.extract, %5 ], [ undef, %1 ]
-  %.sroa.0.0 = phi i64 [ %.fca.0.extract, %5 ], [ 0, %1 ]
-  %9 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %10 = insertvalue { i64, ptr } %9, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %10
+  %.merged = phi { i64, ptr } [ %7, %5 ], [ { i64 0, ptr undef }, %1 ]
+  ret { i64, ptr } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -317,7 +312,6 @@ define { i64, ptr } @_ZN4core4iter8adapters5chain17and_then_or_clear17h916b2c872
 4:                                                ; preds = %1
   %5 = tail call { i64, ptr } @_ZN4core3ops8function6FnOnce9call_once17hfc437c6642ee9839E(ptr nonnull align 8 %0)
   %.fca.0.extract = extractvalue { i64, ptr } %5, 0
-  %.fca.1.extract = extractvalue { i64, ptr } %5, 1
   %.not15 = icmp eq i64 %.fca.0.extract, 1
   br i1 %.not15, label %10, label %6
 
@@ -336,11 +330,8 @@ define { i64, ptr } @_ZN4core4iter8adapters5chain17and_then_or_clear17h916b2c872
   br label %10
 
 10:                                               ; preds = %9, %4, %1
-  %.sroa.3.0 = phi ptr [ undef, %1 ], [ %.fca.1.extract, %4 ], [ %.fca.1.extract, %9 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ 1, %4 ], [ %.fca.0.extract, %9 ]
-  %11 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %12 = insertvalue { i64, ptr } %11, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %12
+  %.merged = phi { i64, ptr } [ { i64 0, ptr undef }, %1 ], [ %5, %4 ], [ %5, %9 ]
+  ret { i64, ptr } %.merged
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

@@ -1758,8 +1758,8 @@ _ZN3std4path4Path4join17hfe4f79f45298948eE.exit:  ; preds = %425
   br label %_ZN5uu_cp7copydir24get_local_to_root_parent17hc784ea7756a04284E.exit.i
 
 478:                                              ; preds = %472
-  %..val2.i.i = load i64, ptr %342, align 8, !alias.scope !280, !noalias !269
   %..val.i.i = load ptr, ptr %.sroa.7275.0..sroa_idx, align 8, !alias.scope !280, !noalias !269, !nonnull !5
+  %..val2.i.i = load i64, ptr %342, align 8, !alias.scope !280, !noalias !269
   %479 = invoke { ptr, i64 } @_ZN3std4path4Path13_strip_prefix17h9bd2bfa29ca3ec2eE(ptr noalias noundef nonnull readonly align 1 %473, i64 noundef %474, ptr noalias noundef nonnull readonly align 1 %..val.i.i, i64 noundef %..val2.i.i)
           to label %.noexc48.i unwind label %.loopexit378, !noalias !267
 

@@ -66,14 +66,13 @@ define hidden { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   %21 = load ptr, ptr %20, align 8, !noalias !9, !nonnull !14, !noundef !14
   %22 = getelementptr inbounds i8, ptr %12, i64 16
   %23 = load i64, ptr %22, align 8, !noalias !9, !noundef !14
+  %24 = insertvalue { ptr, i64 } poison, ptr %21, 0
+  %25 = insertvalue { ptr, i64 } %24, i64 %23, 1
   br label %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$17h0f1cfa1ee7f7311dE.llvm.4818362376595165454.exit"
 
 "_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$17h0f1cfa1ee7f7311dE.llvm.4818362376595165454.exit": ; preds = %3, %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd6cbb50fe8f310c7E.llvm.4818362376595165454.exit.i"
-  %.sroa.02.0.i = phi ptr [ %21, %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd6cbb50fe8f310c7E.llvm.4818362376595165454.exit.i" ], [ null, %3 ]
-  %.sroa.33.0.i = phi i64 [ %23, %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd6cbb50fe8f310c7E.llvm.4818362376595165454.exit.i" ], [ undef, %3 ]
-  %24 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0.i, 0
-  %25 = insertvalue { ptr, i64 } %24, i64 %.sroa.33.0.i, 1
-  ret { ptr, i64 } %25
+  %.merged.i = phi { ptr, i64 } [ %25, %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd6cbb50fe8f310c7E.llvm.4818362376595165454.exit.i" ], [ { ptr null, i64 undef }, %3 ]
+  ret { ptr, i64 } %.merged.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -1349,7 +1348,7 @@ define hidden void @_ZN12actix_router8resource11ResourceDef9construct17hbeedcd55
 define hidden { ptr, i64 } @"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$17h0f1cfa1ee7f7311dE.llvm.4818362376595165454"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias noundef readonly align 1 %1, i64 %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = icmp eq ptr %1, null
-  br i1 %5, label %24, label %6
+  br i1 %5, label %26, label %6
 
 6:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !211
@@ -1398,14 +1397,13 @@ define hidden { ptr, i64 } @"_ZN12actix_router8resource11ResourceDef5parse28_$u7
   %21 = load ptr, ptr %20, align 8, !noalias !211, !nonnull !14, !noundef !14
   %22 = getelementptr inbounds i8, ptr %12, i64 16
   %23 = load i64, ptr %22, align 8, !noalias !211, !noundef !14
-  br label %24
+  %24 = insertvalue { ptr, i64 } poison, ptr %21, 0
+  %25 = insertvalue { ptr, i64 } %24, i64 %23, 1
+  br label %26
 
-24:                                               ; preds = %3, %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd6cbb50fe8f310c7E.llvm.4818362376595165454.exit"
-  %.sroa.02.0 = phi ptr [ %21, %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd6cbb50fe8f310c7E.llvm.4818362376595165454.exit" ], [ null, %3 ]
-  %.sroa.33.0 = phi i64 [ %23, %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd6cbb50fe8f310c7E.llvm.4818362376595165454.exit" ], [ undef, %3 ]
-  %25 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0, 0
-  %26 = insertvalue { ptr, i64 } %25, i64 %.sroa.33.0, 1
-  ret { ptr, i64 } %26
+26:                                               ; preds = %3, %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd6cbb50fe8f310c7E.llvm.4818362376595165454.exit"
+  %.merged = phi { ptr, i64 } [ %25, %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd6cbb50fe8f310c7E.llvm.4818362376595165454.exit" ], [ { ptr null, i64 undef }, %3 ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

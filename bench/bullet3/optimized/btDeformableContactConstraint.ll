@@ -2940,11 +2940,11 @@ return.sink.split:                                ; preds = %if.end9, %if.end
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry
-  %retval.sroa.0.0 = phi <2 x float> [ %2, %entry ], [ %13, %return.sink.split ]
-  %retval.sroa.5.0 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i, %entry ], [ %retval.sroa.3.12.vec.insert.i28, %return.sink.split ]
-  %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.5.0, 1
-  ret { <2 x float>, <2 x float> } %.fca.1.insert
+  %retval.sroa.0.4.vec.insert.i7.pn = phi <2 x float> [ %2, %entry ], [ %13, %return.sink.split ]
+  %retval.sroa.3.12.vec.insert.i8.pn = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i, %entry ], [ %retval.sroa.3.12.vec.insert.i28, %return.sink.split ]
+  %.fca.0.insert.i9.pn = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.4.vec.insert.i7.pn, 0
+  %.fca.1.insert.merged = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert.i9.pn, <2 x float> %retval.sroa.3.12.vec.insert.i8.pn, 1
+  ret { <2 x float>, <2 x float> } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -21,17 +21,14 @@ _ZN4http3uri3Uri8has_path17ha89e96891e61f9c0E.exit.thread: ; preds = %1, %_ZN4ht
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = tail call { ptr, i64 } @_ZN4http3uri4path12PathAndQuery4path17he834c750211129dfE(ptr nonnull align 8 %6)
   %8 = extractvalue { ptr, i64 } %7, 0
-  %9 = extractvalue { ptr, i64 } %7, 1
+  %9 = icmp ne ptr %8, null
   br label %10
 
 10:                                               ; preds = %_ZN4http3uri3Uri8has_path17ha89e96891e61f9c0E.exit, %_ZN4http3uri3Uri8has_path17ha89e96891e61f9c0E.exit.thread
-  %.sroa.3.0 = phi i64 [ %9, %_ZN4http3uri3Uri8has_path17ha89e96891e61f9c0E.exit.thread ], [ 0, %_ZN4http3uri3Uri8has_path17ha89e96891e61f9c0E.exit ]
-  %.sroa.0.0 = phi ptr [ %8, %_ZN4http3uri3Uri8has_path17ha89e96891e61f9c0E.exit.thread ], [ @anon.68eea636c23eacabf677f63fba402653.0, %_ZN4http3uri3Uri8has_path17ha89e96891e61f9c0E.exit ]
-  %11 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %13 = insertvalue { ptr, i64 } %12, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %13
+  %.sroa.0.0 = phi i1 [ %9, %_ZN4http3uri3Uri8has_path17ha89e96891e61f9c0E.exit.thread ], [ true, %_ZN4http3uri3Uri8has_path17ha89e96891e61f9c0E.exit ]
+  %.merged = phi { ptr, i64 } [ %7, %_ZN4http3uri3Uri8has_path17ha89e96891e61f9c0E.exit.thread ], [ { ptr @anon.68eea636c23eacabf677f63fba402653.0, i64 0 }, %_ZN4http3uri3Uri8has_path17ha89e96891e61f9c0E.exit ]
+  tail call void @llvm.assume(i1 %.sroa.0.0)
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
