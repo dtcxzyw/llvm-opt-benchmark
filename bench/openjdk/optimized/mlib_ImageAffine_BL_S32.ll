@@ -102,7 +102,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_1ch_bl(ptr nocapture noundef rea
   %77 = load <2 x i32>, ptr %70, align 4
   %78 = getelementptr inbounds i32, ptr %70, i64 %30
   %79 = load <2 x i32>, ptr %78, align 4
-  %80 = shufflevector <2 x i32> %79, <2 x i32> %77, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %80 = shufflevector <2 x i32> %77, <2 x i32> %79, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %81 = sitofp <4 x i32> %80 to <4 x double>
   %82 = icmp slt i32 %36, %38
   br i1 %82, label %.lr.ph, label %._crit_edge
@@ -118,13 +118,13 @@ define hidden noundef i32 @mlib_ImageAffine_s32_1ch_bl(ptr nocapture noundef rea
   %83 = phi <4 x double> [ %118, %.lr.ph ], [ %81, %52 ]
   %.0130 = add nsw i32 %.pn152, %.1136
   %.0129 = add nsw i32 %.pn143153, %.1133
-  %84 = extractelement <4 x double> %83, i64 3
+  %84 = extractelement <4 x double> %83, i64 1
   %85 = fmul double %.0126155, %84
-  %86 = extractelement <4 x double> %83, i64 2
+  %86 = extractelement <4 x double> %83, i64 0
   %87 = tail call double @llvm.fmuladd.f64(double %.0127154, double %86, double %85)
-  %88 = extractelement <4 x double> %83, i64 0
+  %88 = extractelement <4 x double> %83, i64 2
   %89 = tail call double @llvm.fmuladd.f64(double %.0125156, double %88, double %87)
-  %90 = extractelement <4 x double> %83, i64 1
+  %90 = extractelement <4 x double> %83, i64 3
   %91 = tail call double @llvm.fmuladd.f64(double %.0124157, double %90, double %89)
   %92 = and i32 %.0129, 65535
   %93 = uitofp nneg i32 %92 to double
@@ -156,7 +156,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_1ch_bl(ptr nocapture noundef rea
   %115 = fptosi double %.1 to i32
   store i32 %115, ptr %.0131151, align 4
   %116 = getelementptr inbounds i8, ptr %.0131151, i64 4
-  %117 = shufflevector <2 x i32> %114, <2 x i32> %112, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %117 = shufflevector <2 x i32> %112, <2 x i32> %114, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %118 = sitofp <4 x i32> %117 to <4 x double>
   %119 = icmp ult ptr %116, %56
   br i1 %119, label %.lr.ph, label %._crit_edge, !llvm.loop !6
@@ -168,13 +168,13 @@ define hidden noundef i32 @mlib_ImageAffine_s32_1ch_bl(ptr nocapture noundef rea
   %.0125.lcssa = phi double [ %73, %52 ], [ %108, %.lr.ph ]
   %.0124.lcssa = phi double [ %71, %52 ], [ %106, %.lr.ph ]
   %120 = phi <4 x double> [ %81, %52 ], [ %118, %.lr.ph ]
-  %121 = extractelement <4 x double> %120, i64 3
+  %121 = extractelement <4 x double> %120, i64 1
   %122 = fmul double %.0126.lcssa, %121
-  %123 = extractelement <4 x double> %120, i64 2
+  %123 = extractelement <4 x double> %120, i64 0
   %124 = tail call double @llvm.fmuladd.f64(double %.0127.lcssa, double %123, double %122)
-  %125 = extractelement <4 x double> %120, i64 0
+  %125 = extractelement <4 x double> %120, i64 2
   %126 = tail call double @llvm.fmuladd.f64(double %.0125.lcssa, double %125, double %124)
-  %127 = extractelement <4 x double> %120, i64 1
+  %127 = extractelement <4 x double> %120, i64 3
   %128 = tail call double @llvm.fmuladd.f64(double %.0124.lcssa, double %127, double %126)
   %.inv = fcmp oge double %128, 0x41DFFFFFFFC00000
   %.2 = select i1 %.inv, double 0x41DFFFFFFFC00000, double %128
