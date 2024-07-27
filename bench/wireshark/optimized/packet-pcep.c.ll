@@ -3604,16 +3604,16 @@ define internal void @dissect_pcep_obj_unreach_destination(ptr noundef %0, ptr n
   %19 = load i32, ptr @hf_pcep_unreach_destination_obj_ipv6_address, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %19, ptr noundef %2, i32 noundef %.03441.us46, i32 noundef 16, i32 noundef 0) #2
   %21 = add i32 %.03441.us46, %switch.select
-  %22 = sub nsw i32 %.042.us45, %switch.select
-  %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %.lr.ph.split.us44, label %.loopexit, !llvm.loop !15
+  %22 = sub nuw nsw i32 %.042.us45, %switch.select
+  %.not = icmp eq i32 %22, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph.split.us44, !llvm.loop !15
 
 .split.us:                                        ; preds = %.lr.ph.split.us
-  %24 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_pcep_subobject_bad_length, ptr noundef %2, i32 noundef %.03441.us, i32 noundef %.042.us, ptr noundef nonnull @.str.1316, i32 noundef %.042.us, i32 noundef 4) #2
+  %23 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_pcep_subobject_bad_length, ptr noundef %2, i32 noundef %.03441.us, i32 noundef %.042.us, ptr noundef nonnull @.str.1316, i32 noundef %.042.us, i32 noundef 4) #2
   br label %.loopexit
 
 .split48.us:                                      ; preds = %.lr.ph.split.us44
-  %25 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_pcep_subobject_bad_length, ptr noundef %2, i32 noundef %.03441.us46, i32 noundef %.042.us45, ptr noundef nonnull @.str.1317, i32 noundef %.042.us45, i32 noundef 16) #2
+  %24 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_pcep_subobject_bad_length, ptr noundef %2, i32 noundef %.03441.us46, i32 noundef %.042.us45, ptr noundef nonnull @.str.1317, i32 noundef %.042.us45, i32 noundef 16) #2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %11, %.lr.ph, %7, %.split48.us, %.split.us

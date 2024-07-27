@@ -617,34 +617,34 @@ if.end56:                                         ; preds = %if.then53
   br label %return
 
 if.end69:                                         ; preds = %if.end44, %ZSTD_frameHeaderSize_internal.exit91
-  %src.sink = phi ptr [ %arrayidx.i73, %ZSTD_frameHeaderSize_internal.exit91 ], [ %src, %if.end44 ]
-  %.sink93 = phi i64 [ %cond.i, %ZSTD_frameHeaderSize_internal.exit91 ], [ 1, %if.end44 ]
-  %1 = load i8, ptr %src.sink, align 1
-  %conv.i = zext i8 %1 to i32
-  %and.i = and i32 %conv.i, 3
-  %shr12.i = lshr i32 %conv.i, 6
-  %2 = and i32 %conv.i, 32
-  %tobool.i = icmp ne i32 %2, 0
-  %lnot.i = xor i1 %tobool.i, true
-  %conv13.i = zext i1 %lnot.i to i64
-  %idxprom.i = zext nneg i32 %and.i to i64
-  %arrayidx14.i = getelementptr inbounds [4 x i64], ptr @ZSTD_did_fieldSize, i64 0, i64 %idxprom.i
-  %3 = load i64, ptr %arrayidx14.i, align 8
-  %idxprom16.i = zext nneg i32 %shr12.i to i64
-  %arrayidx17.i = getelementptr inbounds [4 x i64], ptr @ZSTD_fcs_fieldSize, i64 0, i64 %idxprom16.i
-  %4 = load i64, ptr %arrayidx17.i, align 8
-  %tobool20.not.i = icmp ult i8 %1, 64
-  %5 = and i1 %tobool20.not.i, %tobool.i
-  %conv23.i = zext i1 %5 to i64
-  %add.i = add i64 %3, %.sink93
-  %add15.i = add i64 %add.i, %4
-  %add18.i = add i64 %add15.i, %conv13.i
-  %add24.i = add i64 %add18.i, %conv23.i
-  %cmp71 = icmp ugt i64 %add24.i, %srcSize
+  %arrayidx.i73.sink = phi ptr [ %arrayidx.i73, %ZSTD_frameHeaderSize_internal.exit91 ], [ %src, %if.end44 ]
+  %cond.i.sink = phi i64 [ %cond.i, %ZSTD_frameHeaderSize_internal.exit91 ], [ 1, %if.end44 ]
+  %1 = load i8, ptr %arrayidx.i73.sink, align 1
+  %conv.i74 = zext i8 %1 to i32
+  %and.i75 = and i32 %conv.i74, 3
+  %shr12.i76 = lshr i32 %conv.i74, 6
+  %2 = and i32 %conv.i74, 32
+  %tobool.i77 = icmp ne i32 %2, 0
+  %lnot.i78 = xor i1 %tobool.i77, true
+  %conv13.i79 = zext i1 %lnot.i78 to i64
+  %idxprom.i80 = zext nneg i32 %and.i75 to i64
+  %arrayidx14.i81 = getelementptr inbounds [4 x i64], ptr @ZSTD_did_fieldSize, i64 0, i64 %idxprom.i80
+  %3 = load i64, ptr %arrayidx14.i81, align 8
+  %idxprom16.i82 = zext nneg i32 %shr12.i76 to i64
+  %arrayidx17.i83 = getelementptr inbounds [4 x i64], ptr @ZSTD_fcs_fieldSize, i64 0, i64 %idxprom16.i82
+  %4 = load i64, ptr %arrayidx17.i83, align 8
+  %tobool20.not.i84 = icmp ult i8 %1, 64
+  %5 = and i1 %tobool20.not.i84, %tobool.i77
+  %conv23.i85 = zext i1 %5 to i64
+  %add.i86 = add i64 %3, %cond.i.sink
+  %add15.i87 = add i64 %add.i86, %4
+  %add18.i88 = add i64 %add15.i87, %conv13.i79
+  %add24.i89 = add i64 %add18.i88, %conv23.i85
+  %cmp71 = icmp ugt i64 %add24.i89, %srcSize
   br i1 %cmp71, label %return, label %if.end74
 
 if.end74:                                         ; preds = %if.end69
-  %conv75 = trunc i64 %add24.i to i32
+  %conv75 = trunc i64 %add24.i89 to i32
   %headerSize = getelementptr inbounds i8, ptr %zfhPtr, i64 24
   store i32 %conv75, ptr %headerSize, align 8
   %6 = getelementptr i8, ptr %src, i64 %cond.i
@@ -772,7 +772,7 @@ sw.epilog159:                                     ; preds = %sw.bb140, %if.then1
   br label %return
 
 return:                                           ; preds = %if.then102, %if.end74, %if.end69, %if.then49, %if.then53, %if.then24, %entry, %sw.epilog159, %if.end56, %if.end43
-  %retval.0 = phi i64 [ %cond.i, %if.end43 ], [ 0, %if.end56 ], [ 0, %sw.epilog159 ], [ -1, %entry ], [ -10, %if.then24 ], [ 8, %if.then53 ], [ -10, %if.then49 ], [ %add24.i, %if.end69 ], [ -14, %if.end74 ], [ -16, %if.then102 ]
+  %retval.0 = phi i64 [ %cond.i, %if.end43 ], [ 0, %if.end56 ], [ 0, %sw.epilog159 ], [ -1, %entry ], [ -10, %if.then24 ], [ 8, %if.then53 ], [ -10, %if.then49 ], [ %add24.i89, %if.end69 ], [ -14, %if.end74 ], [ -16, %if.then102 ]
   ret i64 %retval.0
 }
 

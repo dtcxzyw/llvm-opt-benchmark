@@ -8813,12 +8813,11 @@ _ZL10stbi__skipP13stbi__contexti.exit451.i:       ; preds = %2721, %2717
 
 .loopexit.i:                                      ; preds = %._crit_edge71.us.i, %.lr.ph73.i, %.preheader.i, %.loopexit15..loopexit_crit_edge.i
   %.pre103.i = phi i32 [ %.pre103.pre.i, %.loopexit15..loopexit_crit_edge.i ], [ %.pre103.pre107.i, %.preheader.i ], [ %.pre103.pre107.i, %.lr.ph73.i ], [ %.pre103.pre107.i, %._crit_edge71.us.i ]
-  %.not320.i = icmp eq i32 %..i, %4
-  %or.cond.i = or i1 %.not313.i, %.not320.i
+  %or.cond.i = or i1 %.not313.i, %1888
   br i1 %or.cond.i, label %2758, label %2755
 
 2755:                                             ; preds = %.loopexit.i
-  %2756 = tail call fastcc noundef ptr @_ZL20stbi__convert_formatPhiijj(ptr noundef nonnull %1901, i32 noundef %..i, i32 noundef %4, i32 noundef %.pre103.i, i32 noundef %2727)
+  %2756 = tail call fastcc noundef ptr @_ZL20stbi__convert_formatPhiijj(ptr noundef nonnull %1901, i32 noundef %1886, i32 noundef %4, i32 noundef %.pre103.i, i32 noundef %2727)
   %2757 = icmp eq ptr %2756, null
   br i1 %2757, label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit, label %._crit_edge101.i
 

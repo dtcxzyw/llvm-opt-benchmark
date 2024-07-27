@@ -4063,62 +4063,62 @@ entry:
   %tobool.not.i = icmp eq i32 %and.i.i, 0
   %cond.i = select i1 %tobool.not.i, i64 256, i64 4096
   %cmp = icmp eq i64 %cond.i, %size
-  br i1 %cmp, label %for.body.lr.ph, label %if.else
+  br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.1, i32 noundef 635, ptr noundef nonnull @__PRETTY_FUNCTION__.get_pci_config_device) #22
   unreachable
 
-for.body.lr.ph:                                   ; preds = %entry
+if.end:                                           ; preds = %entry
   %call2 = tail call noalias ptr @g_malloc(i64 noundef %size) #24
   %call3 = tail call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef %call2, i64 noundef %size) #23
-  %.pre = load ptr, ptr %pv, align 8
+  %1 = load ptr, ptr %pv, align 8
   %cmask = getelementptr i8, ptr %pv, i64 8
-  %1 = load ptr, ptr %cmask, align 16
+  %2 = load ptr, ptr %cmask, align 16
   %wmask = getelementptr i8, ptr %pv, i64 16
-  %2 = load ptr, ptr %wmask, align 8
+  %3 = load ptr, ptr %wmask, align 8
   %w1cmask = getelementptr i8, ptr %pv, i64 24
-  %3 = load ptr, ptr %w1cmask, align 16
+  %4 = load ptr, ptr %w1cmask, align 16
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %conv439 = phi i64 [ 0, %for.body.lr.ph ], [ %conv4, %for.inc ]
-  %i.038 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr i8, ptr %call2, i64 %conv439
-  %4 = load i8, ptr %arrayidx, align 1
-  %conv7 = zext i8 %4 to i32
-  %arrayidx10 = getelementptr i8, ptr %.pre, i64 %conv439
-  %5 = load i8, ptr %arrayidx10, align 1
-  %conv11 = zext i8 %5 to i32
+for.body:                                         ; preds = %if.end, %for.inc
+  %conv438 = phi i64 [ 0, %if.end ], [ %conv4, %for.inc ]
+  %i.037 = phi i32 [ 0, %if.end ], [ %inc, %for.inc ]
+  %arrayidx = getelementptr i8, ptr %call2, i64 %conv438
+  %5 = load i8, ptr %arrayidx, align 1
+  %conv7 = zext i8 %5 to i32
+  %arrayidx10 = getelementptr i8, ptr %1, i64 %conv438
+  %6 = load i8, ptr %arrayidx10, align 1
+  %conv11 = zext i8 %6 to i32
   %xor = xor i32 %conv11, %conv7
-  %arrayidx13 = getelementptr i8, ptr %1, i64 %conv439
-  %6 = load i8, ptr %arrayidx13, align 1
-  %conv14 = zext i8 %6 to i32
-  %arrayidx16 = getelementptr i8, ptr %2, i64 %conv439
-  %7 = load i8, ptr %arrayidx16, align 1
-  %conv17 = zext i8 %7 to i32
-  %arrayidx20 = getelementptr i8, ptr %3, i64 %conv439
-  %8 = load i8, ptr %arrayidx20, align 1
-  %conv21 = zext i8 %8 to i32
-  %9 = or i32 %conv21, %conv17
-  %10 = xor i32 %9, -1
-  %11 = and i32 %xor, %10
-  %and23 = and i32 %11, %conv14
+  %arrayidx13 = getelementptr i8, ptr %2, i64 %conv438
+  %7 = load i8, ptr %arrayidx13, align 1
+  %conv14 = zext i8 %7 to i32
+  %arrayidx16 = getelementptr i8, ptr %3, i64 %conv438
+  %8 = load i8, ptr %arrayidx16, align 1
+  %conv17 = zext i8 %8 to i32
+  %arrayidx20 = getelementptr i8, ptr %4, i64 %conv438
+  %9 = load i8, ptr %arrayidx20, align 1
+  %conv21 = zext i8 %9 to i32
+  %10 = or i32 %conv21, %conv17
+  %11 = xor i32 %10, -1
+  %12 = and i32 %xor, %11
+  %and23 = and i32 %12, %conv14
   %tobool.not = icmp eq i32 %and23, 0
   br i1 %tobool.not, label %for.inc, label %if.then24
 
 if.then24:                                        ; preds = %for.body
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.55, ptr noundef nonnull @__func__.get_pci_config_device, i32 noundef %i.038, i32 noundef %conv7, i32 noundef %conv11, i32 noundef %conv14, i32 noundef %conv17, i32 noundef %conv21) #23
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.55, ptr noundef nonnull @__func__.get_pci_config_device, i32 noundef %i.037, i32 noundef %conv7, i32 noundef %conv11, i32 noundef %conv14, i32 noundef %conv17, i32 noundef %conv21) #23
   br label %return
 
 for.inc:                                          ; preds = %for.body
-  %inc = add i32 %i.038, 1
+  %inc = add i32 %i.037, 1
   %conv4 = sext i32 %inc to i64
   %cmp5 = icmp ult i64 %conv4, %size
   br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !29
 
 for.end:                                          ; preds = %for.inc
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.pre, ptr nonnull align 1 %call2, i64 %size, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 1 %call2, i64 %size, i1 false)
   tail call fastcc void @pci_update_mappings(ptr noundef %add.ptr)
   %call46 = tail call ptr @object_dynamic_cast(ptr noundef %add.ptr, ptr noundef nonnull @.str.7) #23
   %tobool47.not = icmp eq ptr %call46, null
@@ -4131,11 +4131,11 @@ if.then48:                                        ; preds = %for.end
 
 if.end50:                                         ; preds = %if.then48, %for.end
   %bus_master_enable_region = getelementptr i8, ptr %pv, i64 776
-  %12 = load ptr, ptr %pv, align 8
-  %add.ptr52 = getelementptr i8, ptr %12, i64 4
+  %13 = load ptr, ptr %pv, align 8
+  %add.ptr52 = getelementptr i8, ptr %13, i64 4
   %add.ptr52.val = load i16, ptr %add.ptr52, align 1
-  %13 = and i16 %add.ptr52.val, 4
-  %tobool56 = icmp ne i16 %13, 0
+  %14 = and i16 %add.ptr52.val, 4
+  %tobool56 = icmp ne i16 %14, 0
   tail call void @memory_region_set_enabled(ptr noundef %bus_master_enable_region, i1 noundef zeroext %tobool56) #23
   br label %return
 

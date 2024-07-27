@@ -1853,7 +1853,7 @@ if.then:                                          ; preds = %entry
 
 .thread:                                          ; preds = %if.then
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7, i8 0, i64 24, i1 false), !alias.scope !26
-  %spec.select28 = tail call i64 @llvm.umax.i64(i64 %conv6, i64 %conv)
+  %spec.select27 = tail call i64 @llvm.umax.i64(i64 %conv6, i64 %conv)
   br label %8
 
 _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit: ; preds = %if.then
@@ -1862,9 +1862,9 @@ _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit: ; preds = %if.then
   call void @_ZN9grpc_core16BasicMemoryQuota15GetPressureInfoEv(ptr nonnull sret(%"struct.grpc_core::BasicMemoryQuota::PressureInfo") align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(1488) %5)
   %pressure_control_value.phi.trans.insert = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   %.pre = load double, ptr %pressure_control_value.phi.trans.insert, align 8
-  %.pre25 = load ptr, ptr %incoming_buffer_, align 8
-  %length.i9.phi.trans.insert = getelementptr inbounds i8, ptr %.pre25, i64 32
-  %.pre26 = load i64, ptr %length.i9.phi.trans.insert, align 8
+  %.pre24 = load ptr, ptr %incoming_buffer_, align 8
+  %length.i9.phi.trans.insert = getelementptr inbounds i8, ptr %.pre24, i64 32
+  %.pre25 = load i64, ptr %length.i9.phi.trans.insert, align 8
   %.pre.fr = freeze double %.pre
   %6 = fcmp olt double %.pre.fr, 8.000000e-01
   %spec.select = call i64 @llvm.umax.i64(i64 %conv6, i64 %conv)
@@ -1875,8 +1875,8 @@ _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit: ; preds = %if.then
 
 8:                                                ; preds = %7, %.thread, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit
   %9 = phi i32 [ 12288, %.thread ], [ 12288, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit ], [ 65536, %7 ]
-  %10 = phi i64 [ %1, %.thread ], [ %.pre26, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit ], [ %.pre26, %7 ]
-  %11 = phi i64 [ %spec.select28, %.thread ], [ %spec.select, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit ], [ %conv, %7 ]
+  %10 = phi i64 [ %1, %.thread ], [ %.pre25, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit ], [ %.pre25, %7 ]
+  %11 = phi i64 [ %spec.select27, %.thread ], [ %spec.select, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit ], [ %conv, %7 ]
   %sub = sub i64 %11, %10
   %conv17 = trunc i64 %sub to i32
   %cmp20.not = icmp sgt i32 %9, %conv17
@@ -1887,7 +1887,7 @@ while.body31.preheader:                           ; preds = %8
   br label %while.body31
 
 while.body:                                       ; preds = %8, %invoke.cont
-  %extra_wanted.022 = phi i32 [ %sub23, %invoke.cont ], [ %conv17, %8 ]
+  %extra_wanted.021 = phi i32 [ %sub23, %invoke.cont ], [ %conv17, %8 ]
   %12 = load ptr, ptr %incoming_buffer_, align 8
   %13 = load ptr, ptr %memory_owner_, align 8, !noalias !32
   %vtable.i = load ptr, ptr %13, align 8, !noalias !32
@@ -1899,9 +1899,9 @@ while.body:                                       ; preds = %8, %invoke.cont
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %while.body
-  %sub23 = add nsw i32 %extra_wanted.022, -65536
+  %sub23 = add nsw i32 %extra_wanted.021, -65536
   call void @_ZN17grpc_event_engine12experimental5SliceD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #28
-  %cmp22 = icmp sgt i32 %extra_wanted.022, 65536
+  %cmp22 = icmp sgt i32 %extra_wanted.021, 65536
   br i1 %cmp22, label %while.body, label %if.end42, !llvm.loop !35
 
 lpad:                                             ; preds = %while.body
@@ -1910,7 +1910,7 @@ lpad:                                             ; preds = %while.body
   br label %eh.resume
 
 while.body31:                                     ; preds = %while.body31.preheader, %invoke.cont39
-  %extra_wanted.123 = phi i32 [ %sub32, %invoke.cont39 ], [ %.sroa.speculated, %while.body31.preheader ]
+  %extra_wanted.122 = phi i32 [ %sub32, %invoke.cont39 ], [ %.sroa.speculated, %while.body31.preheader ]
   %16 = load ptr, ptr %incoming_buffer_, align 8
   %17 = load ptr, ptr %memory_owner_, align 8, !noalias !36
   %vtable.i13 = load ptr, ptr %17, align 8, !noalias !36
@@ -1922,9 +1922,9 @@ while.body31:                                     ; preds = %while.body31.prehea
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %while.body31
-  %sub32 = add nsw i32 %extra_wanted.123, -8192
+  %sub32 = add nsw i32 %extra_wanted.122, -8192
   call void @_ZN17grpc_event_engine12experimental5SliceD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp34) #28
-  %cmp30 = icmp sgt i32 %extra_wanted.123, 8192
+  %cmp30 = icmp sgt i32 %extra_wanted.122, 8192
   br i1 %cmp30, label %while.body31, label %if.end42, !llvm.loop !39
 
 lpad38:                                           ; preds = %while.body31

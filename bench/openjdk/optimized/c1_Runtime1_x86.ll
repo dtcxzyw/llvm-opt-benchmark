@@ -503,8 +503,6 @@ define hidden void @_ZN17C1_MacroAssembler30save_live_registers_no_oop_mapEb(ptr
 22:                                               ; preds = %10, %22
   %.013 = phi i32 [ 0, %10 ], [ %27, %22 ]
   %.01112 = phi i32 [ 0, %10 ], [ %28, %22 ]
-  %or.cond.i = icmp ult i32 %.01112, 32
-  %spec.select.i = select i1 %or.cond.i, i32 %.01112, i32 -1
   %23 = add nsw i32 %.013, %13
   store <4 x i32> <i32 4, i32 -1, i32 -1, i32 -1>, ptr %5, align 16
   store i32 %23, ptr %14, align 16
@@ -521,7 +519,7 @@ define hidden void @_ZN17C1_MacroAssembler30save_live_registers_no_oop_mapEb(ptr
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(20) %19, ptr noundef nonnull align 8 dereferenceable(40) %21) #7
-  call void @_ZN9Assembler5movsdE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %3, i32 %spec.select.i) #7
+  call void @_ZN9Assembler5movsdE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %3, i32 %.01112) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   %27 = add nuw nsw i32 %.013, 8
@@ -577,8 +575,6 @@ define internal fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef %
 22:                                               ; preds = %8, %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit
   %.013 = phi i32 [ 0, %8 ], [ %34, %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit ]
   %.01112 = phi i32 [ 0, %8 ], [ %35, %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit ]
-  %or.cond.i = icmp ult i32 %.01112, 32
-  %spec.select.i = select i1 %or.cond.i, i32 %.01112, i32 -1
   %23 = add nsw i32 %11, %.013
   store <4 x i32> <i32 4, i32 -1, i32 -1, i32 -1>, ptr %7, align 16
   store i32 %23, ptr %12, align 16
@@ -601,7 +597,7 @@ define internal fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef %
   %28 = getelementptr inbounds i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(20) %20, ptr noundef nonnull align 8 dereferenceable(40) %21) #7
-  call void @_ZN9Assembler5movsdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %spec.select.i, ptr noundef nonnull %4) #7
+  call void @_ZN9Assembler5movsdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %.01112, ptr noundef nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   br label %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit
 
@@ -614,7 +610,7 @@ define internal fastcc void @_ZL11restore_fpuP17C1_MacroAssemblerb(ptr noundef %
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(20) %17, ptr noundef nonnull align 8 dereferenceable(40) %19) #7
-  call void @_ZN9Assembler6movlpdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %spec.select.i, ptr noundef nonnull %3) #7
+  call void @_ZN9Assembler6movlpdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %.01112, ptr noundef nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   br label %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit
 

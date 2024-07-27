@@ -2705,14 +2705,14 @@ invoke.cont29:                                    ; preds = %land.rhs.i.i
 invoke.cont29.invoke.cont32_crit_edge:            ; preds = %if.then.i.i, %invoke.cont29
   %.pre = load i16, ptr %fUnion.i, align 8
   %fLength.i122.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 12
-  %.pre251 = load i32, ptr %fLength.i122.phi.trans.insert, align 4
-  %.pre252 = ashr i16 %.pre, 5
-  %.pre253 = sext i16 %.pre252 to i32
+  %.pre249 = load i32, ptr %fLength.i122.phi.trans.insert, align 4
+  %.pre250 = ashr i16 %.pre, 5
+  %.pre251 = sext i16 %.pre250 to i32
   br label %invoke.cont32
 
 invoke.cont32:                                    ; preds = %invoke.cont29.invoke.cont32_crit_edge, %if.else.i.i
-  %shr.i.i121.pre-phi = phi i32 [ %.pre253, %invoke.cont29.invoke.cont32_crit_edge ], [ %shr.i.i.i.i, %if.else.i.i ]
-  %18 = phi i32 [ %.pre251, %invoke.cont29.invoke.cont32_crit_edge ], [ %14, %if.else.i.i ]
+  %shr.i.i121.pre-phi = phi i32 [ %.pre251, %invoke.cont29.invoke.cont32_crit_edge ], [ %shr.i.i.i.i, %if.else.i.i ]
+  %18 = phi i32 [ %.pre249, %invoke.cont29.invoke.cont32_crit_edge ], [ %14, %if.else.i.i ]
   %19 = phi i16 [ %.pre, %invoke.cont29.invoke.cont32_crit_edge ], [ %11, %if.else.i.i ]
   %cmp.i.i120 = icmp slt i16 %19, 0
   %cond.i123 = select i1 %cmp.i.i120, i32 %18, i32 %shr.i.i121.pre-phi
@@ -2824,11 +2824,9 @@ invoke.cont96:                                    ; preds = %if.end55, %cleanup
   %33 = load i32, ptr %fLength.i138, align 4
   %cond.i139 = select i1 %cmp.i.i136, i32 %33, i32 %shr.i.i137
   %cmp98 = icmp sgt i32 %cond.i139, %cond
-  %cmp102238 = icmp sgt i32 %cond.i139, 0
-  %or.cond242 = and i1 %cmp98, %cmp102238
-  br i1 %or.cond242, label %for.body.lr.ph, label %cleanup132
+  br i1 %cmp98, label %invoke.cont100.preheader, label %cleanup132
 
-for.body.lr.ph:                                   ; preds = %invoke.cont96
+invoke.cont100.preheader:                         ; preds = %invoke.cont96
   %34 = and i16 %31, 2
   %tobool.not.i.i.i153 = icmp eq i16 %34, 0
   %fBuffer.i.i.i154 = getelementptr inbounds i8, ptr %s, i64 10
@@ -2843,8 +2841,8 @@ invoke.cont100:                                   ; preds = %for.body
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %cleanup132, label %for.body, !llvm.loop !15
 
-for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont100
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %invoke.cont100 ]
+for.body:                                         ; preds = %invoke.cont100.preheader, %invoke.cont100
+  %indvars.iv = phi i64 [ 0, %invoke.cont100.preheader ], [ %indvars.iv.next, %invoke.cont100 ]
   %arrayidx.i.i157 = getelementptr inbounds i16, ptr %cond.i2.i.i156, i64 %indvars.iv
   %36 = load i16, ptr %arrayidx.i.i157, align 2
   %37 = insertelement <4 x i16> poison, i16 %36, i64 0
@@ -2883,9 +2881,9 @@ if.then137:                                       ; preds = %if.end135
   %call140 = call noundef i32 @_ZNK6icu_7513CollationData7getCE32Ei(ptr noundef nonnull align 8 dereferenceable(140) %42, i32 noundef %call11)
   %call141 = call noundef i32 @_ZNK6icu_7513CollationData12getFinalCE32Ej(ptr noundef nonnull align 8 dereferenceable(140) %42, i32 noundef %call140)
   %43 = and i32 %call141, 206
-  %or.cond263 = icmp eq i32 %43, 200
-  %or.cond271 = or i1 %8, %or.cond263
-  br i1 %or.cond271, label %if.then146, label %if.then159
+  %or.cond261 = icmp eq i32 %43, 200
+  %or.cond269 = or i1 %8, %or.cond261
+  br i1 %or.cond269, label %if.then146, label %if.then159
 
 if.then146:                                       ; preds = %if.then137
   %call147 = call noundef i32 @_ZN6icu_7520CollationDataBuilder16copyFromBaseCE32EijaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, i32 noundef %call11, i32 noundef %call141, i8 noundef signext 1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -3012,7 +3010,7 @@ for.cond198:                                      ; preds = %for.cond198.prehead
   br i1 %cmp200, label %if.then201, label %if.end211
 
 if.then201:                                       ; preds = %for.cond198
-  %next199.le261 = getelementptr inbounds i8, ptr %cond166.1, i64 88
+  %next199.le259 = getelementptr inbounds i8, ptr %cond166.1, i64 88
   %call204 = invoke noundef i32 @_ZN6icu_7520CollationDataBuilder18addConditionalCE32ERKNS_13UnicodeStringEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull align 8 dereferenceable(64) %context, i32 noundef %ce32, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont203 unwind label %lpad191.loopexit.split-lp
 
@@ -3042,7 +3040,7 @@ lpad191:                                          ; preds = %lpad191.loopexit.sp
   br label %eh.resume
 
 if.end209:                                        ; preds = %invoke.cont203
-  store i32 %call204, ptr %next199.le261, align 8
+  store i32 %call204, ptr %next199.le259, align 8
   br label %cleanup241
 
 if.end211:                                        ; preds = %for.cond198

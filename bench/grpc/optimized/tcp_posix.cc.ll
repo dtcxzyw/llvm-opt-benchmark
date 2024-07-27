@@ -1703,14 +1703,14 @@ _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i: ; preds = %if.end.i.i
   %conv5.i = fptoui double %7 to i64
   %pressure_control_value.phi.trans.insert.i = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 8
   %.pre.i = load double, ptr %pressure_control_value.phi.trans.insert.i, align 8
-  %.pre36.i = load ptr, ptr %incoming_buffer.i, align 8
-  %length13.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre36.i, i64 32
-  %.pre37.i = load i64, ptr %length13.phi.trans.insert.i, align 8
+  %.pre35.i = load ptr, ptr %incoming_buffer.i, align 8
+  %length13.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre35.i, i64 32
+  %.pre36.i = load i64, ptr %length13.phi.trans.insert.i, align 8
   %cmp7.i = fcmp olt double %.pre.i, 8.000000e-01
   %spec.select.i = call i64 @llvm.umax.i64(i64 %conv5.i, i64 %conv.i)
   %cond.i = select i1 %cmp7.i, i32 12288, i32 65536
   %allocate_length.0.i = select i1 %cmp7.i, i64 %spec.select.i, i64 %conv.i
-  %sub.i = sub i64 %allocate_length.0.i, %.pre37.i
+  %sub.i = sub i64 %allocate_length.0.i, %.pre36.i
   %conv16.i = trunc i64 %sub.i to i32
   %cmp19.not.i = icmp sgt i32 %cond.i, %conv16.i
   br i1 %cmp19.not.i, label %while.body30.preheader.i, label %while.body.i
@@ -1720,8 +1720,8 @@ while.body30.preheader.i:                         ; preds = %_ZNK9grpc_core11Mem
   br label %while.body30.i
 
 while.body.i:                                     ; preds = %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i, %call.i.i.noexc
-  %extra_wanted.033.i = phi i32 [ %sub22.i, %call.i.i.noexc ], [ %conv16.i, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i ]
-  %sub22.i = add nsw i32 %extra_wanted.033.i, -65536
+  %extra_wanted.032.i = phi i32 [ %sub22.i, %call.i.i.noexc ], [ %conv16.i, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i ]
+  %sub22.i = add nsw i32 %extra_wanted.032.i, -65536
   %9 = load ptr, ptr %incoming_buffer.i, align 8
   %10 = load ptr, ptr %memory_owner, align 8, !noalias !19
   %vtable.i.i = load ptr, ptr %10, align 8, !noalias !19
@@ -1741,12 +1741,12 @@ call26.i.noexc:                                   ; preds = %.noexc25
 call.i.i.noexc:                                   ; preds = %call26.i.noexc
   %tcp_read_alloc_64k.i.i = getelementptr inbounds i8, ptr %call.i.i27, i64 72
   %12 = atomicrmw add ptr %tcp_read_alloc_64k.i.i, i64 1 monotonic, align 8
-  %cmp21.i = icmp ugt i32 %extra_wanted.033.i, 65536
+  %cmp21.i = icmp ugt i32 %extra_wanted.032.i, 65536
   br i1 %cmp21.i, label %while.body.i, label %if.end39.i, !llvm.loop !22
 
 while.body30.i:                                   ; preds = %call.i23.i.noexc, %while.body30.preheader.i
-  %extra_wanted.134.i = phi i32 [ %sub31.i, %call.i23.i.noexc ], [ %.sroa.speculated.i, %while.body30.preheader.i ]
-  %sub31.i = add nsw i32 %extra_wanted.134.i, -8192
+  %extra_wanted.133.i = phi i32 [ %sub31.i, %call.i23.i.noexc ], [ %.sroa.speculated.i, %while.body30.preheader.i ]
+  %sub31.i = add nsw i32 %extra_wanted.133.i, -8192
   %13 = load ptr, ptr %incoming_buffer.i, align 8
   %14 = load ptr, ptr %memory_owner, align 8, !noalias !23
   %vtable.i21.i = load ptr, ptr %14, align 8, !noalias !23
@@ -1766,7 +1766,7 @@ call36.i.noexc:                                   ; preds = %.noexc28
 call.i23.i.noexc:                                 ; preds = %call36.i.noexc
   %tcp_read_alloc_8k.i.i = getelementptr inbounds i8, ptr %call.i23.i30, i64 64
   %16 = atomicrmw add ptr %tcp_read_alloc_8k.i.i, i64 1 monotonic, align 8
-  %cmp29.i = icmp ugt i32 %extra_wanted.134.i, 8192
+  %cmp29.i = icmp ugt i32 %extra_wanted.133.i, 8192
   br i1 %cmp29.i, label %while.body30.i, label %if.end39.i, !llvm.loop !26
 
 if.end39.i:                                       ; preds = %call.i.i.noexc, %call.i23.i.noexc

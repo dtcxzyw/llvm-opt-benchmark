@@ -5496,8 +5496,7 @@ _ZN6brotli3enc19backward_references2hq24ComputeMinimumCopyLength17hf9f5703b1fddf
   %.0316 = phi i64 [ 0, %_ZN6brotli3enc19backward_references2hq24ComputeMinimumCopyLength17hf9f5703b1fddf642E.exit ], [ %.6, %.loopexit179 ]
   %.097315 = phi i64 [ 0, %_ZN6brotli3enc19backward_references2hq24ComputeMinimumCopyLength17hf9f5703b1fddf642E.exit ], [ %291, %.loopexit179 ]
   %87 = load i64, ptr %30, align 8, !noundef !13
-  %.0.sroa.speculated.i167 = call noundef i64 @llvm.umin.i64(i64 %87, i64 8)
-  %88 = icmp ult i64 %.097315, %.0.sroa.speculated.i167
+  %88 = icmp ugt i64 %87, %.097315
   br i1 %88, label %90, label %89
 
 89:                                               ; preds = %86, %.loopexit179

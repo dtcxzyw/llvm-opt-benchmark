@@ -342,7 +342,7 @@ define internal fastcc ptr @network_recv(ptr noundef %0, i1 noundef zeroext %1) 
   %42 = icmp eq i8 %41, 2
   %43 = select i1 %42, i32 4, i32 16
   %.not58 = icmp eq i32 %37, %43
-  br i1 %.not58, label %.lr.ph.preheader, label %44
+  br i1 %.not58, label %49, label %44
 
 44:                                               ; preds = %33
   %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -353,80 +353,80 @@ define internal fastcc ptr @network_recv(ptr noundef %0, i1 noundef zeroext %1) 
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 226, ptr noundef nonnull @__func__.network_recv) #13
   unreachable
 
-.lr.ph.preheader:                                 ; preds = %33
-  %49 = getelementptr inbounds i8, ptr %40, i64 2
+49:                                               ; preds = %33
+  %50 = getelementptr inbounds i8, ptr %40, i64 2
   %wide.trip.count = zext nneg i32 %37 to i64
-  br label %.lr.ph
+  br label %51
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %50 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #13
-  %51 = trunc i32 %50 to i8
-  %52 = getelementptr i8, ptr %49, i64 %indvars.iv
-  store i8 %51, ptr %52, align 1
+51:                                               ; preds = %49, %51
+  %indvars.iv = phi i64 [ 0, %49 ], [ %indvars.iv.next, %51 ]
+  %52 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #13
+  %53 = trunc i32 %52 to i8
+  %54 = getelementptr i8, ptr %50, i64 %indvars.iv
+  store i8 %53, ptr %54, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %55, label %51, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %.lr.ph
-  %.pre.pre = load i8, ptr %3, align 1
-  %53 = and i8 %.pre.pre, 1
-  br i1 %1, label %54, label %addressOK.exit.thread
+55:                                               ; preds = %51
+  %.pre = load i8, ptr %3, align 1
+  %56 = and i8 %.pre, 1
+  br i1 %1, label %57, label %addressOK.exit.thread
 
-54:                                               ; preds = %._crit_edge
-  %.not59 = icmp eq i8 %53, 0
-  %55 = select i1 %.not59, ptr %9, ptr %8
-  %56 = getelementptr inbounds i8, ptr %55, i64 2
-  %57 = load i8, ptr %55, align 1
-  %58 = icmp eq i8 %57, 2
-  %..i = select i1 %58, i32 32, i32 128
-  %.20.i = select i1 %58, i32 4, i32 16
-  %59 = icmp eq i32 %..i, %18
-  br i1 %59, label %addressOK.exit.thread, label %60
+57:                                               ; preds = %55
+  %.not59 = icmp eq i8 %56, 0
+  %58 = select i1 %.not59, ptr %9, ptr %8
+  %59 = getelementptr inbounds i8, ptr %58, i64 2
+  %60 = load i8, ptr %58, align 1
+  %61 = icmp eq i8 %60, 2
+  %..i = select i1 %61, i32 32, i32 128
+  %.20.i = select i1 %61, i32 4, i32 16
+  %62 = icmp eq i32 %..i, %18
+  br i1 %62, label %addressOK.exit.thread, label %63
 
-60:                                               ; preds = %54
-  %61 = lshr i32 %18, 3
-  %62 = icmp ult i32 %61, %.20.i
-  br i1 %62, label %.lr.ph.preheader.i, label %addressOK.exit.thread
+63:                                               ; preds = %57
+  %64 = lshr i32 %18, 3
+  %65 = icmp ult i32 %64, %.20.i
+  br i1 %65, label %.lr.ph.preheader.i, label %addressOK.exit.thread
 
-.lr.ph.preheader.i:                               ; preds = %60
-  %63 = and i32 %18, 7
-  %64 = lshr i32 255, %63
-  %65 = zext nneg i32 %61 to i64
+.lr.ph.preheader.i:                               ; preds = %63
+  %66 = and i32 %18, 7
+  %67 = lshr i32 255, %66
+  %68 = zext nneg i32 %64 to i64
   %wide.trip.count.i = zext nneg i32 %.20.i to i64
   br label %.lr.ph.i
 
-66:                                               ; preds = %.lr.ph.i
+69:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %addressOK.exit.thread, label %.lr.ph.i, !llvm.loop !5
 
-.lr.ph.i:                                         ; preds = %66, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ %65, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %66 ]
-  %.122.i = phi i32 [ %64, %.lr.ph.preheader.i ], [ 255, %66 ]
-  %67 = getelementptr i8, ptr %56, i64 %indvars.iv.i
-  %68 = load i8, ptr %67, align 1
-  %69 = zext i8 %68 to i32
-  %70 = and i32 %.122.i, %69
-  %.not19.i = icmp eq i32 %70, 0
-  br i1 %.not19.i, label %66, label %addressOK.exit
+.lr.ph.i:                                         ; preds = %69, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ %68, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %69 ]
+  %.122.i = phi i32 [ %67, %.lr.ph.preheader.i ], [ 255, %69 ]
+  %70 = getelementptr i8, ptr %59, i64 %indvars.iv.i
+  %71 = load i8, ptr %70, align 1
+  %72 = zext i8 %71 to i32
+  %73 = and i32 %.122.i, %72
+  %.not19.i = icmp eq i32 %73, 0
+  br i1 %.not19.i, label %69, label %addressOK.exit
 
 addressOK.exit:                                   ; preds = %.lr.ph.i
-  %71 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %71)
-  %72 = tail call i32 @errcode(i32 noundef 50462850) #13
-  %73 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #13
-  %74 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.15) #13
+  %74 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  tail call void @llvm.assume(i1 %74)
+  %75 = tail call i32 @errcode(i32 noundef 50462850) #13
+  %76 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #13
+  %77 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.15) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 241, ptr noundef nonnull @__func__.network_recv) #13
   unreachable
 
-addressOK.exit.thread:                            ; preds = %66, %._crit_edge, %60, %54
-  %.not60 = icmp eq i8 %53, 0
-  %75 = select i1 %.not60, ptr %9, ptr %8
-  %76 = load i8, ptr %75, align 1
-  %77 = icmp eq i8 %76, 2
-  %78 = select i1 %77, i32 40, i32 88
-  store i32 %78, ptr %3, align 4
+addressOK.exit.thread:                            ; preds = %69, %55, %63, %57
+  %.not60 = icmp eq i8 %56, 0
+  %78 = select i1 %.not60, ptr %9, ptr %8
+  %79 = load i8, ptr %78, align 1
+  %80 = icmp eq i8 %79, 2
+  %81 = select i1 %80, i32 40, i32 88
+  store i32 %81, ptr %3, align 4
   ret ptr %3
 }
 
